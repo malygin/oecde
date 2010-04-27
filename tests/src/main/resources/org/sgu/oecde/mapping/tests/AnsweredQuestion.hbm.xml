@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <class mutable="false" name="org.sgu.oecde.tests.AnsweredQuestion" table="answered_questions">
+    <id name="id" type="int">
+      <generator class="native">
+        <param name="sequence">answrd_quest_seq</param>
+      </generator>
+    </id>
+    <property name="resultPoints" type="integer"/>
+    <property name="right" type="boolean"/>
+    <set batch-size="15" cascade="none" fetch="select" inverse="true" name="givenAnswers">
+      <key column="question_result_id" not-null="true"/>
+      <one-to-many class="org.sgu.oecde.tests.GivenAnswer"/>
+    </set>
+    <many-to-one class="org.sgu.oecde.tests.Question" fetch="join" name="question" not-null="true"/>
+  </class>
+</hibernate-mapping>

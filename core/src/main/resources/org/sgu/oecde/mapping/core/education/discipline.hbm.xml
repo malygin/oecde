@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <class mutable="false" name="org.sgu.oecde.core.education.Discipline" table="discipline">
+    <cache usage="read-only"/>
+    <id name="id" type="int"/>
+    <property insert="false" name="name" update="false"/>
+  </class>
+</hibernate-mapping>

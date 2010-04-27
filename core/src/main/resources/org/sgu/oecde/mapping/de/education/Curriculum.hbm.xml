@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <subclass discriminator-value="de" extends="org.sgu.oecde.core.education.AdvancedCurriculum" name="org.sgu.oecde.de.education.DeCurriculum">
+    <join table="de_curriculum">
+      <key column="id" not-null="true" on-delete="cascade"/>
+      <property insert="false" name="controlWorksInRealCurriculum" type="int" update="false"/>
+      <property insert="false" name="controlWorksNumber" type="int" update="false"/>
+      <property insert="false" name="controlWorksPaperOnlyNumber" type="int" update="false"/>
+      <property insert="false" name="labWorksNumber" type="int" update="false"/>
+      <property insert="false" name="termPapersNumber" type="int" update="false"/>
+      <property insert="false" name="selected" type="boolean" update="false"/>
+    </join>
+  </subclass>
+</hibernate-mapping>

@@ -1,0 +1,44 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package org.sgu.oecde.core;
+
+import java.util.List;
+import org.springframework.dao.DataAccessException;
+import org.springframework.transaction.annotation.Transactional;
+
+/**
+ *
+ * @author ShihovMY
+ */
+public interface IBasicDao <T extends BasicItem>{
+    /**
+     * метод получает любую сущность типа {@code T} по айди
+     * @param id айди сущности
+     * @return сущность
+     * @throws DataAccessException
+     */
+    @SuppressWarnings("unchecked")
+    T getById(final int id) throws DataAccessException;
+
+    /**
+     * 
+     * @return все сущности типа {@code T}
+     * @throws DataAccessException
+     */
+    @SuppressWarnings("unchecked")
+    List<T> getAll() throws DataAccessException;
+
+   /**
+     * возвращает коллекцию сущностей по образцу. 
+     * берёт из образца параметры, которые не равные 0 и null, и подставляет в запрос.
+     * Кроме этого, разрешён запрос {@code like} для параметров типа {@code String}
+     * @param item образец сущности
+     * @return коллекция сущностей, отвечающих критерию поиска
+     * @throws DataAccessException
+     */
+    @SuppressWarnings("unchecked")
+    List<T> getByExamlpeItem(final T item) throws DataAccessException;
+}

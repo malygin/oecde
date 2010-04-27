@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <joined-subclass abstract="true" dynamic-update="true" extends="org.sgu.oecde.core.users.AbstractPerson" name="org.sgu.oecde.core.users.AbstractTeacher" table="abstract_teacher">
+    <key column="id" not-null="true" on-delete="cascade"/>
+    <property insert="false" name="post" type="string"/>
+    <many-to-one class="org.sgu.oecde.core.users.Department" column="group_id" fetch="join" insert="false" name="department" not-null="true"/>
+    <set cascade="none" fetch="select" lazy="true" mutable="false" name="teacherToGroups" table="teacher_to_group">
+      <cache usage="read-only"/>
+      <key column="teacher_id"/>
+      <composite-element class="org.sgu.oecde.core.education.TeacherToGroup">
+        <parent name="teacher"/>
+        <many-to-one cascade="none" class="org.sgu.oecde.core.education.Curriculum" column="curriculum_id" fetch="join" insert="false" name="curriculum" update="false"/>
+        <many-to-one cascade="none" class="org.sgu.oecde.core.users.StudentGroup" column="group_id" fetch="join" insert="false" name="group" update="false"/>
+      </composite-element>
+    </set>
+  </joined-subclass>
+</hibernate-mapping>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+       ">
+
+  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <!-- PostgreSql 
+    <property name="username" value="malyginav"/>
+    <property name="password" value="andreyko"/>
+    <property name="url" value="jdbc:postgresql://oec.sgu.ru/postgres"/>
+    <property name="driverClassName" value="org.postgresql.Driver" />
+-->
+    <!-- MySql 
+    <property name="username" value="oecdo_test"/>
+    <property name="password" value="urDCU7uJpdFA2fZ4"/>
+    <property name="url" value="jdbc:mysql://nanna.main.sgu.ru/oecdo_test"/>
+    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+   -->
+
+    <!--   Oracle-->
+    <property name="username" value="oecdo_test"/>
+    <property name="password" value="oecdo_test"/>
+    <property name="url" value="jdbc:oracle:thin:@odin.sgu.ru:1521:odin"/>
+    <property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+    
+  </bean>
+
+  <bean p:dataSource-ref="dataSource" id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+    <property name="mappingDirectoryLocations">
+        <list>
+            <value>/org/sgu/oecde/mapping/</value>
+        </list>
+    </property>
+    <property name="hibernateProperties">
+        <util:properties location="org/sgu/oecde/hibernate.properties" />
+    </property>
+  </bean>
+
+  <tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
+
+  <bean p:sessionFactory-ref="sessionFactory" id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"/>
+
+</beans>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <class mutable="false" name="org.sgu.oecde.core.education.Curriculum" table="curriculum">
+    <cache usage="read-only"/>
+    <id name="id" type="int"/>
+    <discriminator column="discriminator"/>
+    <property insert="false" name="semester" type="int" update="false"/>
+    <property column="calendar_year" insert="false" name="calendarYear" type="int" update="false"/>
+    <property column="examination_type" insert="false" name="examinationType" not-null="true" update="false">
+      <type name="org.sgu.oecde.core.GenericEnumUserType">
+        <param name="enumClass">org.sgu.oecde.core.education.ExaminationType</param>
+        <param name="identifierMethod">toName</param>
+        <param name="valueOfMethod">parse</param>
+      </type>
+    </property>
+    <set batch-size="5" cascade="none" fetch="select" lazy="true" mutable="false" name="teacherToGroups" table="teacher_to_group">
+      <cache usage="read-only"/>
+      <key column="curriculum_id"/>
+      <composite-element class="org.sgu.oecde.core.education.TeacherToGroup">
+        <parent name="curriculum"/>
+        <many-to-one cascade="none" class="org.sgu.oecde.core.users.AbstractTeacher" column="teacher_id" fetch="join" insert="false" name="teacher" update="false"/>
+        <many-to-one cascade="all" class="org.sgu.oecde.core.users.StudentGroup" column="group_id" fetch="join" insert="false" name="group" update="false"/>
+      </composite-element>
+    </set>
+    <many-to-one class="org.sgu.oecde.core.education.Umk" fetch="join" insert="false" name="umk" unique="true" update="false"/>
+  </class>
+</hibernate-mapping>

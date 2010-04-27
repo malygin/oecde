@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <class abstract="true" dynamic-update="true" name="org.sgu.oecde.core.users.AbstractGroup" table="abstract_group">
+    <id name="id" type="int">
+      <generator class="native">
+        <param name="sequence">group_seq</param>
+      </generator>
+    </id>
+    <property name="name" not-null="true" type="string"/>
+    <set batch-size="15" cascade="none" fetch="select" lazy="true" name="persons" table="group_membership">
+      <key column="group_id"/>
+      <many-to-many class="org.sgu.oecde.core.users.AbstractPerson" column="person_id" fetch="select" lazy="false"/>
+    </set>
+  </class>
+</hibernate-mapping>

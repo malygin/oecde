@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <class dynamic-update="true" name="org.sgu.oecde.tests.Question" table="questions">
+    <id name="id" type="int"/>
+    <property insert="false" name="title" type="string"/>
+    <property insert="false" name="weight" type="integer"/>
+    <property column="type" insert="false" name="type" not-null="true">
+      <type name="org.sgu.oecde.core.GenericEnumUserType">
+        <param name="enumClass">org.sgu.oecde.tests.QuestionType</param>
+        <param name="identifierMethod">toInt</param>
+        <param name="valueOfMethod">parse</param>
+      </type>
+    </property>
+    <set batch-size="15" cascade="none" fetch="join" mutable="false" name="answers">
+      <key column="question_id" not-null="true"/>
+      <one-to-many class="org.sgu.oecde.tests.Answer"/>
+    </set>
+  </class>
+</hibernate-mapping>

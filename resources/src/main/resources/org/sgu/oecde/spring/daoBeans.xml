@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+       ">
+
+<!--<aop:aspectj-autoproxy proxy-target-class="false"/>-->
+  <bean id="userDao" p:type="org.sgu.oecde.core.users.AbstractUser" p:sessionFactory-ref="sessionFactory" class="org.sgu.oecde.core.BasicDao" >
+      <!--<aop:scoped-proxy proxy-target-class="true"/>-->
+      </bean>
+  <bean id="specialityDao" p:type="org.sgu.oecde.core.education.Speciality" p:sessionFactory-ref="sessionFactory" class="org.sgu.oecde.core.BasicDao" />
+  <bean id="cityDao" p:type="org.sgu.oecde.de.education.City" p:sessionFactory-ref="sessionFactory" class="org.sgu.oecde.core.BasicDao" />
+  <bean id="studentDao" p:type="org.sgu.oecde.de.users.Student" p:sessionFactory-ref="sessionFactory" class="org.sgu.oecde.core.BasicDao" />
+  <bean id="teacherDao" p:type="org.sgu.oecde.de.users.Teacher" p:sessionFactory-ref="sessionFactory" class="org.sgu.oecde.core.BasicDao" />
+  <bean id="adminDao" p:type="org.sgu.oecde.core.users.Admin" p:sessionFactory-ref="sessionFactory" class="org.sgu.oecde.core.BasicDao" />
+  <bean id="supervisorDao" p:type="org.sgu.oecde.de.users.DeSupervisor" p:sessionFactory-ref="sessionFactory" class="org.sgu.oecde.core.BasicDao" />
+  <bean id="groupDao" p:type="org.sgu.oecde.de.users.Group" p:sessionFactory-ref="sessionFactory" class="org.sgu.oecde.core.UpdateDao" />
+
+  <bean id="estimateDao" p:type="org.sgu.oecde.core.education.work.Estimate" p:sessionFactory-ref="sessionFactory" class="org.sgu.oecde.core.education.dao.EstimateDao" />
+  <bean id="curriculumDao" p:type="org.sgu.oecde.de.education.DeCurriculum" p:sessionFactory-ref="sessionFactory" class="org.sgu.oecde.core.education.dao.CurriculumDao" />
+  <bean scope="prototype" id="csDao" p:sessionFactory-ref="sessionFactory" class="org.sgu.oecde.core.education.dao.CurrentSemesterDao" />
+
+</beans>

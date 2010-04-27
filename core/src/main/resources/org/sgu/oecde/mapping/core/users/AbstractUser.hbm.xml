@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <class abstract="true" dynamic-update="true" name="org.sgu.oecde.core.users.AbstractUser" table="abstract_user">
+    <id name="id" type="int">
+      <generator class="native">
+        <param name="sequence">user_seq</param>
+      </generator>
+    </id>
+    <discriminator column="DISCRIMINATOR"/>
+    <property insert="false" name="username" not-null="true" type="string"/>
+    <property insert="false" name="password" type="string"/>
+    <property insert="false" name="enabled" type="boolean"/>
+    <property column="is_online" insert="false" name="online" type="boolean"/>
+    <property column="large_photo" insert="false" name="largePhoto" type="string"/>
+    <property column="medium_photo" insert="false" name="mediumPhoto" type="string"/>
+    <property column="small_photo" insert="false" name="smallPhoto" type="string"/>
+    <many-to-one cascade="none" class="org.sgu.oecde.core.authentication.RoleItem" column="role" fetch="join" name="authority"/>
+  </class>
+</hibernate-mapping>

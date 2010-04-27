@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       ">
+           
+  <bean scope="prototype" id="resultFilters" class="java.util.HashSet">
+      <constructor-arg>
+          <list></list>
+      </constructor-arg>
+  </bean>
+  <bean id="semesterGetter" init-method="afterPropertiesSet" class="org.sgu.oecde.core.util.SemesterGetter" p:csDao-ref="csDao"/>
+  
+  <import resource="spring/daoBeans.xml"/>
+  <import resource="spring/dbBeans.xml"/>
+</beans>

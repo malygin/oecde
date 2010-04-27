@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <joined-subclass dynamic-update="true" extends="org.sgu.oecde.core.education.work.SelfDependentWork" name="org.sgu.oecde.tests.TestEntity" table="tests">
+    <key column="id" not-null="true" on-delete="cascade"/>
+    <property insert="false" name="quantity" type="integer"/>
+    <property insert="false" name="shuffle" type="boolean"/>
+    <property insert="false" name="writable" type="boolean"/>
+    <property column="estimation_type" insert="false" name="estimation" not-null="true">
+      <type name="org.sgu.oecde.core.GenericEnumUserType">
+        <param name="enumClass">org.sgu.oecde.tests.TestEstimationType</param>
+        <param name="identifierMethod">toInt</param>
+        <param name="valueOfMethod">parse</param>
+      </type>
+    </property>
+    <property column="test_type" insert="false" name="type" not-null="true">
+      <type name="org.sgu.oecde.core.GenericEnumUserType">
+        <param name="enumClass">org.sgu.oecde.tests.TestType</param>
+        <param name="identifierMethod">toInt</param>
+        <param name="valueOfMethod">parse</param>
+      </type>
+    </property>
+    <set batch-size="15" fetch="join" mutable="false" name="questions" table="questions_to_test">
+      <key column="test_id" not-null="true"/>
+      <many-to-many class="org.sgu.oecde.tests.Question" column="question_id"/>
+    </set>
+  </joined-subclass>
+</hibernate-mapping>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+xmlns:beans="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.4.xsd">
+
+ <!--<global-method-security secured-annotations="enabled"/>-->
+	 
+ <http >
+    <intercept-url pattern="/index.jsp" filters="none" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+    <intercept-url pattern="/faces/**" access="ROLE_ADMIN" />
+    <anonymous />
+    <remember-me services-ref="rememberMeServices"/>
+    <form-login login-page="/index.jsp" authentication-failure-url="/index.jsp?error=1"  default-target-url='/faces/index.xhtml' always-use-default-target='true' />
+  </http>
+ <authentication-provider user-service-ref='UserDetailsServiceImpl'/>
+
+  <beans:bean id="logoutFilter" class="org.springframework.security.ui.logout.LogoutFilter">
+    <custom-filter position="LOGOUT_FILTER" />
+    <beans:constructor-arg index="0" value="/"/>
+    <beans:constructor-arg index="1">
+        <beans:list>
+            <beans:bean class="org.springframework.security.ui.logout.SecurityContextLogoutHandler"/>
+            <beans:ref bean="rememberMeServices"/>
+            <beans:ref bean="logoutListner"/>
+        </beans:list>
+    </beans:constructor-arg>
+  </beans:bean>
+
+
+  <beans:bean id="UserDetailsServiceImpl" class="org.sgu.oecde.core.authentication.UserDetailsServiceImpl" >
+      <beans:property name="userDao" ref="userDao"/>
+  </beans:bean>
+
+  <beans:bean id="typeSetter" class="org.sgu.oecde.core.users.UserTypeSetterAspect"/>
+
+  <beans:bean id="eventListner" class="org.sgu.oecde.core.authentication.EventListner">
+      <beans:property name="manager" ref="userCache"/>
+  </beans:bean>
+
+  <beans:bean id="logoutListner" class="org.sgu.oecde.core.authentication.LogoutListner">
+      <beans:property name="manager" ref="userCache"/>
+  </beans:bean>
+
+  <beans:bean id="userCache" class="org.sgu.oecde.core.users.UsersInCache">
+    <beans:property name="cache" ref="userCacheBackend"/>
+  </beans:bean>
+
+  <beans:bean id="userCacheBackend" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+    <beans:property name="cacheManager" ref="cacheManagerFactoryBean"/>
+   <beans:property name="cacheName" value="usersOnLine"/>
+  </beans:bean>
+
+  <beans:bean id="cacheManagerFactoryBean" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+    <beans:property name="configLocation" value="classpath:org/sgu/oecde/ehcacheSec.xml"/>
+    <beans:property name="shared" value="false"/>
+  </beans:bean>
+
+  <beans:bean id="rememberMeServices" class="org.springframework.security.ui.rememberme.TokenBasedRememberMeServices">
+    <beans:property name="userDetailsService" ref="UserDetailsServiceImpl"/>
+    <beans:property name="key" value="oecde"/>
+  </beans:bean>
+</beans:beans>
