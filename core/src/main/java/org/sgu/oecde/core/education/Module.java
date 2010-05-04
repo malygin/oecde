@@ -12,7 +12,7 @@ public class Module extends BasicItem{
     private static final long serialVersionUID = 55L;
     private String name;
     private Umk umk;
-    private Set<AbstractResource>resources;
+    private Set<? extends AbstractResource>resources;
 
     public Module() {
     }
@@ -33,11 +33,11 @@ public class Module extends BasicItem{
         this.umk = umk;
     }
 
-    public Set<AbstractResource> getResources() {
-        return resources;
+    public <T extends AbstractResource>Set<T> getResources() {
+        return (Set<T>) resources;
     }
 
-    public void setResources(Set<AbstractResource> resources) {
+    public void setResources(Set<? extends AbstractResource> resources) {
         this.resources = resources;
     }
 }

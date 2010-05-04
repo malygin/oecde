@@ -13,8 +13,8 @@ public class Umk extends BasicItem{
     private static final long serialVersionUID = 53L;
     private String name;
     private Set<ITeacher>authors;
-    private Set<Module>modules;
-    private Set<AbstractResource>resources;
+    private Set<? extends Module>modules;
+    private Set<? extends AbstractResource>resources;
 
     public Umk() {
     }
@@ -39,15 +39,15 @@ public class Umk extends BasicItem{
         return (Set<T>) modules;
     }
 
-    public void setModules(Set<Module> modules) {
+    public void setModules(Set<? extends Module> modules) {
         this.modules = modules;
     }
 
-    public Set<AbstractResource> getResources() {
-        return resources;
+    public <T extends AbstractResource> Set<T> getResources() {
+        return (Set<T>) resources;
     }
 
-    public void setResources(Set<AbstractResource> resources) {
+    public void setResources(Set<? extends AbstractResource> resources) {
         this.resources = resources;
     }
 }

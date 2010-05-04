@@ -10,5 +10,10 @@
       <key column="umk_id" not-null="true"/>
       <one-to-many class="org.sgu.oecde.core.education.Module"/>
     </set>
+    <set batch-size="5" cascade="none" fetch="select" mutable="false" name="resources" table="umk_resources">
+      <cache usage="read-only"/>
+      <key column="umk_id" not-null="true"/>
+      <many-to-many column="resource_id" class="org.sgu.oecde.core.education.AbstractResource"/>
+    </set>
   </class>
 </hibernate-mapping>

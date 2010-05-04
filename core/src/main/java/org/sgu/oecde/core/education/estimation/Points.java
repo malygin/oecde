@@ -20,16 +20,16 @@ public class Points implements Serializable{
     public Points() {
     }
 
-    public Curriculum getCurriculum() {
-        return curriculum;
+    public <T extends Curriculum>T getCurriculum() {
+        return (T) curriculum;
     }
 
     public void setCurriculum(Curriculum curriculum) {
         this.curriculum = curriculum;
     }
 
-    public AbstractStudent getStudent() {
-        return student;
+    public <T extends AbstractStudent>T getStudent() {
+        return (T) student;
     }
 
     public void setStudent(AbstractStudent student) {
@@ -41,7 +41,7 @@ public class Points implements Serializable{
     }
 
     public void setWorkPoints(List<EstimatedWorkPoints> workPoints) {
-        this.workPoints = workPoints;
+        this.workPoints.addAll(workPoints);
     }
 
     public int getSum() {
@@ -50,5 +50,31 @@ public class Points implements Serializable{
 
     public void setSum(int sum) {
         this.sum = sum;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Points other = (Points) obj;
+        if (this.student != other.student && (this.student == null || !this.student.equals(other.student))) {
+            return false;
+        }
+        if (this.curriculum != other.curriculum && (this.curriculum == null || !this.curriculum.equals(other.curriculum))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 83 * hash + (this.student != null ? this.student.hashCode() : 0);
+        hash = 83 * hash + (this.curriculum != null ? this.curriculum.hashCode() : 0);
+        return hash;
     }
 }

@@ -19,9 +19,7 @@ import org.sgu.oecde.core.education.dao.ICurriculumDao;
 import org.sgu.oecde.core.education.dao.IEstimateDao;
 import org.sgu.oecde.core.education.estimation.IResultFilter;
 import org.sgu.oecde.core.education.estimation.Points;
-import org.sgu.oecde.core.education.estimation.PointsBuilder;
 import org.sgu.oecde.core.education.work.AbstractSelfDependentWorkResult;
-import org.sgu.oecde.core.education.work.IRegularResult;
 import org.sgu.oecde.core.users.StudentGroup;
 import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.education.DeCurriculum;
@@ -108,10 +106,10 @@ public class StudentEducationFatory extends BasicTest{
         Student st = getSt();
         DeCurriculum c = fillCurriculum();
         Points p = new Points();
-        PointsBuilder pF = new PointsBuilder(p);
+        //PointsBuilder pF = new PointsBuilder(p);
         Set<IResultFilter> fs = (Set<IResultFilter>)applicationContext.getBean("resultFilters");
-        List<IRegularResult> res = new ArrayList<IRegularResult>();
-        pF.filterRegularResults(res, fs);
+       // List<IRegularResult> res = new ArrayList<IRegularResult>();
+       // pF.filterRegularResults(res, fs);
         p.setStudent(st);
         p.setCurriculum(c);
         setDao("curriculumDao");
@@ -132,7 +130,7 @@ public class StudentEducationFatory extends BasicTest{
         IAdvancedDao<Umk> resDao = getDao();
         //List<RegularResult> bs = this.<RegularResult>getByExample(r);
         Set<Points> point = new HashSet<Points>();
-        PointsBuilder pf = new PointsBuilder();
+       // PointsBuilder pf = new PointsBuilder();
         for(DeCurriculum dc:l){
       //      point.add(pf.createPoints().filterRegularResults(bs, fs).setCurriculum(dc).getPoints());
         }

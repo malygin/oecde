@@ -26,15 +26,14 @@ public abstract class HqlConstructor {
         if(StringUtils.hasText(prefix))
             query.append("select ").append(prefix).append(" ");
 
-        query.append(mainHql);
+        query.append(" ").append(mainHql).append(" ");
 
         if(!ObjectUtils.isEmpty(fetch)){
             for(String s:fetch){
                 query.append(" join fetch ").append(s).append(" ");
             }
         }
-
-        query.append(whereHql);
+        query.append(" where ").append(whereHql).append(" ");
 
         if(StringUtils.hasText(postfix))
             query.append(" and ").append(postfix).append(" ");

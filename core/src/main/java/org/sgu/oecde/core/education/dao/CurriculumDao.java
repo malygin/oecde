@@ -19,7 +19,7 @@ import org.springframework.dao.DataAccessException;
 public class CurriculumDao<T extends Curriculum> extends BasicDao<T> implements ICurriculumDao<T>{
 
     private final String CURRICULUM_HQL_QUERY = "from Curriculum c join c.teacherToGroups t";
-    private final String CURRICULUM_HQL_QUERY_WHERE = " where c.calendarYear=:y and c.semester in (:s)";
+    private final String CURRICULUM_HQL_QUERY_WHERE = "c.calendarYear=:y and c.semester in (:s)";
 
     @SuppressWarnings("unchecked")
     public CurriculumDao() {
