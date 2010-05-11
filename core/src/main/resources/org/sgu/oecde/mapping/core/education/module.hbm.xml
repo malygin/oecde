@@ -5,6 +5,17 @@
     <cache usage="read-only"/>
     <id name="id" type="int"/>
     <property insert="false" name="name" type="string" update="false"/>
-    <many-to-one column="umk_id" fetch="join" insert="false" lazy="no-proxy" name="umk" not-null="true" update="false"/>
+  <!---  <many-to-one column="umk_id" fetch="join" insert="false" lazy="no-proxy" name="umk" not-null="true" update="false"/>-->
+   <set batch-size="5" cascade="none" fetch="select" mutable="false" name="resources" table="umk_resources">
+      <cache usage="read-only"/>
+      <key column="module_id" not-null="true"/>
+      <many-to-many class="org.sgu.oecde.core.education.resourse.AbstractResource" column="resource_id"/>
+    </set>
+     <set batch-size="5" cascade="none" fetch="select" mutable="false" name="resources" table="abstract_teacher">
+      <cache usage="read-only"/>
+      <key column="module_id" not-null="true"/>
+      <many-to-many class="org.sgu.oecde.core.users.AbstractTeacher" column="teacher_id"/>
+    </set>
+  
   </class>
 </hibernate-mapping>

@@ -1,8 +1,10 @@
 package org.sgu.oecde.core.education;
 
+import org.sgu.oecde.core.education.resourse.AbstractResource;
 import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
-import org.sgu.oecde.core.users.ITeacher;
+import org.sgu.oecde.core.users.AbstractTeacher;
+//import org.sgu.oecde.core.users.ITeacher;
 
 /**
  *
@@ -12,9 +14,10 @@ public class Umk extends BasicItem{
 
     private static final long serialVersionUID = 53L;
     private String name;
-    private Set<ITeacher>authors;
+    //private Set<ITeacher>authors;
     private Set<? extends Module>modules;
     private Set<? extends AbstractResource>resources;
+    private Set<? extends AbstractTeacher> authors;
 
     public Umk() {
     }
@@ -27,13 +30,13 @@ public class Umk extends BasicItem{
         this.name = name;
     }
 
-    public Set<ITeacher> getAuthors() {
-        return authors;
-    }
-
-    public void setAuthors(Set<ITeacher> authors) {
-        this.authors = authors;
-    }
+//    public Set<ITeacher> getAuthors() {
+//        return authors;
+//    }
+//
+//    public void setAuthors(Set<ITeacher> authors) {
+//        this.authors = authors;
+//    }
 
     public <T extends Module> Set<T> getModules() {
         return (Set<T>) modules;
@@ -50,4 +53,13 @@ public class Umk extends BasicItem{
     public void setResources(Set<? extends AbstractResource> resources) {
         this.resources = resources;
     }
+
+    public Set<? extends AbstractTeacher> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(Set<? extends AbstractTeacher> authors) {
+        this.authors = authors;
+    }
+    
 }

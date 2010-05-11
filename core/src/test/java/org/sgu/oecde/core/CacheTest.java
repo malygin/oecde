@@ -23,12 +23,12 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 public class CacheTest extends AbstractJUnit4SpringContextTests{
 
     UsersInCache uic;
-
+    @Ignore
     @Before
     public void setUpClass() throws Exception {
         uic = (UsersInCache) applicationContext.getBean("userCache");
     }
-
+   @Ignore
     @Test
     public void aput(){
         Student st = new Student();
@@ -39,7 +39,7 @@ public class CacheTest extends AbstractJUnit4SpringContextTests{
         }
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void get(){
         System.out.println(uic.getAllUsers(Student.class));
