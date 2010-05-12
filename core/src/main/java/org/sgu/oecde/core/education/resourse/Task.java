@@ -19,5 +19,13 @@ abstract public class Task extends AbstractResource{
     public Task() {
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
 
 }

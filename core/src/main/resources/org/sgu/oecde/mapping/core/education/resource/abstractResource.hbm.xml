@@ -2,8 +2,13 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <class name="org.sgu.oecde.core.education.resourse.AbstractResource" polymorphism="explicit" table="abstract_resource">
-    <cache usage="read-only"/>
+   
     <id name="id" type="int"/>
-    <property insert="false" name="title" update="false"/>
+    <property insert="false" name="title" type="string" update="false"/>
+    <property insert="false" name="description" type="string" update="false"/>
+    <property insert="false" name="version" type="int" update="false"/>
+    <property insert="false" name="visible" type="boolean" update="false"/>
+    <property insert="false" name="dateLastchange" type="string" update="false"/>
+
   </class>
 </hibernate-mapping>

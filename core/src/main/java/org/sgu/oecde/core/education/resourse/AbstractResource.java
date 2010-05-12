@@ -18,7 +18,7 @@ abstract public class AbstractResource extends BasicItem{
     
     private String title;
     private String shortDescription;
-    private String Description;
+    private String description;
 
     //версия ресурса,начиная с 1
     private int version;
@@ -40,4 +40,53 @@ abstract public class AbstractResource extends BasicItem{
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public Set<ITeacher> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(Set<ITeacher> authors) {
+        this.authors = authors;
+    }
+
+    public String getDateLastchange() {
+        return dateLastchange;
+    }
+
+    public void setDateLastchange(String dateLastchange) {
+        this.dateLastchange = dateLastchange;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+
 }

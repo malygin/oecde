@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author ShihovMY
  */
-public interface IUpdateDao<T extends BasicItem>extends IBasicDao<T>  {
+public interface IUpdateDao<T extends BasicItem> extends IBasicDao<T>  {
     @Transactional
     public void update(T item) throws DataAccessException;
 }

@@ -5,20 +5,17 @@
     <cache usage="read-only"/>
     <id name="id" type="int"/>
     <property insert="false" name="name" type="string" update="false"/>
-    <set batch-size="5" cascade="none" fetch="select" mutable="false" name="modules">
+    <property insert="false" name="description" type="string" update="false"/>
+    <set batch-size="5" cascade="none" fetch="select" mutable="false" name="modules"  table="umk_modules">
       <cache usage="read-only"/>
       <key column="umk_id" not-null="true"/>
-      <one-to-many class="org.sgu.oecde.core.education.Module"/>
+      <many-to-many class="org.sgu.oecde.core.education.Module"/>
     </set>
     <set batch-size="5" cascade="none" fetch="select" mutable="false" name="resources" table="umk_resources">
       <cache usage="read-only"/>
       <key column="umk_id" not-null="true"/>
       <many-to-many class="org.sgu.oecde.core.education.resourse.AbstractResource" column="resource_id"/>
     </set>
-     <set batch-size="5" cascade="none" fetch="select" mutable="false" name="resources" table="abstract_teacher">
-      <cache usage="read-only"/>
-      <key column="umk_id" not-null="true"/>
-      <many-to-many class="org.sgu.oecde.core.users.AbstractTeacher" column="teacher_id"/>
-    </set>
+
   </class>
 </hibernate-mapping>

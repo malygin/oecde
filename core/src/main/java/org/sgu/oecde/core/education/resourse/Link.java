@@ -19,5 +19,13 @@ abstract public class Link extends AbstractResource{
     public Link() {
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
 
 }

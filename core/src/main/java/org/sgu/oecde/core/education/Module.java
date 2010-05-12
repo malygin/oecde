@@ -44,4 +44,21 @@ public class Module extends BasicItem{
     public void setResources(Set<? extends AbstractResource> resources) {
         this.resources = resources;
     }
+
+    public Set<ITeacher> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(Set<ITeacher> authors) {
+        this.authors = authors;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
 }

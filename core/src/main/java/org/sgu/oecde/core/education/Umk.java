@@ -14,10 +14,11 @@ public class Umk extends BasicItem{
 
     private static final long serialVersionUID = 53L;
     private String name;
+    private String description;
     //private Set<ITeacher>authors;
     private Set<? extends Module>modules;
-    private Set<? extends AbstractResource>resources;
-    private Set<? extends AbstractTeacher> authors;
+    private Set<? extends AbstractResource> resources;
+  
 
     public Umk() {
     }
@@ -54,12 +55,15 @@ public class Umk extends BasicItem{
         this.resources = resources;
     }
 
-    public Set<? extends AbstractTeacher> getAuthors() {
-        return authors;
+
+
+    public String getDescription() {
+        return description;
     }
 
-    public void setAuthors(Set<? extends AbstractTeacher> authors) {
-        this.authors = authors;
+    public void setDescription(String description) {
+        this.description = description;
     }
+
     
 }

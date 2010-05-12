@@ -11,6 +11,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.dao.ICurriculumDao;
+import org.sgu.oecde.core.education.resourse.Image;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.StudentGroup;
@@ -34,7 +35,7 @@ public class getSimpleItem extends BasicTest{
         Set<AbstractStudent> l = this.<Student>getByExample(e).get(0).getGroup().getPersons();
     }
 
-   // @Ignore
+    @Ignore
     @Test
     public void makeDepartment(){
         this.<Curriculum>setDao("curriculumDao");
@@ -53,4 +54,5 @@ public class getSimpleItem extends BasicTest{
         this.setDao("userDao");
          System.out.println(this.<AbstractUser>getByExample(AbstractUser.getUserWithName("belousovyae")));
     }
+ 
 }
