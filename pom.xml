@@ -8,7 +8,6 @@
     <packaging>pom</packaging>
     <name>main</name>
     <modules>
-        <module>tests</module>
         <module>resources</module>
         <module>core</module>
         <module>umk</module>
