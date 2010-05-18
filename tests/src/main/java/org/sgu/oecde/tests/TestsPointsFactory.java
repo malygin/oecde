@@ -1,11 +1,10 @@
 package org.sgu.oecde.tests;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import org.sgu.oecde.core.education.estimation.EstimatedWorkPoints;
 import org.sgu.oecde.core.education.estimation.EstimatedWorkPointsAbstractFactory;
+import org.sgu.oecde.core.education.estimation.IEstimate;
 import org.sgu.oecde.core.education.work.AbstractSelfDependentWorkResult;
 import org.springframework.util.Assert;
 
@@ -14,6 +13,9 @@ import org.springframework.util.Assert;
  * @author ShihovMY
  */
 public class TestsPointsFactory extends EstimatedWorkPointsAbstractFactory{
+
+    private TestsPointsFactory() {
+    }
 
     @Override
     public EstimatedWorkPoints createEstimatedWorkPoint(AbstractSelfDependentWorkResult result) {
@@ -37,10 +39,12 @@ public class TestsPointsFactory extends EstimatedWorkPointsAbstractFactory{
         return ewp;
     }
 
-    public EstimatedWorkPoints createEstimatedWorkPoint(EstimateNames name){
+    @Override
+    public EstimatedWorkPoints createEstimatedWorkPoint(IEstimate name){
         return createEstimatedWorkPoint(name,0);
     }
 
+    @Override
     public List<EstimatedWorkPoints> createEstimatedWorkPoint(){
         List<EstimatedWorkPoints> l = new ArrayList<EstimatedWorkPoints>(4);
         l.add(createEstimatedWorkPoint(EstimateNames.CONCLUDING_TEST));
@@ -50,23 +54,11 @@ public class TestsPointsFactory extends EstimatedWorkPointsAbstractFactory{
         return l;
     }
 
-    public EstimatedWorkPoints createEstimatedWorkPoint(EstimateNames name,int points){
+    @Override
+    public EstimatedWorkPoints createEstimatedWorkPoint(IEstimate name,int points){
         Assert.state(name != null,"name is null");
         EstimatedWorkPoints ewp = new EstimatedWorkPoints(name);
         ewp.setPoints(points);
         return ewp;
-    }
-
-    public Set createEstimatedWorkPoint(TestAttemptType name){
-        Assert.state(name != null,"name is null");
-        Set set = new HashSet();
-        if(name.equals(TestAttemptType.reTest)){
-            set.add(new EstimatedWorkPoints(EstimateNames.CONCLUDING_RE_TEST));
-            set.add(new EstimatedWorkPoints(EstimateNames.CONCLUDING_TEST));
-        }else if(name.equals(TestAttemptType.regular)){
-            set.add(new EstimatedWorkPoints(EstimateNames.RE_TEST));
-            set.add(new EstimatedWorkPoints(EstimateNames.TEST));
-        }
-        return set;
     }
 }

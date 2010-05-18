@@ -12,6 +12,7 @@ package org.sgu.oecde.tests;
 public enum QuestionType {
 
     radio,check,text,comparison;
+    private static final long serialVersionUID = 79L;
 
     @Override
     public String toString() {

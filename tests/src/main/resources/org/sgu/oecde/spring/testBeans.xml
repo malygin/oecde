@@ -6,7 +6,7 @@
        ">
 <bean id="testDao" p:type="org.sgu.oecde.tests.TestEntity" p:sessionFactory-ref="sessionFactory" class="org.sgu.oecde.tests.dao.TestDao" />
 <bean id="testAttemptDao" p:type="org.sgu.oecde.tests.TestAttempt" p:sessionFactory-ref="sessionFactory" class="org.sgu.oecde.tests.dao.TestAttemptDao" />
-<bean id="filter" class="org.sgu.oecde.tests.filters.Filter" />
+<bean scope="prototype" id="testFilter" class="org.sgu.oecde.tests.filters.Filter" />
 <bean id="pointsFactory" class="org.sgu.oecde.tests.TestsPointsFactory" />
-
+<bean id="testAttemptService" p:attemptsDao-ref="testAttemptDao" p:testDao-ref="testDao" class="org.sgu.oecde.tests.TestAttemptService" />
 </beans>

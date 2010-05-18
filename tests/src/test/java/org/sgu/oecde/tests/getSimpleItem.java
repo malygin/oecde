@@ -5,8 +5,10 @@
 
 package org.sgu.oecde.tests;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -14,8 +16,13 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.sgu.oecde.core.BasicTest;
 import org.sgu.oecde.core.IUpdateDao;
+import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.estimation.EstimatedWorkPoints;
+import org.sgu.oecde.core.education.estimation.IResultFilter;
 import org.sgu.oecde.core.education.estimation.Points;
+import org.sgu.oecde.core.education.work.AbstractSelfDependentWorkResult;
+import org.sgu.oecde.core.education.estimation.ResultComparator;
+import org.sgu.oecde.core.education.estimation.ResultType;
 import org.sgu.oecde.core.users.AbstractGroup;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.core.users.StudentGroup;
@@ -26,7 +33,8 @@ import org.sgu.oecde.tests.dao.ITestDao;
 import org.sgu.oecde.tests.dao.TestAttemptDao;
 import org.sgu.oecde.tests.dao.TestDao;
 import org.sgu.oecde.tests.filters.Filter;
-import org.sgu.oecde.tests.filters.PreFilter;
+import org.sgu.oecde.core.education.estimation.SelfDependentWorkResultPreFilter;
+import org.sgu.oecde.core.education.work.AdditionalSelfDependentWork;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.util.CollectionUtils;
@@ -35,7 +43,7 @@ import static org.junit.Assert.*;
  *
  * @author ShihovMY
  */
-@ContextConfiguration(locations={"../applicationContext.xml","../spring/testDaoBeans.xml"})
+@ContextConfiguration(locations={"../applicationContext.xml","../spring/testBeans.xml"})
 public class getSimpleItem extends BasicTest{
 
     @Ignore
@@ -85,44 +93,114 @@ public class getSimpleItem extends BasicTest{
 
 //    @Ignore
     @Test
-    public void basd(){
-        PreFilter pf = new PreFilter();
+    public void filtResults(){
+        SelfDependentWorkResultPreFilter pf = (SelfDependentWorkResultPreFilter) applicationContext.getBean("preFilter");
         Filter f = (Filter) applicationContext.getBean("filter");
+        pf.addResultFilter(f);
         setDao("testAttemptDao");
         TestAttempt a = new TestAttempt();
         DeCurriculum c = new DeCurriculum();
         c.setId(205326);
         a.setCurriculum(c);
-//        List<TestAttempt> l = this.<TestAttempt>getByExample(a);
+//        List<AbstractSelfDependentWorkResult> l = this.<AbstractSelfDependentWorkResult>getByExample(a);
+//        List<TestAttempt> l = this.<ITestAttemptDao<TestAttempt>>getDao().getByExampleWithType(a, true);
         List<TestAttempt> l = this.<TestAttempt>getAllItems();
-        List<Points> ps = (pf.forEachResult(l, f));
+        //List<Points> ps = (pf.forEachResult(l,new ResultComparatorByCurriculum(),true));
+        List<Points> ps = pf.forEachResult(l,null,true);
         for(Points p:ps){
             if(!CollectionUtils.isEmpty(p.getWorkPoints()))
                 for(EstimatedWorkPoints wp:p.getWorkPoints()){
-                    System.out.println(p.getCurriculum()+"    "+wp.getName()+"   "+wp.getPoints()+"  "+p.getSum());
+                    System.out.println(p.<DeCurriculum>getCurriculum().getDiscipline().getName()/*p.getCurriculum().getId()*/+"    "+wp.getName()+"   "+wp.getPoints()+"  "+p.getSum());
                 }
         }
     }
-
-//    @Ignore
+    
+    @Ignore
     @Test
-    public void ata(){
+    public void getByExampleWithType(){
         setDao("testAttemptDao");
+        ResultComparator rc = (ResultComparator) applicationContext.getBean("resultComparator");
+
         TestAttempt a = new TestAttempt();
         DeCurriculum c = new DeCurriculum();
-        c.setId(205326);
+        c.setId(213305);
         a.setCurriculum(c);
-        List<TestAttempt> l = this.<TestAttempt>getByExample(a);
+        List<TestAttempt> l = this.<ITestAttemptDao<TestAttempt>>getDao().getByExampleWithType(a, true);
 //        List<TestAttempt> l = this.<TestAttempt>getAllItems();
-        Collections.sort(l,new Comparator<TestAttempt>() {
+        Collections.sort(l,rc/*new Comparator<TestAttempt>() {
 
             @Override
             public int compare(TestAttempt o1, TestAttempt o2) {
                 return Integer.valueOf(o1.getWork().getId()).compareTo(o2.getWork().getId());
             }
-        });
+        }*/);
         for(TestAttempt ta:l){
-            System.out.println(ta.getWork().getId()+"  "+ta.getPoints()+"  "+ta.getType().toString());
+            System.out.println(ta.<DeCurriculum>getCurriculum().getDiscipline().getName()+"  "+ta.getWork().getId()+"  "+ta.getPoints()+"  "+ta.getType().toString()+"  "+ta.<TestEntity>getWork().getType());
         }
+    }
+
+    @Ignore
+    @Test
+    public void getCurriculumAttempts(){
+        TestAttemptService serv = (TestAttemptService) applicationContext.getBean("testAttemptService");
+        setDao("testAttemptDao");
+        TestAttempt a = new TestAttempt();
+        Student s = new Student(324725);
+        List<Student> sts = new ArrayList(1);
+        sts.add(s);
+        DeCurriculum c = new DeCurriculum();
+        c.setId(205326);
+        a.setCurriculum(c);
+        for(AdditionalSelfDependentWork w:serv.getCurriculumAttempts(c, null, sts)){
+            for(TestAttempt r:w.<TestAttempt>getResults()){
+                System.out.println(r.getPoints()+"  "+r.getType());
+            }
+            //System.out.println(w.getWork()+"   "+w.getPointsForWork());
+        }
+    }
+
+    @Ignore
+    @Test
+    public void getStudentsAttempts(){
+        TestAttemptService serv = (TestAttemptService) applicationContext.getBean("testAttemptService");
+        TestAttempt a = new TestAttempt();
+        Student s = new Student(324725);
+        DeCurriculum c = new DeCurriculum();
+        List<DeCurriculum> sts = new ArrayList();
+        c.setId(205326);
+        sts.add(c);
+        c = new DeCurriculum();
+        c.setId(198326);
+        sts.add(c);
+        c = new DeCurriculum();
+        c.setId(201327);
+        sts.add(c);
+        c = new DeCurriculum();
+        c.setId(213305);
+        sts.add(c);
+//        for(AdditionalSelfDependentWork w:serv.getStudentAttempts(sts, null, s)){
+        for(AdditionalSelfDependentWork w:serv.getStudentsSingleCurriculumAttempts(c, null, s)){
+            System.out.println(w.getWork()+"   "+w.getPointsForWork()+" ");
+            for(TestAttempt ta:w.<TestAttempt>getResults()){
+                System.out.println("   "+ta.getType()+"    "+ta.getPoints());
+            }
+        }
+    }
+
+    @Ignore
+    @Test
+    public void testsByCur(){
+        setDao("curriculumDao");
+        setDao("testDao");
+        DeCurriculum c = new DeCurriculum();
+        c.setId(205326);
+        List<DeCurriculum> sts = new ArrayList(1);
+        sts.add(c);
+        System.out.println(this.<ITestDao<TestEntity>>getDao().getByCurriculums(sts, null));
+//        List<TestEntity>tests = this.<ITestDao<TestEntity>>getDao().getByCurriculums(sts, null);
+//
+//        for(TestEntity t:tests){
+//            System.out.println(t);
+//        }
     }
 }

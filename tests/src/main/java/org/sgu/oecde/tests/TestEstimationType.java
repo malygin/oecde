@@ -11,6 +11,7 @@ package org.sgu.oecde.tests;
  */
 public enum TestEstimationType {
     max,middle;
+    private static final long serialVersionUID = 81L;
 
     @Override
     public String toString() {

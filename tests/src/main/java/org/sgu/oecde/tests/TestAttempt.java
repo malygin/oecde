@@ -19,6 +19,10 @@ public class TestAttempt extends AbstractSelfDependentWorkResult{
     public TestAttempt() {
     }
 
+    public TestAttempt(String date) {
+        setDate(date);
+    }
+
     public TestAttempt(int id) {
         setId(id);
     }

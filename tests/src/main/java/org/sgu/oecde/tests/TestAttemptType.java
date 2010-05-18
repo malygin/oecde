@@ -11,6 +11,7 @@ package org.sgu.oecde.tests;
  */
 public enum TestAttemptType {
     regular,trial,reTest;
+    private static final long serialVersionUID = 80L;
 
     @Override
     public String toString() {
