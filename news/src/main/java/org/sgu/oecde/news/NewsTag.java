@@ -10,6 +10,7 @@ import org.sgu.oecde.core.BasicItem;
  */
 public class NewsTag extends BasicItem{
     private String name;
+    private static final long serialVersionUID = 84L;
 
     public String getName() {
         return name;

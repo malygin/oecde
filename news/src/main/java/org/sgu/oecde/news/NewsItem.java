@@ -22,6 +22,7 @@ public class NewsItem extends BasicItem{
     private String accessType;
     private Set<NewsTag> tags = new HashSet<NewsTag>();
     private int commentNumber;
+    private static final long serialVersionUID = 83L;
 
     public NewsItem(){
     }
