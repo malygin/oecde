@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       ">
+<bean id="journalDao" p:sessionFactory-ref="sessionFactory" class="org.sgu.oecde.journal.dao.JournalDAO" />
+<bean id="journalServise" class="org.sgu.oecde.journal.Journal" p:journalDAO-ref="journalDao"/>
+<bean id="eventParser" class="org.sgu.oecde.journal.util.EventParser"/>
+<bean id="recordEventFactory" class="org.sgu.oecde.journal.util.RecordEventFactory">
+    <property name="disciplineDao" ref="disciplineDao"/>
+    <property name="journalDAO" ref="journalDao"/>
+    <property name="specialityDao" ref="specialityDao"/>
+    <property name="userDao" ref="userDao"/>
+    <property name="testDao" ref="testDao"/>
+</bean>
+<bean id="studentFilter" class="org.sgu.oecde.journal.filter.StudentFilter"/>
+<bean id="adminFilter" class="org.sgu.oecde.journal.filter.AdminFilter"/>
+<bean id="adminFilterForOneStudent" class="org.sgu.oecde.journal.filter.AdminFilterForOneStudent"/>
+<bean id="adminFilterForOneUmk" class="org.sgu.oecde.journal.filter.AdminFilterForOneUmk"/>
+<bean id="studentNewsLineFilter" class="org.sgu.oecde.journal.filter.StudentNewsLineFilter"/>
+<bean id="teacherFilterForOneUmk" class="org.sgu.oecde.journal.filter.TeacherFilterForOneUmk"/>
+
+</beans>

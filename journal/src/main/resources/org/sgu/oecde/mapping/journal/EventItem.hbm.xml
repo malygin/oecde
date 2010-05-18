@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <class mutable="false" name="org.sgu.oecde.journal.EventItem" table="journal">
+    <id name="id" type="int">
+      <generator class="native">
+        <param name="sequence">journal_seq</param>
+      </generator>
+    </id>
+    <property not-null="true" name="time" column="event_time" type="string"/>
+    <property name="eventBody" type="string"/>
+    <property name="multiId" type="integer"/>
+    <many-to-one class="org.sgu.oecde.core.users.AbstractUser" name="user" column="event_owner" fetch="join"/>
+    <property column="event_type" name="eventType" not-null="true">
+      <type name="org.sgu.oecde.core.GenericEnumUserType">
+        <param name="enumClass">org.sgu.oecde.journal.EventType</param>
+        <param name="identifierMethod">getId</param>
+        <param name="valueOfMethod">value</param>
+      </type>
+    </property>
+  </class>
+</hibernate-mapping>
