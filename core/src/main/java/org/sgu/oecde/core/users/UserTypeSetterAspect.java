@@ -20,6 +20,9 @@ public class UserTypeSetterAspect {
     @Autowired
     EhCacheFactoryBean cache;
 
+    private UserTypeSetterAspect() {
+    }
+
     @Around(" execution (* org.springframework.security.providers.dao.cache.EhCacheBasedUserCache.*(org.springframework.security.userdetails.UserDetails))" +
             " || execution (* org.sgu.oecde.core.users.UsersInCache.*(java.lang.Class)) " +
             " || execution (* org.springframework.security.providers.dao.cache.EhCacheBasedUserCache.*(java.lang.String))")

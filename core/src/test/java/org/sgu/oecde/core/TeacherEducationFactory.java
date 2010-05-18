@@ -45,7 +45,7 @@ public class TeacherEducationFactory extends BasicTest{
     private DeCurriculum fillCurriculum(){
         Student st = getSt();
         DeCurriculum c = new DeCurriculum();
-        c.setCalendarYear(sg.constants.getYear());
+        c.setCalendarYear(sg.getConstants().getYear());
         c.setSemester(sg.getSemesterByStudentYear(st, 0));
         c.setSpeciality(st.<Group>getGroup().getSpeciality());
         return c;

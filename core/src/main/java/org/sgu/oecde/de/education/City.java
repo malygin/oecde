@@ -10,7 +10,7 @@ public class City extends BasicItem{
     private String name;
     private String description;
     private String engShort;
-    private static final long serialVersionUID = 61L;
+    private static final long serialVersionUID = 42;
 
     public City() {
     }

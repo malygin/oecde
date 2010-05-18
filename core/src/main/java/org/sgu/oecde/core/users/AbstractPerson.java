@@ -42,6 +42,21 @@ public abstract class AbstractPerson extends AbstractUser{
         this.surname = surname;
     }
 
+    public String getFio(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(getSurname()).append(" ");
+        sb.append(getName()).append(" ");
+        sb.append(getSecondName());
+        return sb.toString();
+    }
+      public String getInitials(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(getSurname()).append(" ");
+        sb.append(getName().charAt(0)).append(". ");
+        sb.append(getSecondName().charAt(0));
+        return sb.toString();
+    }
+
     /**
 	 * 
 	 * @return 

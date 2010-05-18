@@ -1,16 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.core.util;
 
 import java.util.Date;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * составляет дату на основе lessonDate. если приходит String, то происходит его форматирование.
@@ -23,18 +15,13 @@ public class DateConverter {
         throw new AssertionError();
     }
     
-    public static Date convert(Object date){
-        Date newDate = null;
-        if(date instanceof String){
-            SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
-            try {
-                newDate = sdf.parse(date.toString());
-            } catch (ParseException ex) {
-                Logger.getLogger(DateConverter.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }else if (date instanceof Date){
-            newDate = (Date) date;
-        }
-        return newDate;
+    public static String convert(Date date){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+        return  sdf.format(date).toString();
+    }
+
+    public static String convert(Long date){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+        return  sdf.format(new Date(date)).toString();
     }
 }

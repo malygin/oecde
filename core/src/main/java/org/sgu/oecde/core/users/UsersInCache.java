@@ -9,6 +9,9 @@ import org.springframework.security.providers.dao.cache.EhCacheBasedUserCache;
  */
 public class UsersInCache extends EhCacheBasedUserCache {
 
+    private UsersInCache() {
+    }
+
     public List getAllUsers(Class type){
         List list = new ArrayList();
         for(Object k:getCache().getKeysWithExpiryCheck()){

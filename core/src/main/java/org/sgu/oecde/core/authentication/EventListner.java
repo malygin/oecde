@@ -22,6 +22,9 @@ public class EventListner implements ApplicationListener,InitializingBean{
     
     private UsersInCache manager;
 
+    protected EventListner() {
+    }
+
     /**
 	 * 
 	 * @param apEvent

@@ -14,12 +14,12 @@ import org.springframework.util.Assert;
  *
  * @author ShihovMY
  */
-public final class SemesterGetter{
+public class SemesterGetter{
 
     private ICurrentSemesterDao csDao;
-    public CalendarConstants constants;
+    private CalendarConstants constants;
 
-    public SemesterGetter() {
+    protected SemesterGetter() {
     }
 
     public Integer getSemesterByStudentYear(AbstractStudent student, int semester){
@@ -56,6 +56,10 @@ public final class SemesterGetter{
     public void afterPropertiesSet() throws Exception {
         Assert.notNull(csDao,"CurrentSemesterDao is null");
         constants = this.csDao.getCurrentSemester();
-        //Assert.notNull(constants,"semester and year is null");
+        Assert.notNull(constants,"semester and year is null");
+    }
+
+    public final <T extends CalendarConstants>T getConstants() {
+        return (T) constants;
     }
 }

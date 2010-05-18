@@ -3,10 +3,15 @@ package org.sgu.oecde.core.education.estimation;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.work.AbstractSelfDependentWorkResult;
+import org.sgu.oecde.core.users.AbstractStudent;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.Assert;
 
 /**
  *
@@ -14,16 +19,21 @@ import org.sgu.oecde.core.education.work.AbstractSelfDependentWorkResult;
  */
 public class SelfDependentWorkResultPreFilter {
 
-    List<IResultFilter> resultFilters;
+    Set<IResultFilter> resultFilters = new HashSet<IResultFilter>();
+    @Autowired
+    ResultComparator comparator;
 
-    public SelfDependentWorkResultPreFilter() {
+    private SelfDependentWorkResultPreFilter() {
     }
 
-    public List<Points> forEachResult(List<? extends AbstractSelfDependentWorkResult> results,Comparator<AbstractSelfDependentWorkResult> comparator,List<Points>pointsList, boolean sumEachIteration){
+    public List<Points> forEachResult(List<? extends AbstractSelfDependentWorkResult> results,List<Points>pointsList, boolean sumEachIteration){
+        Assert.state(resultFilters.isEmpty(), "result filters Set can not be empty");
+
         if(pointsList==null)
             pointsList = new ArrayList<Points>();
         Points points = null;
         Curriculum cur = null;
+        AbstractStudent st = null;
         Collections.sort(results, comparator);
         IResultFilter filter = null;
         Iterator<? extends AbstractSelfDependentWorkResult>iterator = results.iterator();
@@ -33,7 +43,7 @@ public class SelfDependentWorkResultPreFilter {
             filterator = resultFilters.iterator();
             while(filterator.hasNext()){
                 filter = filterator.next();
-                if(!result.getCurriculum().equals(cur)&&points!=null){
+                if((!result.getStudent().equals(st)||!result.getCurriculum().equals(cur))&&points!=null){
                     points.setWorkPoints(filter.getEstimatedWorkPoints());
                     points.setSum(filter.getSum());
                     if(sumEachIteration)
@@ -43,7 +53,7 @@ public class SelfDependentWorkResultPreFilter {
                     continue;
                 filter.check(result);
             }
-            if(!result.getCurriculum().equals(cur)){
+            if(!result.getStudent().equals(st)||!result.getCurriculum().equals(cur)){
                 points = new Points();
                 points.setCurriculum(result.getCurriculum());
                 points.setStudent(result.getStudent());
@@ -53,6 +63,7 @@ public class SelfDependentWorkResultPreFilter {
                     pointsList.add(points);
             }
             cur = result.getCurriculum();
+            st = result.getStudent();
             if(filter!=null&&points!=null&&!iterator.hasNext()){
                 points.setWorkPoints(filter.getEstimatedWorkPoints());
                 points.setSum(filter.getSum());
@@ -61,7 +72,15 @@ public class SelfDependentWorkResultPreFilter {
         return pointsList;
     }
 
-    public void setResultFilters(List<IResultFilter> resultFilters) {
-        this.resultFilters = resultFilters;
+    public void addResultFilter(IResultFilter resultFilter) {
+        this.resultFilters.add(resultFilter);
+    }
+
+    public void removeResultFilter(IResultFilter resultFilter){
+        this.resultFilters.remove(resultFilter);
+    }
+
+    public void clearHashSet(){
+        resultFilters.clear();
     }
 }

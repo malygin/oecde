@@ -22,6 +22,9 @@ public class LogoutListner implements LogoutHandler,InitializingBean{
 
     private UsersInCache manager;
 
+    protected LogoutListner() {
+    }
+
     /**
      *
      * @param request

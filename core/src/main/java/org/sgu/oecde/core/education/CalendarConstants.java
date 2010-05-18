@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.core.education;
 
 import java.io.Serializable;
@@ -14,6 +9,8 @@ import java.io.Serializable;
 public class CalendarConstants implements Serializable{
     int semester;
     int year;
+    boolean reExame;
+    private static final long serialVersionUID = 58L;
 
     public CalendarConstants() {
     }
@@ -32,6 +29,14 @@ public class CalendarConstants implements Serializable{
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public boolean isReExame() {
+        return reExame;
+    }
+
+    public void setReExame(boolean reExame) {
+        this.reExame = reExame;
     }
 
     @Override

@@ -7,6 +7,7 @@ package org.sgu.oecde.core.education.work;
 
 import java.io.Serializable;
 import java.util.List;
+import org.sgu.oecde.core.education.Curriculum;
 
 /**
  *
@@ -17,8 +18,9 @@ public class AdditionalSelfDependentWork implements Serializable{
     private int estimateAttemptsUsedNumber;
     private int pointsForWork;
     private List<? extends AbstractSelfDependentWorkResult> results;
+    private Curriculum curriculum;
     private SelfDependentWork work;
-    private static final long serialVersionUID = 66L;
+    private static final long serialVersionUID = 54L;
 
     public AdditionalSelfDependentWork() {
     }
@@ -57,6 +59,14 @@ public class AdditionalSelfDependentWork implements Serializable{
 
     public void setWork(SelfDependentWork work) {
         this.work = work;
+    }
+
+    public Curriculum getCurriculum() {
+        return curriculum;
+    }
+
+    public void setCurriculum(Curriculum curriculum) {
+        this.curriculum = curriculum;
     }
 
     @Override

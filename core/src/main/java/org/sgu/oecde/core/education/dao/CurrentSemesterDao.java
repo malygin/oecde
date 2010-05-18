@@ -9,17 +9,15 @@ import java.util.List;
 import org.sgu.oecde.core.education.CalendarConstants;
 import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 /**
  *
  * @author ShihovMY
  */
-@Transactional
 public class CurrentSemesterDao extends HibernateDaoSupport implements ICurrentSemesterDao{
 
-    public CurrentSemesterDao() {
+    protected CurrentSemesterDao() {
     }
 
     @SuppressWarnings("unchecked")

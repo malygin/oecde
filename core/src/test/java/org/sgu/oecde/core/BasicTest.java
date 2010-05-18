@@ -41,4 +41,8 @@ public abstract class BasicTest extends AbstractJUnit4SpringContextTests{
     public <T extends IBasicDao> T getDao() {
         return (T) dao;
     }
+
+    public <T extends Object>T getBean(String name){
+        return (T) applicationContext.getBean(name);
+    }
 }

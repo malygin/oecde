@@ -22,11 +22,11 @@ public class CurriculumDao<T extends Curriculum> extends BasicDao<T> implements 
     private final String CURRICULUM_HQL_QUERY_WHERE = "c.calendarYear=:y and c.semester in (:s)";
 
     @SuppressWarnings("unchecked")
-    public CurriculumDao() {
+    protected CurriculumDao() {
         super((Class<T>) Curriculum.class);
     }
 
-    public CurriculumDao(Class<T> type){
+    protected CurriculumDao(Class<T> type){
         super(type);
     }
 

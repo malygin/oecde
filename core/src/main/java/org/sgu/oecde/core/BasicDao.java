@@ -35,11 +35,11 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
      */
     protected Class<T> type;
 
-    public BasicDao(Class<T> type) {
+    protected BasicDao(Class<T> type) {
         this.type = type;
     }
 
-    public BasicDao() {
+    protected BasicDao() {
     }
 
     @Override
@@ -80,13 +80,13 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
     @SuppressWarnings("unchecked")
     protected Criteria getCriteriaByParametrizedItem(final T item,final Criteria cr){
         Assert.isInstanceOf(type,item ,"item is not an instance of type "+type);
-        
+        Assert.notNull(item,"item can not be null");
         cr.add(Example.create(item).enableLike(MatchMode.ANYWHERE).ignoreCase().excludeZeroes()).addOrder(Order.asc("id"));
 
         final FastClass fc = FastClass.create(item.getClass());
         methods:
         for (Method m : item.getClass().getMethods()) {
-            if(!m.getName().startsWith("get")||Modifier.isStatic(m.getModifiers()))
+            if(!m.getName().startsWith("get")||Modifier.isStatic(m.getModifiers())||m.getParameterTypes().length>0)
                 continue methods;
             Class clazz = m.getReturnType();
             while(true){

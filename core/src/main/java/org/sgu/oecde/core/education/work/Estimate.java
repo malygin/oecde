@@ -9,7 +9,7 @@ import org.sgu.oecde.core.users.AbstractStudent;
  * @author ShihovMY
  */
 public class Estimate extends BasicItem {
-    private int gradeCode;
+    private PointToEstimate gradeCode;
     private String date;
     private AbstractStudent student;
     private Curriculum curriculum;
@@ -18,11 +18,11 @@ public class Estimate extends BasicItem {
     public Estimate() {
     }
 
-    public int getGradeCode() {
+    public PointToEstimate getGradeCode() {
         return gradeCode;
     }
 
-    public void setGradeCode(int gradeCode) {
+    public void setGradeCode(PointToEstimate gradeCode) {
         this.gradeCode = gradeCode;
     }
 

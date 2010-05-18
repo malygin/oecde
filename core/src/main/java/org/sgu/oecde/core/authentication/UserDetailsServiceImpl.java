@@ -23,6 +23,9 @@ public class UserDetailsServiceImpl implements UserDetailsService,InitializingBe
    
     IBasicDao<AbstractUser> userDao;
 
+    protected UserDetailsServiceImpl() {
+    }
+
     /**
      *
      * @param username

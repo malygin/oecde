@@ -19,5 +19,4 @@ public class UpdateDao<T extends BasicItem> extends BasicDao<T> implements IUpda
         Assert.isInstanceOf(type,item );
         getSession().update(item);
     }
-
 }

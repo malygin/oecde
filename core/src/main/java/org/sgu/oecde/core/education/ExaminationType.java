@@ -11,6 +11,7 @@ package org.sgu.oecde.core.education;
  */
 public enum ExaminationType {
     exame,test,empty;
+    private static final long serialVersionUID = 57L;
 
     @Override
     public String toString() {
