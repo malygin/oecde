@@ -2,13 +2,13 @@ package org.sgu.oecde.journal;
 
 import org.sgu.oecde.core.BasicItem;
 import org.sgu.oecde.core.users.AbstractUser;
-import org.sgu.oecde.core.users.UserType;
 import org.sgu.oecde.journal.util.EventParser;
 
 /**
  * @author bASAKOVVY
  */
 public class EventItem extends BasicItem{
+    private static final long serialVersionUID = 85L;
     /**
      * тип события из таблички DO_JOURNAL_TYPES_EVENTS.
      */

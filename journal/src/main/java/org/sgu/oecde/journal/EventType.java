@@ -110,6 +110,7 @@ public enum EventType {
      */
     NEWS_VIEW
     ;
+    private static final long serialVersionUID = 86L;
 
     public int getId() {
         switch (this) {
