@@ -59,6 +59,20 @@
     timeToLiveSeconds="1800"
     overflowToDisk="false"
 /><cache
+    name="org.sgu.oecde.core.education.AbstractResource"
+    maxElementsInMemory="10000"
+    eternal="false"
+    timeToIdleSeconds="900"
+    timeToLiveSeconds="1800"
+    overflowToDisk="true"
+/><cache
+    name="org.sgu.oecde.core.education.Umk.resources"
+    maxElementsInMemory="4000"
+    eternal="false"
+    timeToIdleSeconds="900"
+    timeToLiveSeconds="1800"
+    overflowToDisk="true"
+/><cache
     name="org.sgu.oecde.core.education.Curriculum"
     maxElementsInMemory="4000"
     eternal="false"
