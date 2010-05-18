@@ -23,6 +23,7 @@ public class Root extends BasicItem implements Comparable {
     private String title;
     private AbstractUser user;
     private Set<Node> children;
+    private static final long serialVersionUID = 88L;
 
     //private HashMap<Integer,Node> nodes = new HashMap<Integer,Node>();
 

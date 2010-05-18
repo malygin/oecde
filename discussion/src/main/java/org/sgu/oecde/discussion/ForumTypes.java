@@ -10,6 +10,7 @@ public enum ForumTypes {
     TEACHER_FAQ,
     TEACHER_ORG,
     NEWS;
+    private static final long serialVersionUID = 89L;
 
     public String getName() {
         switch (this) {

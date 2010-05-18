@@ -23,6 +23,7 @@ public class Node extends BasicItem implements Comparable {
     private Root root;
     private Node parent;
     private Set<Node> children;
+    private static final long serialVersionUID = 87L;
 
     public Node() {
         children = new TreeSet<Node>();
