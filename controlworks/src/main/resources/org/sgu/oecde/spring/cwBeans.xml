@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       ">
+<bean id="controlWorkDao" p:sessionFactory-ref="sessionFactory" class="org.sgu.oecde.controlworks.dao.ControlWorkDao" />
+<bean id="controlWorkAttemptDao" p:sessionFactory-ref="sessionFactory" class="org.sgu.oecde.controlworks.dao.ControlWorkAttemptDao" />
+<bean id="controlWorkService" p:dao-ref="controlWorkDao" class="org.sgu.oecde.controlworks.ControlWorkService" />
+</beans>

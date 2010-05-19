@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <class mutable="false" dynamic-insert="true" name="org.sgu.oecde.controlworks.ControlWorkAttempt" table="control_work_attempt">
+    <id name="id" type="int" unsaved-value="0">
+      <generator class="native">
+        <param name="sequence">cw_attempt_seq</param>
+      </generator>
+    </id>
+    <property column="attempt_date" name="attemptDate" not-null="true" type="string"/>
+    <property column="file_path" name="filePath" type="string"/>
+    <property name="read" type="boolean"/>
+    <many-to-one class="org.sgu.oecde.controlworks.ControlWork" fetch="join" name="work" not-null="true"/>
+  </class>
+</hibernate-mapping>
