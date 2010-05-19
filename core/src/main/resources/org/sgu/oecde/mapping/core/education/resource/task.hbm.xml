@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
-  <joined-subclass dynamic-update="true" extends="org.sgu.oecde.core.education.resourse.AbstractResource" name="org.sgu.oecde.core.education.resourse.Task" table="task">
+  <joined-subclass dynamic-update="true" extends="org.sgu.oecde.core.education.resource.AbstractResource" name="org.sgu.oecde.core.education.resource.Task" table="task">
     <key column="id" not-null="true" on-delete="cascade"/>
     <property insert="false" name="url" type="string"/>
-
   </joined-subclass>
 </hibernate-mapping>
-

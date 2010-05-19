@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
-  <joined-subclass  extends="org.sgu.oecde.core.education.resourse.AbstractResource" name="org.sgu.oecde.core.education.resourse.Image" table="image">
+  <joined-subclass extends="org.sgu.oecde.core.education.resource.AbstractResource" name="org.sgu.oecde.core.education.resource.Image" table="image">
     <key column="id" not-null="true" on-delete="cascade"/>
-    <property insert="false" name="url" type="string"/>
-    <property insert="false" name="previewUrl" type="string"/>
-    <property insert="false" name="width" type="integer"/>
-    <property insert="false" name="height" type="integer"/>
+    <property name="url" type="string"/>
+    <property name="previewUrl" type="string"/>
+    <property name="width" type="integer"/>
+    <property name="height" type="integer"/>
   </joined-subclass>
 </hibernate-mapping>
-

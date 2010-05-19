@@ -1,6 +1,6 @@
 package org.sgu.oecde.core.education;
 
-import org.sgu.oecde.core.education.resourse.AbstractResource;
+import org.sgu.oecde.core.education.resource.AbstractResource;
 import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
 import org.sgu.oecde.core.users.ITeacher;

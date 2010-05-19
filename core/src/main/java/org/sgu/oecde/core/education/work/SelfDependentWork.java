@@ -5,7 +5,7 @@
 
 package org.sgu.oecde.core.education.work;
 
-import org.sgu.oecde.core.education.resourse.AbstractResource;
+import org.sgu.oecde.core.education.resource.AbstractResource;
 
 /**
  *

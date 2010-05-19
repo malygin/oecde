@@ -11,7 +11,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.dao.ICurriculumDao;
-import org.sgu.oecde.core.education.resourse.Image;
+import org.sgu.oecde.core.education.resource.Image;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.StudentGroup;

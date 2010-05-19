@@ -14,7 +14,7 @@
     <set batch-size="5" cascade="none" fetch="select" mutable="false" name="resources" order-by="resource_id asc" table="umk_resources">
       <cache usage="read-only"/>
       <key column="umk_id" not-null="true"/>
-      <many-to-many class="org.sgu.oecde.core.education.resourse.AbstractResource" column="resource_id"/>
+      <many-to-many class="org.sgu.oecde.core.education.resource.AbstractResource" column="resource_id"/>
     </set>
 
   </class>

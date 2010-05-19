@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
-  <joined-subclass  extends="org.sgu.oecde.core.education.resourse.AbstractResource" name="org.sgu.oecde.core.education.resourse.ImageGallery" table="imageGallery">
+  <joined-subclass extends="org.sgu.oecde.core.education.resource.AbstractResource" name="org.sgu.oecde.core.education.resource.ImageGallery" table="imageGallery">
     <key column="id" not-null="true" on-delete="cascade"/>
     <property insert="false" name="numImages" type="int" update="false"/>
-    <set batch-size="5" cascade="none" fetch="select" mutable="false" name="images"  table="imageGallery_images">
+    <set batch-size="5" cascade="none" fetch="select" mutable="false" name="images" table="imageGallery_images">
       <cache usage="read-only"/>
-       <key column="gallery_id"/>
-      <many-to-many  class="org.sgu.oecde.core.education.resourse.Image"/>
+      <key column="gallery_id"/>
+      <many-to-many class="org.sgu.oecde.core.education.resource.Image"/>
     </set>
   </joined-subclass>
 </hibernate-mapping>
