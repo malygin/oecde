@@ -12,7 +12,7 @@
     <property name="version" type="int"/>
     <property name="visible" type="boolean"/>
     <property name="dateLastchange" type="string"/>
-    <property column="accessResource" name="accessResource">
+    <property   column="accessResource" name="accessResource">
       <type name="org.sgu.oecde.core.GenericEnumUserType">
         <param name="enumClass">org.sgu.oecde.core.education.resource.AccessResource</param>
         <param name="identifierMethod">toName</param>

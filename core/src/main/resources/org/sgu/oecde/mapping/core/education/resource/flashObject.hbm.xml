@@ -3,9 +3,9 @@
 <hibernate-mapping schema="oecdo_test">
   <joined-subclass dynamic-update="true" extends="org.sgu.oecde.core.education.resource.AbstractResource" name="org.sgu.oecde.core.education.resource.FlashObject" table="flashObject">
     <key column="id" on-delete="cascade"/>
-    <property insert="false" name="url" type="string"/>
-    <property insert="false" name="previewImg" type="string"/>
-    <property insert="false" name="width" type="integer"/>
-    <property insert="false" name="height" type="integer"/>
+    <property  name="url" type="string"/>
+    <property  name="previewImg" type="string"/>
+    <property  name="width" type="integer"/>
+    <property  name="height" type="integer"/>
   </joined-subclass>
 </hibernate-mapping>

@@ -3,7 +3,7 @@
 <hibernate-mapping schema="oecdo_test">
   <joined-subclass extends="org.sgu.oecde.core.education.resource.AbstractResource" name="org.sgu.oecde.core.education.resource.ImageGallery" table="imageGallery">
     <key column="id" not-null="true" on-delete="cascade"/>
-    <property insert="false" name="numImages" type="int" update="false"/>
+    <property  name="numImages" type="int"/>
     <set batch-size="5" cascade="none" fetch="select" mutable="false" name="images" table="imageGallery_images">
       <cache usage="read-only"/>
       <key column="gallery_id"/>

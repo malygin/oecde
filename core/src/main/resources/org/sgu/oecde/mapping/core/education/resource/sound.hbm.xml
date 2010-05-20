@@ -3,10 +3,10 @@
 <hibernate-mapping schema="oecdo_test">
   <joined-subclass dynamic-update="true" extends="org.sgu.oecde.core.education.resource.AbstractResource" name="org.sgu.oecde.core.education.resource.Sound" table="sound">
     <key column="id" not-null="true" on-delete="cascade"/>
-    <property insert="false" name="url" type="string"/>
-    <property insert="false" name="previewImg" type="string"/>
-    <property insert="false" name="time" type="string"/>
-    <property insert="false" name="quality" type="string"/>
-    <property insert="false" name="type" type="string"/>
+    <property  name="url" type="string"/>
+    <property  name="previewImg" type="string"/>
+    <property  name="time" type="string"/>
+    <property  name="quality" type="string"/>
+    <property  name="type" type="string"/>
   </joined-subclass>
 </hibernate-mapping>

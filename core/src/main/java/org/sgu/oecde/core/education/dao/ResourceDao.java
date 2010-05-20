@@ -9,7 +9,8 @@ import org.springframework.util.Assert;
 /**
  * @author Andrey Malygin (mailto: anmalygin@gmail.com)
  * created 19.05.2010
- * 
+ * дао для ресурсов
+ * @todo добавить методы для получения
  */
 public class ResourceDao <T extends AbstractResource> extends BasicDao<T> implements IResourceDao<T> {
 
@@ -22,7 +23,13 @@ public class ResourceDao <T extends AbstractResource> extends BasicDao<T> implem
     @Override
     public void insert(T item) throws DataAccessException {
       Assert.isInstanceOf(type,item );
-      getSession().saveOrUpdate(item);
+      getSession().save(item);
+    }
+
+    @Override
+    public void delete(T item) throws DataAccessException {
+       Assert.isInstanceOf(type,item );
+       getSession().delete(item);
     }
 
 }

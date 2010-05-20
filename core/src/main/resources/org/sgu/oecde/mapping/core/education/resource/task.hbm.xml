@@ -3,6 +3,6 @@
 <hibernate-mapping schema="oecdo_test">
   <joined-subclass dynamic-update="true" extends="org.sgu.oecde.core.education.resource.AbstractResource" name="org.sgu.oecde.core.education.resource.Task" table="task">
     <key column="id" not-null="true" on-delete="cascade"/>
-    <property insert="false" name="url" type="string"/>
+    <property  name="url" type="string"/>
   </joined-subclass>
 </hibernate-mapping>
