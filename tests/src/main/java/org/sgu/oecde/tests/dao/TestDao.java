@@ -16,6 +16,7 @@ import org.springframework.dao.DataAccessException;
 public class TestDao<T extends TestEntity> extends UpdateDao<T> implements ITestDao<T>{
 
     protected TestDao() {
+        super((Class<T>)TestEntity.class);
     }
 
     public  List<T> getByCurriculums(List<? extends Curriculum> curriculums,TestEntity test)throws DataAccessException{

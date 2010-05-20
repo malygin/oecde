@@ -15,6 +15,7 @@
     <module>search</module>
     <module>discussion</module>
     <module>umk</module>
+    <module>controlworks</module>
   </modules>
     <repositories>
         <repository>

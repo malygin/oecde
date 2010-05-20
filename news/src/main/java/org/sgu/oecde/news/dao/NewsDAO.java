@@ -7,7 +7,6 @@ import org.hibernate.criterion.Projections;
 import org.sgu.oecde.core.BasicDao;
 import org.sgu.oecde.news.NewsItem;
 import org.springframework.dao.DataAccessException;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 /**

@@ -17,9 +17,10 @@ import static org.junit.Assert.*;
  */
 public class simpleTest{
 
-//    @Ignore
+    @Ignore
     @Test
     public void getF(){
-//        assert(false);
+        String d = "$$ y = C_1 e^{ \\lambda x} + C_2 x e^{ \\lambda x} $$".replaceAll("[\\n\\r\\t\\v]", "").replace("\\", "\\\\");
+        System.out.println(d);
     }
 }

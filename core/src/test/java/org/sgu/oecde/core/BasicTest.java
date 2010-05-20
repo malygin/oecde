@@ -35,7 +35,7 @@ public abstract class BasicTest extends AbstractJUnit4SpringContextTests{
     }
 
     public<T extends BasicItem> List<T> getByExample(BasicItem item){
-        return (List<T>) dao.getByExamlpeItem(item);
+        return (List<T>) dao.getByExample(item);
     }
 
     public <T extends IBasicDao> T getDao() {

@@ -95,7 +95,7 @@ public class GenericEnumUserType implements EnhancedUserType, ParameterizedType,
     }
 
     public int[] sqlTypes() {
-        return new int[]{Types.INTEGER};//sqlTypes;
+        return sqlTypes;
     }
 
     public Object assemble(Serializable cached, Object owner) throws HibernateException {

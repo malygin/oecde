@@ -14,6 +14,13 @@ import org.springframework.util.Assert;
  */
 public class UpdateDao<T extends BasicItem> extends BasicDao<T> implements IUpdateDao<T>{
 
+    protected UpdateDao() {
+    }
+
+    protected UpdateDao(Class<T> type) {
+        super(type);
+    }
+
     @Override
     public void update(T item) throws DataAccessException {
         Assert.isInstanceOf(type,item );

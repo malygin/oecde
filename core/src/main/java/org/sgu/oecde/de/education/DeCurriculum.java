@@ -13,7 +13,7 @@ import org.sgu.oecde.core.education.AdvancedCurriculum;
  */
 public class DeCurriculum extends AdvancedCurriculum{
     private int controlWorksNumber;
-    private int controlWorksPaperOnlyNumber;
+    private boolean controlWorksPaperOnly;
     private int controlWorksInRealCurriculum;
     private int labWorksNumber;
     private int termPapersNumber;
@@ -21,6 +21,10 @@ public class DeCurriculum extends AdvancedCurriculum{
     private static final long serialVersionUID = 63L;
 
     public DeCurriculum() {
+    }
+
+    public DeCurriculum(int id) {
+        setId(id);
     }
 
     public int getControlWorksNumber() {
@@ -31,12 +35,12 @@ public class DeCurriculum extends AdvancedCurriculum{
         this.controlWorksNumber = controlWorksNumber;
     }
 
-    public int getControlWorksPaperOnlyNumber() {
-        return controlWorksPaperOnlyNumber;
+    public boolean isControlWorksPaperOnly() {
+        return controlWorksPaperOnly;
     }
 
-    public void setControlWorksPaperOnlyNumber(int controlWorksPaperOnlyNumber) {
-        this.controlWorksPaperOnlyNumber = controlWorksPaperOnlyNumber;
+    public void setControlWorksPaperOnly(boolean controlWorksPaperOnly) {
+        this.controlWorksPaperOnly = controlWorksPaperOnly;
     }
 
     public int getLabWorksNumber() {

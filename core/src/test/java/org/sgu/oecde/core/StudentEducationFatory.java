@@ -116,7 +116,7 @@ public class StudentEducationFatory extends BasicTest{
         List<DeCurriculum> l = this.<DeCurriculum>getByExample(c);
         setDao("estimateDao");
         IEstimateDao estDao = getDao();
-        estDao.getByParametersCollection(l, "curriculum");
+        //estDao.getByParametersCollection(l, "curriculum");
     }
 
     public void getGrades(){
@@ -127,7 +127,7 @@ public class StudentEducationFatory extends BasicTest{
         setDao("resultsDao");
        // BasicResult r = new RegularResult();
        // r.setStudent(getSt());
-        IAdvancedDao<Umk> resDao = getDao();
+        //IAdvancedDao<Umk> resDao = getDao();
         //List<RegularResult> bs = this.<RegularResult>getByExample(r);
         Set<Points> point = new HashSet<Points>();
        // PointsBuilder pf = new PointsBuilder();
@@ -154,7 +154,7 @@ public class StudentEducationFatory extends BasicTest{
         List<DeCurriculum> list = this.<DeCurriculum>getByExample(c);
         setDao("estimateDao");
         IEstimateDao estDao = getDao();
-        estDao.getByParametersCollection(list, "curriculum");
+        //estDao.getByParametersCollection(list, "curriculum");
     }
 /*
     public void getLowGradedDisciplines() {

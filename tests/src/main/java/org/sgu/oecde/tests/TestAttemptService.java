@@ -2,22 +2,17 @@ package org.sgu.oecde.tests;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.ListIterator;
 import org.sgu.oecde.core.education.Curriculum;
-import org.sgu.oecde.core.education.estimation.ResultComparator;
-import org.sgu.oecde.core.education.estimation.SelfDependentWorkResultPreFilter;
 import org.sgu.oecde.core.education.work.AdditionalSelfDependentWork;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.tests.dao.ITestAttemptDao;
 import org.sgu.oecde.tests.dao.ITestDao;
-import org.sgu.oecde.tests.filters.Filter;
 import org.sgu.oecde.tests.util.pointsCounter;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
@@ -31,12 +26,6 @@ public class TestAttemptService implements InitializingBean{
 
     ITestDao<TestEntity> testDao;
 
-    @Autowired
-    SelfDependentWorkResultPreFilter preFilter;
-    @Autowired
-    Filter filter;
-    @Autowired
-    ResultComparator comparator;
 
     protected TestAttemptService() {
     }
@@ -58,12 +47,10 @@ public class TestAttemptService implements InitializingBean{
     public List<AdditionalSelfDependentWork>getTestsWithAttempts(List<Curriculum> curriculums,String testingDate,List<AbstractStudent>students){
 
         List<TestEntity>tests = testDao.getByCurriculums(curriculums, null);
-
         TestAttempt tmpAttempt = new TestAttempt(testingDate);
 
         List<TestAttempt> attempts = attemptsDao.getByStudentsAndTests(tests, students, tmpAttempt, true);
-        Collections.sort(attempts,comparator);
-
+        
         AdditionalSelfDependentWork test = null;
 
         final HashMap<TestEntity,AdditionalSelfDependentWork> testMap = new LinkedHashMap<TestEntity, AdditionalSelfDependentWork>();
@@ -72,7 +59,7 @@ public class TestAttemptService implements InitializingBean{
             testMap.put(t, test);
         }
 
-        attemptsIterator(attempts, new TestAttemptService(){
+        attemptsIterator(attempts, new Generator(){
             protected AdditionalSelfDependentWork generate(Object object){
                 return testMap.get(((TestAttempt)object).<TestEntity>getWork());
             }
@@ -138,7 +125,7 @@ public class TestAttemptService implements InitializingBean{
 
         List<AdditionalSelfDependentWork> additionalTests = new ArrayList<AdditionalSelfDependentWork>();
 
-        attemptsIterator(attempts, this,additionalTests);
+        attemptsIterator(attempts, new Generator(),additionalTests);
         return additionalTests;
     }
 
@@ -151,22 +138,23 @@ public class TestAttemptService implements InitializingBean{
 
         List<TestAttempt> attempts = attemptsByStudentAndCurriculums(tmpCurList, students, testingDate);
 
-        attemptsIterator(attempts, this,additionalTests);
+        attemptsIterator(attempts, new Generator(),additionalTests);
 
         return additionalTests;
     }
-
-    protected AdditionalSelfDependentWork generate(Object object){return new AdditionalSelfDependentWork();};
+    
+    protected class Generator{
+        protected AdditionalSelfDependentWork generate(Object object){return new AdditionalSelfDependentWork(); };
+    }
 
     private List<TestAttempt> attemptsByStudentAndCurriculums(List<? extends Curriculum>curriculums,List<? extends AbstractStudent>students, String testingDate){
         TestAttempt tmpAttempt = new TestAttempt(testingDate);
         List<TestAttempt> attempts = attemptsDao.getByStudentsAndCurriculums(curriculums, students, tmpAttempt, true);
-        Collections.sort(attempts,comparator);
         return attempts;
 
     }
 
-    private void attemptsIterator(List<TestAttempt> attempts,TestAttemptService service,Collection additionalTests){
+    private void attemptsIterator(List<TestAttempt> attempts,Generator service,Collection additionalTests){
 
         List<TestAttempt> oneTestAttempts = null;
         AdditionalSelfDependentWork test = null;
@@ -216,7 +204,6 @@ public class TestAttemptService implements InitializingBean{
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        Assert.notNull(preFilter,"preFilter cant't be null in "+this.getClass().getName());
         Assert.notNull(attemptsDao,"attemptsDao cant't be null in "+this.getClass().getName());
         Assert.notNull(testDao,"testDao cant't be null in "+this.getClass().getName());
     }

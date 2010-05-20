@@ -2,7 +2,7 @@ package org.sgu.oecde.core.education.dao;
 
 import java.util.Collection;
 import java.util.List;
-import org.sgu.oecde.core.AdvancedDao;
+import org.sgu.oecde.core.BasicDao;
 import org.sgu.oecde.core.education.work.Estimate;
 import org.springframework.dao.DataAccessException;
 
@@ -10,7 +10,7 @@ import org.springframework.dao.DataAccessException;
  *
  * @author ShihovMY
  */
-public class EstimateDao<T extends Estimate> extends AdvancedDao<T> implements IEstimateDao<T>{
+public class EstimateDao<T extends Estimate> extends BasicDao<T> implements IEstimateDao<T>{
 
     @SuppressWarnings("unchecked")
     protected EstimateDao() {

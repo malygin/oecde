@@ -7,8 +7,12 @@
 
   <bean id="semesterGetter" init-method="afterPropertiesSet" class="org.sgu.oecde.core.util.SemesterGetter" p:csDao-ref="csDao"/>
   <bean id="preFilter" class="org.sgu.oecde.core.education.estimation.SelfDependentWorkResultPreFilter"/>
-  <bean id="resultComparator" class="org.sgu.oecde.core.education.estimation.ResultComparator"/>
 
+  <bean abstract="true" class="org.sgu.oecde.core.BasicDao" id="basicDao" >
+      <property name="sessionFactory" ref="sessionFactory"/>
+  </bean>
+  <bean abstract="true" parent="basicDao" class="org.sgu.oecde.core.UpdateDao" id="updateDao" />
+  
   <import resource="spring/daoBeans.xml"/>
   <import resource="spring/dbBeans.xml"/>
 </beans>

@@ -1,13 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.core;
 
 import java.util.List;
 import org.springframework.dao.DataAccessException;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -40,5 +34,11 @@ public interface IBasicDao <T extends BasicItem>{
      * @throws DataAccessException
      */
     @SuppressWarnings("unchecked")
-    List<T> getByExamlpeItem(final T item) throws DataAccessException;
+    List<T> getByExample(final T item) throws DataAccessException;
+
+    @SuppressWarnings("unchecked")
+    List<T> getBySimpleExample(final T item) throws DataAccessException;
+
+    @SuppressWarnings("unchecked")
+    List<T> getByFullExample(final T item) throws DataAccessException;
 }

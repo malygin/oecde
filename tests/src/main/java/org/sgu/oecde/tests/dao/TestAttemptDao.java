@@ -29,7 +29,6 @@ public class TestAttemptDao <T extends TestAttempt> extends BasicDao<T> implemen
         Criteria cr =  getSession().createCriteria(type);
         return criteriaWithStudents(cr, allEstimatedAttempts, attempt, students)
                 .add(Property.forName("work").in(tests)).list();
-
     }
 
     public List<T>getByStudentsAndCurriculums(List<? extends Curriculum>curriculums,List<? extends AbstractStudent>students, T attempt,boolean allEstimatedAttempts)throws DataAccessException{

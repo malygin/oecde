@@ -1,5 +1,6 @@
 package org.sgu.oecde.core.users;
 
+import java.util.Arrays;
 import org.sgu.oecde.core.BasicItem;
 import org.springframework.security.GrantedAuthority;
 import org.springframework.security.userdetails.UserDetails;
@@ -154,59 +155,38 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
         return sb.toString();
     }
 
-    /**
-	 * 
-	 * @param rhs
-	 * @return 
-	 */
-	@Override
-    public boolean equals(Object rhs) {
-
-        if (!(rhs instanceof AbstractUser) || (rhs == null)) {
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
             return false;
         }
-
-        AbstractUser user = (AbstractUser) rhs;
-
-        if (user.getAuthorities().length != this.getAuthorities().length) {
+        if (getClass() != obj.getClass()) {
             return false;
         }
-
-        for (int i = 0; i < this.getAuthorities().length; i++) {
-            if (!this.getAuthorities()[i].equals(user.getAuthorities()[i])) {
-                return false;
-            }
+        final AbstractUser other = (AbstractUser) obj;
+        if ((this.password == null) ? (other.password != null) : !this.password.equals(other.password)) {
+            return false;
         }
-
-        return (this.getPassword().equals(user.getPassword()) && this.getUsername().equals(user.getUsername()) && (this.isEnabled() == user.isEnabled()));
+        if ((this.username == null) ? (other.username != null) : !this.username.equals(other.username)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.authorities, other.authorities)) {
+            return false;
+        }
+        if (this.enabled != other.enabled) {
+            return false;
+        }
+        return true;
     }
 
-    /**
-	 * 
-	 * @return 
-	 */
-	@Override
+    @Override
     public int hashCode() {
-        int code = 9792;
-
-        if (this.getAuthorities() != null) {
-            for (int i = 0; i < this.getAuthorities().length; i++) {
-                code = code * (this.getAuthorities()[i].hashCode() % 7);
-            }
-        }
-
-        if (this.getPassword() != null) {
-            code = code * (this.getPassword().hashCode() % 7);
-        }
-
-        if (this.getUsername() != null) {
-            code = code * (this.getUsername().hashCode() % 7);
-        }
-
-        if (this.isEnabled()) {
-            code = code * -7;
-        }
-
-        return code;
+        int hash = 7;
+        hash = 79 * hash + (this.password != null ? this.password.hashCode() : 0);
+        hash = 79 * hash + (this.username != null ? this.username.hashCode() : 0);
+        hash = 79 * hash + Arrays.deepHashCode(this.authorities);
+        hash = 79 * hash + (this.enabled ? 1 : 0);
+        return hash;
     }
+
 }

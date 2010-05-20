@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.core;
 
 import java.lang.reflect.InvocationTargetException;
@@ -56,7 +51,7 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
      */
     @Override
     public T getById(final int id) throws DataAccessException{
-        T item = (T) getHibernateTemplate().get(type, id);
+        T item = (T) getSession().get(type, id);
         return item;
     }
 
@@ -72,16 +67,22 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
      * {@inheritDoc}
      */
     @Override
-    public List<T> getByExamlpeItem(final T item) throws DataAccessException{
+    public List<T> getByExample(final T item) throws DataAccessException{
         Criteria cr =  getSession().createCriteria(type);
         return getCriteriaByParametrizedItem(item,cr).list();
     }
 
-    @SuppressWarnings("unchecked")
-    protected Criteria getCriteriaByParametrizedItem(final T item,final Criteria cr){
+    public List<T> getBySimpleExample(final T item) throws DataAccessException{
+        Criteria cr =  getSession().createCriteria(type);
+        return cr.add(Example.create(item).enableLike(MatchMode.ANYWHERE).ignoreCase().excludeZeroes()).addOrder(Order.asc("id")).list();
+    }
+
+    public List<T> getByFullExample(final T item) throws DataAccessException{
+        Criteria cr =  getSession().createCriteria(type);
+
         Assert.isInstanceOf(type,item ,"item is not an instance of type "+type);
         Assert.notNull(item,"item can not be null");
-        cr.add(Example.create(item).enableLike(MatchMode.ANYWHERE).ignoreCase().excludeZeroes()).addOrder(Order.asc("id"));
+        cr.add(Example.create(item).excludeZeroes()).addOrder(Order.asc("id"));
 
         final FastClass fc = FastClass.create(item.getClass());
         methods:
@@ -115,6 +116,42 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
                         Object o = newSet.iterator().next();
                         if(o instanceof BasicItem&&((BasicItem)o).getId()!=0)
                             cr.createAlias(fieldName, "alias").add(Restrictions.eq("alias.id", ((BasicItem)o).getId()));
+                    }
+                }
+           }  catch (InvocationTargetException ex) {
+                Logger.getLogger(BasicDao.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        }
+        return cr.list();
+    }
+
+    @SuppressWarnings("unchecked")
+    protected Criteria getCriteriaByParametrizedItem(final T item,final Criteria cr){
+        Assert.isInstanceOf(type,item ,"item is not an instance of type "+type);
+        Assert.notNull(item,"item can not be null");
+        cr.add(Example.create(item).excludeZeroes()).addOrder(Order.asc("id"));
+
+        final FastClass fc = FastClass.create(item.getClass());
+        methods:
+        for (Method m : item.getClass().getMethods()) {
+            if(!m.getName().startsWith("get")||Modifier.isStatic(m.getModifiers())||m.getParameterTypes().length>0)
+                continue methods;
+            Class clazz = m.getReturnType();
+            while(true){
+                if(clazz!=null&&!(clazz.equals(BasicItem.class))){
+                    clazz = clazz.getSuperclass();
+                    if(clazz!=null&&(clazz.equals(BasicItem.class)))
+                        break;
+                }else
+                    continue methods;
+            }
+            try {
+                final FastMethod fm = fc.getMethod(m);
+                final String fieldName = m.getName().substring(3).toLowerCase();
+                if(clazz.equals(BasicItem.class)){
+                    BasicItem newItem = (BasicItem) fm.invoke(item,new Object[]{});
+                    if(newItem!=null&&newItem.getId()!=0){
+                        cr.add(Property.forName(fieldName).eq(newItem));
                     }
                 }
            }  catch (InvocationTargetException ex) {

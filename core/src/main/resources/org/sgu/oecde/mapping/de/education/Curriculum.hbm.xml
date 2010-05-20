@@ -4,12 +4,12 @@
   <subclass discriminator-value="de" extends="org.sgu.oecde.core.education.AdvancedCurriculum" name="org.sgu.oecde.de.education.DeCurriculum">
     <join table="de_curriculum">
       <key column="id" not-null="true" on-delete="cascade"/>
-      <property insert="false" name="controlWorksInRealCurriculum" type="int" update="false"/>
-      <property insert="false" name="controlWorksNumber" type="int" update="false"/>
-      <property insert="false" name="controlWorksPaperOnlyNumber" type="int" update="false"/>
-      <property insert="false" name="labWorksNumber" type="int" update="false"/>
-      <property insert="false" name="termPapersNumber" type="int" update="false"/>
-      <property insert="false" name="selected" type="boolean" update="false"/>
+      <property insert="false" name="controlWorksInRealCurriculum" type="int" />
+      <property insert="false" name="controlWorksNumber" type="int" />
+      <property insert="false" name="controlWorksPaperOnly" type="boolean" />
+      <property insert="false" name="labWorksNumber" type="int" />
+      <property insert="false" name="termPapersNumber" type="int" />
+      <property insert="false" name="selected" type="boolean" />
     </join>
   </subclass>
 </hibernate-mapping>

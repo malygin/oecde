@@ -96,7 +96,7 @@ public class DiscussionDaoProxy {
 
     private Root getRoot(int idObject, String typeObject){
         Root r = new Root(idObject,ForumTypes.parse(typeObject));
-        List<Root>l = rootDao.getByExamlpeItem(r);
+        List<Root>l = rootDao.getByExample(r);
         if(l == null||l.size()!=1)
             throw new IllegalStateException("more than one root");
         return l.get(0);

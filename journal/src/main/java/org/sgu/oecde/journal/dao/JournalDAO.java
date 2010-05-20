@@ -39,7 +39,7 @@ public class JournalDAO extends BasicDao<EventItem> implements IJournalDao {
     }
 
     public void saveEventItem(EventItem evItem)throws DataAccessException {
-        getSession().saveOrUpdate(evItem);
+        getSession().save(evItem);
     }
 
     private void processFilter(BaseFilter filter,Criteria cr) {

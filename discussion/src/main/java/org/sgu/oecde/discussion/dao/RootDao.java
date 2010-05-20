@@ -4,7 +4,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Property;
-import org.sgu.oecde.core.BasicDao;
+import org.sgu.oecde.core.UpdateDao;
 import org.sgu.oecde.discussion.ForumTypes;
 import org.sgu.oecde.discussion.Root;
 import org.springframework.dao.DataAccessException;
@@ -14,7 +14,7 @@ import org.springframework.util.CollectionUtils;
  *
  * @author ShihovMY
  */
-public class RootDao extends BasicDao<Root> implements IRootDao{
+public class RootDao extends UpdateDao<Root> implements IRootDao{
 
     protected RootDao() {
         super(Root.class);
@@ -33,9 +33,5 @@ public class RootDao extends BasicDao<Root> implements IRootDao{
 
     public void save(Root root) throws DataAccessException {
         getSession().save(root);
-    }
-
-    public void update(Root root) throws DataAccessException {
-        getSession().update(root);
     }
 }

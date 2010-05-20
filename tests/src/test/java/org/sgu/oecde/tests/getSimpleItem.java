@@ -21,7 +21,6 @@ import org.sgu.oecde.core.education.estimation.EstimatedWorkPoints;
 import org.sgu.oecde.core.education.estimation.IResultFilter;
 import org.sgu.oecde.core.education.estimation.Points;
 import org.sgu.oecde.core.education.work.AbstractSelfDependentWorkResult;
-import org.sgu.oecde.core.education.estimation.ResultComparator;
 import org.sgu.oecde.core.education.estimation.ResultType;
 import org.sgu.oecde.core.users.AbstractGroup;
 import org.sgu.oecde.core.users.AbstractStudent;
@@ -91,11 +90,11 @@ public class getSimpleItem extends BasicTest{
         this.<ITestAttemptDao>getDao().saveAttempt(a);
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void filtResults(){
         SelfDependentWorkResultPreFilter pf = (SelfDependentWorkResultPreFilter) applicationContext.getBean("preFilter");
-        Filter f = (Filter) applicationContext.getBean("filter");
+        Filter f = (Filter) applicationContext.getBean("testFilter");
         pf.addResultFilter(f);
         setDao("testAttemptDao");
         TestAttempt a = new TestAttempt();
@@ -119,21 +118,19 @@ public class getSimpleItem extends BasicTest{
     @Test
     public void getByExampleWithType(){
         setDao("testAttemptDao");
-        ResultComparator rc = (ResultComparator) applicationContext.getBean("resultComparator");
-
         TestAttempt a = new TestAttempt();
         DeCurriculum c = new DeCurriculum();
         c.setId(213305);
         a.setCurriculum(c);
         List<TestAttempt> l = this.<ITestAttemptDao<TestAttempt>>getDao().getByExampleWithType(a, true);
 //        List<TestAttempt> l = this.<TestAttempt>getAllItems();
-        Collections.sort(l,rc/*new Comparator<TestAttempt>() {
+  /*      Collections.sort(l,rcnew Comparator<TestAttempt>() {
 
             @Override
             public int compare(TestAttempt o1, TestAttempt o2) {
                 return Integer.valueOf(o1.getWork().getId()).compareTo(o2.getWork().getId());
             }
-        }*/);
+        });*/
         for(TestAttempt ta:l){
             System.out.println(ta.<DeCurriculum>getCurriculum().getDiscipline().getName()+"  "+ta.getWork().getId()+"  "+ta.getPoints()+"  "+ta.getType().toString()+"  "+ta.<TestEntity>getWork().getType());
         }
@@ -187,13 +184,13 @@ public class getSimpleItem extends BasicTest{
         }
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void testsByCur(){
         setDao("curriculumDao");
         setDao("testDao");
         DeCurriculum c = new DeCurriculum();
-        c.setId(205326);
+        c.setId(213305);
         List<DeCurriculum> sts = new ArrayList(1);
         sts.add(c);
         System.out.println(this.<ITestDao<TestEntity>>getDao().getByCurriculums(sts, null));

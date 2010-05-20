@@ -34,7 +34,7 @@ public class UserDetailsServiceImpl implements UserDetailsService,InitializingBe
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException, DataAccessException {
         AbstractUser example = AbstractUser.getUserWithName(username);
-        List<AbstractUser> l = userDao.getByExamlpeItem(example);
+        List<AbstractUser> l = userDao.getBySimpleExample(example);
         return l.size()>0?l.get(0):null;
     }
 
