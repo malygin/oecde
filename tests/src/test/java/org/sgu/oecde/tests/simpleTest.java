@@ -15,8 +15,6 @@ import java.util.List;
 import java.util.Set;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.sgu.oecde.tests.dao.ITestDao;
-import org.sgu.oecde.tests.dao.TestDao;
 import static org.junit.Assert.*;
 
 /**

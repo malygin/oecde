@@ -17,6 +17,7 @@ import org.junit.Test;
 import org.sgu.oecde.core.BasicTest;
 import org.sgu.oecde.core.IUpdateDao;
 import org.sgu.oecde.core.education.Curriculum;
+import org.sgu.oecde.core.education.dao.IResourceDao;
 import org.sgu.oecde.core.education.estimation.EstimatedWorkPoints;
 import org.sgu.oecde.core.education.estimation.IResultFilter;
 import org.sgu.oecde.core.education.estimation.Points;
@@ -28,9 +29,6 @@ import org.sgu.oecde.core.users.StudentGroup;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.tests.dao.ITestAttemptDao;
-import org.sgu.oecde.tests.dao.ITestDao;
-import org.sgu.oecde.tests.dao.TestAttemptDao;
-import org.sgu.oecde.tests.dao.TestDao;
 import org.sgu.oecde.tests.filters.Filter;
 import org.sgu.oecde.core.education.estimation.SelfDependentWorkResultPreFilter;
 import org.sgu.oecde.core.education.work.AdditionalSelfDependentWork;
@@ -67,7 +65,7 @@ public class getSimpleItem extends BasicTest{
         t.setShuffle(true);
         t.setEstimateAttemptsNumber(0);
         t.setDuration(0);
-        this.<ITestDao>getDao().update(t);
+        this.<IResourceDao>getDao().update(t);
     }
 
     @Ignore
@@ -188,12 +186,12 @@ public class getSimpleItem extends BasicTest{
     @Test
     public void testsByCur(){
         setDao("curriculumDao");
-        setDao("testDao");
+        setDao("resourceDao");
         DeCurriculum c = new DeCurriculum();
         c.setId(213305);
         List<DeCurriculum> sts = new ArrayList(1);
         sts.add(c);
-        System.out.println(this.<ITestDao<TestEntity>>getDao().getByCurriculums(sts, null));
+        System.out.println(this.<IResourceDao<TestEntity>>getDao().getResourceByCurriculums(sts, null,TestEntity.class));
 //        List<TestEntity>tests = this.<ITestDao<TestEntity>>getDao().getByCurriculums(sts, null);
 //
 //        for(TestEntity t:tests){

@@ -1,9 +1,9 @@
-
 package org.sgu.oecde.core.education.dao;
 
-import org.sgu.oecde.core.IBasicDao;
+import java.util.List;
+import org.sgu.oecde.core.IUpdateDao;
+import org.sgu.oecde.core.education.Curriculum;
 import org.springframework.dao.DataAccessException;
-import org.springframework.transaction.annotation.Transactional;
 import org.sgu.oecde.core.education.resource.AbstractResource;
 
 /**
@@ -12,13 +12,7 @@ import org.sgu.oecde.core.education.resource.AbstractResource;
  * дао для ресурсов умк
  * @todo добавить методы для получения списков ресурсов с учетом доступа
  */
-public interface IResourceDao<T extends AbstractResource> extends IBasicDao<T> {
-    @Transactional
-    public void update(T item) throws DataAccessException;
+public interface IResourceDao<T extends AbstractResource> extends IUpdateDao<T> {
 
-    @Transactional
-    public void insert(T item) throws DataAccessException;
-
-    @Transactional
-    public void delete(T item) throws DataAccessException;
+    public List<T> getResourceByCurriculums(List<? extends Curriculum> curriculums,AbstractResource resource, Class type)throws DataAccessException;
 }

@@ -7,10 +7,10 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.ListIterator;
 import org.sgu.oecde.core.education.Curriculum;
+import org.sgu.oecde.core.education.dao.IResourceDao;
 import org.sgu.oecde.core.education.work.AdditionalSelfDependentWork;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.tests.dao.ITestAttemptDao;
-import org.sgu.oecde.tests.dao.ITestDao;
 import org.sgu.oecde.tests.util.pointsCounter;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.util.Assert;
@@ -24,7 +24,7 @@ public class TestAttemptService implements InitializingBean{
     
     ITestAttemptDao<TestAttempt> attemptsDao;
 
-    ITestDao<TestEntity> testDao;
+    IResourceDao<TestEntity> testDao;
 
 
     protected TestAttemptService() {
@@ -46,7 +46,7 @@ public class TestAttemptService implements InitializingBean{
 
     public List<AdditionalSelfDependentWork>getTestsWithAttempts(List<Curriculum> curriculums,String testingDate,List<AbstractStudent>students){
 
-        List<TestEntity>tests = testDao.getByCurriculums(curriculums, null);
+        List<TestEntity>tests = testDao.getResourceByCurriculums(curriculums, null,TestEntity.class);
         TestAttempt tmpAttempt = new TestAttempt(testingDate);
 
         List<TestAttempt> attempts = attemptsDao.getByStudentsAndTests(tests, students, tmpAttempt, true);
@@ -198,7 +198,7 @@ public class TestAttemptService implements InitializingBean{
         this.attemptsDao = attemptsDao;
     }
 
-    public void setTestDao(ITestDao<TestEntity> testDao) {
+    public void setTestDao(IResourceDao<TestEntity> testDao) {
         this.testDao = testDao;
     }
 

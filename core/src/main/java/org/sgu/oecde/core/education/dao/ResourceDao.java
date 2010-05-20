@@ -1,8 +1,11 @@
-
 package org.sgu.oecde.core.education.dao;
 
-import org.sgu.oecde.core.BasicDao;
+import java.util.List;
+import org.hibernate.Query;
+import org.sgu.oecde.core.UpdateDao;
+import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.resource.AbstractResource;
+import org.sgu.oecde.core.util.HqlConstructor;
 import org.springframework.dao.DataAccessException;
 import org.springframework.util.Assert;
 
@@ -12,24 +15,21 @@ import org.springframework.util.Assert;
  * дао для ресурсов
  * @todo добавить методы для получения
  */
-public class ResourceDao <T extends AbstractResource> extends BasicDao<T> implements IResourceDao<T> {
+public class ResourceDao <T extends AbstractResource> extends UpdateDao<T> implements IResourceDao<T> {
 
-    @Override
-    public void update(T item) throws DataAccessException {
-       Assert.isInstanceOf(type,item );
-       getSession().update(item);
+    protected ResourceDao() {
+        super((Class<T>)AbstractResource.class);
     }
 
-    @Override
-    public void insert(T item) throws DataAccessException {
-      Assert.isInstanceOf(type,item );
-      getSession().save(item);
+    public List<T> getResourceByCurriculums(List<? extends Curriculum> curriculums,AbstractResource resource,Class type)throws DataAccessException{
+        String byExample = null;
+        Assert.notNull(type);
+        if(resource!=null)
+            byExample = "r=:e";
+        Query q = HqlConstructor.makeQuery(getSession(), "distinct r ", "from Curriculum cr join cr.umk u join u.resources rs, "+type.getName()+" r",null, "cr in (:c) and r in (rs)", byExample, "r")
+                .setParameterList("c", curriculums);
+        if(resource!=null)
+            q.setParameter("e", resource);
+        return q.list();
     }
-
-    @Override
-    public void delete(T item) throws DataAccessException {
-       Assert.isInstanceOf(type,item );
-       getSession().delete(item);
-    }
-
 }

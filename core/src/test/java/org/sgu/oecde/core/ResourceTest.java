@@ -33,28 +33,4 @@ public class ResourceTest extends BasicTest {
        IResourceDao<Image> Dao = this.<IResourceDao>getDao();
        Dao.update(img);  
     }
-    @Ignore
-    @Test
-    public void saveImages(){
-        setDao("imageDao");
-       // int year = sg.getCalendarYear(0);
-       Image img= new Image();
-       //img.setId(111);
-       img.setUrl("url");
-       img.setTitle("title2");
-       img.setAccessResource(AccessResource.notPublic);
-       IResourceDao<Image> Dao = this.<IResourceDao>getDao();
-       Dao.insert(img);
-     }
-     //@Ignore
-    @Test
-    public void deleteImages(){
-        setDao("imageDao");
-       // int year = sg.getCalendarYear(0);
-       Image img= new Image();
-       img.setId(111);
-       IResourceDao<Image> Dao = this.<IResourceDao>getDao();
-       Dao.delete(img);
-     //  System.out.println("ок!");
-    }
 }
