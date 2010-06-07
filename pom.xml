@@ -16,6 +16,7 @@
     <module>discussion</module>
     <module>umk</module>
     <module>controlworks</module>
+    <module>messages</module>
   </modules>
     <repositories>
         <repository>
