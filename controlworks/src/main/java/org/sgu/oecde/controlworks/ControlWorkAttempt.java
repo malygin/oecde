@@ -18,7 +18,7 @@ public class ControlWorkAttempt  extends BasicItem{
     /**
      * read - прочитано ли преподом
      */
-    private boolean read = false;
+    private Boolean read;
 
     private ControlWork work;
     private static final long serialVersionUID = 90L;
@@ -43,11 +43,11 @@ public class ControlWorkAttempt  extends BasicItem{
         this.filePath = filePath;
     }
 
-    public boolean isRead() {
+    public Boolean  isRead() {
         return read;
     }
 
-    public void setRead(boolean read) {
+    public void setRead(Boolean  read) {
         this.read = read;
     }
 

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
-  <class dynamic-insert="true" dynamic-update="true" name="org.sgu.oecde.controlworks.ControlWork" table="control_work">
-    <id name="id" type="int" unsaved-value="0">
-      <generator class="native">
-        <param name="sequence">cw_seq</param>
-      </generator>
-    </id>
-    <property name="progress">
+  <subclass discriminator-value="cw" dynamic-insert="true" dynamic-update="true" extends="org.sgu.oecde.core.education.work.AbstractResult" name="org.sgu.oecde.controlworks.ControlWork">
+    <set batch-size="15" cascade="all" fetch="select" inverse="true" name="cwAttempt" order-by="attemptDate desc" table="control_work_attempt">
+      <key column="work" foreign-key="fk_cw_cw" not-null="true"/>
+      <one-to-many class="org.sgu.oecde.controlworks.ControlWorkAttempt"/>
+    </set>
+    <property length="15" name="progress">
       <type name="org.sgu.oecde.core.GenericEnumUserType">
         <param name="enumClass">org.sgu.oecde.controlworks.ControlWorkProgress</param>
         <param name="identifierMethod">toName</param>
@@ -15,11 +14,5 @@
       </type>
     </property>
     <property name="points" type="integer"/>
-    <many-to-one class="org.sgu.oecde.core.users.AbstractStudent" fetch="join" name="student" not-null="true"/>
-    <many-to-one class="org.sgu.oecde.core.education.Curriculum" fetch="join" name="curriculum" not-null="true"/>
-    <set batch-size="15" order-by="attemptDate desc" cascade="all" fetch="select" inverse="true" name="cwAttempt" table="control_work_attempt">
-      <key column="work" not-null="true"/>
-      <one-to-many class="org.sgu.oecde.controlworks.ControlWorkAttempt"/>
-    </set>
-  </class>
+  </subclass>
 </hibernate-mapping>

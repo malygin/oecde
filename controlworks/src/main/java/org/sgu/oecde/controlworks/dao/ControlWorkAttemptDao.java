@@ -4,7 +4,7 @@ import java.util.List;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Property;
 import org.sgu.oecde.controlworks.ControlWorkAttempt;
-import org.sgu.oecde.core.BasicDao;
+import org.sgu.oecde.core.UpdateDao;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.springframework.dao.DataAccessException;
@@ -15,7 +15,7 @@ import org.springframework.util.CollectionUtils;
  *
  * @author ShihovMY
  */
-public class ControlWorkAttemptDao extends BasicDao<ControlWorkAttempt> implements IControlWorkAttemptDao{
+public class ControlWorkAttemptDao extends UpdateDao<ControlWorkAttempt> implements IControlWorkAttemptDao{
 
     protected ControlWorkAttemptDao() {
         super(ControlWorkAttempt.class);
@@ -28,6 +28,7 @@ public class ControlWorkAttemptDao extends BasicDao<ControlWorkAttempt> implemen
                 .createAlias("work", "w")
                 .setFirstResult(beginIndex).setMaxResults(endIndex)
                 .add(Property.forName("w.curriculum").in(curriculums))
+                .add(Property.forName("filePath").ne("empty"))
                 .add(Property.forName("w.student").in(students))
                 .addOrder(Order.asc("read"))
                 .addOrder(Order.desc("attemptDate"))

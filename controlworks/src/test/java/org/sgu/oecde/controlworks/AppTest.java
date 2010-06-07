@@ -9,7 +9,10 @@ import org.junit.Test;
 import org.sgu.oecde.controlworks.dao.IControlWorkAttemptDao;
 import org.sgu.oecde.controlworks.dao.IControlWorkDao;
 import org.sgu.oecde.core.BasicTest;
+import org.sgu.oecde.core.education.CalendarConstantName;
+import org.sgu.oecde.core.education.CalendarConstants;
 import org.sgu.oecde.core.util.DateConverter;
+import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
 import org.springframework.test.context.ContextConfiguration;
@@ -49,7 +52,9 @@ public class AppTest extends BasicTest{
         setDao("controlWorkDao");
         List l = new ArrayList();
         l.add(new DeCurriculum(198326));
-        List<ControlWork>ls = this.<IControlWorkDao>getDao().getByStudentAndCurriculums( l, new Student(324725));
+        List l2 = new ArrayList();
+        l.add(new Student(324725));
+        List<ControlWork>ls = this.<IControlWorkDao>getDao().getByStudentsAnsCurriculums( l, l2,null);
         for (ControlWork cw:ls){
             System.out.println(cw.getCwAttempt().size());
         }
@@ -70,7 +75,7 @@ public class AppTest extends BasicTest{
         }
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void getStudentCw(){
         ControlWorkService s = getBean("controlWorkService");
@@ -80,5 +85,12 @@ public class AppTest extends BasicTest{
         List l2 = new ArrayList();
         l2.add(new Student(324725));
         System.out.println(s.getStudensControlWorks(new Student(324725), l));
+    }
+
+//    @Ignore
+    @Test
+    public void constants(){
+        SemesterGetter g = getBean("semesterGetter");
+//        g.save(new CalendarConstants(ControlWorkCalendarConstantName.controlWorksBeginDate, "10"), "ControlWorkCalendarConstants");
     }
 }
