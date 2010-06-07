@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class dynamic-insert="true" dynamic-update="true"
+  name="org.sgu.oecde.messages.Message" />
+    <id name="id" type="int"/>
+        <generator class="native">
+        <param name="sequence">message_seq</param>
+      </generator>
+    </id>
+    <property name="theme" type="string"/>
+    <property name="fullText" type="string"/>
+    <property name="date" type="string"/>
+    <property name="archived" type="boolean"/>
+    <property name="deleted" type="boolean"/>
+    <property name="readed" type="boolean"/>
+    <many-to-one class="org.sgu.oecde.core.users.AbstractPerson" fetch="join" name="author" not-null="true"/>
+    <list name="recipients" table="message_recipients">
+    <key column="message_id"/>
+        <many-to-many column="person_id"  class="org.sgu.oecde.core.users.AbstractPerson"/>
+    </list>
+
+    <property   column="messageType" name="messageType">
+      <type name="org.sgu.oecde.core.GenericEnumUserType">
+        <param name="enumClass">org.sgu.oecde.messages.MessageType</param>
+        <param name="identifierMethod">toName</param>
+        <param name="valueOfMethod">parse</param>
+      </type>
+    </property>
+  </class>
+
+</hibernate-mapping>
