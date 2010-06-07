@@ -19,7 +19,7 @@ public class Node extends BasicItem implements Comparable {
     private String time;
     private AbstractUser user;
 
-    private boolean open = true;
+    private Boolean open;
     private Root root;
     private Node parent;
     private Set<Node> children;
@@ -59,7 +59,7 @@ public class Node extends BasicItem implements Comparable {
      * @param child добавляемый элемент.
      * @return true, если успешно.
      */
-    public boolean addChild(Node child) {
+    public Boolean addChild(Node child) {
         if (child != null && children.add(child)) {
             child.setParent(this);
             return true;
@@ -80,7 +80,7 @@ public class Node extends BasicItem implements Comparable {
         return null;
     }
 
-    public boolean addChildren(Set<Node> nodes) {
+    public Boolean addChildren(Set<Node> nodes) {
         return children.addAll(nodes);
     }
 
@@ -88,7 +88,7 @@ public class Node extends BasicItem implements Comparable {
         children = nodes;
     }
 
-    public boolean removeChild(Node child) {
+    public Boolean removeChild(Node child) {
         return child != null && children.contains(child) && children.remove(child);
     }
 
@@ -170,11 +170,11 @@ public class Node extends BasicItem implements Comparable {
         return root;
     }
 
-    public boolean isOpen() {
+    public Boolean isOpen() {
         return open;
     }
 
-    public void setOpen(boolean open) {
+    public void setOpen(Boolean open) {
         this.open = open;
     }
 

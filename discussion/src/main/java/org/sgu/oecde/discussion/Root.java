@@ -16,10 +16,10 @@ import org.sgu.oecde.core.users.AbstractUser;
  */
 public class Root extends BasicItem implements Comparable {
 
-    private int objectId;
+    private Integer objectId;
     private ForumTypes objectType;
     private String time;
-    private boolean open = true;
+    private Boolean open;
     private String title;
     private AbstractUser user;
     private Set<Node> children;
@@ -35,12 +35,12 @@ public class Root extends BasicItem implements Comparable {
         setId(id);
     }
 
-    public Root(int objectId, ForumTypes objectType) {
+    public Root(Integer objectId, ForumTypes objectType) {
         this.objectId = objectId;
         this.objectType = objectType;
     }
 
-    public boolean addChild(Node node) {
+    public Boolean addChild(Node node) {
         if (node != null && children.add(node)) {
             node.setRoot(this);
             return true;
@@ -48,7 +48,7 @@ public class Root extends BasicItem implements Comparable {
         return false;
     }
 
-    private Node getNearestNode(int id) {
+    private Node getNearestNode(Integer id) {
         for (Node node : children) {
             if (node.getId() == id) {
                 return node;
@@ -142,19 +142,19 @@ public class Root extends BasicItem implements Comparable {
     }
 
 
-    public int getObjectId() {
+    public Integer getObjectId() {
         return objectId;
     }
 
-    public void setObjectId(int objectId) {
+    public void setObjectId(Integer objectId) {
         this.objectId = objectId;
     }
 
-    public boolean isOpen() {
+    public Boolean isOpen() {
         return open;
     }
 
-    public void setOpen(boolean open) {
+    public void setOpen(Boolean open) {
         this.open = open;
     }
 
