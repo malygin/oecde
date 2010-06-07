@@ -1,12 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.tests;
 
 import java.io.Serializable;
-import java.util.List;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.estimation.Points;
 
@@ -14,8 +8,8 @@ import org.sgu.oecde.core.education.estimation.Points;
  *
  * @author ShihovMY
  */
-public class AdditionalCurriculum implements Serializable{
-    private List<Points>points;
+public class AdditionalCurriculum implements Serializable,Comparable<AdditionalCurriculum>{
+    private Points points;
     private Curriculum curriculum;
     private int testsCount;
     private int passedTests;
@@ -32,11 +26,11 @@ public class AdditionalCurriculum implements Serializable{
         this.passedTests = passedTests;
     }
 
-    public List<Points> getPoints() {
+    public Points getPoints() {
         return points;
     }
 
-    public void setPoints(List<Points> points) {
+    public void setPoints(Points points) {
         this.points = points;
     }
 
@@ -76,5 +70,14 @@ public class AdditionalCurriculum implements Serializable{
         int hash = 7;
         hash = 97 * hash + (this.curriculum != null ? this.curriculum.hashCode() : 0);
         return hash;
+    }
+
+    @Override
+    public int compareTo(AdditionalCurriculum o) {
+       int curriculumInt = 0;
+       if(o!=null)
+           if(o.getCurriculum()!=null&&getCurriculum()!=null)
+               curriculumInt = (Integer.valueOf(o.getCurriculum().getId()).compareTo(getCurriculum().getId()));
+       return curriculumInt;
     }
 }

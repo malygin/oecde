@@ -11,8 +11,8 @@ public class TestEntity extends SelfDependentWork{
     private TestType type;
     private int quantity;
     private TestEstimationType estimation;
-    private boolean writable;
-    private boolean shuffle;
+    private Boolean writable;
+    private Boolean shuffle;
     private Set<Question> questions;
     private static final long serialVersionUID = 70L;
 
@@ -47,11 +47,11 @@ public class TestEntity extends SelfDependentWork{
         this.questions = questions;
     }
 
-    public boolean isShuffle() {
+    public Boolean isShuffle() {
         return shuffle;
     }
 
-    public void setShuffle(boolean shuffle) {
+    public void setShuffle(Boolean shuffle) {
         this.shuffle = shuffle;
     }
 
@@ -63,11 +63,11 @@ public class TestEntity extends SelfDependentWork{
         this.type = type;
     }
 
-    public boolean isWritable() {
+    public Boolean isWritable() {
         return writable;
     }
 
-    public void setWritable(boolean writable) {
+    public void setWritable(Boolean writable) {
         this.writable = writable;
     }
 }

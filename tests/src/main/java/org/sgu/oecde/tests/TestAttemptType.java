@@ -10,7 +10,7 @@ package org.sgu.oecde.tests;
  * @author ShihovMY
  */
 public enum TestAttemptType {
-    regular,trial,reTest;
+    trial,regular,reTest;
     private static final long serialVersionUID = 80L;
 
     @Override

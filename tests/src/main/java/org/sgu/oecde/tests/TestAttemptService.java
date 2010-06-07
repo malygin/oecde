@@ -2,8 +2,10 @@ package org.sgu.oecde.tests;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 import org.sgu.oecde.core.education.Curriculum;
@@ -31,22 +33,29 @@ public class TestAttemptService implements InitializingBean{
     }
 
     public List<AdditionalSelfDependentWork> getStudentsSingleCurriculumAttempts(Curriculum curriculum, String testingDate,AbstractStudent student){
-        List<Curriculum> tmpCurList = new ArrayList(1);
+        List<Curriculum> tmpCurList = new LinkedList();
         tmpCurList.add(curriculum);
-        List<AbstractStudent> sts = new ArrayList(1);
+        List<AbstractStudent> sts = new LinkedList();
         sts.add(student);
-        return getTestsWithAttempts(tmpCurList, testingDate, sts);
+        return getTestsWithAttempts(tmpCurList, testingDate, sts,null);
     }
 
-    public List<AdditionalSelfDependentWork> getStudentsAllCurriculumAttempts(List<Curriculum> curriculums, String testingDate,AbstractStudent student){
-        List<AbstractStudent> sts = new ArrayList(1);
+    public List<AdditionalSelfDependentWork> getStudentsAllCurriculumAttempts(List<? extends Curriculum> curriculums, String testingDate,AbstractStudent student,Boolean concluding){
+        List<AbstractStudent> sts = new LinkedList();
         sts.add(student);
-        return getTestsWithAttempts(curriculums, testingDate, sts);
+        return getTestsWithAttempts(curriculums, testingDate, sts,concluding);
     }
 
-    public List<AdditionalSelfDependentWork>getTestsWithAttempts(List<Curriculum> curriculums,String testingDate,List<AbstractStudent>students){
-
-        List<TestEntity>tests = testDao.getResourceByCurriculums(curriculums, null,TestEntity.class);
+    public List<AdditionalSelfDependentWork>getTestsWithAttempts(List<? extends Curriculum> curriculums,String testingDate,List<? extends AbstractStudent>students, Boolean concluding){
+        TestEntity e = null;
+        if(concluding!=null){
+            e = new TestEntity();
+            if(concluding)
+                e.setType(TestType.concluding);
+            else
+                e.setType(TestType.regular);
+        }
+        List<TestEntity>tests = testDao.getResourceByCurriculums(curriculums, e,TestEntity.class);
         TestAttempt tmpAttempt = new TestAttempt(testingDate);
 
         List<TestAttempt> attempts = attemptsDao.getByStudentsAndTests(tests, students, tmpAttempt, true);
@@ -67,9 +76,21 @@ public class TestAttemptService implements InitializingBean{
         return new ArrayList(testMap.values());
     }
 
-    public List<AdditionalCurriculum> getCurriculumAttemptsCount(List<Curriculum> curriculums, String testingDate,List<AbstractStudent> students){
+    public List<AdditionalCurriculum>getCurriculumAttemptsCount(Curriculum curriculum, String testingDate,List<? extends AbstractStudent> students){
+        List<Curriculum>c = new LinkedList();
+        c.add(curriculum);
+        return getAttemptsCount(c, testingDate, students);
+    }
 
-        List<AdditionalSelfDependentWork> attempts = getTestsWithAttempts(curriculums, testingDate, students);
+    public List<AdditionalCurriculum>getStudentAttemptsCount(List<? extends Curriculum> curriculums, String testingDate,AbstractStudent student){
+        List<AbstractStudent>st = new LinkedList();
+        st.add(student);
+        return getAttemptsCount(curriculums, testingDate, st);
+    }
+
+    public List<AdditionalCurriculum> getAttemptsCount(List<? extends Curriculum> curriculums, String testingDate,List<? extends AbstractStudent> students){
+
+        List<AdditionalSelfDependentWork> attempts = getTestsWithAttempts(curriculums, testingDate, students,null);
         int count = 0;
         boolean wasPassed = false;
         int attemptsNumber = 0;
@@ -84,6 +105,7 @@ public class TestAttemptService implements InitializingBean{
                     //запихивает в умк полученные значения
                        addCurriculum.setTestsCount(count);
                        addCurriculum.setPassedTests(attemptsNumber);
+                       addCurriculum.setCurriculum(temp);
                 }
                 addCurriculum = new AdditionalCurriculum();
                 list.add(addCurriculum);
@@ -113,13 +135,14 @@ public class TestAttemptService implements InitializingBean{
             //запихивает в умк полученные значения
                addCurriculum.setTestsCount(count);
                addCurriculum.setPassedTests(attemptsNumber);
+               addCurriculum.setCurriculum(temp);
         }
         return list;
     }
 
     public List<AdditionalSelfDependentWork> getStudentAttempts(List<? extends Curriculum> curriculum, String testingDate,AbstractStudent student){
 
-        List<AbstractStudent> sts = new ArrayList(1);
+        List<AbstractStudent> sts = new LinkedList();
         sts.add(student);
         List<TestAttempt> attempts = attemptsByStudentAndCurriculums(curriculum, sts, testingDate);
 
@@ -132,7 +155,7 @@ public class TestAttemptService implements InitializingBean{
     public List<AdditionalSelfDependentWork> getCurriculumAttempts(Curriculum curriculum, String testingDate,List<? extends AbstractStudent> students){
 
         
-        List<Curriculum> tmpCurList = new ArrayList(1);
+        List<Curriculum> tmpCurList = new LinkedList();
         tmpCurList.add(curriculum);
         List<AdditionalSelfDependentWork> additionalTests = new ArrayList<AdditionalSelfDependentWork>();
 
@@ -149,13 +172,13 @@ public class TestAttemptService implements InitializingBean{
 
     private List<TestAttempt> attemptsByStudentAndCurriculums(List<? extends Curriculum>curriculums,List<? extends AbstractStudent>students, String testingDate){
         TestAttempt tmpAttempt = new TestAttempt(testingDate);
-        List<TestAttempt> attempts = attemptsDao.getByStudentsAndCurriculums(curriculums, students, tmpAttempt, true);
+        List<TestAttempt> attempts = attemptsDao.getByStudentsAnsCurriculums(curriculums, students, tmpAttempt);
         return attempts;
 
     }
 
     private void attemptsIterator(List<TestAttempt> attempts,Generator service,Collection additionalTests){
-
+        Collections.sort(attempts);
         List<TestAttempt> oneTestAttempts = null;
         AdditionalSelfDependentWork test = null;
         List<Integer> points = null;
@@ -165,6 +188,8 @@ public class TestAttemptService implements InitializingBean{
 
         while(it.hasNext()){
             TestAttempt attempt = it.next();
+            if(attempt.getType().equals(TestAttemptType.trial))
+                continue;
             if(!attempt.getWork().equals(tmpTest)){
                 if(test!=null){
                     test.setPointsForWork(pointsCounter.count(previousAttemptType, points));

@@ -15,7 +15,7 @@ import org.sgu.oecde.core.BasicItem;
 public class Question  extends BasicItem{
 
     private String title;
-    private int weight;
+    private Integer weight;
     private QuestionType type;
     private Set<Answer> answers;
     private static final long serialVersionUID = 72L;
@@ -23,7 +23,7 @@ public class Question  extends BasicItem{
     public Question() {
     }
 
-    public Question(int id) {
+    public Question(Integer id) {
         setId(id);
     }
 
@@ -51,11 +51,11 @@ public class Question  extends BasicItem{
         this.type = type;
     }
 
-    public int getWeight() {
+    public Integer getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(Integer weight) {
         this.weight = weight;
     }
 }

@@ -11,12 +11,4 @@ public class TestPassingDatesGetter extends SemesterGetter{
 
     protected TestPassingDatesGetter() {
     }
-
-    public String getRegularTestDate(){
-        return this.<TestCalendarConstants>getConstants().getRegularTestDate();
-    }
-
-    public String getConcludingTestDate(){
-        return this.<TestCalendarConstants>getConstants().getConcludingTestDate();
-    }
 }

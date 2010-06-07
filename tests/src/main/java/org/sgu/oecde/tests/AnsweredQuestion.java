@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.tests;
 
 import java.util.Set;
@@ -13,9 +8,10 @@ import org.sgu.oecde.core.BasicItem;
  * @author ShihovMY
  */
 public class AnsweredQuestion extends BasicItem{
+    private TestAttempt attempt;
     private Question question;
     private Set<GivenAnswer> givenAnswers;
-    private boolean right;
+    private Boolean right;
     private int resultPoints;
     private static final long serialVersionUID = 74L;
 
@@ -50,11 +46,45 @@ public class AnsweredQuestion extends BasicItem{
         this.resultPoints = resultPoints;
     }
 
-    public boolean isRight() {
+    public Boolean isRight() {
         return right;
     }
 
-    public void setRight(boolean right) {
+    public void setRight(Boolean right) {
         this.right = right;
+    }
+
+    public TestAttempt getAttempt() {
+        return attempt;
+    }
+
+    public void setAttempt(TestAttempt attempt) {
+        this.attempt = attempt;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final AnsweredQuestion other = (AnsweredQuestion) obj;
+        if (this.attempt != other.attempt && (this.attempt == null || !this.attempt.equals(other.attempt))) {
+            return false;
+        }
+        if (this.question != other.question && (this.question == null || !this.question.equals(other.question))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 89 * hash + (this.attempt != null ? this.attempt.hashCode() : 0);
+        hash = 89 * hash + (this.question != null ? this.question.hashCode() : 0);
+        return hash;
     }
 }

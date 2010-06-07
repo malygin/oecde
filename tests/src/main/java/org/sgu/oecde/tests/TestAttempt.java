@@ -1,6 +1,7 @@
 package org.sgu.oecde.tests;
 
 import java.util.Set;
+import org.sgu.oecde.core.education.work.AbstractResult;
 import org.sgu.oecde.core.education.work.AbstractSelfDependentWorkResult;
 
 /**
@@ -73,5 +74,17 @@ public class TestAttempt extends AbstractSelfDependentWorkResult{
 
     public void setPoints(int points) {
         this.points = points;
+    }
+
+    @Override
+    public int compareTo(AbstractResult o) {
+        int superCompare = super.compareTo(o);
+        int typeInt = 0;
+        if(o instanceof TestAttempt){
+           TestAttempt r = (TestAttempt)o;
+           if(type!=null)
+               typeInt =type.compareTo(r.getType());
+        }
+        return superCompare==0?typeInt:superCompare;
     }
 }

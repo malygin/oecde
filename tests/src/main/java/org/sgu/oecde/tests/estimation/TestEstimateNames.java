@@ -1,4 +1,4 @@
-package org.sgu.oecde.tests;
+package org.sgu.oecde.tests.estimation;
 
 import org.sgu.oecde.core.education.estimation.IEstimate;
 
@@ -6,7 +6,7 @@ import org.sgu.oecde.core.education.estimation.IEstimate;
  *
  * @author ShihovMY
  */
-public enum EstimateNames implements IEstimate{
+public enum TestEstimateNames implements IEstimate{
     CONCLUDING_TEST,
     CONCLUDING_RE_TEST,
     TEST,

@@ -2,17 +2,18 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <class mutable="false" name="org.sgu.oecde.tests.AnsweredQuestion" table="answered_questions">
-    <id name="id" type="int">
+    <id name="id" type="int" unsaved-value="0">
       <generator class="native">
         <param name="sequence">answrd_quest_seq</param>
       </generator>
     </id>
-    <property name="resultPoints" type="integer"/>
-    <property name="right" type="boolean"/>
-    <set batch-size="15" cascade="none" fetch="select" inverse="true" name="givenAnswers">
-      <key column="question_result_id" not-null="true"/>
+    <property name="resultPoints" column="result_points" type="integer" scale="3"/>
+    <property name="right" column="is_right" type="boolean" scale="1"/>
+    <set batch-size="15" cascade="all" fetch="select" inverse="true" name="givenAnswers">
+      <key foreign-key="fk_gvanswr_quest" column="question_result_id" not-null="true"/>
       <one-to-many class="org.sgu.oecde.tests.GivenAnswer"/>
     </set>
-    <many-to-one class="org.sgu.oecde.tests.Question" fetch="join" name="question" not-null="true"/>
+    <many-to-one foreign-key="fk_aquest_testattempt" class="org.sgu.oecde.tests.TestAttempt" column="result_id" fetch="select" lazy="proxy" name="attempt" not-null="true"/>
+    <many-to-one foreign-key="fk_aquest_quest" class="org.sgu.oecde.tests.Question" fetch="join" name="question" not-null="true"/>
   </class>
 </hibernate-mapping>
