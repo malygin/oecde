@@ -6,7 +6,8 @@
        ">
 
   <bean id="semesterGetter" init-method="afterPropertiesSet" class="org.sgu.oecde.core.util.SemesterGetter" p:csDao-ref="csDao"/>
-  <bean id="preFilter" class="org.sgu.oecde.core.education.estimation.SelfDependentWorkResultPreFilter"/>
+  <bean id="preFilter" class="org.sgu.oecde.core.education.estimation.ResultPreFilter"/>
+  <bean class="org.sgu.oecde.core.education.estimation.EstimateFilter" id="estimateFilter" />
 
   <bean abstract="true" class="org.sgu.oecde.core.BasicDao" id="basicDao" >
       <property name="sessionFactory" ref="sessionFactory"/>

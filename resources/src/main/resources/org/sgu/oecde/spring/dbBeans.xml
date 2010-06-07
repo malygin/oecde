@@ -23,12 +23,12 @@
     <property name="driverClassName" value="com.mysql.jdbc.Driver" />
    -->
 
-    <!--   Oracle-->
+    <!--   Oracle  -->
     <property name="username" value="oecdo_test"/>
     <property name="password" value="oecdo_test"/>
     <property name="url" value="jdbc:oracle:thin:@odin.sgu.ru:1521:odin"/>
     <property name="driverClassName" value="oracle.jdbc.OracleDriver" />
-    
+  
   </bean>
 
   <bean p:dataSource-ref="dataSource" id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
