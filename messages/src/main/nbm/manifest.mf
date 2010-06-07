@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+OpenIDE-Module-Localizing-Bundle: org/sgu/oecde/messages/Bundle.properties
+OpenIDE-Module-Layer: org/sgu/oecde/messages/layer.xml
