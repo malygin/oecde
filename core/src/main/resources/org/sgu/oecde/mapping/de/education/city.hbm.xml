@@ -4,8 +4,9 @@
   <class mutable="false" name="org.sgu.oecde.de.education.City" table="city">
     <cache usage="read-only"/>
     <id name="id" type="int"/>
-    <property insert="false" name="name" update="false"/>
-    <property insert="false" name="engShort" update="false"/>
-    <property insert="false" name="description" update="false"/>
+    <property insert="false" length="30" name="name" not-null="true" unique="true" unique-key="uk_city"/>
+    <property column="eng_short" insert="false" length="5" name="engShort"/>
+    <property column="rus_short" insert="false" length="5" name="rusShort"/>
+    <property insert="false" name="description"/>
   </class>
 </hibernate-mapping>

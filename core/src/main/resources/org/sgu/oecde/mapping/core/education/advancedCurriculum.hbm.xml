@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <subclass discriminator-value="ADV" extends="org.sgu.oecde.core.education.Curriculum" name="org.sgu.oecde.core.education.AdvancedCurriculum">
-    <many-to-one class="org.sgu.oecde.core.education.Discipline" column="id_discipline" fetch="join" insert="false" name="discipline" not-null="true" update="false"/>
-    <many-to-one class="org.sgu.oecde.core.education.Speciality" column="id_speciality" fetch="join" insert="false" name="speciality" not-null="true" update="false"/>
+    <many-to-one class="org.sgu.oecde.core.education.Discipline" fetch="select" foreign-key="fk_adv_cur_disc" insert="false" name="discipline" not-null="true"/>
+    <many-to-one class="org.sgu.oecde.core.education.Speciality" fetch="select" foreign-key="fk_adv_cur_spec" insert="false" name="speciality" not-null="true"/>
   </subclass>
 </hibernate-mapping>

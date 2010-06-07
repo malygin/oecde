@@ -5,7 +5,7 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import org.sgu.oecde.core.education.work.AbstractSelfDependentWorkResult;
+import org.sgu.oecde.core.education.work.AbstractResult;
 
 /**
  *
@@ -15,5 +15,5 @@ import org.sgu.oecde.core.education.work.AbstractSelfDependentWorkResult;
 @Target(ElementType.TYPE)
 @Documented
 public @interface ResultType {
-    Class<? extends AbstractSelfDependentWorkResult> type();
+    Class<? extends AbstractResult> type();
 }

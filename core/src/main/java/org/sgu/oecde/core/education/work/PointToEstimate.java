@@ -10,7 +10,7 @@ package org.sgu.oecde.core.education.work;
  * @author ShihovMY
  */
 public enum PointToEstimate {
-    notEstimated,two,three,four,five,absence,passed,notPassed;
+    notEstimated,two,three,four,five,absence,passed,failed;
 
     @Override
     public String toString() {
@@ -27,7 +27,7 @@ public enum PointToEstimate {
                 return "неявка";
             case passed:
                 return "зачтено";
-            case notPassed:
+            case failed:
                 return "не зачтено";
             case notEstimated:
             default:
@@ -46,11 +46,11 @@ public enum PointToEstimate {
             case five:
                 return "5";
             case absence:
-                return "6";
+                return "absence";
             case passed:
-                return "7";
-            case notPassed:
-                return "8";
+                return "passed";
+            case failed:
+                return "failed";
             case notEstimated:
             default:
                 return "";
@@ -71,7 +71,7 @@ public enum PointToEstimate {
         if("7".equals(name))
             return passed;
         if("8".equals(name))
-            return notPassed;
+            return failed;
         else
             return notEstimated;
     }

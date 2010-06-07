@@ -2,16 +2,16 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <joined-subclass abstract="true" dynamic-update="true" extends="org.sgu.oecde.core.users.AbstractGroup" name="org.sgu.oecde.core.users.StudentGroup" table="student_group">
-    <key column="id" not-null="true" on-delete="cascade"/>
-    <property name="year" type="int"/>
-    <property column="students_number" name="number" type="int"/>
+    <key column="id" foreign-key="fk_st_group_group" not-null="true" on-delete="cascade"/>
+    <property name="year" scale="1" type="integer"/>
+    <property column="students_number" name="number" scale="2" type="integer"/>
     <set cascade="none" fetch="select" lazy="true" mutable="false" name="teacherToGroups" table="teacher_to_group">
       <cache usage="read-only"/>
-      <key column="group_id"/>
+      <key column="group_id" foreign-key="fk_t2g_group"/>
       <composite-element class="org.sgu.oecde.core.education.TeacherToGroup">
         <parent name="group"/>
-        <many-to-one cascade="none" class="org.sgu.oecde.core.education.Curriculum" column="curriculum_id" fetch="join" insert="false" name="curriculum" update="false"/>
-        <many-to-one cascade="none" class="org.sgu.oecde.core.users.AbstractTeacher" column="teacher_id" fetch="join" insert="false" name="teacher" update="false"/>
+        <many-to-one cascade="none" class="org.sgu.oecde.core.education.Curriculum" column="curriculum_id" fetch="join" foreign-key="fk_t2g_cur" insert="false" name="curriculum" update="false"/>
+        <many-to-one cascade="none" class="org.sgu.oecde.core.users.AbstractTeacher" column="teacher_id" fetch="join" foreign-key="fk_t2g_teach" insert="false" name="teacher" update="false"/>
       </composite-element>
     </set>
   </joined-subclass>

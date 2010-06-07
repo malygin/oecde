@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.core.education.resource;
 
 
@@ -12,24 +7,24 @@ package org.sgu.oecde.core.education.resource;
  * created 05.05.2010
  * Простой ресурс - видео-ролик
  */
-abstract public class Video extends AbstractResource{
+public class Video extends AbstractResource{
     private String url;
     private String previewImg;
 
     private String quality;
 
-    private int width;
-    private int height;
+    private Integer width;
+    private Integer height;
 
 
     public Video() {
     }
 
-    public int getHeight() {
+    public Integer getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(Integer height) {
         this.height = height;
     }
 
@@ -57,11 +52,11 @@ abstract public class Video extends AbstractResource{
         this.url = url;
     }
 
-    public int getWidth() {
+    public Integer getWidth() {
         return width;
     }
 
-    public void setWidth(int width) {
+    public void setWidth(Integer width) {
         this.width = width;
     }
 

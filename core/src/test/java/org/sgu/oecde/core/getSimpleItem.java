@@ -12,9 +12,11 @@ import org.junit.Test;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.dao.ICurriculumDao;
 import org.sgu.oecde.core.education.resource.Image;
+import org.sgu.oecde.core.education.work.AbstractResult;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.StudentGroup;
+import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.core.util.Semesters;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
@@ -54,5 +56,21 @@ public class getSimpleItem extends BasicTest{
         this.setDao("userDao");
          System.out.println(this.<AbstractUser>getByExample(AbstractUser.getUserWithName("belousovyae")));
     }
- 
+
+    @Ignore
+    @Test
+    public void getResults(){
+        this.setDao("resultDao");
+        for(AbstractResult r: this.<AbstractResult>getAllItems()){
+            System.out.println(r.getCurriculum()+"   "+r);
+        }
+    }
+
+//    @Ignore
+    @Test
+    public void getConsts(){
+        SemesterGetter g = getBean("semesterGetter");
+        System.out.println(g.getCurrentYear());
+        System.out.println(g.getCurrentSemester());
+    }
 }

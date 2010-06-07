@@ -1,14 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.core.education.dao;
 
 import java.util.List;
 import org.sgu.oecde.core.IBasicDao;
 import org.sgu.oecde.core.education.Curriculum;
-import org.sgu.oecde.core.education.Discipline;
 import org.sgu.oecde.core.users.AbstractTeacher;
 import org.sgu.oecde.core.users.StudentGroup;
 import org.springframework.dao.DataAccessException;

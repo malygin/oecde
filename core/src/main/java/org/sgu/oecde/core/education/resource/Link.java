@@ -1,4 +1,3 @@
-
 package org.sgu.oecde.core.education.resource;
 
 
@@ -8,7 +7,7 @@ package org.sgu.oecde.core.education.resource;
  * created 05.05.2010
  * Простой ресурс - ссылка
  */
-abstract public class Link extends AbstractResource{
+public class Link extends AbstractResource{
     private String url;
 
 

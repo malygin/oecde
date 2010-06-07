@@ -2,10 +2,10 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <joined-subclass abstract="true" dynamic-update="true" extends="org.sgu.oecde.core.education.resource.AbstractResource" name="org.sgu.oecde.core.education.work.SelfDependentWork" table="self_dependent_work">
-    <key column="id" not-null="true" on-delete="cascade"/>
-    <property insert="false" name="duration" type="int"/>
-    <property insert="false" name="estimateAttemptsNumber" type="int"/>
-    <property insert="false" name="trialNumber" type="int"/>
-    <property insert="false" name="weight" type="int"/>
+    <key column="id" foreign-key="fk_selfd_w_res" not-null="true" on-delete="cascade"/>
+    <property insert="false" name="duration" scale="3" type="integer"/>
+    <property column="estimate_attempts_number" insert="false" name="estimateAttemptsNumber" scale="1" type="int"/>
+    <property column="trial_number" insert="false" name="trialNumber" scale="1" type="int"/>
+    <property insert="false" name="weight" scale="3" type="int"/>
   </joined-subclass>
 </hibernate-mapping>

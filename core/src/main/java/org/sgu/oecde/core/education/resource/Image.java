@@ -11,20 +11,20 @@ package org.sgu.oecde.core.education.resource;
     private String url;
     private String previewUrl;
 
-    private int width;
-    private int height;
+    private Integer width;
+    private Integer height;
 
-    private static final int previewWidth=300;
-    private static final int previewHeight=400;
+    private static final Integer previewWidth=300;
+    private static final Integer previewHeight=400;
 
     public Image() {
     }
 
-    public int getHeight() {
+    public Integer getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(Integer height) {
         this.height = height;
     }
 
@@ -44,11 +44,11 @@ package org.sgu.oecde.core.education.resource;
         this.url = url;
     }
 
-    public int getWidth() {
+    public Integer getWidth() {
         return width;
     }
 
-    public void setWidth(int width) {
+    public void setWidth(Integer width) {
         this.width = width;
     }
 

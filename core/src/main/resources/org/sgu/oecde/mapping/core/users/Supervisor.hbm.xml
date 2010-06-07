@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <joined-subclass dynamic-update="true" extends="org.sgu.oecde.core.users.AbstractUser" name="org.sgu.oecde.core.users.Supervisor" table="supervisor">
-    <key column="id" not-null="true" on-delete="cascade"/>
+    <key column="id" foreign-key="fk_superv_user" not-null="true" on-delete="cascade"/>
     <property insert="false" name="description" type="string"/>
   </joined-subclass>
 </hibernate-mapping>

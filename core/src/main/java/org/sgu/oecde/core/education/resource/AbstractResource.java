@@ -16,10 +16,10 @@ abstract public class AbstractResource extends BasicItem{
     private String description;
 
     //версия ресурса,начиная с 1
-    private int version;
+    private Integer version;
 
     //видимость ресурса, true- видим
-    private boolean visible;
+    private Boolean visible;
     private String dateLastchange;
 
     //уровень доступа к ресурсу
@@ -69,19 +69,19 @@ abstract public class AbstractResource extends BasicItem{
         this.shortDescription = shortDescription;
     }
 
-    public int getVersion() {
+    public Integer getVersion() {
         return version;
     }
 
-    public void setVersion(int version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
-    public boolean isVisible() {
+    public Boolean isVisible() {
         return visible;
     }
 
-    public void setVisible(boolean visible) {
+    public void setVisible(Boolean visible) {
         this.visible = visible;
     }
 

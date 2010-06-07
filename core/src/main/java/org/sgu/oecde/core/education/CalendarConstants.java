@@ -7,36 +7,20 @@ import java.io.Serializable;
  * @author ShihovMY
  */
 public class CalendarConstants implements Serializable{
-    int semester;
-    int year;
-    boolean reExame;
+    private ICalendarConstantName name;
+    private String value;
     private static final long serialVersionUID = 58L;
 
     public CalendarConstants() {
     }
 
-    public int getSemester() {
-        return semester;
+    public CalendarConstants(ICalendarConstantName name) {
+        this.name = name;
     }
 
-    public void setSemester(int semester) {
-        this.semester = semester;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public boolean isReExame() {
-        return reExame;
-    }
-
-    public void setReExame(boolean reExame) {
-        this.reExame = reExame;
+    public CalendarConstants(ICalendarConstantName name, String value) {
+        this.name = name;
+        this.value = value;
     }
 
     @Override
@@ -48,10 +32,7 @@ public class CalendarConstants implements Serializable{
             return false;
         }
         final CalendarConstants other = (CalendarConstants) obj;
-        if (this.semester != other.semester) {
-            return false;
-        }
-        if (this.year != other.year) {
+        if (this.name != other.name && (this.name == null || !this.name.equals(other.name))) {
             return false;
         }
         return true;
@@ -60,8 +41,23 @@ public class CalendarConstants implements Serializable{
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 47 * hash + this.semester;
-        hash = 47 * hash + this.year;
+        hash = 71 * hash + (this.name != null ? this.name.hashCode() : 0);
         return hash;
+    }
+
+    public ICalendarConstantName getName() {
+        return name;
+    }
+
+    public void setName(ICalendarConstantName name) {
+        this.name = name;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 }

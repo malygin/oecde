@@ -4,18 +4,17 @@
   <class mutable="false" name="org.sgu.oecde.core.education.Umk" table="umk">
     <cache usage="read-only"/>
     <id name="id" type="int"/>
-    <property insert="false" name="name" type="string" update="false"/>
+    <property insert="false" name="name" type="string" update="false" unique="true" unique-key="uk_umk_name"/>
     <property insert="false" name="description" type="string" update="false"/>
-    <set batch-size="5" cascade="none" fetch="select" mutable="false" name="modules"  table="umk_modules">
+    <set batch-size="5" cascade="none" fetch="select" inverse="true" mutable="false" name="modules">
       <cache usage="read-only"/>
-      <key column="umk_id" not-null="true"/>
-      <many-to-many class="org.sgu.oecde.core.education.Module"/>
+      <key column="umk" foreign-key="fk_mod_umk" not-null="true"/>
+      <one-to-many class="org.sgu.oecde.core.education.Module"/>
     </set>
     <set batch-size="5" cascade="none" fetch="select" mutable="false" name="resources" order-by="resource_id asc" table="umk_resources">
       <cache usage="read-only"/>
-      <key column="umk_id" not-null="true"/>
-      <many-to-many class="org.sgu.oecde.core.education.resource.AbstractResource" column="resource_id"/>
+      <key column="umk" foreign-key="fk_umk_res_umk" not-null="true"/>
+      <many-to-many class="org.sgu.oecde.core.education.resource.AbstractResource" column="resource_id" foreign-key="fk_umk_res"/>
     </set>
-
   </class>
 </hibernate-mapping>

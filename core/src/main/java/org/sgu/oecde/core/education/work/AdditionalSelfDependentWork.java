@@ -15,8 +15,8 @@ import org.sgu.oecde.core.education.Curriculum;
  */
 public class AdditionalSelfDependentWork implements Serializable{
 
-    private int estimateAttemptsUsedNumber;
-    private int pointsForWork;
+    private Integer estimateAttemptsUsedNumber;
+    private Integer pointsForWork;
     private List<? extends AbstractSelfDependentWorkResult> results;
     private Curriculum curriculum;
     private SelfDependentWork work;
@@ -29,11 +29,11 @@ public class AdditionalSelfDependentWork implements Serializable{
         this.work = work;
     }
 
-    public int getEstimateAttemptsUsedNumber() {
+    public Integer getEstimateAttemptsUsedNumber() {
         return estimateAttemptsUsedNumber;
     }
 
-    public void setEstimateAttemptsUsedNumber(int estimateAttemptsUsedNumber) {
+    public void setEstimateAttemptsUsedNumber(Integer estimateAttemptsUsedNumber) {
         this.estimateAttemptsUsedNumber = estimateAttemptsUsedNumber;
     }
 
@@ -45,11 +45,11 @@ public class AdditionalSelfDependentWork implements Serializable{
         this.results = (List<AbstractSelfDependentWorkResult>) results;
     }
 
-    public int getPointsForWork() {
+    public Integer getPointsForWork() {
         return pointsForWork;
     }
 
-    public void setPointsForWork(int pointsForWork) {
+    public void setPointsForWork(Integer pointsForWork) {
         this.pointsForWork = pointsForWork;
     }
 
@@ -61,8 +61,8 @@ public class AdditionalSelfDependentWork implements Serializable{
         this.work = work;
     }
 
-    public Curriculum getCurriculum() {
-        return curriculum;
+    public <T extends Curriculum>T getCurriculum() {
+        return (T) curriculum;
     }
 
     public void setCurriculum(Curriculum curriculum) {

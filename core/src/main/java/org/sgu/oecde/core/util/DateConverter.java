@@ -24,4 +24,9 @@ public class DateConverter {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         return  sdf.format(new Date(date)).toString();
     }
+
+    public static String currentDate(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+        return  sdf.format(new Date(System.currentTimeMillis())).toString();
+    }
 }

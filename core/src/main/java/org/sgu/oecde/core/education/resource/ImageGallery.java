@@ -1,11 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.core.education.resource;
 
-import java.util.List;
 import java.util.Set;
 
 
@@ -19,7 +13,7 @@ import java.util.Set;
 //TODO: решить делать ли асбтрактную галлерею настройки галлереи
  public class ImageGallery extends AbstractResource{
 
-    private int numImages;
+    private Integer numImages;
   
     private Set<Image> images;
 
@@ -34,11 +28,11 @@ import java.util.Set;
         this.images = images;
     }
  
-    public int getNumImages() {
+    public Integer getNumImages() {
         return numImages;
     }
 
-    public void setNumImages(int numImages) {
+    public void setNumImages(Integer numImages) {
         this.numImages = numImages;
     }
 

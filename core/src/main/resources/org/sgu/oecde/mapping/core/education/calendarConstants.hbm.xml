@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
-  <class mutable="false" name="org.sgu.oecde.core.education.CalendarConstants" table="current_semester">
-    <cache usage="read-only"/>
-    <composite-id>
-      <key-property name="semester" type="int"/>
-      <key-property name="year" type="int"/>
-    </composite-id>
+  <class dynamic-insert="true" dynamic-update="true" entity-name="MainCalendarConstants" name="org.sgu.oecde.core.education.CalendarConstants" select-before-update="false" table="calendar_constants">
+    <cache usage="read-write"/>
+    <id name="name" unsaved-value="null" length="30">
+      <type name="org.sgu.oecde.core.GenericEnumUserType">
+        <param name="enumClass">org.sgu.oecde.core.education.CalendarConstantName</param>
+      </type>
+    </id>
+    <property name="value" type="string"/>
   </class>
 </hibernate-mapping>

@@ -2,6 +2,6 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <joined-subclass dynamic-update="true" extends="org.sgu.oecde.core.users.AbstractGroup" name="org.sgu.oecde.core.users.Department" table="department">
-    <key column="id" not-null="true" on-delete="cascade"/>
+    <key column="id" foreign-key="fk_depart_group" not-null="true" on-delete="cascade"/>
   </joined-subclass>
 </hibernate-mapping>

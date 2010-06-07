@@ -2,17 +2,17 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <class name="org.sgu.oecde.core.education.resource.AbstractResource" table="abstract_resource">
-    <id name="id" type="int">
+    <id name="id" type="integer" unsaved-value="0">
       <generator class="native">
         <param name="sequence">resource_seq</param>
       </generator>
     </id>
     <property name="title" type="string"/>
     <property name="description" type="string"/>
-    <property name="version" type="int"/>
-    <property name="visible" type="boolean"/>
-    <property name="dateLastchange" type="string"/>
-    <property   column="accessResource" name="accessResource">
+    <property name="version" scale="3" type="integer"/>
+    <property name="visible" scale="1" type="boolean"/>
+    <property column="date_last_change" length="19" name="dateLastchange" type="string"/>
+    <property column="access_resource" name="accessResource">
       <type name="org.sgu.oecde.core.GenericEnumUserType">
         <param name="enumClass">org.sgu.oecde.core.education.resource.AccessResource</param>
         <param name="identifierMethod">toName</param>

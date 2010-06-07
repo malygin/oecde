@@ -9,8 +9,8 @@ import org.sgu.oecde.core.BasicItem;
  */
 public class Curriculum extends BasicItem{
 
-    private int semester;
-    private int calendarYear;
+    private Integer semester;
+    private Integer calendarYear;
     private Set<TeacherToGroup> teacherToGroups;
     private Umk umk;
     private ExaminationType examinationType;
@@ -19,25 +19,28 @@ public class Curriculum extends BasicItem{
     public Curriculum() {
     }
 
+    public Curriculum(Integer id) {
+        setId(id);
+    }
     /**
      * @return семестр
      */
-    public int getSemester() {
+    public Integer getSemester() {
         return semester;
     }
 
-    public void setSemester(int semester) {
+    public void setSemester(Integer semester) {
         this.semester = semester;
     }
 
     /**
      * @return год
      */
-    public int getCalendarYear() {
+    public Integer getCalendarYear() {
         return calendarYear;
     }
 
-    public void setCalendarYear(int year) {
+    public void setCalendarYear(Integer year) {
         this.calendarYear = year;
     }
 

@@ -5,7 +5,7 @@ package org.sgu.oecde.core.education.resource;
  * created 05.05.2010
  * Простой ресурс - звуковой ролик
  */
-abstract public class Sound extends AbstractResource{
+public class Sound extends AbstractResource{
     private String url;
     private String previewImg;
     private String time;

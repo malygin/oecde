@@ -46,7 +46,6 @@ public class GenericEnumUserType implements EnhancedUserType, ParameterizedType,
         } catch (Exception e) {
             throw new HibernateException("Failed to obtain identifier method", e);
         }
-
         type = (NullableType)  TypeFactory.basic(identifierType.getName());
 
         if (type == null)

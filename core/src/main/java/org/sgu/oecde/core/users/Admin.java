@@ -9,7 +9,7 @@ public class Admin extends AbstractPerson{
     private static final long serialVersionUID = 56L;    
     private String position;
     private String description;
-    private int type;
+    private Integer type;
     
     public Admin() {
     }
@@ -30,11 +30,11 @@ public class Admin extends AbstractPerson{
         this.position = position;
     }
 
-    public int getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
-  <class mutable="false" name="org.sgu.oecde.core.education.Curriculum" table="curriculum">
+  <class discriminator-value="main" mutable="false" name="org.sgu.oecde.core.education.Curriculum" table="curriculum">
     <cache usage="read-only"/>
-    <id name="id" type="int"/>
+    <id name="id" type="integer"/>
     <discriminator column="discriminator"/>
-    <property insert="false" name="semester" type="int" update="false"/>
-    <property column="calendar_year" insert="false" name="calendarYear" type="int" update="false"/>
-    <property column="examination_type" insert="false" name="examinationType" not-null="true" update="false">
+    <property insert="false" name="semester" scale="2" type="integer"/>
+    <property column="calendar_year" insert="false" name="calendarYear" scale="4" type="integer"/>
+    <property column="examination_type" insert="false" length="10" name="examinationType" not-null="true">
       <type name="org.sgu.oecde.core.GenericEnumUserType">
         <param name="enumClass">org.sgu.oecde.core.education.ExaminationType</param>
         <param name="identifierMethod">toName</param>
@@ -16,13 +16,13 @@
     </property>
     <set batch-size="5" cascade="none" fetch="select" lazy="true" mutable="false" name="teacherToGroups" table="teacher_to_group">
       <cache usage="read-only"/>
-      <key column="curriculum_id"/>
+      <key column="curriculum_id" foreign-key="fk_t2g_cur"/>
       <composite-element class="org.sgu.oecde.core.education.TeacherToGroup">
         <parent name="curriculum"/>
-        <many-to-one cascade="none" class="org.sgu.oecde.core.users.AbstractTeacher" column="teacher_id" fetch="join" insert="false" name="teacher" update="false"/>
-        <many-to-one cascade="all" class="org.sgu.oecde.core.users.StudentGroup" column="group_id" fetch="join" insert="false" name="group" update="false"/>
+        <many-to-one cascade="none" class="org.sgu.oecde.core.users.AbstractTeacher" column="teacher_id" fetch="join" foreign-key="fk_t2g_teach" insert="false" name="teacher"/>
+        <many-to-one cascade="none" class="org.sgu.oecde.core.users.StudentGroup" column="group_id" fetch="join" foreign-key="fk_t2g_group" insert="false" name="group"/>
       </composite-element>
     </set>
-    <many-to-one class="org.sgu.oecde.core.education.Umk" fetch="join" insert="false" name="umk" unique="true" update="false"/>
+    <many-to-one class="org.sgu.oecde.core.education.Umk" fetch="join" foreign-key="fk_cur_umk" insert="false" name="umk"/>
   </class>
 </hibernate-mapping>

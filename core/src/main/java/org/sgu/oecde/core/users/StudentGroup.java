@@ -13,26 +13,26 @@ import org.sgu.oecde.core.education.TeacherToGroup;
  * @author ShihovMY
  */
 public abstract class StudentGroup extends AbstractGroup<AbstractStudent>{
-    private int year;
-    private int number;
+    private Integer year;
+    private Integer number;
     private Set<TeacherToGroup> teacherToGroups;
 
     public  StudentGroup() {
     }
 
-    public int getNumber() {
+    public Integer getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(Integer number) {
         this.number = number;
     }
 
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 

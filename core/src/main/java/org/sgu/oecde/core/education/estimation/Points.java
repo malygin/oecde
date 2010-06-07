@@ -1,10 +1,11 @@
 package org.sgu.oecde.core.education.estimation;
 
 import java.io.Serializable;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.users.AbstractStudent;
+import org.springframework.util.Assert;
 
 /**
  *
@@ -13,7 +14,7 @@ import org.sgu.oecde.core.users.AbstractStudent;
 public class Points implements Serializable{
     private AbstractStudent student;
     private Curriculum curriculum;
-    private List<EstimatedWorkPoints> workPoints = new LinkedList<EstimatedWorkPoints>();
+    private Map<IEstimate,Object> workPoints = new HashMap<IEstimate,Object>();
     private int sum;
     private static final long serialVersionUID = 65L;
 
@@ -36,12 +37,13 @@ public class Points implements Serializable{
         this.student = student;
     }
 
-    public List<EstimatedWorkPoints> getWorkPoints() {
-        return workPoints;
+    public void addWorkPoints(Map<IEstimate, Object> workPoints) {
+        if(workPoints!=null)
+            this.workPoints.putAll(workPoints);
     }
 
-    public void setWorkPoints(List<EstimatedWorkPoints> workPoints) {
-        this.workPoints.addAll(workPoints);
+    public <T extends Object>Map<IEstimate, T> getWorkPoints() {
+        return (Map<IEstimate, T>) workPoints;
     }
 
     public int getSum() {
@@ -50,6 +52,20 @@ public class Points implements Serializable{
 
     public void setSum(int sum) {
         this.sum = sum;
+    }
+
+    public void addSum(int sum){
+        this.sum+=sum;
+    }
+
+    public void addNewWorkPoint(IEstimate name,Object value){
+        this.getWorkPoints().put(name, value);
+    }
+
+    public void addIntegerWorkPoints(IEstimate name,Integer points){
+        Assert.isInstanceOf(Integer.class,this.getWorkPoints().get(name),"this value is not integer");
+        Integer oldP = this.<Integer>getWorkPoints().get(name);
+        this.<Integer>getWorkPoints().put(name, (oldP!=null?oldP:0)+points);
     }
 
     @Override

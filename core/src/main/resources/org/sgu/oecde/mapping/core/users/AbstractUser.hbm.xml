@@ -2,19 +2,14 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <class abstract="true" dynamic-update="true" name="org.sgu.oecde.core.users.AbstractUser" table="abstract_user">
-    <id name="id" type="int">
-      <generator class="native">
-        <param name="sequence">user_seq</param>
-      </generator>
-    </id>
-    <discriminator column="DISCRIMINATOR"/>
-    <property insert="false" name="username" not-null="true" type="string"/>
+    <id name="id" type="integer"/>
+    <discriminator column="DISCRIMINATOR" not-null="false"/>
+    <property insert="false" name="username" not-null="true" type="string" update="false" unique="true" unique-key="uk_abs_user"/>
     <property insert="false" name="password" type="string"/>
-    <property insert="false" name="enabled" type="boolean"/>
-    <property column="is_online" insert="false" name="online" type="boolean"/>
+    <property insert="false" name="enabled" scale="1" type="boolean"/>
     <property column="large_photo" insert="false" name="largePhoto" type="string"/>
     <property column="medium_photo" insert="false" name="mediumPhoto" type="string"/>
     <property column="small_photo" insert="false" name="smallPhoto" type="string"/>
-    <many-to-one cascade="none" class="org.sgu.oecde.core.authentication.RoleItem" column="role" fetch="join" name="authority"/>
+    <many-to-one cascade="none" class="org.sgu.oecde.core.authentication.RoleItem" column="role" fetch="join" foreign-key="fk_user_role" name="authority"/>
   </class>
 </hibernate-mapping>

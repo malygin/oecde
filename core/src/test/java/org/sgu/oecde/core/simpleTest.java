@@ -5,10 +5,17 @@
 
 package org.sgu.oecde.core;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Set;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.sgu.oecde.core.education.Speciality;
+import org.sgu.oecde.de.education.DeCurriculumBuilder;
+import org.sgu.oecde.de.users.Group;
+import org.sgu.oecde.de.users.Student;
 import static org.junit.Assert.*;
 
 /**
@@ -20,7 +27,9 @@ public class simpleTest{
     @Ignore
     @Test
     public void getF(){
-        String d = "$$ y = C_1 e^{ \\lambda x} + C_2 x e^{ \\lambda x} $$".replaceAll("[\\n\\r\\t\\v]", "").replace("\\", "\\\\");
-        System.out.println(d);
+        Calendar c = new GregorianCalendar();
+        System.out.println(Calendar.getInstance());
+        c.set(2010, Calendar.JUNE, 2,18,45);
+        System.out.println(c.after(Calendar.getInstance()));
     }
 }

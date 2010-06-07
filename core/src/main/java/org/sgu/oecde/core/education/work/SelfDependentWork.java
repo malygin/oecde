@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.core.education.work;
 
 import org.sgu.oecde.core.education.resource.AbstractResource;
@@ -11,44 +6,44 @@ import org.sgu.oecde.core.education.resource.AbstractResource;
  *
  * @author ShihovMY
  */
-abstract public class SelfDependentWork extends AbstractResource{
-    private int weight;
-    private int estimateAttemptsNumber;
-    private int trialNumber;
-    private int duration;
+ public class SelfDependentWork extends AbstractResource{
+    private Integer weight;
+    private Integer estimateAttemptsNumber;
+    private Integer trialNumber;
+    private Integer duration;
 
     public SelfDependentWork() {
     }
 
-    public int getDuration() {
+    public Integer getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(Integer duration) {
         this.duration = duration;
     }
 
-    public int getEstimateAttemptsNumber() {
+    public Integer getEstimateAttemptsNumber() {
         return estimateAttemptsNumber;
     }
 
-    public void setEstimateAttemptsNumber(int estimateAttemptsNumber) {
+    public void setEstimateAttemptsNumber(Integer estimateAttemptsNumber) {
         this.estimateAttemptsNumber = estimateAttemptsNumber;
     }
 
-    public int getTrialNumber() {
+    public Integer getTrialNumber() {
         return trialNumber;
     }
 
-    public void setTrialNumber(int trialNumber) {
+    public void setTrialNumber(Integer trialNumber) {
         this.trialNumber = trialNumber;
     }
 
-    public int getWeight() {
+    public Integer getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(Integer weight) {
         this.weight = weight;
     }
 }

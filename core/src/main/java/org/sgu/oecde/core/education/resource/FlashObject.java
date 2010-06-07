@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.core.education.resource;
 
 
@@ -13,23 +8,23 @@ package org.sgu.oecde.core.education.resource;
  * Простой ресурс - флеш-объект
  * @todo добавить методы по настройке объекта
  */
-abstract public class FlashObject extends AbstractResource{
+public class FlashObject extends AbstractResource{
     private String url;
     private String previewImg;
 
 
-    private int width;
-    private int height;
+    private Integer width;
+    private Integer height;
 
 
     public FlashObject() {
     }
 
-    public int getHeight() {
+    public Integer getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(Integer height) {
         this.height = height;
     }
 
@@ -49,11 +44,11 @@ abstract public class FlashObject extends AbstractResource{
         this.url = url;
     }
 
-    public int getWidth() {
+    public Integer getWidth() {
         return width;
     }
 
-    public void setWidth(int width) {
+    public void setWidth(Integer width) {
         this.width = width;
     }
 

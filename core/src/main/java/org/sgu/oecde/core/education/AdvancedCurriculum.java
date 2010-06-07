@@ -14,7 +14,7 @@ public class AdvancedCurriculum extends Curriculum{
     }
 
     public AdvancedCurriculum(int id) {
-        setId(id);
+        super(id);
     }
 
     /**

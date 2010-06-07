@@ -11,6 +11,7 @@ public class Speciality extends BasicItem{
 
     private String name;
     private String engShort;
+    private String rusShort;
     private static final long serialVersionUID = 45L;
 
     public Speciality() {
@@ -42,6 +43,14 @@ public class Speciality extends BasicItem{
 
     public void setEngShort(String engShort) {
         this.engShort = engShort;
+    }
+
+    public String getRusShort() {
+        return rusShort;
+    }
+
+    public void setRusShort(String rusShort) {
+        this.rusShort = rusShort;
     }
 
 }

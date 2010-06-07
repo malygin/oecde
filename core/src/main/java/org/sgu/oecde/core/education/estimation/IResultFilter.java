@@ -1,19 +1,14 @@
 package org.sgu.oecde.core.education.estimation;
 
-import java.util.List;
-import org.sgu.oecde.core.education.work.AbstractSelfDependentWorkResult;
-import org.springframework.beans.factory.InitializingBean;
+import org.sgu.oecde.core.education.work.AbstractResult;
 
 /**
  *
  * @author ShihovMY
  */
-public interface IResultFilter extends InitializingBean{
-    public void check(AbstractSelfDependentWorkResult result);
-    
-    public List<EstimatedWorkPoints> getEstimatedWorkPoints() ;
+public interface IResultFilter {
 
-    public int getSum() ;
+    public void check(AbstractResult result,Points points);
 
-    public void clear();
+    public void setPoints(Points points);
 }

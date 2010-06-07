@@ -15,21 +15,21 @@ public class Student extends AbstractStudent{
 
     private static final long serialVersionUID = 51L;
     private String email;
-    private int cellPhone;
-    private int icq;
+    private Integer cellPhone;
+    private Integer icq;
 
     public Student() {
     }
 
-    public Student(int id) {
+    public Student(Integer id) {
         setId(id);
     }
 
-    public int getCellPhone() {
+    public Integer getCellPhone() {
         return cellPhone;
     }
 
-    public void setCellPhone(int cellPhone) {
+    public void setCellPhone(Integer cellPhone) {
         this.cellPhone = cellPhone;
     }
 
@@ -41,11 +41,11 @@ public class Student extends AbstractStudent{
         this.email = email;
     }
 
-    public int getIcq() {
+    public Integer getIcq() {
         return icq;
     }
 
-    public void setIcq(int icq) {
+    public void setIcq(Integer icq) {
         this.icq = icq;
     }
 }

@@ -14,12 +14,12 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
     private String password;
     private String username;
     private GrantedAuthority[] authorities;
-    private boolean enabled=true;
-    private boolean accountNonLocked;
+    private Boolean enabled=true;
+    private Boolean accountNonLocked;
     private String largePhoto;
     private String mediumPhoto;
     private String smallPhoto;
-    private transient boolean online=false;
+    private transient Boolean online=false;
     private static final long serialVersionUID = 61L;
 
     private AbstractUser(String userName){
@@ -36,7 +36,7 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
        authorities = new GrantedAuthority[1];
     }
 
-    public void setEnabled(boolean enabled) {
+    public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
 
@@ -63,11 +63,11 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
         this.username = username;
     }
 
-    public boolean isOnline() {
+    public Boolean isOnline() {
         return online;
     }
 
-    public void setOnline(boolean online) {
+    public void setOnline(Boolean online) {
         this.online = online;
     }
 
@@ -109,7 +109,7 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
         return accountNonLocked;
     }
 
-    public void setAccountNonLocked(boolean accountNonLocked) {
+    public void setAccountNonLocked(Boolean accountNonLocked) {
         this.accountNonLocked = accountNonLocked;
     }
 

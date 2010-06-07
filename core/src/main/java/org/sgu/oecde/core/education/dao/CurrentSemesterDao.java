@@ -1,15 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.core.education.dao;
 
 import java.util.List;
 import org.sgu.oecde.core.education.CalendarConstants;
 import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
-import org.springframework.util.CollectionUtils;
 
 /**
  *
@@ -22,12 +16,15 @@ public class CurrentSemesterDao extends HibernateDaoSupport implements ICurrentS
 
     @SuppressWarnings("unchecked")
     @Override
-    public CalendarConstants getCurrentSemester() throws DataAccessException{
-        List<CalendarConstants> l = getSession()
-                .createCriteria(CalendarConstants.class).list();
-        if(!CollectionUtils.isEmpty(l))
-            return l.iterator().next();
-        else
-            return null;
+    public List<CalendarConstants> getCurrentSemester() throws DataAccessException{
+        return getSession().createCriteria(CalendarConstants.class).list();
+    }
+
+    public void save(CalendarConstants c,String entity) throws DataAccessException{
+        getSession().save(entity,c);
+    }
+
+    public void update(CalendarConstants c,String entity) throws DataAccessException {
+        getSession().update(entity,c);
     }
 }
