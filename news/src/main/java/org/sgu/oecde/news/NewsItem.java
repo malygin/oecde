@@ -18,10 +18,10 @@ public class NewsItem extends BasicItem{
     private String fullText;
     private Admin author;
     private String time;
-    private int reviewNumber;
+    private Integer reviewNumber;
     private String accessType;
     private Set<NewsTag> tags = new HashSet<NewsTag>();
-    private int commentNumber;
+    private Integer commentNumber;
     private static final long serialVersionUID = 83L;
 
     public NewsItem(){
@@ -51,11 +51,11 @@ public class NewsItem extends BasicItem{
         return fullText;
     }
 
-    public void setReviewNumber(int reviewNumber) {
+    public void setReviewNumber(Integer reviewNumber) {
         this.reviewNumber = reviewNumber;
     }
 
-    public int getReviewNumber() {
+    public Integer getReviewNumber() {
         return reviewNumber;
     }
 
@@ -85,11 +85,11 @@ public class NewsItem extends BasicItem{
         return builder.toString();
     }
 
-    public void setCommentNumber(int commentNumber) {
+    public void setCommentNumber(Integer commentNumber) {
         this.commentNumber = commentNumber;
     }
 
-    public int getCommentNumber() {
+    public Integer getCommentNumber() {
         return commentNumber;
     }
 

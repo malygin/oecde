@@ -2,19 +2,19 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <class dynamic-insert="true" dynamic-update="true" name="org.sgu.oecde.news.NewsItem" table="news">
-    <id name="id" type="int">
+    <id name="id" type="int" unsaved-value="0">
       <generator class="native">
         <param name="sequence">news_seq</param>
       </generator>
     </id>
     <property name="header" type="string"/>
     <property name="announcement" type="string"/>
-    <property name="fullText" type="string"/>
-    <property name="time" type="string"/>
-    <property name="accessType" type="string"/>
-    <property name="reviewNumber" type="integer"/>
-    <property name="commentNumber" type="integer"/>
-    <many-to-one class="org.sgu.oecde.core.users.Admin" name="author" fetch="join"/>
+    <property name="fullText" column="full_text" type="string"/>
+    <property name="time" type="string" length="19"/>
+    <property name="accessType" column="access_type" type="string"/>
+    <property name="reviewNumber" column="review_number" type="integer" scale="3"/>
+    <property name="commentNumber" column="comment_number" type="integer" scale="3"/>
+    <many-to-one foreign-key="fk_news_admin" class="org.sgu.oecde.core.users.Admin" name="author" fetch="join"/>
     <!--
     <set batch-size="15" cascade="none" fetch="join" name="tags">
       <key column="question_id" not-null="true"/>
