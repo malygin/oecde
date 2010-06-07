@@ -1,7 +1,3 @@
-/*
-* To change this template, choose Tools | Templates
-* and open the template in the editor.
-*/
 package org.sgu.oecde.journal.util;
 
 
@@ -19,7 +15,6 @@ import org.sgu.oecde.journal.EventItem;
 import org.sgu.oecde.journal.EventType;
 import org.sgu.oecde.journal.dao.IJournalDao;
 import org.sgu.oecde.tests.TestEntity;
-import org.sgu.oecde.tests.dao.ITestDao;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.util.Assert;
 import static org.sgu.oecde.journal.util.LogTerms.splitter;
@@ -31,7 +26,7 @@ public class RecordEventFactory implements InitializingBean{
     private IJournalDao journalDAO;
     private IBasicDao<Speciality>specialityDao;
     private IBasicDao<Discipline>disciplineDao;
-    private ITestDao<TestEntity> testDao;
+    private IBasicDao<TestEntity> testDao;
     private IBasicDao<AbstractPerson>userDao;
 
     //Так мы гарантируем, что получить экземпляр класса можно получить только через сприногвый контекст.
@@ -428,7 +423,7 @@ public class RecordEventFactory implements InitializingBean{
         this.specialityDao = specialityDao;
     }
 
-    public void setTestDao(ITestDao<TestEntity> testDao) {
+    public void setTestDao(IBasicDao<TestEntity> testDao) {
         this.testDao = testDao;
     }
 

@@ -12,7 +12,7 @@
     <property name="journalDAO" ref="journalDao"/>
     <property name="specialityDao" ref="specialityDao"/>
     <property name="userDao" ref="userDao"/>
-    <property name="testDao" ref="testDao"/>
+    <property name="testDao" ref="resourceDao"/>
 </bean>
 <bean id="studentFilter" class="org.sgu.oecde.journal.filter.StudentFilter"/>
 <bean id="adminFilter" class="org.sgu.oecde.journal.filter.AdminFilter"/>

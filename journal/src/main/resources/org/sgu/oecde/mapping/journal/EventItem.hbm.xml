@@ -2,16 +2,16 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <class mutable="false" name="org.sgu.oecde.journal.EventItem" table="journal">
-    <id name="id" type="int">
+    <id name="id" type="int" unsaved-value="0">
       <generator class="native">
         <param name="sequence">journal_seq</param>
       </generator>
     </id>
-    <property not-null="true" name="time" column="event_time" type="string"/>
-    <property name="eventBody" type="string"/>
-    <property name="multiId" type="integer"/>
-    <many-to-one class="org.sgu.oecde.core.users.AbstractUser" name="user" column="event_owner" fetch="join"/>
-    <property column="event_type" name="eventType" not-null="true">
+    <property name="time" type="string" not-null="true" column="event_time" length="19"/>
+    <property name="eventBody" type="string" column="event_body" not-null="true"/>
+    <property name="multiId" column="multi_id" type="integer"/>
+    <many-to-one foreign-key="fk_j_user" class="org.sgu.oecde.core.users.AbstractUser" name="user" column="event_owner" fetch="join"/>
+    <property column="event_type" name="eventType" not-null="true" scale="3">
       <type name="org.sgu.oecde.core.GenericEnumUserType">
         <param name="enumClass">org.sgu.oecde.journal.EventType</param>
         <param name="identifierMethod">getId</param>
