@@ -3,7 +3,8 @@ package org.sgu.oecde.messages;
 
 import java.util.List;
 import org.sgu.oecde.core.BasicItem;
-import org.sgu.oecde.core.users.AbstractPerson;
+
+import org.sgu.oecde.core.users.AbstractUser;
 
 
 /**
@@ -17,54 +18,46 @@ public class Message extends BasicItem {
     //текст сообщения
     private String fullText;
     //дата отправки
-    private String date;
+    private String dateMessage;
     //тип сообщения(личная переписка, вопрос)
     private MessageType type;
     //автор
-    private AbstractPerson author;
+    private AbstractUser author;
     //получатели
-    private List<AbstractPerson> recipients;
+    private List<MessageRecipient> recipients;
     //список файлов
     private List<MessageFile> files;
-    //заархивировано?
-    private boolean archived;
-    //удалено?
-    private boolean deleted;
-    //прочитано?
-    private boolean readed;
+    //эти три поля здесь для удобства вывода, метки удаления, прочитано, заархивировано - в сущности получателя
+    private Boolean archived=false;
+    private Boolean deleted=false;
+    private Boolean readed=false;
 
     public Message() {
     }
 
-    public boolean isArchived() {
+    public Boolean isArchived() {
         return archived;
     }
 
-    public void setArchived(boolean archived) {
+    public void setArchived(Boolean archived) {
         this.archived = archived;
     }
 
-    public AbstractPerson getAuthor() {
+    public AbstractUser getAuthor() {
         return author;
     }
 
-    public void setAuthor(AbstractPerson author) {
+    public void setAuthor(AbstractUser author) {
         this.author = author;
     }
 
-    public String getDate() {
-        return date;
-    }
+  
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public boolean isDeleted() {
+    public Boolean isDeleted() {
         return deleted;
     }
 
-    public void setDeleted(boolean deleted) {
+    public void setDeleted(Boolean deleted) {
         this.deleted = deleted;
     }
 
@@ -76,21 +69,23 @@ public class Message extends BasicItem {
         this.fullText = full_text;
     }
 
-    public boolean isReaded() {
+    public Boolean isReaded() {
         return readed;
     }
 
-    public void setReaded(boolean readed) {
+    public void setReaded(Boolean readed) {
         this.readed = readed;
     }
 
-    public List<AbstractPerson> getRecipients() {
+    public List<MessageRecipient> getRecipients() {
         return recipients;
     }
 
-    public void setRecipients(List<AbstractPerson> recipients) {
+    public void setRecipients(List<MessageRecipient> recipients) {
         this.recipients = recipients;
     }
+
+
 
     public String getTheme() {
         return theme;
@@ -114,6 +109,14 @@ public class Message extends BasicItem {
 
     public void setFiles(List<MessageFile> files) {
         this.files = files;
+    }
+
+    public String getDateMessage() {
+        return dateMessage;
+    }
+
+    public void setDateMessage(String dateMessage) {
+        this.dateMessage = dateMessage;
     }
 
 

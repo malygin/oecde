@@ -16,7 +16,7 @@ public class MessageFile extends BasicItem {
     //тип- будем хранить расширение
     private String type;
     //размер
-    private String size;
+    private String sizeFile;
 
     public MessageFile() {
     }
@@ -37,13 +37,14 @@ public class MessageFile extends BasicItem {
         this.path = path;
     }
 
-    public String getSize() {
-        return size;
+    public String getSizeFile() {
+        return sizeFile;
     }
 
-    public void setSize(String size) {
-        this.size = size;
+    public void setSizeFile(String sizeFile) {
+        this.sizeFile = sizeFile;
     }
+
 
     public String getType() {
         return type;
