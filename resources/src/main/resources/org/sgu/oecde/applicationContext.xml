@@ -4,8 +4,7 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
        ">
-
-  <bean id="semesterGetter" init-method="afterPropertiesSet" class="org.sgu.oecde.core.util.SemesterGetter" p:csDao-ref="csDao"/>
+  <bean id="semesterGetter" parent="constantsGetter" p:entityName="main constants" class="org.sgu.oecde.core.util.SemesterGetter"/>
   <bean id="preFilter" class="org.sgu.oecde.core.education.estimation.ResultPreFilter"/>
   <bean class="org.sgu.oecde.core.education.estimation.EstimateFilter" id="estimateFilter" />
 
@@ -13,7 +12,7 @@
       <property name="sessionFactory" ref="sessionFactory"/>
   </bean>
   <bean abstract="true" parent="basicDao" class="org.sgu.oecde.core.UpdateDao" id="updateDao" />
-  
+  <bean abstract="true" p:csDao-ref="csDao" class="org.sgu.oecde.core.education.StringConstantsGetter" id="constantsGetter" />
   <import resource="spring/daoBeans.xml"/>
   <import resource="spring/dbBeans.xml"/>
 </beans>

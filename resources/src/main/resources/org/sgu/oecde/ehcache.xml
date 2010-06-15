@@ -45,8 +45,22 @@
     timeToLiveSeconds="1800"
     overflowToDisk="false"
 /><cache
-    name="org.sgu.oecde.core.education.CalendarConstants"
-    maxElementsInMemory="1"
+    name="main constants"
+    maxElementsInMemory="3"
+    eternal="true"
+    timeToIdleSeconds="0"
+    timeToLiveSeconds="0"
+    overflowToDisk="false"
+/><cache
+    name="cw dates"
+    maxElementsInMemory="3"
+    eternal="true"
+    timeToIdleSeconds="0"
+    timeToLiveSeconds="0"
+    overflowToDisk="false"
+/><cache
+    name="Tests Calendar Constants"
+    maxElementsInMemory="10"
     eternal="true"
     timeToIdleSeconds="0"
     timeToLiveSeconds="0"
@@ -67,6 +81,13 @@
     overflowToDisk="true"
 /><cache
     name="org.sgu.oecde.core.education.Umk.resources"
+    maxElementsInMemory="4000"
+    eternal="false"
+    timeToIdleSeconds="900"
+    timeToLiveSeconds="1800"
+    overflowToDisk="true"
+/><cache
+    name="org.sgu.oecde.core.education.Module.resources"
     maxElementsInMemory="4000"
     eternal="false"
     timeToIdleSeconds="900"
