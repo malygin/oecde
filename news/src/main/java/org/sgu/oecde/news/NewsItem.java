@@ -20,8 +20,7 @@ public class NewsItem extends BasicItem{
     private String time;
     private Integer reviewNumber;
     private String accessType;
-    private Set<NewsTag> tags = new HashSet<NewsTag>();
-    private Integer commentNumber;
+    private Set<NewsTag> tags;
     private static final long serialVersionUID = 83L;
 
     public NewsItem(){
@@ -79,18 +78,10 @@ public class NewsItem extends BasicItem{
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder().append("NewsItem{").append("header='").append(header).append('\'').append(", announcement='").append(announcement).append('\'').append(", fullText='").append(fullText).append('\'').append(", author=").append(author).append(", time=").append(time).append(", reviewNumber='").append(reviewNumber).append('\'').append(", accessType='").append(accessType).append('\'').append('}');
-        for (NewsTag tag : tags) {
+      /*  for (NewsTag tag : tags) {
             builder.append("\n").append(tag);
-        }
+        }*/
         return builder.toString();
-    }
-
-    public void setCommentNumber(Integer commentNumber) {
-        this.commentNumber = commentNumber;
-    }
-
-    public Integer getCommentNumber() {
-        return commentNumber;
     }
 
     public Admin getAuthor() {

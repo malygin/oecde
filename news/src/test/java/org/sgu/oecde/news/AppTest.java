@@ -28,7 +28,7 @@ public class AppTest extends BasicTest{
         item.setFullText(fullText);
         item.setHeader(header);
         setDao("adminDao");
-        Admin author = this.<Admin>getItem(1);
+        Admin author = this.<Admin>getItem(1L);
         item.setAuthor(author);
         setDao("newsDao");
         this.<INewsDao>getDao().save(item);
@@ -61,7 +61,7 @@ public class AppTest extends BasicTest{
     @Ignore
     @Test
     public void fullText111() {
-        int id = 1;
+        Long id = 1L;
         int pageNumber = 1;
         int newsPerPage = 10;
         Map<String, Object> model = new HashMap<String, Object>();
