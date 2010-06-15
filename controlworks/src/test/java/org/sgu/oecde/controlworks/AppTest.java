@@ -9,8 +9,7 @@ import org.junit.Test;
 import org.sgu.oecde.controlworks.dao.IControlWorkAttemptDao;
 import org.sgu.oecde.controlworks.dao.IControlWorkDao;
 import org.sgu.oecde.core.BasicTest;
-import org.sgu.oecde.core.education.CalendarConstantName;
-import org.sgu.oecde.core.education.CalendarConstants;
+import org.sgu.oecde.core.education.StringConstantsGetter;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.education.DeCurriculum;
@@ -28,12 +27,12 @@ public class AppTest extends BasicTest{
     @Test
     public void save(){
         setDao("controlWorkDao");
-        ControlWork w = getItem(3);
+        ControlWork w = getItem(3L);
         Set s = null;
         if(w==null){
             w = new ControlWork();
-            w.setCurriculum(new DeCurriculum(198326));
-            w.setStudent(new Student(324725));
+            w.setCurriculum(new DeCurriculum(200847634L));
+            w.setStudent(new Student(324725L));
             s = new HashSet<ControlWorkAttempt>();
         }else{
             s = w.getCwAttempt();
@@ -51,9 +50,9 @@ public class AppTest extends BasicTest{
     public void get(){
         setDao("controlWorkDao");
         List l = new ArrayList();
-        l.add(new DeCurriculum(198326));
+        l.add(new DeCurriculum(198326L));
         List l2 = new ArrayList();
-        l.add(new Student(324725));
+        l.add(new Student(324725L));
         List<ControlWork>ls = this.<IControlWorkDao>getDao().getByStudentsAnsCurriculums( l, l2,null);
         for (ControlWork cw:ls){
             System.out.println(cw.getCwAttempt().size());
@@ -65,9 +64,9 @@ public class AppTest extends BasicTest{
     public void getAttempts(){
         setDao("controlWorkAttemptDao");
         List l = new ArrayList();
-        l.add(new DeCurriculum(198326));
+        l.add(new DeCurriculum(198326L));
         List l2 = new ArrayList();
-        l2.add(new Student(324725));
+        l2.add(new Student(324725L));
         List<ControlWorkAttempt>ls = this.<IControlWorkAttemptDao>getDao().getAttemptsList(0,10,l2,l);
         System.out.println(ls);
         for (ControlWorkAttempt cw:ls){
@@ -80,17 +79,17 @@ public class AppTest extends BasicTest{
     public void getStudentCw(){
         ControlWorkService s = getBean("controlWorkService");
         List l = new ArrayList();
-        l.add(new DeCurriculum(198326));
-        l.add(new DeCurriculum(200327));
+        l.add(new DeCurriculum(198326L));
+        l.add(new DeCurriculum(200327L));
         List l2 = new ArrayList();
-        l2.add(new Student(324725));
-        System.out.println(s.getStudensControlWorks(new Student(324725), l));
+        l2.add(new Student(324725L));
+        System.out.println(s.getStudensControlWorks(new Student(324725L), l));
     }
 
 //    @Ignore
     @Test
     public void constants(){
-        SemesterGetter g = getBean("semesterGetter");
+        StringConstantsGetter g = getBean("cwDatesGetter");
 //        g.save(new CalendarConstants(ControlWorkCalendarConstantName.controlWorksBeginDate, "10"), "ControlWorkCalendarConstants");
     }
 }

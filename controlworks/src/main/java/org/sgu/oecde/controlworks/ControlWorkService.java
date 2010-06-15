@@ -7,45 +7,48 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.sgu.oecde.controlworks.dao.IControlWorkDao;
+import org.sgu.oecde.core.education.AdvancedCurriculum;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.dao.ICurriculumDao;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.core.util.DateConverter;
-import org.sgu.oecde.de.education.DeCurriculum;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.util.Assert;
 
 /**
  *
  * @author ShihovMY
  */
-public class ControlWorkService {
+public class ControlWorkService implements InitializingBean{
 
-    IControlWorkDao dao;
-    ICurriculumDao cDao;
+    IControlWorkDao<ControlWork> dao;
+    ICurriculumDao<AdvancedCurriculum> cDao;
 
-    public Map<? extends Curriculum,? extends ControlWork>getStudensControlWorks(AbstractStudent student, List<? extends Curriculum> curriculums){
+    public <K extends Curriculum,V extends ControlWork>Map<K,V> getStudensControlWorks(AbstractStudent student, List<? extends Curriculum> curriculums){
         List<AbstractStudent>students = new LinkedList<AbstractStudent>();
         students.add(student);
         List<ControlWork> list = dao.getByStudentsAnsCurriculums(curriculums, students,null);
-        Map<Curriculum,ControlWork>map = new LinkedHashMap<Curriculum, ControlWork>();
+        Map<K,V>map = new LinkedHashMap<K, V>();
         for(Curriculum c:curriculums){
             ControlWork tmp = new ControlWork(student, c);
             if(list.contains(tmp))
                 tmp = list.get(list.indexOf(tmp));
-            map.put(c, tmp);
+            map.put((K) c, (V) tmp);
         }
         return map;
     }
 
-    public Map<? extends AbstractStudent,? extends ControlWork>getCurriculumControlWorks(List<? extends AbstractStudent> students, Curriculum curriculum){
+    @SuppressWarnings({"unchecked", "element-type-mismatch"})
+    public <T extends AbstractStudent,V extends ControlWork>Map<T, V>getCurriculumControlWorks(List<? extends AbstractStudent> students, Curriculum curriculum){
         List<Curriculum>curriculums = new LinkedList<Curriculum>();
         curriculums.add(curriculum);
-        List<ControlWork> list = dao.getByStudentsAnsCurriculums(students,curriculums,null);
-        Map<AbstractStudent,ControlWork>map = new LinkedHashMap<AbstractStudent, ControlWork>();
+        List<ControlWork> list = dao.getByStudentsAnsCurriculums(curriculums,students,null);
+        Map<T,V>map = new LinkedHashMap<T, V>();
         for(AbstractStudent s:students){
             ControlWork tmp = new ControlWork(s, curriculum);
             if(list.contains(tmp))
                 tmp = list.get(list.indexOf(tmp));
-            map.put(s, tmp);
+            map.put((T)s, (V)tmp);
         }
         return map;
     }
@@ -63,16 +66,22 @@ public class ControlWorkService {
         }
     }
 
-    public List<DeCurriculum> getCurriculumsWithControlWorks(DeCurriculum example){
-        example.setControlWorksNumber(1);
-        return cDao.getByExample(example);
+    public <T extends AdvancedCurriculum>List<T> getCurriculumsWithControlWorks(AdvancedCurriculum example){
+        example.setGotControlWork(true);
+        return (List<T>) cDao.getByExample(example);
     }
 
-    public IControlWorkDao getDao() {
-        return dao;
+    public void setcDao(ICurriculumDao<AdvancedCurriculum> cDao) {
+        this.cDao = cDao;
     }
 
-    public void setDao(IControlWorkDao dao) {
+    public void setDao(IControlWorkDao<ControlWork> dao) {
         this.dao = dao;
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        Assert.notNull(cDao);
+        Assert.notNull(dao);
     }
 }
