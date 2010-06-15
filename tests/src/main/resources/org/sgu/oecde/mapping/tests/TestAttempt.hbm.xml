@@ -9,7 +9,6 @@
    <property name="points" type="integer" scale="3"/>
    <join table="tests_attempts">
     <key foreign-key="fk_test_att_res" column="id" not-null="true" on-delete="cascade"/>
-    <property name="quantity" type="integer" scale="3"/>
     <property name="duration" type="integer" scale="3"/>
     <property name="rightAnswers" column="right_answers" type="integer" scale="3"/>
     <property column="type" name="type" not-null="true">

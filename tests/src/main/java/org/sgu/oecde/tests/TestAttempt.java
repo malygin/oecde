@@ -9,11 +9,11 @@ import org.sgu.oecde.core.education.work.AbstractSelfDependentWorkResult;
  * @author ShihovMY
  */
 public class TestAttempt extends AbstractSelfDependentWorkResult{
-    private int quantity;
-    private int duration;
+    private Integer quantity;
+    private Integer duration;
     private TestAttemptType type;
-    private int rightAnswers;
-    private int points;
+    private Integer rightAnswers;
+    private Integer points;
     private Set<AnsweredQuestion> answeredQuestions;
     private static final long serialVersionUID = 71L;
 
@@ -24,7 +24,7 @@ public class TestAttempt extends AbstractSelfDependentWorkResult{
         setDate(date);
     }
 
-    public TestAttempt(int id) {
+    public TestAttempt(Long id) {
         setId(id);
     }
 
@@ -36,27 +36,27 @@ public class TestAttempt extends AbstractSelfDependentWorkResult{
         this.answeredQuestions = answeredQuestions;
     }
 
-    public int getDuration() {
+    public Integer getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(Integer duration) {
         this.duration = duration;
     }
 
-    public int getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
-    public int getRightAnswers() {
+    public Integer getRightAnswers() {
         return rightAnswers;
     }
 
-    public void setRightAnswers(int rightAnswers) {
+    public void setRightAnswers(Integer rightAnswers) {
         this.rightAnswers = rightAnswers;
     }
 
@@ -68,23 +68,12 @@ public class TestAttempt extends AbstractSelfDependentWorkResult{
         this.type = type;
     }
 
-    public int getPoints() {
+    public Integer getPoints() {
         return points;
     }
 
-    public void setPoints(int points) {
+    public void setPoints(Integer points) {
         this.points = points;
     }
 
-    @Override
-    public int compareTo(AbstractResult o) {
-        int superCompare = super.compareTo(o);
-        int typeInt = 0;
-        if(o instanceof TestAttempt){
-           TestAttempt r = (TestAttempt)o;
-           if(type!=null)
-               typeInt =type.compareTo(r.getType());
-        }
-        return superCompare==0?typeInt:superCompare;
-    }
 }

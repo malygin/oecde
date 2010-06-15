@@ -182,7 +182,8 @@ public class TestAttemptService implements InitializingBean{
         List<TestAttempt> oneTestAttempts = null;
         AdditionalSelfDependentWork test = null;
         List<Integer> points = null;
-        TestEstimationType previousAttemptType = null;
+        TestEstimationType previousEstimationType = null;
+        TestAttemptType previousAttemptType = null;
         TestEntity tmpTest = null;
         ListIterator<TestAttempt> it = attempts.listIterator();
 
@@ -192,7 +193,7 @@ public class TestAttemptService implements InitializingBean{
                 continue;
             if(!attempt.getWork().equals(tmpTest)){
                 if(test!=null){
-                    test.setPointsForWork(pointsCounter.count(previousAttemptType, points));
+                    test.setPointsForWork(pointsCounter.count(previousEstimationType, points));
                     test.setEstimateAttemptsUsedNumber(oneTestAttempts == null?0:oneTestAttempts.size());
                 }
                 oneTestAttempts = new ArrayList<TestAttempt>();
@@ -203,16 +204,19 @@ public class TestAttemptService implements InitializingBean{
                 test.setWork(attempt.getWork());
                 test.setCurriculum(attempt.getCurriculum());
             }
-            if(attempt.getType().equals(TestAttemptType.reTest)||!attempt.getWork().equals(tmpTest))
+            if(!attempt.getType().equals(previousAttemptType)||!attempt.getWork().equals(tmpTest))
                 points = new ArrayList<Integer>();
+
             points.add(attempt.getPoints());
+
             if(!attempt.getType().equals(TestAttemptType.trial))
                 oneTestAttempts.add(attempt);
 
-            previousAttemptType = attempt.<TestEntity>getWork().getEstimation();
+            previousEstimationType = attempt.<TestEntity>getWork().getEstimation();
+            previousAttemptType = attempt.getType();
 
             if(!it.hasNext()){
-                test.setPointsForWork(pointsCounter.count(previousAttemptType, points));
+                test.setPointsForWork(pointsCounter.count(previousEstimationType, points));
                 test.setEstimateAttemptsUsedNumber(oneTestAttempts == null?0:oneTestAttempts.size());
             }
             tmpTest = attempt.getWork();

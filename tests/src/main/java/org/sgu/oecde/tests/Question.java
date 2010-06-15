@@ -23,7 +23,7 @@ public class Question  extends BasicItem{
     public Question() {
     }
 
-    public Question(Integer id) {
+    public Question(Long id) {
         setId(id);
     }
 

@@ -6,6 +6,8 @@
     <property insert="false" name="quantity" type="integer" scale="3"/>
     <property insert="false" name="shuffle" type="boolean" scale="1"/>
     <property insert="false" name="writable" type="boolean" scale="1"/>
+    <property column="close_date" length="19" name="closeDate" not-null="true" type="string"/>
+    <property column="open_date" length="19" name="openDate" not-null="true" type="string"/>
     <property column="estimation_type" insert="false" name="estimation" scale="1" not-null="true">
       <type name="org.sgu.oecde.core.GenericEnumUserType">
         <param name="enumClass">org.sgu.oecde.tests.TestEstimationType</param>

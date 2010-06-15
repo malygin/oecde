@@ -1,14 +1,15 @@
 package org.sgu.oecde.tests;
 
-import java.io.Serializable;
+import org.sgu.oecde.core.education.ICalendarConstantName;
 
 /**
  *
  * @author ShihovMY
  */
-public enum TestCalendarConstants implements Serializable{
+public enum TestCalendarConstants implements ICalendarConstantName{
     regularTestBeginDate,regularTestEndDate,
     concludingTestBeginDate,concludingTestEndDate,
-    reExameBeginDate,reExameEndDate;
-    private static final long serialVersionUID = 95L;
+    reExameBeginDate,reExameEndDate,
+    simpleSpecialitiesTestsClosing;
+    private static final long serialVersionUID = 58L;
 }

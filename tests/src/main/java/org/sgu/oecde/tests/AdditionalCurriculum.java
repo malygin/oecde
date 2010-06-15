@@ -76,8 +76,8 @@ public class AdditionalCurriculum implements Serializable,Comparable<AdditionalC
     public int compareTo(AdditionalCurriculum o) {
        int curriculumInt = 0;
        if(o!=null)
-           if(o.getCurriculum()!=null&&getCurriculum()!=null)
-               curriculumInt = (Integer.valueOf(o.getCurriculum().getId()).compareTo(getCurriculum().getId()));
+           if(o.getCurriculum()!=null&&getCurriculum()!=null&&o.getCurriculum().getId()!=null)
+               curriculumInt = (o.getCurriculum().getId().compareTo(getCurriculum().getId()));
        return curriculumInt;
     }
 }

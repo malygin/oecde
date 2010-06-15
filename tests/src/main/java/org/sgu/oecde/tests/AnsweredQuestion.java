@@ -12,13 +12,13 @@ public class AnsweredQuestion extends BasicItem{
     private Question question;
     private Set<GivenAnswer> givenAnswers;
     private Boolean right;
-    private int resultPoints;
+    private Integer resultPoints;
     private static final long serialVersionUID = 74L;
 
     public AnsweredQuestion() {
     }
 
-    public AnsweredQuestion(int id) {
+    public AnsweredQuestion(Long id) {
         setId(id);
     }
 
@@ -38,11 +38,11 @@ public class AnsweredQuestion extends BasicItem{
         this.question = question;
     }
 
-    public int getResultPoints() {
+    public Integer getResultPoints() {
         return resultPoints;
     }
 
-    public void setResultPoints(int resultPoints) {
+    public void setResultPoints(Integer resultPoints) {
         this.resultPoints = resultPoints;
     }
 

@@ -9,8 +9,10 @@ import org.sgu.oecde.core.education.work.SelfDependentWork;
  */
 public class TestEntity extends SelfDependentWork{
     private TestType type;
-    private int quantity;
+    private Integer quantity;
     private TestEstimationType estimation;
+    private String openDate;
+    private String closeDate;
     private Boolean writable;
     private Boolean shuffle;
     private Set<Question> questions;
@@ -19,7 +21,7 @@ public class TestEntity extends SelfDependentWork{
     public TestEntity() {
     }
 
-    public TestEntity(int id) {
+    public TestEntity(Long id) {
         setId(id);
     }
 
@@ -31,11 +33,11 @@ public class TestEntity extends SelfDependentWork{
         this.estimation = estimation;
     }
 
-    public int getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
@@ -69,5 +71,21 @@ public class TestEntity extends SelfDependentWork{
 
     public void setWritable(Boolean writable) {
         this.writable = writable;
+    }
+
+    public String getCloseDate() {
+        return closeDate;
+    }
+
+    public void setCloseDate(String closeDate) {
+        this.closeDate = closeDate;
+    }
+
+    public String getOpenDate() {
+        return openDate;
+    }
+
+    public void setOpenDate(String openDate) {
+        this.openDate = openDate;
     }
 }

@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.tests;
 
 import java.util.ArrayList;
@@ -21,6 +16,7 @@ import org.junit.Test;
 import org.sgu.oecde.core.BasicTest;
 import org.sgu.oecde.core.IUpdateDao;
 import org.sgu.oecde.core.education.Curriculum;
+import org.sgu.oecde.core.education.StringConstantsGetter;
 import org.sgu.oecde.core.education.dao.IResourceDao;
 import org.sgu.oecde.core.education.estimation.IEstimate;
 import org.sgu.oecde.core.education.estimation.IResultFilter;
@@ -52,7 +48,7 @@ public class getSimpleItem extends BasicTest{
     @Test
     public void getT(){
         setDao("resourceDao");
-        System.out.println(getItem(1));
+        System.out.println(getItem(1L));
     }
 
     @Ignore
@@ -77,12 +73,12 @@ public class getSimpleItem extends BasicTest{
     @Test
     public void getA(){
         setDao("resourceDao");
-        TestEntity t = getItem(2);
+        TestEntity t = getItem(2L);
         setDao("testAttemptDao");
         TestAttempt a = new TestAttempt();
-        Student st = new Student(324725);
+        Student st = new Student(324725L);
         DeCurriculum c = new DeCurriculum();
-        c.setId(213305);
+        c.setId(213305L);
         a.setCurriculum(c);
         a.setStudent(st);
         Random r = new Random();
@@ -102,13 +98,21 @@ public class getSimpleItem extends BasicTest{
         filters.add(f);
         setDao("testAttemptDao");
         TestAttempt a = new TestAttempt();
-        DeCurriculum c = new DeCurriculum();
-        c.setId(205326);
-        a.setCurriculum(c);
-//        List<AbstractSelfDependentWorkResult> l = this.<AbstractSelfDependentWorkResult>getByExample(a);
-//        List<TestAttempt> l = this.<ITestAttemptDao<TestAttempt>>getDao().getByExampleWithType(a, true);
-        List<TestAttempt> l = this.<TestAttempt>getAllItems();
-        //List<Points> ps = (pf.forEachResult(l,new ResultComparatorByCurriculum(),true));
+        setDao("testAttemptDao");
+        List q = new LinkedList();
+        q.add(new DeCurriculum(200837533L));
+        q.add(new DeCurriculum(2009633925L));
+        q.add(new DeCurriculum(200957825L));
+        q.add(new DeCurriculum(2009534225L));
+        q.add(new DeCurriculum(2009518325L));
+        List s = new LinkedList();
+        s.add(new Student(321304L));
+        List<TestAttempt> l = this.<ITestAttemptDao>getDao().getByStudentsAnsCurriculums(q, s, null);
+        Collections.sort(l);
+        l.remove(0);
+        for(TestAttempt ta:l){
+            System.out.println(ta.getCurriculum().getId()+"  "+ta.getStudent().getId()+"  "+ta.getWork().getId()+"   "+ta.getId()+"  "+ta.getDate()+"  "+ta.<DeCurriculum>getCurriculum().getDiscipline().getName()+"   "+ta.getPoints()+"  "+ta.<TestEntity>getWork().getType()+"   "+ta.getType());
+        }
         List<Points> ps = pf.forEachResult(l,true,filters);
         for(Points p:ps){
             if(!CollectionUtils.isEmpty(p.getWorkPoints())){
@@ -128,7 +132,7 @@ public class getSimpleItem extends BasicTest{
         setDao("testAttemptDao");
         TestAttempt a = new TestAttempt();
         DeCurriculum c = new DeCurriculum();
-        c.setId(213305);
+        c.setId(213305L);
         a.setCurriculum(c);
 //        List<TestAttempt> l = this.<ITestAttemptDao<TestAttempt>>getDao().getByExampleWithType(a, true);
         List<TestAttempt> l = this.<TestAttempt>getAllItems();
@@ -151,11 +155,11 @@ public class getSimpleItem extends BasicTest{
         TestAttemptService serv = (TestAttemptService) applicationContext.getBean("testAttemptService");
         setDao("testAttemptDao");
         TestAttempt a = new TestAttempt();
-        Student s = new Student(324725);
+        Student s = new Student(324725L);
         List<Student> sts = new ArrayList(1);
         sts.add(s);
         DeCurriculum c = new DeCurriculum();
-        c.setId(205326);
+        c.setId(205326L);
         a.setCurriculum(c);
         for(AdditionalSelfDependentWork w:serv.getCurriculumAttempts(c, null, sts)){
             for(TestAttempt r:w.<TestAttempt>getResults()){
@@ -170,19 +174,19 @@ public class getSimpleItem extends BasicTest{
     public void getStudentsAttempts(){
         TestAttemptService serv = (TestAttemptService) applicationContext.getBean("testAttemptService");
         TestAttempt a = new TestAttempt();
-        Student s = new Student(324725);
+        Student s = new Student(324725L);
         DeCurriculum c = new DeCurriculum();
         List<DeCurriculum> sts = new ArrayList();
-        c.setId(205326);
+        c.setId(205326L);
         sts.add(c);
         c = new DeCurriculum();
-        c.setId(198326);
+        c.setId(198326L);
         sts.add(c);
         c = new DeCurriculum();
-        c.setId(201327);
+        c.setId(201327L);
         sts.add(c);
         c = new DeCurriculum();
-        c.setId(213305);
+        c.setId(213305L);
         sts.add(c);
         for(AdditionalSelfDependentWork w:serv.getStudentAttempts(sts, null, s)){
 //        for(AdditionalSelfDependentWork w:serv.getStudentsSingleCurriculumAttempts(c, null, s)){
@@ -200,7 +204,7 @@ public class getSimpleItem extends BasicTest{
         setDao("curriculumDao");
         setDao("resourceDao");
         DeCurriculum c = new DeCurriculum();
-        c.setId(213305);
+        c.setId(213305L);
         List<DeCurriculum> sts = new ArrayList(1);
         sts.add(c);
         System.out.println(this.<IResourceDao<TestEntity>>getDao().getResourceByCurriculums(sts, null,TestEntity.class));
@@ -211,15 +215,15 @@ public class getSimpleItem extends BasicTest{
 //        }
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void save(){
         setDao("resourceDao");
-        TestEntity te = this.<TestEntity>getItem(1);
+        TestEntity te = this.<TestEntity>getItem(1L);
         TestAttempt a = new TestAttempt();
         a.setDate(DateConverter.currentDate());
-        a.setCurriculum(new DeCurriculum(205326));
-        a.setStudent(new Student(324725));
+        a.setCurriculum(new DeCurriculum(205326L));
+        a.setStudent(new Student(324725L));
         a.setDuration(1);
         a.setPoints(1);
         a.setQuantity(1);
@@ -247,6 +251,13 @@ public class getSimpleItem extends BasicTest{
         }
         setDao("testAttemptDao");
         this.<ITestAttemptDao>getDao().saveAttempt(a);
+    }
+
+//    @Ignore
+    @Test
+    public void constants(){
+        StringConstantsGetter g = getBean("testsDatesGetter");
+//        g.save(new CalendarConstants(ControlWorkCalendarConstantName.controlWorksBeginDate, "10"), "ControlWorkCalendarConstants");
     }
 
 }

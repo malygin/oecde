@@ -20,6 +20,10 @@ public class Answer extends BasicItem{
     public Answer() {
     }
 
+    public Answer(String title) {
+        this.title = title;
+    }
+
     public String getRightAnswer() {
         return rightAnswer;
     }

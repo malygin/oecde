@@ -15,7 +15,7 @@ public class GivenAnswer extends BasicItem{
     public GivenAnswer() {
     }
 
-    public GivenAnswer(int id) {
+    public GivenAnswer(Long id) {
         setId(id);
     }
 
