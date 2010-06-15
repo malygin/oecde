@@ -6,13 +6,18 @@
        ">
 <bean id="journalDao" parent="basicDao" class="org.sgu.oecde.journal.dao.JournalDAO" />
 <bean id="journalServise" class="org.sgu.oecde.journal.Journal" p:journalDAO-ref="journalDao"/>
-<bean id="eventParser" class="org.sgu.oecde.journal.util.EventParser"/>
+<bean id="eventParser" class="org.sgu.oecde.journal.util.EventParser">
+    <property name="userDao" ref="userDao"/>
+    <property name="newsDao" ref="newsDao"/>
+</bean>
 <bean id="recordEventFactory" class="org.sgu.oecde.journal.util.RecordEventFactory">
     <property name="disciplineDao" ref="disciplineDao"/>
     <property name="journalDAO" ref="journalDao"/>
     <property name="specialityDao" ref="specialityDao"/>
     <property name="userDao" ref="userDao"/>
     <property name="testDao" ref="resourceDao"/>
+    <property name="taskDao" ref="resourceDao"/>
+    <property name="curriculumDao" ref="curriculumDao"/>
 </bean>
 <bean id="studentFilter" class="org.sgu.oecde.journal.filter.StudentFilter"/>
 <bean id="adminFilter" class="org.sgu.oecde.journal.filter.AdminFilter"/>

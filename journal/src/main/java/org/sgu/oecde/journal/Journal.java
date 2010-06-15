@@ -66,8 +66,8 @@ public class Journal implements InitializingBean{
      * @param userType Тип пользователя.
      * @param taskId   Идентификатор занятия
      */
-    public void logViewUMK(AbstractUser userId,int taskId) {
-        ref.saveUmkActivity(userId,  EventType.UMK_VIEW, taskId);
+    public void logViewUMK(AbstractUser userId,Long taskId,Long curricuumId) {
+        ref.saveUmkActivity(userId,  EventType.UMK_VIEW, taskId,curricuumId);
     }
 
     /**
@@ -77,8 +77,8 @@ public class Journal implements InitializingBean{
      * @param userId   идентификатор пользователя.
      * @param userType Тип пользователя.
      */
-    public void logEditUMK(AbstractUser userId,int taskId) {
-        ref.saveUmkActivity(userId,  EventType.UMK_EDIT, taskId);
+    public void logEditUMK(AbstractUser userId,Long taskId,Long curricuumId) {
+        ref.saveUmkActivity(userId,  EventType.UMK_EDIT, taskId,curricuumId);
     }
 
     /**
@@ -89,9 +89,9 @@ public class Journal implements InitializingBean{
      * @param userType Тип пользователя.
      * @param taskId   идентификатор задания
      */
-    public void logCreateUMK(AbstractUser userId,int taskId) {
+    public void logCreateUMK(AbstractUser userId,Long taskId,Long curricuumId) {
 
-        ref.saveUmkActivity(userId,  EventType.UMK_CREATE, taskId);
+        ref.saveUmkActivity(userId,  EventType.UMK_CREATE, taskId,curricuumId);
     }
 
     /**
@@ -102,8 +102,8 @@ public class Journal implements InitializingBean{
      * @param userType Тип пользователя.
      * @param taskId   идентификатор УМК
      */
-    public void logDeleteUMK(AbstractUser userId,int taskId) {
-        ref.saveUmkActivity(userId,  EventType.UMK_DELETE, taskId);
+    public void logDeleteUMK(AbstractUser userId,Long taskId,Long curricuumId) {
+        ref.saveUmkActivity(userId,  EventType.UMK_DELETE, taskId,curricuumId);
     }
 
     /**
@@ -113,7 +113,7 @@ public class Journal implements InitializingBean{
      * @param userId идентификатор пользователья.
      */
     public void logSpamToAll(AbstractUser userId) {
-        ref.saveSpamActivity(userId, EventType.SPAM_ALL, 0, 0, 0);
+        ref.saveSpamActivity(userId, EventType.SPAM_ALL, 0L, 0L, 0L);
     }
 
     /**
@@ -125,8 +125,8 @@ public class Journal implements InitializingBean{
      * @param userType Тип пользователя.
      * @param specId   Идентификатор специальности.
      */
-    public void logSpamToSpeciality(AbstractUser userId,int specId) {
-        ref.saveSpamActivity(userId,  EventType.SPAM_SPECIALITY, specId, 0, 0);
+    public void logSpamToSpeciality(AbstractUser userId,Long specId) {
+        ref.saveSpamActivity(userId,  EventType.SPAM_SPECIALITY, specId, 0L, 0L);
     }
 
     /**
@@ -139,8 +139,8 @@ public class Journal implements InitializingBean{
      * @param streamId Идентификатор потока(в данной системе это studentItem.getYear()).
      * @param specId   Идентификатор специальности(год + id специальности определят поток однозначно).
      */
-    public void logSpamToStream(AbstractUser userId,int specId, int streamId) {
-        ref.saveSpamActivity(userId,  EventType.SPAM_STREAM, specId, streamId, 0);
+    public void logSpamToStream(AbstractUser userId,Long specId, Long streamId) {
+        ref.saveSpamActivity(userId,  EventType.SPAM_STREAM, specId, streamId, 0L);
     }
 
     /**
@@ -154,7 +154,7 @@ public class Journal implements InitializingBean{
      * @param specId   Идентификатор специальности(номер курса + id специальности определят поток однозначно).
      * @param groupId  Номер группы.
      */
-    public void logSpamToGroup(AbstractUser userId,int specId, int streamId, int groupId) {
+    public void logSpamToGroup(AbstractUser userId,Long specId, Long streamId, Long groupId) {
         ref.saveSpamActivity(userId,  EventType.SPAM_GROUP, specId, streamId, groupId);
     }
 
@@ -162,7 +162,7 @@ public class Journal implements InitializingBean{
      * Добавляет в таблицу логов
      * запись о прохождении теста.
      */
-    public void logTestGrading(AbstractUser userId, int testId, int umkId) {
+    public void logTestGrading(AbstractUser userId, Long testId, Long umkId) {
         ref.saveTestActivity(userId,  EventType.TEST_END, testId, umkId);
     }
 
@@ -170,7 +170,7 @@ public class Journal implements InitializingBean{
      * Добавляет в таблицу логов
      * запись о выставлении оценок.
      */
-    public void logGradesPutting(AbstractUser userId, int specId, int groupId) {
+    public void logGradesPutting(AbstractUser userId, Long specId, Long groupId) {
         ref.saveGradesActivity(userId, EventType.GRADING_FIRST, specId, groupId);
     }
 
@@ -178,7 +178,7 @@ public class Journal implements InitializingBean{
      * Добавляет в таблицу логов
      * запись о ДОвыставлении оценок.
      */
-    public void logSecondGradesPutting(AbstractUser userId, int specId, int groupId) {
+    public void logSecondGradesPutting(AbstractUser userId, Long specId, Long groupId) {
         ref.saveGradesActivity(userId, EventType.GRADING_SECOND, specId, groupId);
     }
 
@@ -188,7 +188,7 @@ public class Journal implements InitializingBean{
      * @param userId       Идентификатор студента.
      * @param disciplineId id дисциплины.
      */
-    public void logTaskHasBeenSent(AbstractUser userId, int disciplineId) {
+    public void logTaskHasBeenSent(AbstractUser userId, Long disciplineId) {
         ref.saveTaskHasBeenSent(userId, disciplineId);
     }
 
@@ -199,14 +199,14 @@ public class Journal implements InitializingBean{
      * @param disciplineId id дисциплины
      * @param studentId    id студента
      */
-    public void logTaskHasBeenRead(AbstractUser userId, int disciplineId, int studentId) {
+    public void logTaskHasBeenRead(AbstractUser userId, Long disciplineId, Long studentId) {
         ref.saveTaskHasBeenRead(userId, disciplineId, studentId);
     }
 
     /**
      * Добавение новой новости
      */
-    public void logNewNews(int newsId, String header) {
+    public void logNewNews(Long newsId, String header) {
         ref.saveNews(newsId, header);
     }
 
@@ -246,28 +246,28 @@ public class Journal implements InitializingBean{
      * @param studentId
      * @param theme
      */
-    public void logMessageToStudent(AbstractUser userId,int studentId, String theme) {
+    public void logMessageToStudent(AbstractUser userId,Long studentId, String theme) {
         ref.saveMessageToStudent(userId,  studentId, theme);
     }
 
     /**
      * Логируется факт добавления теста в определнном УМК.
      */
-    public void logTestAdditing(AbstractUser userId,int umkId, int testId) {
+    public void logTestAdditing(AbstractUser userId,Long umkId, Long testId) {
         ref.saveTestChanging(EventType.TEST_ADD, userId,  umkId, testId);
     }
 
     /**
      * Логируется факт изменения теста в определнном УМК.
      */
-    public void logTestChanging(AbstractUser userId,int umkId, int testId) {
+    public void logTestChanging(AbstractUser userId,Long umkId, Long testId) {
         ref.saveTestChanging(EventType.TEST_CHANGE, userId,  umkId, testId);
     }
 
     /**
      * Логируется факт изменения теста в определнном УМК.
      */
-    public void logScheduleChanging(AbstractUser userId,int specId, int streamId, int groupId) {
+    public void logScheduleChanging(AbstractUser userId,Long specId, Long streamId, Long groupId) {
         ref.saveScheduleChanging(userId,  specId, streamId, groupId);
     }
 
@@ -294,7 +294,7 @@ public class Journal implements InitializingBean{
     }
 
 
-    public void logViewNews(int id, String header, AbstractUser user) {
+    public void logViewNews(Long id, String header, AbstractUser user) {
         ref.saveViewNews(id, header, user);
     }
 

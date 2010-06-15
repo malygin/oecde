@@ -1,11 +1,11 @@
 package org.sgu.oecde.journal.util;
 
-
-import java.sql.Time;
 import java.util.Date;
 import org.sgu.oecde.core.IBasicDao;
+import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.Discipline;
 import org.sgu.oecde.core.education.Speciality;
+import org.sgu.oecde.core.education.resource.Task;
 import org.sgu.oecde.core.users.AbstractPerson;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.UserType;
@@ -28,6 +28,8 @@ public class RecordEventFactory implements InitializingBean{
     private IBasicDao<Discipline>disciplineDao;
     private IBasicDao<TestEntity> testDao;
     private IBasicDao<AbstractPerson>userDao;
+    private IBasicDao<Task>taskDao;
+    private IBasicDao<Curriculum>curriculumDao;
 
     //Так мы гарантируем, что получить экземпляр класса можно получить только через сприногвый контекст.
     private RecordEventFactory() {
@@ -38,17 +40,17 @@ public class RecordEventFactory implements InitializingBean{
         return DateConverter.convert(new Date(System.currentTimeMillis()));
     }
 
-    private String getSpecialytyNameById(int specId) {
+    private String getSpecialytyNameById(Long specId) {
         Speciality spec =  specialityDao.getById(specId);
         return spec!=null?spec.getName():null;
     }
 
-    private String getDisciplineNameById(int disciplineId) {
+    private String getDisciplineNameById(Long disciplineId) {
         Discipline disc =  disciplineDao.getById(disciplineId);
         return disc!=null?disc.getName():null;
     }
 
-    private String getTestNameById(int testId) {
+    private String getTestNameById(Long testId) {
         TestEntity test =  testDao.getById(testId);
         return test!=null?test.getTitle():null;
     }
@@ -60,7 +62,7 @@ public class RecordEventFactory implements InitializingBean{
         return fio;
     }
 
-    private String getFioByUserId(int id) {
+    private String getFioByUserId(Long id) {
         AbstractUser user =  userDao.getById(id);
         return getFioByUserId(user);
     }
@@ -69,10 +71,6 @@ public class RecordEventFactory implements InitializingBean{
         return UserType.fromRole(user).toString();
     }
 
-    //TODO
-    private void getTaskInfoById(int taskId) {
-           // ps = con.prepareStatement(SELECT_UMK_VIEW_BY_TASK_ID);
-    }
     /**
      * Сохраняет новое событие в базу.
      *
@@ -83,7 +81,7 @@ public class RecordEventFactory implements InitializingBean{
      * @param body      -  тело события в виде массива строк.
      *                  Для каждого типа событий формируется по-разному.
      */
-    public void save(EventType eventType, AbstractUser user, int multiId, String[] body) {
+    public void save(EventType eventType, AbstractUser user, Long multiId, String[] body) {
         EventItem item = new EventItem(eventType, user, getTime(), multiId);
         StringBuilder sb = new StringBuilder();
         //Из массива строк формируется тело сообщения.
@@ -104,7 +102,7 @@ public class RecordEventFactory implements InitializingBean{
      * 4 - Группа (номер)(На разных специальностях могут быть специальности с разными номерами);
      * 5 - Название специальности (значение, а не ID);
      */
-    public void saveSpamActivity(AbstractUser userId, EventType eventType, int specId, int streamId, int groupId) {
+    public void saveSpamActivity(AbstractUser userId, EventType eventType, Long specId, Long streamId, Long groupId) {
         //Формируется тело сообщения.
         String[] str = new String[6];
         str[0] = getType(userId);
@@ -121,7 +119,7 @@ public class RecordEventFactory implements InitializingBean{
         str[5] = getSpecialytyNameById(specId);
 
         //Формируется multiId
-        int multiId = streamId * 10000 * 10000 + specId * 10000 + groupId;
+        Long multiId = streamId * 10000 * 10000 + specId * 10000 + groupId;
         save(eventType, userId,  multiId, str);
     }
 
@@ -138,7 +136,7 @@ public class RecordEventFactory implements InitializingBean{
      * 6 - ID модуля;
      * 7 - ID UMK;
      */
-    public void saveUmkActivity(AbstractUser userId,  EventType eventType, int taskId) {
+    public void saveUmkActivity(AbstractUser userId,  EventType eventType, Long taskId, Long curriculumId) {
         if (UserType.fromRole(userId).equals(UserType.STUDENT) & !(eventType.equals(EventType.UMK_VIEW))) {
             return;
         }
@@ -161,19 +159,20 @@ public class RecordEventFactory implements InitializingBean{
                 break;
         }
 
-        int umkId = 0;
+        Long umkId = 0L;
 
         if (eventType.equals(EventType.UMK_CREATE) || eventType.equals(EventType.UMK_DELETE) || eventType.equals(EventType.UMK_EDIT)) {
             umkId = taskId;
             str[7] = umkId + "";
         } else if (eventType.equals(EventType.UMK_VIEW)) {
-//            TaskInfo task = getTaskInfoById(taskId);
-//            str[3] = task.getUmkName();
-//            str[4] = task.getTaskName();
-//            str[5] = task.getTaskId() + "";
-//            str[6] = task.getModuleId() + "";
-//            str[7] = task.getUmkId() + "";
-//            umkId = task.getUmkId();
+            Curriculum c = curriculumDao.getById(curriculumId);
+            Task t = taskDao.getById(taskId);
+            str[3] = c.getUmk().getName();
+            str[4] = t.getTitle();
+            str[5] = t.getId() + "";
+            str[6] = null + "";
+            str[7] = c.getUmk().getId() + "";
+            umkId = c.getUmk().getId();
         }
 
         save(eventType, userId, umkId, str);
@@ -204,7 +203,7 @@ public class RecordEventFactory implements InitializingBean{
                 break;
 
         }
-        save(eventType, userId, 0, str);
+        save(eventType, userId, 0L, str);
     }
 
     /**
@@ -222,7 +221,7 @@ public class RecordEventFactory implements InitializingBean{
      * !!! Номер группы уникален только в пределах специальности. В разных спец-х
      * возможно дублирование.
      */
-    public void saveGradesActivity(AbstractUser userId, EventType eventType, int specId, int groupId) {
+    public void saveGradesActivity(AbstractUser userId, EventType eventType, Long specId, Long groupId) {
         String[] str = new String[5];
         str[0] = UserType.TEACHER.toString();
         str[1] = getFioByUserId(userId);
@@ -230,7 +229,7 @@ public class RecordEventFactory implements InitializingBean{
         str[3] = specId + "";
         str[4] = getSpecialytyNameById(specId);
         //Формируется multiId
-        int multiId = specId * 10000 + groupId;
+        Long multiId = specId * 10000 + groupId;
         save(eventType, userId,  multiId, str);
     }
 
@@ -242,7 +241,7 @@ public class RecordEventFactory implements InitializingBean{
      * 2 - id теста.
      * 3 - название теста
      */
-    public void saveTestActivity(AbstractUser userId,  EventType eventType, int testId, int umkId) {
+    public void saveTestActivity(AbstractUser userId,  EventType eventType, Long testId, Long umkId) {
         String[] str = new String[4];
         str[0] = getType(userId);
         str[1] = getFioByUserId(userId);
@@ -257,7 +256,7 @@ public class RecordEventFactory implements InitializingBean{
      * 0 - ФИО студента.
      * 1 - Название дисциплины.
      */
-    public void saveTaskHasBeenSent(AbstractUser userId, int disciplineId) {
+    public void saveTaskHasBeenSent(AbstractUser userId, Long disciplineId) {
         String[] str = new String[2];
         str[0] = getFioByUserId(userId);
         str[1] = getDisciplineNameById(disciplineId);
@@ -274,7 +273,7 @@ public class RecordEventFactory implements InitializingBean{
      * Решено, что хранить id этих объектов не имеет смысла, достаточно
      * Стринговых значений ФИО и  названия дисциплины.
      */
-    public void saveTaskHasBeenRead(AbstractUser userId, int disciplineId, int studentId) {
+    public void saveTaskHasBeenRead(AbstractUser userId, Long disciplineId, Long studentId) {
         String[] str = new String[3];
         str[0] = getDisciplineNameById(disciplineId);
         str[1] = getFioByUserId(studentId);
@@ -289,7 +288,7 @@ public class RecordEventFactory implements InitializingBean{
      * В теле события через разделитель записаны следующий данные:
      * 0 - Заголовок новости.
      */
-    public void saveNews(int newsId, String header) {
+    public void saveNews(Long newsId, String header) {
         //String newsText = journalDAO.getNewsById(newsId);
         String[] str = {header};
         save(EventType.NEW_NEWS, null, newsId, str);
@@ -302,7 +301,7 @@ public class RecordEventFactory implements InitializingBean{
      * В теле события через разделитель записаны следующий данные:
      * 0 - Заголовок новости.
      */
-    public void saveViewNews(int newsId, String header, AbstractUser user) {
+    public void saveViewNews(Long newsId, String header, AbstractUser user) {
         String[] str = {header};
         save(EventType.NEWS_VIEW, user, newsId, str);
     }
@@ -315,7 +314,7 @@ public class RecordEventFactory implements InitializingBean{
      */
     public void saveOwnMessage(AbstractUser userId, String message) {
         String[] str = {getFioByUserId(userId), message};
-        save(EventType.OWN_MESSAGE, userId, 0, str);
+        save(EventType.OWN_MESSAGE, userId, 0L, str);
     }
 
     /**
@@ -326,7 +325,7 @@ public class RecordEventFactory implements InitializingBean{
      * 2 - ФИО отправителя.
      * 3 - ФИО получателя (всегда студент).
      */
-    public void saveMessageToStudent(AbstractUser userId, int studentId, String theme) {
+    public void saveMessageToStudent(AbstractUser userId, Long studentId, String theme) {
         String[] str = new String[4];
         str[0] = theme;
         str[1] = getType(userId);
@@ -342,16 +341,16 @@ public class RecordEventFactory implements InitializingBean{
      * 0 - id теста.
      * 1 - Название УМК( значение, а не ID);
      */
-    public void saveTestChanging(EventType eventType, AbstractUser userId,  int umkId, int testId) {
+    public void saveTestChanging(EventType eventType, AbstractUser userId,  Long curriculumId, Long testId) {
 
         switch (eventType) {
             case TEST_ADD:
             case TEST_CHANGE:
-//                TaskInfo task = journalDAO.getTaskInfoById(testId);
                 final String[] str = new String[2];
                 str[0] = testId + "";
-//                str[1] = task.getUmkName();
-                save(eventType, userId,  umkId, str);
+                Curriculum c = curriculumDao.getById(curriculumId);
+                str[1] = c.getUmk().getName();
+                save(eventType, userId,  c.getUmk().getId(), str);
         }
     }
 
@@ -363,8 +362,8 @@ public class RecordEventFactory implements InitializingBean{
      * 1 - Группа (номер)(Номер группы уникален только в пределах специальности);
      * 2 - Название специальности (значение, а не ID);
      */
-    public void saveScheduleChanging(AbstractUser userId,  int specId, int streamId, int groupId) {
-        int multiId = streamId * 10000 * 10000 + specId * 10000 + groupId;
+    public void saveScheduleChanging(AbstractUser userId,  Long specId, Long streamId, Long groupId) {
+        Long multiId = streamId * 10000 * 10000 + specId * 10000 + groupId;
         final String[] str = new String[0];
         str[0] = streamId + "";
         str[1] = groupId + "";
@@ -387,9 +386,9 @@ public class RecordEventFactory implements InitializingBean{
         str[2] = node.getRoot().getObjectId() + "";
         //Автор поста, на который ответили.
         AbstractUser author = node.getParent().getUser();
-        int authorId = Integer.valueOf(author.getId());
+        Long authorId = author.getId();
         //Подобно массовой рассылке в мульти id сохраняется 2 значения: индетификатор пользователя и его тип.
-        int multiId = authorId * 100 + UserType.fromRole(user).toInt();
+        Long multiId = authorId * 100 + UserType.fromRole(user).toInt();
         save(EventType.POST_ANSWER,user,  multiId, str);
     }
 
@@ -407,7 +406,7 @@ public class RecordEventFactory implements InitializingBean{
         //Автор поста
         AbstractUser user = node.getUser();
         //Подобно массовой рассылке в мульти id сохраняется 2 значения: индетификатор пользователя и его тип.
-        int multiId = user.getId() * 100 + UserType.fromRole(user).toInt();
+        Long multiId = user.getId() * 100 + UserType.fromRole(user).toInt();
         save(EventType.POST_ADD, user, multiId, str);
     }
 
@@ -431,6 +430,14 @@ public class RecordEventFactory implements InitializingBean{
         this.userDao = userDao;
     }
 
+    public void setCurriculumDao(IBasicDao<Curriculum> curriculumDao) {
+        this.curriculumDao = curriculumDao;
+    }
+
+    public void setTaskDao(IBasicDao<Task> taskDao) {
+        this.taskDao = taskDao;
+    }
+
     @Override
     public void afterPropertiesSet() throws Exception {
         Assert.notNull(journalDAO);
@@ -438,5 +445,7 @@ public class RecordEventFactory implements InitializingBean{
         Assert.notNull(specialityDao);
         Assert.notNull(testDao);
         Assert.notNull(userDao);
+        Assert.notNull(curriculumDao);
+        Assert.notNull(taskDao);
     }
 }

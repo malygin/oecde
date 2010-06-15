@@ -13,6 +13,8 @@ import org.sgu.oecde.journal.EventItem;
 import org.sgu.oecde.journal.EventType;
 import org.sgu.oecde.news.NewsItem;
 import org.sgu.oecde.news.dao.INewsDao;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.util.Assert;
 import static org.sgu.oecde.journal.util.LogTerms.splitter;
 
 /**
@@ -22,7 +24,7 @@ import static org.sgu.oecde.journal.util.LogTerms.splitter;
  *         В зависимости от типа события по-разному формирует строку сообщения
  * @TODO Админы личных страниц не имеют, но их имена выводятся в ввиде ссылок(нерабочих, конечно).
  */
-public class EventParser  {
+public class EventParser implements InitializingBean {
 
     private INewsDao newsDao;
     private IBasicDao<AbstractUser> userDao;
@@ -127,7 +129,7 @@ public class EventParser  {
                             .append("</a> был добавлен комментарий.");
                     return sb.toString();
                 case NEWS:
-                    NewsItem newsItem = newsDao.getById(Integer.valueOf(subjectID));
+                    NewsItem newsItem = newsDao.getById(Long.valueOf(subjectID));
                     sb = new StringBuilder().append("К вашему сообщению в обсуждении новости")
                             .append("<a href=\"#newsFullText/id=").append(subjectID).append("&pN=1&count=10\">\"")
                             .append(newsItem.getHeader()).append("\"</a> был добавлен комментарий.");
@@ -170,7 +172,7 @@ public class EventParser  {
                         .append("</a>.");
                 return sb.toString();
             case NEWS:
-                NewsItem newsItem = newsDao.getById(Integer.valueOf(subjectID));
+                NewsItem newsItem = newsDao.getById(Long.valueOf(subjectID));
                 sb = new StringBuilder().append(UserType.fromRole(user)).append(" ").append(fio)
                         .append(" добавил комментарий к новости")
                         .append("<a href=\"#newsFullText/id=").append(newsItem.getId()).append("&pN=1&count=10\">\"")
@@ -472,5 +474,19 @@ public class EventParser  {
         sb.append(" изменилось расписание");
 
         return sb.toString();
+    }
+
+    public void setNewsDao(INewsDao newsDao) {
+        this.newsDao = newsDao;
+    }
+
+    public void setUserDao(IBasicDao<AbstractUser> userDao) {
+        this.userDao = userDao;
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        Assert.notNull(newsDao);
+        Assert.notNull(userDao);
     }
 }

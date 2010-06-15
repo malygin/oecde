@@ -57,7 +57,7 @@ public class StudentFilter extends BaseFilter {
         switch (event) {
             case GRADING_FIRST:
             case GRADING_SECOND:
-                int gradeId = user.<Group>getGroup().getSpeciality().getId() * 10000 + user.getGroup().getId();
+                Long gradeId = user.<Group>getGroup().getSpeciality().getId() * 10000 + user.getGroup().getId();
                 return " AND MULTI_ID = " + gradeId;
             case SPAM_GROUP:
                 spamId += user.getGroup().getId();
@@ -84,7 +84,7 @@ public class StudentFilter extends BaseFilter {
             case TASK_HAS_BEEN_READ:
                 return new StringBuilder("AND MULTI_ID = ").append(getUserId()).toString();
             case POST_ANSWER:
-                int multiId = userItem.getId() *100 +  UserType.fromRole(userItem).toInt();
+                Long multiId = userItem.getId() *100 +  UserType.fromRole(userItem).toInt();
                 return new StringBuilder("AND MULTI_ID = ").append(multiId).toString();
             default:
                 return super.getAddCondition(event);
@@ -94,7 +94,7 @@ public class StudentFilter extends BaseFilter {
     public void setUser(AbstractUser userItem) {
         if (userItem instanceof Student) {
             super.setUserItem(userItem);
-            super.setUserId(Integer.valueOf(userItem.getId()));
+            super.setUserId(userItem.getId());
         } else {
             throw new IllegalArgumentException(Student.class + " required, " + userItem.getClass() + " found");
         }

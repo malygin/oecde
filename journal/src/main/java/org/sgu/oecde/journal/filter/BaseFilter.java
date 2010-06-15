@@ -21,7 +21,7 @@ public abstract class BaseFilter {
     /**Пользователь, к которому приклеплен фильтр*/
     protected AbstractUser userItem;
     /**id юзера*/
-    protected int userId;
+    protected Long userId;
     /** Дата, начиная с которой выводить события.*/
     protected String beginDate = "2009.08.01 00:00:00";
     /** Дата, по которую выводить события.*/
@@ -201,11 +201,11 @@ public abstract class BaseFilter {
         return endDate;
     }
 
-    public int getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 }

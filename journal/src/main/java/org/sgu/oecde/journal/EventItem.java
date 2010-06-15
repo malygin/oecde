@@ -24,7 +24,7 @@ public class EventItem extends BasicItem{
     /**
      * универсальный айди. В зависимости от типа может содержать айди умк, дисциплины и тд.
      */
-    private Integer multiId;
+    private Long multiId;
     /**
      * тело события. Формируется по разному, в зависимости от типа события.
      * Содержит основные блоки информации (ФИО пользователя, имя дисциплины и т.п.),
@@ -38,7 +38,7 @@ public class EventItem extends BasicItem{
     public EventItem() {
     }
 
-    public EventItem(EventType eventType, AbstractUser user,  String time, Integer multiId) {
+    public EventItem(EventType eventType, AbstractUser user,  String time, Long multiId) {
         this.eventType = eventType;
         this.time = time;
         this.user = user;
@@ -77,11 +77,11 @@ public class EventItem extends BasicItem{
         this.eventType = EventType.value(eventTypeId);
     }
 
-    public Integer getMultiId() {
+    public Long getMultiId() {
         return multiId;
     }
 
-    public void setMultiId(Integer multiId) {
+    public void setMultiId(Long multiId) {
         this.multiId = multiId;
     }
 
@@ -100,12 +100,4 @@ public class EventItem extends BasicItem{
     public void setTime(String time) {
         this.time = time;
     }
-
-//    public UserType getUserType() {
-//        return userType;
-//    }
-//
-//    public void setUserType(UserType userType) {
-//        this.userType = userType;
-//    }
 }
