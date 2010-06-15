@@ -1,0 +1,230 @@
+#infopart{
+	padding-top: 108px;
+	padding-left: 10px;
+	padding-right: 10px;
+	min-height: 500px;
+	overflow-y: hidden;
+}
+* html #infopart{
+
+	padding-top: 0px;
+}
+p{
+	margin: 0px;
+	font-family: times new roman !IMPORTANT;
+	font-size: 12pt !IMPORTANT;
+	text-indent: 0px !IMPORTANT;
+}
+h1{
+	margin: 0px;
+}
+.for_table{display: block; text-align: center;}
+.for_table table{border-collapse: collapse;text-align: left;margin-left: auto; margin-right: auto;}
+.for_table table td{padding:10px;}
+.formul_table{display: block; text-align: center;}
+.formul_table table{border-collapse: collapse;text-align: left;border: 1px solid white !important;}
+.formul_table table td,
+.formul_table table tr{padding:0px;border: 1px solid white !important;}
+.formul_table img{position: relative; top: 8px;}
+.imG_span{display: inline;margin-left: 5px; margin-right: 5px;vertical-align: middle;}
+.imG{display: inline !important; margin-left: 5px; margin-right: 5px;vertical-align: middle;}
+.image_picture_span{display: block; text-align: center;}
+.image_picture{display: block;margin-left:auto; margin-right: auto;}
+.image_formul{display: block;margin-left:auto; margin-right: auto;}
+.image_formul_span{display: block; text-align: center;}
+
+
+
+
+#dialog1 {background: white; border: 1px solid #0F9BD9;padding: 5px;margin-top:160px;margin-right: 10px; font-family: times new roman !IMPORTANT;
+		 font-size: 11pt !IMPORTANT;}
+#dialog1 div{margin:3px;}
+#infopart .dojo_pic_form_umk {display: inline; margin:10px;}
+
+#infopart p {margin-top: 10px; margin-bottom: 10px; text-indent: 0px;}
+#infopart h1 {display: block;max-width:1000px; color: #4AA9E5;text-align: center;}
+#infopart img{display: block; clear: both;margin-left: auto; margin-right: auto;}
+#infopart table{margin-left: auto; margin-right: auto;}
+#infopart li{font-family: times new roman !IMPORTANT; font-size: 12pt !IMPORTANT;}
+#infopart ul li{font-family: times new roman !IMPORTANT; font-size: 12pt !IMPORTANT;}
+
+#infopart a{color: #4AA8E5; text-decoration: none;}
+#infopart a:active{color: #4AA8E5; text-decoration: none;}
+#infopart a:link{color: #4AA8E5; text-decoration: none;}
+#infopart a:visited{color: #4AA8E5; text-decoration: none;}
+#infopart a:hover{color: #026fb6; text-decoration: none;}
+/*verhnee menu*/
+.top_menu{
+	width: 100%; position: fixed; margin: 0px; padding: 0px; z-index: 1000; top: 0px;
+}
+.smeshenie{
+	margin-left: 30px; width: 100%;
+}
+
+/*verhnjaja kartinka*/
+.verh{
+	background: url("../umkImages/verh.jpg") repeat-x bottom; height: 8px; margin: 0px; padding: 0px;
+}
+/*zakladki v verhnem menu*/
+.zakladka{
+	background: url("../umkImages/zakladka_passiv.jpg") repeat-x bottom;
+	height: 32px;
+	vertical-align: middle; min-width: 500px;
+}
+.link_top_menu:link{
+	font-size: 11pt;color: #fff;font-family: "Arial";TEXT-DECORATION: none; margin-left: 25px; margin-right: 25px;
+}
+.link_top_menu:hover{
+	font-size: 11pt;color: #fff;font-family: "Arial";TEXT-DECORATION: none; margin-left: 25px; margin-right: 25px;
+}
+.link_top_menu:visited{
+	font-size: 11pt;color: #fff;font-family: "Arial";TEXT-DECORATION: none; margin-left: 25px; margin-right: 25px;
+}
+.link_top_menu:active{
+	font-size: 11pt;color: #fff;font-family: "Arial";TEXT-DECORATION: none; margin-left: 25px; margin-right: 25px;
+}
+/*stil ssilkl v verhnem menu, na kotoroi nahoditsja pol'zovatel'*/
+.activpage{
+	background: url("../umkImages/zakladka_activ.jpg") repeat-x bottom;
+    float: left;
+    height: 32px;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+* html .activpage {
+
+    width: 50px;
+}
+.block_top_menu{
+	float: left; 
+    height: 32px;
+    padding-top: 0px;
+    text-align: center; 
+}
+.block_top_menu_back{
+	height: 32px;
+    float: right;
+    padding-top: 0px;
+    margin-right: 30px;
+    text-align: center;
+}
+/*levaja chast' aktivnoi ssilki*/
+.left_part{
+	background: url("../umkImages/left_part.jpg") no-repeat left bottom; 
+    height: 32px;
+    margin: 0px;
+    padding: 0px;
+}
+/*pravaja chast' aktivnoi ssilki*/
+.right_part{
+	background: url("../umkImages/right_part.jpg") no-repeat right bottom; 
+    height: 32px;
+    padding: 0px;
+    margin: 0px;
+}
+/*nazvanie temi stranici*/
+.title{
+	background: #4aa9e5; height:32px; font-size: 13pt; color: #fff; font-family: "Arial";
+	font-weight: bold; white-space: nowrap;
+}
+.title p{
+	margin-top: 0px; margin-left: 40px; padding-top: 4px;
+}
+/*ssilki prosmotra stranic*/
+.pages{
+	background: url("../umkImages/pages.jpg") repeat-x bottom;
+	height: 35px;
+	border-top: 1px solid #d9d9d9; min-width: 500px;
+}
+.smeshenie_pages{
+	margin-left: 30px; //padding-bottom: 5px;
+}
+.pages_block{
+	border-right: 1px solid #d9d9d9; height: 26px;  float: left; //position: relative; //top: 0px; //height: 24px !important;
+}
+.author{
+	height: 28px;  XXXfloat: right; margin-right: 35px; font-family: "Arial"; font-size: 10pt; color: #777777; XXXmargin-top: 5px;
+}
+
+.pages_block p{
+	margin-top: 0px; margin-left: 10px; padding-top: 2px; margin-right: 10px;
+}
+.page_link:link{
+	font-size: 10pt; color: #4aa8e5; font-family: "Arial"; text-decoration: underline;
+}
+.page_link:visited{
+	font-size: 10pt; color: #4aa8e5; font-family: "Arial"; text-decoration: underline;
+}
+.page_link:active{
+	font-size: 10pt; color: #4aa8e5; font-family: "Arial"; text-decoration: underline;
+}
+.page_link:hover{
+	font-size: 10pt; color: #4aa8e5; font-family: "Arial"; text-decoration: none;
+}
+
+/*informacionnii blok*/
+.info_block{
+	border-left: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9; position: relative;
+	font-family: "Arial";  color: #777777;  z-index: 2; background: white;
+	text-align: justify;
+}
+.info{
+	background: white; position: relative; padding-top: 10px; font-size:  10pt;
+}
+
+.info h1{
+	color: Black; font-weight: lighter; margin-left: 10px; font-size: 1.4em;
+}
+.info p{
+	margin-left: 10px;
+}
+.info_block img{
+	margin-left: 10px; margin-right: 10px;XXXfloat: left;
+}
+.img_umk{
+	float: left !important; position: relative; margin-top: 5px;
+}
+
+/*panel' nastroek*/
+.toolbar{
+	position: fixed; top: 130px;
+	
+    
+}
+
+
+.tools{
+	position: absolute; top: 30px; left: 37px; width: 20px; opacity: 0; display: none;
+}
+.tools input{
+	margin-top: 6px; outline: none; margin-left: 8px;
+}
+.panel_close{
+	width: 40px; position: absolute; height: 24px; left: 22px; outline: none; cursor: pointer;
+}
+.panel_open{
+	width: 40px; position: absolute; height: 24px; display: none; left: 50px; outline: none; cursor: pointer;
+}
+.panel_close input,
+.panel_open input{
+	outline: none;
+}
+.fixed_block{
+	width: 100%; height: 100px; background: red; position: fixed; z-index: 2;
+}
+* html .fixed_block{
+	top:0px !important;
+	height: expression(
+		a = document.body.offsetHeight
+		b = 100;
+		c = a - b -5;
+		c + "px";
+	);
+}
+.move_block{
+	position: relative; z-index: 1;
+	margin-right: 50px;
+	margin-left: 50px;
+
+}

@@ -1,0 +1,381 @@
+/* space is to trick build to exlucde inline (in theory)
+	these are for Lightbox.js:
+
+@  import "../../dijit/themes/dijit.css" !important;
+@  import "../../dijit/themes/tundra/Dialog.css" !important;
+@  import "../../dojox/image/resources/Lightbox.css" !important; 
+
+*/
+
+@import "../../dojox/layout/resources/ResizeHandle.css" !important;
+
+/* Generic Demo Styles: */
+body, html { margin:0 !important; padding:0 !important; background:#fff !important; }
+h1 { margin-top:0 !important; margin-bottom:0 !important; }
+.show_img img{
+	position: relative !important;
+	z-index: 33 !important;
+}
+
+
+.clear { clear:both !important; }
+
+.info_block img{
+	margin: 0px!important;
+}
+
+.info_block #footing img{
+	margin: 10px!important;
+}
+
+#picker img{
+	width: 105px;
+	height: 79px;
+
+}
+
+
+#loader {
+	float:right !important;
+	height:32px !important;
+	width:32px !important;
+	background:url('../dojoroot/dojox/image/resources/images/loading.gif') no-repeat center center !important;
+}
+
+#body {
+	padding:0 !important;
+	margin:0 auto !important;
+	width:710px !important;
+}
+
+#title_demo {
+	font:21pt Arial,sans-serif !important;
+	color:#888 !important;
+	font-weight:bold !important;
+}
+
+#demo { 
+	margin:0 !important; 
+	padding:0 !important; 
+	/* janky: IE6 lays out oddly, but FF breaks with pos:rel on the parent? */
+	#position:relative !important;
+}
+
+#pager {
+	line-height:1.45em !important;
+	text-align:center !important;
+	margin-right:0 !important;
+}
+
+#heading {
+	margin-top:1em !important;
+	border-bottom:1px solid #ccc !important;
+	margin-bottom:10px !important;
+	padding-bottom:5px !important;
+}
+
+/* footer styles: thumbnails */
+#footing {
+	margin-top:10px !important;
+	margin-bottom:8px !important;
+	border-top:1px solid #ccc !important; 
+	border-bottom:1px solid #ccc !important;
+	/*height:350px !important;*/
+	background:#ededed !important;
+	overflow:hidden !important;
+}
+p.notas { 
+	clear:both !important;
+	text-align:center !important;
+	color:#aaa !important;
+	font:9pt Arial,sans-serif !important;
+}
+p.copyright {
+	color:#888 !important;
+	font:9pt Arial,sans-serif !important;
+	text-align:center !important;
+}
+#exif { clear:both !important; height:2em !important; }
+
+#footing img { border:none !important; margin: 0px !important; }
+#footing ul {
+	margin:0 !important;
+	text-align:center !important;
+	padding:0 !important;
+	margin-left:15px !important;
+	margin-top:10px !important;
+	list-style-type:none !important;
+}
+
+#pager {
+	float:right !important;
+	z-index:996 !important;
+	height: 1.5em !important;
+	margin:0 !important;
+	margin-right:-4px !important;
+	list-style-type:none !important;
+}
+#pager li { 
+	float:left !important; 
+	border-bottom:4px solid #ccc !important;
+	margin-top:2px !important;
+	margin-left:5px !important; margin-right:5px !important;
+	padding-left:5px !important; padding-right:5px !important;
+	cursor:pointer !important;
+	font-weight:bold !important;
+	color:#ccc !important;
+}
+#pager li.selected {
+	color:#888 !important;
+	border-bottom:4px solid #888 !important;
+}
+#pager li.over {
+	color:#666 !important;
+	border-bottom:4px solid #666 !important;
+}
+
+#picker li { 
+	float:left !important; 
+	padding:0 !important;
+	padding-right:9px !important;
+}
+#picker li a {
+	border-bottom:3px solid #ededed !important;
+}
+#picker li a:hover {
+	border-bottom:3px solid #ccc !important;
+}
+
+li.navButton {
+	position:relative !important;
+	line-height:79px !important;
+	cursor:pointer !important;
+	font-weight:bold !important;
+	color:#777 !important;
+}
+
+/* style the image */
+#me {
+	width:420px !important;
+	height:300px !important;
+}
+
+/* part of the widget: drag handle styles */
+.imageDragger {
+	/* required: */
+	position:absolute !important;
+	/* optional: */
+	cursor:move !important;
+	z-index:999 !important;
+	background:#fff !important;
+/*	border:1px solid #000 !important; */
+}
+
+/* test: Resizer Widget Styles */
+/*
+.overlayTotal { position:absolute !important; }
+.overlayInner { position:relative !important; }
+
+.handleTL, .handleT, .handleTR,
+.handleML, .handleMR,
+.handleBL, .handleB, .handleBR {
+	position:absolute !important;
+	height:8px !important;
+	border:1px solid #000 !important;
+	background:#fff !important;	
+}
+
+.handleTL, .handleT, .handleTR { 
+	top:-5px !important;
+}
+
+.handleBL, .handleBR {
+	bottom:-5px !important;
+}
+*/
+
+
+
+
+.dojoxResizeHandle {
+background-image:url(../dojoroot/dojox/layout/resources/icons/resize.png) !important;
+bottom:2px  !important;
+float:right  !important;
+height:13px  !important;
+line-height:0 !important;
+position:absolute  !important;
+right:2px  !important;
+width:13px  !important;
+z-index:20  !important;
+}
+.dojoxResizeNW {
+cursor:nw-resize  !important;
+}
+.dojoxResizeNE {
+cursor:ne-resize  !important;
+}
+.dojoxResizeW {
+cursor:w-resize  !important;
+}
+.dojoxResizeN {
+cursor:n-resize  !important;
+}
+.dojoxResizeHandleClone {
+border:1px dashed #666666  !important;
+left:0  !important;
+position:absolute  !important;
+top:0  !important;
+z-index:999  !important;
+}
+body, html {
+background:#FFFFFF none repeat scroll 0 0  !important;
+margin:0  !important;
+padding:0  !important;
+}
+h1 {
+margin-bottom:0  !important;
+margin-top:0  !important;
+}
+.clear {
+clear:both  !important;
+}
+#loader {
+background:transparent url(../dojoroot/dojox/image/resources/images/loading.gif) no-repeat scroll center center  !important;
+float:right  !important;
+height:32px  !important;
+width:32px  !important;
+}
+#body {
+margin:0 auto  !important;
+padding:0  !important;
+width:1100px  !important;
+}
+#title_demo {
+-x-system-font:none  !important;
+color:#888888  !important;
+font-family:Arial,sans-serif  !important;
+font-size:21pt  !important;
+font-size-adjust:none  !important;
+font-stretch:normal  !important;
+font-style:normal  !important;
+font-variant:normal  !important;
+font-weight:bold  !important;
+line-height:normal  !important;
+}
+#demo {
+margin:0  !important;
+padding:0  !important;
+}
+#pager {
+line-height:1.45em  !important;
+margin-right:0  !important;
+text-align:center  !important;
+}
+#heading {
+border-bottom:1px solid #CCCCCC  !important;
+margin-bottom:10px  !important;
+margin-top:1em  !important;
+padding-bottom:5px  !important;
+}
+#footing {
+background:#EDEDED none repeat scroll 0 0  !important;
+border-bottom:1px solid #CCCCCC  !important;
+border-top:1px solid #CCCCCC  !important;
+/*height:350px  !important;*/
+margin-bottom:8px  !important;
+margin-top:10px  !important;
+overflow:hidden  !important;
+}
+p.notas {
+-x-system-font:none  !important;
+clear:both  !important;
+color:#AAAAAA  !important;
+font-family:Arial,sans-serif  !important;
+font-size:9pt  !important;
+font-size-adjust:none  !important;
+font-stretch:normal  !important;
+font-style:normal  !important;
+font-variant:normal  !important;
+font-weight:normal  !important;
+line-height:normal  !important;
+text-align:center  !important;
+}
+p.copyright {
+-x-system-font:none  !important;
+color:#888888  !important;
+font-family:Arial,sans-serif  !important;
+font-size:9pt  !important;
+font-size-adjust:none  !important;
+font-stretch:normal  !important;
+font-style:normal  !important;
+font-variant:normal  !important;
+font-weight:normal  !important;
+line-height:normal  !important;
+text-align:center  !important;
+}
+#exif {
+clear:both  !important;
+height:2em  !important;
+}
+#footing img {border:medium none !important;}
+
+#footing ul {
+list-style-type:none  !important;
+margin:10px 0 0 15px  !important;
+padding:0  !important;
+text-align:center  !important;
+}
+#pager {
+float:right !important;
+height:1.5em  !important;
+list-style-type:none  !important;
+margin:0 -4px 0 0  !important;
+z-index:996  !important;
+}
+#pager li {
+border-bottom:4px solid #CCCCCC  !important;
+color:#CCCCCC  !important;
+cursor:pointer  !important;
+float:left  !important;
+font-weight:bold  !important;
+margin-left:5px  !important;
+margin-right:5px  !important;
+margin-top:2px  !important;
+padding-left:5px  !important;
+padding-right:5px  !important;
+}
+#pager li.selected {
+border-bottom:4px solid #888888  !important;
+color:#888888  !important;
+}
+#pager li.over {
+border-bottom:4px solid #666666  !important;
+color:#666666  !important;
+}
+#picker li {
+float:left  !important;
+padding:0 9px 0 0  !important;
+}
+#picker li a {
+border-bottom:3px solid #EDEDED  !important;
+}
+#picker li a:hover {
+border-bottom:3px solid #CCCCCC  !important;
+}
+li.navButton {
+color:#777777  !important;
+cursor:pointer  !important;
+font-weight:bold  !important;
+line-height:79px  !important;
+position:relative  !important;
+}
+#me {
+height:300px  !important;
+width:420px  !important;
+}
+.imageDragger {
+background:#FFFFFF none repeat scroll 0 0  !important;
+cursor:move  !important;
+position:absolute  !important;
+z-index:999  !important;
+}

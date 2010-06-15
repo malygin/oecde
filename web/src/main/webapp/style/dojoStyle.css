@@ -1,0 +1,1471 @@
+/*
+    Document   : dojoStyle
+    Created on : 08.07.2009, 13:05:04
+    Author     : korgovvd
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+/*dojostyle; gray title kotorie peredelivaut stili iz dojo dlaj titlepane*/
+.main_page .GrayTitle .dijitTitlePane .dijitTitlePaneTitle {
+	background: url(../images/grad_gray.png) repeat-x bottom left;
+	border:0px solid #bfbfbf;
+	padding:  0px 0px 0px 10px;
+	cursor: pointer;
+	height: 23px;
+	line-height: 24px;
+}
+.main_page .GrayTitle .dijitTitlePaneTextNode {
+	color:#727272;
+	text-decoration:none;
+	background: none;
+}
+.main_page .GrayTitle .dijitTitlePaneFocused .dijitTitlePaneTextNode {
+	color:#727272;
+	text-decoration:none;
+	background: none;
+}
+.main_page .dijitArrowNodeInner{
+    display:none;
+}
+/*dojo red titlepane*/
+.main_page .red_title .dijitTitlePaneContentInner{
+    padding-bottom: 10px;
+}
+.main_page .red_title .dijitTitlePane .dijitTitlePaneTitle {
+	background: url(../images/alertBar.png) repeat-x bottom left;
+	border:0px solid #bfbfbf;
+	padding: 0px 4px 1px 10px;
+	cursor: pointer;
+	line-height: 19px;
+	height: 18px;
+}
+/*dojo yellow titlepane*/
+.main_page .yellow_title .dijitTitlePaneContentInner{
+    padding-bottom: 10px;
+}
+.main_page .yellow_title .dijitTitlePane .dijitTitlePaneTitle {
+	background: url(../images/chtBar.png) repeat-x bottom left;
+	border:0px solid #bfbfbf;
+	padding: 0px 4px 1px 10px;
+	cursor: pointer;
+	line-height: 19px;
+	height: 18px;
+}
+.main_page .yellow_title .dijitTitlePane .dijitClosed{
+	background: url(../images/chtBarClosed.png) repeat-x bottom left !important;
+	border:0px solid #bfbfbf;
+	padding: 0px 4px 1px 10px;
+	cursor: pointer;
+	line-height: 19px;
+	height: 18px;
+}
+/*dojo blue titlepane*/
+.main_page .blue_title .dijitTitlePaneContentInner{
+    padding-bottom: 10px;
+}
+.main_page .blue_title .dijitTitlePane .dijitTitlePaneTitle {
+	background: url(../images/StudyBar.png) repeat-x bottom left;
+	border:0px solid #bfbfbf;
+	padding: 0px 4px 1px 10px;
+	cursor: pointer;
+	line-height: 19px;
+	height: 18px;
+}
+.main_page .blue_title .dijitTitlePane .dijitClosed{
+	background: url(../images/studyBarClosed.png) repeat-x bottom left !important;
+	border:0px solid #bfbfbf;
+	padding: 0px 4px 1px 10px;
+	cursor: pointer;
+	line-height: 19px;
+	height: 18px;
+}
+/*dojo green titlepane*/
+.main_page .green_title .dijitTitlePaneContentInner{
+    padding-bottom: 10px;
+}
+.main_page .green_title .dijitTitlePane .dijitTitlePaneTitle {
+	background: url(../images/msgBar.png) repeat-x bottom left;
+	border:0px solid #bfbfbf;
+	padding: 0px 4px 1px 10px;
+	cursor: pointer;
+	line-height: 19px;
+	height: 18px;
+}
+.main_page .green_title .dijitTitlePane .dijitClosed{
+	background: url(../images/msgBarClosed.png) repeat-x bottom left !important;
+	border:0px solid #bfbfbf;
+	padding: 0px 4px 1px 10px;
+	cursor: pointer;
+	line-height: 19px;
+	height: 18px;
+}
+/*admin: adminexbook; student: mainContant; teacher: stexbook, mainContant, messages_list, otchet2 dojo knopka dlja zagruzki*/
+.tundra .Opa .dijitButtonNode {
+	height:22px;
+	border: 1px solid #B5E4FF;
+	border-bottom:1px solid #57c3ff;
+	border-right:1px solid #57c3ff;
+	font-size:8pt;
+    color: white;
+	background: #79CEFF !important;
+}
+/*admin: adminexbook; student: mainContant; teacher: stexbook, mainContant, messages_list, otchet2 dojo knopka dlja zagruzki*/
+.tundra .Opa .dijitArrowButtonInner {
+ width: 0;
+}
+.main_page .dijitTreeNode {/*dojostyle; student: stGroups; ybiranie markirovkid v dereviax*/
+    /*background-image : url('none');*/
+    background-position : top left;
+    background-repeat : repeat-y;
+    margin-left: 19px;
+    zoom: 1;
+}
+.main_page .dijitTreeIsLast {/*dojostyle: student: stGroups; stil poslednego elementa spiska */
+/*    background: url('none') no-repeat;*/
+}
+.main_page .dijitTreeIsRoot {/*dojostyle: student: stGroups; stil korna dereva*/
+    margin-left: 0;
+    background-image: none;
+}
+.main_page .dijitTreeExpando {/*dojostyle: student: stGroups; razmer zanimaemii tochkoi markirovki*/
+    width: 18px;
+    height: 18px;
+}
+.main_page .dijitTreeContent {/*dojostyle: student: stGroups; stil kagdogo elementa dereva*/
+    min-height: 18px;
+    min-width: 18px;
+    margin-left:18px;
+    padding-top:3px;
+    padding-left:1px;
+}
+.main_page .dijitTreeExpand {/*dojostyle: student: stGroups; dla markirovki*/
+    width: 18px;
+    height: 18px;
+    background-repeat : no-repeat;
+}
+.main_page .dijitTreeNodeEmphasized {/*dojostyle: student: stGroups;*/
+    background-color: Highlight;
+    color: HighlightText;
+}
+.main_page .dijitTreeLabelFocused {/*dojostyle: student: stGroups;*/
+	outline: 1px invert dotted;
+	background:#dde7f2;
+}
+.main_page .dijitTreeExpandoOpened {/*dojostyle: student: stGroups; markirovka otkritogo elementa dereva*/
+	margin-left: 10px; /*background-image: url('none');*/
+}
+.main_page .dijitTreeExpandoClosed {/*dojostyle: student: stGroups; markirovka zakritogo elementa dereva*/
+	margin-left: 10px;/* background-image: url('none');*/
+}
+.main_page .dijitTreeExpandoLeaf {/*dojostyle: student: stGroups; markirovka lista*/
+	margin-left: 10px; /*background-image: url('none');*/
+}
+.main_page .dijitTreeExpandoLoading {/*dojostyle: student: stGroups; */
+	/*background-image: url('none');*/
+}
+.main_page .dijitTreeIcon {/*dojostyle:student: stGroups;, stil luboi iconki*/
+	width: 20px;
+	height: 20px;
+	padding-right: 4px;
+}
+.main_page .dijitFolderOpened {/*dojostyle: student: stGroups; stil iconki otkritogo elementa dereva*/
+	background: url('../images/folderOpened.png') no-repeat;
+}
+.main_page .dijitFolderClosed {/*dojostyle: student: stGroups; stil iconki zakritogo elementa dereva*/
+	background: url('../images/folderClosed.png') no-repeat;
+}
+.main_page .dijitLeaf {/*dojostyle: student: stGroups; stil iconki lista*/
+	background: url('../images/leaf.gif') no-repeat;
+}
+/*student: courseworks.jsp,debt.jsp, info.jsp, sthelp.jsp, stsched_week.jsp,help.jsp;iconki titlepane*/
+.main_page .transpTitle .dijitTitlePane .dijitClosed .dijitArrowNode {
+	background:none;text-decoration:none;
+}
+/*dojostyle; student: sthelp,courseworks.jsp,debt.jsp, info.jsp, sthelp.jsp, stsched_week.jsp,help.jsp;iconki titlepane*/
+.main_page .transpTitle .dijitTitlePane .dijitOpen .dijitArrowNode {
+	background:none; text-decoration:none;
+}
+/* dojostyle; student: sthelp,courseworks.jsp,debt.jsp, info.jsp, sthelp.jsp, stsched_week.jsp,help.jsp; titlepane kak tekst*/
+.main_page .transpTitle .dijitTitlePane .dijitTitlePaneTitle {
+	background:none;
+	padding:  0px 0px 0px 10px;
+	cursor: pointer;
+    text-decoration:none;
+	height: 23px;
+	line-height: 24px;
+    outline: none;
+}
+.main_page .transpTitle .dijitTitlePaneTextNode {/*dojostyle; student: sthelp, courseworks.jsp,debt.jsp, info.jsp, sthelp.jsp, stsched_week.jsp,help.jsp; titlepane kak tekst*/
+	color:#727272;
+	text-decoration:none;
+	text-align: left;
+    outline: none;
+	background: none;
+}
+.main_page .transpTitle.dijitTitlePaneFocused .dijitTitlePaneTextNode {/*dojostyle; student: sthelp,courseworks.jsp,debt.jsp, info.jsp, sthelp.jsp, stsched_week.jsp,help.jsp; titlepane kak tekst*/
+	color:#727272;
+	text-decoration:none;
+    outline: none;
+	background: none;
+}
+.main_page .transpTitle .dijitTitlePane .dijitClosed .dijitArrowNode {/*dojostyle; student: sthelp,courseworks.jsp,debt.jsp, info.jsp, sthelp.jsp, stsched_week.jsp,help.jsp; titlepane kak tekst*/
+	background:none;text-decoration:none;
+    outline: none;
+}
+.main_page .transpTitle .dijitTitlePane .dijitOpen .dijitArrowNode {/*dojostyle; student: sthelp,courseworks.jsp,debt.jsp, info.jsp, sthelp.jsp, stsched_week.jsp,help.jsp; titlepane kak tekst*/
+	background:none; text-decoration:none;
+    outline: none;
+}
+.main_page .transpTitle .dijitTitlePane .dijitTitlePaneTitle {/*dojostyle; student: sthelp,courseworks.jsp,debt.jsp, info.jsp, sthelp.jsp, stsched_week.jsp,help.jsp; titlepane kak tekst*/
+	/*background: url(none);*/
+	border:0px solid #bfbfbf;
+	padding: 0px 4px 1px 10px;
+    outline: none;
+	cursor: pointer;text-decoration:none;
+	line-height: 19px;
+	height: 18px;
+}
+.main_page .transpTitle .dijitTitlePaneContentInner{outline: none;}
+.main_page .in .dijitComboBoxHover .dijitDownArrowButton{/*dojostyle; student, admin, teacher: index, enter_error,test; stranici testov; stroka s knopkoi zaverchaenia testa*/
+	border-color:#a5beda;
+	border-bottom-color:#5c7590;
+	border-right-color:#5c7590;
+	color:#000; color: White;
+	background:#fcfdff url(../dojoroot/dijit/themes/tundra/images/buttonEnabledRed.png) repeat-x bottom; /*perelojit kartinku iz tundry*/
+}
+
+.tundra .in .dijitComboBoxHover .dijitDownArrowButton{/*student, admin, teacher: index, enter_error,test; stroka s knopkoi zaverchaenia testa*/
+	border-color:#a5beda;
+	border-bottom-color:#5c7590;
+	border-right-color:#5c7590;
+	color:#000; color: White;
+	background:#fcfdff url(../dojoroot/dijit/themes/tundra/images/buttonEnabledRed.png) repeat-x bottom;
+}
+.tundra .dijitSliderProgressBarH {/*dojostyle;slider style;*/
+	border-color: #87CEFA;
+	background: #c0c2c5 url(../dojoroot/dijit/themes/tundra/images/sliderFull.png) repeat-x top left;
+}
+.tundra .dijitSliderProgressBarV {/*dojostyle;slider style; */
+	border-color: #87CEFA;
+	background: #c0c2c5 url(../dojoroot/dijit/themes/tundra/images/sliderFullVertical.png) repeat-y bottom left;
+}
+.tundra .dijitSliderFocused .dijitSliderProgressBarH,
+.tundra .dijitSliderFocused .dijitSliderLeftBumper {/*dojostyle;slider style;  */
+	background-image:url(../dojoroot/dijit/themes/tundra/images/sliderFull1.png);
+}
+.tundra .dijitSliderFocused .dijitSliderProgressBarV,
+.tundra .dijitSliderFocused .dijitSliderBottomBumper {/*dojostyle;slider style;*/
+	background-image:url(../dojoroot/dijit/themes/tundra/images/sliderFullVerticalFocus1.png);
+}
+.tundra .dijitSliderRemainingBarV {/*dojostyle;slider style;  */
+	border-color: #87CEFA;
+	background: #dcdcdc url(../dojoroot/dijit/themes/tundra/images/sliderEmptyVertical.png) repeat-y bottom left;
+}
+.tundra .dijitSliderRemainingBarH {/*dojostyle;slider style;  */
+	border-color: #87CEFA;
+	background: #dcdcdc url(../dojoroot/dijit/themes/tundra/images/sliderEmpty.png) repeat-x top left;
+}
+.tundra .dijitSliderBar {/*dojostyle;slider style;  */
+	border-style: solid;
+	outline:1px;
+}
+.tundra .dijitSliderFocused .dijitSliderBar {/*dojostyle;slider style;*/
+	border-color:#87CEFA;
+}
+.dijit_a11y .dijitSliderProgressBar {/*dojostyle;slider style;*/
+	background-color:#333 !important;
+}
+.tundra .dijitSliderImageHandleH {/*dojostyle;slider style;  */
+	border:0px;
+	width:16px;
+	height:16px;
+	background:url(../dojoroot/dijit/themes/tundra/images/preciseSliderThumb.png) no-repeat center top;
+	cursor:pointer;
+}
+.tundra .dijitSliderFocused .dijitSliderImageHandleH {/*dojostyle;slider style;  */
+	background-image:url(../dojoroot/dijit/themes/tundra/images/preciseSliderThumbFocus.png);
+	#background-image:url(../dojoroot/dijit/themes/tundra/images/preciseSliderThumbFocus.gif);
+}
+.dj_ie6 .tundra .dijitSliderImageHandleH {/*dojostyle;slider style;  */
+	background-image:url(../dojoroot/dijit/themes/tundra/images/preciseSliderThumb.gif);
+}
+.tundra .dijitSliderLeftBumper {/*dojostyle;slider style;  */
+	border-left-width: 1px;
+	border-color: #87CEFA;
+	background: #c0c2c5 url(../dojoroot/dijit/themes/tundra/images/sliderFull.png) repeat-x top left;
+}
+.tundra .dijitSliderRightBumper {/*dojostyle;slider style;  */
+	background: #dcdcdc url(../dojoroot/dijit/themes/tundra/images/sliderEmpty.png) repeat-x top left;
+	border-color: #87CEFA;
+	border-right-width: 1px;
+}
+.tundra .dijitSliderImageHandleV {/*dojostyle;slider style;  */
+	border:0px;
+	width:16px;
+	height:16px;
+	background:url(../dojoroot/dijit/themes/tundra/images/sliderThumb.png) no-repeat center center;
+	cursor:pointer;
+}
+.tundra .dijitSliderFocused .dijitSliderImageHandleV {/*dojostyle;slider style;  */
+	background-image:url(../dojoroot/dijit/themes/tundra/images/sliderThumbFocus.png);
+}
+.dj_ie6 .tundra .dijitSliderFocused .dijitSliderImageHandleV {/*dojostyle;slider style;  */
+	background-image:url(../dojoroot/dijit/themes/tundra/images/sliderThumbFocus.gif);
+}
+.tundra .dijitSliderBottomBumper {/*dojostyle;slider style;  */
+	border-bottom-width: 1px;
+	border-color: #87CEFA;
+	background: #c0c2c5 url(../dojoroot/dijit/themes/tundra/images/sliderFullVertical.png) repeat-y bottom left;
+}
+.tundra .dijitSliderTopBumper {/*dojostyle;slider style;  */
+	background: #dcdcdc url(../dojoroot/dijit/themes/tundra/images/sliderEmptyVertical.png) repeat-y top left;
+	border-color: #87CEFA;
+	border-top-width: 1px;
+}
+.tundra .dijitSliderIncrementIconH,
+.tundra .dijitSliderIncrementIconV {/*dojostyle;slider style;  */
+	background:url(../dojoroot/dijit/themes/tundra/images/arrowUp.png) no-repeat center center;
+	width:16px; height:16px;
+	cursor:pointer;
+}
+.tundra .dijitSliderIncrementIconH {/*dojostyle;slider style;  */
+	background-image:url(../dojoroot/dijit/themes/tundra/images/arrowRight.png);
+}
+.tundra .dijitSliderDecrementIconH,
+.tundra .dijitSliderDecrementIconV {/*dojostyle;slider style;  */
+	width:16px;
+	height:16px;
+	cursor:pointer;
+	background:url(../dojoroot/dijit/themes/tundra/images/arrowDown.png) no-repeat center center;
+}
+.tundra .dijitSliderDecrementIconH { background-image:url(../dojoroot/dijit/themes/tundra/images/arrowLeft.png); }
+.tundra .dijitSliderButtonInner {/*dojostyle;slider style;  */
+	visibility:hidden;
+}
+.tundra .dijitSliderDisabled {/*dojostyle;slider style;  */
+	opacity:0.6 !important;
+}
+.dj_ie6 .tundra .dijitSliderDisabled,
+.dj_ie6 .tundra .dijitSliderDisabled .dijitRuleContainer,
+.dj_ie6 .tundra .dijitSliderDisabled .dijitSliderRemainingBar,
+.dj_ie6 .tundra .dijitSliderDisabled .dijitSliderProgressBar {/*dojostyle;slider style;  */
+	filter: gray() alpha(opacity=40);
+}
+.tundra .dijitSliderDisabled * {/*dojostyle;slider style;  */
+	cursor: not-allowed !important;
+}
+/*dojostyle; spinner dlya stranic admin: test_info, test_itog; teacher: test_info, test_itog;*/
+.for_form_selection .tundra .dijitDownArrowButton .dijitArrowButtonInner {
+	background:url(../images/comboArrowDown.gif) no-repeat center center !important;
+    margin-top: 1px;
+}
+/*dojostyle; spinner dlya stranic admin: test_info, test_itog; teacher: test_info, test_itog;*/
+.tundra .dijitUpArrowButton .dijitArrowButtonInner {
+	background:url(../images/arrowUp.gif) no-repeat center center !important;
+    margin-bottom: 1px;
+}
+/*dojostyle; spinner dlya stranic admin: test_info, test_itog; teacher: test_info, test_itog;*/
+.tundra .dijitButtonNode .dijitArrowButton .dijitUpArrowButton{
+	border:1px solid #c0c0c0;
+	border-bottom:1px solid #9b9b9b;
+	border-right:1px solid #9b9b9b;
+	padding: 0.2em;  color: White;
+	background:#fff url(../images/studyBar2.png) repeat-x top left !important;
+}
+/*dojostyle; admin: test_info, test_itog; teacher: test_info, test_itog;*/
+.dijitA11ySideArrow{
+    display: none;
+}
+/*dojostyle; admin: test_info, test_itog; teacher: test_info, test_itog;*/
+.tundra .dijitCalendarMonthContainer th {
+	background:#d3d3d3 url(../dojoroot/dijit/themes/tundra/images/msgBar.png) repeat-x top;
+    padding: 0px;
+	text-align:center;
+}
+/*dojostyle; admin, teacher: task; shesterenki*/
+.tundra .main_page .drop_b  .dijitButtonHover .dijitButtonNode,
+.tundra .main_page .drop_b  .dijitToggleButtonHover .dijitButtonNode,
+.tundra .main_page .drop_b  .dijitDropDownButtonHover .dijitButtonNode,
+.tundra .main_page .drop_b  .dijitComboButtonHover .dijitButtonContents,
+.tundra .main_page .drop_b  .dijitComboButtonDownArrowHover .dijitDownArrowButton,
+.tundra .main_page .drop_b  .dijitComboBoxHover .dijitDownArrowButton,
+.tundra .main_page .drop_b  .dijitSpinnerUpArrowHover .dijitUpArrowButton,
+.tundra .main_page .drop_b  .dijitSpinnerDownArrowHover .dijitDownArrowButton {
+	border-color:none;
+	border-bottom-color:none;
+	border-right-color:none;
+	color:#000; color: White;
+	background: url(../images/kbackgammon_engine_hover.png) no-repeat;
+    background-color:none;
+}
+.tundra .main_page .drop_b  .dijitDropDownButtonActive .dijitButtonNode{/*dojostyle; admin, teacher: task; shesterenki*/
+	border-color:none;
+	background:  url(../images/kbackgammon_engine.png) no-repeat;
+    background-color:none;
+}
+.tundra .main_page .drop_b  .dijitButtonNode {/*dojostyle; admin, teacher: task; shesterenki*/
+    background: url(../images/kbackgammon_engine.png) no-repeat;
+    background-color:none;
+    border-color:none;
+    border-style:solid;
+    border-width:none;
+    color:White;
+    padding:0.2em; height: 32px; width: 32px;
+}
+.tundra .main_page .drop_b .dijitButtonNode {/*dojostyle; admin, teacher: task; shesterenki*/
+	border:0px solid #c0c0c0;
+	border-bottom:0px solid #9b9b9b;
+	border-right:0px solid #9b9b9b;
+	padding: 0.2em;  color: White;
+	background: url(../images/kbackgammon_engine.png) no-repeat;
+    background-color:none;
+}
+.tundra .main_page .drop_b .dijitArrowButtonInner {/*dojostyle; admin, teacher: task; shesterenki*/
+	background:none;
+}
+.tundra .main_page .drop_b .dijitSliderIncrementIconH {/*dojostyle; slider*/
+    background-image:url(../dojoroot/dijit/themes/tundra/images/arrowRights.png);
+}
+/*dojostyle; gray buttons*/
+.tundra .main_page .grey_button button{
+	color: Black;
+}
+/*dojostyle; gray buttons*/
+.tundra .main_page .grey_button .dijitButtonNode {
+    background:#FFFFFF url(../images/StudyBar1_1.png) repeat-x scroll left bottom;
+}
+/*dojostyle; gray buttons*/
+.tundra .main_page .grey_button .dijitButtonHover .dijitButtonNode,
+.tundra .main_page .grey_button .dijitToggleButtonHover .dijitButtonNode,
+.tundra .main_page .grey_button .dijitDropDownButtonHover .dijitButtonNode,
+.tundra .main_page .grey_button .dijitComboButtonHover .dijitButtonContents,
+.tundra .main_page .grey_button .dijitComboButtonDownArrowHover .dijitDownArrowButton,
+.tundra .main_page .grey_button .dijitComboBoxHover .dijitDownArrowButton,
+.tundra .main_page .grey_button .dijitSpinnerUpArrowHover .dijitUpArrowButton,
+.tundra .main_page .grey_button .dijitSpinnerDownArrowHover .dijitDownArrowButton {
+	border-color:#a5beda;
+	border-bottom-color:#5c7590;
+	border-right-color:#5c7590;
+	background:#fcfdff url(../images/buttonHover2.png) repeat-x bottom;
+}
+/*admin: test_info, test_itog; teacher: test_info, test_itog; stil dlya inputov*/
+.main_page .right_input .dijit,
+.main_page .left_input .dijit{
+    width: 170px;
+}
+/*dojostyle; teacher: message_write;*/
+.main_page .text_new_mes .dijitToolbar{
+    background: url('../images/toolBarForTArea.gif') repeat-x;
+}
+/*dojostyle; teacher: message_write; zagruzka*/
+.uploadBtn{
+    border: 1px solid silver; line-height:18px; text-align: center;
+    background: url('../images/buttonEnabled_new.png') repeat-x bottom; cursor: pointer; color: black;
+}
+/*dojostyle; teacher: message_write; zagruzka*/
+.uploadHover{
+    border: 1px solid silver; line-height:18px; text-align: center;
+    background: url('../images/buttonHover_new.png') repeat-x bottom; cursor: pointer;color: black;
+}
+/*dojostyle; teacher: message_write; zagruzka*/
+.uploadPress{
+    border: 1px solid silver; vertical-align: middle; text-align: center;
+    background: url('../images/activeFileUplButn1.png') repeat-x bottom; cursor: pointer;
+}
+/*dojostyle; teacher: message_write; zagruzka*/
+.standart_style_of_dojo_dialog .uploadBtn:link{
+    border: 1px solid silver; line-height:20px; text-align: center; height: 20px;
+    background: url(../images/buttonEnabled_new.png) repeat-x bottom !important; cursor: pointer; color: black;
+}
+/*dojostyle; teacher: message_write; zagruzka*/
+.standart_style_of_dojo_dialog .uploadBtn:hover{
+    border: 1px solid silver; line-height:18px; text-align: center;
+    background: url('../images/buttonHover_new.png') repeat-x bottom; cursor: pointer;color: black;
+}
+/*dojostyle; teacher: message_write; zagruzka*/
+.uploadBtn div,
+.uploadBtn div div,
+.uploadBtn form,
+.uploadBtn form input{
+    cursor: pointer;
+}
+/*dojostyle; teacher: message_write; progressbar*/
+.main_page .statud_of_process_marg{
+    margin-top: -1px !important;
+}
+/*dojostyle; teacher: message_write; zagruzka*/
+.main_page .fileToUploadSize{
+    display: none;
+}
+/*dojostyle; teacher: message_write; vozvrat k standartnim dojoknopkam*/
+.tundra .tab_for_write_new_mes3 .standart_dojo_buttons .dijitButtonNode {
+	border: 1px solid #c0c0c0 !important;
+	border-bottom: 1px solid #9b9b9b !important;
+	padding: 0.1em 0.2em 0.2em 0.2em !important;
+	background: #fff url(../dojoroot/dijit/themes/tundra/images/buttonEnabled.png) repeat-x bottom left !important;
+}
+/*dojostyle; teacher: message_write; vozvrat k standartnim dojoknopkam*/
+.tundra .tab_for_write_new_mes3 .standart_dojo_buttons .dijitButtonDisabled .dijitButtonNode,
+.tundra .tab_for_write_new_mes3 .standart_dojo_buttons .dijitToggleButtonDisabled .dijitButtonNode,
+.tundra .tab_for_write_new_mes3 .standart_dojo_buttons .dijitDropDownButtonDisabled .dijitButtonNode,
+.tundra .tab_for_write_new_mes3 .standart_dojo_buttons .dijitComboButtonDisabled .dijitButtonNode,
+.tundra .tab_for_write_new_mes3 .standart_dojo_buttons .dijitComboBoxDisabled,
+.tundra .tab_for_write_new_mes3 .standart_dojo_buttons .dijitSpinnerDisabled,
+.tundra .tab_for_write_new_mes3 .standart_dojo_buttons .dijitSpinnerDisabled .dijitButtonNode {
+	border-color: #d5d5d5 #d5d5d5 #bdbdbd #d5d5d5;
+	background:#e4e4e4 url(../dojoroot/dijit/themes/tundra/images/buttonDisabled.png) top repeat-x !important;
+}
+/*dojostyle; teacher: message_write; vozvrat k standartnim dojoknopkam*/
+.tundra .tab_for_write_new_mes3 .standart_dojo_buttons .dijitButtonHover .dijitButtonNode,
+.tundra .tab_for_write_new_mes3 .standart_dojo_buttons .dijitButtonNodeHover,
+.tundra .tab_for_write_new_mes3 .standart_dojo_buttons .dijitToggleButtonHover .dijitButtonNode,
+.tundra .tab_for_write_new_mes3 .standart_dojo_buttons .dijitDropDownButtonHover .dijitButtonNode,
+.tundra .tab_for_write_new_mes3 .standart_dojo_buttons .dijitComboButtonHover .dijitButtonContents,
+.tundra .tab_for_write_new_mes3 .standart_dojo_buttons .dijitComboButtonDownArrowHover .dijitDownArrowButton {
+	border-color:		#a5beda;
+	border-bottom-color:#5c7590;
+	color:#243C5F;
+	background:#fcfdff url(../dojoroot/dijit/themes/tundra/images/buttonHover.png) repeat-x bottom !important;
+}
+/*dojostyle; teacher: message_write; vozvrat k standartnim dojoknopkam*/
+.dijitButtonNode,
+.dijitButtonNode * {
+    cursor: pointer !important;
+    color: white!important;
+	XXXbackground:#79CEFF none repeat scroll 0 0;
+	background:none;
+	font-size:10pt !important;
+	XXXheight:22px !important;
+}
+
+#test .dijitButtonNode,
+#test .dijitButtonNode * {
+    cursor: pointer !important;
+    color: white!important;
+	XXXbackground: transparent url(../images/disabledFileUplButn1.png) repeat-x scroll center top
+	font-size:10pt !important;
+	height:22px !important;
+}
+
+
+
+.head_main_g_prep .dijitButtonNode,
+.head_main_g_prep .dijitButtonNode * {
+    cursor: pointer !important;
+    color: white!important;
+	background:#79CEFF none repeat scroll 0 0;
+	font-size:10pt !important;
+	height:22px !important;
+}
+
+#search_type .dijitButtonNode,
+#search_type .dijitButtonNode * {
+    cursor: pointer !important;
+    color: grey !important;
+	background:white none repeat scroll 0 0 !important;
+	font-size:8pt !important;
+	height:16px !important;
+}
+/*dojostyle; teacher: grades;*/
+.tundra .main_page .iputInTabOtch .dijitTextBox,
+.tundra .main_page .iputInTabOtch .dijitComboBox,
+.tundra .main_page .iputInTabOtch .dijitSpinner,
+.tundra .main_page .iputInTabOtch .dijitInlineEditor{
+    width: 23px;
+    margin-top: 0px;
+}
+/*dojostyle; teacher: grades;*/
+.tundra .main_page .grey_tr{
+    background-color: rgb(239, 239, 239);
+}
+/*teacher: message_write*/
+.tundra .main_page .typeOf_new_mes .dijitButtonNode,
+.tundra .main_page .dijitMenuItemLabel{
+    color: black !important;outline: none !important; //vvod_info_meswidth: 100px !important;
+}
+.tundra .main_page .typeOf_new_mes .dojoxDropDownSelect{
+    // width: 170px !important;
+}
+
+/*dojostyle; write_new_mes stil dropdownselecta*/
+.tundra  .main_page .typeOf_new_mes .dijitArrowButtonInner {
+background:transparent url(../images/smallArrowDown.png) no-repeat scroll center center;
+}
+.tundra .main_page .typeOf_new_mes .dojoxDropDownSelectFocused,
+.tundra .main_page .typeOf_new_mes .dijitInline{
+    outline: none !important;
+    background: #fff url(../dojoroot/dijit/themes/tundra/images/buttonEnabled.png) repeat-x bottom left !important;
+}
+.tundra .main_page .typeOf_new_mes .dijitButtonNode *{
+    color: black !important;
+}
+/*dojostyle; write_new_mes stil dropdownselecta*/
+#dojox_form_DropDownSelect_0{
+    width: 20px !important; outline: none !important;
+}
+.dijitMenuPassive .dijitMenuItemHover,
+.dijitMenuItemSelected {
+    color: black !important; outline: none !important;
+}
+/* Mirror DropDownButton */
+.tundra .main_page .typeOf_new_mes .dojoxDropDownSelectDisabled .dijitButtonNode {
+    color: black !important;
+}
+.tundra .main_page .typeOf_new_mes .dojoxDropDownSelectHover .dijitButtonNode,
+.tundra .main_page .typeOf_new_mes .dojoxDropDownSelect .dojoxDropDownSelectButtonOpened{
+    color: black !important;
+}
+
+
+.tundra .dijitMenuItemHover,
+.dijitMenuItemSelected {
+    // background-color: #60A1EA !important;
+}
+.tundra .dijitMenuItemHover{
+    color: black !important;
+}
+.tundra .main_page .typeOf_new_mes .dijitArrowButton,
+.tundra .main_page .typeOf_new_mes .dijitDownArrowButton{
+    background: url(../images/buttonEnabled_new.png) repeat-x bottom left !important;
+}
+.tundra .main_page .typeOf_new_mes .dojoxDropDownSelectHover{
+   background: url("../images/buttonHover_new.png") repeat-x bottom !important;
+}
+
+/*teacher: message_write;*/
+.tundra .main_page .vvod_info_mes .dijitTextBox,
+.tundra .main_page .vvod_info_mes .dijitComboBox,
+.tundra .main_page .vvod_info_mes .dijitSpinner{
+    width:290px;
+    height: 19px;
+}
+/*dojostyle; teacher: grades;*/
+.tundra .main_page .iputInTabOtch .dijitTextBox,
+.tundra .main_page .iputInTabOtch .dijitComboBox,
+.tundra .main_page .iputInTabOtch .dijitSpinner,
+.tundra .main_page .iputInTabOtch .dijitInlineEditor{
+    width: 23px;
+    margin-top: 0px;
+}
+/*dojostyle; teacher: grades;*/
+.tundra .main_page .grey_tr{
+    background-color: rgb(239, 239, 239);
+}
+/*ne ispolzuetsya;*/
+.tundra .main_page .select_type_mes .dijitArrowButtonInner{
+    background:transparent url(images/arrowDown.png) no-repeat scroll center center;
+    display: none !important;
+}
+/*ne ispolzuetsya;*/
+.tundra .main_page .select_type_mes .dijitButtonNode .dijitArrowButtonInner {
+    display: none;
+}
+/*teacher: message_write*/
+.tundra .main_page .typeOf_new_mes .dijitButtonNode,
+.tundra .main_page .dijitMenuItemLabel{
+    color: black; //width: 100px !important;
+}
+
+/*teacher: message_write;*/
+.tundra .main_page .vvod_info_mes .dijitTextBox,
+.tundra .main_page .vvod_info_mes .dijitComboBox,
+.tundra .main_page .vvod_info_mes .dijitSpinner{
+    width:290px;
+}
+
+.tundra .dijitButtonNode {/*dojostyle;admin: jornalir_making_new_event; button "save" */
+	border:1px solid #c0c0c0;
+	border-bottom:1px solid #9b9b9b;
+	border-right:1px solid #9b9b9b;
+	padding: 0.2em;
+	color: black !important;
+	background:none !important;
+	text-decoration: none !important;
+}
+
+/*dojostyle;admin: jornalir_making_new_event; DropDownMenu */
+.main_page  .dijitMenuPassive .dijitMenuItemHover, .dijitMenuItemSelected {
+	color: black !important;
+	text-decoration: none !important;
+}
+
+.main_page  .dijitMenu .dr_down_name_ymk{/*ne isp*/
+	overflow: scroll;
+	max-height: 100px;
+}
+
+/*dojostyle;admin: jornalir_making_new_event; text DropDownMenu */
+.dijitInputField{
+	//margin-top: 5px !important;
+	//margin-left: 0px !important;
+}
+
+/*dojostyle;admin: jornalir_making_new_event; text DropDownMenu */
+.dijitArrowButtonChar{
+	//overflow:hidden;
+    }
+/*dojo bolshie serie titlepane*/
+.main_page .GrayTitle_big .tests_titlePanes .dijitTitlePane{
+    width: 512px;
+}
+.main_page .GrayTitle_big .dijitTitlePane .dijitTitlePaneTitle {
+	background: url(../images/grey_line.jpg) repeat-x bottom left;
+	border:0px solid #bfbfbf;
+	padding:  0px 0px 0px 10px;
+	cursor: pointer;
+	height: 38px;
+	line-height: 35px;
+    text-decoration: none;
+
+}
+.main_page .GrayTitle_big .dijitTitlePaneTextNode {
+	color: #6495ED;
+    text-decoration:none;
+	background: none;
+    border: none;
+}
+.main_page .GrayTitle_big .dijitTitlePaneFocused .dijitTitlePaneTextNode {
+	color: #6495ED;
+    text-decoration:none;
+	background: none;
+    border: none;
+}
+/*dojo prozrachnii titlepane*/
+.main_page .white_title .dijitTitlePane .dijitTitlePaneTitle {
+	background: none repeat-x bottom left;
+	border:0;
+	padding:  0px 0px 0px 10px;
+	cursor: pointer;
+	height: 23px;
+    outline: none;
+	line-height: 24px;
+}
+.main_page .white_title .dijitTitlePaneTextNode {
+	color: black;	border:0;
+    text-decoration:none;
+	background: none;
+    outline: none;
+}
+.main_page .white_title .dijitTitlePaneFocused .dijitTitlePaneTextNode {
+	color: black;	border:0;
+    text-decoration:none;
+	background: none;
+    outline: none;
+}
+.main_page .white_title .dijitTitlePaneContentOuter{
+    outline: none;
+}
+.main_page .white_title .dijitReset{
+    outline: none;
+}
+.main_page .white_title .dijitTitlePaneContentInner{
+    outline: none;
+}
+
+/*block for jornaling`s calendar & ?„–page*/
+    /*>>> dojostyle; admin: jornalir_about_one_YMK, jornalir_about_one_student, jornaling_view_of_events; dojo_for_date_text_box_jornalir*/
+
+
+/*name of month*/
+.tundra .dijitCalendarMonthContainer th {
+
+	background: #14a944;
+	padding-top:.3em;
+	padding-bottom:.2em;
+	text-align:center;
+	width:10px !important;
+	height: 10px !important;
+}
+
+/*name of days*/
+.tundra .dijitCalendarDayLabelTemplate {
+
+	background:#14a944 url(images/calendarDayLabel.png) repeat-x bottom;
+	font-weight:normal;
+	padding-top:.15em;
+	padding-bottom:0em;
+	border-top: 1px solid #eeeeee;
+	color:white;
+	text-align:center;
+}
+
+/*name of month*/
+.tundra .dijitCalendarMonthLabel {
+	font-size: 12pt;
+	color: white;
+	font-weight: bold;
+}
+
+/*tekuchaa data*/
+.tundra .dijitCalendarCurrentMonth {
+
+	background-color:white !important;
+}
+.tundra .dijitCalendarCurrentDate {
+
+	text-decoration:underline;
+	font-weight:bold;
+}
+
+/*vibrannaa data*/
+.tundra .dijitCalendarSelectedDate {
+
+	/*background: url(images/circal_for_calendar_jornalir.jpg) no-repeat !important;*/
+	color: #14a944 !important;
+	font-size: 8pt !important;
+	background-position: center !important;
+}
+
+/* container for all of 3 year labels */
+.tundra .dijitCalendarYearLabel {
+	background:#14a944 !important;
+	color: white;
+	margin:0;
+	padding:0.4em 0 0.25em 0;
+	text-align:center;
+}
+
+/* label for selected year */
+.tundra .dijitCalendarSelectedYear {
+	font-size: 12pt;
+	color: white;
+	padding:0.2em;
+	padding-bottom:0.1em;
+	background-color:#14a944 !important;
+}
+
+/* label for next\prev year */
+.tundra .dijitCalendarNextYear,
+.tundra .dijitCalendarPreviousYear {
+
+	color: white !important;
+	font-weight:normal;
+}
+
+
+/*shirina calendara*/
+.dijitDateTextBox{
+	width: 65px !important;
+}
+ /*invizible of icon razvertki calendara*/
+.dijitValidationIcon {
+	display: none;
+}
+
+/*standartnie knopki*/
+.main_page .stand_button_new .dijitButtonNode *{
+    color: black !important;
+}
+.tundra .main_page .stand_button_new .dijitButtonNode{
+    background: url(../images/buttonEnabled_new.png) repeat-x bottom left !important;
+}
+.tundra .main_page .stand_button_new .dijitButtonHover .dijitButtonNode,
+.tundra .main_page .stand_button_new .dijitButtonNodeHover,
+.tundra .main_page .stand_button_new .dijitToggleButtonHover .dijitButtonNode,
+.tundra .main_page .stand_button_new .dijitDropDownButtonHover .dijitButtonNode,
+.tundra .main_page .stand_button_new .dijitComboButtonHover .dijitButtonContents,
+.tundra .main_page .stand_button_new .dijitComboButtonDownArrowHover
+.dijitDownArrowButton {
+    border-color:		#a5beda;
+	border-bottom-color:#5c7590;
+	color: black !important;
+	background: url("../images/buttonHover_new.png") repeat-x bottom !important;
+}
+
+/*student: info tablica s zakladkami*/
+.tundra .main_page .for_tab_info_student .dijitTabContainerTop-tabs {
+        border-bottom:1px solid #CCCCCC;;
+}
+.tundra .main_page .for_tab_info_student .tabLabel{
+    outline: none;
+}
+.tundra .main_page .for_tab_info_student .dijitTab,
+.tundra .main_page .for_tab_info_student .dijitTab .dijitTabChecked .dijitChecked{
+    width: 120px !important; float: left !important;
+    margin-left: 7px !important; margin-right: 0px !important;
+}
+.tundra .main_page .dijitTabPane *{
+    text-align: justify;
+}
+/*<<<dojo_for_date_text_box_jornalir*/
+
+/* block for jornaling`s calendar & ?„– page */
+.dijitTitlePaneContentInner{
+    outline: none;
+}
+.dijitTabContainerTop-tabs{
+    border: none;
+}
+/*messages for teacher*/
+#dialog_for_mess .dijitTab{
+    margin-left: 3px !important;
+    margin-right: 3px !important;
+  /*  background-image: url(images/tabEnabled_active.png) repeat-x scroll 0 0 !important;*/
+}*
+
+#dialog_for_mess .dijitTabChecked,
+.tundra .dijitTabCloseButtonChecked {
+   background: url("../images/buttonHover_new_1.png") repeat-x bottom !important;
+}
+
+#dialog_for_mess #mainTabContainer{
+    width: 532px !important;
+}
+
+#dialog_for_mess .dijitTabContainerTop-tabs{
+    border-bottom: 0px !important;
+}
+
+#dialog_for_mess .dijitDialogPaneContent{
+    overflow-x:hidden;
+    overflow-y:hidden;
+}
+
+#dialog_for_mess .dijitButtonNode {
+    background: url("../images/buttonEnabled_new.png") repeat-x scroll left bottom !important;
+    border-color:#C0C0C0 #C0C0C0 #9B9B9B;
+    border-style:solid;
+    border-width:1px;
+    color:gray;
+    padding:0.1em 0.2em 0.2em;
+}
+
+.main_page .stand_button_new .dijitButtonNode *{
+    color: black !important;
+	background: none;
+}
+.tundra .main_page .stand_button_new .dijitButtonNode{
+    background: url(../images/buttonEnabled_new.png) repeat-x bottom left !important;
+}
+#dialog_for_mess  .stand_button_new .dijitButtonHover .dijitButtonNode,
+#dialog_for_mess  .stand_button_new .dijitButtonNodeHover,
+#dialog_for_mess  .stand_button_new .dijitToggleButtonHover .dijitButtonNode,
+#dialog_for_mess  .stand_button_new .dijitDropDownButtonHover .dijitButtonNode,
+#dialog_for_mess  .stand_button_new .dijitComboButtonHover .dijitButtonContents,
+#dialog_for_mess  .stand_button_new .dijitComboButtonDownArrowHover
+.dijitDownArrowButton {
+    border-color:		#a5beda;
+	border-bottom-color:#5c7590;
+	color: black !important;
+	background: url("../images/buttonHover_new.png") repeat-x bottom !important;
+}
+
+#dialog_for_mess .dijitContentPane{
+    overflow: hidden !important;
+}
+
+#dialog_for_mess .dojoxScrollWrapper,#dialog_for_mess #dojox_layout_ScrollPane_0{
+    border: 0px !important;
+}
+
+#dialog_for_mess .dojoxScrollHelper{
+    background: url("../images/for_scroll.png") repeat scroll 0 0;
+    border:1px solid #88b1d1;
+    left: 520px;
+}
+#dialog_for_mess .dijitContentPaneLoading{
+    background:url(../images/loader1.gif) no-repeat left center;
+    margin-top:310px !important;
+    position:relative;
+    z-index:1000 !important;
+
+}
+/*messages for teacher*/
+.materials_page .dijitProgressBarTile{
+    background: url('../images/progressBar.jpg') repeat-x bottom;
+}
+.materials_page .dijitProgressBarEmpty {
+	background:#fff url("none") repeat-x center center;
+	border-color: #9adcf8;
+}
+.materials_page .dijitProgressBarFull {
+	border-right: none;
+}
+.materials_page .dijitProgressBarLabel{
+    color: gray;
+}
+.main_page .red_progressBar .dijitProgressBarTile{
+    background: url('../images/red_progress.jpg') repeat-x bottom;
+}
+.main_page .red_progressBar .dijitProgressBarEmpty {
+	background:#fff url("none") repeat-x center center;
+	border-color: #FF9999;
+}
+.main_page .red_progressBar .dijitProgressBarFull {
+	border-right: none;
+}
+.main_page .red_progressBar .dijitProgressBarLabel{
+    color: gray;
+}
+.main_page .yellow_progressBar .dijitProgressBarTile{
+    background: url('../images/yellow_progress.jpg') repeat-x bottom;
+}
+.main_page .yellow_progressBar .dijitProgressBarEmpty {
+	background:#fff url("none") repeat-x center center;
+	border-color: #FFE340;
+}
+.main_page .yellow_progressBar .dijitProgressBarFull {
+	border-right: none;
+}
+.main_page .yellow_progressBar .dijitProgressBarLabel{
+    color: gray;
+}
+.main_page .green_progressBar .dijitProgressBarTile{
+    background: url('../images/green_progress.jpg') repeat-x bottom;
+}
+.main_page .green_progressBar .dijitProgressBarEmpty {
+	background:#fff url("none") repeat-x center center;
+	border-color: #B7FFB7;
+}
+.main_page .green_progressBar .dijitProgressBarFull {
+	border-right: none;
+}
+.main_page .green_progressBar .dijitProgressBarLabel{
+    color: gray;
+}
+/*green prbars*/
+.green_prBar .dijitProgressBarTile{
+    background: url('../images/greenProgressBar.jpg') repeat-x bottom;
+}
+.green_prBar .dijitProgressBarEmpty {
+	background:#fff url("none") repeat-x center center;
+	border-color: #96df96;
+}
+.green_prBar .dijitProgressBarFull {
+	border-right: none;
+}
+.green_prBar .dijitProgressBarLabel{
+    color: gray;
+}
+/*green prbars*/
+/*title pane for material's page*/
+.pasp_titles .dijitTitlePane{
+  //padding-top: 6px;
+}
+.pasp_titles .dijitTitlePaneTitle {
+	background: #cccccc;
+	background:#fff url("images/titleBar.png") repeat-x bottom left;
+	/*border:1px solid #bfbfbf;*/
+	padding:2px 4px; //padding-top: 0px;
+	cursor: pointer;
+    outline: none;
+}
+.pasp_titles .dijitTitlePaneTitle-hover  {
+	background: #f8fafd url("images/accordionItemHover.gif") bottom repeat-x;
+}
+.pasp_titles .dijitTitlePaneTitle * {
+	vertical-align: middle; color: gray;display:inline;padding-left: 5px;font-weight:bold;
+}
+.pasp_titles .dijitTitlePane .dijitArrowNode {
+	cursor: pointer;
+	background-image: url('images/spriteArrows.png');
+	background-repeat: no-repeat;
+	/*height: 7px;*/
+	width: 7px;
+}
+.pasp_titles .dijitTitlePane .dijitOpen .dijitArrowNode {
+	background-position: 0px 0px;
+}
+.pasp_titles .dijitTitlePane .dijitClosed .dijitArrowNode {
+	background-position: -14px 0px;
+}
+.pasp_titles .dijitTitlePaneFocused .dijitTitlePaneTextNode {
+	text-decoration:underline;
+}
+.pasp_titles .dijitTitlePane .dijitArrowNodeInner {
+	display:none;
+}
+.pasp_titles .dijitTitlePaneContentOuter {
+	background: #ffffff;
+	/*border:1px solid #bfbfbf;
+	border-top: 1px solid #ccc;*/
+}
+.pasp_titles .dijitTitlePaneContentInner {
+	/*padding:10px;*/
+}
+.pasp_titles .dijitTitlePaneTextNode {
+	margin-left: -6px;
+	margin-right: 4px;
+}
+.pasp_titles .dijitTitlePaneTitle-hover{
+  	background: #ffffff;
+}
+.tundra .pasp_titles .dijitTitlePane .dijitOpen .dijitArrowNode {
+    background: #ffffff;
+}
+/*title pane for material's page*/
+
+
+
+
+/*kontrol wors student*/
+.title_for_backgr .dijitTitlePaneTitle{
+    padding-left:0px !important;
+}
+
+.title_P .dijitTitlePaneTitle{
+    background:transparent url(../images/grey_line_dark_blue.jpg) repeat-x scroll left bottom;
+    border:0 solid #BFBFBF;
+    cursor:pointer;
+    height:38px;
+    line-height:35px;
+    padding:0 0 0 10px;
+    text-decoration:none;
+
+}
+
+.title_P .dijitTitlePaneTitle .dijitTitlePaneTextNode{
+    color: black;
+}
+
+.main_page .GrayTitle_big .dijitTitlePane .dijitTitlePaneTitle{
+    background:transparent url(../images/grey_line_blue.jpg) repeat-x scroll left bottom;
+    border:0 solid #BFBFBF;
+    cursor:pointer;
+    height:38px;
+    line-height:35px;
+    padding:0 0 0 10px;
+    text-decoration:none;
+}
+/*kontrol wors student*/
+/*tabContainer for education student*/
+.tundra .educ_tab .dijitTab {
+    background: none;
+    border: none;
+    margin-right:0px;
+    outline: none !important;
+}
+.educ_tab .dijitTabContent{
+    outline: none !important;
+}
+.educ_tab .dijitTabInnerDiv {
+    border-bottom: none;
+    border-left: none;
+    padding: 0px;
+    outline: none !important;
+}
+.educ_tab .dijitTabContainerTop-tabs {
+    border: none;
+    border-bottom: 1px solid #e4e4e4 !important;
+    height: 60px;
+
+}
+.educ_tab .tabLabel{
+    outline: none;
+}
+.tundra .educ_tab .dijitTabPaneWrapper {
+    border: none;
+}
+.tundra .educ_tab .dijitTabPaneWrapper,
+.tundra .educ_tab .dijitTabContainerTop-container{
+    //top: 50px !important;
+}
+
+.educ_tab .dijitTabContainerTop-tabs .dijitTab {
+    top:0px;
+}
+
+.tundra .educ_tab .dijitTabCloseButtonHover,
+.tundra .educ_tab .dijitTabHover,
+.tundra .educ_tab .dijitTabCloseButtonChecked,
+.tundra .educ_tab .dijitTabChecked,
+.tundra .educ_tab .dijitTabCloseButtonFocused,
+.tundra .educ_tab .dijitTabFocused{
+    color: #ffffff !important;
+}
+.tundra .educ_tab .dijitCheked,
+.tundra .educ_tab .dijitTabCheked,
+.tundra .educ_tab .dijitTabFocused,
+.tundra .educ_tab .dijitTabCheckedFocused,
+.tundra .educ_tab .dijitFocused {
+    color: #faf561 !important;
+}
+
+/*tabContainer for education student*/
+
+/*input for serch*/
+.search_input  .dijitTextBox{
+	background:#fff url(../images/search_small.jpg) no-repeat top left;
+	/*#background:#fff url(../dojoroot/dijit/themes/tundra/images/validationInputBg.gif) repeat-x top left;*/
+	border:1px solid #b3b3b3;
+	line-height: normal;
+	color: silver;
+    background-position: 2px 2px;
+    padding-left: 15px;
+}
+.search_input .dijitTextBoxFocused {
+	border-color:#b3b3b3;
+}
+.search_inp_big_content  input{
+	background:#fff url(../images/search_small.jpg) no-repeat top left;
+	/*#background:#fff url(../dojoroot/dijit/themes/tundra/images/validationInputBg.gif) repeat-x top left;*/
+	border:1px solid #b3b3b3;
+	line-height: normal;
+    /*padding-right: 116px;*/
+    background-position: 2px 2px;
+}
+.search_inp_big_content input {
+	border-color:#b3b3b3;
+    outline: none;
+}
+.search_inp_big_content  .dijitTextBox{
+	background:#fff url(../images/search_small.jpg) no-repeat top left;
+	/*#background:#fff url(../dojoroot/dijit/themes/tundra/images/validationInputBg.gif) repeat-x top left;*/
+	border:1px solid #b3b3b3;
+	line-height: normal;
+    padding-right: 116px;
+    background-position: 2px 2px;
+    /*margin-left: 15px;*/
+    //background-position: 2px 7px;
+}
+.search_inp_big_content .dijitTextBoxFocused {
+	border-color:#b3b3b3;
+    outline: none;
+}
+/*input for serch*/
+/*search buttons*/
+.tundra .main_page .search_buttons .dijitButton{
+    margin: 0px;
+}
+.tundra .main_page .search_buttons .dijitButtonNode {
+	border: 1px solid #c0c0c0;
+	border-bottom: 1px solid #9b9b9b;
+    border-left: 0px;
+	Xpadding: 0.1em 0.2em 0.2em 0.2em;
+    height: 16px;
+    font-size: 8pt;
+	background: #fff url("../../dojoroot/dijit/themes/tundra/images/buttonEnabled.png") repeat-x bottom left !important;
+}
+.tundra .main_page .search_buttons .dijitButtonDisabled .dijitButtonNode{
+	border-color: #d5d5d5 #bdbdbd #bdbdbd #d5d5d5;
+	background:#e4e4e4 url("../../dojoroot/dijit/themes/tundra/images/buttonDisabled.png") top repeat-x;
+	opacity: 0.60;
+}
+.tundra .main_page .search_buttons .dijitButtonHover .dijitButtonNode{
+    border-color:#a5beda;
+	border-bottom-color:#5c7590;
+	border-right-color:#5c7590;
+    border-left: 0px;
+    color:#000; color: White;
+	background:#fcfdff url("../../dojoroot/dijit/themes/tundra/images/buttonHover.png") repeat-x bottom;
+}
+.tundra .main_page .drop_button .dijitButtonNode{
+	border: 1px solid #c0c0c0;
+	border-bottom: 1px solid #9b9b9b;
+    border-left: 0px;
+	Xpadding: 0.1em 0.2em 0.2em 0.2em;
+    height: 16px;
+    width: 18px;
+    font-size: 6pt !important;
+	background: #fff url("../../dojoroot/dijit/themes/tundra/images/comboArrowDownBlue.gif") no-repeat !important;
+}
+.tundra .main_page .search_button .dijitButtonNode{
+	border: 1px solid #c0c0c0;
+	border-bottom: 1px solid #9b9b9b;
+    border-left: 0px;
+	Xpadding: 0.1em 0.2em 0.2em 0.2em;
+    height: 16px;
+    width: 114px;
+    font-size: 8pt;
+	background: #fff url("../../dojoroot/dijit/themes/tundra/images/buttonEnabled.png") repeat-x bottom left !important;
+}
+.tundra .main_page .types .dijitButtonNode{
+	border: 1px solid #c0c0c0;
+	border-bottom: 1px solid #9b9b9b;
+    border-left: 0px;
+    border-bottom: 0px;
+	Xpadding: 0.1em 0.2em 0.2em 0.2em;
+    height: 16px;
+    width: 134px;
+    font-size: 8pt;
+	background: #fff url("../../dojoroot/dijit/themes/tundra/images/buttonEnabled.png") repeat-x bottom left !important;
+}
+.tundra .main_page .drop_button .dijitButtonNode .dijitButtonText{
+	background: #fff url("../../dojoroot/dijit/themes/tundra/images/comboArrowDownBlue.gif") center center !important;
+}
+.tundra .main_page .drop_button .dijitButtonText{
+    padding: 0px;
+}
+#widget_searchField_dropdown,
+#widget_searchField_dropdown *{
+    width: 571px !important;
+}
+/*search buttons*/
+/*for journaling_view_of_events Admin*/
+.input_journaling .dijitInputField{
+	//margin-top: 0px !important;
+}
+
+/*dojo prozrachnii titlepane vnutri bolshih serih*/
+.main_page .GrayTitle_big .little_white .dijitTitlePane .dijitTitlePaneTitle {
+	background: none repeat-x bottom left;
+	border:0;
+	padding:  0px 0px 0px 10px;
+	cursor: pointer;
+	height: 23px;
+    outline: none;
+	line-height: 24px;
+}
+.main_page .GrayTitle_big .little_white .dijitTitlePaneTextNode {
+	color: black;	border:0;
+    text-decoration:none;
+	background: none;
+    outline: none;
+}
+.main_page .GrayTitle_big .little_white .dijitTitlePaneFocused .dijitTitlePaneTextNode {
+	color: black;	border:0;
+    text-decoration:none;
+	background: none;
+    outline: none;
+}
+.main_page .GrayTitle_big .little_white .dijitTitlePaneContentOuter{
+    outline: none;
+}
+.main_page .GrayTitle_big .little_white .dijitReset{
+    outline: none;
+}
+.main_page .GrayTitle_big .little_white .dijitTitlePaneContentInner{
+    outline: none;
+}
+.main_page .GrayTitle_big .little_white .dijitArrowNode{
+    display: none;
+}
+.tundra .standart_style_of_dojo_dialog .dijitDialogTitleBar{
+    background:#FAFAFA url("../dojoroot/dijit/themes/tundra/images/buttonHover.png") repeat-x scroll left top !important;
+    cursor:move;
+    outline-color:-moz-use-text-color;
+    outline-style:none;
+    outline-width:medium;
+    padding: 3px 6px 3px 3px;
+}
+.tundra .standart_style_of_dojo_dialog .dijitDialogTitle{
+    font-weight:normal;
+  /*  color: #71C5F4;*/
+    outline-color:-moz-use-text-color;
+    outline-style:none;
+    outline-width:0;
+    padding:8px 12px;
+}
+.main_page .centered_tabs_of_tabContainer .dijitAlignTop,
+.main_page .centered_tabs_of_tabContainer .dijitAlignBottom,
+.main_page .centered_tabs_of_tabContainer .dijitAlignLeft,
+.main_page .centered_tabs_of_tabContainer .dijitAlignRight{
+	text-align: center !important;
+}
+.main_page .lib_tab_container div[class^="dijitContentPane"]{
+    overflow-x: hidden;
+}
+.main_page .centered_tabs_of_tabContainer div[class^="dijitContentPane"]{
+    overflow-x: hidden;
+}
+.main_page .centered_tabs_of_tabContainer div[class^="dijitTabPaneWrapper"]{
+    border-left: 0px; border-right: 0px;
+}
+.main_page .centered_tabs_of_tabContainer div[id^="reGrades"]{
+    overflow: hidden;
+}
+.dijitTabSpacer .dijitTabContainerTop-spacer .dijitTabContainerSpacerNested,
+.dijitTabSpacer,
+.dijitTabContainerTop-spacer,
+.dijitTabContainerSpacerNested{
+    //display: none !important;
+}
+.ws_selecting .dijitTabContainerTop-tabs .dijitTab .dijitTabInnerDiv .dijitTabContent .tabLabel{
+    color: gray; font-weight: bolder;
+}
+.ws_selecting .dijitTabContainerTop-tabs  .dijitChecked .dijitTabInnerDiv .dijitTabContent .tabLabel{
+    font-weight: normal;
+}
+.ws_selecting .dijitTabContainerTop-tabs .dijitTab{
+    background: url("../dojoroot/dijit/themes/tundra/images/tabContainerBack.png");
+}
+.ws_selecting .dijitTabContainerTop-tabs .dijitTab .dijitTabInnerDiv {
+
+}
+.main_page .coment_ta{
+    min-height: 80px !important;
+    max-height: 80px !important;
+    overflow-y: scroll !important;
+    width: 98% !important;
+}
+.containerResult{
+    margin-top: 10px;
+    margin-left: 13px;
+    padding-left: 30px;
+}
+.tundra .main_page .newGradesInterfaceTabs .dijitTab,
+.tundra .main_page .newGradesInterfaceTabs .dijitTab .dijitTabChecked .dijitChecked{
+    float: left !important;
+    margin-left: 7px !important; margin-right: 0px !important;
+}
+
+
+.main_page .menu_tree .dijitTreeNode {/*dojostyle; student: stGroups; ybiranie markirovkid v dereviax*/
+    /*background-image : url('none');*/
+    background-position : 0 0 !important;
+    background-repeat : repeat-y;
+    margin-left: 0px;
+    zoom: 1;
+}
+.main_page .menu_tree .dijitTreeContainer .dijitTreeRow{
+    padding-right: 0px;
+    padding-left: 0px !important;
+}
+.main_page .menu_tree .dijitTreeIsLast {/*dojostyle: student: stGroups; stil poslednego elementa spiska */
+/*    background: url('none') no-repeat;*/
+}
+.main_page .menu_tree .dijitTreeIsRoot {/*dojostyle: student: stGroups; stil korna dereva*/
+    margin-left: 0;
+    background-image: none;
+}
+.main_page .menu_tree .dijitTreeExpando {/*dojostyle: student: stGroups; razmer zanimaemii tochkoi markirovki*/
+    width: 18px;
+    height: 18px;
+}
+.main_page .menu_tree .dijitTreeContent {/*dojostyle: student: stGroups; stil kagdogo elementa dereva*/
+    min-height: 18px;
+    min-width: 18px;
+    margin-left:0px;
+    padding-top:3px;
+    padding-left:1px;
+}
+.main_page .menu_tree .dijitTreeContent img{
+    display: none;
+}
+.main_page .menu_tree .dijitTreeExpand {/*dojostyle: student: stGroups; dla markirovki*/
+    width: 18px;
+    height: 18px;
+    background-repeat : no-repeat;
+}
+.main_page .menu_tree .dijitTreeNodeEmphasized {/*dojostyle: student: stGroups;*/
+    background-color: Highlight;
+    color: HighlightText;
+}
+.main_page .menu_tree .dijitTreeLabelFocused {/*dojostyle: student: stGroups;*/
+	outline: 1px invert dotted;
+	background:#dde7f2;
+}
+.main_page .menu_tree .dijitTreeExpandoOpened {/*dojostyle: student: stGroups; markirovka otkritogo elementa dereva*/
+	margin-left: 0px; /*background-image: url('none');*/
+        display: none;
+}.main_page .menu_tree .dijitTreeExpandoClosed {/*dojostyle: student: stGroups; markirovka zakritogo elementa dereva*/
+	margin-left: 0px;/* background-image: url('none');*/
+        display: none;
+}
+.main_page .menu_tree .dijitTreeExpandoLeaf {/*dojostyle: student: stGroups; markirovka lista*/
+	margin-left: 0px; /*background-image: url('none');*/
+}
+.main_page .menu_tree .dijitTreeExpandoLoading {/*dojostyle: student: stGroups; */
+	/*background-image: url('none');*/
+}
+.main_page .menu_tree .dijitTreeIcon {/*dojostyle:student: stGroups;, stil luboi iconki*/
+	width: 20px;
+	height: 20px;
+	padding-right: 4px;
+}

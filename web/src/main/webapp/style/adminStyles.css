@@ -1,0 +1,570 @@
+/*
+    Document   : adminStyles
+    Created on : 08.07.2009, 12:52:00
+    Author     : korgovvd
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+@import url("../style/universalStyles.css");
+@import url("../dojoroot/dijit/themes/tundra/test_tundra.css");
+@import url("../dojoroot/dojo/resources/dojo.css");
+@import url("../style/dojoStyle.css");
+ 
+/*journailing1, mainContent; informacija o prepadovatile*/
+.main_page .fotoborder {
+	border:1px solid #83ce8f;
+	width:156px;
+}
+
+.main_page .load_photo_admin_main {
+	text-align:center;
+}
+
+.main_page .head_main_g_prep{
+	background-color: #D8F7E2;  border-bottom: 1px solid #D8F7E2; border-top: 1px solid #D8F7E2;padding: 5px 10px 5px 10px;
+}
+.main_page .head_main_g_prep table{
+	XXXpadding-left:50px; margin:0px;
+}
+.main_page .head_main_g_prep table tr{
+	height:23px;
+}
+.main_page .head_main_g_prep b{
+	font-family: Arial; COLOR: #96A0A2; font-size: 10pt; font-weight: normal;
+}
+/*admin:journailing1, student; informacionnoe pole*/
+.main_page .head_main_g{
+	background-color: #A2DEF6;  border-bottom: 1px solid #4DB7F1; border-top: 1px solid #4DB7F1;
+	padding: 10px 10px 5px 10px; 
+}
+.main_page .head_main_g table{
+	 margin:0;
+}
+.main_page .head_main_g table tr{
+	height:23px;
+}
+.main_page .head_main_g table tr p{
+	margin: 0px; color: white;
+}
+.main_page .head_main_g b{
+	font-family: Arial; COLOR: #96A0A2; font-size: 10pt; font-weight: normal;
+}
+/*mainContant photo na glavnoi stranice*/
+.main_page .photo{
+	width: 151px; //margin-right: 50px; float: left;
+}
+.main_page .ankc{
+
+}
+/*student serie bloki v centre*/
+.main_page #gr_line{
+	z-index: 1;
+	//margin-top: -20px;
+	height: auto; width: 522px;
+	position:  static;
+}
+/*student central chast' serogo bloka v centre*/
+.main_page .hobby{
+	margin-bottom: 15px;
+}
+.main_page .hobby table{
+	margin-left: 15px; margin-top: 10px;
+}
+.main_page .hobby table tr{
+	height:20px;
+}
+.main_page .hobby p{
+	font-family: Arial; COLOR: black; font-size: 10pt; font-weight: normal; margin-top: 0px;
+	margin-bottom: 3px;
+}
+.main_page .hobby a:link {COLOR: #89d7f8; TEXT-DECORATION: underline; font-size: 9pt; font-weight: normal; }
+.main_page .hobby a:visited {COLOR: #89d7f8; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal}
+.main_page .hobby a:active {COLOR: #0888C2; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal}
+.main_page .hobby a:hover {COLOR: #89d7f8; TEXT-DECORATION: underline; font-size: 9pt; font-weight: normal}
+/*student; about user*/
+.main_page .n{
+    color: #75c6f5;font-family: Arial; font-size: 10pt; font-weight: normal;
+}
+/*student; golubie nadpisi v central'nom bloke*/
+.main_page .VOrient_prep{
+    width: 180px;
+}
+/*materials spisok materialov*/
+.main_page .inf_math{
+    clear: both; margin-bottom: 10px; margin-top: 15px;
+}
+/*materials otstupi ot texta v spisoke materialov*/
+.main_page .inf_math_reit{
+	width: 407px; float: left; margin-left: 15px;
+}
+.main_page .event_done_matherials{
+    float: right; width: 100px; text-align: center;
+}
+/*materials text v spisoke materialov*/
+.main_page .inf1{
+	color:black; font-size: 10pt; margin-top: 10px; margin-bottom: 10px;
+}
+/*materials  posmotret' kurs v spisoke materialov*/
+.main_page .visco:link {COLOR: #959595; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal; text-align: right; }
+.main_page .visco:visited {COLOR: #959595; TEXT-DECORATION: none; font-size:10pt; font-weight: normal; text-align: right;}
+.main_page .visco:active {COLOR: #F95E62; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal; text-align: right;}
+.main_page .visco:hover {COLOR: #F95E62; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal; text-align: right; }
+
+.main_page .event_creating:link    {color: #00CD00; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal; text-align: right;}
+.main_page .event_creating:vsisited{color: #00CD00; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal; text-align: right;}
+.main_page .event_creating:active  {color: #3EFFBD; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal; text-align: right;}
+.main_page .event_creating:hover   {color: #3EFFBD; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal; text-align: right;}
+/*materials razdeliteli v spisoke materialov*/
+.main_page .raz_delete{
+	border-bottom: 1px solid silver; width: 202px; height: 1px; margin-left: 10px; overflow: hidden;
+}/*news; otstup v central'nom bloce posle tablici*/
+.main_page .ostup_sleva{
+        padding-left: 10px;
+}
+.umk_buttons_redact{/*admin, teacher: task; knopki redactirov YMK*/
+        margin-top: 10px;
+}
+.main_page .td_tests_width{/*admin, teacher: task; text redactiryemogo testa*/
+        width: 330px; text-align: justify;
+}
+.main_page .td_select_width{/*admin, teacher: task; k kakomy modyli redactiryemogo testa*/
+        padding-left: 10px; padding-right: 20px;
+}
+.pmain{/*admin, teacher: task; redactirovanie YMK, verx*/
+    margin: 0px; color: #777777;
+    font-size: 12pt; font-style: italic; text-align: center;
+}
+.main_page .v{/*admin, teacher: task; redactirovanie YMK, pered polosoi redactirovania*/
+	width: 24px;
+}
+.umk_text_input_content{/*admin, teacher: umkpassport.js; redactirovanie YMK*/
+    margin-top: 17px;
+}
+.much_more{/*admin, teacher: umkpassport.js; redactirovanie YMK "previsheno max"*/
+    margin: 0px; color: red; //padding-bottom: 10px;
+}
+.module_content_class_for_umcredact{/*admin, teacher: umkpassport.js; redactirovanie YMK */
+   //margin-top: 100px;
+}
+.not_so_much{/*admin, teacher: umkpassport.js; redactirovanie YMK */
+    margin: 0px; color: green;
+}
+.main_page .tit_tree{/*dlya umk & test redactorov; ne ispolzyetsa*/
+	width: 400px;
+}
+.main_page .tit_tree p{/*dlya umk & test redactorov; ne ispolzyetsa*/
+	font-family: Arial; color: #777777; font-size: 11 pt; text-align: left; font-weight: bolder;
+	margin: 0px;
+	/*width: 490px; */
+}
+.main_page .tree ol{/*admin, teacher: universal; devevo sodergimogo centra*/
+    padding-left: 10px;
+    margin-left: 0px;
+    /* 	list-style-image:url('none');*/ list-style-position:outside; list-style-type:none;
+}
+.main_page .tree ol .li_str{/*admin, teacher: task;list dereva centra*/
+    width: 400px; padding-left: 40px;
+}
+
+/*admin, teacher: universal; devevo sodergimogo centra*/
+.main_page .tree a:link {COLOR: #777777; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal; }
+.main_page .tree a:visited {COLOR: #777777; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal}
+.main_page .tree a:active {COLOR: #f56161; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal}
+.main_page .tree a:hover {COLOR: #f56161;; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal; }
+
+/*admin, teacher: task;redactir test*/
+.main_page .go_to_test a:Link {COLOR: Gray; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal; }
+.main_page .go_to_test a:visited {COLOR:  Gray; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+.main_page .go_to_test a:active {COLOR: #F08080; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+.main_page .go_to_test a:hover {COLOR: #F08080; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+
+/*admin, teacher: task; redactirovanie vsex terstov*/
+#test_list{ padding:0 }
+#test_list ol{ list-style-type: none; margin:0; padding:10px}
+#test_list li{padding:3px}
+#test_list img{margin:0 10px -2px 0; }
+#test_list p{COLOR: #A9A9A9; margin:-2px 0 10px 30px}
+
+.for_bar{/*admin, student, teacher: adminpassport, stpassport, passport; megdy testom i ychebnicom*/
+	border-top: 1px solid silver; padding-bottom: 20px;
+}
+.blueBar{/*admin, student, teacher: adminpassport, stpassport, passport; megdy testom i ychebnicom*/
+	color: Black;
+}
+.blueBar p{/*admin, student, teacher: adminpassport, stpassport, passport; megdy testom i ychebnicom*/
+	 margin: 0px; position: relative; top: 20px; left: -200px; z-index: 4;
+}
+
+.main_page .redact_test_image{/* admin, teacher: task; kartinca redactirovania testa*/
+    float: left; margin-top: 5px; margin-left: 3px;
+}
+.main_page .test_name_for_redact{/* admin, teacher: task; kartinca redactirovania YMK*/
+    margin: 0px; margin-left: 20px;
+}
+.main_page .tests_div_bot{/* admin, teacher: task; text redactirovania testa*/
+    float: left; margin-top: 10px; width: 510px;
+    padding-bottom: 3px;
+}
+.main_page .vsplivayuwie_knopki{/* admin, teacher: task; % */
+    text-align: center; height: 21px; width: 28px; border: silver 1px solid;
+    background: InfoBackground; cursor: pointer;
+}
+.main_page .button_of_redacting_module{/* admin, teacher: task; % */
+    margin: 0px; margin-top: 2px; color: #5D5D5D; font-size: 8pt;
+}
+.main_page .div_list_tasks{/*dojostyle; admin, teacher: task; text redactirovania testa*/
+    float: left; width: 20px; height: 20px; margin-left: -25px; background: none; visibility:hidden;
+}
+.main_page .button_of redacting_module{/*redactir YMK; ne ispolzyetsa*/
+    margin: 0px; margin-top: 2px; color: green; font-size: 8pt;
+}
+.message_of_umk_points{/* admin, teacher: task; verx texta*/
+    height: 12px;
+    padding-top: 5px; margin: 0px;
+}
+.umk_text_input_content_activ{/* admin, teacher: task;stil slaidera activnost` */
+    margin-top: 17px; border: 1px solid silver; padding: 10px;
+}
+.name_activ{/* admin, teacher: task;stil texta activnost` */
+    position: relative; top: -18px; background-color:white;
+}
+.number_of_visits{/* admin, teacher: task;chislo posechenii */
+    margin-top: 13px;
+}
+.main_page .tests_redact_div{/*dojostyle; admin, teacher: task;redactir % v redactir YMK */
+    margin-left: 18px;
+}
+.main_page .leaf_umk_image{/* admin, teacher: task; kartinca lista spiska redactirovania YMK*/
+    float: left; margin-top: 2px;
+}
+/*admin: test_info, test_itog; teacher: test_info, test_itog; */
+.main_page .questionList{
+    padding: 10px;
+}
+/*admin: test_info, test_itog; teacher: test_info, test_itog; */
+.main_page .questionList_buttons{
+    text-align: center; padding-top: 10px;
+}
+/*admin: test_info, test_itog; teacher: test_info, test_itog; */
+.main_page .questionList_tr{
+    padding-top:3px;
+}
+/*admin: test_info; teacher: test_info; */
+.main_page .quest_num{
+    margin: 0px; font-size: 10pt;
+}
+/*admin: test_info, test_itog; teacher: test_info, test_itog; cheredovanie fona */
+.main_page .darck{
+    background: #EFEFEF;
+}
+/*admin: test_info, test_itog; teacher: test_info, test_itog; oformlenie tablici voprosov*/
+.main_page .questionList_tr_td_r_b{
+    border-bottom: 1px solid silver; border-left: 1px solid silver; padding: 3px; text-align: left;
+}
+/*admin: test_info, test_itog; teacher: test_info, test_itog; oformlenie tablici voprosov*/
+.main_page .questioList_tr_td_b{
+    border-bottom: 1px solid silver; padding: 3px; text-align: left; border-right: 1px solid silver;
+    border-left: 1px solid silver;
+}
+/*admin: test_info, test_itog; teacher: test_info, test_itog; oformlenie tablici voprosov*/
+.main_page .questionList_t_border{
+    border-top: 1px solid silver;
+}
+/*admin: test_itog; teacher: test_itog;*/
+.main_page .form_table_test{
+    margin: 10px;
+}
+/*admin: test_info, test_itog; teacher: test_info, test_itog; ssilka vozvrata k kursu*/
+.main_page .back_to_cource{
+    margin-top: 3px;
+}
+/*admin: test_info, test_itog; teacher: test_info, test_itog; ssilka vozvrata k kursu*/
+.main_page .back_to_cource a:link {COLOR: #1517FF; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal; }
+.main_page .back_to_cource a:visited {COLOR: white; TEXT-DECORATION: underline; font-size: 10pt; font-weight: normal;}
+.main_page .back_to_cource a:active {COLOR: #1517FF; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+.main_page .back_to_cource a:hover {COLOR: white; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+/*admin: test_info, test_itog; teacher: test_info, test_itog;*/
+.main_page .left_input{
+    float: left;
+}
+/*admin: test_info, test_itog; teacher: test_info, test_itog;*/
+.main_page .right_input{
+    margin-left: 10px;
+}
+
+/*dojostyle;admin: jornalir_making_new_event; text pered DropDownMenu */
+.main_page  .name_ymk_select{
+	margin:5px;
+	margin-right: 6px;
+	display: inline;
+}
+.main_page  .for_select_name{/*dojostyle;admin: jornalir_making_new_event;block dobavlenia 1 tipa sobitia */
+	margin: 5px !important;
+}
+
+.main_page  .name_ymk_comment{/*dojostyle;admin: jornalir_making_new_event; text pered blocom commenta */
+	margin-left: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	overflow: hidden;
+}
+
+.main_page  .for_comments_new{/*dojostyle;admin: jornalir_making_new_event; text commenta */
+	margin: 5px;
+	border:1px solid #7EABCD;
+	background: #ebf2f5;
+	width: 500px;
+	height: 50px;
+}
+
+.main_page  .button_for_dobavl_inf{/*dojostyle;admin: jornalir_making_new_event; for button "save" */
+	margin-left: 200px;
+	margin-right: auto;
+}
+
+/*dojostyle;admin: jornalir_making_new_event; text pered DropDownMenu */
+.main_page  .name_ymk_select_test{/*ne isp*/
+	margin: 5px;
+	margin-right: 0px;
+	display: inline;
+}
+
+/*dojostyle;admin: jornalir_making_new_event; text pered DropDownMenu */
+.main_page  .name_ymk_select_nomber_of_group{
+	margin: 5px;
+	margin-right: 8px;
+	display: inline;
+}
+
+.main_page  .for_form_selection{/*dojostyle;admin: jornalir_making_new_event; text DropDownMenu */
+	margin-left: 5px;
+}
+.main_page .action_type{/*admin: journaling_view_of_events*/
+    font-size: 11pt; margin: 0px; margin-top: 3px;
+    margin-bottom: 2px; margin-left: 10px; color: #359D4D; font-weight: bolder;
+}
+
+.main_page .search_input{
+    float: right;
+    margin-top: 2px;
+    position: absolute;
+    z-index: 100;
+    margin-left: 210px;
+    //margin-top: 1px;
+    //margin-left: -235px;
+}
+*+html .main_page .search_input{
+    margin-left: -110px !important;
+}
+.main_page .search_inp_big_content{
+    float: right; 
+    margin-top: 2px;
+    position: absolute;
+    z-index: 100;
+    //margin-top: 1px;
+}
+.large_inp{
+    display: none;
+    position: absolute;
+    width: 690px;
+    margin-left: -280px;
+    //margin-left: -720px;
+    text-align: right;
+    //margin-top: 1px;
+    z-index: 100;
+}
+
+.main_page .search_type{
+    text-align: left;
+    position: relative;
+    z-index: 200;
+    margin-left: 552px;
+    margin-top: -18px;
+    width: 135px;
+}
+.main_page .search_type *{
+	padding: 0px !important;
+}
+@media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0) {
+    .main_page .search_type{
+        margin-left: 554px;
+    }
+    .large_inp{
+        margin-left: -282px;
+    }
+    .medium{
+        width: 658px !important;
+    }
+}
+.main_page .types{
+    border-bottom: 1px solid silver;
+    border-left: 1px solid silver;
+    background: white;
+}
+.main_page .search_button{
+    float: left;
+    border-left: 1px solid silver;
+}
+.main_page .drop_button{
+    width: 18px; 
+    height: 18px;
+    float: right;
+}
+
+/*stil pasporta kursa*/
+.pasp_title_text{
+	display: inline;
+}
+
+.pasp_titles div{
+	padding-left: 10px;
+}
+
+
+.main_page .pasp_titles a:link {COLOR: #505050;TEXT-DECORATION: none;font-size: 10pt;font-weight: normal;}
+.main_page .pasp_titles a:visited {COLOR: #505050;TEXT-DECORATION: none;font-size: 10pt;font-weight: normal;}
+.main_page .pasp_titles a:active {COLOR: #505050;TEXT-DECORATION: none;font-size: 10pt;font-weight: normal;}
+.main_page .pasp_titles a:hover {COLOR: #8DBEE0;text-decoration: none;font-size: 10pt;font-weight: normal;}
+
+.main_page .befor_submiting_show{
+	display: none; margin: 10px; padding: 10px; border: 1px solid silver; background: #F0F8FF;
+}
+.main_page .event_editor_area{
+	margin: 10px; border-top: 1px solid silver;
+}
+.main_page .eventText *{
+	margin-top: 2px; margin-left: 2px; margin-bottom: 1px; 
+}
+.main_page .events_menu{
+    margin: 0px; padding: 0px;
+}
+.main_page .events_menu li{
+    float: left; list-style: none; margin: 0px; padding: 0px; margin-right: 3px; font-size: 10pt;
+}
+.main_page .events_menu .x{
+    color: #00CD00;
+}
+.main_page .otch_main_tab{
+    width: 502px; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; text-align: center;
+}
+.main_page .otch_main_tab tr td{
+    padding: 3px;
+}
+.main_page .chet_color_back{
+    background: #EFEFEF;
+}
+
+/*teacher: otchet1; ramochki*/
+.main_page .not_last_td_otch_page{
+    text-align: center; border-bottom: 1px solid silver; border-right: 1px solid silver;
+}
+/*teacher: otchet1; ramochki*/
+.main_page .last_td_otch_page{
+    text-align: center; border-bottom: 1px solid silver;
+}
+/*teacher: otchet1; ramochki v samoy tablice*/
+.main_page .td_otch_page1{
+    text-align: center; border-bottom: 1px solid #DCDCDC;
+}
+/*teacher: otchet1;*/
+.main_page .first_stolb_hat_main_tab{
+    width: 210px; text-align: center; border-top: 3px double silver;
+    border-bottom: 1px solid silver; border-right: 1px solid silver;
+}
+/*teacher: otchet1;*/
+.main_page .second_stolb_hat_main_tab{
+    width: 73px; text-align: center; border-top: 3px double silver;
+    border-bottom: 1px solid silver; border-right: 1px solid silver;
+}
+/*teacher: otchet1;*/
+.main_page .third_stolb_hat_main_tab{
+    width: 73px; text-align: center; border-top: 3px double silver;
+    border-bottom: 1px solid silver; border-right: 1px solid silver;
+}
+/*teacher: otchet1;*/
+.main_page .fourth_stolb_hat_main_tab{
+    width: 73px; text-align: center; border-top: 3px double silver;
+    border-bottom: 1px solid silver; border-right: 1px solid silver;
+}
+/*teacher: otchet1;*/
+.main_page .fiveth_stolb_hat_main_tab{
+    width: 73px; text-align: center; border-top: 3px double silver;
+    border-bottom: 1px solid silver;
+}
+.main_page .show_hide_link_in_otch:link {COLOR: #505050; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal; }
+.main_page .show_hide_link_in_otch:visited {COLOR: #505050; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal;}
+.main_page .show_hide_link_in_otch:active {COLOR: #303030; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal;}
+.main_page .show_hide_link_in_otch:hover {COLOR: #8DBEE0; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal;}
+
+.main_page .white_title a:link {outline: none; COLOR: #147BC4; TEXT-DECORATION: none;font-size: 10pt;font-weight: normal;}
+.main_page .white_title a:visited {outline: none; COLOR: #147BC4;TEXT-DECORATION: none;font-size: 10pt;font-weight: normal;}
+.main_page .white_title a:active {outline: none; COLOR: #69B5EB;TEXT-DECORATION: none;font-size: 10pt;font-weight: normal;}
+.main_page .white_title a:hover {outline: none; COLOR: #69B5EB;text-decoration: underline;font-size: 10pt;font-weight: normal;}
+
+.main_page .white_title_ a:link {outline: none; COLOR: #147BC4; TEXT-DECORATION: none;font-size: 10pt;font-weight: normal;}
+.main_page .white_title_ a:visited {outline: none; COLOR: #147BC4;TEXT-DECORATION: none;font-size: 10pt;font-weight: normal;}
+.main_page .white_title_ a:active {outline: none; COLOR: #69B5EB;TEXT-DECORATION: none;font-size: 10pt;font-weight: normal;}
+.main_page .white_title_ a:hover {outline: none; COLOR: #69B5EB;text-decoration: underline;font-size: 10pt;font-weight: normal;}
+
+.main_page .white_title_{
+    border-bottom: 1px solid silver;
+}
+
+.main_page .tab_contr_works_top_inf{
+    border-bottom: 1px solid silver; font-size: 10pt;
+}
+/*student: controlworks_last slova v tablice*/
+.main_page .tab_contr_works tr td{
+    font-family: Arial; font-size: 10pt; font-weight: normal; /*width: 254px;*/
+    text-align: center; padding-top: 0px; height: 23px;}
+/*student: controlworks_last serie bukvi*/
+.main_page .gray_words tr td{
+    font-family: Arial; font-size: 10pt; font-weight: normal;/* width: 104px;*/ COLOR: #727272; text-align: center;}
+
+.main_page .gray_words td{
+    font-family: Arial; font-size: 10pt; font-weight: normal; /*width: 104px;*/ COLOR: #727272; text-align: center;}
+
+/*dla stolbcov*/
+.main_page .gray_words_1_2{
+    width: 140px;
+    text-align: center;
+   /* padding: 0px !important;*/
+}
+
+.main_page .gray_words_3_4{
+    text-align: center !important;
+    width: 80px;
+    /*padding: 0px !important;*/
+}
+
+.main_page .gray_words_5{
+    width: 50px;
+    text-align: center !important;
+    /*padding: 0px !important;*/
+}
+/*dla stolbcov*/
+.main_page .gray_words_1_2_{
+    width: 140px;
+    text-align: center;
+    border-bottom: 1px solid silver;
+   /* padding: 0px !important;*/
+}
+
+.main_page .gray_words_3_4_{
+    text-align: center !important;
+    width: 80px;
+    border-bottom: 1px solid silver;
+    /*padding: 0px !important;*/
+}
+
+.main_page .gray_words_5_{
+    width: 72px;
+    text-align: center !important;
+    border-bottom: 1px solid silver;
+    /*padding: 0px !important;*/
+}

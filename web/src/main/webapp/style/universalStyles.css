@@ -1,0 +1,1669 @@
+/*
+    Document   : universalStyles
+    Created on : 08.07.2009, 12:52:14
+    Author     : korgovvd
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+/*for smena parola v nastroikax*/
+	#new_password{height: 12px;width: 180px;}
+	#confirm_password{height: 12px;width: 180px;}
+/*for smena parola v nastroikax*/
+/**/
+
+.main_page .msg1 a:link {COLOR: #505050; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal; }
+.main_page .msg1 a:visited {COLOR: #505050; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+.main_page .msg1 a:active {COLOR: #303030; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+.main_page .msg1 a:hover {COLOR: #8DBEE0; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+
+.main_page .alert{
+	color: Red; font-size:10pt; font-weight: normal; padding: 10px; font-family: Tahoma;
+	background:white ; margin:0;
+}
+/*universal bottom grey line*/
+.otdelitel{
+	clear: both !important;
+	overflow: hidden !important;
+	height: 1px !important;
+	margin: 0px !important;
+	background: none !important; 
+        width: 10% !important;
+        visibility: hidden !important;
+}
+img{
+	border: 0px;
+}/*universal bottom grey line*/
+.disab_link p{
+	color: #AFAFAF; text-decoration: none; font-size: 9pt; font-weight: normal;
+	font-family: Tahoma; margin-bottom: 0px; margin-top: 0px; padding-top: 1px;
+}
+/*universal stili opisyvaushie ramku iz teni>>>*/
+.main_page{
+	margin:0px; margin-top: 10px; padding:0px; text-align:left;
+	width:980px; background: url('../images/main_back.jpg') repeat-y;
+}
+/*universal verhnia ten levogo bloka*/
+.main_page .top_shadow{
+	background: url(../images/top.jpg) top repeat-x;
+	margin-left: 9px; margin-right: 11px;
+}
+/*universal nijnia ten levogo bloka*/
+.main_page .bot_shadow{
+	background: url(../images/bottom.jpg) bottom repeat-x;
+	padding-top: 8px; padding-bottom: 7px;
+}
+/*universal levaja ten levogo bloka*/
+.main_page .l_t_angle{
+	background: url(../images/q1.jpg) top left no-repeat;
+	margin-top: 2px; margin-left: -9px;
+}
+/*universal pravaja ten pravogo bloka*/
+.main_page .r_t_angle{
+	background: url(../images/q2.jpg) top right no-repeat;
+	margin-top: -10px; margin-right: -8px;
+}
+/*on all pages nijnia ten*/
+.main_page .r_b_angle{
+	background: url(../images/q3.jpg) bottom right no-repeat;
+	margin-right: -1px; margin-bottom: -8px;
+
+}
+/*universal nijnia ten levogo bloka*/
+.main_page .l_b_angle{
+	background: url(../images/q4.jpg) bottom left no-repeat;
+	margin-left: 1px; margin-bottom: -4px;
+}
+/*universal graniza vneshnego bloka*/
+.main_page .inf_pole{
+	padding-top: 8px; padding-bottom: 15px; padding-left: 8px; padding-right: 8px;
+}
+/*stili dlya levogo menu>>>*/
+.main_page .left{
+	float: left;
+	width: 218px;
+}
+/*universal style of logotipe*/
+.main_page .logo{
+	padding: 10px;
+	background: white;
+}
+/*universal levoe menu sistemnoe uvedomlenie*/
+.main_page .red_title{
+	width: 218px;
+}
+/*universal  text v sinem bloke obuchenie*/
+.main_page .msg {
+	background: white;
+	padding: 5px 0 0 10px;
+	width:200px;
+}
+.main_page .msg ol{
+	/* 	list-style-image:url('none');*/
+	list-style-position:outside;
+	list-style-type:none;
+	padding:0pt; margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:1em;
+}
+.main_page .msg a:link {COLOR: #505050; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal; }
+.main_page .msg a:visited {COLOR: #505050; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+.main_page .msg a:active {COLOR: #303030; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+.main_page .msg a:hover {COLOR: #8DBEE0; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+
+/*universal zelenii blok sleva (soobsheniaj)*/
+.main_page .green_title{
+	width: 218px;
+}
+/*universal  text v zelenom bloke*/
+.main_page .upl3{
+	width:218px; background: url('../images/undgreen.jpg') repeat-x; height:15px;
+}
+/*universal nadpis o kollichestve novih soobshenii*/
+.main_page .uheadgr{
+	font-family: Arial; COLOR: #ACCC7A; font-size: 10pt; font-weight: normal; margin-left: 10px;
+}
+.main_page .uheadgr a:link {COLOR: #ACCC7A; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal; margin-left: 10px;}
+.main_page .uheadgr a:visited {COLOR: #ACCC7A; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal; margin-left: 10px;}
+.main_page .uheadgr a:active {COLOR: black; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal; margin-left: 10px;}
+.main_page .uheadgr a:hover {COLOR: black; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal; margin-left: 10px;}
+/*universal punkti menu bloka soobshenii*/
+.main_page .msgfrom{
+	background: white;
+}
+.main_page .msgfrom img{
+    border: 0px;  margin-right: 10px;  margin-bottom: -1px; margin-top: 6px;
+}
+.main_page .msgfrom ol{
+	border-bottom:0px solid silver;
+	/* 	list-style-image:url('none');*/
+	list-style-position:outside;
+	list-style-type:none;
+	margin:0; padding-left:10px; padding-right:2px; padding-top:5px; padding-bottom:5px;
+}
+.main_page .msgfrom a:link {COLOR: #505050; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal; }
+.main_page .msgfrom a:visited {COLOR: #505050; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal}
+.main_page .msgfrom a:active {COLOR: #303030; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal}
+.main_page .msgfrom a:hover {COLOR: #ACCC7A; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal}
+/*universal zelenii blok sprava (druz'aj)*/
+.main_page .friends_block{
+    margin-left: 9px;
+}
+/*universal tabliza v bloke druzei*/
+.main_page .friends{
+	width: 200px;
+}
+.main_page .friends td{
+	width:62px; height:120px;
+}
+.main_page .friends a:link {COLOR: #505050; TEXT-DECORATION: none; font-size: 8pt; font-weight: normal; }
+.main_page .friends a:visited {COLOR: #505050; TEXT-DECORATION: none; font-size: 8pt; font-weight: normal}
+.main_page .friends a:active {COLOR: #505050; TEXT-DECORATION: none; font-size: 8pt; font-weight: normal}
+.main_page .friends a:hover {COLOR: #505050; TEXT-DECORATION: underline; font-size: 8pt; font-weight: normal}
+/*universal podpis foto druzei v zelenom bloke*/
+.main_page div.photo_sign{text-align:center;}
+/*universal foto druzei v zelenom bloke*/
+.main_page div.photo_img {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    height: 84px;
+}
+.main_page div.photo_img * {
+    vertical-align: middle;
+}
+.main_page div.photo_img span {
+    display: inline-block;
+    height: 100%;
+    width: 1px;
+}
+/*pravaya chast' stranici>>>*/
+.main_page .right{
+	float: right;
+}
+/*stili dlya verhnego menu>>>*/
+.main_page .top_menu{
+	width:742px;
+	background: white;
+	margin-right: 1px; margin-top: -8px;
+}
+/*universal granizi verhnego menu*/
+.main_page .top_menu_r_sh{
+	background:  url('../images/top_menu_r_sh.jpg') repeat-y right;
+	margin-right: -11px;
+	//margin-right: -12px;
+}
+.main_page .top_menu_l_sh{
+	background:  url('../images/top_menu_l_sh.jpg') repeat-y left;
+
+}
+.main_page .top_menu_b_sh{
+	background:  url('../images/grad2.jpg') repeat-x bottom;
+}
+.main_page .top_menu_t_sh{
+	background:  url('../images/top_grad.jpg') repeat-x top;
+}
+/*universal ubiraet lishnie linii verhnego menu*/
+.main_page .top_menu_l_b_ang{
+	background: url('../images/ugol21.jpg') no-repeat bottom left;
+}
+.main_page .top_menu_r_b_ang{
+	background: url('../images/ugol22.jpg') no-repeat bottom right;
+}
+.main_page .top_menu_r_t_ang{
+	background: url('../images/ugol12.jpg') no-repeat top right;
+}
+.main_page .top_menu_l_t_ang{
+	background: url('../images/ugol11.jpg') no-repeat top left;
+}
+/*student: settings; podskazki*/
+.main_page .little_p{
+    color: silver;
+    font-size: 11px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+/*universal ssilki v verhnem menu*/
+.main_page .top_menu_links{
+	padding-top:22px; padding-bottom: 25px; padding-right: 5px; padding-left: 10px;
+	float: right;
+}
+.main_page .top_menu_links ol{
+	list-style: none; margin: 0px; padding: 0px; float: left;
+}
+.main_page .top_menu_links ol li{
+	float: left; margin-right: 10px; padding-right: 10px; margin-top: 1px;
+	border-right:1px solid #E0E0E0;
+}
+/*universal data v verhnem menu*/
+.main_page .date{
+	padding: 0px; padding-right: 15px; padding-top: 3px; margin: 0px; COLOR: #64D359; TEXT-DECORATION: none;
+	font-size: 9pt; font-weight: 900; font-style: none;  float:left; white-space: nowrap;
+}
+/*universal ssilki v verhnem menu*/
+.main_page .top_link:link {COLOR: #959595; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal; padding-top:0px;}
+.main_page .top_link:visited {COLOR: #959595; TEXT-DECORATION: none; font-size:10pt; font-weight: normal; padding-top:0px;}
+.main_page .top_link:active {COLOR: #F95E62; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal; padding-top:0px;}
+.main_page .top_link:hover {COLOR: #F95E62; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;  padding-top:0px;}
+/*universal ssilki nazad v verhnem menu*/
+.main_page .top_link_back:link {COLOR: #A6DAEF; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal; padding-top:0px;}
+.main_page .top_link_back:visited {COLOR: #959595; TEXT-DECORATION: none; font-size:10pt; font-weight: normal; padding-top:0px;}
+.main_page .top_link_back:active {COLOR: #A6DAEF; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal; padding-top:0px;}
+.main_page .top_link_back:hover {COLOR: #F95E62; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;  padding-top:0px;}
+/**/
+.main_page .right_inside{
+	//padding-right: 11px;
+}
+/*universal central'naja informacionnaja chast'*/
+.main_page .inf{
+	float: left; width: 523px;
+}
+/*universal text fio*/
+.main_page .fio_inf{
+	width: 523px; background: White;
+}
+/*universal granici fio*/
+.main_page .under_fio_line{
+	width: 523px; border-top: 1px solid silver; overflow: hidden;
+}
+.main_page .left_sh_fio{
+	background:  url('../images/left_sh_fio.jpg') repeat-y left;
+}
+.main_page .bot_sh_fio{
+	background:  url('../images/bottom.jpg') repeat-x bottom;
+}
+.main_page .l_ang_fio{
+	background: url(../images/l_b_fio.jpg) bottom left no-repeat;
+}
+.main_page .fio{
+	padding-top: 0px; padding-left: 20px; padding-bottom: 15px;
+}
+/*universal text SGU gray*/
+.main_page .p1{
+	COLOR: #A3A3A3; TEXT-DECORATION: none; font-size: 10pt;  font-weight: bold; margin: 0px;
+	font-family: Arial;
+}
+.main_page .p1 a:link {COLOR: #A3A3A3; TEXT-DECORATION: none; font-size: 10pt; font-weight: bold;margin: 0px;font-family: Arial;}
+.main_page .p1 a:visited {COLOR: #A3A3A3;TEXT-DECORATION: none; font-size:10pt; font-weight: bold;margin: 0px; font-family: Arial;}
+.main_page .p1 a:active {COLOR: #A3A3A3;TEXT-DECORATION: underline;font-size: 10pt;font-weight: bold;margin: 0px; font-family: Arial;}
+.main_page .p1 a:hover {COLOR: #A3A3A3; TEXT-DECORATION: underline; font-size: 10pt; font-weight: bold; margin: 0px; font-family: Arial;}
+/*universal text fio green*/
+.main_page .p2{
+	COLOR: #92D864; TEXT-DECORATION: none; font-size: 11pt; font-weight: bold; margin-top: 3px;
+	margin-bottom: 0px;  /*background-image: url('none');*/
+}
+/*universal central'naja chast'*/
+.main_page .main_inf{
+    overflow: visible;
+	padding-left: 1px; //margin-top: -16px;
+}
+/*universal serii zagolovok informacionnoi chasti*/
+.main_page .title{
+	height:22px; width:522px; background : url('../images/grad.jpg') repeat-x;  padding-top:0px; margin:0px;
+}
+.main_page .title p{
+	font-family: Arial; COLOR: #727272; font-size: 10pt; font-weight: normal; padding-left:10px; padding-top:3px; margin: 0px;
+}
+/*universal pravoe menu*/
+.main_page .right_menu{
+	float: right; width: 218px; background: White; margin-right: 1px; //margin-right: 0px;
+}
+/*universal vnutrennjaja chast' bloka obshenie sprava*/
+.main_page .side_bar{
+	margin: 5px 0px 0px 10px; background: none;
+	padding-bottom:10px;
+	width:200px;
+}
+.main_page .side_bar img{
+	border: 0px;  margin-right: 10px;  margin-bottom: -8px;  margin-top: 10px;
+}
+.main_page .side_bar ol{
+	/* 	list-style-image:url('none');*/
+	list-style-position:outside;
+	list-style-type:none;
+	padding:0pt; margin-left:0pt; margin-right:0pt; margin-top:0pt; margin-bottom:1em;
+}
+.main_page .side_bar a:link {COLOR: #71C5F4; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+.main_page .side_bar a:visited {COLOR: #71C5F4; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+.main_page .side_bar a:active {COLOR: #0E82C4; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+.main_page .side_bar a:hover {COLOR: #0E689C;; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+/*universal nadpis' v sinem bloke sprava (ludi on-line)*/
+.main_page .upl2{
+	width:218px;  background: url('../images/undblue.jpg') repeat-x; height:15px;
+}
+/*universal text nadpisi v sinem bloke sprava (ludi on-line)*/
+.main_page .uheadbl{
+	font-family: Arial; COLOR: #8DBEE0; font-size: 10pt; font-weight: normal; margin-left: 10px;
+}
+.main_page .uheadbl a:link {COLOR: #8DBEE0; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal; margin-left: 10px;}
+.main_page .uheadbl a:visited {COLOR: #8DBEE0; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal; margin-left: 10px;}
+.main_page .uheadbl a:active {COLOR: black; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal; margin-left: 10px;}
+.main_page .uheadbl a:hover {COLOR: black; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal; margin-left: 10px;}
+/*universal niznee menu*/
+.main_page .top_sh_bot_menu{
+	background: url(../images/bottom.jpg) top repeat-x;
+}
+/*universal niznee menu*/
+.main_page .l_t_ang_bot_menu{
+	background: url('../images/ugol21_b_m.jpg') no-repeat top left;
+}
+/*universal niznee menu*/
+.main_page .r_t_ang_bot_menu{
+	background: url('../images/ugol22_b_m.jpg') no-repeat top right;
+}
+/*universal ssilki v niznem menu*/
+.main_page .bot_menu_links{
+	padding-top: 17px; padding-bottom: 15px; padding-left: 25px; padding-right: 25px;
+}
+/*universal raspolozenie ssilok v niznem menu*/
+.main_page .bottom_links{
+	background: White;
+}
+.main_page .bottom_links ol{
+	margin: 0px; list-style: none; padding-left: 350px;
+}
+.main_page .bottom_links ol li{
+	margin: 0px; padding: 0px; float: left;
+}
+.main_page .bottom_links ol li a:link {COLOR: #A3A3A3; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;  font-family: Tahoma;}
+.main_page .bottom_links ol li a:visited {COLOR: #A3A3A3; TEXT-DECORATION: none; font-size:10pt; font-weight: normal;  font-family: Tahoma;}
+.main_page .bottom_links ol li a:active {COLOR: #A3A3A3; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;  font-family: Tahoma;}
+.main_page .bottom_links ol li a:hover {COLOR: #636363; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;  font-family: Tahoma; }
+
+.main_page .bottom_links ol li p{
+	COLOR: #AFAFAF; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal;
+ 	font-family: Tahoma; margin:0px; margin-left: 120px; padding: 0px; margin-top: 2px;
+	line-height: 11px;
+}
+.main_page .bottom_links ol li img{
+	margin-top: 5px;
+}
+/*universal golobie zagolovki v central'noi chasti*/
+.main_page .head_main_math{
+	background-color: #A2DEF6;  border-bottom: 1px solid #4DB7F1; border-top: 1px solid #4DB7F1;
+	padding: 5px 10px 5px 10px; height:auto; width: 502px; height:auto;
+}
+.main_page .head_main_math p{
+	color: white; font-size: 12pt; margin: 0px; margin-left: 12px; font-weight: bold;
+}
+/*universal grey link*/
+.main_page .stmat_link:link {COLOR: #959595; TEXT-DECORATION: underline; font-size: 10pt; font-weight: normal; padding-top:0px;}
+.main_page .stmat_link:visited {COLOR: #959595; TEXT-DECORATION: underline; font-size:10pt; font-weight: normal; padding-top:0px;}
+.main_page .stmat_link:active {COLOR: #F95E62; TEXT-DECORATION: underline; font-size: 10pt; font-weight: normal; padding-top:0px;}
+.main_page .stmat_link:hover {COLOR: #F95E62; TEXT-DECORATION: underline; font-size: 10pt; font-weight: normal;  padding-top:0px;}
+/*student: search.jsp, message_write.jsp; stil stroki rezyltata poiska*/
+.main_page .list{
+	padding-left: 0px; clear: both; width: 522px; //width: 522px;
+}
+.main_page .list ol{/*student, teacher, admin: universal; stil spiskov*/
+	list-style-type: none; list-style: none; padding-left: 0px; margin-top: 0px; margin-bottom: 10px; text-align: left;
+    margin-left: 0px;
+}
+.main_page .list .lis{//*student, teacher, admin: universal; stil spiskov*/
+	margin-left: 10px; margin-right: 10px; border-left: 1px solid silver; border-right: 1px solid silver;
+}
+.main_page .list ol li{/*student, teacher, admin: universal; stil spiskov*/
+	padding-top: 15px; padding-left: 10px;
+}
+.main_page .list ol a img{/*student, teacher, admin: universal; stil spiskov*/
+	float: left; padding-right: 10px;
+}
+.main_page .list p{/*student, teacher, admin: universal; stil spiskov*/
+	margin-bottom: 3px; margin-top: 3px;
+}
+.main_page .list ol li p{/*student, teacher, admin: universal; stil spiskov*/
+	margin-top: 1px; margin-bottom: 1px; font-size: 10pt; color: #777777; margin-right: 15px;//margin-left: 10px; text-align: justify;
+}
+.main_page .list ol li p b{/*student, teacher, admin: universal; stil spiskov*/
+	font-weight: bold;
+}
+
+.main_page .list ol li .ostup_sleva1{/*student, teacher, admin: universal; stil spiskov*/
+	margin-top: 1px; margin-bottom: 1px; font-size: 11pt; color: #39BCFE; margin-right: 15px;//margin-left: 10px; text-align: right;
+}
+/*student, teacher, admin: news, student, teachers, stteachers, bottom_menu; stili ssilok v spiskax, takix kak napisanie pisma prepody posle poiska studentom*/
+.main_page .teh_a:link {COLOR: #2c8baa; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;  font-family: Tahoma;}
+.main_page .teh_a:visited {COLOR: #2c8baa; TEXT-DECORATION: none; font-size:10pt; font-weight: normal;  font-family: Tahoma;}
+.main_page .teh_a:active {COLOR: #2c8baa; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;  font-family: Tahoma;}
+.main_page .teh_a:hover {COLOR: #56afc3; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;  font-family: Tahoma; }
+
+.main_page .send_mes_link_st_page:link{color: white; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;  font-family: Tahoma;}
+.main_page .send_mes_link_st_page:visited{color: #4DB7F1; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;  font-family: Tahoma;}
+.main_page .send_mes_link_st_page:active{color: #4DB7F1; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;  font-family: Tahoma;}
+.main_page .send_mes_link_st_page:hover{color: #4DB7F1; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;  font-family: Tahoma;}
+
+.main_page #testBody{/*dojostyle; student,admin, teacher: test, sttest, testjs.jsp; verxnaa stroka proxogdenia testa*/
+	width: 505px; position: absolute; /*left: 253px;*/ text-align: center;
+}
+.main_page #head{/*student, admin, teacher: sttest, test; nazvanie testa v testirovanii*/
+	background-color: #A2DEF6;  border-bottom: 1px solid #4DB7F1; border-top: 1px solid #4DB7F1;
+	padding: 5px 10px 5px 10px; height:auto; width: 502px;
+}
+.main_page #head_test p{/*student, admin, teacher:  test, sttest; text voprosa v teste*/
+	color: white; font-size: 12pt; margin: 0px; margin-left: 12px; font-weight: bold;
+}
+.main_page #timeout{/*student, admin, teacher: test, sttest, testjs.jsp; time voprosa v teste*/
+	background-color: #98D9F7;  border: 1px solid #4DB7F1; margin-top:2px; margin-right:4px;
+}
+.main_page #timeout p{/*student, admin, teacher: test, sttest, testjs.jsp;time voprosa v teste*/
+	border-top: 1px solid #3BACEC; font-family: Tahoma; COLOR: #FEFEFE; font-size: 11pt;
+	font-weight: normal; margin:0px; padding:0px;
+}
+.main_page #quest{/*student, admin, teacher: test,test_info, test_itog, sttest, testjs.jsp; 1\2 texta voprosa v teste*/
+	background : none; width:100%; /*border-bottom: 1px solid #909090; */
+}
+.main_page #quest b{/*student, admin, teacher:test,test_info, test_itog, sttest, testjs.jsp; 1\2 texta voprosa v teste*/
+	font-family: Arial; COLOR: #353535; font-size: 12pt; font-weight: normal;
+}
+.main_page #quest p{/*student, admin, teacher: test,test_info, test_itog, sttest, testjs.jsp;1\2 texta voprosa v teste*/
+	font-family: Arial; COLOR: #353535; font-size: 12pt; font-weight: normal; margin:10px; text-align: left;
+	padding-right: 45px;
+}
+.main_page #quest #questText{/*student, admin, teacher: test,test_info, test_itog, sttest, testjs.jsp;1\2 texta voprosa v teste*/
+	font-size: 11pt;
+}
+.main_page #answ{/*admin, student, teacher: test; vse varianti otveta*/
+	background : none; border-bottom: 1px solid #909090; padding-top:10px;  padding-bottom:10px; color:black;
+}
+.main_page #answ label{/*admin, student, teacher: variant otveta*/
+	color: Black; margin-left: 10px;
+}
+.main_page #answ b{/*admin, student, teacher: test;vse varianti otveta*/
+	font-family: Tahoma; COLOR: black; font-size: 10pt; font-weight: normal;
+}
+.main_page .test_buttons{/*admin, student, teacher: for another student info; ne ispolzyetsa*/
+	margin-top: 10px; margin-left: 10px; margin-bottom: 10px;
+}
+.main_page #grad{/*student, admin, teacher: test,sttest;  stranici testov; nignaa ten` */
+	width:522px; background: url('../images/grad2.jpg') repeat-x bottom;
+}
+.main_page #hx{/*student, admin, teacher: test,sttest; stranici testov - nignaa ten` */
+	height:19px;  background: none;
+}
+
+.main_page .before_test_info p{/*student, admin, teacher: test, sttest; info o teste - kolvo-voprosov, vrema*/
+	margin-left: 10px; margin-top: 10px; margin-bottom: 0px;
+}
+.main_page #test{/*admin, student, teacher: admin_arch_msgs, admin_msgs, universal; ves` blok s info o teste do knopoc "start test"*/
+	width:522px; background : none;
+}
+#escapeTest{/*admin, student, teacher: test,sttest; knopka zaverchenia testa */
+	float: left;
+}
+
+/*admin, student, teacher: test,sttest; dla oformlenia voprosa testa*/
+#quest{ background : none; width:100%; /*border-bottom: 1px solid #909090; */}
+#quest b{font-family: Arial; COLOR: #353535; font-size: 12pt; font-weight: normal;  }
+#quest p{font-family: Arial; COLOR: #353535; font-size: 12pt; font-weight: normal; margin:10px; text-align: left; padding-right: 45px; }
+#quest #questText{font-size: 11pt;}
+
+/*student, admin, teacher: test,sttest; straniza proxogdenia testa; block variantov otveta*/
+#answ{ background : none; border-bottom: 1px solid #909090; padding-top:10px;  padding-bottom:10px; color:black; }
+#answ label{color: Black; margin-left: 10px;}
+#answ b{font-family: Tahoma; COLOR: black; font-size: 10pt; font-weight: normal;  }
+
+#buttons{padding:10px;}/*admin, student, teacher: universal; ne ispolzyetsa*/
+
+/*sudent, admin, teacher: stranici testatest, sttest; text titlepane*/
+#textM{margin-left: 10px; margin-top: 10px; font-size: 10pt;}
+
+/*student, admin, teacher: test, sttest; vrema, text, â„– voprosa*/
+#head_test{/*background-color: #98D9F7;*/  border-bottom: 1px solid #909090; border-top: 2px solid #4DB7F1;}
+#timeout b{font-family: Arial; COLOR: #FEFEFE; font-size: 12pt; font-weight: normal; }
+
+/*student, admin, teacher: test, sttest; "proxogdenie testa"*/
+.head{font-family: Arial; COLOR: #FEFEFE; font-size: 12pt; font-weight: normal; margin:0; padding:5px 10px 5px 10px }
+
+/*student, admin, teacher: test, sttest; block variantov otveta*/
+#answ b{font-family: Tahoma; COLOR: black; font-size: 10pt; font-weight: normal;  }
+#answ s{font-family: Tahoma; COLOR: #343434; font-size: 10pt; font-weight: bold;  text-decoration: none;   }
+#answ p{font-family: Arial; COLOR: black; padding:5px; margin:0;display:inline;font-size: smaller; font-weight: normal;}
+
+/* admin, student, teacher: test, sttest, testjs.jsp; skolkoprochlo vremeni*/
+#timeout{background-color: #98D9F7;  border: 1px solid #4DB7F1;
+ /*margin-top:2px; */}
+#timeout p{border-top: 1px solid #3BACEC; font-family: Tahoma; COLOR: #FEFEFE; font-size: 11pt;
+font-weight: normal; margin:0; padding:0}
+
+#test_list{/*admin, student, teacher: task; spisok vsex testov YMK*/
+    padding:0px;
+}
+#test_list ol{/*admin, student, teacher: task; spisok vsex testov YMK*/
+    list-style-type: none; margin:0; padding:10px;
+}
+#test_list li{/*admin, student, teacher: str sodergania YMK; spisok vsex testov YMK*/
+    padding:3px;
+}
+#test_list img{/*admin, student, teacher: task; spisok vsex testov YMK*/
+    margin:0 10px -2px 0;
+}
+#test_list p{/*admin, student, teacher: task; spisok vsex testov YMK*/
+    color: #A9A9A9; margin:-2px 0 10px 30px
+}
+
+/*admin, student, teacher: task; spisok vsex testov YMK*/
+#test_list a:link {COLOR: #505050; TEXT-DECORATION: none; font-size: 11pt; font-weight: normal;   }
+#test_list a:visited {COLOR: #505050; TEXT-DECORATION: none; font-size: 11pt; font-weight: normal}
+#test_list a:active {COLOR: #303030; TEXT-DECORATION: none; font-size: 11pt; font-weight: normal;}
+#test_list a:hover {COLOR: #8DBEE0; TEXT-DECORATION: none; font-size: 11pt; font-weight: normal;}
+
+/*student, admin, teacher: test, sttest; block variantov otveta*/
+#answ{padding-left: 10px; padding-left:10px;}
+
+/*student, admin, teacher: universal; "otvetit"&"propystit"*/
+#buttonLayout{margin-top: 10px; margin-left: 10px; margin-bottom: 10px;}
+
+#txt{width: 400px;}/*dojostyle; student, admin, teacher: test; ne ispolzyetsa*/
+
+.msp ol{/*admin, student, teacher: str sodergania YMK; spisok vsex testov YMK*/
+	padding-left: 30px;
+}
+#MainText p{/*dojostyle; admin, student, teacher; ne ispolzyetsa*/
+        margin-top: 5px; margin-bottom: 0px; padding-left: 15px; padding-right: 15px; text-align: justify; color: black;
+}
+.main_page .list_news{/*admin, student, teacher: news; sv-va spiska novostei*/
+    margin: 0px; padding: 0px; margin-top: 10px;
+}
+.main_page .list_news ol{/*admin, student, teacher: news; sv-va spiska novostei*/
+    list-style-type: none; margin:0; padding:0px;
+}
+.main-page .list_news li{/*admin, student, teacher: news; sv-va spiska novostei*/
+    padding:0px;
+}
+.main_page .list_news p{/*admin, student, teacher: news; sv-va spiska novostei*/
+    margin-bottom:5px; margin-top: 5px; margin-left: 10px; margin-right: 10px;
+}
+.main_page .nav_links{/*admin, student, teacher: news, messages_list; repelistivanie stranic*/
+    text-align: center; margin-top: 3px; margin-right: 10px; margin-left: 10px; height: 20px;
+}
+.main_page .nav_links b{/*admin, student, teacher: news, messages_list; repelistivanie stranic*/
+    color: #1792ba; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;  font-family: Tahoma;
+}
+/*admin, student, teacher: news, messages_list; repelistivanie stranic*/
+.main_page .nav_links a:link {COLOR: #636363; TEXT-DECORATION: none; font-weight: normal;  font-family: Tahoma;}
+.main_page .nav_links a:visited {COLOR: #A3A3A3; TEXT-DECORATION: none; font-weight: normal;  font-family: Tahoma;}
+.main_page .nav_links a:active {COLOR: #A3A3A3; TEXT-DECORATION: none; font-weight: normal;  font-family: Tahoma;}
+.main_page .nav_links a:hover {COLOR: red; TEXT-DECORATION: none; font-weight: normal;  font-family: Tahoma; cursor: pointer;}
+
+.main_page .vvod{/*student: search.jsp, message_write.jsp; stil stroki vvoda dla poiska*/
+	float:left; margin-top: 3px;margin-left: 12px; //margin-top: 15px;
+}
+.nch{
+    background: #D8F7E2;
+}
+.main_page .hidden_element_of_page{
+    display: none;
+}
+/*student: spisok naidennix prepodavatelei for student's teachers list, 1-vii*/
+.main_page .first_back_1_stteachers{
+	background:  #F9FFFF; border-bottom: solid 1px silver; border-top: solid 1px silver; border-left: solid 1px silver;
+	border-right: solid 1px silver;margin-left: 10px; margin-right: 10px;  padding-bottom: 10px;
+}
+.main_page .first_back_2_stteachers{/*student: spisok naidennix prepodavatelei for student's teachers list, 2-vii*/
+	background: white; border-bottom: solid 1px silver; border-top: solid 1px silver; margin-left: 10px;
+	margin-right: 10px;border-left: solid 1px silver;border-right: solid 1px silver;padding-bottom: 10px;
+}
+
+/*for message reading*/
+/*teacher: message_read, read_new_message;*/
+.main_page .author_info{
+    padding: 20px; padding-top: 10px; padding-bottom: 10px;
+    border-bottom: 1px solid silver;
+}
+/*teacher: message_read, read_new_message;*/
+.main_page .author_fio p,
+.main_page .author_fio b{
+    margin-top: 2px; margin-bottom: 1px; font-size: 10pt;
+}
+/*teacher: message_read, read_new_message;*/
+.main_page .theme_of_new_letter{
+    color: #74c6f6;
+}
+/*teacher: message_read, read_new_message; bistriy otvet*/
+.main_page .new_letter_body{
+    padding: 10px; border-bottom: 1px solid silver;
+}
+/*teacher: message_read, read_new_message, messages_list, messages_list_without_checkboxes;*/
+.main_page .text_of_letter{
+    text-align: justify; padding: 10px; border: 1px solid silver; background: #F1FAFA;
+    margin-left: 10px; margin-right: 10px;
+}
+/*teacher: message_read, read_new_message;*/
+.main_page .reply_area{
+    padding: 10px;
+}
+/*teacher: read_new_message;*/
+.main_page .load_added_file:link    {COLOR: #8DBEE0; TEXT-DECORATION: underline; font-size: 10pt; font-weight: normal;}
+.main_page .load_added_file:visited {COLOR: #8DBEE0; TEXT-DECORATION: underline; font-size: 10pt; font-weight: normal;}
+.main_page .load_added_file:active  {COLOR: #303030; TEXT-DECORATION: underline; font-size: 10pt; font-weight: normal;}
+.main_page .load_added_file:hover   {COLOR: #505050; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+/*teacher: message_read; uvedomlenie ob udalenii*/
+.main_page .delete_message_success_from_reading{
+    margin: 10px; border: 1px solid silver; background: #F2FAFB; padding: 10px; text-align: center; width: 480px;
+}
+/*teacher: message_read; uvedomlenie ob udalenii*/
+.main_page .message_was_delited{
+    margin: 0px;
+}
+/*teacher: message_read;*/
+.main_page .link_back_to_mes_list:link{COLOR: #74c6f6; TEXT-DECORATION: underline; font-size: 10pt; font-weight: normal;}
+.main_page .link_back_to_mes_list:active{COLOR: #505050; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+.main_page .link_back_to_mes_list:visited{COLOR: #74c6f6; TEXT-DECORATION: underline    ; font-size: 10pt; font-weight: normal;}
+.main_page .link_back_to_mes_list:hover{COLOR: #505050; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+/*teacher: messages_list, messages_list_without_checkboxes;*/
+.main_page .mess_list_content{
+     padding-bottom: 10px;
+}
+/*teacher: message_read, messages_list, messages_list_without_checkboxes;*/
+.main_page .message{
+    border-bottom: 1px solid silver; padding-left: 10px; padding-right: 10px; padding-top: 10px;
+}
+/*teacher: messages_list_without_checkboxes; vibrannoe soobwenie*/
+.main_page .message_checked{
+    border-bottom: 1px solid silver; padding-left: 10px; padding-right: 10px; padding-top: 10px;
+    background: #e1f3fd;
+}
+
+/*teacher: messages_list, messages_list_without_checkboxes; infa o tipe avtora b data*/
+.main_page .small_gray_text{
+    margin: 0px; margin-top: 0px;
+    float: left; font-size: 11pt; color: #1E90FF; font-weight: 500;
+}
+/*teacher: messages_list, messages_list_without_checkboxes; infa o tipe avtora b data*/
+.main_page .small_gray_text p{
+    /*Malygin add this*/
+    margin-top: -3px;
+    /*margin-top: -20px;*/
+    margin-bottom: 1px;
+    color: silver;
+    font-size: 8pt;font-style: italic;
+}
+/*teacher: messages_list, messages_list_without_checkboxes; tema soobweniya*/
+.main_page .theme_of_res_letter{
+    color: #74c6f6; margin: 0px; margin-top: 2px; margin-bottom: 0px;
+}
+/*teacher: message_list_without_checkboxes, message_read; soobwenie o tom chto pismo udaleno*/
+.main_page .del_result_mes{
+    border-bottom: 1px solid silver; width: 507px; padding: 10px; background: #F2FAFB; text-align: center;
+}
+/*teacher: messsages_list;*/
+.main_page .link_theme_of_letter:link{COLOR: #74c6f6; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+.main_page .link_theme_of_letter:active{COLOR: #505050; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+.main_page .link_theme_of_letter:visited{COLOR: #74c6f6; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+.main_page .link_theme_of_letter:hover{COLOR: #505050; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+/*teacher: messsages_list;*/
+.main_page .link_text_of_letter:link{COLOR: #5C6C7B; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal;}
+.main_page .link_text_of_letter:active{COLOR: #505050; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal;}
+.main_page .link_text_of_letter:visited{COLOR: #5C6C7B; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal;}
+.main_page .link_text_of_letter:hover{COLOR: #505050; TEXT-DECORATION: none; font-size: 9pt; font-weight: normal;}
+/*teacher: messsages_list;*/
+.main_page .link_text_of_letter_new:link{COLOR: #5C6C7B; TEXT-DECORATION: none; font-size: 9pt; font-weight: 900;}
+.main_page .link_text_of_letter_new:active{COLOR: #505050; TEXT-DECORATION: none; font-size: 9pt; font-weight: 900;}
+.main_page .link_text_of_letter_new:visited{COLOR: #5C6C7B; TEXT-DECORATION: none; font-size: 9pt; font-weight: 900;}
+.main_page .link_text_of_letter_new:hover{COLOR: #505050; TEXT-DECORATION: none; font-size: 9pt; font-weight: 900;}
+/*teacher: messsages_list;*/
+.main_page .recovery_link:link{COLOR: #74c6f6; TEXT-DECORATION: underline; font-size: 10pt; font-weight: 900;}
+.main_page .recovery_link:active{COLOR: #505050; TEXT-DECORATION: none; font-size: 10pt; font-weight: 900;}
+.main_page .recovery_link:visited{COLOR: #505050; TEXT-DECORATION: none; font-size: 10pt; font-weight: 900;}
+.main_page .recovery_link:hover{COLOR: #505050; TEXT-DECORATION: none; font-size: 10pt; font-weight: 900;}
+/*teacher: messsages_list;*/
+.main_page .success_res_of_answer{
+    display: none; opacity: 0; border: 1px solid silver; background: #ECFFEC; color: green; padding: 10px;
+    margin: 0px; width: 200px;
+}
+/*teacher: messsages_list;*/
+.main_page .error_res_of_answer{
+    display: none; opacity: 0; border: 1px solid silver; background: #FFDFED; color: red; padding: 10px;
+    margin: 0px; width: 400px;
+}
+/*teacher: messages_list, messages_list_without_checkboxes*/
+.main_page .text_of_letter_from_list{
+    color: silver; margin-top: 0px; margin-bottom: 4px; margin-left: 4px;
+}
+/*teacher: messages_list*/
+.main_page .no_messagies{
+    margin: 10px; border: 1px solid silver; background: #F2FAFB; padding: 10px; text-align: center; width: 480px;
+}
+/*teacher: message_read, message_write_reply, messages_list, messages_list_without_checkboxes, read_new_message, temp;*/
+.main_page .mess_tools_butt{
+    padding: 5px; padding-left: 10px; padding-right: 10px;
+    border-bottom: 1px solid silver;
+}
+/*teacher: message_read, message_write_reply, messages_list, messages_list_without_checkboxes, read_new_message, temp;*/
+.main_page .div_forChoice_butt{
+    float: left;
+}
+/*teacher: message_read, message_write_reply, messages_list, messages_list_without_checkboxes, read_new_message, temp;*/
+.main_page .div_forArchDel_butt{
+    float: right;
+}
+/*teacher: messages_list_without_checkboxes*/
+.main_page .messages_list{
+    border-bottom: 1px solid silver;
+}
+/*teacher: message_read, message_write_reply, messages_list, messages_list_without_checkboxes, read_new_message, temp;*/
+.main_page .tool_links_msg:link    {COLOR: #505050; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+.main_page .tool_links_msg:visited {COLOR: #505050; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+.main_page .tool_links_msg:active  {COLOR: #303030; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+.main_page .tool_links_msg:hover   {COLOR: #8DBEE0; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+/*teacher: message_read*/
+.main_page .fast_answer{margin: 0px;  margin-bottom: 10px; margin-left: 5px;}
+/*teacher: message_read, read_new_message; stil knopok arch, del, choice*/
+.main_page .fast_answer a:link    {COLOR: #505050; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+.main_page .fast_answer a:visited {COLOR: #505050; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+.main_page .fast_answer a:active  {COLOR: #303030; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+.main_page .fast_answer a:hover   {COLOR: #8DBEE0; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+
+
+.main_page .letter_body a{
+    margin-left: 10px;
+}
+/*teacher: messages_list, messages_list_witout_checkboxes;*/
+.main_page .response_form{
+    margin-top: 10px; width: 325px;
+}
+/*teacher: message_read, messages_list, temp;*/
+.main_page .msg_author:link {COLOR: #505050; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal; }
+.main_page .msg_author:visited {COLOR: #505050; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+.main_page .msg_author:active {COLOR: #303030; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+.main_page .msg_author:hover {COLOR: #8DBEE0; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;}
+/*teacher: messages_list; forma otveta*/
+.main_page .dijitTextArea div{
+	min-height: 50px !important;
+}
+/*teacher: messages_list;*/
+.main_page .theme_of_letter{
+    text-align: left;
+}
+/*teacher: message_write;*/
+.main_page .adding_files{
+    padding: 10px; border-top: 1px solid silver; margin-left: 5px; margin-right: 5px;
+    margin-top: 10px; padding-top: 5px;
+}
+
+/*teacher: message_write*/
+.main_page .tab_for_write_new_mes{
+    margin-top: 15px;
+    border-spacing: 5px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+/*teacher: message_write*/
+.main_page .tab_for_write_new_mes tr td{
+    height: 20px;
+}
+/*teacher: message_write*/
+.main_page .img_for_write_new_mes{
+    margin-top: 20px;
+    margin-right: 40px;
+    margin-left: 20px;
+    float: left;
+}
+/*teacher: message_write*/
+.main_page .tab_for_write_new_mes3{
+    border-spacing: 10px;
+    margin-left: 10px;
+}
+/*teacher: message_write*/
+.main_page .tab_for_write_new_mes3 tr td{
+    vertical-align: top;
+    text-align:left;
+}
+/*teacher: message_write*/
+.main_page .text_new_mes {
+    margin-left:10px; margin-right: 10px; border-top: 1px solid silver;
+}
+/*teacher: message_write;*/
+.tundra .main_page .otdel_blok_mes{
+    border-bottom: 1px solid silver;
+    margin-bottom: 10px;
+}
+/*teacher: message_write;*/
+.tundra .main_page .line_top{
+    margin: 0px; border-top: 1px solid silver; margin-top: 10px;
+    //margin-left: -15px; //margin-right: -15px;
+}
+
+#main_text_iframe{
+    padding: 5px 10px 5px 10px;
+    width: 500px !important;
+    height: 310px !important;
+}
+
+.text_whoom_mes{
+    color: #a4a9a9;
+}
+
+
+/*for message reading*/
+/*for message writing*/
+    .chek_for_mess {padding: 3px;}
+    .text_for_mess {width: 60px;}
+    .text_for_mess div {padding-left: 5px;padding-right: 5px;}
+    .text_for_mess_2 {width: 300px;}
+    .spisok_ludei {width: 525px;}
+
+/*for message writing*/
+
+/*mainContant zagruzka foto*/
+.main_page .load_photo_student_main{
+    //margin-top: -20px;
+	XXXtext-align: center;
+	XXXpadding-left: 18px;
+}
+/*index.jsp*/
+.login_page{
+	background: #e1e1e1;
+	padding: 0px;
+	margin: 0px;
+	padding-bottom: 20px;
+	overflow: auto;
+	font-family: Arial;
+}
+.grad_top{
+	width: 801px;
+	padding-top: 30px; //padding-top: 30px;
+	background: url("../images/grad_top4.jpg") repeat-y top;
+}
+.white_part{
+	background: white;
+	height: 315px;
+	width: 801px;
+	z-index: 1;
+	//margin-top: 5px;
+}
+.guest_akk_enter{
+    font-size: 10pt;
+}
+.guest_akk_enter:link{color: red; text-decoration: underline;}
+.guest_akk_enter:visited{color: red; text-decoration: underline;}
+.guest_akk_enter:active{color: #4AD4FF; text-decoration: none;}
+.guest_akk_enter:hover{color: #4AD4FF; text-decoration: none;}
+
+.bottom_coner{
+	width: 801px;
+	margin-top: -10px;
+	height: 27px;
+	white-space: nowrap;
+}
+.left_coner{
+	z-index: 3;
+	position: relative;
+	float: left;
+	white-space: nowrape;
+	margin-top: 0px;
+}
+
+.right_coner{
+	z-index: 2;
+	position: relative;
+	right: 0px;
+	float: right;
+	margin-top: -27px;
+}
+.bottom_center{
+	background: white;
+	height: 27px;
+	width: 784px;
+	z-index: 0;
+	margin-top: -18px; //margin-top: -31px;
+}
+@media all and (-webkit-min-device-pixel-ratio:10000),
+not all and (-webkit-min-device-pixel-ratio:0) {
+  .bottom_center{margin-top: -28px;}
+  .left_coner {margin-top: 10px;}
+}
+.ipsilon_img{
+	margin-top: -207px; z-index: 5; margin-left: -560px;
+	//margin-left: -360px; //margin-top: -227px;
+}
+
+.login_input{
+	margin-left: 8px; border: 1px solid #a6d0e7; color: #016281; font-size: 9pt; padding-left: 6px;
+	width: 100px; background: url("../images/log_input_fon.jpg"); padding-top: 0px;  margin-right: 0px; height: 17px;
+}
+.text_top{
+	margin-top: -220px;
+	text-align: left;
+
+}
+.text_top tr td{ padding-top: 8px !important; //padding-top: 4px !important;}
+.login_text{
+	font-size: 10pt; color: #016281;
+}
+.blue_button{
+	background: url("../images/buttonBlue.jpg") repeat-x bottom;
+	font-size: 10pt; color: #016281;
+	border: 1px solid #6cc2d9;
+	height: 17px; padding-top: 0px; vertical-align: top;
+	padding-left: 9px; padding-right: 9px; margin-right: 21px;
+}
+.blue_button:hover,
+.blue_button:active{background: url("../images/buttonBlue2.jpg") repeat-x bottom;font-size: 10pt; color: #016281;border: 1px solid #6cc2d9;outline: none;}
+
+button::-moz-focus-inner{
+	border: none;
+}
+.sys_dis_text{
+	color: white;
+	font-size: 	14pt;
+
+}
+
+.link_blue_login:link{color:  #4AD4FF;text-decoration: underline;}
+.link_blue_login:active{color:  #4AD4FF;text-decoration: underline;}
+.link_blue_login:visited{color:  #4AD4FF;text-decoration: underline;}
+.link_blue_login:hover{color:  #4AD4FF;text-decoration: none;}
+
+.grey_text_login{
+	color: #396469;
+	text-align: justify;
+	FONT-SIZE: 10pt;
+	margin: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+.grey_text_login2{
+	color: #396469;
+	FONT-SIZE: 10pt;
+	margin: 10px;
+}
+.grey_checkbox{
+	color: gray;
+	outline: none;
+	margin-top: 2px;
+	margin-right: 5px;
+}
+.red_word{
+	color: #8a303d; margin: 10px; margin-right: 0px; font-size: 10pt; /*display: none;*/
+}
+.for_pic_bkgr a:link{ 	}
+.for_pic_bkgr a img:active{background: url("../images/button.gif") no-repeat center;margin: 10px;}
+.for_pic_bkgr a:visited{		}
+.for_pic_bkgr a img:hover{background: url("../images/button.gif") no-repeat center;margin: 10px;}
+
+/*for help pages*/
+.inf_help_block h1{
+	margin-top: 5px;
+	XXXdisplay: inline;
+}
+
+.all_help_text  h1{
+	XXXdisplay: inline;
+}
+
+.inf_help_block h1 img{
+	padding-right: 10px;
+}
+
+
+.inf_help_block{
+	margin-top: 15px;
+	padding-bottom: 15px;
+	border: 1px solid black;
+}
+
+.help_pane .main_title_pane .dijitTitlePaneTitle{
+    background:transparent url(../images/grad_gray_28.png) repeat-x scroll left bottom;
+    border:0 solid #BFBFBF;
+    cursor:pointer;
+    height:28px;
+    line-height:28px;
+    padding:0 0 0 10px;
+}
+
+.border{
+	border-top: 1px solid #4793D5;
+	XXXborder-bottom: 1px solid black;
+}
+
+.help_pane .main_title_pane .dijitTitlePaneTitle .dijitTitlePaneTextNode{
+    color: #797b7f;
+    font-size: 12pt;
+}
+
+
+.help_pane .little_title_pane .dijitTitlePaneTitle{
+    background:none;
+    border:0 solid #BFBFBF;
+    cursor:pointer;
+    height:18px;
+    line-height:18px;
+    padding:0 0 0 20px;
+    text-decoration:none;
+}
+
+.help_pane .little_title_pane .dijitTitlePaneTitle .dijitArrowNode{
+    display: none;
+}
+
+.help_pane .little_title_pane .dijitTitlePaneTitle .dijitTitlePaneTextNode{
+    color: #797b7f;
+    font-size: 12pt;
+}
+
+.main_title_pane div{
+    padding:0 0 0 10px;
+    color: #797b7f;
+    font-size: 12pt;
+    line-height: 22px;
+    vertical-align: middle;
+}
+
+.main_title_pane div p{
+    position: relative;
+    XXXtop:-3px;
+    display: inline;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.all_help_text{
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    font-size: 12pt;
+    color:#797B7F;
+    cursor: default;
+}
+
+.all_help_text .little_menu p{
+    cursor: pointer;
+}
+
+.help_narrows{
+    position: relative;
+    left: 400px;
+}
+
+.all_help_text p img{
+    line-height: 12px;
+    position: relative;
+    top:7px;
+    cursor:pointer;
+}
+
+.all_help_text p{
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding-left: 2px;
+}
+
+.select_item{
+    font-size: 12pt;
+    color: #4793D5;
+    font-weight: bold;
+    display: inline;
+}
+
+.select_item_1{
+    font-size: 8pt;
+    color: #52C1F5;
+    cursor:pointer;
+	text-align: right;
+	text-decoration: none;
+	position: relative;
+	top: -10px;
+	line-height: 1px;
+}
+.select_item_1:hover{
+	font-size: 8pt;
+    cursor:pointer;
+	text-align: right;
+	color: #4793D5;
+	text-decoration: underline;
+	line-height: 1px;
+	position: relative;
+	top: -10px;
+}
+
+.all_help_text h1 {
+    margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.all_help_text h1 {
+    margin-bottom: 5px;
+}
+
+.all_help_text h1 img{
+    margin-right: 5px;
+}
+.all_help_text{
+	font-size:10pt;
+	font-weight:normal;
+	text-decoration:none;
+}
+
+.all_help_text .name_theme{
+	font-size:8pt;
+	display: inline;
+	font-weight:normal;
+	text-decoration:none;
+}
+
+.ht p{
+		padding-bottom: 10px;
+}
+
+
+/*for help pages*/
+
+/*sobitia*/
+.input_journaling,.for_second_date,.for_first_date {display: inline;}
+/*sobitia*/
+
+/*news - one news*/
+.news_name_date{
+    text-align: right;
+    color: #4793D5;
+}
+.main_page .news_block{
+    width: 522px;
+    margin-top: 2px;
+}
+.main_page .news_block p{
+    margin: 0
+}
+.main_page .news_date{
+    background: url(../images/news_grad_date.jpg) no-repeat;
+    line-height:25px;
+    color: white;
+    font-size: 18pt;
+    font-family: arial;
+    height: 30px;
+    padding:4px;
+}
+.main_page .news_item{
+    clear: both;
+    border-bottom: 1px dotted silver;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.main_page .news_header{
+    color: #438AAF;
+    font-size: 14pt;
+    font-family: arial;
+    text-decoration: underline;
+    padding:0 12px 0 12px;
+}
+.main_page .news_text{
+    color: #3D3D3D;
+    font-size: 10pt;
+    font-family: arial;
+    padding:12px;
+    text-align: justify;
+}
+.main_page .news_full{
+    color: #438AAF;
+    font-size: 10pt;
+    font-family: arial;
+    text-decoration: underline;
+}
+.main_page .news_comm_ans{
+	background: url(../images/news_grad_comment_ans.jpg) no-repeat;
+    color: white;
+    font-size: 10pt;
+    font-family: arial;
+    float: right;
+    width: 268px;
+    text-align: right;
+    padding-right:12px;
+    line-height:18px;
+}
+.main_page .news_comm_ans span{
+    color: #3D3D3D;
+    font-size: 10pt;
+    font-family: arial;
+    text-decoration: none;
+}
+.main_page .news_views{
+    color: #107CB4;
+    font-size: 9pt;
+    font-family: arial;
+    padding-left:12px
+}
+.main_page .news_sep{
+    margin:12px 0 12px 0
+}
+.main_page .news_preview{
+    float: left;
+    width:100px;
+    margin: 2px 5px 5px 2px;
+}
+.main_page .news_nav{
+    text-align: center;
+    margin-top: 20px;
+}
+.main_page .news_nav a{
+    color: #107CB4;
+    font-size: 9pt;
+    font-family: arial;
+    text-decoration: underline;
+}
+.main_page .news_nav b{
+    color: #107CB4;
+    font-size: 10pt;
+    font-family: arial;
+}
+.main_page .news_nav b a{
+    color: #7E7E7E;
+    font-size: 9pt;
+    font-weight: normal;
+    font-family: arial;
+    text-decoration: none;
+}
+.main_page .news_comm{
+        color: #3D3D3D;
+        font-size: 10pt;
+        font-family: arial;
+        float: right;
+        width: 94%;
+        text-align: right;
+        padding-right:12px;
+        font-weight: normal;
+}
+.news_comm_answ{
+	background: url(../images/news_grad_comment_ans.jpg) no-repeat;
+        color: #3D3D3D;
+        font-size: 10pt;
+        font-family: arial;
+        float: right;
+        width: 268px;
+        text-align: right;
+        padding-right:12px;
+        font-weight: normal;
+}
+.news_one_header{
+    color: #75AF50;
+    font-size: 14pt;
+    font-weight: normal;
+    font-family: arial;
+    padding: 12px;
+    padding-bottom: 0;
+}
+.news_one_header b{
+    font-size: 10pt;
+}
+.news_one_text{
+    color: #3D3D3D;
+    font-size: 10pt;
+    font-family: arial;
+    padding: 12px;
+    text-align: justify;
+}
+#preview{
+    width: 522px;
+}
+#preview .dijitDialogPaneContent{
+    margin: 10px;
+    padding: 0px;
+    width: 500px !important;
+    border: 1px solid silver;
+}
+#preview .dijitDialogTitleBar{
+    color: white;
+}
+.main_page .news_gallery img{
+    float: left;
+    width:140px;
+    margin: 10px 15px 20px 18px;
+}
+.main_page .news_comment {
+    border-top: 1px dotted silver;
+    margin:10px 0px 0px 10px;
+    padding-top: 10px;
+}
+.main_page .news_comment img{
+    margin: 0 10px 0 10px;
+}
+.main_page .news_comment div.com_text_container{
+    text-align: justify;
+    clear: both;
+
+padding-left:12px;
+padding-right:12px;
+    font-size: 10pt;
+}
+.main_page .news_comment_ans{
+    border-top: 1px dotted silver;
+    clear: both;
+    padding: 12px 0 12px 0;
+    margin: 10px 0 0 50px;
+}
+.main_page .news_comment_ans p{
+    text-align: justify;
+    clear: both;
+    padding: 12px;
+    font-size: 10pt;
+}
+.main_page .news_answers{
+    color: #107CB4;
+    font-size: 8pt;
+    font-family: arial;
+    padding-left:12px
+}
+.main_page .list_of_links_for_comments{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+.main_page .list_of_links_for_comments li{
+    float: left;
+    margin: 0px;
+    padding: 0px;
+}
+/*student: news; ssilka "podrodnee" v spiske novostei*/
+.main_page .more_news:link {COLOR: #71C5F4; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;  font-family: Tahoma; font-weight: bolder;}
+.main_page .more_news:visited {COLOR: #71C5F4; TEXT-DECORATION: none; font-size:10pt; font-weight: normal;  font-family: Tahoma; font-weight: bolder;}
+.main_page .more_news:active {COLOR: #A3A3A3; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;  font-family: Tahoma; font-weight: bolder;}
+.main_page .more_news:hover {COLOR: #FFACB9; TEXT-DECORATION: none; font-size: 10pt; font-weight: normal;  font-family: Tahoma; font-weight: bolder;}
+/*news - one news*/
+/**/
+
+.main_page .to_faq_link:link{color: #228B22; text-decoration: underline; }
+.main_page .to_faq_link:active{}
+.main_page .to_faq_link:visited{}
+.main_page .to_faq_link:hover{color: #727272; text-decoration: underline;}
+
+.main_page .fotoborder{
+    border: 1px solid #4DB7F1; width: 156px;
+}
+.main_page .fotoborder1{
+    border: 1px solid #4DB7F1;
+}
+/*mainContant zagruzka foto*/
+.main_page .load_photo_student_main{
+    //margin-top: -20px;
+	text-align: center;
+}
+/*chat styles*/
+.main_page .cht_post{
+    float: left;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-style: none;
+    font-weight: normal;
+    text-decoration: underline;
+}
+.main_page .te_cht_color{
+    color: green;
+}
+.main_page .ad_cht_color{
+    color: Red;
+}
+.main_page .st_cht_color{
+    color: blue;
+}
+.main_page .cht_input{
+    border: 1px solid #e4dc27;
+    width: 178px;
+    float: left;
+    margin-right: 10px;
+}
+.main_page .cht_posts_container{
+    text-align: left;
+    border: 1px solid #e4dc27;
+    margin-bottom: 10px;
+    padding: 5px;
+    height: 200px;
+    background: url('../images/smallChtBack.jpg') repeat-x top;
+}
+.main_page .cht_button_beaut{
+    width: 16px;
+    height: 17px;
+    border-top: 1px solid #e4dc27;
+    border-right: 1px solid #e4dc27;
+    border-left: 1px solid #e4dc27;
+    background: url('../images/chtBar.png') repeat-x bottom;
+}
+.main_page  .cht_message{
+}
+.main_page .link_to_main_cht{
+    padding: 2px;
+    margin: 2px;
+    width: 61px;
+    border: 1px solid #e4dc27;
+}
+.main_page .link_to_main_cht a:link{text-decoration: none; color: #E4DC27;}
+.main_page .link_to_main_cht a:visited{text-decoration: none; color: #E4DC27;}
+.main_page .link_to_main_cht a:hover{text-decoration: none; color: #FFEB6E;}
+.main_page .link_to_main_cht a:active{text-decoration: none; color: silver;}
+
+.main_page .page_cht_text_area{
+    border: 1px solid #A2DEF6;
+    width: 395px;
+    float: left;
+    margin-right: 10px;
+    background: url("../images/bigChtPageInputBack.jpg") repeat-x top;
+    font-size: 8pt;
+    height: 13px;
+    padding: 2px 2px 2px 3px;
+}
+.main_page .page_cht_enter_button{
+    border: 1px solid #A2DEF6;
+    width: 88px;
+    text-align: center;
+    height: 17px;
+    background: url("../images/progressBar.jpg") repeat-x bottom;
+    cursor: pointer;
+}
+.main_page .page_cht_enter_button:hover{
+    border: 1px solid #A2DEF6;
+    width: 88px;
+    text-align: center;
+    height: 17px;
+    background: url("../images/progressBarLite.jpg") repeat-x bottom;
+    cursor: pointer;
+}
+.main_page .page_cht_enter_button:active{
+    border: 1px solid #88c7e0;
+    width: 88px;
+    text-align: center;
+    height: 17px;
+    background: url("../images/progressBarDark.jpg") repeat-x bottom;
+    cursor: pointer;
+}
+.main_page .page_cht_enter_button_text{
+    margin: 0px;
+    padding: 0px;
+    color: green;
+}
+.main_page .big_cht_page_message_list{
+    margin: 10px;
+    padding-top: 10px;
+    border: 1px solid #A2DEF6;
+    min-height: 500px;
+    max-height: 500px;
+    background: url('../images/bigChtBack.jpg') repeat-x top;
+}
+.main_page .big_cht_mes_container{
+    margin: 5px 10px 5px 10px;
+}
+.main_page .cht_para_line{
+    border-top: 1px solid silver;
+    margin: 3px 5px;
+}
+
+
+
+.main_page .today_daybefore_all{/*admin, sudent: jornalir_about_one_YMK, jornalir_about_student_jornaling_view_of events, jornalir_all_events_for_stydent, jornaling2, jornaling3; vse sobitia*/
+	margin:0; padding:0;
+	width:522px; margin-bottom: 15px; background: white;
+	color: black;  /*border-bottom: 3px double #aecbbb;
+	border-top: 3px double #aecbbb;padding: 5px 10px 5px 10px;*/
+	font-size: 12pt;
+}
+
+.main_page .today_daybefore_all table{/*admin, sudent: jornalir_about_one_YMK, jornalir_about_student_jornaling_view_of events, jornalir_all_events_for_stydent, jornaling2, jornaling3; vse sobitia*/
+	max-width:500px; margin-bottom: 15px; margin-top: 5px; color: black;
+	margin-left: 15px; margin-right: 15px;
+	font-size: 9pt;
+}
+
+
+.main_page .for_jornalir_text img{/*admin, sudent: jornalir_about_one_YMK, jornalir_about_student_jornaling_view_of events, jornalir_all_events_for_stydent, jornaling2, jornaling3; text sobitia*/
+	padding-top: 10px;
+	padding-right: 10px;
+}
+
+.main_page .for_jornalir_text{/*admin, sudent: jornalir_about_one_YMK, jornalir_about_student_jornaling_view_of events, jornalir_all_events_for_stydent, jornaling2, jornaling3; text sobitia*/
+	padding-left: 3px;
+	padding-right:15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: -10px;
+
+}
+/*for jornalir_about_one_stydent*/
+.main_page .pages_journalir:link{ color: #727272; text-decoration: none; font-size: 12px; }
+.main_page .pages_journalir:active{ color: #727272; text-decoration: none; font-size: 12px; }
+.main_page .pages_journalir:visited{ color: #727272; text-decoration: none; font-size: 12px;  }
+.main_page .pages_journalir:hover{ color: #03b63a; text-decoration: none; font-size: 12px; }
+
+/*admin: journaling2, journaling3, journaling_view_of_events, jornalir_about_one_student, jornalir_about_one_YMK, jornalir_all_events_for_student;*/
+.main_page .p_for_jornalir{
+	margin: 0px;
+	padding: 0px;
+}
+/*admin: journaling2, journaling3, journaling_view_of_events, jornalir_about_one_student, jornalir_about_one_YMK;*/
+.main_page .for_jornalir_text a:link {COLOR: black;TEXT-DECORATION: none;font-size: 10pt;font-weight: normal;}
+.main_page .for_jornalir_text a:visited {COLOR: black;TEXT-DECORATION: none;font-size: 10pt;font-weight: normal;}
+.main_page .for_jornalir_text a:active {COLOR: black;TEXT-DECORATION: none;font-size: 10pt;font-weight: normal;}
+.main_page .for_jornalir_text a:hover {COLOR: black;text-decoration: underline;	font-size: 10pt;font-weight: normal;}
+/*admin: journaling2, journaling3, journaling_view_of_events, jornalir_about_one_student, jornalir_about_one_YMK;*/
+.main_page .down_menu_nomber_for_jornalir{
+	text-align: center;
+}
+.main_page .today_daybefore_all{/*admin, sudent: jornalir_about_one_YMK, jornalir_about_student_jornaling_view_of events, jornalir_all_events_for_stydent, jornaling2, jornaling3; vse sobitia*/
+	margin:0; padding:0;
+	width:522px; margin-bottom: 15px; background: white;
+	color: black;  /*border-bottom: 3px double #aecbbb;
+	border-top: 3px double #aecbbb;padding: 5px 10px 5px 10px;*/
+	font-size: 12pt;
+}
+
+.main_page .today_daybefore_all table{/*admin, sudent: jornalir_about_one_YMK, jornalir_about_student_jornaling_view_of events, jornalir_all_events_for_stydent, jornaling2, jornaling3; vse sobitia*/
+	max-width:500px; margin-bottom: 15px; margin-top: 5px; color: black;
+	margin-left: 15px; margin-right: 15px;
+	font-size: 9pt;
+}
+
+
+.main_page .for_jornalir_text img{/*admin, sudent: jornalir_about_one_YMK, jornalir_about_student_jornaling_view_of events, jornalir_all_events_for_stydent, jornaling2, jornaling3; text sobitia*/
+	padding-top: 10px;
+	padding-right: 10px;
+}
+
+.main_page .for_jornalir_text{/*admin, sudent: jornalir_about_one_YMK, jornalir_about_student_jornaling_view_of events, jornalir_all_events_for_stydent, jornaling2, jornaling3; text sobitia*/
+	padding-left: 3px;
+	padding-right:15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: -10px;
+
+}
+.main_page .for_jornalir_img{/*admin, sudent: jornalir_about_one_YMK, jornalir_about_student_jornaling_view_of events, jornalir_all_events_for_stydent, jornaling2, jornaling3; iconca sobitia*/
+	padding-left: 3px;
+	padding-right:15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: -10px;
+
+}
+
+.main_page .for_jornalir_time{/*admin, sudent: jornalir_about_one_YMK, jornalir_about_student_jornaling_view_of events, jornalir_all_events_for_stydent, jornaling2, jornaling3; time sobitia*/
+	padding-left: 5px;
+	padding-right:5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: right;
+	width: 75px;
+}
+
+.main_page .p_for_jornalir{/*admin, sudent: jornalir_about_one_YMK, jornalir_about_one_student, jornaling_view_of events, jornalir_all_events_for_stydent, jornaling2, jornaling3; text sobitia*/
+	margin: 0px;
+	padding: 0px;
+
+}
+
+/* admin: jornalir_about_one_YMK, jornalir_about_one_ student,  jornaling_view_of events,jornaling2, jornaling3;verxnie ssilki */
+.main_page .for_jornalir_text a:link {COLOR: #05561f;TEXT-DECORATION: none;font-size: 10pt;font-weight: normal;}
+.main_page .for_jornalir_text a:visited {COLOR: #05561f;TEXT-DECORATION: none;font-size: 10pt;font-weight: normal;}
+.main_page .for_jornalir_text a:active {COLOR: #249b4b;TEXT-DECORATION: none;font-size: 10pt;font-weight: normal;}
+.main_page .for_jornalir_text a:hover {COLOR: #249b4b;text-decoration: underline;font-size: 10pt;font-weight: normal;}
+
+/*admin: jornalir_about_one_student, jornalir_about_one_YMK_jornaling_view_of_events; text verxnix ssilok*/
+.main_page .for_jornalir_text_date{display: inline;}
+
+/*admin: jornalir_about_one_student, jornalir_about_one_YMK_jornaling_view_of_events; text verxnix ssilok*/
+.main_page .for_jornalir_text_date a:link {COLOR: #05561f;TEXT-DECORATION: none;font-size: 10pt;font-weight: normal;}
+.main_page .for_jornalir_text_date a:visited {COLOR: #05561f;TEXT-DECORATION: none;font-size: 10pt;font-weight: normal;}
+.main_page .for_jornalir_text_date a:active {COLOR: #249b4b;TEXT-DECORATION: none;font-size: 10pt;font-weight: normal;}
+.main_page .for_jornalir_text_date a:hover {COLOR: #249b4b;text-decoration: underline;font-size: 10pt;font-weight: normal;}
+
+
+.main_page .down_menu_nomber_for_jornalir{/*admin: jornalir_about_one_student, jornalir_about_one_YMK_jornaling_view_of_events, jornalling2, jornalling3; niz â„– stranic*/
+	text-align: center;
+}
+
+.main_page .for_date_div{/*admin: jornalir_about_one_student, jornalir_about_one_YMK_jornaling_view_of_events; verx â„– stranic*/
+	padding-top: 15px;padding-bottom:15px;text-align:center;
+}
+
+.main_page .for_first_date{/*admin: jornalir_about_one_student, jornalir_about_one_YMK_jornaling_view_of_events; vibor pervoi date*/
+	display: inline;padding-left: 10px; padding-right: 10px; padding-top:15px; padding-bottom: 5px;
+}
+
+.main_page .for_second_date{/*admin: jornalir_about_one_student, jornalir_about_one_YMK_jornaling_view_of_events; vibor second date*/
+	display: inline;padding-left: 10px; padding-right: 10px; padding-top:5px; padding-bottom: 5px;
+}
+
+.main_page .for_nom_page{/*admin: jornalir_about_one_student, jornalir_about_one_YMK_jornaling_view_of_events; vibor niz text okolo date*/
+	display: inline; color: black;
+}
+
+
+
+.main_page .for_writing_page{/*admin: jornalir_about_one_student, jornalir_about_one_YMK_jornaling_view_of_events; vvod nomera stranici*/
+	width: 30px;text-align: center;
+}
+
+.main_page .this_nomber_page{/*admin: jornalir_about_one_student, jornalir_about_one_YMK_jornaling_view_of_events; tekycii nomer stranici*/
+	display: inline; padding-left:3px;padding-right:3px;color: black;
+}
+
+.main_page .for__page__{/*admin: jornalir_about_one_student, jornalir_about_one_YMK_jornaling_view_of_events; text tekycii nomer stranici*/
+	display: inline; padding-top:10px;color: black;
+}
+/*This is the styles for standart links like link for saving changes or discard it.*/
+.main_page .save_link, .main_page .cancel_link{
+    font-size: 10pt;
+    font-weight: normal;
+    text-decoration: none;
+}
+.main_page .save_link:link{color: #2E8B57;}
+.main_page .save_link:hover{color: #2E8B57; text-decoration: underline;}
+.main_page .save_link:active{color: pink; text-decoration: underline;}
+.main_page .save_link:visited{color: #2E8B57;}
+
+.main_page .cancel_link:link{color: red;}
+.main_page .cancel_link:hover{color: red; text-decoration: underline;}
+.main_page .cancel_link:active{color: pink; text-decoration: underline;}
+.main_page .cancel_link:visited{color: red;}
+/*---*/
+.main_page .forum_into_text_links:link{color:#71C5F4;}
+.main_page .forum_into_text_links:visited{color:#71C5F4;}
+.main_page .forum_into_text_links:active{color:#71C5F4;}
+.main_page .forum_into_text_links:hover{color:#0E82C4;}
+
+.main_page #mainTabContainer a:link{color: #0E689C;}
+.main_page #mainTabContainer a:visited{color: #0E689C;}
+.main_page #mainTabContainer a:hover{color: #71C5F4;}
+.main_page #mainTabContainer a:active{color: #71C5F4;}
+
+body:last-child:not(:root:root) .multiselect{
+    height: 45px;
+}
