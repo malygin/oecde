@@ -31,7 +31,7 @@ public class Root extends BasicItem implements Comparable {
     }
 
 
-    public Root(int id) {
+    public Root(Long id) {
         setId(id);
     }
 
@@ -48,7 +48,7 @@ public class Root extends BasicItem implements Comparable {
         return false;
     }
 
-    private Node getNearestNode(Integer id) {
+    private Node getNearestNode(Long id) {
         for (Node node : children) {
             if (node.getId() == id) {
                 return node;
@@ -104,8 +104,8 @@ public class Root extends BasicItem implements Comparable {
         int[][] pages = null;
         int[] numbers = pages[i];
         Set<Node> res = new TreeSet<Node>();
-        for (int k : numbers) {
-            res.add(getNearestNode(k));
+        for (Integer k : numbers) {
+            res.add(getNearestNode(k.longValue()));
         }
         return res;
     }

@@ -21,14 +21,14 @@ public class AppTest extends BasicTest{
     @Test
     public void removeComment() {
         setDao("nodeDao");
-        this.<INodeDao>getDao().delete(new Node(1));
+        this.<INodeDao>getDao().delete(new Node(1L));
     }
 
     @Ignore
     @Test
     public void addComment(){
-        Integer nodeId = 8;
-        Integer idParent = 18;
+        Long nodeId = 8L;
+        Long idParent = 18L;
         int idObject = 5;
         String typeObject = "stfaq";
         String message = "ответ номер 3 ";
@@ -38,7 +38,7 @@ public class AppTest extends BasicTest{
             node = new Node();
         node.setMessage(message);
         setDao("adminDao");
-        Admin author = this.<Admin>getItem(1);
+        Admin author = this.<Admin>getItem(1L);
         node.setUser(author);
         node.setOpen(true);
         node.setTime(DateConverter.convert(System.currentTimeMillis()));
@@ -73,7 +73,7 @@ public class AppTest extends BasicTest{
     @Test
     public void getNode(){
         setDao("nodeDao");
-        Node node = getItem(6);
+        Node node = getItem(6L);
         System.out.println(node.getChildren());
     }
 
@@ -106,7 +106,7 @@ public class AppTest extends BasicTest{
     @Test
     public void getRoot2(){
         setDao("rootDao");
-        Root r = this.<Root>getItem(5);
+        Root r = this.<Root>getItem(5L);
         System.out.println(r.getChildren());
     }
 }

@@ -65,7 +65,7 @@ public class DiscussionDaoProxy {
         if (idObject == 0) {
             throw new IllegalStateException("Not all of fields have been initialised");
         }
-        return root != null ? root : new Root(-1);
+        return root != null ? root : new Root(-1L);
     }
 
     public void setIdObject(int idObject) {

@@ -29,19 +29,19 @@ public class Node extends BasicItem implements Comparable {
         children = new TreeSet<Node>();
     }
 
-    public Node(int id, String message, String time) {
+    public Node(Long id, String message, String time) {
         this();
         setId(id);
         this.time = time;
         this.message = message;
     }
 
-    public Node(int id, String message, String time, SortedSet<Node> children) {
+    public Node(Long id, String message, String time, SortedSet<Node> children) {
         this(id, message, time);
         this.children = children;
     }
 
-    public Node(int id) {
+    public Node(Long id) {
         setId(id);
     }
 
@@ -67,7 +67,7 @@ public class Node extends BasicItem implements Comparable {
         return false;
     }
 
-    public Node getChild(int id) {
+    public Node getChild(Long id) {
         for (Node node : children) {
             if (node.getId() == id) {
                 return node;
