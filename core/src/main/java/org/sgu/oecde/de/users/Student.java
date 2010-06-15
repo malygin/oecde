@@ -21,7 +21,7 @@ public class Student extends AbstractStudent{
     public Student() {
     }
 
-    public Student(Integer id) {
+    public Student(Long id) {
         setId(id);
     }
 

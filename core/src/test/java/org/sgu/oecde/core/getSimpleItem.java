@@ -1,16 +1,16 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.core;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.sgu.oecde.core.education.Curriculum;
+import org.sgu.oecde.core.education.dao.ConstantsDao;
+import org.sgu.oecde.core.education.dao.IConstantsDao;
 import org.sgu.oecde.core.education.dao.ICurriculumDao;
+import org.sgu.oecde.core.education.resource.Author;
 import org.sgu.oecde.core.education.resource.Image;
 import org.sgu.oecde.core.education.work.AbstractResult;
 import org.sgu.oecde.core.users.AbstractStudent;
@@ -52,7 +52,7 @@ public class getSimpleItem extends BasicTest{
 
     @Ignore
     @Test
-    public void getCurr(){
+    public void getSt(){
         this.setDao("userDao");
          System.out.println(this.<AbstractUser>getByExample(AbstractUser.getUserWithName("belousovyae")));
     }
@@ -72,5 +72,24 @@ public class getSimpleItem extends BasicTest{
         SemesterGetter g = getBean("semesterGetter");
         System.out.println(g.getCurrentYear());
         System.out.println(g.getCurrentSemester());
+    }
+
+    @Ignore
+    @Test
+    public void getCurr(){
+        setDao("curriculumDao");
+        for(BasicItem b:getAllItems()){
+            System.out.println(b.getClass()+"   "+b.getId());
+        }
+    }
+
+    @Ignore
+    @Test
+    public void getAuth(){
+        setDao("authorDao");
+        List<Author> l = this.<Author>getAllItems();
+        for(Author b:l){
+            System.out.println(b.getTeacher()+"   "+b.getSurname()+"   "+b.getId());
+        }
     }
 }

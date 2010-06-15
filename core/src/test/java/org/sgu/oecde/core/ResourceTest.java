@@ -27,7 +27,7 @@ public class ResourceTest extends BasicTest {
         setDao("imageDao");
        // int year = sg.getCalendarYear(0);
        Image img= new Image();
-       img.setId(111);
+       img.setId(111L);
        img.setUrl("34");
        img.setTitle("title");
        IResourceDao<Image> Dao = this.<IResourceDao>getDao();

@@ -7,7 +7,6 @@ import org.sgu.oecde.core.education.AdvancedCurriculum;
  * @author ShihovMY
  */
 public class DeCurriculum extends AdvancedCurriculum{
-    private Integer controlWorksNumber;
     private Boolean controlWorksPaperOnly;
     private Integer labWorksNumber;
     private Integer termPapersNumber;
@@ -17,16 +16,8 @@ public class DeCurriculum extends AdvancedCurriculum{
     public DeCurriculum() {
     }
 
-    public DeCurriculum(Integer id) {
+    public DeCurriculum(Long id) {
         super(id);
-    }
-
-    public Integer getControlWorksNumber() {
-        return controlWorksNumber;
-    }
-
-    public void setControlWorksNumber(Integer controlWorksNumber) {
-        this.controlWorksNumber = controlWorksNumber;
     }
 
     public Boolean isControlWorksPaperOnly() {

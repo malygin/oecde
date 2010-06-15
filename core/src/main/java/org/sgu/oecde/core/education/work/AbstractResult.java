@@ -11,6 +11,7 @@ import org.sgu.oecde.core.users.AbstractStudent;
 abstract public class AbstractResult extends BasicItem implements Comparable<AbstractResult>{
     private AbstractStudent student;
     private Curriculum curriculum;
+    private String date;
 
     public AbstractResult() {
     }
@@ -19,6 +20,13 @@ abstract public class AbstractResult extends BasicItem implements Comparable<Abs
         this.curriculum = curriculum;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public <T extends AbstractStudent>T getStudent() {
         return (T) student;
@@ -37,10 +45,10 @@ abstract public class AbstractResult extends BasicItem implements Comparable<Abs
        int curriculumInt = 0;
        int studentInt = 0;
        if(o!=null){
-           if(o.getCurriculum()!=null&&getCurriculum()!=null)
-               curriculumInt = (Integer.valueOf(o.getCurriculum().getId()).compareTo(getCurriculum().getId()));
-           if(o.getStudent()!=null&&getStudent()!=null)
-               studentInt = Integer.valueOf(o.getStudent().getId()).compareTo(getStudent().getId());
+           if(o.getCurriculum()!=null&&getCurriculum()!=null&&o.getCurriculum().getId()!=null)
+               curriculumInt = (o.getCurriculum().getId().compareTo(getCurriculum().getId()));
+           if(o.getStudent()!=null&&getStudent()!=null&&o.getStudent().getId()!=null)
+               studentInt = o.getStudent().getId().compareTo(getStudent().getId());
        }
        return studentInt==0?(curriculumInt):studentInt;
     }
@@ -60,14 +68,18 @@ abstract public class AbstractResult extends BasicItem implements Comparable<Abs
         if (this.curriculum != other.curriculum && (this.curriculum == null || !this.curriculum.equals(other.curriculum))) {
             return false;
         }
+        if ((this.date == null) ? (other.date != null) : !this.date.equals(other.date)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + (this.student != null ? this.student.hashCode() : 0);
-        hash = 97 * hash + (this.curriculum != null ? this.curriculum.hashCode() : 0);
+        int hash = 3;
+        hash = 47 * hash + (this.student != null ? this.student.hashCode() : 0);
+        hash = 47 * hash + (this.curriculum != null ? this.curriculum.hashCode() : 0);
+        hash = 47 * hash + (this.date != null ? this.date.hashCode() : 0);
         return hash;
     }
 }

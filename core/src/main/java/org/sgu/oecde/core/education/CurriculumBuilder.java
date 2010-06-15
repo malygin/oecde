@@ -22,7 +22,7 @@ public class CurriculumBuilder<T extends Curriculum> {
         return (T) new Curriculum();
     }
 
-    public T getInstance(int id){
+    public T getInstance(Long id){
         Assert.state(id!=0,"id can not be 0");
         Curriculum c = getInstance();
         c.setId(id);

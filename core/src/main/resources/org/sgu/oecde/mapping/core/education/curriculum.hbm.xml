@@ -3,7 +3,7 @@
 <hibernate-mapping schema="oecdo_test">
   <class discriminator-value="main" mutable="false" name="org.sgu.oecde.core.education.Curriculum" table="curriculum">
     <cache usage="read-only"/>
-    <id name="id" type="integer"/>
+    <id name="id" type="long"/>
     <discriminator column="discriminator"/>
     <property insert="false" name="semester" scale="2" type="integer"/>
     <property column="calendar_year" insert="false" name="calendarYear" scale="4" type="integer"/>

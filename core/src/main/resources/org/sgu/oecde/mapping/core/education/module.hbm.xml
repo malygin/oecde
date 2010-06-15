@@ -3,7 +3,7 @@
 <hibernate-mapping schema="oecdo_test">
   <class mutable="false" name="org.sgu.oecde.core.education.Module" table="module">
     <cache usage="read-only"/>
-    <id name="id" type="int"/>
+    <id name="id" type="long"/>
     <property insert="false" name="name" type="string"/>
     <property insert="false" name="description" type="string"/>
     <many-to-one fetch="select" foreign-key="fk_mod_umk" insert="false" lazy="no-proxy" name="umk" not-null="true"/>

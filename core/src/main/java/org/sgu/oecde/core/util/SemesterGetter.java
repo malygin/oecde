@@ -1,11 +1,10 @@
 package org.sgu.oecde.core.util;
 
-import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import org.sgu.oecde.core.education.StringConstantsGetter;
 import org.sgu.oecde.core.education.CalendarConstantName;
 import org.sgu.oecde.core.education.ICalendarConstantName;
-import org.sgu.oecde.core.education.CalendarConstants;
-import org.sgu.oecde.core.education.dao.ICurrentSemesterDao;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
@@ -15,10 +14,8 @@ import org.springframework.util.StringUtils;
  *
  * @author ShihovMY
  */
-public class SemesterGetter{
+public class SemesterGetter extends StringConstantsGetter{
 
-    private ICurrentSemesterDao csDao;
-    private List<CalendarConstants> constants;
     private int currentYear;
     private int semester;
     private boolean reExame;
@@ -51,64 +48,35 @@ public class SemesterGetter{
                 :student.getGroup().getYear();
         return getCurrentYear()-student.getGroup().getYear()+year;
     }
-
-    public void update(CalendarConstants c,String entity){
-        csDao.update(c,entity);
-    }
-
-    public void save(CalendarConstants c,String entity){
-        csDao.save(c,entity);
-    }
     
-    public void afterPropertiesSet() throws Exception{
-        Assert.notNull(csDao,"CurrentSemesterDao is null");
-        constants = this.csDao.getCurrentSemester();
-        if(!CollectionUtils.isEmpty(constants)){
-            Iterator<CalendarConstants> i = constants.iterator();
-            while(i.hasNext()){
-                CalendarConstants c = i.next();
-                if(c==null)
-                    i.remove();
-                else if(c.getName().equals(CalendarConstantName.semester)){
-                    setSemester(c.getValue());
-                    i.remove();
-                }else if(c.getName().equals(CalendarConstantName.year)){
-                    setYear(c.getValue());
-                    i.remove();
-                }else if(c.getName().equals(CalendarConstantName.reExame)){
-                    setReExame(c.getValue());
-                    i.remove();
-                }
+    @Override
+    public void fillConstantsMap(){
+        List<Map> c = getDao().getConstants(getEntityName());
+        if(!CollectionUtils.isEmpty(c)){
+            for(Map m:c){
+                ICalendarConstantName name = (ICalendarConstantName)m.get(key);
+                String value = (String)m.get(this.value);
+                if(CalendarConstantName.semester.equals(name))
+                    setSemester(value);
+                if(CalendarConstantName.year.equals(name))
+                    setYear(value);
+                if(CalendarConstantName.reExame.equals(name))
+                    setReExame(value);
+                else
+                    constants.put(name,value);
             }
         }else if(CollectionUtils.isEmpty(constants)
                 ||!StringUtils.hasText(getConstant(CalendarConstantName.semester))
                 ||getCurrentYear()==0){
-            csDao.save(new CalendarConstants(CalendarConstantName.year, "2009"),"MainCalendarConstants");
-            csDao.save(new CalendarConstants(CalendarConstantName.semester, "0"),"MainCalendarConstants");
+            save(CalendarConstantName.year,"2009",getEntityName());
+            save(CalendarConstantName.semester,"0",getEntityName());
             setSemester("0");
             setYear("2009");
         }
     }
 
-    public final String getConstant(ICalendarConstantName name) {
-        for(CalendarConstants c:constants){
-            if(c.getName().equals(name))
-                return c.getValue();
-        }
-        throw new AssertionError("there is no such constant in constants array with name "+name);
-    }
-
-    public void setCsDao(ICurrentSemesterDao csDao) {
-        this.csDao = csDao;
-    }
-
     public final int getCurrentSemester() {
         return semester;
-    }
-
-    private void setSemester(String semester) {
-        if(StringUtils.hasText(semester))
-            this.semester = Integer.parseInt(semester);
     }
 
     public final int getCurrentYear() {
@@ -127,5 +95,10 @@ public class SemesterGetter{
     private final void setReExame(String reExame) {
         if(StringUtils.hasText(reExame))
             this.reExame = Boolean.parseBoolean(reExame);
+    }
+
+    private void setSemester(String semester) {
+        if(StringUtils.hasText(semester))
+            this.semester = Integer.parseInt(semester);
     }
 }

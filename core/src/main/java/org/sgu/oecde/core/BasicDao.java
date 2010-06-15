@@ -50,7 +50,7 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
      * {@inheritDoc}
      */
     @Override
-    public T getById(final int id) throws DataAccessException{
+    public T getById(final Long id) throws DataAccessException{
         T item = (T) getSession().get(type, id);
         return item;
     }

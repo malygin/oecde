@@ -63,8 +63,11 @@ public class Points implements Serializable{
     }
 
     public void addIntegerWorkPoints(IEstimate name,Integer points){
-        Assert.isInstanceOf(Integer.class,this.getWorkPoints().get(name),"this value is not integer");
-        Integer oldP = this.<Integer>getWorkPoints().get(name);
+        Object val = this.getWorkPoints().get(name);
+        Integer oldP = 0;
+        if(val!=null)
+            Assert.isInstanceOf(Integer.class,val,val+", value of"+name+", is not integer ");
+        oldP = this.<Integer>getWorkPoints().get(name);
         this.<Integer>getWorkPoints().put(name, (oldP!=null?oldP:0)+points);
     }
 

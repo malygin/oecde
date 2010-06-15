@@ -2,7 +2,6 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <subclass abstract="true" discriminator-value="work" dynamic-insert="true" extends="org.sgu.oecde.core.education.work.AbstractResult" name="org.sgu.oecde.core.education.work.AbstractSelfDependentWorkResult">
-    <property column="result_date" length="19" name="date" type="string"/>
-    <many-to-one class="org.sgu.oecde.core.education.work.SelfDependentWork" fetch="join" foreign-key="fk_result_work" name="work" not-null="true"/>
+    <many-to-one class="org.sgu.oecde.core.education.work.SelfDependentWork" fetch="join" foreign-key="fk_result_work" name="work"/>
   </subclass>
 </hibernate-mapping>

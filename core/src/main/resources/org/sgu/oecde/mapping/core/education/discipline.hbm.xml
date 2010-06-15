@@ -3,7 +3,7 @@
 <hibernate-mapping schema="oecdo_test">
   <class mutable="false" name="org.sgu.oecde.core.education.Discipline" table="discipline">
     <cache usage="read-only"/>
-    <id name="id" type="int"/>
+    <id name="id" type="long"/>
     <property insert="false" name="name" unique="true" unique-key="uk_discipline_name"/>
   </class>
 </hibernate-mapping>

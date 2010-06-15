@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <class abstract="true" dynamic-insert="true" dynamic-update="true" name="org.sgu.oecde.core.users.AbstractGroup" table="abstract_group">
-    <id name="id" type="integer" unsaved-value="0">
+    <id name="id" type="long" unsaved-value="0">
       <generator class="native">
         <param name="sequence">group_seq</param>
       </generator>

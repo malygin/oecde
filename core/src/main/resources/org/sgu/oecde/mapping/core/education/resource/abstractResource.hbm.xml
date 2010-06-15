@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
-  <class name="org.sgu.oecde.core.education.resource.AbstractResource" table="abstract_resource">
-    <id name="id" type="integer" unsaved-value="0">
-      <generator class="native">
-        <param name="sequence">resource_seq</param>
-      </generator>
-    </id>
-    <property name="title" type="string"/>
-    <property name="description" type="string"/>
-    <property name="version" scale="3" type="integer"/>
-    <property name="visible" scale="1" type="boolean"/>
-    <property column="date_last_change" length="19" name="dateLastchange" type="string"/>
-    <property column="access_resource" name="accessResource">
+  <class dynamic-update="true" name="org.sgu.oecde.core.education.resource.AbstractResource" select-before-update="false" table="abstract_resource">
+    <id name="id" type="long"/>
+    <property insert="false" name="title" type="string"/>
+    <property insert="false" name="description" type="string"/>
+    <property insert="false" name="version" scale="3" type="integer"/>
+    <property insert="false" name="visible" scale="1" type="boolean"/>
+    <property column="date_last_change" insert="false" length="19" name="dateLastchange" type="string"/>
+    <property column="access_resource" insert="false" name="accessResource">
       <type name="org.sgu.oecde.core.GenericEnumUserType">
         <param name="enumClass">org.sgu.oecde.core.education.resource.AccessResource</param>
         <param name="identifierMethod">toName</param>

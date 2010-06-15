@@ -15,6 +15,7 @@
   <bean id="specialityDao" p:type="org.sgu.oecde.core.education.Speciality" parent="basicDao" />
   <bean id="disciplineDao" p:type="org.sgu.oecde.core.education.Discipline" parent="basicDao" />
   <bean id="cityDao" p:type="org.sgu.oecde.de.education.City" parent="basicDao" />
+  <bean id="authorDao" p:type="org.sgu.oecde.core.education.resource.Author" parent="basicDao" />
   
   <bean id="studentDao" p:type="org.sgu.oecde.de.users.Student" parent="updateDao" />
   <bean id="teacherDao" p:type="org.sgu.oecde.de.users.Teacher" parent="updateDao" />
@@ -25,6 +26,8 @@
   <bean id="estimateDao" p:type="org.sgu.oecde.core.education.work.Estimate" parent="resultDao" />
   <bean id="curriculumDao" p:type="org.sgu.oecde.de.education.DeCurriculum" parent="basicDao" class="org.sgu.oecde.core.education.dao.CurriculumDao" />
   <bean id="resourceDao" p:type="org.sgu.oecde.core.education.resource.AbstractResource" parent="updateDao" class="org.sgu.oecde.core.education.dao.ResourceDao" />
-  <bean scope="prototype" id="csDao" parent="basicDao" class="org.sgu.oecde.core.education.dao.CurrentSemesterDao" />
   <bean id="resultDao" p:type="org.sgu.oecde.core.education.work.AbstractResult" parent="basicDao" class="org.sgu.oecde.core.education.dao.ResultDao"/>
+
+  <bean id="csDao" parent="basicDao" class="org.sgu.oecde.core.education.dao.ConstantsDao" />
+
 </beans>

@@ -7,7 +7,6 @@ package org.sgu.oecde.core.education.work;
  */
 abstract public class AbstractSelfDependentWorkResult extends AbstractResult{
     private SelfDependentWork work;
-    private String date;
     public AbstractSelfDependentWorkResult() {
     }
 
@@ -19,14 +18,6 @@ abstract public class AbstractSelfDependentWorkResult extends AbstractResult{
         this.work = work;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
     @Override
     public int compareTo(AbstractResult o) {
        int superCompare = super.compareTo(o);
@@ -35,8 +26,8 @@ abstract public class AbstractSelfDependentWorkResult extends AbstractResult{
        if(o instanceof AbstractSelfDependentWorkResult){
            AbstractSelfDependentWorkResult r = (AbstractSelfDependentWorkResult)o;
            if(r.getWork()!=null&&getWork()!=null)
-               workInt = Integer.valueOf(r.getWork().getId()).compareTo(getWork().getId());
-           dateInt = r.getDate().compareTo(date);
+               workInt = r.getWork().getId().compareTo(getWork().getId());
+           dateInt = r.getDate().compareTo(getDate());
        }
        return superCompare==0?
            (workInt==0?

@@ -14,11 +14,11 @@ public class Discipline extends BasicItem{
     public Discipline() {
     }
 
-    public Discipline(int id) {
+    public Discipline(Long id) {
         setId(id);
     }
 
-    public Discipline(int id, String name) {
+    public Discipline(Long id, String name) {
         setId(id);
         this.name = name;
     }

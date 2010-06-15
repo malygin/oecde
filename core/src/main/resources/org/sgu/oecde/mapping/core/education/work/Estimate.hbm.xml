@@ -2,7 +2,6 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <subclass abstract="true" discriminator-value="estimate" dynamic-insert="true" extends="org.sgu.oecde.core.education.work.AbstractResult" name="org.sgu.oecde.core.education.work.Estimate">
-    <property column="result_date" length="19" name="date" type="string"/>
     <property column="grade" length="10" name="gradeCode">
       <type name="org.sgu.oecde.core.GenericEnumUserType">
         <param name="enumClass">org.sgu.oecde.core.education.work.PointToEstimate</param>

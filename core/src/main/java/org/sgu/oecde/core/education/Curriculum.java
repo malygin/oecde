@@ -19,7 +19,7 @@ public class Curriculum extends BasicItem{
     public Curriculum() {
     }
 
-    public Curriculum(Integer id) {
+    public Curriculum(Long id) {
         setId(id);
     }
     /**

@@ -11,7 +11,7 @@ public abstract class BasicItem implements Serializable{
     /**
      * айди == primary key в бд
      */
-    private int id;
+    private Long id;
 
     /**
 	 * 
@@ -33,38 +33,26 @@ public abstract class BasicItem implements Serializable{
         return true;
     }
 
-    /**
-	 * 
-	 * @return 
-	 */
-	@Override
+    @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 59 * hash + this.id;
+        int hash = 7;
+        hash = 59 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
 
-    /**
-     * получает айди
-     * @return айди
-     */
-    public final int getId() {
+    public Long getId() {
         return id;
     }
 
-    /**
-     * устанавливает айди
-     * @param id - айди
-     */
-    public final void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     /**
-	 * 
-	 * @return 
-	 */
-	@Override
+     *
+     * @return
+     */
+    @Override
     public String toString(){
         StringBuffer sb = new StringBuffer();
         sb.append("Id: ").append(this.id).append("; ");

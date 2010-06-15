@@ -17,11 +17,11 @@ public class Speciality extends BasicItem{
     public Speciality() {
     }
 
-    public Speciality(int id) {
+    public Speciality(Long id) {
         setId(id);
     }
 
-    public Speciality(int id, String name) {
+    public Speciality(Long id, String name) {
         setId(id);
         this.name = name;
     }

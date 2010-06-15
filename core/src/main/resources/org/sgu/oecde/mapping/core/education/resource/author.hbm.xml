@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <class abstract="true" mutable="false" name="org.sgu.oecde.core.education.resource.Author" table="author">
+    <id name="id" type="long"/>
+    <discriminator column="discriminator"/>
+  </class>
+  <subclass discriminator-value="author" entity-name="author" extends="org.sgu.oecde.core.education.resource.Author" name="org.sgu.oecde.core.education.resource.Author">
+    <property insert="false" name="name" type="string"/>
+    <property column="second_name" insert="false" name="secondName" type="string"/>
+    <property insert="false" name="surname" type="string"/>
+  </subclass>
+  <subclass discriminator-value="teacher" entity-name="author-teacher" extends="org.sgu.oecde.core.education.resource.Author" name="org.sgu.oecde.core.education.resource.Author">
+    <many-to-one cascade="none" class="org.sgu.oecde.core.users.AbstractTeacher" column="teacher" fetch="join" foreign-key="fk_author_teacher" insert="false" name="teacher"/>
+  </subclass>
+</hibernate-mapping>

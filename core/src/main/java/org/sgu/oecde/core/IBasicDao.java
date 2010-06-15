@@ -15,7 +15,7 @@ public interface IBasicDao <T extends BasicItem>{
      * @throws DataAccessException
      */
     @SuppressWarnings("unchecked")
-    T getById(final int id) throws DataAccessException;
+    T getById(final Long id) throws DataAccessException;
 
     /**
      * 

@@ -19,7 +19,7 @@ public class Group extends StudentGroup{
 
     private static final long serialVersionUID = 60L;
 
-    public Group(int id) {
+    public Group(Long id) {
         setId(id);
     }
 

@@ -13,7 +13,7 @@ public class Teacher extends AbstractTeacher{
     public Teacher() {
     }
 
-    public Teacher(int id) {
+    public Teacher(Long id) {
         setId(id);
     }
     /**

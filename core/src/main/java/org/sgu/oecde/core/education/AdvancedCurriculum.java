@@ -8,12 +8,13 @@ public class AdvancedCurriculum extends Curriculum{
 
     private Speciality speciality;
     private Discipline discipline;
+    private Boolean gotControlWork;
     private static final long serialVersionUID = 46L;
 
     public AdvancedCurriculum() {
     }
 
-    public AdvancedCurriculum(int id) {
+    public AdvancedCurriculum(Long id) {
         super(id);
     }
 
@@ -26,6 +27,14 @@ public class AdvancedCurriculum extends Curriculum{
 
     public void setDiscipline(Discipline discipline) {
         this.discipline = discipline;
+    }
+
+    public Boolean isGotControlWork() {
+        return gotControlWork;
+    }
+
+    public void setGotControlWork(Boolean gotControlWork) {
+        this.gotControlWork = gotControlWork;
     }
 
     /**

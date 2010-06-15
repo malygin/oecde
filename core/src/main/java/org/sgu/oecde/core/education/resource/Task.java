@@ -13,7 +13,7 @@ public class Task extends AbstractResource{
     public Task() {
     }
 
-    public Task(int id) {
+    public Task(Long id) {
         setId(id);
     }
 

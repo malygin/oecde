@@ -26,7 +26,7 @@ public abstract class BasicTest extends AbstractJUnit4SpringContextTests{
        dao = (IBasicDao<T>) applicationContext.getBean(daoName);
     }
 
-    public<T extends BasicItem> T getItem(int id){
+    public<T extends BasicItem> T getItem(Long id){
        return (T) dao.getById(id);
     }
 

@@ -3,7 +3,7 @@
 <hibernate-mapping schema="oecdo_test">
   <class dynamic-insert="false" mutable="false" name="org.sgu.oecde.core.authentication.RoleItem" table="roles">
     <cache usage="read-only"/>
-    <id name="id" type="int"/>
-    <property insert="false" name="role"/>
+    <id name="id" type="long"/>
+    <property insert="false" name="role" unique="true" unique-key="uk_role"/>
   </class>
 </hibernate-mapping>

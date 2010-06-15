@@ -6,7 +6,6 @@ package org.sgu.oecde.core.education.work;
  */
 public class Estimate extends AbstractResult {
     private PointToEstimate gradeCode;
-    private String date;
     private static final long serialVersionUID = 67L;
 
     public Estimate() {
@@ -18,13 +17,5 @@ public class Estimate extends AbstractResult {
 
     public void setGradeCode(PointToEstimate gradeCode) {
         this.gradeCode = gradeCode;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 }
