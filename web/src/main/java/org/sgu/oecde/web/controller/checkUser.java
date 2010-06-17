@@ -7,9 +7,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.UserType;
-import org.springframework.security.Authentication;
-import org.springframework.security.context.SecurityContext;
-import org.springframework.security.context.SecurityContextHolder;
+import org.sgu.oecde.web.util.SecurityContextHandler;
 
 /**
  *
@@ -22,19 +20,14 @@ public class checkUser extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
        try {
-            SecurityContext context = SecurityContextHolder.getContext();
-            if (context instanceof SecurityContext){
-                Authentication authentication = context.getAuthentication();
-                if (authentication instanceof Authentication){
-                    Object principal = authentication.getPrincipal();
-                    if(principal instanceof AbstractUser){
-                        UserType type = UserType.fromRole((AbstractUser) principal);
-                        if((mapping.findForward(type.name().toLowerCase())!=null))
-                            return mapping.findForward(type.name().toLowerCase());
-                    }
-                }
-            }
-            return mapping.findForward("error");
+           AbstractUser user = SecurityContextHandler.getUser();
+           if(user!=null){
+               UserType type = UserType.fromRole((AbstractUser) user);
+               if((mapping.findForward(type.name().toLowerCase())!=null))
+                   return mapping.findForward(type.name().toLowerCase());
+           }
+           return mapping.findForward("error");
+           
         } catch (Exception e) {
             e.printStackTrace();
             return mapping.findForward("error");
