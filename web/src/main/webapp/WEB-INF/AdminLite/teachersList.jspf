@@ -1,0 +1,13 @@
+
+<%@ page pageEncoding="UTF-8" %>
+                <c:forEach items="${list}" var="tea" varStatus="i">
+                    <li class="first_back_<c:out value="${i.index%2 + 1}"/>_stteachers">
+                        <div>
+                            <a href="#teacher/id=${tea.id}"><img class=pics src="../loadPhoto?id=${tea.id}&type=teacher&size=big" align=left width=20%></a>
+                            <p class=fio_friend><b>ФИО:</b> ${tea.surname} ${tea.name} ${tea.second_name} </p>
+                            <p><b>Департамент</b>&nbsp <div id="spec"></div></p><p><b>Должность</b>&nbsp ${tea.job}</p>
+                            <p><b><a class='teh_a' href="write_msgs.jsp?out=prep&id=${tea.id}" ><img src="../images/pero.png"/>Написать сообщение</a></b></p>
+                        </div>
+                        <div align="centr"><div class="otdelitel"></div></div>
+                    </li>
+                </c:forEach>

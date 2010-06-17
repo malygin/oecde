@@ -20,11 +20,13 @@ import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.de.users.Teacher;
 import org.sgu.oecde.tests.AdditionalCurriculum;
 import org.sgu.oecde.tests.TestEntity;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author ShihovMY
  */
+@Service
 public class StudentEducationFactory extends EducationFactory{
 
     private StudentEducationFactory() {
@@ -32,7 +34,7 @@ public class StudentEducationFactory extends EducationFactory{
 
     public List<AdditionalSelfDependentWork> getTestsResultsByDisc() {
         DeCurriculum c = curriculumBuilder.getInstance(sg.getCurrentYear(), semester, student);
-        return testService.getStudentsSingleCurriculumAttempts(c, null, student);
+        return testAttemptService.getStudentsSingleCurriculumAttempts(c, null, student);
     }
 /*
 
@@ -50,7 +52,7 @@ public class StudentEducationFactory extends EducationFactory{
     }
 */
     public List<AdditionalSelfDependentWork> getTestsResultsByKod() {
-        return testService.getStudentAttempts(getCurriculums(), null, student);
+        return testAttemptService.getStudentAttempts(getCurriculums(), null, student);
     }
 
     public List<Points> getStudentGrades() {
@@ -60,7 +62,7 @@ public class StudentEducationFactory extends EducationFactory{
         filters.add(testFilter);
         List<Student>stl = new LinkedList<Student>();
         stl.add(student);
-        List<AbstractResult> l = resultDao.getByStudentsAnsCurriculums(getCurriculums(), stl, null);
+        List<AbstractResult> l = resultDao.getByStudentsAndCurriculums(getCurriculums(), stl, null);
         return preFilter.forEachResult(l, true,filters);
     }
 
@@ -70,7 +72,7 @@ public class StudentEducationFactory extends EducationFactory{
         List<Student>stl = new LinkedList<Student>();
         stl.add(student);
         List<DeCurriculum> c = getCurriculums(sg.getCalendarYear(student, semester));
-        List<Estimate> l = estimateDao.getByStudentsAnsCurriculums(c, stl, null);
+        List<Estimate> l = estimateDao.getByStudentsAndCurriculums(c, stl, null);
         return preFilter.forEachResult(l, true,filters);
     }
 
@@ -95,7 +97,7 @@ public class StudentEducationFactory extends EducationFactory{
     }
 
     public List<AdditionalCurriculum> getStudentsDisciplines(){
-        List<AdditionalCurriculum>ac = testService.getStudentAttemptsCount(getCurriculums(), null, student);
+        List<AdditionalCurriculum>ac = testAttemptService.getStudentAttemptsCount(getCurriculums(), null, student);
         for(Points p:getStudentGrades()){
             ac.get(ac.indexOf(p.getCurriculum())).setPoints(p);
         }
@@ -107,7 +109,7 @@ public class StudentEducationFactory extends EducationFactory{
         filters.add(controlWorkFilter);
         filters.add(testFilter);
         List<Student> stl = new ArrayList(student.getGroup().getPersons());
-        List<AbstractResult> l = resultDao.getByStudentsAnsCurriculums(getCurriculums(), stl, null);
+        List<AbstractResult> l = resultDao.getByStudentsAndCurriculums(getCurriculums(), stl, null);
         return preFilter.forEachResult(l, false,filters);
     }
 
@@ -172,7 +174,7 @@ public class StudentEducationFactory extends EducationFactory{
 
     public void getBadPassedTests(){
         List<DeCurriculum> cl = getCurriculums(sg.getCalendarYear(student, semester));
-        List<AdditionalSelfDependentWork>l = testService.getStudentsAllCurriculumAttempts(cl, null, student,id==2);
+        List<AdditionalSelfDependentWork>l = testAttemptService.getStudentsAllCurriculumAttempts(cl, null, student,id==2);
         Iterator<AdditionalSelfDependentWork> i = l.iterator();
         while(i.hasNext()){
             AdditionalSelfDependentWork passedTest = i.next();

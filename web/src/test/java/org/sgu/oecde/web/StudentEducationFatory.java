@@ -118,7 +118,7 @@ public class StudentEducationFatory extends BasicTest{
         e.setStudent(st);
         e.setCurriculum(c);
         setDao("estimateDao");
-        List<AbstractResult> l = this.<IResultDao>getDao().getByStudentsAnsCurriculums(cr, stl, null);
+        List<AbstractResult> l = this.<IResultDao>getDao().getByStudentsAndCurriculums(cr, stl, null);
         pf.forEachResult(l, true,filters);
     }
 
@@ -167,7 +167,7 @@ public class StudentEducationFatory extends BasicTest{
         List<DeCurriculum> cr = this.<ICurriculumDao>getDao().getByExample(c);
         List<Student> stl = new ArrayList(getSt().getGroup().getPersons());
         setDao("resultDao");
-        List<AbstractResult> l = this.<IResultDao>getDao().getByStudentsAnsCurriculums(cr, stl, null);
+        List<AbstractResult> l = this.<IResultDao>getDao().getByStudentsAndCurriculums(cr, stl, null);
         pf.forEachResult(l, false,filters);
     }
 
@@ -279,7 +279,7 @@ public class StudentEducationFatory extends BasicTest{
         Student st = getSt();
         stl.add(st);
         setDao("resultDao");
-        List<AbstractResult> l = this.<IResultDao>getDao().getByStudentsAnsCurriculums(cr, stl, null);
+        List<AbstractResult> l = this.<IResultDao>getDao().getByStudentsAndCurriculums(cr, stl, null);
         return pf.forEachResult(l, true,filters);
     }
 

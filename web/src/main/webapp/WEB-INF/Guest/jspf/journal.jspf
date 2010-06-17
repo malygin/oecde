@@ -1,0 +1,46 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<script type="text/javascript">
+    dojo.require("dijit.form.Form");
+    dojo.require("dojox.layout.ContentPane");
+    dojo.require("dijit.form.CheckBox");
+    dojo.require("dijit.form.DateTextBox");
+    dojo.require("dojo.cookie");
+</script>
+<div class="head_main_math">
+    <p>
+        Недавние события
+    </p>
+</div>
+<div class="today_daybefore_all" >
+    <div style="text-align: right; margin-right: 15px; margin-top: -4px;">
+    </div>
+
+     <table cellspacing="0">
+                <tbody>
+                    <tr style="background: #EFEFFF;">
+                        <td class="for_jornalir_img">
+                            <img  src="../images/com_pic_1.jpg">
+                        </td>
+                        <td class="for_sobit_main_text" style="width: 356px;"><p class="p_for_jornalir"><a href="main.jsp#teacher">Преподаватель Позднева Инна Павловна</a> довыставил(а) оценки группе 331 специальности "Механика" </p></td>
+                        <td class="for_jornalir_time"><p class="p_for_jornalir">12-12-2009</p></td>
+                    </tr>
+                    <tr>
+                        <td class="for_jornalir_img">
+                            <img  src="../images/engineer.png">
+                        </td>
+                        <td class="for_sobit_main_text" style="width: 356px;"><p class="p_for_jornalir"><a href="javascript:alert('У Вас недостаточно прав, для использования данного функционала!');">Добавлена новость "Обновления за февраль и система форумов".</a> </p></td>
+                        <td class="for_jornalir_time"><p class="p_for_jornalir">12-12-2009</p></td>
+                    </tr>
+                    <tr>
+                        <td class="for_jornalir_img">
+                            <img  src="../images/engineer.png">
+                        </td>
+                        <td class="for_sobit_main_text" style="width: 356px;"><p class="p_for_jornalir"><p class="p_for_jornalir"><font color="#0000ff"><span style="background-color: rgb(255, 255, 255);">Уважаемые студенты!</span></font><br><font color="#ff4500">Режим "переэкзаменовки" завершен. Прохождение тестовых заданий и отправка контрольных работ приостановлены.</font><br><font color="#000000">Следите за выставлением отметок и "новостями" по поводу летнего семестра.</font><br></p> </p></td>
+                        <td class="for_jornalir_time"><p class="p_for_jornalir">12-12-2009</p></td>
+                    </tr>
+
+                </tbody>
+            </table>
+</div>

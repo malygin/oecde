@@ -15,19 +15,24 @@ import org.sgu.oecde.core.education.estimation.ResultPreFilter;
 import org.sgu.oecde.core.education.work.AbstractResult;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
-import org.sgu.oecde.tests.TestAttempt;
-import org.sgu.oecde.tests.TestEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.util.CollectionUtils;
 
 /**
  * Unit test for simple App.
  */
-@ContextConfiguration(locations={"../applicationContext.xml","../spring/cwBeans.xml","../spring/testBeans.xml"})
+@ContextConfiguration(locations={"../applicationContext.xml","../spring/cwBeans.xml","../spring/testBeans.xml","../spring/journalBeans.xml","../spring/newsBeans.xml","../spring/discussionBeans.xml"})
 public class FilterTest extends BasicTest{
 
-
 //    @Ignore
+    @Test
+    public void beans(){
+        for(Object o:applicationContext.getBeanDefinitionNames()){
+            System.out.println(o);
+        }
+    }
+
+    @Ignore
     @Test
     public void save(){
         List<IResultFilter>filters = new LinkedList();
@@ -47,7 +52,7 @@ public class FilterTest extends BasicTest{
         q.add(new DeCurriculum(2009518325L));
         List s = new LinkedList();
         s.add(new Student(321304L));
-        List<AbstractResult> l = this.<IResultDao>getDao().getByStudentsAnsCurriculums(q, s, null);
+        List<AbstractResult> l = this.<IResultDao>getDao().getByStudentsAndCurriculums(q, s, null);
         System.out.println(l);
         for(Points p:pf.forEachResult(l, true,filters)){
             System.out.println(p.<DeCurriculum>getCurriculum().getDiscipline().getName());

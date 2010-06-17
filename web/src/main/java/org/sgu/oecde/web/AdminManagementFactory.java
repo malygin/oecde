@@ -1,21 +1,29 @@
 package org.sgu.oecde.web;
 
+import javax.annotation.Resource;
 import org.sgu.oecde.core.education.dao.ICurriculumDao;
 import org.sgu.oecde.core.education.dao.IResourceDao;
 import org.sgu.oecde.core.education.resource.AbstractResource;
 import org.sgu.oecde.core.education.resource.Task;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.tests.TestEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 /**
  *
  * @author ShihovMY
  */
+@Service
 public class AdminManagementFactory {
     private Long id;
+    @Resource
     protected ICurriculumDao<DeCurriculum> curriculumDao;
+    @Resource
     protected IResourceDao<AbstractResource> resourceDao;
+
+    private AdminManagementFactory() {
+    }
 
     public DeCurriculum getCurriculum(){
         return curriculumDao.getById(id);
@@ -29,16 +37,8 @@ public class AdminManagementFactory {
         return (TestEntity) resourceDao.getById(id);
     }
 
-    public void setCurriculumDao(ICurriculumDao<DeCurriculum> curriculumDao) {
-        this.curriculumDao = curriculumDao;
-    }
-
     public void setId(String id) {
         if(StringUtils.hasText(id))
             this.id = Long.parseLong(id);
-    }
-
-    public void setResourceDao(IResourceDao<AbstractResource> resourceDao) {
-        this.resourceDao = resourceDao;
     }
 }

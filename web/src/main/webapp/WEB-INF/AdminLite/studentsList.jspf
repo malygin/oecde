@@ -1,0 +1,18 @@
+
+<%@ page pageEncoding="UTF-8" %>
+<c:forEach items="${list}" var="stud" varStatus="i">
+    <li class="first_back_<c:out value="${i.index%2 + 1}"/>_stteachers">
+        <div style="height: 140px; width: 110px; float: left;" >
+            <a href='main.jsp#student/id=${stud.id}'>
+                <img src='../loadPhoto?id=${stud.id}&type=student&size=medium'>
+            </a>
+        </div>
+        <div>
+            <p class=fio_friend><b>ФИО:</b> ${stud.surname} ${stud.name} ${stud.second_name}</p>
+            <p><b>Факультет:</b> ${stud.faculty}</p>
+            <p class=ostup_sleva><b>Специальность:</b> ${stud.spec.name}</p>
+            <a class='teh_a'  href='write_msgs.jsp?out=user&id=${stud.id}'><img src="../images/pero.png"> Написать письмо</a><br>
+        </div>
+        <div align="centr"><div class="otdelitel"></div></div>
+    </li>
+</c:forEach>

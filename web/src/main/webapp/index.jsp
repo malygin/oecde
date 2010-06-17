@@ -1,5 +1,7 @@
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="org.springframework.security.BadCredentialsException" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -47,7 +49,7 @@ pageTracker._trackPageview();
 								<tr>
 									<td class="login_text"><div style="float: left; width: 50px; margin-top: 2px;">Пароль: </div><input class="login_input" name="j_password" type="password"><div class="otdelitel"></div></td>
 								</tr>
-								<c:if test="${param[\"error\"] eq \"true\"}">
+								<c:if test="${param[\"error\"] eq \"1\"}">
 								<tr>
 									<td class="red_word"  colspan="2">Неправильный логин или пароль</td>
 								</tr>
@@ -72,8 +74,15 @@ pageTracker._trackPageview();
 			</div>
 			<div class="white_part">
 <br>
-<p class="grey_text_login2" align="center">ВНИМАНИЕ!</p>
-
+<p class="grey_text_login2" align="center">ВНИМАНИЕ!</p>1
+<%/*
+for (String o:session.getValueNames()){
+    out.println(o);
+    out.println(session.getAttribute(o));
+    out.println("<br>");
+    }*/
+out.println(((org.springframework.security.context.SecurityContextImpl)(session.getAttribute("SPRING_SECURITY_CONTEXT"))).getAuthentication().getAuthorities()[0]);
+%>1
 <p class="grey_text_login">
 В 2008 году Саратовский Государственный университет  начал реализовывать систему дистанционного обучения, которая делает возможным получение образования независимо от места проживания и удаленности от  вуза. </p>
 <p class="grey_text_login">

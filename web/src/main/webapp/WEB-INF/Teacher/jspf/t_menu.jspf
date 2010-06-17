@@ -1,0 +1,45 @@
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
+<jsp:useBean id="se" class="utils.factories.utilsFactory"/>
+<c:set var="date" value="${se.date}"/>
+<div class="top_menu">
+<div class="top_menu_r_sh">
+<div class="top_menu_l_sh">
+<div class="top_menu_b_sh">
+<div class="top_menu_t_sh">
+<div class="top_menu_l_b_ang">
+<div class="top_menu_r_b_ang">
+<div class="top_menu_r_t_ang">
+<div class="top_menu_l_t_ang">
+<div class="top_menu_links" align="right">
+<ol>
+     <li><a class="top_link" href="main.jsp#"><bean:message key="topmenu_field1" /></a></li>
+     <li><a class="top_link" href="main.jsp#newsList/pN=1&count=10"><bean:message key="topmenu_field2" /></a></li>
+     <li class="disab_link" classname="disab_link"><p><bean:message key="topmenu_field3" /></p></li>
+     <li  class="disab_link" classname="disab_link"><p><bean:message key="topmenu_field4" /></p></li>
+     <li><a class="top_link"  href="main.jsp#help/"><bean:message key="topmenu_field5" /></a></li>
+     <li  class="disab_link" classname="disab_link"><p><bean:message key="topmenu_field6" /></p></li>
+    <c:if test="${sessionScope[\"type\"] eq 'SUPERADMIN' }">
+        <li><a class="top_link" href="../Admin/main.jsp#search"><bean:message key="topmenu_field8" /></a></li>
+    </c:if>
+    <c:if test="${sessionScope[\"type\"] eq 'TEACHER' }">
+        <li><a class="top_link" href="../index.jsp"><bean:message key="topmenu_field7" /></a></li>
+    </c:if>
+</ol>
+<span class="date">
+	<b>
+		<b><bean:message key="todays_date" />:
+			${date}
+		</b>
+	</b>
+</span>
+</div><div align="centr"><div class="otdelitel"></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

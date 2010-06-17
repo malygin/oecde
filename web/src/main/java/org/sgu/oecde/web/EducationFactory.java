@@ -2,6 +2,7 @@ package org.sgu.oecde.web;
 
 import java.util.LinkedList;
 import java.util.List;
+import javax.annotation.Resource;
 import org.sgu.oecde.controlworks.ControlWorkService;
 import org.sgu.oecde.controlworks.estimation.ControlWorkFilter;
 import org.sgu.oecde.core.education.dao.ICurriculumDao;
@@ -18,7 +19,6 @@ import org.sgu.oecde.de.education.DeCurriculumBuilder;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.tests.TestAttemptService;
 import org.sgu.oecde.tests.estimation.TestFilter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
 /**
@@ -27,24 +27,30 @@ import org.springframework.util.StringUtils;
  */
 public class EducationFactory {
 
-    @Autowired
+    @Resource
     protected SemesterGetter sg;
-    @Autowired
-    protected TestAttemptService testService;
-    @Autowired
+    @Resource
+    protected TestAttemptService testAttemptService;
+    @Resource
     protected ControlWorkService cwService;
-    @Autowired
+    @Resource
     protected DeCurriculumBuilder curriculumBuilder;
-    @Autowired
+    @Resource
     protected ResultPreFilter preFilter;
-    @Autowired
+    @Resource
     protected EstimateFilter estimateFilter;
-    @Autowired
+    @Resource
     protected TestFilter testFilter;
-    @Autowired
+    @Resource
     protected ControlWorkFilter controlWorkFilter;
-
+    @Resource
     protected ICurriculumDao<DeCurriculum> curriculumDao;
+    @Resource
+    protected IResultDao<AbstractResult>resultDao;
+    @Resource
+    protected IResultDao<Estimate>estimateDao;
+    @Resource
+    protected IResourceDao<AbstractResource> resourceDao;
 
     protected int semester;
 
@@ -53,12 +59,6 @@ public class EducationFactory {
     protected Long curriculumId;
 
     protected Student student;
-
-    protected IResultDao<Estimate>estimateDao;
-
-    protected IResultDao<AbstractResult>resultDao;
-
-    protected IResourceDao<AbstractResource> resourceDao;
 
     public <T extends AbstractResource>T getResource(DeCurriculum c,AbstractResource r,Class clazz){
         if(c==null)
@@ -76,25 +76,9 @@ public class EducationFactory {
             this.id = Long.parseLong(id);
     }
 
-    public void setCurriculumDao(ICurriculumDao<DeCurriculum> curriculumDao) {
-        this.curriculumDao = curriculumDao;
-    }
-
     public void setCurriculumId(String curriculumId) {
         if(StringUtils.hasText(curriculumId))
             this.id = Long.parseLong(curriculumId);
-    }
-
-    public void setEstimateDao(IResultDao<Estimate> estimateDao) {
-        this.estimateDao = estimateDao;
-    }
-
-    public void setResourceDao(IResourceDao<AbstractResource> resourceDao) {
-        this.resourceDao = resourceDao;
-    }
-
-    public void setResultDao(IResultDao<AbstractResult> resultDao) {
-        this.resultDao = resultDao;
     }
 
     public void setSemester(String semester) {

@@ -1,0 +1,61 @@
+
+<%@page pageEncoding="UTF-8"%>
+<jsp:useBean class="msgs.model.Messg" id="msg" />
+<jsp:setProperty name="msg" property="user"  value="${sessionScope[\"adminItem\"]}"/>
+<jsp:setProperty name="msg" property="type"  value="${sessionScope[\"type\"]}"/>
+<script> dojo.registerModulePath("samples", "../../samples");
+        dojo.require("samples.widget.SmallChatWidget");
+        dojo.require("samples.widget.ChatWidget");</script>
+<div class="left">
+<div class="logo"><script> dojo.registerModulePath("samples", "../../samples");
+        dojo.require("samples.widget.SmallChatWidget");
+        dojo.require("samples.widget.ChatWidget");</script>
+
+<a href="http://oec.sgu.ru" title="<bean:message key="coo_name" />"><img src="../images/1.jpg" ></a>
+</div>
+<div class="control">
+<div class="red_title">
+</div>
+<div class="blue_title">
+<div dojoType="dijit.TitlePane" onclick="TitlePanePosMemory(this.id)" id="TitPane1" title="<bean:message key="admin.edumenu_titlename" />" width=60>
+<div class="msg">
+<ol>
+<li><a href="main.jsp#mat/" ><bean:message key="admin.edumenu_menu1" /></a></li>
+<li><a href="main.jsp#report/" >Отчет в xls</a></li>
+<li><a href="main.jsp#newEvent/" ><bean:message key="admin.edumenu_menu2" /></a></li>
+<li  class="disab_link" classname="disab_link"><p><bean:message key="admin.edumenu_menu3" /></p></li>
+<li  class="disab_link" classname="disab_link"><p><bean:message key="admin.edumenu_menu4" /></p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="green_title">
+<div dojoType="dijit.TitlePane" onclick="TitlePanePosMemory(this.id)" id="TitPane2" title="<bean:message key="admin.messages_titlename" />" width=60>
+<div class="upl3"><b class="uheadgr"><a href="main.jsp#msg">
+               <bean:message key="teacher.messages_newmessages" />
+                  <c:if test="${msg.countNew ne 0}">
+                    <b><font color="red">(новых ${msg.countNew})</font></b> </c:if>
+               <c:if test="${msg.countNew eq 0}">
+                    (новых <b>${msg.countNew}</b>)</c:if>
+
+
+            </a></b></div>
+<div class="msgfrom">
+<ol>
+<li class="disab_link" classname="disab_link"><img src="../images/1ms.jpg"><a href="main.jsp#write_msg">&nbsp;&nbsp;<bean:message key="student.messages_field1" /></a>
+<li class="disab_link" classname="disab_link"><img src="../images/4ms.jpg"><a href="main.jsp#msg_teacher">&nbsp;&nbsp; <bean:message key="student.messages_field2" /></a>
+<li class="disab_link" classname="disab_link"><img src="../images/5ms.jpg"><a href="main.jsp#msg_student">&nbsp;&nbsp; <bean:message key="student.messages_field3" /></a>
+<li class="disab_link" classname="disab_link"><img src="../images/6ms.jpg"><a href="main.jsp#msg_admin">&nbsp;&nbsp; <bean:message key="student.messages_field4" /></a>
+<li class="disab_link" classname="disab_link"><img src="../images/2ms.jpg"><a href="main.jsp#out_msg">&nbsp <bean:message key="student.messages_field5" /></a>
+<li class="disab_link" classname="disab_link"><img src="../images/7ms.jpg"><a href="main.jsp#arch_msg">&nbsp <bean:message key="student.messages_field6" /></a>
+</ol>
+</div>
+</div>
+</div>
+<div class="yellow_title">
+    <div dojoType="dijit.TitlePane"  id="TitPane8" title="Мини-чат">
+        <div dojoType="samples.widget.SmallChatWidget"></div>
+    </div>
+</div>
+</div>
+</div>

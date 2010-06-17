@@ -15,11 +15,13 @@ import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.de.users.Teacher;
 import org.sgu.oecde.tests.TestEntity;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author ShihovMY
  */
+@Service
 public class TeacherEducationFactory extends EducationFactory{
 
     private Teacher teacher;
@@ -55,13 +57,13 @@ public class TeacherEducationFactory extends EducationFactory{
 
     public List<AdditionalSelfDependentWork> getTestsResultsByDisc() {
         DeCurriculum c = curriculum();
-        return testService.getStudentsSingleCurriculumAttempts(c, null, student);
+        return testAttemptService.getStudentsSingleCurriculumAttempts(c, null, student);
     }
 
     public List<AdditionalSelfDependentWork>  getGroupTestResults() {
         DeCurriculum c = curriculum();
         List l = getStudentsList(id);
-        return testService.getCurriculumAttempts(c, null, l);
+        return testAttemptService.getCurriculumAttempts(c, null, l);
     }
     public List<Points> getGroupPointsAndGrades() {
         List<IResultFilter>filters = new LinkedList();
@@ -70,7 +72,7 @@ public class TeacherEducationFactory extends EducationFactory{
         filters.add(testFilter);
         List<DeCurriculum> c = new LinkedList<DeCurriculum>();
         List sl = getStudentsList(id);
-        List<AbstractResult> l =resultDao.getByStudentsAnsCurriculums(c, sl, null);
+        List<AbstractResult> l =resultDao.getByStudentsAndCurriculums(c, sl, null);
         return preFilter.forEachResult(l, true,filters);
     }
 

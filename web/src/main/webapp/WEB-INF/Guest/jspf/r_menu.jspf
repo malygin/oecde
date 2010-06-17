@@ -1,0 +1,103 @@
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
+<%--<jsp:useBean id="teacher" class="teacher.model.Teacher" scope="page"/>
+<jsp:useBean id="count" class="utils.factories.utilsFactory" scope="page"/>
+<c:set var="student" value="${sessionScope[\"student\"]}"/>--%>
+  <div class="right_menu">
+    <div class="green_title">
+    <div dojoType="dijit.TitlePane" id="TitPane4" title="<bean:message key="guest.communmenu_titlename" />" width=60>
+    <div class="side_bar">
+    <ol>
+      <li><a href="main.jsp#teachers"><img src="../images/com_pic_1.jpg"><bean:message key="student.communmenu_field2" /></a></li>
+      <li><a href="main.jsp#students"><img src="../images/com_pic_2.jpg"><bean:message key="student.communmenu_field3" /></a></li>
+      <li class="disab_link"><p><img src="../images/video.png"><bean:message key="guest.communmenu_field6" /></p></li>
+      <li class="disab_link"><p><img src="../images/forum_group8.png"><bean:message key="guest.communmenu_field8" /></p></li>
+      <li class="disab_link"><p><img src="../images/forum.png"><bean:message key="guest.communmenu_field7" /></p></li>
+   </ol>
+    </div>
+    </div>
+    </div>
+
+    <div class="blue_title">
+    <div dojoType="dijit.TitlePane" id="TitPane5" title="<bean:message key="guest.controlmenu_title" />" width=60>
+    <div class="side_bar">
+    <ol>
+      <li class="disab_link"><p><img src="../images/books2.jpg"><bean:message key="guest.controlmenu_menu2" /></p></li>
+      <li><a href="main.jsp#education"><img src="../images/educ.png"><bean:message key="guest.controlmenu_menu3" /></a></li>
+      <li><a href="main.jsp#gbook"><img src="../images/book.jpg"><bean:message key="guest.controlmenu_menu4" /></a></li>
+      <li><a href="main.jsp#shedule/s=0"><img src="../images/leaf.jpg"><bean:message key="guest.controlmenu_menu1" /></a></li>
+   </ol>
+    </div>
+    </div>
+    </div>
+    <div class="green_title">
+    <div dojoType="dijit.TitlePane" id="TitPane6" title="<bean:message key="guest.friends_online_titlename" />" width=60>
+    <div class="upl3">
+    <b class="uheadgr">
+    <a href="main.jsp#students/a=studonline"><bean:message key="guest.friends_online_titlelink" /> (3)
+    </a>
+    </b>
+    </div>
+    <div class="friends_block">
+        <table class="friends">
+            <tr>
+                <td align="left">
+                    <div align="center" style="width:65px;"><a href="javascript:alert('У вас недостаточно прав для использования данного функционала.')">
+
+                        <div class="photo_img">
+                             <span></span>
+                             <img src="../images/he_small.jpg">
+                        </div>
+                        <div class="photo_sign">Дмитриева<br>Дарья</div></a>
+                    </div>
+                </td>
+                <td align="left">
+                    <div align="center" style="width:65px;"><a href="javascript:alert('У вас недостаточно прав для использования данного функционала.')">
+
+                        <div class="photo_img">
+                             <span></span>
+                             <img src="../images/he_small.jpg">
+                        </div>
+                        <div class="photo_sign">Сидоров<br>Геннадий</div></a>
+                    </div>
+                </td>
+                <td align="left">
+                    <div align="center" style="width:65px;"><a href="javascript:alert('У вас недостаточно прав для использования данного функционала.')">
+
+                        <div class="photo_img">
+                             <span></span>
+                             <img src="../images/he_small.jpg">
+                        </div>
+                        <div class="photo_sign">Сергеева<br>Оксана</div></a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </div>
+    </div>
+    <div class="blue_title">
+    <div dojoType="dijit.TitlePane" id="TitPane7" title="<bean:message key="guest.teachers_titlename" />" width=60>
+    <div class="upl2">
+    <b class="uheadbl">
+        <a href="main.jsp#teachers/action=tonline"><bean:message key="guest.teachers_titlelink" /> (1)
+        </a>
+    </b>
+    </div>
+    <div class="friends_block">
+        <table class=friends>
+            <tr>
+                <td align="left">
+                    <div align="center" style="width:65px;">
+                        <a href="main.jsp#teacher">
+                            <div class="photo_img"><span></span><img src="../images/he_small.jpg"></div>
+                            <div class="photo_sign">Позднева<br>Инна</div>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </div>
+    </div>
+    </div>

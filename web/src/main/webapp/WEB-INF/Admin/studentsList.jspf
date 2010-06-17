@@ -1,0 +1,23 @@
+<%@ page pageEncoding="UTF-8" %>
+<c:forEach items="${list}" var="stud" varStatus="i">
+    <li class="first_back_<c:out value='${i.index%2 + 1}'/>_stteachers">
+        <div style=" float: left; height: 150px;">
+            <div style=" width: 106px; margin-right: 10px;"  class="fotoborder1">
+                <a href='main.jsp#student/id=${stud.id}'>
+                    <img style="border: 3px solid white; padding: 0px;" src='../loadPhoto?id=${stud.id}&type=student&size=medium'>
+                </a>
+            <div class="otdelitel"></div>
+            </div>
+        </div>
+        <div>
+            <p class=fio_friend><b>ФИО:</b> ${stud.surname} ${stud.name} ${stud.second_name}</p>
+            <p><b>Факультет:</b> ${stud.faculty}</p>
+            <p class=ostup_sleva><b>Специальность:</b> ${stud.spec.name}</p>
+            <p class=ostup_sleva><b>Город:</b> ${stud.city.name}</p>
+
+            <a class='teh_a'  href="main.jsp#write_msg/id_send=${stud.id}&type_send=4&type_let=1"><img src="../images/pero.png"> Написать письмо</a><br>
+            <a class='teh_a'  href='anotherType.do?type=student&id=<c:out value="${stud.id}"/>'>Зайти под студентом</a>
+        </div>
+        <div align="centr"><div class="otdelitel"></div></div>
+    </li>
+</c:forEach>

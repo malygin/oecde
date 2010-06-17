@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+        "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+    <display-name/>
+    <description/>
+    <data-sources/>
+    <form-beans/>
+    <global-exceptions/>
+    <global-forwards/>
+    <action-mappings>
+        <action path="/check_user" scope="request" type="login.controller.checkUser">
+            <forward name="student" path="/Student/main.jsp" redirect="true"/>
+            <forward name="teacher" path="/Teacher/main.jsp" redirect="true"/>
+            <forward name="superadmin" path="/Admin/main.jsp" redirect="true"/>
+            <forward name="admin" path="/AdminLite/main.jsp" redirect="true"/>
+            <forward name="guest" path="/Guest/main.jsp" redirect="true"/>
+            <forward name="error" path="/index.jsp" redirect="true"/>
+        </action>
+        <action path="/signOn" type="login.controller.SignOn" validate="false" input="/index.jsp">
+            <forward name="success" path="/check_user.do"/>
+            <forward name="error" path="/index.jsp?error=true" redirect="true"/>
+        </action>
+        <action path="/DeleteMessage" type="msgs.controller.DeleteMessage">
+            <forward name="success" path="/msgs.html"/>
+            <forward name="error" path="/ErrorSendPages.view"/>
+        </action>
+        <action path="/ArchMessage" type="msgs.controller.ArchMessage">
+            <forward name="success" path="/msgs.html"/>
+            <forward name="error" path="/ErrorSendPages.view"/>
+        </action>
+        <action path="/SendMessage" type="msgs.controller.SendMessage">
+            <forward name="success" path="/msgs.html"/>
+            <forward name="error" path="/ErrorSendPages.view"/>
+        </action>
+        <action path="/parse" type="plan.controller.ParsePlan">
+            <forward name="success" path="/plan_disc.jsp"/>
+            <forward name="error" path="/plan_error.jsp"/>
+        </action>
+        <action path="/Student/page" type="student.controller.getStudentPage" validate="false">
+            <forward name="" path="/Student/mainContent.jsp"/>
+            <forward name="test" path="/temp.jsp"/>
+            <forward name="info" path="/Student/info.jsp"/>
+            <forward name="mat" path="/Student/materials.jsp"/>
+            <forward name="course" path="/Student/passport.jsp"/>
+            <forward name="admin" path="/Student/admin.jsp"/>
+            <forward name="SUPERADMIN" path="/Student/admin.jsp"/>
+            <forward name="grades" path="/Student/grades.jsp"/>
+            <forward name="shedule" path="/Student/shedule.jsp"/>
+            <forward name="cw" path="/Student/controlworks_last.jsp"/>
+            <forward name="gCw" path="/Student/groupControlWorks.jsp"/>
+            <forward name="coursew" path="/Student/courseworks.jsp"/>
+            <forward name="help" path="/Student/help.jsp"/>
+            <forward name="events" path="/Student/jornalir_all_events_for_student.jsp"/>
+            <forward name="education" path="/Student/education.jsp"/>
+            <forward name="library" path="/Student/library.jsp"/>
+            <forward name="gbook" path="/Student/gradesbook.jsp"/>
+            <forward name="settings" path="/Student/settings.jsp"/>
+            <forward name="students" path="/Student/students.jsp"/>
+            <forward name="teachers" path="/Student/teachers.jsp"/>
+            <forward name="search" path="/Student/search.jsp"/>
+            <forward name="student" path="/Student/student.jsp"/>
+            <forward name="STUDENT" path="/Student/student.jsp"/>
+            <forward name="teacher" path="/Student/teacher.jsp"/>
+            <forward name="news" path="/Student/news.jsp"/>
+            <forward name="testresults" path="/Student/testresults.jsp"/>
+            <forward name="discresults" path="/Student/discTests.jsp"/>
+            <forward name="msg" path="/Student/messages_list.jsp?list=in&amp;"/>
+            <forward name="msg_student" path="/Student/messages_list.jsp?list=in_student&amp;"/>
+            <forward name="msg_teacher" path="/Student/messages_list.jsp?list=in_teacher&amp;"/>
+            <forward name="msg_admin" path="/Student/messages_list.jsp?list=in_admin&amp;"/>
+            <forward name="out_msg" path="/Student/messages_list.jsp?list=out&amp;"/>
+            <forward name="arch_msg" path="/Student/messages_list.jsp?list=arch&amp;"/>
+            <forward name="write_msg" path="/Student/message_write.jsp"/>
+            <forward name="read_msg" path="/Student/message_read.jsp"/>
+            <forward name="read_msg_out" path="/Student/message_read_out.jsp"/>
+            <forward name="dialog_msg" path="/Student/message_dialog.jsp"/>
+            <forward name="cht" path="/Student/big_chat_page.jsp"/>
+            <forward name="newsList" path="/spring/news/listNews.jsp"/>
+            <forward name="newsFullText" path="/spring/news/fullText.jsp"/>
+            <forward name="newsAdd" path="/spring/news/newsAdd.jsp"/>
+            <forward name="forum" path="/Student/forum.jsp"/>
+        </action>
+        <action path="/Guest/page" type="guest.controller.getGuestPage" validate="false">
+            <forward name="" path="/Guest/mainContent.jsp"/>
+            <forward name="test" path="/temp.jsp"/>
+            <forward name="info" path="/Guest/info.jsp"/>
+            <forward name="mat" path="/Guest/materials.jsp"/>
+            <forward name="course" path="/Guest/passport.jsp"/>
+            <forward name="grades" path="/Guest/grades.jsp"/>
+            <forward name="shedule" path="/Guest/shedule.jsp"/>
+            <forward name="cw" path="/Guest/controlworks_last.jsp"/>
+            <forward name="gCw" path="/Guest/groupControlWorks.jsp"/>
+            <forward name="coursew" path="/Guest/courseworks.jsp"/>
+            <forward name="help" path="/Guest/help.jsp"/>
+            <forward name="events" path="/Guest/jornalir_all_events_for_student.jsp"/>
+            <forward name="education" path="/Guest/education.jsp"/>
+            <forward name="library" path="/Guest/library.jsp"/>
+            <forward name="week_shed" path="/Guest/shed_week.jsp"/>
+            <forward name="settings" path="/Guest/settings.jsp"/>
+            <forward name="students" path="/Guest/students.jsp"/>
+            <forward name="teachers" path="/Guest/teachers.jsp"/>
+            <forward name="search" path="/Guest/search.jsp"/>
+            <forward name="student" path="/Guest/student.jsp"/>
+            <forward name="teacher" path="/Guest/teacher.jsp"/>
+            <forward name="news" path="/Guest/news.jsp"/>
+            <forward name="testresults" path="/Guest/testresults.jsp"/>
+            <forward name="discresults" path="/Guest/discTests.jsp"/>
+            <forward name="testpassing" path="/Guest/testPassing.jsp"/>
+            <forward name="msg" path="/Guest/messages_list.jsp?list=in&amp;"/>
+            <forward name="msg_student" path="/Guest/messages_list.jsp?list=in_student&amp;"/>
+            <forward name="msg_teacher" path="/Guest/messages_list.jsp?list=in_teacher&amp;"/>
+            <forward name="msg_admin" path="/Guest/messages_list.jsp?list=in_admin&amp;"/>
+            <forward name="out_msg" path="/Guest/messages_list.jsp?list=out&amp;"/>
+            <forward name="arch_msg" path="/Guest/messages_list.jsp?list=arch&amp;"/>
+            <forward name="write_msg" path="/Guest/message_write.jsp"/>
+            <forward name="read_msg" path="/Guest/message_read.jsp"/>
+            <forward name="read_msg_out" path="/Guest/message_read_out.jsp"/>
+            <forward name="gbook" path="/Guest/gradesbook.jsp"/>
+
+        </action>
+        <action path="/Teacher/page" type="teacher.controller.getTeacherPage">
+            <forward name="course" path="/Teacher/passport.jsp"/>
+            <forward name="test" path="/temp.jsp"/>
+            <forward name="mat" path="/Teacher/materials.jsp"/>
+            <forward name="student" path="/Teacher/student.jsp"/>
+            <forward name="" path="/Teacher/mainContent.jsp"/>
+            
+            <forward name="help" path="/Teacher/help.jsp"/>
+            <forward name="week_shed" path="/Teacher/shed_week.jsp"/>
+            <forward name="shedule" path="/Teacher/shedule.jsp"/>
+            <forward name="msg" path="/Teacher/messages_list.jsp?list=in&amp;"/>
+            <forward name="msg_student" path="/Teacher/messages_list.jsp?list=in_student&amp;"/>
+            <forward name="msg_teacher" path="/Teacher/messages_list.jsp?list=in_teacher&amp;"/>
+            <forward name="msg_admin" path="/Teacher/messages_list.jsp?list=in_admin&amp;"/>
+            <forward name="out_msg" path="/Teacher/messages_list.jsp?list=out&amp;"/>
+            <forward name="arch_msg" path="/Teacher/messages_list.jsp?list=arch&amp;"/>
+            <forward name="write_msg" path="/Teacher/message_write.jsp"/>
+            <forward name="read_msg" path="/Teacher/message_read.jsp"/>
+            <forward name="read_msg_out" path="/Teacher/message_read_out.jsp"/>
+            <forward name="dialog_msg" path="/Teacher/message_dialog.jsp"/>
+            <forward name="attendance" path="/Teacher/attendance.jsp"/>
+            <forward name="grtests" path="/Teacher/groupTestResults.jsp"/>
+            
+            <forward name="news" path="/Teacher/news.jsp"/>
+            <forward name="testpassing" path="/Teacher/testPassing.jsp"/>
+            <forward name="cw" path="/Teacher/controlworks_teacher.jsp"/>
+            <forward name="events" path="/Teacher/journalir_view_of_events.jsp"/>
+            <forward name="cht" path="/Teacher/big_chat_page.jsp"/>
+            <forward name="cwl" path="/Teacher/controlWorksList.jsp"/>
+            <forward name="newsList" path="/spring/news/listNews.jsp"/>
+            <forward name="newsFullText" path="/spring/news/fullText.jsp"/>
+            <forward name="newsAdd" path="/spring/news/newsAdd.jsp"/>
+            <forward name="forum" path="/Teacher/forum.jsp"/>
+            <forward name="grades" path="/Teacher/newGradesInterface.jsp"/>
+        </action>
+        <action path="/Admin/page" type="admin.controller.getAdminPage">
+            <forward name="test" path="/temp.jsp"/>
+            <forward name="" path="/Admin/mainContent.jsp"/>
+            <forward name="groups" path="/Admin/Groups.jsp"/>
+            <forward name="report" path="/Admin/report.jsp"/>
+            <forward name="teachers" path="/Admin/teachers.jsp"/>
+            <forward name="mat" path="/Admin/materials.jsp"/>
+            <forward name="news" path="/Admin/news.jsp"/>
+            <forward name="course" path="/Admin/passport.jsp"/>
+            <forward name="admin" path="/Admin/admin.jsp"/>
+            <forward name="SUPERADMIN" path="/Admin/admin.jsp"/>
+            <forward name="search" path="/Admin/search.jsp"/>
+            <forward name="main" path="/Admin/mainContent.jsp"/>
+            <forward name="student" path="/Admin/student.jsp"/>
+            <forward name="STUDENT" path="/Admin/student.jsp"/>
+            <forward name="teacher" path="/Admin/teacher.jsp"/>
+            <forward name="students" path="/Admin/students.jsp"/>
+            <forward name="testpassing" path="/Admin/testPassing.jsp"/>
+            <forward name="umkEvents" path="/Admin/jornalir_about_one_YMK.jsp"/>
+            <forward name="stEvents" path="/Admin/jornalir_about_one_student.jsp"/>
+            <forward name="events" path="/Admin/mainContent.jsp"/>
+            <forward name="newEvent" path="/Admin/ownevent.jsp"/>
+            <forward name="msg" path="/Admin/messages_list.jsp?list=in&amp;"/>
+            <forward name="msg_student" path="/Admin/messages_list.jsp?list=in_student&amp;"/>
+            <forward name="msg_teacher" path="/Admin/messages_list.jsp?list=in_teacher&amp;"/>
+            <forward name="msg_admin" path="/Admin/messages_list.jsp?list=in_admin&amp;"/>
+            <forward name="out_msg" path="/Admin/messages_list.jsp?list=out&amp;"/>
+            <forward name="arch_msg" path="/Admin/messages_list.jsp?list=arch&amp;"/>
+            <forward name="write_msg" path="/Admin/message_write.jsp"/>
+            <forward name="read_msg" path="/Admin/message_read.jsp"/>
+            <forward name="dialog_msg" path="/Admin/message_dialog.jsp"/>
+            <forward name="read_msg_out" path="/Admin/message_read_out.jsp"/>
+            <forward name="cht" path="/Admin/big_chat_page.jsp"/>
+            <forward name="news1" path="/Admin/news1.jsp"/>
+            <forward name="newsList" path="/spring/news/listNews.jsp"/>
+            <forward name="newsFullText" path="/spring/news/fullText.jsp"/>
+            <forward name="newsAdd" path="/spring/news/newsAdd.jsp"/>
+            <forward name="forum" path="/Admin/forum.jsp"/>
+            <forward name="cityForums" path="/Admin/cityForums.jsp"/>
+        </action>
+        <action path="/AdminLite/page" type="admin.controller.getLiteAdminPage">
+            <forward name="test" path="/temp.jsp"/>
+            <forward name="" path="/AdminLite/mainContent.jsp"/>
+            <forward name="groups" path="/AdminLite/Groups.jsp"/>
+            <forward name="mat" path="/AdminLite/materials.jsp"/>
+            <forward name="news" path="/AdminLite/news.jsp"/>
+            <forward name="course" path="/AdminLite/passport.jsp"/>
+            <forward name="search" path="/AdminLite/search.jsp"/>
+            <forward name="main" path="/AdminLite/mainContent.jsp"/>
+            <forward name="student" path="/AdminLite/student.jsp"/>
+            <forward name="students" path="/AdminLite/students.jsp"/>
+            <forward name="umkEvents" path="/AdminLite/jornalir_about_one_YMK.jsp"/>
+            <forward name="stEvents" path="/AdminLite/jornalir_about_one_student.jsp"/>
+            <forward name="shedule" path="/AdminLite/shedule.jsp"/>
+            <forward name="exameShedule" path="/AdminLite/exameShedule.jsp"/>
+            <forward name="events" path="/AdminLite/mainContent.jsp"/>
+            <forward name="msg" path="/AdminLite/messages_list.jsp?list=in&amp;"/>
+            <forward name="msg_student" path="/AdminLite/messages_list.jsp?list=in_student&amp;"/>
+            <forward name="msg_teacher" path="/AdminLite/messages_list.jsp?list=in_teacher&amp;"/>
+            <forward name="msg_admin" path="/AdminLite/messages_list.jsp?list=in_admin&amp;"/>
+            <forward name="out_msg" path="/AdminLite/messages_list.jsp?list=out&amp;"/>
+            <forward name="arch_msg" path="/AdminLite/messages_list.jsp?list=arch&amp;"/>
+            <forward name="write_msg" path="/AdminLite/message_write.jsp"/>
+            <forward name="read_msg" path="/AdminLite/message_read.jsp"/>
+            <forward name="read_msg_out" path="/AdminLite/message_read_out.jsp"/>
+
+            <forward name="newsList" path="/spring/news/listNews.jsp"/>
+            <forward name="newsFullText" path="/spring/news/fullText.jsp"/>
+            <forward name="newsAdd" path="/spring/news/newsAdd.jsp"/>
+
+            <forward name="forum" path="/AdminLite/forum.jsp"/>
+        </action>
+        <action path="/Admin/anotherType" type="admin.controller.goToAnotherType">
+            <forward name="student" path="/Student/main.jsp" redirect="true"/>
+            <forward name="teacher" path="/Teacher/main.jsp" redirect="true"/>
+            <forward name="admin" path="/AdminLite/main.jsp" redirect="true"/>
+            <forward name="error" path="/Admin/main.jsp" redirect="true"/>
+        </action>
+        <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+    </action-mappings>
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="utils.languages.menu"/>
+
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+   Paths found in Tiles definitions are relative to the main context.
+
+    <plug-in className="org.apache.struts.tiles.TilesPlugin">
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml"/>
+        <set-property property="moduleAware" value="true"/>
+    </plug-in>
+ -->
+    <!--   ========================= Validator plugin ================================= 
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+                property="pathnames"
+                value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+-->
+</struts-config>

@@ -1,0 +1,19 @@
+<div align="center" style="color: #03b63a;">
+    <c:set var="st" value="3"/>
+    <c:forEach begin="1" end="${maxPageNumber}" step="1" var="counter">
+
+        <c:if test="${(counter eq (st + 1)) and (pageNumber gt (2 * st + 1))}">...</c:if>
+        <c:if test="${(counter eq (maxPageNumber - st)) and (pageNumber lt (maxPageNumber - 2 * st))}">...</c:if>
+        
+        <c:if test="${(counter le st) or ((counter le (pageNumber + st)) and (counter ge (pageNumber - st))) or (counter gt (maxPageNumber - st))}">
+            <c:choose>
+                <c:when test="${counter == pageNumber}">
+                    ${counter}
+                </c:when>
+                <c:otherwise>
+                    <a class="pages_journalir" href="javascript:dojo.byId('pN').value=${counter};sendProperties()">${counter}</a>
+                </c:otherwise>
+            </c:choose>
+        </c:if>                   
+    </c:forEach>
+</div>

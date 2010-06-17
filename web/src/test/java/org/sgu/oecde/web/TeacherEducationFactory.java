@@ -148,7 +148,7 @@ public class TeacherEducationFactory extends BasicTest{
         c.add(fillCurriculum());
         List sl = getStudentsList(22510L);
         setDao("resultDao");
-        List<AbstractResult> l = this.<IResultDao>getDao().getByStudentsAnsCurriculums(c, sl, null);
+        List<AbstractResult> l = this.<IResultDao>getDao().getByStudentsAndCurriculums(c, sl, null);
         pf.forEachResult(l, true,filters);
     }
 

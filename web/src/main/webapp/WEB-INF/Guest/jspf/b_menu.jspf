@@ -1,0 +1,23 @@
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
+
+<div class="bot_menu">
+<div class="top_sh_bot_menu">
+<div class="l_t_ang_bot_menu">
+<div class="r_t_ang_bot_menu">
+<div class="bot_menu_links" align="center">
+<div class="bottom_links">
+<ol>
+<li><a href="main.jsp#info"><bean:message key="bottommenu_field1" /></a></li>
+<li><img src="../images/sep1.jpg"></li>
+<li><a href="main.jsp#help"><bean:message key="bottommenu_field2" /></a></li>
+<li><img src="../images/sep1.jpg"></li>
+<li><a href="main.jsp#settings"><bean:message key="bottommenu_field3" /></a></li>
+<li><p>© Copyright ЦОО СГУ 2008</p></li>
+</ol><div align="centr"><div class="otdelitel"></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

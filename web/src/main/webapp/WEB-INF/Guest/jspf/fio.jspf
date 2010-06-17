@@ -1,0 +1,15 @@
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
+
+<div class="fio_inf">
+<div class="left_sh_fio">
+<div class="bot_sh_fio">
+<div class="l_ang_fio">
+<div class="fio">
+<p class="p1"><a href="http://www.sgu.ru"><bean:message key="sgulink_name" /></a></p>
+<p class="p2">Иванов Василий Петрович</p>
+</div>
+</div>
+</div>
+</div>
+</div>
