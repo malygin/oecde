@@ -11,18 +11,15 @@
     <global-exceptions/>
     <global-forwards/>
     <action-mappings>
-        <action path="/check_user" scope="request" type="login.controller.checkUser">
+        <action path="/redirect" scope="request" type="org.sgu.oecde.web.controller.checkUser">
             <forward name="student" path="/Student/main.jsp" redirect="true"/>
             <forward name="teacher" path="/Teacher/main.jsp" redirect="true"/>
-            <forward name="superadmin" path="/Admin/main.jsp" redirect="true"/>
-            <forward name="admin" path="/AdminLite/main.jsp" redirect="true"/>
+            <forward name="admin" path="/Admin/main.jsp" redirect="true"/>
+            <forward name="supervisor" path="/AdminLite/main.jsp" redirect="true"/>
             <forward name="guest" path="/Guest/main.jsp" redirect="true"/>
             <forward name="error" path="/index.jsp" redirect="true"/>
         </action>
-        <action path="/signOn" type="login.controller.SignOn" validate="false" input="/index.jsp">
-            <forward name="success" path="/check_user.do"/>
-            <forward name="error" path="/index.jsp?error=true" redirect="true"/>
-        </action>
+        <!--
         <action path="/DeleteMessage" type="msgs.controller.DeleteMessage">
             <forward name="success" path="/msgs.html"/>
             <forward name="error" path="/ErrorSendPages.view"/>
@@ -234,12 +231,13 @@
             <forward name="admin" path="/AdminLite/main.jsp" redirect="true"/>
             <forward name="error" path="/Admin/main.jsp" redirect="true"/>
         </action>
-        <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+        <action path="/Welcome" forward="/welcomeStruts.jsp"/>-->
     </action-mappings>
+    <!--
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
 
     <message-resources parameter="utils.languages.menu"/>
-
+-->
     <!-- ========================= Tiles plugin ===============================-->
     <!--
     This plugin initialize Tiles definition factory. This later can takes some

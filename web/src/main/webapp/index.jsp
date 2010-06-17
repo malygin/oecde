@@ -75,13 +75,8 @@ pageTracker._trackPageview();
 			<div class="white_part">
 <br>
 <p class="grey_text_login2" align="center">ВНИМАНИЕ!</p>1
-<%/*
-for (String o:session.getValueNames()){
-    out.println(o);
-    out.println(session.getAttribute(o));
-    out.println("<br>");
-    }*/
-out.println(((org.springframework.security.context.SecurityContextImpl)(session.getAttribute("SPRING_SECURITY_CONTEXT"))).getAuthentication().getAuthorities()[0]);
+<%
+//out.println(((org.springframework.security.context.SecurityContextImpl)(session.getAttribute("SPRING_SECURITY_CONTEXT"))).getAuthentication().getAuthorities()[0].getAuthority());
 %>1
 <p class="grey_text_login">
 В 2008 году Саратовский Государственный университет  начал реализовывать систему дистанционного обучения, которая делает возможным получение образования независимо от места проживания и удаленности от  вуза. </p>

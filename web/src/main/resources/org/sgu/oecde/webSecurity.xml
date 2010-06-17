@@ -9,10 +9,13 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 
  <http >
     <intercept-url pattern="/index.jsp" filters="none" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-    <intercept-url pattern="/Admin/main.jsp" access="ROLE_ADMIN" />
+    <intercept-url pattern="/Admin/**" access="ROLE_ADMIN" />
+    <intercept-url pattern="/Student/**" access="ROLE_STUDENT,ROLE_ADMIN" />
+    <intercept-url pattern="/Teacher/**" access="ROLE_TEACHER,ROLE_ADMIN" />
+    <intercept-url pattern="/AdminLite/**" access="ROLE_SUPERVISOR,ROLE_ADMIN" />
     <anonymous />
     <remember-me services-ref="rememberMeServices"/>
-    <form-login login-page="/index.jsp" authentication-failure-url="/index.jsp?error=1" always-use-default-target='false' />
+    <form-login login-page="/index.jsp" default-target-url="/redirect.do" always-use-default-target="true" authentication-failure-url="/index.jsp?error=1" />
   </http>
 
   <beans:import resource="applicationContext-security.xml"/>
