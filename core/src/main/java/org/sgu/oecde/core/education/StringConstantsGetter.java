@@ -3,25 +3,27 @@ package org.sgu.oecde.core.education;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.PostConstruct;
 import org.sgu.oecde.core.education.dao.IConstantsDao;
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.util.Assert;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.util.CollectionUtils;
 
 /**
  *
  * @author ShihovMY
  */
-public class StringConstantsGetter implements InitializingBean{
+public class StringConstantsGetter{
+    
+    @Autowired(required=true)
     private IConstantsDao csDao;
     protected final Map<ICalendarConstantName,String> constants = new HashMap();
     protected final String key = "name";
     protected final String value = "value";
     private String entityName;
 
+    @PostConstruct
     public void afterPropertiesSet() throws Exception{
-        Assert.notNull(csDao,"ConstantsDao is null");
-        Assert.hasText(entityName,"entityName has no text");
         fillConstantsMap();
     }
     
@@ -65,6 +67,7 @@ public class StringConstantsGetter implements InitializingBean{
     protected void fillConstantsMap(String entityName){
     }
 
+    @Required
     public void setEntityName(String entityName) {
         this.entityName = entityName;
     }

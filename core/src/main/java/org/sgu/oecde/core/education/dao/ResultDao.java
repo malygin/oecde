@@ -24,7 +24,7 @@ public class ResultDao<T extends AbstractResult> extends BasicDao<T> implements 
     }
 
     @Override
-    public List<T> getByStudentsAnsCurriculums(List<? extends Curriculum> curriculums, List<? extends AbstractStudent> students, T result) throws DataAccessException {
+    public List<T> getByStudentsAndCurriculums(List<? extends Curriculum> curriculums, List<? extends AbstractStudent> students, T result) throws DataAccessException {
         Criteria cr =  getSession().createCriteria(type);
         if(result!=null){
             result.setCurriculum(null);

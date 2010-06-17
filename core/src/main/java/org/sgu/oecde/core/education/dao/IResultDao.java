@@ -13,5 +13,5 @@ import org.springframework.dao.DataAccessException;
  */
 public interface IResultDao<T extends AbstractResult> extends IBasicDao<T>{
     @SuppressWarnings("unchecked")
-    public List<T> getByStudentsAnsCurriculums(List<? extends Curriculum>curriculums,List<? extends AbstractStudent>students, T result) throws DataAccessException;
+    public List<T> getByStudentsAndCurriculums(List<? extends Curriculum>curriculums,List<? extends AbstractStudent>students, T result) throws DataAccessException;
 }

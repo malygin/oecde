@@ -13,20 +13,23 @@ import org.sgu.oecde.core.users.Admin;
 import org.sgu.oecde.core.users.Supervisor;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.de.users.Teacher;
+import org.springframework.security.userdetails.UserDetailsService;
+import org.springframework.test.context.ContextConfiguration;
 import static org.junit.Assert.*;
 
 /**
  *
  * @author ShihovMY
  */
+@ContextConfiguration(locations={"../applicationContext.xml","../applicationContext-security.xml"})
 public class getUsers extends BasicTest{
 
 
-    @Ignore
+//    @Ignore
     @Test
     public void getByName(){
-        this.setDao("userDao");
-         System.out.println(this.<AbstractUser>getByExample(AbstractUser.getUserWithName("belousovyae")));
+        UserDetailsService uds = getBean("UserDetailsServiceImpl");
+        System.out.println(uds.loadUserByUsername("shihovmy"));
     }
 
     @Ignore

@@ -7,12 +7,14 @@ import java.util.ListIterator;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.work.AbstractResult;
 import org.sgu.oecde.core.users.AbstractStudent;
+import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 /**
  *
  * @author ShihovMY
  */
+@Service(value="preFilter")
 public class ResultPreFilter {
 
     private ResultPreFilter() {

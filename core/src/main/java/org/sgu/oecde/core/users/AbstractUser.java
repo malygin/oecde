@@ -14,12 +14,12 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
     private String password;
     private String username;
     private GrantedAuthority[] authorities;
-    private Boolean enabled=true;
-    private Boolean accountNonLocked;
+    private boolean enabled = true;
+    private Boolean fullAccess;
     private String largePhoto;
     private String mediumPhoto;
     private String smallPhoto;
-    private transient Boolean online=false;
+    private transient boolean online=false;
     private static final long serialVersionUID = 61L;
 
     private AbstractUser(String userName){
@@ -36,7 +36,7 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
        authorities = new GrantedAuthority[1];
     }
 
-    public void setEnabled(Boolean enabled) {
+    public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 
@@ -63,12 +63,20 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
         this.username = username;
     }
 
-    public Boolean isOnline() {
+    public boolean isOnline() {
         return online;
     }
 
-    public void setOnline(Boolean online) {
+    public void setOnline(boolean online) {
         this.online = online;
+    }
+
+    public Boolean getFullAccess() {
+        return fullAccess;
+    }
+
+    public void setFullAccess(Boolean fullAccess) {
+        this.fullAccess = fullAccess;
     }
 
     public String getLargePhoto() {
@@ -94,23 +102,15 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
     public void setSmallPhoto(String smallPhoto) {
         this.smallPhoto = smallPhoto;
     }
-
-    /**
-	 * 
-	 * @return 
-	 */
-	@Override
+    
+    @Override
     public boolean isAccountNonExpired() {
         return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return accountNonLocked;
-    }
-
-    public void setAccountNonLocked(Boolean accountNonLocked) {
-        this.accountNonLocked = accountNonLocked;
+        return true;
     }
 
     public void setAuthority(GrantedAuthority authority) {
@@ -121,11 +121,7 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
         return (authorities!=null&&authorities.length>0)?authorities[0]:null;
     }
 
-    /**
-	 * 
-	 * @return 
-	 */
-	@Override
+    @Override
     public boolean isCredentialsNonExpired() {
         return true;
     }

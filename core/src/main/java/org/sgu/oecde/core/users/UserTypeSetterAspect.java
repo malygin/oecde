@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.core.users;
 
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -18,7 +13,7 @@ import org.springframework.cache.ehcache.EhCacheFactoryBean;
 @Aspect
 public class UserTypeSetterAspect {
     @Autowired
-    EhCacheFactoryBean cache;
+    EhCacheFactoryBean userCacheBackend;
 
     private UserTypeSetterAspect() {
     }

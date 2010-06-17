@@ -4,12 +4,14 @@ import org.sgu.oecde.core.education.CurriculumBuilder;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.de.users.Student;
+import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 /**
  *
  * @author ShihovMY
  */
+@Service(value="curriculumBuilder")
 public class DeCurriculumBuilder extends CurriculumBuilder<DeCurriculum>{
 
     public DeCurriculum getInstance(){
