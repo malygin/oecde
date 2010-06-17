@@ -2,17 +2,24 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-       ">
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+       " default-autowire="byName">
+  <context:annotation-config/>
+  <context:component-scan base-package="org.sgu.oecde">
+      <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+      <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+  </context:component-scan>
+  
   <bean id="semesterGetter" parent="constantsGetter" p:entityName="main constants" class="org.sgu.oecde.core.util.SemesterGetter"/>
-  <bean id="preFilter" class="org.sgu.oecde.core.education.estimation.ResultPreFilter"/>
-  <bean class="org.sgu.oecde.core.education.estimation.EstimateFilter" id="estimateFilter" />
 
   <bean abstract="true" class="org.sgu.oecde.core.BasicDao" id="basicDao" >
       <property name="sessionFactory" ref="sessionFactory"/>
   </bean>
   <bean abstract="true" parent="basicDao" class="org.sgu.oecde.core.UpdateDao" id="updateDao" />
-  <bean abstract="true" p:csDao-ref="csDao" class="org.sgu.oecde.core.education.StringConstantsGetter" id="constantsGetter" />
+  <bean abstract="true" class="org.sgu.oecde.core.education.StringConstantsGetter" id="constantsGetter" />
+  
   <import resource="spring/daoBeans.xml"/>
   <import resource="spring/dbBeans.xml"/>
 </beans>

@@ -34,11 +34,11 @@
   <bean p:dataSource-ref="dataSource" id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
     <property name="mappingDirectoryLocations">
         <list>
-            <value>/org/sgu/oecde/mapping/</value>
+            <value>classpath:/org/sgu/oecde/mapping/</value>
         </list>
     </property>
     <property name="hibernateProperties">
-        <util:properties location="org/sgu/oecde/hibernate.properties" />
+        <util:properties location="classpath:/org/sgu/oecde/hibernate.properties" />
     </property>
   </bean>
 
