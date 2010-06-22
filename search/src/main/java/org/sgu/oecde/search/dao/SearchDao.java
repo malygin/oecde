@@ -1,14 +1,11 @@
 package org.sgu.oecde.search.dao;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.util.Assert;
-import org.springframework.util.ReflectionUtils;
 
 /**
  *
