@@ -38,7 +38,7 @@ public class MessageTest extends BasicTest{
         message.setFullText("полный текст");
         message.setDateMessage(DateConverter.currentDate());
         Student person=new Student();
-        person.setId(324725);
+        person.setId(new Long(324725));
         message.setAuthor(person);
         MessageFile file= new MessageFile();
         file.setName("file");
@@ -49,17 +49,17 @@ public class MessageTest extends BasicTest{
         files.add(file2);
 
         Student st1=new Student();
-        st1.setId(320815);
+        st1.setId(new Long(320815));
         MessageRecipient r1=new MessageRecipient();
         r1.setRecipient(st1);
 
         Admin st2=new Admin();
-        st2.setId(1);
+        st2.setId(new Long(1));
         MessageRecipient r2=new MessageRecipient();
         r2.setRecipient(st2);
       
         Teacher st3=new Teacher();
-        st3.setId(44240);
+        st3.setId(new Long(44240));
         MessageRecipient r3=new MessageRecipient();
         r3.setRecipient(st3);
         
@@ -97,16 +97,16 @@ public class MessageTest extends BasicTest{
           setDao("messageDao");
           Message mess= new Message();
          // mess.setId(10);
-          mess  =     this.<IMessageDao>getDao().getById(10);
-           System.out.println(" "+mess);
+          mess=this.<IMessageDao>getDao().getById(new Long(90));
+           System.out.println(" "+mess.getFullText());
 
  }
-    @Ignore
+    //@Ignore
     @Test
     public void getListIn(){
           setDao("messageDao");
          Student st1=new Student();
-         st1.setId(320815);
+         st1.setId(new Long(320815));
           List<Message> list = this.<IMessageDao>getDao().getListInAll(st1);
           for(Message l:list){
               System.out.println(" "+l.getId());
@@ -122,7 +122,7 @@ public class MessageTest extends BasicTest{
     @Test
     public void getListOut(){
           setDao("messageDao");
-          Student st=new Student(324725);
+          Student st=new Student(new Long(324725));
           List<Message> list = this.<IMessageDao>getDao().getListOutAll(st);
           System.out.println("! "+list);
  }
@@ -130,9 +130,9 @@ public class MessageTest extends BasicTest{
     @Test
     public void update(){
         Message message= new Message();
-        message.setId(92);
+        message.setId(new Long(92));
         Student st1=new Student();
-        st1.setId(324725);
+        st1.setId(new Long(324725));
         setDao("messageDao");       
         this.<IMessageDao>getDao().delete(message, st1);
         this.<IMessageDao>getDao().archive(message, st1);
@@ -145,7 +145,7 @@ public class MessageTest extends BasicTest{
     public void getCountListIn(){
           setDao("messageDao");
          Student st1=new Student();
-         st1.setId(320815);
+         st1.setId(new Long(320815));
           System.out.println("! "+this.<IMessageDao>getDao().getCountMessage(st1));
 
  }
@@ -155,7 +155,7 @@ public class MessageTest extends BasicTest{
     public void getListArchive(){
          setDao("messageDao");
          Student st1=new Student();
-         st1.setId(320815);
+         st1.setId(new Long(320815));
           List<Message> list = this.<IMessageDao>getDao().getListArchive(st1);
           for(Message l:list){
               System.out.println(" "+l.getId()); 
@@ -163,14 +163,14 @@ public class MessageTest extends BasicTest{
           }
      }
 
-   // @Ignore
+    @Ignore
     @Test
     public void getListDialog(){
          setDao("messageDao");
          Student st1=new Student();
-         st1.setId(320815);
+         st1.setId(new Long(320815));
          Student st2=new Student();
-         st2.setId(324725);
+         st2.setId(new Long(324725));
           List<Message> list = this.<IMessageDao>getDao().getListDialog(st1, st2);
           for(Message l:list){
               System.out.println(" "+l.getId());

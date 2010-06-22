@@ -16,6 +16,7 @@ import org.springframework.dao.DataAccessException;
  * created 08.06.2010
  * дао для сообщений
  */
+
 public class MessageDao  extends BasicDao<Message> implements IMessageDao{
 //TODO - объединить запросы
     private final String LIST_IN = "select m from Message m JOIN m.recipients  recipients  where recipients.recipient.id=:recipient_id and recipients.deleted=false ";
@@ -39,7 +40,7 @@ public class MessageDao  extends BasicDao<Message> implements IMessageDao{
     */
     @Override
     public List<Message> getListInAll(AbstractUser user) throws DataAccessException {
-        List <Message> messages=getSession().createQuery(LIST_IN+" and recipients.archived=false order by m.dateMessage desc").setInteger("recipient_id", user.getId()).list();
+        List <Message> messages=getSession().createQuery(LIST_IN+" and recipients.archived=false order by m.dateMessage desc").setLong("recipient_id", user.getId()).list();
        //обработаем список вытащим метки прочитано или нет в основной список
        for(Message l:messages){
            for(MessageRecipient r:l.getRecipients()){
@@ -102,7 +103,7 @@ public class MessageDao  extends BasicDao<Message> implements IMessageDao{
     public void delete(Message message, AbstractUser user) throws DataAccessException {
         StringBuilder query = new StringBuilder(UPDATE);
         query.insert(33, "deleted");      
-        getSession().createQuery(query.toString()).setInteger("recipient_id", user.getId()).setInteger("message_id", message.getId()).executeUpdate();
+        getSession().createQuery(query.toString()).setLong("recipient_id", user.getId()).setLong("message_id", message.getId()).executeUpdate();
   
     }
 
@@ -116,7 +117,7 @@ public class MessageDao  extends BasicDao<Message> implements IMessageDao{
     public void read(Message message, AbstractUser user) throws DataAccessException {
         StringBuilder query = new StringBuilder(UPDATE);
         query.insert(33, "readed");
-        getSession().createQuery(query.toString()).setInteger("recipient_id", user.getId()).setInteger("message_id", message.getId()).executeUpdate();
+        getSession().createQuery(query.toString()).setLong("recipient_id", user.getId()).setLong("message_id", message.getId()).executeUpdate();
 
     }
 
@@ -130,7 +131,7 @@ public class MessageDao  extends BasicDao<Message> implements IMessageDao{
     public void archive(Message message, AbstractUser user) throws DataAccessException {
         StringBuilder query = new StringBuilder(UPDATE);
         query.insert(33, "archived");
-        getSession().createQuery(query.toString()).setInteger("recipient_id", user.getId()).setInteger("message_id", message.getId()).executeUpdate();
+        getSession().createQuery(query.toString()).setLong("recipient_id", user.getId()).setLong("message_id", message.getId()).executeUpdate();
 
     }
 
@@ -142,7 +143,7 @@ public class MessageDao  extends BasicDao<Message> implements IMessageDao{
      */
     @Override
     public int getCountMessage(AbstractUser user) throws DataAccessException {
-      List<Long> list = getSession().createQuery(LIST_COUNT).setInteger("recipient_id", user.getId()).list();
+      List<Long> list = getSession().createQuery(LIST_COUNT).setLong("recipient_id", user.getId()).list();
          int  i = list.get(0).intValue();
          return i;
     }
@@ -155,7 +156,7 @@ public class MessageDao  extends BasicDao<Message> implements IMessageDao{
  */
     @Override
     public List<Message> getListArchive(AbstractUser user) throws DataAccessException { 
-          return getSession().createQuery(LIST_IN+" and recipients.archived=true order by m.dateMessage desc").setInteger("recipient_id", user.getId()).list();
+          return getSession().createQuery(LIST_IN+" and recipients.archived=true order by m.dateMessage desc").setLong("recipient_id", user.getId()).list();
      }
 /**
  * Возвращает диалог текущего пользователя с другим
@@ -166,7 +167,7 @@ public class MessageDao  extends BasicDao<Message> implements IMessageDao{
  */
     @Override
     public List<Message> getListDialog(AbstractUser current_user, AbstractUser user) throws DataAccessException {
-         return getSession().createQuery(LIST_DIALOG).setInteger("current_user_id", current_user.getId()).setInteger("user_id", user.getId()).list();
+         return getSession().createQuery(LIST_DIALOG).setLong("current_user_id", current_user.getId()).setLong("user_id", user.getId()).list();
     }
 
 
