@@ -9,7 +9,7 @@
     </id>
     <property not-null="true" name="time" column="root_time" type="string" length="19"/>
     <property name="title" type="string" length="3000"/>
-    <property name="objectId" type="integer" column="object_id"/>
+    <property name="objectId" type="long" column="object_id"/>
     <property name="open" type="boolean" scale="1"/>
     <many-to-one foreign-key="fk_root_usr" class="org.sgu.oecde.core.users.AbstractUser" name="user" column="root_owner" fetch="join"/>
     <property column="object_type" name="objectType" not-null="true">

@@ -6,6 +6,5 @@
        ">
 <bean id="nodeDao"  parent="updateDao" class="org.sgu.oecde.discussion.dao.NodeDao" />
 <bean id="rootDao"  parent="updateDao" class="org.sgu.oecde.discussion.dao.RootDao" />
-<bean scope="prototype" id="discussionDaoProxy" p:rootDao-ref="rootDao" class="org.sgu.oecde.discussion.DiscussionDaoProxy" />
 
 </beans>

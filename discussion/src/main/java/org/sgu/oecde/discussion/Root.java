@@ -16,7 +16,7 @@ import org.sgu.oecde.core.users.AbstractUser;
  */
 public class Root extends BasicItem implements Comparable {
 
-    private Integer objectId;
+    private Long objectId;
     private ForumTypes objectType;
     private String time;
     private Boolean open;
@@ -35,7 +35,7 @@ public class Root extends BasicItem implements Comparable {
         setId(id);
     }
 
-    public Root(Integer objectId, ForumTypes objectType) {
+    public Root(Long objectId, ForumTypes objectType) {
         this.objectId = objectId;
         this.objectType = objectType;
     }
@@ -142,11 +142,11 @@ public class Root extends BasicItem implements Comparable {
     }
 
 
-    public Integer getObjectId() {
+    public Long getObjectId() {
         return objectId;
     }
 
-    public void setObjectId(Integer objectId) {
+    public void setObjectId(Long objectId) {
         this.objectId = objectId;
     }
 

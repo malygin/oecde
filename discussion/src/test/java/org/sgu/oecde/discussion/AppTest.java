@@ -29,7 +29,7 @@ public class AppTest extends BasicTest{
     public void addComment(){
         Long nodeId = 8L;
         Long idParent = 18L;
-        int idObject = 5;
+        Long idObject = 5L;
         String typeObject = "stfaq";
         String message = "ответ номер 3 ";
         setDao("nodeDao");
@@ -77,12 +77,12 @@ public class AppTest extends BasicTest{
         System.out.println(node.getChildren());
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void getRoot(){
         DiscussionDaoProxy dp = this.<DiscussionDaoProxy>getBean("discussionDaoProxy");
-        dp.setIdObject(5);
-        dp.setTypeObject("stfaq");
+        dp.setIdObject(1182L);
+        dp.setTypeObject("news");
         dp.setCurrentPage(1);
         Root r = dp.getRoot();
         Set<Node> nodes = dp.getPage();

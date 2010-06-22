@@ -7,17 +7,23 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import org.sgu.oecde.discussion.dao.IRootDao;
 import org.sgu.oecde.discussion.util.NodeRevertComparator;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 /**
  * @author BasakovVY
  */
+@Scope("prototype")
+@Service
 public class DiscussionDaoProxy {
 
+    @Autowired
     private IRootDao rootDao;
 
     private Root root;
-    private int idObject;
+    private Long idObject;
     private String typeObject;
     private int postPerPage = 10;
     private List<SortedSet<Node>> list = null;
@@ -62,14 +68,14 @@ public class DiscussionDaoProxy {
     }
 
     public Root getRoot() {
-        if (idObject == 0) {
+        if (idObject == null) {
             throw new IllegalStateException("Not all of fields have been initialised");
         }
         return root != null ? root : new Root(-1L);
     }
 
-    public void setIdObject(int idObject) {
-        if (this.idObject!=0) {
+    public void setIdObject(Long idObject) {
+        if (this.idObject!=null) {
             throw new IllegalStateException("idObject has already been initialised");
         }
         this.idObject = idObject;
@@ -86,7 +92,7 @@ public class DiscussionDaoProxy {
             throw new IllegalStateException("typeObject has already been initialised");
         }
         this.typeObject = typeObject;
-        if (idObject!=0) {
+        if (idObject!=null) {
             root = getRoot(idObject, typeObject.trim());
             if (root != null && root.getChildren() != null && root.getChildren().size() > 0) {
                 makePages(root.getChildren());
@@ -94,7 +100,7 @@ public class DiscussionDaoProxy {
         }
     }
 
-    private Root getRoot(int idObject, String typeObject){
+    private Root getRoot(Long idObject, String typeObject){
         Root r = new Root(idObject,ForumTypes.parse(typeObject));
         List<Root>l = rootDao.getByExample(r);
         if(l == null||l.size()!=1)
