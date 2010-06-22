@@ -2,12 +2,16 @@
 <beans:beans xmlns="http://www.springframework.org/schema/security"
 xmlns:beans="http://www.springframework.org/schema/beans"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:aop="http://www.springframework.org/schema/aop"
 xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
 http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.4.xsd">
 
  <!--<global-method-security secured-annotations="enabled"/>-->
 	
  <authentication-provider user-service-ref='UserDetailsServiceImpl'/>
+
+  <aop:aspectj-autoproxy/>
 
   <beans:bean id="logoutFilter" class="org.springframework.security.ui.logout.LogoutFilter">
     <custom-filter position="LOGOUT_FILTER" />
@@ -21,22 +25,36 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
     </beans:constructor-arg>
   </beans:bean>
 
-
   <beans:bean id="UserDetailsServiceImpl" class="org.sgu.oecde.core.authentication.UserDetailsServiceImpl" />
 
-  <beans:bean id="typeSetter" class="org.sgu.oecde.core.users.UserTypeSetterAspect"/>
+  <beans:bean id="typeSetter" class="org.sgu.oecde.core.users.UserOnlineSetterAspect"/>
 
-  <beans:bean id="eventListner" class="org.sgu.oecde.core.authentication.EventListner"/>
+  <beans:bean id="eventListner" class="org.sgu.oecde.core.authentication.EventFilter">
+    <custom-filter position="LAST "/>
+  </beans:bean>
 
   <beans:bean id="logoutListner" class="org.sgu.oecde.core.authentication.LogoutListner"/>
 
-  <beans:bean id="userCache" class="org.sgu.oecde.core.users.UsersInCache">
-    <beans:property name="cache" ref="userCacheBackend"/>
+  <beans:bean id="userCache" class="org.sgu.oecde.core.users.UsersInCache"/>
+
+  <beans:bean id="studentCache" parent="abstractCacheBackend">
+    <beans:property name="cacheName" value="student"/>
   </beans:bean>
 
-  <beans:bean id="userCacheBackend" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+  <beans:bean id="teacherCache" parent="abstractCacheBackend">
+    <beans:property name="cacheName" value="student"/>
+  </beans:bean>
+
+  <beans:bean id="adminCache" parent="abstractCacheBackend">
+    <beans:property name="cacheName" value="student"/>
+  </beans:bean>
+
+  <beans:bean id="supervisorCache" parent="abstractCacheBackend">
+    <beans:property name="cacheName" value="student"/>
+  </beans:bean>
+
+  <beans:bean abstract="true" id="abstractCacheBackend" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
     <beans:property name="cacheManager" ref="cacheManagerFactoryBean"/>
-   <beans:property name="cacheName" value="usersOnLine"/>
   </beans:bean>
 
   <beans:bean id="cacheManagerFactoryBean" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
