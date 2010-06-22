@@ -16,12 +16,12 @@
 <div class="top_menu_l_t_ang">
 <div class="top_menu_links" align="right">
 <ol style="position: relative; z-index: 1; float: left; left: -225px;">
-        <li><a class="top_link" href="main.jsp#"><bean:message key="topmenu_field1" /></a></li>
-	<li><a class="top_link" href="main.jsp#newsList/pN=1&count=10"><bean:message key="topmenu_field2" /></a></li>
-	<li  class="disab_link" classname="disab_link"><p><bean:message key="topmenu_field4" /></p></li>
-	<li  class="disab_link" classname="disab_link"><p><bean:message key="topmenu_field5" /></p></li>
-	<li  class="disab_link" classname="disab_link"><p><bean:message key="topmenu_field6" /></p></li>
-	<li><a class="top_link" href="../index.jsp"><bean:message key="topmenu_field7" /></a></li>
+        <li><a class="top_link" href="main.jsp#"></a></li>
+	<li><a class="top_link" href="main.jsp#newsList/pN=1&count=10"></a></li>
+	<li  class="disab_link" classname="disab_link"><p></p></li>
+	<li  class="disab_link" classname="disab_link"><p></p></li>
+	<li  class="disab_link" classname="disab_link"><p></p></li>
+	<li><a class="top_link" href="../index.jsp"></a></li>
 </ol>
 <div class="search_input" id="dinp">
     <div dojoType="dijit.form.TextBox" style="_posi\tion: absolute; _z-in\dex: 100;" value="поиск" onfocus="hide_small('small_inp','large_inp')" id="small_inp">

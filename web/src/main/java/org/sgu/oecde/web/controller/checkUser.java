@@ -7,7 +7,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.UserType;
-import org.sgu.oecde.web.util.SecurityContextHandler;
+import org.sgu.oecde.core.util.SecurityContextHandler;
 
 /**
  *

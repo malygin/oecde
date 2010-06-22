@@ -2,8 +2,11 @@
 <%@page pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn"%>
-<c:set var="materials" value="${sessionScope[\"management\"]}"/>
-
+<%
+out.println(request.getAttribute("adminManagementFactory"));
+%>
+1${requestScope.adminManagementFactory}1
+1${scopedTarget}1
     <script type="text/javascript">
         document.title = "ЦОО СГУ. Изучаемые материалы";
     </script>

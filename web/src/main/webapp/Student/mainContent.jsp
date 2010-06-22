@@ -8,15 +8,16 @@
 
 
 
-<jsp:useBean class="journal.model.filter.StudentNewsLineFilter" id="filter" />
+<jsp:useBean type="org.sgu.oecde.journal.filter.StudentNewsLineFilter" id="filter" />
 <c:set target="${filter}" property="umkList" value="${sessionScope[\"education\"].umkList}"/>
 <c:set target="${filter}" property="userId" value="${sessionScope[\"studentItem\"].id}"/>
 
 
-<jsp:useBean class="journal.Journal" id="journal"/>
+<jsp:useBean type="org.sgu.oecde.journal.Journal" id="journal"/>
 <jsp:setProperty name="journal" property="filter" value="${filter}"/>
 
 <c:set var="events" value="${journal.events}"/>
+<c:set var="student" value="${journal.events}"/>
 
 
 <script>
