@@ -6,7 +6,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.4.xsd">
 
  <!--<global-method-security secured-annotations="enabled"/>-->
-
+<!--
  <http >
     <intercept-url pattern="/index.jsp" filters="none" access="IS_AUTHENTICATED_ANONYMOUSLY" />
     <intercept-url pattern="/Admin/**" access="ROLE_ADMIN" />
@@ -16,7 +16,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
     <anonymous />
     <remember-me services-ref="rememberMeServices"/>
     <form-login login-page="/index.jsp" default-target-url="/redirect.do" always-use-default-target="true" authentication-failure-url="/index.jsp?error=1" />
-  </http>
+  </http>-->
 
   <beans:import resource="applicationContext-security.xml"/>
 </beans:beans>
