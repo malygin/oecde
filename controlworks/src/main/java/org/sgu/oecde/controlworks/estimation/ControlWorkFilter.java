@@ -5,25 +5,21 @@ import org.sgu.oecde.core.education.estimation.IResultFilter;
 import org.sgu.oecde.core.education.estimation.Points;
 import org.sgu.oecde.core.education.estimation.ResultType;
 import org.sgu.oecde.core.education.work.AbstractResult;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.Assert;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author ShihovMY
  */
+@Service
 @ResultType(type=ControlWork.class)
-public class ControlWorkFilter implements IResultFilter,InitializingBean{
+public class ControlWorkFilter implements IResultFilter{
 
     @Autowired
     private CwPointsFactory pointsFactory;
     
     private ControlWorkFilter() {
-    }
-
-    public void afterPropertiesSet() throws Exception {
-        Assert.notNull(pointsFactory);
     }
 
     public void check(AbstractResult result,Points points) {

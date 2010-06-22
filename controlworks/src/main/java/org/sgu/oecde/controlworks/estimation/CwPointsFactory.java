@@ -6,11 +6,13 @@ import org.sgu.oecde.controlworks.ControlWork;
 import org.sgu.oecde.core.education.estimation.EstimatedWorkPointsAbstractFactory;
 import org.sgu.oecde.core.education.estimation.IEstimate;
 import org.sgu.oecde.core.education.work.AbstractResult;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author ShihovMY
  */
+@Service
 public class CwPointsFactory extends EstimatedWorkPointsAbstractFactory{
 
     private CwPointsFactory() {

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import junit.framework.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.sgu.oecde.controlworks.dao.IControlWorkAttemptDao;
@@ -45,17 +46,17 @@ public class AppTest extends BasicTest{
         this.<IControlWorkDao>getDao().save(w);
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void get(){
         setDao("controlWorkDao");
         List l = new ArrayList();
-        l.add(new DeCurriculum(198326L));
+        l.add(new DeCurriculum(200847634L));
         List l2 = new ArrayList();
-        l.add(new Student(324725L));
-        List<ControlWork>ls = this.<IControlWorkDao>getDao().getByStudentsAnsCurriculums( l, l2,null);
+        l2.add(new Student(324725L));
+        List<ControlWork>ls = this.<IControlWorkDao>getDao().getByStudentsAndCurriculums( l, l2,null);
         for (ControlWork cw:ls){
-            System.out.println(cw.getCwAttempt().size());
+            Assert.assertEquals(1, cw.getCwAttempt().size());
         }
     }
 
@@ -74,16 +75,14 @@ public class AppTest extends BasicTest{
         }
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void getStudentCw(){
         ControlWorkService s = getBean("controlWorkService");
         List l = new ArrayList();
-        l.add(new DeCurriculum(198326L));
+        l.add(new DeCurriculum(200847634L));
         l.add(new DeCurriculum(200327L));
-        List l2 = new ArrayList();
-        l2.add(new Student(324725L));
-        System.out.println(s.getStudensControlWorks(new Student(324725L), l));
+        Assert.assertEquals(2,s.getStudensControlWorks(new Student(324725L), l).size());
     }
 
 //    @Ignore
