@@ -5,13 +5,12 @@ import org.junit.Test;
 import org.sgu.oecde.core.BasicTest;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.journal.filter.AdminFilter;
-import org.sgu.oecde.journal.filter.StudentFilter;
 import org.springframework.test.context.ContextConfiguration;
 
 /**
  * Unit test for simple App.
  */
-@ContextConfiguration(locations={"../applicationContext.xml","../spring/journalBeans.xml","../spring/testBeans.xml","../spring/newsBeans.xml"})
+@ContextConfiguration(locations={"../applicationContext.xml","../spring/journalBeans.xml","../spring/testBeans.xml","../spring/newsBeans.xml","../spring/discussionBeans.xml"})
 public class AppTest extends BasicTest{
     
     @Ignore
@@ -23,7 +22,7 @@ public class AppTest extends BasicTest{
         journal.logTestGrading(user, 1L, 2748L);
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void zget(){
         AdminFilter f = (AdminFilter) applicationContext.getBean("adminFilter");

@@ -7,10 +7,10 @@
         <param name="sequence">journal_seq</param>
       </generator>
     </id>
-    <property name="time" type="string" not-null="true" column="event_time" length="19"/>
-    <property name="eventBody" type="string" column="event_body" not-null="true"/>
-    <property name="multiId" column="multi_id" type="integer"/>
-    <many-to-one foreign-key="fk_j_user" class="org.sgu.oecde.core.users.AbstractUser" name="user" column="event_owner" fetch="join"/>
+    <property column="event_time" length="19" name="time" not-null="true" type="string"/>
+    <property column="event_body" name="eventBody" not-null="true" type="string"/>
+    <property column="multi_id" name="multiId" type="integer"/>
+    <many-to-one class="org.sgu.oecde.core.users.AbstractUser" column="event_owner" fetch="join" foreign-key="fk_j_user" name="user"/>
     <property column="event_type" name="eventType" not-null="true" scale="3">
       <type name="org.sgu.oecde.core.GenericEnumUserType">
         <param name="enumClass">org.sgu.oecde.journal.EventType</param>

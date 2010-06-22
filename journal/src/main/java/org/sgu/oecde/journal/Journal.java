@@ -5,21 +5,24 @@ import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.journal.dao.IJournalDao;
 import org.sgu.oecde.journal.filter.BaseFilter;
 import org.sgu.oecde.journal.util.RecordEventFactory;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.Assert;
+import org.springframework.stereotype.Service;
 
 
 /**
  * @author basakov
  */
-public class Journal implements InitializingBean{
+@Service(value="journalServise")
+public class Journal{
 
-    private IJournalDao journalDAO;
+    @Autowired
+    private IJournalDao journalDao;
 
     @Autowired
     private RecordEventFactory ref;
-    
+
+    private Journal() {
+    }
 
     /**************************************************************************/
     /**************************************************************************/
@@ -279,9 +282,9 @@ public class Journal implements InitializingBean{
      */
     public List<EventItem> getEvents(BaseFilter filter) {
 
-        List<EventItem> list = journalDAO.getEvents(filter);
+        List<EventItem> list = journalDao.getEvents(filter);
      int maxPN = 1;
-     int totalEventCount = journalDAO.getCountOfEvents(filter);
+     int totalEventCount = journalDao.getCountOfEvents(filter);
 
         if (totalEventCount % filter.getCapacity() == 0) {
             maxPN = totalEventCount / filter.getCapacity();
@@ -296,15 +299,5 @@ public class Journal implements InitializingBean{
 
     public void logViewNews(Long id, String header, AbstractUser user) {
         ref.saveViewNews(id, header, user);
-    }
-
-    public void setJournalDAO(IJournalDao journalDAO) {
-        this.journalDAO = journalDAO;
-    }
-
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        Assert.notNull(journalDAO);
-        Assert.notNull(ref);
     }
 }

@@ -3,12 +3,15 @@ package org.sgu.oecde.journal;
 import org.sgu.oecde.core.BasicItem;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.journal.util.EventParser;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @author bASAKOVVY
  */
 public class EventItem extends BasicItem{
     private static final long serialVersionUID = 85L;
+    @Autowired
+    EventParser eventParser;
     /**
      * тип события из таблички DO_JOURNAL_TYPES_EVENTS.
      */
@@ -44,11 +47,10 @@ public class EventItem extends BasicItem{
         this.user = user;
         this.multiId = multiId;
     }
-
+    
     @Override
     public String toString() {
-        EventParser parser = new EventParser();
-        return parser.parseEventBody(this);
+        return eventParser.parseEventBody(this);
     }
 
 

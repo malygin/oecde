@@ -8,10 +8,12 @@ package org.sgu.oecde.journal.filter;
 import java.util.HashMap;
 import java.util.Set;
 import org.sgu.oecde.journal.EventType;
+import org.springframework.stereotype.Service;
 
 /**
  * @author basakovvy
  */
+@Service
 public class AdminFilter extends BaseFilter {
 
     private static final String adminFilterCookiePath = "AdminFilter";

@@ -1,9 +1,12 @@
 package org.sgu.oecde.journal.filter;
 
+import org.springframework.stereotype.Service;
+
 /**
  *
  * @author basakovvy
  */
+@Service
 public class StudentNewsLineFilter extends StudentFilter {
 
     private static String StudentNewsLineFilterCookiePath = "StudentNewsLineFilter";

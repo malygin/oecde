@@ -9,10 +9,13 @@ import org.sgu.oecde.core.users.UserType;
 import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.journal.EventType;
+import org.springframework.stereotype.Service;
 
 /**
  * @author basakovvy
  */
+
+@Service
 public class StudentFilter extends BaseFilter {
 
     /**

@@ -7,11 +7,13 @@ package org.sgu.oecde.journal.filter;
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import org.sgu.oecde.journal.EventType;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author basakovvy
  */
+@Service
 public class AdminFilterForOneStudent extends AdminFilter {
 
     private static final String adminFilterForOnStudCookiePath = "AdminFilterForOneStudent";

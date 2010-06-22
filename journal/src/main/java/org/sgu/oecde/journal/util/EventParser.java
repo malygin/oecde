@@ -4,17 +4,12 @@
  */
 package org.sgu.oecde.journal.util;
 
-import org.sgu.oecde.core.IBasicDao;
-import org.sgu.oecde.core.users.AbstractPerson;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.UserType;
 import org.sgu.oecde.discussion.ForumTypes;
 import org.sgu.oecde.journal.EventItem;
 import org.sgu.oecde.journal.EventType;
-import org.sgu.oecde.news.NewsItem;
-import org.sgu.oecde.news.dao.INewsDao;
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.util.Assert;
+import org.springframework.stereotype.Service;
 import static org.sgu.oecde.journal.util.LogTerms.splitter;
 
 /**
@@ -24,10 +19,11 @@ import static org.sgu.oecde.journal.util.LogTerms.splitter;
  *         В зависимости от типа события по-разному формирует строку сообщения
  * @TODO Админы личных страниц не имеют, но их имена выводятся в ввиде ссылок(нерабочих, конечно).
  */
-public class EventParser implements InitializingBean {
+@Service
+public class EventParser {
 
-    private INewsDao newsDao;
-    private IBasicDao<AbstractUser> userDao;
+    private EventParser() {
+    }
 
     public String parseEventBody(EventItem item) {
         switch (item.getEventType()) {
@@ -87,7 +83,7 @@ public class EventParser implements InitializingBean {
 
         String str[] = item.getEventBody().split(splitter);
         //Получаем из  спрингового контекста юзер дао, а из него вытягиваем по типу пользователя и id его ФИО.
-        String fio =  item.<AbstractPerson>getUser().getFio();
+        String fio = RecordEventFactory.getFioByUserId(item.getUser());
         //Собираем текст сообщения.
         //Студент/преподаватель ФИО просматривал(а) новость <ссылка>"Заголовок"<ссылка>.
         StringBuilder sb = new StringBuilder(item.getUser().getAuthority().getAuthority());
@@ -129,10 +125,11 @@ public class EventParser implements InitializingBean {
                             .append("</a> был добавлен комментарий.");
                     return sb.toString();
                 case NEWS:
-                    NewsItem newsItem = newsDao.getById(Long.valueOf(subjectID));
                     sb = new StringBuilder().append("К вашему сообщению в обсуждении новости")
-                            .append("<a href=\"#newsFullText/id=").append(subjectID).append("&pN=1&count=10\">\"")
-                            .append(newsItem.getHeader()).append("\"</a> был добавлен комментарий.");
+                            .append("<a href=\"#newsFullText/id=").append(subjectID).append("&pN=1&count=10\">\"");
+                    if(str.length>3)
+                        sb.append(str[3]);
+                    sb.append("\"</a> был добавлен комментарий.");
                     return sb.toString();
 
             }
@@ -150,12 +147,10 @@ public class EventParser implements InitializingBean {
     *   2 - id обсждаемого объекта.
     */
     private String parsePostAdd(EventItem item) {
-        String str[] = item.getEventBody().split(splitter);
+        String[] str = item.getEventBody().split(splitter);
         String subjectType = str[1];
-        AbstractUser user = userDao.getById(item.getUser().getId());
-        String fio = "";
-        if(user instanceof AbstractPerson)
-            fio = ((AbstractPerson)user).getFio();
+        AbstractUser user = item.getUser();
+        String fio = RecordEventFactory.getFioByUserId(item.getUser());
         ForumTypes postType = ForumTypes.parse(subjectType);
         String subjectID = str[2];
         StringBuilder sb;
@@ -172,11 +167,12 @@ public class EventParser implements InitializingBean {
                         .append("</a>.");
                 return sb.toString();
             case NEWS:
-                NewsItem newsItem = newsDao.getById(Long.valueOf(subjectID));
                 sb = new StringBuilder().append(UserType.fromRole(user)).append(" ").append(fio)
                         .append(" добавил комментарий к новости")
-                        .append("<a href=\"#newsFullText/id=").append(newsItem.getId()).append("&pN=1&count=10\">\"")
-                        .append(newsItem.getHeader()).append("\"</a>.");
+                        .append("<a href=\"#newsFullText/id=").append(subjectID).append("&pN=1&count=10\">\"");
+                if(str.length>3)
+                    sb.append(str[3]);
+                sb.append("\"</a>.");
                 return sb.toString();
         }
         return new StringBuilder().append(UserType.fromRole(user)).append(" ").append(fio).append(" добавил комментарий.")
@@ -474,19 +470,5 @@ public class EventParser implements InitializingBean {
         sb.append(" изменилось расписание");
 
         return sb.toString();
-    }
-
-    public void setNewsDao(INewsDao newsDao) {
-        this.newsDao = newsDao;
-    }
-
-    public void setUserDao(IBasicDao<AbstractUser> userDao) {
-        this.userDao = userDao;
-    }
-
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        Assert.notNull(newsDao);
-        Assert.notNull(userDao);
     }
 }

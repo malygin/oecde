@@ -1,35 +1,47 @@
 package org.sgu.oecde.journal.util;
 
-import java.util.Date;
+import javax.annotation.Resource;
 import org.sgu.oecde.core.IBasicDao;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.Discipline;
 import org.sgu.oecde.core.education.Speciality;
-import org.sgu.oecde.core.education.resource.Task;
+import org.sgu.oecde.core.education.dao.ICurriculumDao;
+import org.sgu.oecde.core.education.dao.IResourceDao;
+import org.sgu.oecde.core.education.resource.AbstractResource;
 import org.sgu.oecde.core.users.AbstractPerson;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.UserType;
 import org.sgu.oecde.core.util.DateConverter;
+import org.sgu.oecde.discussion.ForumTypes;
 import org.sgu.oecde.discussion.Node;
 import org.sgu.oecde.journal.EventItem;
 import org.sgu.oecde.journal.EventType;
 import org.sgu.oecde.journal.dao.IJournalDao;
-import org.sgu.oecde.tests.TestEntity;
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.util.Assert;
+import org.sgu.oecde.news.NewsItem;
+import org.sgu.oecde.news.dao.INewsDao;
+import org.springframework.stereotype.Service;
 import static org.sgu.oecde.journal.util.LogTerms.splitter;
 
 /**
  * @author basakov
  */
-public class RecordEventFactory implements InitializingBean{
-    private IJournalDao journalDAO;
+@Service
+public class RecordEventFactory {
+    
+    @Resource
+    private IJournalDao journalDao;
+    @Resource
+    private ICurriculumDao<Curriculum>curriculumDao;
+    @Resource
+    private INewsDao newsDao;
+    @Resource
+    private IResourceDao<AbstractResource> resourceDao;
+    @Resource
     private IBasicDao<Speciality>specialityDao;
+    @Resource
     private IBasicDao<Discipline>disciplineDao;
-    private IBasicDao<TestEntity> testDao;
+    @Resource
     private IBasicDao<AbstractPerson>userDao;
-    private IBasicDao<Task>taskDao;
-    private IBasicDao<Curriculum>curriculumDao;
 
     //Так мы гарантируем, что получить экземпляр класса можно получить только через сприногвый контекст.
     private RecordEventFactory() {
@@ -37,7 +49,14 @@ public class RecordEventFactory implements InitializingBean{
     }
 
     public static String getTime() {
-        return DateConverter.convert(new Date(System.currentTimeMillis()));
+        return DateConverter.currentDate();
+    }
+
+    public static String getFioByUserId(AbstractUser user){
+        String fio =  user instanceof AbstractPerson
+                ?((AbstractPerson)user).getFio()
+                :user.getUsername();
+        return fio;
     }
 
     private String getSpecialytyNameById(Long specId) {
@@ -51,15 +70,13 @@ public class RecordEventFactory implements InitializingBean{
     }
 
     private String getTestNameById(Long testId) {
-        TestEntity test =  testDao.getById(testId);
+        AbstractResource test =  resourceDao.getById(testId);
         return test!=null?test.getTitle():null;
     }
 
-    private String getFioByUserId(AbstractUser user){
-        String fio =  user instanceof AbstractPerson
-                ?((AbstractPerson)user).getFio()
-                :user.getUsername();
-        return fio;
+    private String getNewsHeader(Long id){
+        NewsItem newsItem = newsDao.getById(id);
+        return newsItem!=null?newsItem.getHeader():"";
     }
 
     private String getFioByUserId(Long id) {
@@ -89,7 +106,7 @@ public class RecordEventFactory implements InitializingBean{
             sb.append(s).append(splitter);
         }
         item.setEventBody(sb.toString());
-        journalDAO.saveEventItem(item);
+        journalDao.saveEventItem(item);
     }
 
     /**
@@ -166,7 +183,7 @@ public class RecordEventFactory implements InitializingBean{
             str[7] = umkId + "";
         } else if (eventType.equals(EventType.UMK_VIEW)) {
             Curriculum c = curriculumDao.getById(curriculumId);
-            Task t = taskDao.getById(taskId);
+            AbstractResource t = resourceDao.getById(taskId);
             str[3] = c.getUmk().getName();
             str[4] = t.getTitle();
             str[5] = t.getId() + "";
@@ -380,10 +397,13 @@ public class RecordEventFactory implements InitializingBean{
      *             2 - id обсуждаемого объекта.
      */
     public void savePostAnswer(Node node, AbstractUser user) {
-        final String[] str = new String[3];
+        final String[] str = new String[4];
+        ForumTypes type = node.getRoot().getObjectType();
         str[0] = node.getParent().getId() + "";
-        str[1] = node.getRoot().getObjectType().toString();
+        str[1] = type.toString();
         str[2] = node.getRoot().getObjectId() + "";
+        if(ForumTypes.NEWS.equals(type))
+            str[3] = getNewsHeader(node.getParent().getId());        
         //Автор поста, на который ответили.
         AbstractUser author = node.getParent().getUser();
         Long authorId = author.getId();
@@ -399,53 +419,18 @@ public class RecordEventFactory implements InitializingBean{
      *             2 - id обсждаемого объекта.
      */
     public void savePostAdd(Node node) {
-        final String[] str = new String[3];
+        final String[] str = new String[4];
+        AbstractUser user = node.getUser();
+        ForumTypes type = node.getRoot().getObjectType();
         str[0] = node.getId() + "";
         str[1] = node.getRoot().getObjectType().toString();
         str[2] = node.getRoot().getObjectId() + "";
+        if(ForumTypes.NEWS.equals(type)){
+            str[3] = getNewsHeader(node.getParent().getId());
+        }
         //Автор поста
-        AbstractUser user = node.getUser();
         //Подобно массовой рассылке в мульти id сохраняется 2 значения: индетификатор пользователя и его тип.
         Long multiId = user.getId() * 100 + UserType.fromRole(user).toInt();
         save(EventType.POST_ADD, user, multiId, str);
-    }
-
-    public void setJournalDAO(IJournalDao journalDAO) {
-        this.journalDAO = journalDAO;
-    }
-
-    public void setDisciplineDao(IBasicDao<Discipline> disciplineDao) {
-        this.disciplineDao = disciplineDao;
-    }
-
-    public void setSpecialityDao(IBasicDao<Speciality> specialityDao) {
-        this.specialityDao = specialityDao;
-    }
-
-    public void setTestDao(IBasicDao<TestEntity> testDao) {
-        this.testDao = testDao;
-    }
-
-    public void setUserDao(IBasicDao<AbstractPerson> userDao) {
-        this.userDao = userDao;
-    }
-
-    public void setCurriculumDao(IBasicDao<Curriculum> curriculumDao) {
-        this.curriculumDao = curriculumDao;
-    }
-
-    public void setTaskDao(IBasicDao<Task> taskDao) {
-        this.taskDao = taskDao;
-    }
-
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        Assert.notNull(journalDAO);
-        Assert.notNull(disciplineDao);
-        Assert.notNull(specialityDao);
-        Assert.notNull(testDao);
-        Assert.notNull(userDao);
-        Assert.notNull(curriculumDao);
-        Assert.notNull(taskDao);
     }
 }
