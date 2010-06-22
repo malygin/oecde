@@ -7,13 +7,13 @@
         <param name="sequence">answrd_quest_seq</param>
       </generator>
     </id>
-    <property name="resultPoints" column="result_points" type="integer" scale="3"/>
-    <property name="right" column="is_right" type="boolean" scale="1"/>
+    <property column="result_points" name="resultPoints" scale="3" type="integer"/>
+    <property column="is_right" name="right" scale="1" type="boolean"/>
     <set batch-size="15" cascade="all" fetch="select" inverse="true" name="givenAnswers">
-      <key foreign-key="fk_gvanswr_quest" column="question_result_id" not-null="true"/>
+      <key column="question_result_id" foreign-key="fk_gvanswr_quest" not-null="true"/>
       <one-to-many class="org.sgu.oecde.tests.GivenAnswer"/>
     </set>
-    <many-to-one foreign-key="fk_aquest_testattempt" class="org.sgu.oecde.tests.TestAttempt" column="result_id" fetch="select" lazy="proxy" name="attempt" not-null="true"/>
-    <many-to-one foreign-key="fk_aquest_quest" class="org.sgu.oecde.tests.Question" fetch="join" name="question" not-null="true"/>
+    <many-to-one class="org.sgu.oecde.tests.TestAttempt" column="result_id" fetch="select" foreign-key="fk_aquest_testattempt" lazy="proxy" name="attempt" not-null="true"/>
+    <many-to-one class="org.sgu.oecde.tests.Question" fetch="join" foreign-key="fk_aquest_quest" name="question" not-null="true"/>
   </class>
 </hibernate-mapping>

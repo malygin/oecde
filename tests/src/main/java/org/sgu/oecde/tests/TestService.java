@@ -7,20 +7,22 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import org.sgu.oecde.core.education.dao.IResourceDao;
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.util.Assert;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 /**
  *
  * @author ShihovMY
  */
-public class TestService implements InitializingBean{
+@Service
+public class TestService{
 
-    IResourceDao<TestEntity> testDao;
+    @Autowired
+    IResourceDao<TestEntity> resourceDao;
 
     public TestEntity getTestWithQuestions(Long id){
-        TestEntity t = testDao.getById(id);
+        TestEntity t = resourceDao.getById(id);
         if(t==null&&CollectionUtils.isEmpty(t.getQuestions()))
             return null;
         if(t.isShuffle()){
@@ -44,15 +46,6 @@ public class TestService implements InitializingBean{
     }
 
     public void saveTest(TestEntity t){
-        testDao.update(t);
-    }
-
-    public void setTestDao(IResourceDao<TestEntity> testDao) {
-        this.testDao = testDao;
-    }
-
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        Assert.notNull(testDao);
+        resourceDao.update(t);
     }
 }

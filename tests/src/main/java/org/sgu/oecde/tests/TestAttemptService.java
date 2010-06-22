@@ -15,6 +15,8 @@ import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.tests.dao.ITestAttemptDao;
 import org.sgu.oecde.tests.util.pointsCounter;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
@@ -22,11 +24,14 @@ import org.springframework.util.CollectionUtils;
  *
  * @author ShihovMY
  */
+@Service
 public class TestAttemptService implements InitializingBean{
-    
-    ITestAttemptDao<TestAttempt> attemptsDao;
 
-    IResourceDao<TestEntity> testDao;
+    @Autowired
+    ITestAttemptDao<TestAttempt> testAttemptDao;
+
+    @Autowired
+    IResourceDao<TestEntity> resourceDao;
 
 
     protected TestAttemptService() {
@@ -55,10 +60,10 @@ public class TestAttemptService implements InitializingBean{
             else
                 e.setType(TestType.regular);
         }
-        List<TestEntity>tests = testDao.getResourceByCurriculums(curriculums, e,TestEntity.class);
+        List<TestEntity>tests = resourceDao.getResourceByCurriculums(curriculums, e,TestEntity.class);
         TestAttempt tmpAttempt = new TestAttempt(testingDate);
 
-        List<TestAttempt> attempts = attemptsDao.getByStudentsAndTests(tests, students, tmpAttempt, true);
+        List<TestAttempt> attempts = testAttemptDao.getByStudentsAndTests(tests, students, tmpAttempt, true);
         
         AdditionalSelfDependentWork test = null;
 
@@ -172,7 +177,7 @@ public class TestAttemptService implements InitializingBean{
 
     private List<TestAttempt> attemptsByStudentAndCurriculums(List<? extends Curriculum>curriculums,List<? extends AbstractStudent>students, String testingDate){
         TestAttempt tmpAttempt = new TestAttempt(testingDate);
-        List<TestAttempt> attempts = attemptsDao.getByStudentsAnsCurriculums(curriculums, students, tmpAttempt);
+        List<TestAttempt> attempts = testAttemptDao.getByStudentsAndCurriculums(curriculums, students, tmpAttempt);
         return attempts;
 
     }
@@ -224,16 +229,16 @@ public class TestAttemptService implements InitializingBean{
     }
 
     public void setAttemptsDao(ITestAttemptDao<TestAttempt> attemptsDao) {
-        this.attemptsDao = attemptsDao;
+        this.testAttemptDao = attemptsDao;
     }
 
     public void setTestDao(IResourceDao<TestEntity> testDao) {
-        this.testDao = testDao;
+        this.resourceDao = testDao;
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        Assert.notNull(attemptsDao,"attemptsDao cant't be null in "+this.getClass().getName());
-        Assert.notNull(testDao,"testDao cant't be null in "+this.getClass().getName());
+        Assert.notNull(testAttemptDao,"attemptsDao cant't be null in "+this.getClass().getName());
+        Assert.notNull(resourceDao,"testDao cant't be null in "+this.getClass().getName());
     }
 }

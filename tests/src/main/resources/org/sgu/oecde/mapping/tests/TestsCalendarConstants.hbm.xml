@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <class discriminator-value="test" dynamic-insert="true" dynamic-update="true" entity-name="Tests Calendar Constants" table="calendar_constants">
-    <id name="name" unsaved-value="null" length="30">
+    <id length="30" name="name" unsaved-value="null">
       <type name="org.sgu.oecde.core.GenericEnumUserType">
         <param name="enumClass">org.sgu.oecde.tests.TestCalendarConstants</param>
       </type>

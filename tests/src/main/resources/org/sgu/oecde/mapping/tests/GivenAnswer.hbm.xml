@@ -7,8 +7,8 @@
         <param name="sequence">gvn_answer_seq</param>
       </generator>
     </id>
-    <property name="givenAnswer" type="string" column="given_answer"/>
-    <many-to-one foreign-key="fk_gvanswr_answr" class="org.sgu.oecde.tests.Answer" column="right_answer" fetch="join" name="rightAnswer" not-null="true"/>
-    <many-to-one foreign-key="fk_gvanswr_quest" class="org.sgu.oecde.tests.AnsweredQuestion" column="question_result_id" fetch="select" name="answeredQuestion" lazy="proxy" not-null="true"/>
+    <property column="given_answer" name="givenAnswer" type="string"/>
+    <many-to-one class="org.sgu.oecde.tests.Answer" column="right_answer" fetch="join" foreign-key="fk_gvanswr_answr" name="rightAnswer" not-null="true"/>
+    <many-to-one class="org.sgu.oecde.tests.AnsweredQuestion" column="question_result_id" fetch="select" foreign-key="fk_gvanswr_quest" lazy="proxy" name="answeredQuestion" not-null="true"/>
   </class>
 </hibernate-mapping>

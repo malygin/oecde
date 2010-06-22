@@ -5,8 +5,5 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
        ">
   <bean id="testAttemptDao" p:type="org.sgu.oecde.tests.TestAttempt"  parent="basicDao" class="org.sgu.oecde.tests.dao.TestAttemptDao" />
-  <bean scope="prototype" id="testFilter" class="org.sgu.oecde.tests.estimation.TestFilter" />
-  <bean id="pointsFactory" class="org.sgu.oecde.tests.estimation.TestsPointsFactory" />
-  <bean id="testAttemptService" p:attemptsDao-ref="testAttemptDao" p:testDao-ref="resourceDao" class="org.sgu.oecde.tests.TestAttemptService" />
   <bean id="testsDatesGetter" parent="constantsGetter" p:entityName="Tests Calendar Constants"/>
 </beans>

@@ -107,7 +107,7 @@ public class getSimpleItem extends BasicTest{
         q.add(new DeCurriculum(2009518325L));
         List s = new LinkedList();
         s.add(new Student(321304L));
-        List<TestAttempt> l = this.<ITestAttemptDao>getDao().getByStudentsAnsCurriculums(q, s, null);
+        List<TestAttempt> l = this.<ITestAttemptDao>getDao().getByStudentsAndCurriculums(q, s, null);
         Collections.sort(l);
         l.remove(0);
         for(TestAttempt ta:l){

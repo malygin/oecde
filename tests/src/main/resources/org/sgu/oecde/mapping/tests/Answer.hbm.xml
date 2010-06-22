@@ -4,6 +4,6 @@
   <class dynamic-update="true" name="org.sgu.oecde.tests.Answer" table="answers">
     <id name="id" type="long"/>
     <property insert="false" name="title" type="string"/>
-    <property insert="false" name="rightAnswer" column="right_answer" type="string"/>
+    <property column="right_answer" insert="false" name="rightAnswer" type="string"/>
   </class>
 </hibernate-mapping>

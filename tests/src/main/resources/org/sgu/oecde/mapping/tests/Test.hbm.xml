@@ -2,13 +2,13 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <joined-subclass dynamic-update="true" extends="org.sgu.oecde.core.education.work.SelfDependentWork" name="org.sgu.oecde.tests.TestEntity" table="tests">
-    <key foreign-key="fk_test_work" column="id" not-null="true" on-delete="cascade"/>
-    <property insert="false" name="quantity" type="integer" scale="3"/>
-    <property insert="false" name="shuffle" type="boolean" scale="1"/>
-    <property insert="false" name="writable" type="boolean" scale="1"/>
+    <key column="id" foreign-key="fk_test_work" not-null="true" on-delete="cascade"/>
+    <property insert="false" name="quantity" scale="3" type="integer"/>
+    <property insert="false" name="shuffle" scale="1" type="boolean"/>
+    <property insert="false" name="writable" scale="1" type="boolean"/>
     <property column="close_date" length="19" name="closeDate" not-null="true" type="string"/>
     <property column="open_date" length="19" name="openDate" not-null="true" type="string"/>
-    <property column="estimation_type" insert="false" name="estimation" scale="1" not-null="true">
+    <property column="estimation_type" insert="false" name="estimation" not-null="true" scale="1">
       <type name="org.sgu.oecde.core.GenericEnumUserType">
         <param name="enumClass">org.sgu.oecde.tests.TestEstimationType</param>
         <param name="identifierMethod">toInt</param>
@@ -23,8 +23,8 @@
       </type>
     </property>
     <set batch-size="15" fetch="join" mutable="false" name="questions" table="questions_to_test">
-      <key foreign-key="fk_test2q_test" column="test_id" not-null="true"/>
-      <many-to-many foreign-key="fk_test2q_q" class="org.sgu.oecde.tests.Question" column="question_id"/>
+      <key column="test_id" foreign-key="fk_test2q_test" not-null="true"/>
+      <many-to-many class="org.sgu.oecde.tests.Question" column="question_id" foreign-key="fk_test2q_q"/>
     </set>
   </joined-subclass>
 </hibernate-mapping>

@@ -13,6 +13,8 @@ import org.sgu.oecde.tests.TestEntity;
 import org.sgu.oecde.tests.util.pointsCounter;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
@@ -20,6 +22,8 @@ import org.springframework.util.CollectionUtils;
  *
  * @author ShihovMY
  */
+@Scope("prototype")
+@Service
 @ResultType(type=TestAttempt.class)
 public final class TestFilter implements IResultFilter,InitializingBean{
     

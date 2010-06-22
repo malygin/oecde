@@ -7,12 +7,14 @@ import org.sgu.oecde.tests.TestAttempt;
 import org.sgu.oecde.tests.TestAttemptType;
 import org.sgu.oecde.tests.TestEntity;
 import org.sgu.oecde.tests.TestType;
+import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 /**
  *
  * @author ShihovMY
  */
+@Service
 public class TestsPointsFactory extends EstimatedWorkPointsAbstractFactory{
 
     private TestsPointsFactory() {
