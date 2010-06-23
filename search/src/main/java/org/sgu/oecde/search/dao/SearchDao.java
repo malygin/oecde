@@ -8,11 +8,13 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.util.Assert;
 
 /**
- *
- * @author ShihovMY
+ * {@inheritDoc }
  */
 public class SearchDao extends HibernateTemplate implements ISearchDao{
 
+    /**
+     * {@inheritDoc }
+     */
     public List search(Class type,String[] words) throws DataAccessException{
         Assert.notNull(type);
         Assert.notEmpty(words);

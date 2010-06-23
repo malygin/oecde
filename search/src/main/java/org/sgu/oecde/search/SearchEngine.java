@@ -1,20 +1,29 @@
 package org.sgu.oecde.search;
 
-
 import java.util.List;
+import javax.annotation.Resource;
 import org.sgu.oecde.core.education.Umk;
-import org.sgu.oecde.core.users.AbstractPerson;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.de.users.Teacher;
 import org.sgu.oecde.search.dao.ISearchDao;
+import org.springframework.stereotype.Service;
 
 /**
- * @author basakovvy
+ * поисковый сервис
+ * @author ShihovMY
  */
+@Service
 public class SearchEngine {
 
-    ISearchDao dao;
+    @Resource
+    ISearchDao searchDao;
 
+    /**
+     * ищет по ключевому слову среди всех стринговых полей данного типа объекта
+     * @param keywords  ключевое слово
+     * @param type тип искомого объекта
+     * @return
+     */
     public List search(String keywords, String type) {
         String [] words;
         if (keywords == null || keywords.length() <= 3) {
@@ -22,13 +31,14 @@ public class SearchEngine {
         }else{
             words = keywords.trim().split(" ");
         }
-        return dao.search(getClass(type), words);
+        return searchDao.search(getClass(type), words);
     }
 
-    public void setDao(ISearchDao dao) {
-        this.dao = dao;
-    }
-
+    /**
+     * конвертирует тип тип объекта в класс
+     * @param type тип
+     * @return класс
+     */
     private Class getClass(String type){
         if("teacher".equals(type))
             return Teacher.class;
