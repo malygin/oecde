@@ -8,19 +8,28 @@ package org.sgu.oecde.core.education.resource;
  * Простой ресурс - ссылка
  */
 public class Link extends AbstractResource{
+    /**
+     * урл
+     */
     private String url;
 
 
     public Link() {
     }
 
+    /**
+     *
+     * @return урл
+     */
     public String getUrl() {
         return url;
     }
 
+    /**
+     * урл
+     * @param url
+     */
     public void setUrl(String url) {
         this.url = url;
     }
-
-
 }

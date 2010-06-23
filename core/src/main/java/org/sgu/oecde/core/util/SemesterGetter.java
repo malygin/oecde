@@ -11,23 +11,45 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 /**
- *
+ * хранит текущий год, семестр и идёт ли переэкзаменовка.
+ * содержит методы по получению этих констант, а так же по получению семестров и годов по
+ * различным параметрам
  * @author ShihovMY
  */
 public class SemesterGetter extends StringConstantsGetter{
 
+    /**
+     * текущий год
+     */
     private int currentYear;
+    /**
+     * текущий семестр
+     */
     private int semester;
+    /**
+     * идёт ли переэкзаменовка
+     */
     private boolean reExame;
 
     protected SemesterGetter() {
     }
 
+    /**
+     *
+     * @param student - студент
+     * @param semester - семестр
+     * @return семестр по курсу обучения студента и параметру semester
+     */
     public Integer getSemesterByStudentYear(AbstractStudent student, int semester){
         Assert.notNull(student);
         return student.getGroup().getYear() - semester - getCurrentSemester();
     }
 
+    /**
+     *
+     * @param semester
+     * @return массив зимних или летних семестров по semester, который равено 0 или 1
+     */
     public Integer[] getSemestersByInt(int semester){
         switch(semester){
             case 0: return Semesters.summer();
@@ -36,10 +58,21 @@ public class SemesterGetter extends StringConstantsGetter{
         }
     }
 
+    /**
+     *
+     * @param semester
+     * @return год по semester, который равено 0 или 1
+     */
     public int getCalendarYear(int semester){
         return getCurrentYear()-getCurrentSemester()*semester;
     }
 
+    /**
+     *
+     * @param student
+     * @param semester
+     * @return год по курсу студента и semester
+     */
     public Integer getCalendarYear(AbstractStudent student, int semester){
         if(student == null)
             return null;
@@ -48,7 +81,11 @@ public class SemesterGetter extends StringConstantsGetter{
                 :student.getGroup().getYear();
         return getCurrentYear()-student.getGroup().getYear()+year;
     }
-    
+
+    /**
+     * получает константы из бд и вносит их значения в поля.
+     * если же значений в бд нет, то заносит значения по умолчанию
+     */
     @Override
     public void fillConstantsMap(){
         List<Map> c = getDao().getConstants(getEntityName());
@@ -68,35 +105,59 @@ public class SemesterGetter extends StringConstantsGetter{
         }else if(CollectionUtils.isEmpty(constants)
                 ||!StringUtils.hasText(getConstant(CalendarConstantName.semester))
                 ||getCurrentYear()==0){
-            save(CalendarConstantName.year,"2009",getEntityName());
-            save(CalendarConstantName.semester,"0",getEntityName());
+            save(CalendarConstantName.year,"2009");
+            save(CalendarConstantName.semester,"0");
             setSemester("0");
             setYear("2009");
         }
     }
 
+    /**
+     *
+     * @return текущий семестр
+     */
     public final int getCurrentSemester() {
         return semester;
     }
 
+    /**
+     *
+     * @return  текущий год
+     */
     public final int getCurrentYear() {
         return currentYear;
     }
 
+    /**
+     * переэкзаменовка ли
+     * @return
+     */
     public final boolean isReExame() {
         return reExame;
     }
 
+    /**
+     * год
+     * @param year
+     */
     private final void setYear(String year) {
         if(StringUtils.hasText(year))
             this.currentYear = Integer.parseInt(year);
     }
 
+    /**
+     * переэкзаменовка ли
+     * @param reExame
+     */
     private final void setReExame(String reExame) {
         if(StringUtils.hasText(reExame))
             this.reExame = Boolean.parseBoolean(reExame);
     }
 
+    /**
+     * семестр
+     * @param semester
+     */
     private void setSemester(String semester) {
         if(StringUtils.hasText(semester))
             this.semester = Integer.parseInt(semester);

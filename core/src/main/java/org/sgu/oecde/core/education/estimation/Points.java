@@ -8,7 +8,8 @@ import org.sgu.oecde.core.users.AbstractStudent;
 import org.springframework.util.Assert;
 
 /**
- *
+ * Баллы. содержит студента, учебный план и соответсвующие им баллы/оценки, полученные на основе результатов,
+ * а так же сумму баллы
  * @author ShihovMY
  */
 public class Points implements Serializable{
@@ -21,35 +22,70 @@ public class Points implements Serializable{
     public Points() {
     }
 
+    /**
+     * учебный план
+     * @param <T> extends Curriculum
+     * @return
+     */
     public <T extends Curriculum>T getCurriculum() {
         return (T) curriculum;
     }
 
+    /**
+     * учебный план
+     * @param curriculum
+     */
     public void setCurriculum(Curriculum curriculum) {
         this.curriculum = curriculum;
     }
 
+    /**
+     * студент
+     * @param <T> extends AbstractStudent
+     * @return
+     */
     public <T extends AbstractStudent>T getStudent() {
         return (T) student;
     }
 
+    /**
+     * студент
+     * @param student
+     */
     public void setStudent(AbstractStudent student) {
         this.student = student;
     }
 
+    /**
+     * добавляет в набор оценок новые записи, сожержащиеся в workPoints
+     * @param workPoints
+     */
     public void addWorkPoints(Map<IEstimate, Object> workPoints) {
         if(workPoints!=null)
             this.workPoints.putAll(workPoints);
     }
 
+    /**
+     * баллы/оценки и соответсвующие названия полей
+     * @param <T> extends Object>Map<IEstimate, T
+     * @return
+     */
     public <T extends Object>Map<IEstimate, T> getWorkPoints() {
         return (Map<IEstimate, T>) workPoints;
     }
 
+    /**
+     *
+     * @return сумма баллов
+     */
     public int getSum() {
         return sum;
     }
 
+    /**
+     * сумма баллов
+     * @param sum
+     */
     public void setSum(int sum) {
         this.sum = sum;
     }
@@ -58,10 +94,20 @@ public class Points implements Serializable{
         this.sum+=sum;
     }
 
+    /**
+     * добавляет в набор оценок/баллов и новую запись
+     * @param name - имя поля с оценками/баллами
+     * @param value - баллы/оценки
+     */
     public void addNewWorkPoint(IEstimate name,Object value){
         this.getWorkPoints().put(name, value);
     }
 
+    /**
+     * добавляет в набор оценок/баллов новую запись с баллами
+     * @param name - имя поля с оценками/баллами
+     * @param points - баллы
+     */
     public void addIntegerWorkPoints(IEstimate name,Integer points){
         Object val = this.getWorkPoints().get(name);
         Integer oldP = 0;
@@ -71,6 +117,9 @@ public class Points implements Serializable{
         this.<Integer>getWorkPoints().put(name, (oldP!=null?oldP:0)+points);
     }
 
+    /**
+     * {@inheritDoc }
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -89,6 +138,9 @@ public class Points implements Serializable{
         return true;
     }
 
+    /**
+     * {@inheritDoc }
+     */
     @Override
     public int hashCode() {
         int hash = 3;

@@ -9,7 +9,7 @@ import org.springframework.security.Authentication;
 import org.springframework.security.ui.logout.LogoutHandler;
 
 /**
- *
+ * Слушатель, отлавливающий момент выхода пользователя из системы и удаляет его из кеша пользователей онлайн
  * @author ShihovMY
  */
 public class LogoutListner implements LogoutHandler{
@@ -21,11 +21,8 @@ public class LogoutListner implements LogoutHandler{
     }
 
     /**
-     *
-     * @param request
-     * @param response
-     * @param authentication
-     * @return
+     * удаляет текущего пользователя из кеша пользователей онлайн
+     * {@inheritDoc}
      */
     @Override
     public void logout(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {

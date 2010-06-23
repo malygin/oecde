@@ -3,16 +3,19 @@
 <hibernate-mapping schema="oecdo_test">
   <class dynamic-update="true" name="org.sgu.oecde.core.education.resource.AbstractResource" select-before-update="false" table="abstract_resource">
     <id name="id" type="long"/>
-    <property insert="false" name="title" type="string"/>
-    <property insert="false" name="description" type="string"/>
+    <property insert="false" name="title" type="string" length="250"/>
+    <property insert="false" name="description" type="string" length="400"/>
     <property insert="false" name="version" scale="3" type="integer"/>
     <property insert="false" name="visible" scale="1" type="boolean"/>
-    <property column="date_last_change" insert="false" length="19" name="dateLastchange" type="string"/>
+    <property column="date_last_change" insert="false" length="19" name="dateLastСhange" type="string"/>
+    <set batch-size="5" cascade="none" fetch="select" mutable="false" name="authors" table="resource_author">
+      <cache usage="read-only"/>
+      <key column="resource" foreign-key="fk_resource_author_resource" not-null="true"/>
+      <many-to-many class="org.sgu.oecde.core.education.resource.Author" column="author" foreign-key="fk_resource_author"/>
+    </set>
     <property column="access_resource" insert="false" name="accessResource">
       <type name="org.sgu.oecde.core.GenericEnumUserType">
         <param name="enumClass">org.sgu.oecde.core.education.resource.AccessResource</param>
-        <param name="identifierMethod">toName</param>
-        <param name="valueOfMethod">parse</param>
       </type>
     </property>
   </class>

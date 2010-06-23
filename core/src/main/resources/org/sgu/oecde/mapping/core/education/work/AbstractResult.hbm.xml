@@ -7,9 +7,9 @@
         <param name="sequence">result_seq</param>
       </generator>
     </id>
-    <discriminator column="discriminator"/>
+    <discriminator column="discriminator" length="15"/>
     <property column="result_date" length="19" name="date" type="string"/>
-    <many-to-one class="org.sgu.oecde.core.education.Curriculum" fetch="join" foreign-key="fk_result_cur" name="curriculum" not-null="true"/>
-    <many-to-one class="org.sgu.oecde.core.users.AbstractStudent" fetch="join" foreign-key="fk_result_stud" name="student" not-null="true"/>
+    <many-to-one class="org.sgu.oecde.core.education.Curriculum" fetch="join" foreign-key="fk_result_curriculum" name="curriculum" not-null="true"/>
+    <many-to-one class="org.sgu.oecde.core.users.AbstractStudent" fetch="join" foreign-key="fk_result_student" name="student" not-null="true"/>
   </class>
 </hibernate-mapping>

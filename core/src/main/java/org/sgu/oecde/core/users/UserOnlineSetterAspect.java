@@ -7,18 +7,26 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- *
+ * аоп аспект. ищет пользователей онлайн в кеше перед получением их из бд
  * @author ShihovMY
  */
 @Aspect
 public class UserOnlineSetterAspect {
     @Autowired
-    UsersInCache cache;
+    private UsersInCache cache;
 
     private UserOnlineSetterAspect() {
-
     }
-    
+
+    /**
+     * перед вызовом любого из методов дао пользователей на получение пользователей,
+     * проверяет наличие полученных пользователей в кеше пользователей онлайн. Если
+     * они там есть, то устанавливает соответствующее значение у этих пользователей/
+     * после чего
+     * @param pjp
+     * @return полученные пользователи
+     * @throws Throwable
+     */
     @Around("( bean (userDao) || bean (studentDao)) ||  bean (teacherDao) ||" +
             "bean (adminDao) || bean (supervisorDao)).get*(**)")
     public Object setType(ProceedingJoinPoint pjp) throws Throwable{

@@ -10,8 +10,7 @@ import org.sgu.oecde.core.users.AbstractStudent;
 import org.springframework.dao.DataAccessException;
 
 /**
- *
- * @author ShihovMY
+ * {@inheritDoc }
  */
 public class ResultDao<T extends AbstractResult> extends BasicDao<T> implements IResultDao<T>{
 
@@ -22,7 +21,9 @@ public class ResultDao<T extends AbstractResult> extends BasicDao<T> implements 
     protected ResultDao(){
         super((Class<T>)AbstractResult.class);
     }
-
+    /**
+     * {@inheritDoc }
+     */
     @Override
     public List<T> getByStudentsAndCurriculums(List<? extends Curriculum> curriculums, List<? extends AbstractStudent> students, T result) throws DataAccessException {
         Criteria cr =  getSession().createCriteria(type);

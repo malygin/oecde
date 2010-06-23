@@ -8,8 +8,10 @@ import java.lang.annotation.Target;
 import org.sgu.oecde.core.education.work.AbstractResult;
 
 /**
- *
+ * тип результата, который обрабатывается фильтром
  * @author ShihovMY
+ * @see IResultFilter
+ * @see org.sgu.oecde.core.education.work.AbstractResult
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)

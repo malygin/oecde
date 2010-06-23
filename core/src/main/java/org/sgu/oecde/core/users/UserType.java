@@ -3,14 +3,30 @@ package org.sgu.oecde.core.users;
 import org.springframework.util.Assert;
 
 /**
- * @author BasakovVY
+ * типы пользователей
+ * @author ShihovMY
  */
 public enum UserType {
 
+    /**
+     * студент
+     */
     STUDENT,
+    /**
+     * наблюдатель
+     */
     SUPERVISOR,
+    /**
+     * преподаватель
+     */
     TEACHER,
+    /**
+     * админ
+     */
     ADMIN,
+    /**
+     * гость
+     */
     GUEST;
 
     public static UserType parse(String str) {

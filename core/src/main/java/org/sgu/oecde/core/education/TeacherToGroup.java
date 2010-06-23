@@ -5,7 +5,9 @@ import org.sgu.oecde.core.users.AbstractTeacher;
 import org.sgu.oecde.core.users.StudentGroup;
 
 /**
- *
+ * соотношение преподавателя-группы и учебного плана.
+ * Показывает, какой преподаватель ведёт у этой группы какой курс за конкретный семестр
+ * в конкретном году
  * @author ShihovMY
  */
 public final class TeacherToGroup implements Serializable{
@@ -25,36 +27,61 @@ public final class TeacherToGroup implements Serializable{
         this.group = group;
     }
 
+    /**
+     * учебный план
+     * @param <T> extends Curriculum
+     * @return
+     */
     public <T extends Curriculum> T getCurriculum() {
         return (T) curriculum;
     }
 
+    /**
+     * учебный план
+     * @param curriculum
+     */
     public void setCurriculum(Curriculum curriculum) {
         this.curriculum = curriculum;
     }
 
+    /**
+     * студенческая группа
+     * @param <T> extends StudentGroup
+     * @return
+     */
     public <T extends StudentGroup> T getGroup() {
         return (T) group;
     }
 
+    /**
+     * студенческая группа
+     * @param group
+     */
     public void setGroup(StudentGroup group) {
         this.group = group;
     }
 
+    /**
+     * преподаватель
+     * @param <T> extends AbstractTeacher
+     * @return
+     */
     public <T extends AbstractTeacher> T getTeacher() {
         return (T) teacher;
     }
 
+    /**
+     * преподаватель
+     * @param teacher
+     */
     public void setTeacher(AbstractTeacher teacher) {
         this.teacher = teacher;
     }
 
     /**
-	 * 
-	 * @param obj
-	 * @return 
-	 */
-	@Override
+     * {@inheritDoc }
+     */
+    @Override
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;
@@ -76,10 +103,9 @@ public final class TeacherToGroup implements Serializable{
     }
 
     /**
-	 * 
-	 * @return 
-	 */
-	@Override
+     * {@inheritDoc }
+     */
+    @Override
     public int hashCode() {
         int hash = 33;
         hash = 11 * hash + (this.group != null ? this.group.hashCode() : 0);
@@ -89,15 +115,14 @@ public final class TeacherToGroup implements Serializable{
     }
 
     /**
-	 * 
-	 * @return 
-	 */
-	@Override
+     * {@inheritDoc }
+     */
+    @Override
     public String toString() {
         StringBuffer sb = new StringBuffer(super.toString());
-        sb.append("Group: ").append(this.group).append("; ");
-        sb.append("Teacher: ").append(this.teacher).append("; ");
-        sb.append("Curriculum: ").append(this.curriculum).append("; ");
+        sb.append("Group: ").append(this.group).append(";\n");
+        sb.append("Teacher: ").append(this.teacher).append(";\n");
+        sb.append("Curriculum: ").append(this.curriculum).append(";");
         return sb.toString();
     }
 }

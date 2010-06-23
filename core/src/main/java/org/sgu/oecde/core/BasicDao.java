@@ -20,9 +20,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.util.Assert;
 
 /**
- * базовый дженерик дао. получает в качестве параметра тип сущности, с которой будет производиться работа
- * @author shihovmy
- * @param <T>
+ * {@inheritDoc}
  */
 public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implements IBasicDao<T>{
     /**
@@ -65,6 +63,7 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
 
     /**
      * {@inheritDoc}
+     * @see org.hibernate.criterion.Example
      */
     @Override
     public List<T> getByExample(final T item) throws DataAccessException{
@@ -72,11 +71,19 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
         return getCriteriaByParametrizedItem(item,cr).list();
     }
 
+    /**
+     * {@inheritDoc}
+     * @see org.hibernate.criterion.Example
+     */
     public List<T> getBySimpleExample(final T item) throws DataAccessException{
         Criteria cr =  getSession().createCriteria(type);
         return cr.add(Example.create(item).enableLike(MatchMode.ANYWHERE).ignoreCase().excludeZeroes()).addOrder(Order.asc("id")).list();
     }
 
+    /**
+     * {@inheritDoc}
+     * @see org.hibernate.criterion.Example
+     */
     public List<T> getByFullExample(final T item) throws DataAccessException{
         Criteria cr =  getSession().createCriteria(type);
 
@@ -124,7 +131,24 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
         }
         return cr.list();
     }
-
+    /**
+     * сначала в критерию заносится условие, составленное по полям-примитивам сущности айтем
+     * с помощью {@code org.hibernate.criterion.Example}. Затем метод пробегается
+     * по остальным полям сущности, которые являются наследниками {@code org.sgu.oecde.core.BasicItem}
+     * и добавляет в условие ненулевые значения айди этих полей. Кроме того, класс этого поля должен
+     * быть связан с сущностью-образцом по айди.
+     * В итоге получается критерий с условиями, составленными из ненулевых полей сущности-образца.
+     * Например, если сущность - Учебный план (Curriculum), у которой есть поля семестр, год,
+     * специальность, дисциплина, и нужно найти все Curriculums для конкретной дисциплины за конкретный год,
+     * то в сущность-образец нужно поместить дисциплину с искомым айди, а у поля год задать необходимое
+     * значение года. В результате будет получен критерий с этим условием, по которому можно получить лист
+     * Curriculums.
+     * @param item сущность-образец
+     * @param cr критерий
+     * @return критерий
+     * @see org.hibernate.criterion.Example
+     * @see org.sgu.oecde.core.BasicItem
+     */
     @SuppressWarnings("unchecked")
     protected Criteria getCriteriaByParametrizedItem(final T item,final Criteria cr){
         Assert.isInstanceOf(type,item ,"item is not an instance of type "+type);

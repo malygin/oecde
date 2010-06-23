@@ -1,18 +1,28 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.core.education;
 
 /**
- *
+ * тип оценивания данной специальности по данной дисциплины в данном семестре в данном году.
  * @author ShihovMY
  */
 public enum ExaminationType {
-    exame,test,empty;
+    /**
+     * экзамен
+     */
+    exame,
+    /**
+     * зачёт
+     */
+    test,
+    /**
+     * не оценивается
+     */
+    empty;
     private static final long serialVersionUID = 57L;
 
+    /**
+     * @{@inheritDoc }
+     * @return
+     */
     @Override
     public String toString() {
         switch(this){
@@ -26,6 +36,10 @@ public enum ExaminationType {
         }
     }
 
+    /**
+     *
+     * @return стринговое значение по энаму
+     */
     public String toName(){
         switch(this){
             case exame:
@@ -38,6 +52,11 @@ public enum ExaminationType {
         }
     }
 
+    /**
+     *
+     * @param name
+     * @return энам по стриногому имени
+     */
     public static ExaminationType parse(String name){
         if("З".equals(name))
             return test;

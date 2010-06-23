@@ -7,7 +7,7 @@ import org.springframework.security.context.SecurityContext;
 import org.springframework.security.context.SecurityContextHolder;
 
 /**
- *
+ * методы по работе с авторизованным пользователем, находящемся в SecurityContext
  * @author ShihovMY
  */
 public class SecurityContextHandler {
@@ -16,6 +16,10 @@ public class SecurityContextHandler {
         throw new AssertionError();
     }
 
+    /**
+     *
+     * @return авторизованного пользователя
+     */
     public static AbstractUser getUser(){
         SecurityContext context = SecurityContextHolder.getContext();
         if (context instanceof SecurityContext){
@@ -30,6 +34,10 @@ public class SecurityContextHandler {
         return null;
     }
 
+    /**
+     *
+     * @return тип авторизованного пользователя
+     */
     public static UserType getUserType(){
         return UserType.fromRole(getUser());
     }

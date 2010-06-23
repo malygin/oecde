@@ -8,8 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 /**
- *
+ * формирует учебный план дистанционного образования
  * @author ShihovMY
+ * @see org.sgu.oecde.core.education.CurriculumBuilder
  */
 @Service(value="curriculumBuilder")
 public class DeCurriculumBuilder extends CurriculumBuilder<DeCurriculum>{
@@ -18,6 +19,13 @@ public class DeCurriculumBuilder extends CurriculumBuilder<DeCurriculum>{
         return new DeCurriculum();
     }
 
+    /**
+     *
+     * @param year
+     * @param booleanSemester
+     * @param student
+     * @return DeCurriculum по году, зимнему/летнему семестру и курсу обучения студента
+     */
     public DeCurriculum getInstance(int year,int booleanSemester,Student student){
         DeCurriculum c = this.getInstance(year,booleanSemester,(AbstractStudent)student);
         Assert.notNull(student.<Group>getGroup(),"student group can not be null");
@@ -26,6 +34,11 @@ public class DeCurriculumBuilder extends CurriculumBuilder<DeCurriculum>{
         return c;
     }
 
+    /**
+     *
+     * @param student
+     * @return DeCurriculum по конкретной дате и курсу обучения студента
+     */
     public DeCurriculum getInstanceByCurrentDate(Student student){
         return getInstance(getter.getCurrentSemester(),getter.getCurrentYear(),student);
     }

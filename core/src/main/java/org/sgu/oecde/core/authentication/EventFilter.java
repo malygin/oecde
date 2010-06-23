@@ -8,14 +8,12 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.UsersInCache;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 
 /**
- *
+ * фильтр, вносящий текущего пользователя в кеш пользователей онлайн при каждом запросе.
  * @author ShihovMY
  */
 public class EventFilter implements  Filter{
@@ -23,13 +21,16 @@ public class EventFilter implements  Filter{
     @Resource
     private UsersInCache userCache;
 
-    protected void doFilterHttp(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
-
-    }
-
+    /**
+     * {@inheritDoc}
+     */
     public void init(FilterConfig filterConfig) throws ServletException {
     }
 
+    /**
+     * если пользователь не равен null, то он вносится в кеш пользователей онлайн
+     * {@inheritDoc}
+     */
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         AbstractUser u = SecurityContextHandler.getUser();
@@ -38,6 +39,9 @@ public class EventFilter implements  Filter{
         chain.doFilter(request, response);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void destroy() {
     }

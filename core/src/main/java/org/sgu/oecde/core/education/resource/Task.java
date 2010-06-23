@@ -8,6 +8,9 @@ package org.sgu.oecde.core.education.resource;
  * Простой ресурс- занятие - лекция (обычная html)
  */
 public class Task extends AbstractResource{
+    /**
+     * урл
+     */
     private String url;
 
     public Task() {
@@ -17,10 +20,18 @@ public class Task extends AbstractResource{
         setId(id);
     }
 
+    /**
+     * урл
+     * @return
+     */
     public String getUrl() {
         return url;
     }
 
+    /**
+     * урл
+     * @param url
+     */
     public void setUrl(String url) {
         this.url = url;
     }

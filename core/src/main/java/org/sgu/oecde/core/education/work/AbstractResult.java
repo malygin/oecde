@@ -5,41 +5,79 @@ import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.users.AbstractStudent;
 
 /**
- *
+ * результат работы (контрольная, самостоятельная, тест, итоговая оценка и тд)
  * @author ShihovMY
  */
 abstract public class AbstractResult extends BasicItem implements Comparable<AbstractResult>{
+    /**
+     * студент
+     */
     private AbstractStudent student;
+    /**
+     * учебный план
+     */
     private Curriculum curriculum;
+    /**
+     * дата
+     */
     private String date;
 
     public AbstractResult() {
     }
 
+    /**
+     * учебный план
+     * @param curriculum
+     */
     public void setCurriculum(Curriculum curriculum) {
         this.curriculum = curriculum;
     }
 
+    /**
+     * дата
+     * @return
+     */
     public String getDate() {
         return date;
     }
 
+    /**
+     * дата
+     * @param date
+     */
     public void setDate(String date) {
         this.date = date;
     }
 
+    /**
+     *
+     * @param <T>  extends AbstractStudent
+     * @return студент
+     */
     public <T extends AbstractStudent>T getStudent() {
         return (T) student;
     }
 
+    /**
+     *
+     * @param <T> extends Curriculum
+     * @return учебный план
+     */
     public <T extends Curriculum>T getCurriculum() {
         return (T) curriculum;
     }
 
+    /**
+     * студент
+     * @param student
+     */
     public void setStudent(AbstractStudent student) {
         this.student = student;
     }
 
+    /**
+     * {@inheritDoc }
+     */
     @Override
     public int compareTo(AbstractResult o) {
        int curriculumInt = 0;
@@ -53,6 +91,9 @@ abstract public class AbstractResult extends BasicItem implements Comparable<Abs
        return studentInt==0?(curriculumInt):studentInt;
     }
 
+    /**
+     * {@inheritDoc }
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -74,6 +115,9 @@ abstract public class AbstractResult extends BasicItem implements Comparable<Abs
         return true;
     }
 
+    /**
+     * {@inheritDoc }
+     */
     @Override
     public int hashCode() {
         int hash = 3;
@@ -81,5 +125,15 @@ abstract public class AbstractResult extends BasicItem implements Comparable<Abs
         hash = 47 * hash + (this.curriculum != null ? this.curriculum.hashCode() : 0);
         hash = 47 * hash + (this.date != null ? this.date.hashCode() : 0);
         return hash;
+    }
+
+    @Override
+    public String toString() {
+        StringBuffer sb = new StringBuffer(super.toString());
+        sb.append("учебный план: ").append(curriculum).append(";\n");
+        if(student!=null&&!student.getFio().isEmpty())
+            sb.append("студент: ").append(student.getInitials()).append(";\n");
+        sb.append("дата: ").append(date).append(";");
+        return sb.toString();
     }
 }

@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.core.util;
 
 import org.hibernate.Query;
@@ -11,7 +6,7 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
- *
+ * метод по формированию hql запроca. не обязателен к использованию
  * @author ShihovMY
  */
 public abstract class HqlConstructor {
@@ -20,6 +15,17 @@ public abstract class HqlConstructor {
         throw new AssertionError();
     }
 
+    /**
+     *
+     * @param session
+     * @param prefix
+     * @param mainHql
+     * @param fetch
+     * @param whereHql
+     * @param postfix
+     * @param orderBy
+     * @return hql запроca
+     */
     public static final Query makeQuery(Session session, String prefix, String mainHql, String[] fetch, String whereHql, String postfix, String orderBy){
         StringBuilder query = new StringBuilder();
 

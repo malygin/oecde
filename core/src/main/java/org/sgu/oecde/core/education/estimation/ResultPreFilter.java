@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 /**
- *
+ * класс для обработки результатов фильтрами и формирования Points
  * @author ShihovMY
  */
 @Service(value="preFilter")
@@ -20,6 +20,16 @@ public class ResultPreFilter {
     private ResultPreFilter() {
     }
 
+    /**
+     * пробегается по листу результатов и для каждого результата вызывает все фильтры.
+     * вначале и при каждом новом студенте/учебном плане создаётся Points,
+     * в который фильтрами помещаются данные, полученные после обработки результатов.
+     * @param results - лист результатов
+     * @param sumEachIteration - суммировать ли баллы для каждого учебного плана
+     * @param resultFilters - лист фильтров
+     * @return - лист баллов
+     * @see IResultFilter фильтр
+     */
     public List<Points> forEachResult(List<? extends AbstractResult> results, boolean sumEachIteration,List<IResultFilter> resultFilters){
         Assert.state(!resultFilters.isEmpty(), "result filters Set can not be empty");
         List<Points> pointsList = new ArrayList<Points>();

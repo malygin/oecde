@@ -10,10 +10,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.util.Assert;
 
 /**
- * @author Andrey Malygin (mailto: anmalygin@gmail.com)
- * created 19.05.2010
- * дао для ресурсов
- * @todo добавить методы для получения
+ * {@inheritDoc }
  */
 public class ResourceDao <T extends AbstractResource> extends UpdateDao<T> implements IResourceDao<T> {
 
@@ -21,6 +18,9 @@ public class ResourceDao <T extends AbstractResource> extends UpdateDao<T> imple
         super((Class<T>)AbstractResource.class);
     }
 
+    /**
+     * {@inheritDoc }
+     */
     public List<T> getResourceByCurriculums(List<? extends Curriculum> curriculums,AbstractResource resource,Class type)throws DataAccessException{
         String byExample = null;
         Assert.notNull(type);

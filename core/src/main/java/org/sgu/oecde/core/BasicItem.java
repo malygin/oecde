@@ -14,11 +14,9 @@ public abstract class BasicItem implements Serializable{
     private Long id;
 
     /**
-	 * 
-	 * @param obj
-	 * @return 
-	 */
-	@Override
+     * {@inheritDoc}
+     */
+    @Override
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;
@@ -33,29 +31,38 @@ public abstract class BasicItem implements Serializable{
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     * @return
+     */
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 59 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
-
+    /**
+     *
+     * @return id
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     * set id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
     /**
-     *
-     * @return
+     * {@inheritDoc}
      */
     @Override
     public String toString(){
-        StringBuffer sb = new StringBuffer();
-        sb.append("Id: ").append(this.id).append("; ");
+        StringBuffer sb = new StringBuffer(this.getClass().getName());
+        sb.append("; ").append("айди: ").append(this.id).append("; ");
         return sb.toString();
     }
 }

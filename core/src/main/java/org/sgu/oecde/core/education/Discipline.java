@@ -8,6 +8,9 @@ import org.sgu.oecde.core.BasicItem;
  */
 public class Discipline extends BasicItem{
 
+    /**
+     * название
+     */
     private String name;
     private static final long serialVersionUID = 47L;
 
@@ -30,7 +33,21 @@ public class Discipline extends BasicItem{
         return name;
     }
 
+    /**
+     * название дисциплины
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * {@inheritDoc }
+     */
+    @Override
+    public String toString() {
+        StringBuffer sb = new StringBuffer(super.toString());
+        sb.append("название: ").append(name).append("; ");
+        return sb.toString();
     }
 }

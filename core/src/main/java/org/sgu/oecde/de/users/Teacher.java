@@ -3,7 +3,7 @@ package org.sgu.oecde.de.users;
 import org.sgu.oecde.core.users.AbstractTeacher;
 
 /**
- * РїСЂРµРїРѕРґР°РІР°С‚РµР»СЊ
+ * преподаватель дистанционного образования
  * @author shihovmy
  */
 public class Teacher extends AbstractTeacher{
@@ -16,8 +16,4 @@ public class Teacher extends AbstractTeacher{
     public Teacher(Long id) {
         setId(id);
     }
-    /**
-     * @return привязки из плана
-     */
-
 }

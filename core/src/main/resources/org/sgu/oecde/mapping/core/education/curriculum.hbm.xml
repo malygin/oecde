@@ -4,7 +4,7 @@
   <class discriminator-value="main" mutable="false" name="org.sgu.oecde.core.education.Curriculum" table="curriculum">
     <cache usage="read-only"/>
     <id name="id" type="long"/>
-    <discriminator column="discriminator"/>
+    <discriminator column="discriminator" length="15" insert="false"/>
     <property insert="false" name="semester" scale="2" type="integer"/>
     <property column="calendar_year" insert="false" name="calendarYear" scale="4" type="integer"/>
     <property column="examination_type" insert="false" length="10" name="examinationType" not-null="true">
@@ -16,13 +16,13 @@
     </property>
     <set batch-size="5" cascade="none" fetch="select" lazy="true" mutable="false" name="teacherToGroups" table="teacher_to_group">
       <cache usage="read-only"/>
-      <key column="curriculum_id" foreign-key="fk_t2g_cur"/>
+      <key column="curriculum" foreign-key="fk_teacher_2_group_curriculum"/>
       <composite-element class="org.sgu.oecde.core.education.TeacherToGroup">
         <parent name="curriculum"/>
-        <many-to-one cascade="none" class="org.sgu.oecde.core.users.AbstractTeacher" column="teacher_id" fetch="join" foreign-key="fk_t2g_teach" insert="false" name="teacher"/>
-        <many-to-one cascade="none" class="org.sgu.oecde.core.users.StudentGroup" column="group_id" fetch="join" foreign-key="fk_t2g_group" insert="false" name="group"/>
+        <many-to-one cascade="none" class="org.sgu.oecde.core.users.AbstractTeacher" fetch="join" foreign-key="fk_teacher_2_group_teacher" insert="false" name="teacher"/>
+        <many-to-one cascade="none" class="org.sgu.oecde.core.users.StudentGroup" fetch="join" foreign-key="fk_teacher_2_group_group" column="student_group" insert="false" name="group"/>
       </composite-element>
     </set>
-    <many-to-one class="org.sgu.oecde.core.education.Umk" fetch="join" foreign-key="fk_cur_umk" insert="false" name="umk"/>
+    <many-to-one class="org.sgu.oecde.core.education.Umk" fetch="join" foreign-key="fk_curriculum_umk" insert="false" name="umk"/>
   </class>
 </hibernate-mapping>

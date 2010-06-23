@@ -8,10 +8,21 @@ import org.sgu.oecde.core.users.AbstractStudent;
 import org.springframework.dao.DataAccessException;
 
 /**
- *
+ * дао по работе с результатами
  * @author ShihovMY
+ * @param <T> extends AbstractResult
  */
 public interface IResultDao<T extends AbstractResult> extends IBasicDao<T>{
+
+    /**
+     * получает лист результатов, относящихся к данным студентам и учебным планам, а так же
+     * равных образцу
+     * @param curriculums - лист учебных планов
+     * @param students - лист студентов
+     * @param result - результат образец
+     * @return лист результатов
+     * @throws DataAccessException
+     */
     @SuppressWarnings("unchecked")
     public List<T> getByStudentsAndCurriculums(List<? extends Curriculum>curriculums,List<? extends AbstractStudent>students, T result) throws DataAccessException;
 }

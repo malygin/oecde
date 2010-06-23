@@ -10,23 +10,47 @@ import org.springframework.beans.factory.annotation.Required;
 import org.springframework.util.CollectionUtils;
 
 /**
- *
+ * получает Map констант и помещает в Map constants только стринговые знацения (в основном даты)
  * @author ShihovMY
  */
 public class StringConstantsGetter{
-    
-    @Autowired(required=true)
+
+    /**
+     * дао календарных констант
+     */
+    @Autowired
     private IConstantsDao csDao;
+    /**
+     * календарные константы
+     */
     protected final Map<ICalendarConstantName,String> constants = new HashMap();
+    /**
+     * имя поля, содержащее название константы
+     */
     protected final String key = "name";
+    /**
+     * имя поля, содержащее значение константы
+     */
     protected final String value = "value";
     private String entityName;
 
+    /**
+     * после инициализации бина выполняется метод fillConstantsMap()
+     * @throws Exception
+     * @see #fillConstantsMap()
+     */
     @PostConstruct
     public void afterPropertiesSet() throws Exception{
         fillConstantsMap();
     }
-    
+
+    /**
+     * получает {@code List<Map>} из базы, пробегается по каждому значению листа,
+     * который содержит  {@code Map}, состоящий из имени константы и соответствующего значения,
+     * и помещает их в  {@code constants}
+     * @see ICalendarConstantName имя константы
+     * @see #constants константы
+     */
     protected void fillConstantsMap(){
         List<Map> c = csDao.getConstants(getEntityName());
         if(!CollectionUtils.isEmpty(c)){
@@ -38,6 +62,11 @@ public class StringConstantsGetter{
         }
     }
 
+    /**
+     *
+     * @param name имя константы
+     * @return значение константы по имени, если такое есть в  {@code constants}
+     */
     public final String getConstant(ICalendarConstantName name) {
         if(constants.containsKey(name))
             return constants.get(name);
@@ -45,34 +74,57 @@ public class StringConstantsGetter{
             throw new AssertionError("there is no such constant in constants map with name "+name);
     }
 
-    public void setCsDao(IConstantsDao csDao) {
-        this.csDao = csDao;
-    }
-
-    public final IConstantsDao getDao() {
-        return csDao;
-    }
-
-    public void update(Map c,String entity){
-        csDao.update(c,entity);
-    }
-
-    public void save(ICalendarConstantName name,String value,String entity){
+    /**
+     * формирует из заданных параметров {@code Map}, который после заносится в базу методом апдейт
+     * @param name
+     * @param value
+     * @param entity
+     * @see org.hibernate.Session#update(java.lang.Object) update
+     */
+    public void update(ICalendarConstantName name,String value){
         Map map = new HashMap();
         map.put(this.key, name);
         map.put(this.value, value);
-        csDao.save(map,entity);
+        csDao.update(map,entityName);
     }
 
-    protected void fillConstantsMap(String entityName){
+    /**
+     * формирует из заданных параметров {@code Map}, который после заносится в базу методом save
+     * @param name
+     * @param value
+     * @param entity
+     * @see org.hibernate.Session#save(java.lang.Object) save
+     */
+    public void save(ICalendarConstantName name,String value){
+        Map map = new HashMap();
+        map.put(this.key, name);
+        map.put(this.value, value);
+        csDao.save(map,entityName);
     }
 
+    /**
+     * устанавливает имя entity. Вызов метода обязателен при инициализации бина
+     * @param entityName
+     */
     @Required
-    public void setEntityName(String entityName) {
+    public final void setEntityName(String entityName) {
         this.entityName = entityName;
     }
 
-    protected String getEntityName(){
+    /**
+     * имя entity
+     * @return
+     */
+    protected final String getEntityName(){
         return entityName;
+    }
+
+    /**
+     *
+     * @return дао календарных констант
+     * @see org.sgu.oecde.core.education.dao.ConstantsDao
+     */
+    protected final IConstantsDao getDao() {
+        return csDao;
     }
 }

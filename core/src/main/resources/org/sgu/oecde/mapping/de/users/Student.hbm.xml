@@ -2,8 +2,8 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <joined-subclass dynamic-update="true" extends="org.sgu.oecde.core.users.AbstractStudent" name="org.sgu.oecde.de.users.Student" table="de_student">
-    <key column="id" foreign-key="fk_stud_abstr_stud" not-null="true" on-delete="cascade"/>
-    <property name="email" type="string"/>
+    <key column="id" foreign-key="fk_student_abstract_student" not-null="true" on-delete="cascade"/>
+    <property name="email" type="string" length="20"/>
     <property name="cellPhone" scale="10" type="int"/>
     <property name="icq" scale="9" type="int"/>
   </joined-subclass>

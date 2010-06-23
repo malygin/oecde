@@ -10,7 +10,7 @@ import org.springframework.security.userdetails.UserDetailsService;
 import org.springframework.security.userdetails.UsernameNotFoundException;
 
 /**
- *
+ * {@inheritDoc }
  * @author ShihovMY
  */
 public class UserDetailsServiceImpl implements UserDetailsService{
@@ -22,9 +22,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
     }
 
     /**
-     *
-     * @param username
-     * @return
+     * {@inheritDoc }
      */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException, DataAccessException {

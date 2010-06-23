@@ -13,8 +13,7 @@ import org.sgu.oecde.core.util.HqlConstructor;
 import org.springframework.dao.DataAccessException;
 
 /**
- *
- * @author ShihovMY
+ * {@inheritDoc}
  */
 public class CurriculumDao<T extends Curriculum> extends BasicDao<T> implements ICurriculumDao<T>{
 
@@ -73,6 +72,16 @@ public class CurriculumDao<T extends Curriculum> extends BasicDao<T> implements 
                  .setParameter("t", teacher).list();
     }
 
+    /**
+     * формирует общий запрос
+     * @param prefix
+     * @param postfix
+     * @param fetch
+     * @param orderBy
+     * @param semester
+     * @param year
+     * @return
+     */
     private Query makeQuery(String prefix, String postfix, String[] fetch,  String orderBy,Integer[] semester, int year){
         return HqlConstructor.makeQuery(getSession(), prefix, CURRICULUM_HQL_QUERY, fetch, CURRICULUM_HQL_QUERY_WHERE, postfix, orderBy)
                 .setParameterList("s", semester).setInteger("y", year);

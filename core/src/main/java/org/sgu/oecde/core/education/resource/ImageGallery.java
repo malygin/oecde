@@ -9,32 +9,28 @@ import java.util.Set;
  * created 05.05.2010
  * Составной ресурс ресурс - галлерея видео изображений.
  */
-
-//TODO: решить делать ли асбтрактную галлерею настройки галлереи
  public class ImageGallery extends AbstractResource{
-
-    private Integer numImages;
-  
+    /**
+     * сет изображений
+     */
     private Set<Image> images;
 
     public ImageGallery() {
     }
 
+    /**
+     * изображения галереи
+     * @return
+     */
     public Set<Image> getImages() {
         return images;
     }
 
+    /**
+     * изображения галереи
+     * @param images
+     */
     public void setImages(Set<Image> images) {
         this.images = images;
     }
- 
-    public Integer getNumImages() {
-        return numImages;
-    }
-
-    public void setNumImages(Integer numImages) {
-        this.numImages = numImages;
-    }
-
-
 }

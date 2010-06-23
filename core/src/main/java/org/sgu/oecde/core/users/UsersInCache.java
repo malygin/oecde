@@ -1,13 +1,15 @@
 package org.sgu.oecde.core.users;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.annotation.Resource;
 import net.sf.ehcache.Ehcache;
 import net.sf.ehcache.Element;
 import org.sgu.oecde.core.util.DateConverter;
 /**
- *
+ * пользователи в кеше пользователей онлайн, соответсвующем типу пользователя.
+ * имеет методы на получение в кеш и получение из кеша
  * @author ShihovMY
  */
 
@@ -25,56 +27,96 @@ public class UsersInCache{
     @Resource
     private Ehcache supervisorCache;
 
+    /**
+     *
+     * @param user
+     * @return есть пользователей в кеше
+     */
     public boolean isUserInCache(AbstractUser user) {
         Ehcache c = cache(user);
         return c.isKeyInCache(user.getUsername());
     }
 
+    /**
+     * кладёт пользователя в соответсвующий тип
+     * @param user
+     */
     public void putUserInCache(AbstractUser user) {
         Ehcache c = cache(user);
-        Element element = new Element(user.getUsername(), DateConverter.currentDate());
+        Element element = new Element(user.getUsername(), user);
         c.put(element);
     }
 
+    /**
+     * удаляет пользователя из соответсвующего типу кеша
+     * @param user
+     */
     public void removeUserFromCache(AbstractUser user) {
         Ehcache c = cache(user);
         c.remove(user.getUsername());
     }
 
-    public List<String> getStudents(){
+    /**
+     * @return все студенты в кеше
+     */
+    public List<? extends AbstractStudent> getStudents(){
         Ehcache c = cache(UserType.STUDENT);
-        return this.getUsers(c);
+        return this.<AbstractStudent>getUsers(c);
     }
 
-    public List<String> getTeachers(){
+    /**
+     *
+     * @return все преподаватели в кше
+     */
+    public List<? extends AbstractTeacher> getTeachers(){
         Ehcache c = cache(UserType.TEACHER);
-        return this.getUsers(c);
+        return this.<AbstractTeacher>getUsers(c);
     }
 
-    public List<String> getAdmins(){
+    /**
+     *
+     * @return все администраторы в кеше
+     */
+    public List<? extends Admin> getAdmins(){
         Ehcache c = cache(UserType.ADMIN);
-        return this.getUsers(c);
+        return this.<Admin>getUsers(c);
     }
 
-    public List<String> getSupervisors(){
+    /**
+     *
+     * @return все наблюдатели в кеше
+     */
+    public List<? extends Supervisor> getSupervisors(){
         Ehcache c = cache(UserType.SUPERVISOR);
-        return this.getUsers(c);
+        return this.<Supervisor>getUsers(c);
     }
 
-    public List<String> getSixStudents(){
-        return getStudents().subList(0, 5);
+    /**
+     *
+     * @return
+     */
+    public List<? extends AbstractStudent> getSixStudents(){
+        List<? extends AbstractStudent> l = getStudents();
+        Collections.shuffle(l);
+        return l.subList(0, 5);
     }
 
-    public List<String> getSixTeachers(){
-        return getTeachers().subList(0, 5);
+    public List<? extends AbstractTeacher> getSixTeachers(){
+        List<? extends AbstractTeacher> l = getTeachers();
+        Collections.shuffle(l);
+        return l.subList(0, 5);
     }
 
-    public List<String> getSixAdmins(){
-        return getAdmins().subList(0, 5);
+    public List<? extends Admin> getSixAdmins(){
+        List<? extends Admin> l = getAdmins();
+        Collections.shuffle(l);
+        return l.subList(0, 5);
     }
 
-    public List<String> getSixSupervisors(){
-        return getSupervisors().subList(0, 5);
+    public List<? extends Supervisor> getSixSupervisors(){
+        List<? extends Supervisor> l = getSupervisors();
+        Collections.shuffle(l);
+        return l.subList(0, 5);
     }
 
     public int getStudentsCount(){
@@ -93,10 +135,10 @@ public class UsersInCache{
         return getSupervisors().size();
     }
 
-    private List<String> getUsers(Ehcache cache){
-        List<String>list = new ArrayList();
+    private <T extends AbstractUser>List<T> getUsers(Ehcache cache){
+        List<T>list = new ArrayList<T>();
         for(Object k:cache.getKeysWithExpiryCheck()){
-            list.add((String) cache.get(k).getValue());
+            list.add((T) cache.get(k).getValue());
         }
         return list;
     }

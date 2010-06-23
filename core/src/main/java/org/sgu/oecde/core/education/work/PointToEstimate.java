@@ -1,16 +1,42 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.core.education.work;
 
 /**
- *
+ * соответсвие кода оценки в бд текстовому/цифровому эквиваленту
  * @author ShihovMY
  */
 public enum PointToEstimate {
-    notEstimated,two,three,four,five,absence,passed,failed;
+    /**
+     * не оценено
+     */
+    notEstimated,
+    /**
+     * 2
+     */
+    two,
+    /**
+     * 3
+     */
+    three,
+    /**
+     * 4
+     */
+    four,
+    /**
+     * 5
+     */
+    five,
+    /**
+     * неявка
+     */
+    absence,
+    /**
+     * зачтено
+     */
+    passed,
+    /**
+     * не зачтено
+     */
+    failed;
 
     @Override
     public String toString() {

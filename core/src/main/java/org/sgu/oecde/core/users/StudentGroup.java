@@ -1,45 +1,62 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.core.users;
 
 import java.util.Set;
 import org.sgu.oecde.core.education.TeacherToGroup;
+import org.springframework.util.CollectionUtils;
 
 /**
- *
+ * студенческая группа
  * @author ShihovMY
  */
 public abstract class StudentGroup extends AbstractGroup<AbstractStudent>{
+    /**
+     * курс
+     */
     private Integer year;
-    private Integer number;
+    /**
+     * группа-преподаватель-учебный план
+     */
     private Set<TeacherToGroup> teacherToGroups;
 
     public  StudentGroup() {
     }
 
+    /**
+     *
+     * @return количество человек
+     */
     public Integer getNumber() {
-        return number;
+        return CollectionUtils.isEmpty(getPersons())?0:getPersons().size();
     }
 
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
-
+    /**
+     *
+     * @return курс
+     */
     public Integer getYear() {
         return year;
     }
 
+    /**
+     * курс
+     * @param year
+     */
     public void setYear(Integer year) {
         this.year = year;
     }
 
+    /**
+     *
+     * @return группа-преподаватель-учебный план
+     */
     public Set<TeacherToGroup> getTeacherToGroups() {
         return teacherToGroups;
     }
 
+    /**
+     * группа-преподаватель-учебный план
+     * @param teacherToGroups
+     */
     public void setTeacherToGroups(Set<TeacherToGroup> teacherToGroups) {
         this.teacherToGroups = teacherToGroups;
     }

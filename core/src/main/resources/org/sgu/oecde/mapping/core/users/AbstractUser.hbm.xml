@@ -3,9 +3,9 @@
 <hibernate-mapping schema="oecdo_test">
   <class abstract="true" dynamic-update="true" name="org.sgu.oecde.core.users.AbstractUser" table="abstract_user">
     <id name="id" type="long"/>
-    <discriminator column="DISCRIMINATOR" not-null="false"/>
-    <property insert="false" name="username" not-null="true" type="string" unique="true" unique-key="uk_abs_user" update="false"/>
-    <property insert="false" name="password" type="string"/>
+    <discriminator column="DISCRIMINATOR" not-null="false" length="15"/>
+    <property insert="false" name="username" length="30" not-null="true" type="string" unique="true" unique-key="uk_abs_user" update="false"/>
+    <property insert="false" name="password" length="20" type="string"/>
     <property insert="false" name="enabled" scale="1" type="boolean"/>
     <property column="full_access" insert="false" name="fullAccess" scale="1" type="boolean"/>
     <property column="large_photo" insert="false" name="largePhoto" type="string"/>
