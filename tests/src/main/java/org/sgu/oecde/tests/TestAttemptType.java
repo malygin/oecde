@@ -1,16 +1,22 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.tests;
 
 /**
- *
+ * тип попытки прохождения теста
  * @author ShihovMY
  */
 public enum TestAttemptType {
-    trial,regular,reTest;
+    /**
+     * пробное
+     */
+    trial,
+    /**
+     * обычное
+     */
+    regular,
+    /**
+     * переэкзаменовка
+     */
+    reTest;
     private static final long serialVersionUID = 80L;
 
     @Override

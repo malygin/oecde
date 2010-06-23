@@ -3,12 +3,21 @@ package org.sgu.oecde.tests;
 import org.sgu.oecde.core.BasicItem;
 
 /**
- *
+ * выбранный вариант ответа
  * @author ShihovMY
  */
 public class GivenAnswer extends BasicItem{
+    /**
+     * вопрос, на который был дан ответ
+     */
     private AnsweredQuestion answeredQuestion;
+    /**
+     * вариант ответа
+     */
     private Answer rightAnswer;
+    /**
+     * данный овтет
+     */
     private String givenAnswer;
     private static final long serialVersionUID = 73L;
 
@@ -19,26 +28,50 @@ public class GivenAnswer extends BasicItem{
         setId(id);
     }
 
+    /**
+     *
+     * @return данный овтет
+     */
     public String getGivenAnswer() {
         return givenAnswer;
     }
 
+    /**
+     * данный овтет
+     * @param givenAnswer
+     */
     public void setGivenAnswer(String givenAnswer) {
         this.givenAnswer = givenAnswer;
     }
 
+    /**
+     *
+     * @return вариант ответа
+     */
     public Answer getRightAnswer() {
         return rightAnswer;
     }
 
+    /**
+     * вариант ответа
+     * @param rightAnswer
+     */
     public void setRightAnswer(Answer rightAnswer) {
         this.rightAnswer = rightAnswer;
     }
 
+    /**
+     *
+     * @return вопрос, на который был дан ответ
+     */
     public AnsweredQuestion getAnsweredQuestion() {
         return answeredQuestion;
     }
 
+    /**
+     * вопрос, на который был дан ответ
+     * @param answeredQuestion
+     */
     public void setAnsweredQuestion(AnsweredQuestion answeredQuestion) {
         this.answeredQuestion = answeredQuestion;
     }
@@ -67,5 +100,13 @@ public class GivenAnswer extends BasicItem{
         hash = 23 * hash + (this.answeredQuestion != null ? this.answeredQuestion.hashCode() : 0);
         hash = 23 * hash + (this.rightAnswer != null ? this.rightAnswer.hashCode() : 0);
         return hash;
+    }
+
+    @Override
+    public String toString() {
+        StringBuffer sb = new StringBuffer(super.toString());
+        sb.append("вариант ответа: ").append(rightAnswer).append("; ");
+        sb.append("ответ: ").append(givenAnswer).append("; ");
+        return sb.toString();
     }
 }

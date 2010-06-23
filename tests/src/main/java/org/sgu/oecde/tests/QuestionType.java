@@ -1,17 +1,26 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.tests;
 
 /**
- *
+ * тип вопроса
  * @author ShihovMY
  */
 public enum QuestionType {
-
-    radio,check,text,comparison;
+    /**
+     * один из многих. радиобаттон
+     */
+    radio,
+    /**
+     * многое из многих. чекбокс
+     */
+    check,
+    /**
+     * текст для ввода
+     */
+    text,
+    /**
+     * сопоставление
+     */
+    comparison;
     private static final long serialVersionUID = 79L;
 
     @Override

@@ -23,8 +23,8 @@
       </type>
     </property>
     <set batch-size="15" fetch="join" mutable="false" name="questions" table="questions_to_test">
-      <key column="test_id" foreign-key="fk_test2q_test" not-null="true"/>
-      <many-to-many class="org.sgu.oecde.tests.Question" column="question_id" foreign-key="fk_test2q_q"/>
+      <key column="test_id" foreign-key="fk_test_2_question_test" not-null="true"/>
+      <many-to-many class="org.sgu.oecde.tests.Question" column="question_id" foreign-key="fk_test_2_question_question"/>
     </set>
   </joined-subclass>
 </hibernate-mapping>

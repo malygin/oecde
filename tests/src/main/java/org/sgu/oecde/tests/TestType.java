@@ -1,16 +1,22 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.tests;
 
 /**
- *
+ * тип теста
  * @author ShihovMY
  */
 public enum TestType {
-    concluding,regular,trial;
+    /**
+     * итоговый
+     */
+    concluding,
+    /**
+     * обычный
+     */
+    regular,
+    /**
+     * пробный
+     */
+    trial;
     private static final long serialVersionUID = 82L;
 
     @Override

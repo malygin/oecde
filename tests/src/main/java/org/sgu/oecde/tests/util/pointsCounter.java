@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.tests.util;
 
 import java.util.Collections;
@@ -10,7 +5,7 @@ import java.util.List;
 import org.sgu.oecde.tests.TestEstimationType;
 
 /**
- *
+ * подсчитывает баллы коллекции в соответсвии с типом оценивания прохождения теста
  * @author ShihovMY
  */
 public final class pointsCounter {
@@ -19,6 +14,12 @@ public final class pointsCounter {
         new AssertionError();
     }
 
+    /**
+     * подсчитывает баллы коллекции в соответсвии с типом оценивания прохождения теста
+     * @param type
+     * @param points
+     * @return
+     */
     public static int count(TestEstimationType type,List<Integer> points){
         int point = 0;
         switch(type){

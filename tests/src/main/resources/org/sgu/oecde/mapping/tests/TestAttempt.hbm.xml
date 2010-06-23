@@ -3,12 +3,12 @@
 <hibernate-mapping schema="oecdo_test">
   <subclass discriminator-value="test" extends="org.sgu.oecde.core.education.work.AbstractSelfDependentWorkResult" name="org.sgu.oecde.tests.TestAttempt">
     <set batch-size="15" cascade="all" fetch="select" inverse="true" name="answeredQuestions">
-      <key column="result_id" foreign-key="fk_aquest_testattempt" not-null="true"/>
+      <key column="result_id" foreign-key="fk_answered_question_test_attempt" not-null="true"/>
       <one-to-many class="org.sgu.oecde.tests.AnsweredQuestion"/>
     </set>
     <property name="points" scale="3" type="integer"/>
     <join table="tests_attempts">
-      <key column="id" foreign-key="fk_test_att_res" not-null="true" on-delete="cascade"/>
+      <key column="id" foreign-key="fk_test_attempt_result" not-null="true" on-delete="cascade"/>
       <property name="duration" scale="3" type="integer"/>
       <property column="right_answers" name="rightAnswers" scale="3" type="integer"/>
       <property column="type" name="type" not-null="true">

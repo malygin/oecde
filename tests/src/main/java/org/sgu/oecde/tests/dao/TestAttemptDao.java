@@ -3,7 +3,6 @@ package org.sgu.oecde.tests.dao;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Property;
-import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.dao.ResultDao;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.tests.TestAttempt;
@@ -12,8 +11,7 @@ import org.sgu.oecde.tests.TestEntity;
 import org.springframework.dao.DataAccessException;
 
 /**
- *
- * @author ShihovMY
+ * {@inheritDoc }
  */
 public class TestAttemptDao <T extends TestAttempt> extends ResultDao<T> implements ITestAttemptDao<T>{
 
@@ -24,6 +22,9 @@ public class TestAttemptDao <T extends TestAttempt> extends ResultDao<T> impleme
         getSession().save(attempt);
     }
 
+    /**
+     * {@inheritDoc }
+     */
     public List<T> getByStudentsAndTests(List<? extends TestEntity>tests,List<? extends AbstractStudent>students, T attempt,boolean allEstimatedAttempts)throws DataAccessException{
         attempt.setWork(null);
         Criteria cr =  getSession().createCriteria(type);
@@ -38,6 +39,9 @@ public class TestAttemptDao <T extends TestAttempt> extends ResultDao<T> impleme
                 .add(Property.forName("work").in(tests)).list();
     }
 
+    /**
+     * {@inheritDoc }
+     */
     public List<T> getByExampleWithType(T attempt,boolean allEstimatedAttempts)throws DataAccessException{
         Criteria cr =  getSession().createCriteria(type);
         if(allEstimatedAttempts)

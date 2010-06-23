@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 /**
- *
+ *фабрика по формированию имён полей для баллов по прохождениями тестов
  * @author ShihovMY
  */
 @Service
@@ -20,6 +20,11 @@ public class TestsPointsFactory extends EstimatedWorkPointsAbstractFactory{
     private TestsPointsFactory() {
     }
 
+    /**
+     * в зависимтости от типа теста и типа прохождения возвращает соответсвующее имя поля
+     * @param result тест
+     * @return
+     */
     public IEstimate createEstimatedWorkValue(AbstractResult result) {
         Assert.state(result != null,"result is null" );
         Assert.state((result instanceof TestAttempt),"result is not an insnance of TestAttempt");

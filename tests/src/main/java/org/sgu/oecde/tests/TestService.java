@@ -12,15 +12,24 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 /**
- *
+ * сервис для получения теста с вопросами и сохранения изменений в тесте
  * @author ShihovMY
  */
 @Service
 public class TestService{
 
+    /**
+     * тест дао
+     */
     @Autowired
     IResourceDao<TestEntity> resourceDao;
 
+    /**
+     * получает тест. Если стоит флажок перемешивать - перемешивает варианты ответов и вопросы,
+     * а так же формирует варианты ответов для вопроса типа сопоставление
+     * @param id
+     * @return тест с вопросами и вариантами ответов
+     */
     public TestEntity getTestWithQuestions(Long id){
         TestEntity t = resourceDao.getById(id);
         if(t==null&&CollectionUtils.isEmpty(t.getQuestions()))
@@ -41,6 +50,9 @@ public class TestService{
                 comparisons.add(compare);
             }
             q.getAnswers().addAll(comparisons);
+            List l = new ArrayList(q.getAnswers());
+            Collections.shuffle(l);
+            q.setAnswers(new LinkedHashSet(l));
         }
         return t;
     }

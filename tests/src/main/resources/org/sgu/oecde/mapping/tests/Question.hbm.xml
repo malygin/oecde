@@ -3,7 +3,7 @@
 <hibernate-mapping schema="oecdo_test">
   <class dynamic-update="true" name="org.sgu.oecde.tests.Question" table="questions">
     <id name="id" type="long"/>
-    <property insert="false" name="title" type="string"/>
+    <property insert="false" name="title" type="string" length="3000"/>
     <property insert="false" name="weight" scale="3" type="integer"/>
     <property column="type" insert="false" name="type" not-null="true">
       <type name="org.sgu.oecde.core.GenericEnumUserType">
@@ -13,7 +13,7 @@
       </type>
     </property>
     <set batch-size="15" cascade="none" fetch="join" mutable="false" name="answers">
-      <key column="question_id" foreign-key="fk_quest_answ_quest" not-null="true"/>
+      <key column="question_id" foreign-key="fk_question_answer_question" not-null="true"/>
       <one-to-many class="org.sgu.oecde.tests.Answer"/>
     </set>
   </class>

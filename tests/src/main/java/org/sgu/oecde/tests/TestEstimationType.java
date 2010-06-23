@@ -1,16 +1,18 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.tests;
 
 /**
- *
+ * тип оценивания теста
  * @author ShihovMY
  */
 public enum TestEstimationType {
-    max,middle;
+    /**
+     * максимальный балл
+     */
+    max,
+    /**
+     * средный балл
+     */
+    middle;
     private static final long serialVersionUID = 81L;
 
     @Override
