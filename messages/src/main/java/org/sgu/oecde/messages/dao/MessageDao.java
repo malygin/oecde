@@ -1,4 +1,3 @@
-
 package org.sgu.oecde.messages.dao;
 
 import java.util.List;

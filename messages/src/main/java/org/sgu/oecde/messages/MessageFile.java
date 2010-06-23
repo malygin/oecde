@@ -1,4 +1,3 @@
-
 package org.sgu.oecde.messages;
 
 import org.sgu.oecde.core.BasicItem;
