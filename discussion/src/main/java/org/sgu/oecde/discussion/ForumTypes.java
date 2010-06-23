@@ -1,14 +1,33 @@
 package org.sgu.oecde.discussion;
 
 /**
+ * типы объектов для обсуждения
  * @author Basakov
  */
 public enum ForumTypes {
+    /**
+     * студенческий технический
+     */
     STUDENT_FAQ,
+    /**
+     * студенческий организационный
+     */
     STUDENT_ORG,
+    /**
+     * город
+     */
     STUDENT_CITY,
+    /**
+     * преподавательский технический
+     */
     TEACHER_FAQ,
+    /**
+     * преподавательский организационный
+     */
     TEACHER_ORG,
+    /**
+     * новость
+     */
     NEWS;
     private static final long serialVersionUID = 89L;
 

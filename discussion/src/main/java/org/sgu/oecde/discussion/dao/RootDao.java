@@ -11,8 +11,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.util.CollectionUtils;
 
 /**
- *
- * @author ShihovMY
+ * {@inheritDoc }
  */
 public class RootDao extends UpdateDao<Root> implements IRootDao{
 
@@ -20,6 +19,9 @@ public class RootDao extends UpdateDao<Root> implements IRootDao{
         super(Root.class);
     }
 
+    /**
+     * {@inheritDoc }
+     */
     @SuppressWarnings("unchecked")
     public int getNodesCount(int idObject, ForumTypes typeObject)  throws DataAccessException {
         Criteria cr = getSession().createCriteria(type).createAlias("children", "ch")
@@ -31,6 +33,9 @@ public class RootDao extends UpdateDao<Root> implements IRootDao{
         return !CollectionUtils.isEmpty(list)?list.get(0):0;
     }
 
+    /**
+     * {@inheritDoc }
+     */
     public void save(Root root) throws DataAccessException {
         getSession().save(root);
     }

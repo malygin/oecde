@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.sgu.oecde.discussion;
 
 import java.lang.reflect.Field;
@@ -12,16 +8,38 @@ import org.sgu.oecde.core.BasicItem;
 import org.sgu.oecde.core.users.AbstractUser;
 
 /**
+ * корневой элемент ветки обсуждений
  * @author Basakovvy
  */
 public class Root extends BasicItem implements Comparable {
 
+    /**
+     * айди объекта, обсуждение которого ведётся
+     */
     private Long objectId;
+    /**
+     * тип объекта обсуждения
+     */
     private ForumTypes objectType;
+    /**
+     * дата создания
+     */
     private String time;
+    /**
+     * открыт ли
+     */
     private Boolean open;
+    /**
+     * заголовок
+     */
     private String title;
+    /**
+     * автор
+     */
     private AbstractUser user;
+    /**
+     * посты
+     */
     private Set<Node> children;
     private static final long serialVersionUID = 88L;
 

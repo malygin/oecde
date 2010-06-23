@@ -11,7 +11,7 @@
     <property name="title" type="string" length="3000"/>
     <property name="objectId" type="long" column="object_id"/>
     <property name="open" type="boolean" scale="1"/>
-    <many-to-one foreign-key="fk_root_usr" class="org.sgu.oecde.core.users.AbstractUser" name="user" column="root_owner" fetch="join"/>
+    <many-to-one foreign-key="fk_root_user" class="org.sgu.oecde.core.users.AbstractUser" name="user" column="root_owner" fetch="join"/>
     <property column="object_type" name="objectType" not-null="true">
       <type name="org.sgu.oecde.core.GenericEnumUserType">
         <param name="enumClass">org.sgu.oecde.discussion.ForumTypes</param>

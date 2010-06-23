@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.sgu.oecde.discussion;
 
 import java.util.Set;
@@ -11,17 +7,38 @@ import org.sgu.oecde.core.BasicItem;
 import org.sgu.oecde.core.users.AbstractUser;
 
 /**
+ * пост ветки обсуждений
  * @author Basakovvy
  */
 public class Node extends BasicItem implements Comparable {
 
+    /**
+     * текст
+     */
     private String message;
+    /**
+     * дата
+     */
     private String time;
+    /**
+     * автор
+     */
     private AbstractUser user;
-
+    /**
+     * открыт ли
+     */
     private Boolean open;
+    /**
+     * корень, к которому относится данный пост
+     */
     private Root root;
+    /**
+     * пост, ответом на который является данный
+     */
     private Node parent;
+    /**
+     * дочерние элементы
+     */
     private Set<Node> children;
     private static final long serialVersionUID = 87L;
 
