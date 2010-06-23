@@ -1,8 +1,26 @@
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         template="../resources/baseTemplate.xhtml">
+        <ui:define name="content">
+
+    <h:form>
+    <h:inputText id="name" value="#{TestMessageBean.name}">
+      <f:ajax render="reverseName"/>
+    </h:inputText>
+
+    <h:commandButton value="Say reverse Hi via Ajax">
+      <f:ajax execute="name" render="reverseName"/>
+    </h:commandButton>
+
+    <h:outputText id="reverseName" value="#{TestMessageBean.reverseName}"/>
+  </h:form>
+
+        </ui:define>
+    </ui:composition>
 <c:set var="se" value="${sessionScope[\"education\"]}"/>
 <c:set target="${se}" property="semestr" value="0" />
 
@@ -29,10 +47,10 @@
     dojo.require("dojo.io.iframe");
     dojo.require("dijit.InlineEditBox");
     dojo.require("dijit.ProgressBar");
-    document.title = "ЦОО СГУ. Главная страница";
+    document.title = "??? ???. ??????? ????????";
 </script>
 <div class="title">
-    <p>Информация о студенте</p>
+    <p>?????????? ? ????????</p>
 </div>
 
 <div class="head_main_g">
@@ -51,8 +69,8 @@
 					
                     <div class="load_photo_student_main">
                         <div dojoType="dijit.form.DropDownButton" class='Opa'>
-                            <p style='padding-top:-5px;'>Загрузить фото</p>
-                            <div dojoType="dijit.TooltipDialog" title="Загрузка новой фотографии" id="tooltipDlg" open="false" href="../uploadFile.jsp">
+                            <p style='padding-top:-5px;'>????????? ????</p>
+                            <div dojoType="dijit.TooltipDialog" title="???????? ????? ??????????" id="tooltipDlg" open="false" href="../uploadFile.jsp">
                             </div>
                         </div>
                     </div>
@@ -64,34 +82,34 @@
 	
 
     <table  class="ankc">
-        <tr><td><b>Фамилия:</b>&nbsp </td><td><div id="surname"><p><c:out value="${sessionScope[\"studentItem\"].surname}" /></p></div></td></tr>
-        <tr><td><b>Имя:</b>&nbsp </td><td><div id="name"><p><c:out  value="${sessionScope[\"studentItem\"].name}" /></p></div></td></tr>
-        <tr><td><b>Отчество:</b>&nbsp </td><td><div id="second_name"><p><c:out  value="${sessionScope[\"studentItem\"].second_name}" /></p></div></td></tr>
-        <tr><td><b>Дата рождения:</b>&nbsp </td><td><div id="birth"><p><c:out  value="${sessionScope[\"studentItem\"].birth}" /></p></div></td></tr>
-        <tr><td><b>Факультет:</b>&nbsp </td><td><div id="faculty"><p><c:out  value="${sessionScope[\"studentItem\"].faculty}" /></p></div></td></tr>
-        <tr valign=top><td><b>Специальность:</b>&nbsp </td><td><div id="spec"><p><c:out  value="${sessionScope[\"studentItem\"].spec.name}" /></p></div></td></tr>
-        <tr><td><b>Курс:</b>&nbsp </td><td><div id="year"><p><c:out  value="${sessionScope[\"studentItem\"].year}" /></p></div></td></tr>
-        <tr><td><b>Группа</b>&nbsp </td><td><div id="gr"><p><c:out  value="${sessionScope[\"studentItem\"].gr}" /></p></div></td></tr>
+        <tr><td><b>???????:</b>&nbsp </td><td><div id="surname"><p><c:out value="${sessionScope[\"studentItem\"].surname}" /></p></div></td></tr>
+        <tr><td><b>???:</b>&nbsp </td><td><div id="name"><p><c:out  value="${sessionScope[\"studentItem\"].name}" /></p></div></td></tr>
+        <tr><td><b>????????:</b>&nbsp </td><td><div id="second_name"><p><c:out  value="${sessionScope[\"studentItem\"].second_name}" /></p></div></td></tr>
+        <tr><td><b>???? ????????:</b>&nbsp </td><td><div id="birth"><p><c:out  value="${sessionScope[\"studentItem\"].birth}" /></p></div></td></tr>
+        <tr><td><b>?????????:</b>&nbsp </td><td><div id="faculty"><p><c:out  value="${sessionScope[\"studentItem\"].faculty}" /></p></div></td></tr>
+        <tr valign=top><td><b>?????????????:</b>&nbsp </td><td><div id="spec"><p><c:out  value="${sessionScope[\"studentItem\"].spec.name}" /></p></div></td></tr>
+        <tr><td><b>????:</b>&nbsp </td><td><div id="year"><p><c:out  value="${sessionScope[\"studentItem\"].year}" /></p></div></td></tr>
+        <tr><td><b>??????</b>&nbsp </td><td><div id="gr"><p><c:out  value="${sessionScope[\"studentItem\"].gr}" /></p></div></td></tr>
     </table>
     <div class="otdelitel"></div>
 
 </div>
 <div class="edit_ssil">
     <div class="GrayTitle" id="gr_line">
-        <div id="lichka" dojoType="dijit.TitlePane" open="" title="Личная информация">
+        <div id="lichka" dojoType="dijit.TitlePane" open="" title="?????? ??????????">
             <div id="hobby" class="hobby" style="display:inline;">
                 <table class="black_inline">
-                    <!--<tr><td class="VOrient_prep" valign=top><b class=n>Котактная информация</b></td><td valign=top><div dojoType="dijit.InlineEditBox" onChange="save_info(this.id,arguments[0])"  autoSave="true" title="Нажмите, чтобы изменить контактную информацию" id="contact_i" class="contact_i"><c:out  value="${student.studentI.contact_i}" /></div></td></tr>-->
-                    <tr><td class="VOrient_prep" valign=top><b class=n>Хобби</b></td><td valign=top><div dojoType="dijit.InlineEditBox" onChange="save_info(this.id,arguments[0])"  autoSave="true" title="Нажмите, чтобы изменить хобби" id="hobbeis" class="hobbies"><c:out  value="${student.studentI.hobbeis}" /></div></td></tr>
-                    <tr><td class="VOrient_prep" valign=top><b class=n>О себе</b></td><td valign=top><div dojoType="dijit.InlineEditBox" onChange="save_info(this.id,arguments[0])"  autoSave="true" title="Нажмите, чтобы изменить информацию о себе" id="about_them" class="about_them"><c:out  value="${student.studentI.about_them}" /></div></td></tr>
+                    <!--<tr><td class="VOrient_prep" valign=top><b class=n>????????? ??????????</b></td><td valign=top><div dojoType="dijit.InlineEditBox" onChange="save_info(this.id,arguments[0])"  autoSave="true" title="???????, ????? ???????? ?????????? ??????????" id="contact_i" class="contact_i"><c:out  value="${student.studentI.contact_i}" /></div></td></tr>-->
+                    <tr><td class="VOrient_prep" valign=top><b class=n>?????</b></td><td valign=top><div dojoType="dijit.InlineEditBox" onChange="save_info(this.id,arguments[0])"  autoSave="true" title="???????, ????? ???????? ?????" id="hobbeis" class="hobbies"><c:out  value="${student.studentI.hobbeis}" /></div></td></tr>
+                    <tr><td class="VOrient_prep" valign=top><b class=n>? ????</b></td><td valign=top><div dojoType="dijit.InlineEditBox" onChange="save_info(this.id,arguments[0])"  autoSave="true" title="???????, ????? ???????? ?????????? ? ????" id="about_them" class="about_them"><c:out  value="${student.studentI.about_them}" /></div></td></tr>
                 </table>
             </div>
         </div>
     </div>
 </div>
 <div class=GrayTitle>
-    <div dojoType="dijit.TitlePane" open="" title="Последние события">
-        <p class="p_sobit_main_verx_ssilk"><a href="#events">Перейти к полному списку событий</a></p>
+    <div dojoType="dijit.TitlePane" open="" title="????????? ???????">
+        <p class="p_sobit_main_verx_ssilk"><a href="#events">??????? ? ??????? ?????? ???????</a></p>
         <table cellspacing="0" width="490px;" style="margin: 5px auto;" class="latest_students_events">
             <tbody>
                 <c:forEach items="${events}" begin="0" var="event" varStatus="numb">
@@ -112,14 +130,14 @@
 
 <div class="chengable_block" style="margin-right:10px">
     <div class="title">
-        <p>Моя Группа</p>
+        <p>??? ??????</p>
     </div>
 
 <table cellspacing="0" cellpadding="0" bgcolor="none" align="left" class='reit_table'>
         <tbody>
             <tr class="hat" >
-                <td class="justify" style='padding-left: 20px; border-bottom: 1px solid silver; background-color: white;'>Имя</td>
-                <td align="center" width='200'style='border-bottom: 1px solid silver; background-color: white' >Рейтинг по Всем предметам</td>
+                <td class="justify" style='padding-left: 20px; border-bottom: 1px solid silver; background-color: white;'>???</td>
+                <td align="center" width='200'style='border-bottom: 1px solid silver; background-color: white' >??????? ?? ???? ?????????</td>
             </tr>
             <c:forEach items="${se.groupRating}" var="rs">
                 <tr bgcolor='<c:if test="${rs.id eq student.studentI.id}">#E5EDFF</c:if><c:if test="${rs.id ne student.studentI.id}">white</c:if>'>

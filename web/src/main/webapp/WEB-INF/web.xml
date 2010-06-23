@@ -12,7 +12,8 @@
                      classpath:/org/sgu/oecde/spring/cwBeans.xml
                      classpath:/org/sgu/oecde/spring/newsBeans.xml
                      classpath:/org/sgu/oecde/spring/searchBeans.xml
-                     classpath:/org/sgu/oecde/spring/messageBeans.xml                   
+                     classpath:/org/sgu/oecde/spring/messageBeans.xml
+                     classpath:/org/sgu/oecde/spring/searchBeans.xml
                      classpath:/org/sgu/oecde/webSecurity.xml
         </param-value>
     </context-param>
