@@ -8,7 +8,7 @@
       </type>
       <generator class="assigned"/>
     </id>
-    <discriminator column="discriminator" force="true"/>
-    <property name="value" type="string"/>
+    <discriminator column="discriminator" length="15" force="true"/>
+    <property name="value" type="string" length="19"/>
   </class>
 </hibernate-mapping>

@@ -1,11 +1,26 @@
 package org.sgu.oecde.controlworks;
 
 /**
- *
+ * статус контрольной рабоы
  * @author ShihovMY
  */
 public enum ControlWorkProgress {
-    passed,failed,available,notAvailable;
+    /**
+     * зачтена
+     */
+    passed,
+    /**
+     * не зачтена
+     */
+    failed,
+    /**
+     * в наличии
+     */
+    available,
+    /**
+     * нет в наличии
+     */
+    notAvailable;
     private static final long serialVersionUID = 92L;
 
     @Override

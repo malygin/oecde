@@ -16,17 +16,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- *
+ * сервис по работе с контрольными работами.
  * @author ShihovMY
  */
 @Service
 public class ControlWorkService{
 
+    /**
+     * кр дао
+     */
     @Autowired
     IControlWorkDao<ControlWork> controlWorkDao;
+    /**
+     * кр попытка дао
+     */
     @Autowired
     ICurriculumDao<AdvancedCurriculum> curriculumDao;
 
+    private ControlWorkService() {
+    }
+
+    /**
+     * для всех данных учебных планов получает контрольные работы данного студента и возрващает
+     * Map со всеми планами и кр, если есть
+     * @param <K> extends Curriculum
+     * @param <V> extends ControlWork
+     * @param student студент
+     * @param curriculums планы
+     * @return учебные планы и контрльные работы по ним
+     */
+    @SuppressWarnings({"unchecked"})
     public <K extends Curriculum,V extends ControlWork>Map<K,V> getStudensControlWorks(AbstractStudent student, List<? extends Curriculum> curriculums){
         List<AbstractStudent>students = new LinkedList<AbstractStudent>();
         students.add(student);
@@ -41,7 +60,16 @@ public class ControlWorkService{
         return map;
     }
 
-    @SuppressWarnings({"unchecked", "element-type-mismatch"})
+    /**
+     * для всех студентов получает контрольные работы данного учебного плана и возрващает
+     * Map со всеми планами и кр
+     * @param <T> extends AbstractStudent
+     * @param <V> extends ControlWork
+     * @param students студенты
+     * @param curriculum учебный план
+     * @return студенты и кр
+     */
+    @SuppressWarnings({"unchecked"})
     public <T extends AbstractStudent,V extends ControlWork>Map<T, V>getCurriculumControlWorks(List<? extends AbstractStudent> students, Curriculum curriculum){
         List<Curriculum>curriculums = new LinkedList<Curriculum>();
         curriculums.add(curriculum);
@@ -56,6 +84,10 @@ public class ControlWorkService{
         return map;
     }
 
+    /**
+     * сохраняет пустую кр, что является отметкой об отправки кр в рукописном
+     * @param work
+     */
     public void saveEmptyCw(ControlWork work){
         if(work!=null){
             ControlWorkAttempt a = new ControlWorkAttempt();
@@ -69,6 +101,13 @@ public class ControlWorkService{
         }
     }
 
+    /**
+     * получает все учебные планы, что соотвествуют образцу, а так же имеют отметку о контрольной работе
+     * @param <T> extends AdvancedCurriculum
+     * @param example учебный план-образец
+     * @return дополненный учебный план
+     * @see org.sgu.oecde.core.IBasicDao#getByExample(org.sgu.oecde.core.BasicItem) 
+     */
     public <T extends AdvancedCurriculum>List<T> getCurriculumsWithControlWorks(AdvancedCurriculum example){
         example.setGotControlWork(true);
         return (List<T>) curriculumDao.getByExample(example);

@@ -12,8 +12,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
 /**
- *
- * @author ShihovMY
+ * {@inheritDoc }
  */
 public class ControlWorkAttemptDao extends UpdateDao<ControlWorkAttempt> implements IControlWorkAttemptDao{
 
@@ -21,6 +20,9 @@ public class ControlWorkAttemptDao extends UpdateDao<ControlWorkAttempt> impleme
         super(ControlWorkAttempt.class);
     }
 
+    /**
+     * {@inheritDoc }
+     */
     @Override
     public List<ControlWorkAttempt> getAttemptsList(int beginIndex, int endIndex, List<AbstractStudent>students,List<Curriculum>curriculums) throws DataAccessException {
         Assert.state(beginIndex >= 0 || endIndex > 0 || beginIndex < endIndex ||!CollectionUtils.isEmpty(students)||!CollectionUtils.isEmpty(curriculums),"wrong indexes");

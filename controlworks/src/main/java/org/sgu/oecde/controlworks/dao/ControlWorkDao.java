@@ -5,8 +5,7 @@ import org.sgu.oecde.core.education.dao.ResultDao;
 import org.springframework.dao.DataAccessException;
 
 /**
- *
- * @author ShihovMY
+ * {@inheritDoc }
  */
 public class ControlWorkDao<T extends ControlWork> extends ResultDao<T> implements IControlWorkDao<T>{
 
@@ -18,7 +17,10 @@ public class ControlWorkDao<T extends ControlWork> extends ResultDao<T> implemen
         super((Class<T>)ControlWork.class);
     }
 
+    /**
+     * {@inheritDoc }
+     */
     public void save(ControlWork work) throws DataAccessException{
-        getSession(true).saveOrUpdate(work);
+        getSession().saveOrUpdate(work);
     }
 }

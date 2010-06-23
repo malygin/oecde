@@ -9,7 +9,7 @@ import org.sgu.oecde.core.education.work.AbstractResult;
 import org.springframework.stereotype.Service;
 
 /**
- *
+ * фабрика имён полей.
  * @author ShihovMY
  */
 @Service
@@ -18,6 +18,11 @@ public class CwPointsFactory extends EstimatedWorkPointsAbstractFactory{
     private CwPointsFactory() {
     }
 
+    /**
+     *
+     * @param result
+     * @return имя и значение для каждого поля, полученные из результата
+     */
     @Override
     public Map<IEstimate,Object> createEstimatedWorkValue(AbstractResult result) {
         Map<IEstimate,Object> values = null;

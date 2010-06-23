@@ -9,19 +9,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- *
+ * фильтр по обработке контрольных работ
  * @author ShihovMY
  */
 @Service
 @ResultType(type=ControlWork.class)
 public class ControlWorkFilter implements IResultFilter{
 
+    /**
+     * фабрика формирования имён полей кр
+     */
     @Autowired
     private CwPointsFactory pointsFactory;
     
     private ControlWorkFilter() {
     }
 
+    /**
+     * помещает в Points набранные баллы, статус кр и сумму
+     * @param result кр
+     * @param points баллы
+     */
     public void check(AbstractResult result,Points points) {
         if(points!=null){
             points.addSum(result!=null?((ControlWork)result).getPoints():0);
