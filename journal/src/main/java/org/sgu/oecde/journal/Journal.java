@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 
 /**
- * @author basakov
+ * @author basakov,ShihovMY
  */
 @Service(value="journalServise")
 public class Journal{

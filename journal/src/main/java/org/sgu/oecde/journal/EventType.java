@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.sgu.oecde.journal;
 
 /**
@@ -202,6 +198,10 @@ public enum EventType {
         return this.name();
     }
 
+    /**
+     *
+     * @return тип события по-русски
+     */
     public String getRus() {
         switch (this) {
             case SYSTEM_LOGIN:

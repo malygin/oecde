@@ -15,7 +15,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.util.CollectionUtils;
 
 /**
- * @author MalyginAV
+ * {@inheritDoc }
  */
 public class JournalDAO extends BasicDao<EventItem> implements IJournalDao {
 
@@ -23,6 +23,9 @@ public class JournalDAO extends BasicDao<EventItem> implements IJournalDao {
         super(EventItem.class);
     }
 
+    /**
+     * {@inheritDoc }
+     */
     public int getCountOfEvents(BaseFilter filter) throws DataAccessException {
         Criteria cr = getSession().createCriteria(type).setProjection(Projections.rowCount());
         processFilter(filter, cr);
@@ -30,6 +33,9 @@ public class JournalDAO extends BasicDao<EventItem> implements IJournalDao {
         return !CollectionUtils.isEmpty(list)?list.get(0):0;
     }
 
+    /**
+     * {@inheritDoc }
+     */
     public List<EventItem> getEvents(BaseFilter filter) throws DataAccessException {
         int beginIndex = filter.getCapacity() * (filter.getPageNumber() - 1) + 1;
         int endIndex = filter.getCapacity() * filter.getPageNumber();
@@ -38,6 +44,9 @@ public class JournalDAO extends BasicDao<EventItem> implements IJournalDao {
         return cr.list();
     }
 
+    /**
+     * {@inheritDoc }
+     */
     public void saveEventItem(EventItem evItem)throws DataAccessException {
         getSession().save(evItem);
     }
