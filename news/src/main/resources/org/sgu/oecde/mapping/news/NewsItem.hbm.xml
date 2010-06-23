@@ -7,7 +7,7 @@
         <param name="sequence">news_seq</param>
       </generator>
     </id>
-    <property name="header" type="string"/>
+    <property name="header" type="string" length="1000"/>
     <property name="announcement" type="string" length="1000"/>
     <property name="fullText" column="full_text" type="string" length="4000"/>
     <property name="time" column="news_time" type="string" length="19"/>

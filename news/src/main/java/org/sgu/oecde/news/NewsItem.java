@@ -1,59 +1,112 @@
 package org.sgu.oecde.news;
 
-import java.util.HashSet;
 import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
 import org.sgu.oecde.core.users.Admin;
 
 /**
- * Created by IntelliJ IDEA.
- * User: basakovvy
- * Date: 10.11.2009
- * Time: 17:01:55
+ *
+ * @author ShihovMY
  */
 public class NewsItem extends BasicItem{
 
+    /**
+     * заголовок
+     */
     private String header;
+    /**
+     * анонс
+     */
     private String announcement;
+    /**
+     * полная новость
+     */
     private String fullText;
+    /**
+     * автор
+     */
     private Admin author;
+    /**
+     * дата публикации новости
+     */
     private String time;
+    /**
+     * количество просмотров
+     */
     private Integer reviewNumber;
+    /**
+     * доступ. не используется
+     */
     private String accessType;
+    /**
+     * теги. не используются
+     */
     private Set<NewsTag> tags;
     private static final long serialVersionUID = 83L;
 
     public NewsItem(){
     }
 
+    /**
+     * заголовок
+     * @param header
+     */
     public void setHeader(String header) {
         this.header = header;
     }
 
+    /**
+     *
+     * @return заголовок
+     */
     public String getHeader() {
         return header;
     }
 
+    /**
+     * анонс
+     * @param announcement
+     */
     public void setAnnouncement(String announcement) {
         this.announcement = announcement;
     }
 
+    /**
+     *
+     * @return анонс
+     */
     public String getAnnouncement() {
         return announcement;
     }
 
+    /**
+     * новость
+     * @param fullText
+     */
     public void setFullText(String fullText) {
         this.fullText = fullText;
     }
 
+    /**
+     *
+     * @return новость
+     */
     public String getFullText() {
         return fullText;
     }
 
+    /**
+     * просмотров
+     * @param reviewNumber
+     */
     public void setReviewNumber(Integer reviewNumber) {
         this.reviewNumber = reviewNumber;
     }
 
+    /**
+     *
+     * @return просмотров
+     */
     public Integer getReviewNumber() {
         return reviewNumber;
     }
@@ -77,25 +130,40 @@ public class NewsItem extends BasicItem{
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder().append("NewsItem{").append("header='").append(header).append('\'').append(", announcement='").append(announcement).append('\'').append(", fullText='").append(fullText).append('\'').append(", author=").append(author).append(", time=").append(time).append(", reviewNumber='").append(reviewNumber).append('\'').append(", accessType='").append(accessType).append('\'').append('}');
-      /*  for (NewsTag tag : tags) {
-            builder.append("\n").append(tag);
-        }*/
-        return builder.toString();
+        StringBuffer sb = new StringBuffer(super.toString());
+        sb.append("заголовок: ").append(header).append("; ");
+        sb.append("анонс: ").append(announcement).append("; ");
+        return sb.toString();
     }
 
+    /**
+     *
+     * @return автор
+     */
     public Admin getAuthor() {
         return author;
     }
 
+    /**
+     * автор
+     * @param author
+     */
     public void setAuthor(Admin author) {
         this.author = author;
     }
 
+    /**
+     *
+     * @return дата публикации
+     */
     public String getTime() {
         return time;
     }
 
+    /**
+     * дата публикации
+     * @param time
+     */
     public void setTime(String time) {
         this.time = time;
     }
