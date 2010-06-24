@@ -92,7 +92,7 @@ public enum EventType {
     /**
      * Изменение расписания группы.
      */
-    SCHEDULE_CHANGE,
+    SHEDULE_CHANGE,
     /**
      * Ответ на пост в обсуждении.
      */
@@ -152,7 +152,7 @@ public enum EventType {
                 return 136;
             case TEST_CHANGE:
                 return 137;
-            case SCHEDULE_CHANGE:
+            case SHEDULE_CHANGE:
                 return 138;
             case POST_ANSWER:
                 return 157;
@@ -246,7 +246,7 @@ public enum EventType {
                 return "Добавление теста в УМК";
             case TEST_CHANGE:
                 return "Изменение теста в УМК";
-            case SCHEDULE_CHANGE:
+            case SHEDULE_CHANGE:
                 return "Изменение расписания группы";
             case POST_ANSWER:
                 return "Ответ на сообщение в ветке обсуждений";

@@ -5,6 +5,7 @@ import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.journal.dao.IJournalDao;
 import org.sgu.oecde.journal.filter.BaseFilter;
 import org.sgu.oecde.journal.util.RecordEventFactory;
+import org.sgu.oecde.shedule.Lesson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -270,8 +271,8 @@ public class Journal{
     /**
      * Логируется факт изменения теста в определнном УМК.
      */
-    public void logScheduleChanging(AbstractUser userId,Long specId, Long streamId, Long groupId) {
-        ref.saveScheduleChanging(userId,  specId, streamId, groupId);
+    public void logScheduleChanging(Lesson lesson) {
+        ref.saveScheduleChanging(lesson);
     }
 
     /**

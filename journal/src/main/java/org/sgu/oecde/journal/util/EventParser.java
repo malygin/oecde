@@ -55,7 +55,7 @@ public class EventParser {
             case TEST_ADD:
             case TEST_CHANGE:
                 return parseTestChanging(item);
-            case SCHEDULE_CHANGE:
+            case SHEDULE_CHANGE:
                 return parseScheduleChange(item);
             case POST_ANSWER:
                 return parsePostAnswer(item);
@@ -459,12 +459,11 @@ public class EventParser {
      */
     private String parseScheduleChange(EventItem item) {
         String str[] = item.getEventBody().split(splitter);
-        StringBuilder sb = new StringBuilder();
-
-        sb.append("У группы ").append(str[1]);
-        sb.append(" специальности ").append(str[2]).append("-").append(str[0]);
+        StringBuilder sb = new StringBuilder("У групп ");
+        for(String s:str){
+            sb.append(s);
+        }
         sb.append(" изменилось расписание");
-
         return sb.toString();
     }
 }

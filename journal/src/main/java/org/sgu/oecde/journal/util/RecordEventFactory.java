@@ -12,6 +12,7 @@ import org.sgu.oecde.core.users.AbstractPerson;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.UserType;
 import org.sgu.oecde.core.util.DateConverter;
+import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.discussion.ForumTypes;
 import org.sgu.oecde.discussion.Node;
 import org.sgu.oecde.journal.EventItem;
@@ -19,11 +20,12 @@ import org.sgu.oecde.journal.EventType;
 import org.sgu.oecde.journal.dao.IJournalDao;
 import org.sgu.oecde.news.NewsItem;
 import org.sgu.oecde.news.dao.INewsDao;
+import org.sgu.oecde.shedule.Lesson;
 import org.springframework.stereotype.Service;
 import static org.sgu.oecde.journal.util.LogTerms.splitter;
 
 /**
- * @author basakov
+ * @author basakov, ShihovMY
  */
 @Service
 public class RecordEventFactory {
@@ -375,19 +377,19 @@ public class RecordEventFactory {
      * Логируется факт изменения расписания у группы.
      * <p/>
      * В теле события через разделитель записаны следующий данные:
-     * 0 - Поток (Сейчас это означает специальность + год, поэтому храниться только номер курса);
+     * 0 - город (Сейчас это означает специальность + год, поэтому храниться только номер курса);
      * 1 - Группа (номер)(Номер группы уникален только в пределах специальности);
      * 2 - Название специальности (значение, а не ID);
      */
-    public void saveScheduleChanging(AbstractUser userId,  Long specId, Long streamId, Long groupId) {
-        Long multiId = streamId * 10000 * 10000 + specId * 10000 + groupId;
-        final String[] str = new String[0];
-        str[0] = streamId + "";
-        str[1] = groupId + "";
-        str[2] = getSpecialytyNameById(specId);
-        save(EventType.SCHEDULE_CHANGE, userId,  multiId, str);
+    public void saveScheduleChanging(Lesson lesson) {
+        Long multiId = lesson.getId() * 10000;
+        final String[] str = new String[lesson.getGroup().size()];
+        StringBuilder sb = new StringBuilder();
+        for (Group gr:lesson.getGroup()){
+            sb.append(gr.getCity().getName()).append(", ").append(gr.getSpeciality().getRusShort()).append(", ").append(gr.getName()).append("; ").append(splitter);
+        }
+        save(EventType.SHEDULE_CHANGE, lesson.getTeacher(),  multiId, str);
     }
-
 
     /**
      * @param node -  id поста, на который ответили.
