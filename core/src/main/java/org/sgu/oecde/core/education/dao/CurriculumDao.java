@@ -82,7 +82,7 @@ public class CurriculumDao<T extends Curriculum> extends BasicDao<T> implements 
      * @param year
      * @return
      */
-    private Query makeQuery(String prefix, String postfix, String[] fetch,  String orderBy,Integer[] semester, int year){
+    protected Query makeQuery(String prefix, String postfix, String[] fetch,  String orderBy,Integer[] semester, int year){
         return HqlConstructor.makeQuery(getSession(), prefix, CURRICULUM_HQL_QUERY, fetch, CURRICULUM_HQL_QUERY_WHERE, postfix, orderBy)
                 .setParameterList("s", semester).setInteger("y", year);
     }
