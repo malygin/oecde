@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="OECDO_TEST">
+  <class dynamic-insert="true" dynamic-update="true" name="org.sgu.oecde.shedule.Lesson" table="lesson">
+    <id name="id" type="integer" unsaved-value="0">
+      <generator class="native">
+        <param name="sequence">lesson_seq</param>
+      </generator>
+    </id>
+    <set cascade="save-update, delete" fetch="select" inverse="true" lazy="true" name="group" table="lesson_to_group">
+      <key column="lesson" foreign-key="fk_lesson_2_group_lesson"/>
+      <many-to-many class="org.sgu.oecde.de.users.Group" foreign-key="fk_lesson_2_group_group" column="student_group"/>
+    </set>
+    <many-to-one cascade="none" foreign-key="fk_lesson_teacher" class="org.sgu.oecde.de.users.Teacher" fetch="join" name="teacher"/>
+    <many-to-one cascade="none" foreign-key="fk_lesson_discipline" class="org.sgu.oecde.core.education.Discipline" fetch="join" name="discipline"/>
+    <property name="room" type="integer" scale="2"/>
+    <property column="date_update" name="updateDate" not-null="false" type="string" length="19" update="false"/>
+    <property column="lesson_date" name="lessonDate" not-null="false" length="19" type="string"/>
+    <property column="student_number" name="number" not-null="true" scale="3" type="integer"/>
+    <property name="color" length="30" type="string"/>
+  </class>
+</hibernate-mapping>
