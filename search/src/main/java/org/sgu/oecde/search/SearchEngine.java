@@ -3,8 +3,8 @@ package org.sgu.oecde.search;
 import java.util.List;
 import javax.annotation.Resource;
 import org.sgu.oecde.core.education.Umk;
-import org.sgu.oecde.de.users.Student;
-import org.sgu.oecde.de.users.Teacher;
+import org.sgu.oecde.core.users.AbstractStudent;
+import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.search.dao.ISearchDao;
 import org.springframework.stereotype.Service;
 
@@ -43,7 +43,7 @@ public class SearchEngine {
         if("teacher".equals(type))
             return Teacher.class;
         else if("student".equals(type))
-            return Student.class;
+            return AbstractStudent.class;
         else if("umk".equals(type))
             return Umk.class;
         return null;
