@@ -20,6 +20,7 @@
     <module>web</module>
     <module>messages</module>
     <module>shedule</module>
+    <module>de</module>
   </modules>
     <repositories>
         <repository>
