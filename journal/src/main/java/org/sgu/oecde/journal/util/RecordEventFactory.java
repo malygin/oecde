@@ -10,6 +10,7 @@ import org.sgu.oecde.core.education.dao.IResourceDao;
 import org.sgu.oecde.core.education.resource.AbstractResource;
 import org.sgu.oecde.core.users.AbstractPerson;
 import org.sgu.oecde.core.users.AbstractUser;
+import org.sgu.oecde.core.users.StudentGroup;
 import org.sgu.oecde.core.users.UserType;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.de.users.Group;
@@ -385,8 +386,9 @@ public class RecordEventFactory {
         Long multiId = lesson.getId() * 10000;
         final String[] str = new String[lesson.getGroup().size()];
         StringBuilder sb = new StringBuilder();
-        for (Group gr:lesson.getGroup()){
-            sb.append(gr.getCity().getName()).append(", ").append(gr.getSpeciality().getRusShort()).append(", ").append(gr.getName()).append("; ").append(splitter);
+        for (StudentGroup gr:lesson.getGroup()){
+            if(gr instanceof Group)
+                sb.append(((Group)gr).getCity().getName()).append(", ").append(((Group)gr).getSpeciality().getRusShort()).append(", ").append(gr.getName()).append("; ").append(splitter);
         }
         save(EventType.SHEDULE_CHANGE, lesson.getTeacher(),  multiId, str);
     }
