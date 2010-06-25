@@ -40,13 +40,11 @@ private String name="привет!";
    
     }
    
-    @PostConstruct
-    public void  init(){
-        newMessages=10;
-    }
+  
 
 
     public String getText() {
+        this.renderTest=false;
         return text;
     }
 
@@ -71,6 +69,7 @@ private String name="привет!";
     }
 
     public void actionRender(){
+        System.out.println("action!");
         this.renderTest=!this.renderTest;
     }
 
@@ -90,10 +89,12 @@ private String name="привет!";
     }
 
     public boolean isRenderTest() {
-        return renderTest;
+        System.out.println("render!");
+        return !renderTest;
     }
 
     public void setRenderTest(boolean renderTest) {
+          System.out.println("render!!!");
         this.renderTest = renderTest;
     }
 

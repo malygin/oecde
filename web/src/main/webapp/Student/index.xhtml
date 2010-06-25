@@ -2,14 +2,14 @@
          xmlns:ui="http://java.sun.com/jsf/facelets"
          xmlns:f="http://java.sun.com/jsf/core"
          xmlns:h="http://java.sun.com/jsf/html"
-         template="../resources/studentTemplate.xhtml">      
+         template="../resources/studentTemplate.xhtml">
         <ui:define name="content">
             #{msgs["student.hello"]}
 
             <h:dataTable value="#{TestMessageBean.messages}" var="ms">
                 <h:column>
                     <h:outputText value="#{ms.author.username}">
-                       
+
                     </h:outputText>
                     <h:outputText value="#{ms.fullText}"/>
                 </h:column>
@@ -18,7 +18,7 @@
             <h:commandLink value="dfgfg" action="#{TestMessageBean.actionRender}">
                 <f:ajax event="click" render="test"/>
             </h:commandLink>
-         
+
             <h:panelGroup >
                 <h:outputText id="test" value="#{TestMessageBean.renderTest}"/>
             </h:panelGroup>

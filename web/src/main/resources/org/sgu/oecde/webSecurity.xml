@@ -5,18 +5,23 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.4.xsd">
 
- <!--<global-method-security secured-annotations="enabled"/>-->
-<!--
- <http >
-    <intercept-url pattern="/index.jsp" filters="none" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+<global-method-security secured-annotations="enabled"/>
+
+ <http>
+    <intercept-url pattern="/index.xhtml" filters="none" access="IS_AUTHENTICATED_ANONYMOUSLY" />
     <intercept-url pattern="/Admin/**" access="ROLE_ADMIN" />
     <intercept-url pattern="/Student/**" access="ROLE_STUDENT,ROLE_ADMIN" />
     <intercept-url pattern="/Teacher/**" access="ROLE_TEACHER,ROLE_ADMIN" />
     <intercept-url pattern="/AdminLite/**" access="ROLE_SUPERVISOR,ROLE_ADMIN" />
     <anonymous />
     <remember-me services-ref="rememberMeServices"/>
-    <form-login login-page="/index.jsp" default-target-url="/redirect.do" always-use-default-target="true" authentication-failure-url="/index.jsp?error=1" />
-  </http>-->
+     <form-login
+        login-processing-url="/j_spring_security_check"
+        login-page="/"
+        default-target-url="/LoginRedirect"
+        authentication-failure-url="/index.xhtml?error=true" />
+      
+  </http>
 
   <beans:import resource="applicationContext-security.xml"/>
 </beans:beans>

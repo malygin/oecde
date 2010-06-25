@@ -2,20 +2,24 @@
          xmlns:ui="http://java.sun.com/jsf/facelets"
          xmlns:f="http://java.sun.com/jsf/core"
          xmlns:h="http://java.sun.com/jsf/html"
-         template="resources/baseTemplate.xhtml">      
+         template="resources/loginTemplate.xhtml">     
         <ui:define name="content">
-       
-    <h:form>
-    <h:inputText id="name" value="#{TestMessageBean.name}">
-      <f:ajax render="reverseName"/>
-    </h:inputText>
-
-    <h:commandButton value="Say reverse Hi via Ajax">
-      <f:ajax execute="name" render="reverseName"/>
-    </h:commandButton>
-
-    <h:outputText id="reverseName" value="#{TestMessageBean.reverseName}"/>
-  </h:form>
-
-        </ui:define>
+         <f:metadata>
+             <f:viewParam name="error" value="#{loginBean.renderErrorEnter}"/>
+        </f:metadata>
+   <h:panelGrid>
+    #{msgs.login_helloText}
+        <h:form id="loginForm"  prependId="false">
+           #{msgs.login_login}
+                <h:inputText id="j_username"  required="true"/>
+           #{msgs.login_password}
+                <h:inputSecret id="j_password" required="true"/>
+           #{msgs.login_remeberMe}
+                <h:selectBooleanCheckbox
+                        id="j_spring_security_remember_me" />
+                <h:commandButton  type="submit" id="login"  action="#{loginBean.doLogin}" value="#{msgs.login_EnterButton}" />
+        </h:form>
+       <h:outputText rendered="#{loginBean.renderErrorEnter}" style="color: red;" value="#{msgs.login_Error}"/>
+   </h:panelGrid>
+</ui:define>
     </ui:composition>

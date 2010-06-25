@@ -12,15 +12,7 @@
 			<link rel="stylesheet" href="style/universalStyles.css" type="text/css"/>
         <link rel="icon" href="../favicon.ico" type="image/x-icon">
         <link rel="shortcut icon" href="favicon.ico">
-    <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-5800747-2");
-pageTracker._trackPageview();
-} catch(err) {}</script>
+
 	</head>
     <script type="text/javascript" src="dojoroot/dojo/dojo.js"
         djConfig="parseOnLoad: true"></script>

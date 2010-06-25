@@ -13,13 +13,9 @@
                      classpath:/org/sgu/oecde/spring/newsBeans.xml
                      classpath:/org/sgu/oecde/spring/searchBeans.xml
                      classpath:/org/sgu/oecde/spring/messageBeans.xml
-                     classpath:/org/sgu/oecde/spring/searchBeans.xml
                      classpath:/org/sgu/oecde/webSecurity.xml
         </param-value>
     </context-param>
-
-
-
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
@@ -36,29 +32,31 @@
         <filter-name>hibernateFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>
-
-    
-
-   <servlet>
+    <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
-      <servlet-mapping>
+    <servlet>
+        <servlet-name>LoginRedirect</servlet-name>
+        <servlet-class>org.sgu.oecde.web.controller.LoginRedirect</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginRedirect</servlet-name>
+        <url-pattern>/LoginRedirect</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
-    
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
     </filter>
-  
     <filter-mapping>
         <filter-name>springSecurityFilterChain</filter-name>
         <url-pattern>/*</url-pattern>
@@ -68,28 +66,6 @@
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
-
-    <servlet>
-        <servlet-name>action</servlet-name>
-        <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
-        <init-param>
-            <param-name>config</param-name>
-            <param-value>/WEB-INF/struts-config.xml</param-value>
-        </init-param>
-        <init-param>
-            <param-name>debug</param-name>
-            <param-value>2</param-value>
-        </init-param>
-        <init-param>
-            <param-name>detail</param-name>
-            <param-value>2</param-value>
-        </init-param>
-        <load-on-startup>2</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>action</servlet-name>
-        <url-pattern>*.do</url-pattern>
-    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
