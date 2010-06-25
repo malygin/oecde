@@ -11,11 +11,11 @@ import org.sgu.oecde.core.BasicTest;
 import org.sgu.oecde.core.users.AbstractPerson;
 import org.sgu.oecde.core.users.Admin;
 import org.sgu.oecde.core.users.Department;
+import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.users.UserType;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
-import org.sgu.oecde.de.users.Teacher;
 import org.springframework.test.context.ContextConfiguration;
 
 
@@ -26,7 +26,7 @@ import org.springframework.test.context.ContextConfiguration;
  *
  */
 
-@ContextConfiguration(locations={"../applicationContext.xml","../spring/messageBeans.xml"})
+@ContextConfiguration(locations={"../applicationContext.xml","../spring/messageBeans.xml","../spring/deBeans.xml"})
 public class MessageTest extends BasicTest{
 
    @Ignore
