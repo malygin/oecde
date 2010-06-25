@@ -15,7 +15,6 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.sgu.oecde.core.BasicTest;
 import org.sgu.oecde.core.IUpdateDao;
-import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.StringConstantsGetter;
 import org.sgu.oecde.core.education.dao.IResourceDao;
 import org.sgu.oecde.core.education.estimation.IEstimate;
@@ -26,13 +25,14 @@ import org.sgu.oecde.core.education.estimation.ResultType;
 import org.sgu.oecde.core.users.AbstractGroup;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.core.users.StudentGroup;
-import org.sgu.oecde.de.education.DeCurriculum;
-import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.tests.dao.ITestAttemptDao;
 import org.sgu.oecde.tests.estimation.TestFilter;
 import org.sgu.oecde.core.education.estimation.ResultPreFilter;
 import org.sgu.oecde.core.education.work.AdditionalSelfDependentWork;
 import org.sgu.oecde.core.util.DateConverter;
+import org.sgu.oecde.de.education.DeCurriculum;
+import org.sgu.oecde.de.users.Student;
+import org.sgu.oecde.de.users.Student;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.util.CollectionUtils;
@@ -41,7 +41,7 @@ import static org.junit.Assert.*;
  *
  * @author ShihovMY
  */
-@ContextConfiguration(locations={"../applicationContext.xml","../spring/testBeans.xml"})
+@ContextConfiguration(locations={"../applicationContext.xml","../spring/testBeans.xml","../spring/deBeans.xml"})
 public class getSimpleItem extends BasicTest{
 
     @Ignore
