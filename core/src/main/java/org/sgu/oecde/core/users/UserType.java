@@ -130,4 +130,20 @@ public enum UserType {
                 return "";
         }
     }
+      public String toNameFolder() {
+        switch (this) {
+            case ADMIN:
+                return "Admin";
+            case SUPERVISOR:
+                return "Supervisor";
+            case TEACHER:
+                return "Teacher";
+            case STUDENT:
+                return "Student";
+            case GUEST:
+                return "Guest";
+            default:
+                return "";
+        }
+    }
 }
