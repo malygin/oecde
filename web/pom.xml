@@ -20,6 +20,12 @@
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
+      <artifactId>de</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
       <artifactId>selfdependentwork</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
@@ -27,6 +33,12 @@
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>journal</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>shedule</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>

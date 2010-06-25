@@ -21,7 +21,7 @@ import org.springframework.util.CollectionUtils;
 /**
  * Unit test for simple App.
  */
-@ContextConfiguration(locations={"../applicationContext.xml","../spring/cwBeans.xml","../spring/testBeans.xml","../spring/journalBeans.xml","../spring/newsBeans.xml","../spring/discussionBeans.xml","../spring/searchBeans.xml"})
+@ContextConfiguration(locations={"../applicationContext.xml","../spring/cwBeans.xml","../spring/testBeans.xml","../spring/journalBeans.xml","../spring/newsBeans.xml","../spring/discussionBeans.xml","../spring/searchBeans.xml","../spring/deBeans.xml"})
 public class FilterTest extends BasicTest{
 
 //    @Ignore

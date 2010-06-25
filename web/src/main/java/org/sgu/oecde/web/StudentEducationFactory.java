@@ -17,7 +17,7 @@ import org.sgu.oecde.core.education.work.Estimate;
 import org.sgu.oecde.core.education.work.PointToEstimate;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
-import org.sgu.oecde.de.users.Teacher;
+import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.tests.AdditionalCurriculum;
 import org.sgu.oecde.tests.TestEntity;
 import org.springframework.stereotype.Service;
@@ -36,21 +36,14 @@ public class StudentEducationFactory extends EducationFactory{
         DeCurriculum c = curriculumBuilder.getInstance(sg.getCurrentYear(), semester, student);
         return testAttemptService.getStudentsSingleCurriculumAttempts(c, null, student);
     }
-/*
 
 
-    public void getControlWorkInfo4Group() {
-        ControlWorkService s = getBean("controlWorkService");
-        s.
-        HashMap studentsAndCws = null;
-        List<StudentItem> studentsList = getStudentsList();
-        List<DisciplineItem> list = discipline.getDiscsForGrades(StudentI.getGr(), getSemestrByYear(),getCurrentYear(), StudentI.getSpec().getId());
-        if(!studentsList.isEmpty()&&list!=null&&!list.isEmpty()){
-            studentsAndCws = studentDao.getControlWorkInfo4Group(studentsList,list, getSemestrByYear(),getCurrentYear(),StudentI.getSpec().getId());
-        }
-        studentsAndCws;
+
+    public Map<Student,ControlWork> getControlWorkInfo4Group() {
+        List<DeCurriculum> c =  cwService.getCurriculumsWithControlWorks(curriculumBuilder.getInstance(sg.getCurrentYear(), semester, student));
+        return cwService.<Student,ControlWork>getAllControlWorks(new ArrayList(student.getGroup().getPersons()), c);
     }
-*/
+
     public List<AdditionalSelfDependentWork> getTestsResultsByKod() {
         return testAttemptService.getStudentAttempts(getCurriculums(), null, student);
     }
@@ -155,7 +148,7 @@ public class StudentEducationFactory extends EducationFactory{
     }
 
     public Map getStudentControlWorks(){
-        List<DeCurriculum> c =  curriculumDao.getByExample(curriculumBuilder.getInstance(sg.getCurrentYear(), semester, student));
+        List<DeCurriculum> c =  cwService.getCurriculumsWithControlWorks(curriculumBuilder.getInstance(sg.getCurrentYear(), semester, student));
         return cwService.<DeCurriculum,ControlWork>getStudensControlWorks(student, c);
     }
 

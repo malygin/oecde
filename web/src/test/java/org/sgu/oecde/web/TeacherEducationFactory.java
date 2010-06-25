@@ -25,7 +25,7 @@ import org.sgu.oecde.core.util.Semesters;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.de.users.Student;
-import org.sgu.oecde.de.users.Teacher;
+import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.tests.TestAttemptService;
 import static org.junit.Assert.*;
 

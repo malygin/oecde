@@ -13,7 +13,7 @@ import org.sgu.oecde.core.education.work.AdditionalSelfDependentWork;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.de.users.Student;
-import org.sgu.oecde.de.users.Teacher;
+import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.tests.TestEntity;
 import org.springframework.stereotype.Service;
 
@@ -76,13 +76,13 @@ public class TeacherEducationFactory extends EducationFactory{
         return preFilter.forEachResult(l, true,filters);
     }
 
-    public  Map getGroupControlWorks() {
+    public Map<Student,ControlWork> getGroupControlWorks() {
         List sl = getStudentsList(id);
         DeCurriculum c = curriculum();
         return cwService.<Student,ControlWork>getCurriculumControlWorks(sl, c);
     }
 
-    public  Map getStudentControlWorks() {
+    public  Map<DeCurriculum,ControlWork>getStudentControlWorks() {
         List<DeCurriculum> c = new ArrayList<DeCurriculum>();
         c.add(curriculum());
         return cwService.<DeCurriculum,ControlWork>getStudensControlWorks(student, c);
