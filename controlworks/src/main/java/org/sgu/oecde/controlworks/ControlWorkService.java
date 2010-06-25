@@ -73,13 +73,28 @@ public class ControlWorkService{
     public <T extends AbstractStudent,V extends ControlWork>Map<T, V>getCurriculumControlWorks(List<? extends AbstractStudent> students, Curriculum curriculum){
         List<Curriculum>curriculums = new LinkedList<Curriculum>();
         curriculums.add(curriculum);
+        return getAllControlWorks(students,curriculums);
+    }
+
+    /**
+     * для всех студентов по всем данным дисциплинам получает кр, если есть
+     * @param <T> extends AbstractStudent
+     * @param <V> extends ControlWork
+     * @param students студенты
+     * @param curriculum учебные планы
+     * @return студенты и кр
+     */
+    @SuppressWarnings({"unchecked"})
+    public <T extends AbstractStudent,V extends ControlWork>Map<T, V>getAllControlWorks(List<? extends AbstractStudent> students,List<? extends Curriculum> curriculums){
         List<ControlWork> list = controlWorkDao.getByStudentsAndCurriculums(curriculums,students,null);
         Map<T,V>map = new LinkedHashMap<T, V>();
         for(AbstractStudent s:students){
-            ControlWork tmp = new ControlWork(s, curriculum);
-            if(list.contains(tmp))
-                tmp = list.get(list.indexOf(tmp));
-            map.put((T)s, (V)tmp);
+            for(Curriculum curriculum:curriculums){
+                ControlWork tmp = new ControlWork(s, curriculum);
+                if(list.contains(tmp))
+                    tmp = list.get(list.indexOf(tmp));
+                map.put((T)s, (V)tmp);
+            }
         }
         return map;
     }

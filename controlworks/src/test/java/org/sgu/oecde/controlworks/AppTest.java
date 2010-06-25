@@ -21,7 +21,7 @@ import org.springframework.test.context.ContextConfiguration;
 /**
  * Unit test for simple App.
  */
-@ContextConfiguration(locations={"../applicationContext.xml","../spring/cwBeans.xml"})
+@ContextConfiguration(locations={"../applicationContext.xml","../spring/cwBeans.xml","../spring/deBeans.xml"})
 public class AppTest extends BasicTest{
     
     @Ignore
