@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping auto-import="false" schema="oecdo_test">
-  <joined-subclass dynamic-update="true" extends="org.sgu.oecde.core.users.Supervisor" name="org.sgu.oecde.de.users.DeSupervisor" table="de_supervisor">
-    <key column="id" foreign-key="fk_supervisor_supervisor" not-null="true" on-delete="cascade"/>
-    <many-to-one cascade="none" class="org.sgu.oecde.de.education.City" fetch="join" foreign-key="fk_supervisor_city" insert="false" name="city" not-null="true"/>
-  </joined-subclass>
-</hibernate-mapping>

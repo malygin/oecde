@@ -1,7 +1,7 @@
 package org.sgu.oecde.core.education.resource;
 
 import org.sgu.oecde.core.BasicItem;
-import org.sgu.oecde.core.users.AbstractTeacher;
+import org.sgu.oecde.core.users.Teacher;
 
 /**
  * автор ресурсов, либо умк
@@ -24,7 +24,7 @@ public class Author extends BasicItem{
     /**
      * ссылка на преподавателя
      */
-    private AbstractTeacher teacher;
+    private Teacher teacher;
     private static final long serialVersionUID = 96L;
 
     public Author() {
@@ -82,7 +82,7 @@ public class Author extends BasicItem{
      * ссылка на преподавателя
      * @return
      */
-    public AbstractTeacher getTeacher() {
+    public Teacher getTeacher() {
         return teacher;
     }
 
@@ -90,7 +90,7 @@ public class Author extends BasicItem{
      * ссылка на преподавателя
      * @param teacher
      */
-    public void setTeacher(AbstractTeacher teacher) {
+    public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
 }

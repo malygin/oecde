@@ -153,7 +153,7 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
     protected Criteria getCriteriaByParametrizedItem(final T item,final Criteria cr){
         Assert.isInstanceOf(type,item ,"item is not an instance of type "+type);
         Assert.notNull(item,"item can not be null");
-        cr.add(Example.create(item).excludeZeroes()).addOrder(Order.asc("id"));
+        cr.add(Example.create(item).excludeZeroes().ignoreCase()).addOrder(Order.asc("id"));
 
         final FastClass fc = FastClass.create(item.getClass());
         methods:

@@ -7,7 +7,7 @@
         <param name="sequence">group_seq</param>
       </generator>
     </id>
-    <property name="name" not-null="true" type="string" length="50"/>
+    <property length="50" name="name" not-null="true" type="string"/>
     <set batch-size="15" cascade="none" fetch="select" lazy="true" name="persons" table="group_membership">
       <key column="group" foreign-key="fk_group_membershp_group"/>
       <many-to-many class="org.sgu.oecde.core.users.AbstractPerson" column="person_id" fetch="select" foreign-key="fk_group_person" lazy="false"/>

@@ -11,6 +11,6 @@
     <property insert="false" name="surname" type="string"/>
   </subclass>
   <subclass discriminator-value="teacher" entity-name="author-teacher" extends="org.sgu.oecde.core.education.resource.Author" name="org.sgu.oecde.core.education.resource.Author">
-    <many-to-one cascade="none" class="org.sgu.oecde.core.users.AbstractTeacher" column="teacher" fetch="join" foreign-key="fk_author_teacher" insert="false" name="teacher"/>
+    <many-to-one cascade="none" class="org.sgu.oecde.core.users.Teacher" column="teacher" fetch="join" foreign-key="fk_author_teacher" insert="false" name="teacher"/>
   </subclass>
 </hibernate-mapping>

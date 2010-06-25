@@ -68,9 +68,9 @@ public class UsersInCache{
      *
      * @return все преподаватели в кше
      */
-    public List<? extends AbstractTeacher> getTeachers(){
+    public List<? extends Teacher> getTeachers(){
         Ehcache c = cache(UserType.TEACHER);
-        return this.<AbstractTeacher>getUsers(c);
+        return this.<Teacher>getUsers(c);
     }
 
     /**
@@ -101,8 +101,8 @@ public class UsersInCache{
         return l.subList(0, 5);
     }
 
-    public List<? extends AbstractTeacher> getSixTeachers(){
-        List<? extends AbstractTeacher> l = getTeachers();
+    public List<? extends Teacher> getSixTeachers(){
+        List<? extends Teacher> l = getTeachers();
         Collections.shuffle(l);
         return l.subList(0, 5);
     }

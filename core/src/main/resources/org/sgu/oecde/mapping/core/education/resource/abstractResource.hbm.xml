@@ -3,8 +3,8 @@
 <hibernate-mapping schema="oecdo_test">
   <class dynamic-update="true" name="org.sgu.oecde.core.education.resource.AbstractResource" select-before-update="false" table="abstract_resource">
     <id name="id" type="long"/>
-    <property insert="false" name="title" type="string" length="250"/>
-    <property insert="false" name="description" type="string" length="400"/>
+    <property insert="false" length="250" name="title" type="string"/>
+    <property insert="false" length="400" name="description" type="string"/>
     <property insert="false" name="version" scale="3" type="integer"/>
     <property insert="false" name="visible" scale="1" type="boolean"/>
     <property column="date_last_change" insert="false" length="19" name="dateLastСhange" type="string"/>

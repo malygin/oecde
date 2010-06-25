@@ -1,7 +1,7 @@
 package org.sgu.oecde.core.education;
 
 import java.io.Serializable;
-import org.sgu.oecde.core.users.AbstractTeacher;
+import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.users.StudentGroup;
 
 /**
@@ -12,14 +12,14 @@ import org.sgu.oecde.core.users.StudentGroup;
  */
 public final class TeacherToGroup implements Serializable{
     private StudentGroup group;
-    private AbstractTeacher teacher;
+    private Teacher teacher;
     private Curriculum curriculum;
     private static final long serialVersionUID = 64L;
 
     public TeacherToGroup() {
     }
 
-    public TeacherToGroup(AbstractTeacher teacher) {
+    public TeacherToGroup(Teacher teacher) {
         this.teacher = teacher;
     }
 
@@ -63,10 +63,10 @@ public final class TeacherToGroup implements Serializable{
 
     /**
      * преподаватель
-     * @param <T> extends AbstractTeacher
+     * @param <T> extends Teacher
      * @return
      */
-    public <T extends AbstractTeacher> T getTeacher() {
+    public <T extends Teacher> T getTeacher() {
         return (T) teacher;
     }
 
@@ -74,7 +74,7 @@ public final class TeacherToGroup implements Serializable{
      * преподаватель
      * @param teacher
      */
-    public void setTeacher(AbstractTeacher teacher) {
+    public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
 

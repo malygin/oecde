@@ -6,8 +6,6 @@ import org.junit.Test;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.Admin;
 import org.sgu.oecde.core.users.Supervisor;
-import org.sgu.oecde.de.users.Student;
-import org.sgu.oecde.de.users.Teacher;
 import org.springframework.security.userdetails.UserDetailsService;
 import org.springframework.test.context.ContextConfiguration;
 import static org.junit.Assert.*;
@@ -27,32 +25,12 @@ public class getUsers extends BasicTest{
         System.out.println(uds.loadUserByUsername("shihovmy"));
     }
 
-    @Ignore
-    @Test
-    public void getAllT(){
-        this.setDao("teacherDao");
-        List<Teacher> l = this.<Teacher>getAllItems();
-        for(Teacher t:l){
-            System.out.println(t.getName());
-        }
-    }
-
-    @Ignore
+//    @Ignore
     @Test
     public void getAllA(){
         this.setDao("adminDao");
         List<Admin> l = this.<Admin>getAllItems();
         for(Admin t:l){
-            System.out.println(t.getName());
-        }
-    }
-
-    @Ignore
-    @Test
-    public void getAllS(){
-        this.setDao("studentDao");
-        List<Student> l = this.<Student>getAllItems();
-        for(Student t:l){
             System.out.println(t.getName());
         }
     }

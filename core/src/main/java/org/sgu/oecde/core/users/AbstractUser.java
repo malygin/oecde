@@ -48,6 +48,10 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
      * пользователь онлай
      */
     private transient boolean online=false;
+    /**
+     * оригинальный айди
+     */
+    private Long originalId;
     private static final long serialVersionUID = 61L;
 
     private AbstractUser(String userName){
@@ -231,6 +235,22 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
      */
     public GrantedAuthority getAuthority(){
         return (authorities!=null&&authorities.length>0)?authorities[0]:null;
+    }
+    
+    /**
+     *
+     * @return оригинальный айди
+     */
+    public Long getOriginalId() {
+        return originalId;
+    }
+
+    /**
+     * оригинальный айди
+     * @param originalId
+     */
+    public void setOriginalId(Long originalId) {
+        this.originalId = originalId;
     }
 
     /**

@@ -7,7 +7,7 @@ import org.hibernate.Query;
 import org.hibernate.criterion.Property;
 import org.sgu.oecde.core.BasicDao;
 import org.sgu.oecde.core.education.Curriculum;
-import org.sgu.oecde.core.users.AbstractTeacher;
+import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.users.StudentGroup;
 import org.sgu.oecde.core.util.HqlConstructor;
 import org.springframework.dao.DataAccessException;
@@ -44,7 +44,7 @@ public class CurriculumDao<T extends Curriculum> extends BasicDao<T> implements 
      * {@inheritDoc }
      */
     @Override
-    public List<T> getBySemesterYearAndParameters(Integer[] semester, int year, AbstractTeacher teacher) throws DataAccessException {
+    public List<T> getBySemesterYearAndParameters(Integer[] semester, int year, Teacher teacher) throws DataAccessException {
         if(teacher == null&& teacher.getId()==0)
             return new ArrayList(0);
          return makeQuery("distinct c"," t.teacher=:t ",new String[]{"c.discipline"},null,semester,year)
@@ -55,7 +55,7 @@ public class CurriculumDao<T extends Curriculum> extends BasicDao<T> implements 
      * {@inheritDoc }
      */
     @Override
-    public <E extends AbstractTeacher> List<E> getTeachersByGroup(Integer[] semester, int year, StudentGroup group) throws DataAccessException {
+    public <E extends Teacher> List<E> getTeachersByGroup(Integer[] semester, int year, StudentGroup group) throws DataAccessException {
         if(group == null&& group.getId()==0)
             return new ArrayList(0);
         return makeQuery("distinct t.teacher","t.group=:g",null,null,semester,year)
@@ -65,7 +65,7 @@ public class CurriculumDao<T extends Curriculum> extends BasicDao<T> implements 
      * {@inheritDoc }
      */
     @Override
-    public <E extends StudentGroup> List<E> getGroupsForTeacher(Integer[] semester, int year, AbstractTeacher teacher) throws DataAccessException {
+    public <E extends StudentGroup> List<E> getGroupsForTeacher(Integer[] semester, int year, Teacher teacher) throws DataAccessException {
         if(teacher == null&& teacher.getId()==0)
             return new ArrayList(0);
          return makeQuery("distinct t.group"," t.teacher=:t",new String[]{"t.group.city","t.group.speciality"},null,semester,year)

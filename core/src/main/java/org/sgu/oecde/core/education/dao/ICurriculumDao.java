@@ -3,7 +3,7 @@ package org.sgu.oecde.core.education.dao;
 import java.util.List;
 import org.sgu.oecde.core.IBasicDao;
 import org.sgu.oecde.core.education.Curriculum;
-import org.sgu.oecde.core.users.AbstractTeacher;
+import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.users.StudentGroup;
 import org.springframework.dao.DataAccessException;
 
@@ -34,11 +34,11 @@ public interface ICurriculumDao<T extends Curriculum> extends IBasicDao<T>{
      * @throws DataAccessException
      */
     @SuppressWarnings("unchecked")
-    public List<T> getBySemesterYearAndParameters(Integer[] semester, int year, AbstractTeacher teacher) throws DataAccessException ;
+    public List<T> getBySemesterYearAndParameters(Integer[] semester, int year, Teacher teacher) throws DataAccessException ;
 
     /**
      * получает список преподавателей, которые ведут у данной группы в данном году в данных семестрах
-     * @param <E> extends AbstractTeacher
+     * @param <E> extends Teacher
      * @param semester - семестр
      * @param year - год
      * @param group - группа
@@ -46,7 +46,7 @@ public interface ICurriculumDao<T extends Curriculum> extends IBasicDao<T>{
      * @throws DataAccessException
      */
     @SuppressWarnings("unchecked")
-    public <E extends AbstractTeacher> List<E> getTeachersByGroup(Integer[] semester, int year, StudentGroup group) throws DataAccessException ;
+    public <E extends Teacher> List<E> getTeachersByGroup(Integer[] semester, int year, StudentGroup group) throws DataAccessException ;
 
     /**
      * получает список групп, у которых данный преподаватель ведёт в данном году в данных семестрах
@@ -58,5 +58,5 @@ public interface ICurriculumDao<T extends Curriculum> extends IBasicDao<T>{
      * @throws DataAccessException
      */
     @SuppressWarnings("unchecked")
-    public <E extends StudentGroup> List<E> getGroupsForTeacher(Integer[] semester, int year, AbstractTeacher teacher) throws DataAccessException;
+    public <E extends StudentGroup> List<E> getGroupsForTeacher(Integer[] semester, int year, Teacher teacher) throws DataAccessException;
 }

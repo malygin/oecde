@@ -3,5 +3,7 @@
 <hibernate-mapping schema="oecdo_test">
   <joined-subclass dynamic-update="true" extends="org.sgu.oecde.core.users.AbstractGroup" name="org.sgu.oecde.core.users.Department" table="department">
     <key column="id" foreign-key="fk_departament_group" not-null="true" on-delete="cascade"/>
+    <property insert="false" length="500" name="description" type="string"/>
+    <property column="phone_number" insert="false" name="phoneNumber" scale="10" type="integer"/>
   </joined-subclass>
 </hibernate-mapping>

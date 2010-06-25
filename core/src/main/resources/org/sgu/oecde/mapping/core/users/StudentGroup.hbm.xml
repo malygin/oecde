@@ -10,7 +10,7 @@
       <composite-element class="org.sgu.oecde.core.education.TeacherToGroup">
         <parent name="group"/>
         <many-to-one cascade="none" class="org.sgu.oecde.core.education.Curriculum" fetch="join" foreign-key="fk_teacher_2_group_curriculum" insert="false" name="curriculum" update="false"/>
-        <many-to-one cascade="none" class="org.sgu.oecde.core.users.AbstractTeacher" fetch="join" foreign-key="fk_teacher_2_group_teacher" insert="false" name="teacher" update="false"/>
+        <many-to-one cascade="none" class="org.sgu.oecde.core.users.Teacher" fetch="join" foreign-key="fk_teacher_2_group_teacher" insert="false" name="teacher" update="false"/>
       </composite-element>
     </set>
   </joined-subclass>
