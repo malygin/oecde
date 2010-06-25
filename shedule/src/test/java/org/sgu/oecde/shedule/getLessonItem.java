@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.shedule;
 
 import java.text.ParseException;
@@ -18,10 +13,10 @@ import org.junit.Test;
 import org.sgu.oecde.core.BasicTest;
 import org.sgu.oecde.core.IBasicDao;
 import org.sgu.oecde.core.education.Discipline;
+import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.util.Semesters;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Group;
-import org.sgu.oecde.de.users.Teacher;
 import org.sgu.oecde.shedule.dao.IAdvancedCurriculumDao;
 import org.sgu.oecde.shedule.dao.ILessonDao;
 import org.springframework.dao.DataAccessException;
@@ -31,7 +26,7 @@ import org.springframework.test.context.ContextConfiguration;
  *
  * @author shihovmy
  */
-@ContextConfiguration(locations={"../applicationContext.xml","../spring/sheduleBeans.xml","../spring/journalBeans.xml"})
+@ContextConfiguration(locations={"../applicationContext.xml","../spring/sheduleBeans.xml","../spring/deBeans.xml"})
 public class getLessonItem extends BasicTest{
 
 
@@ -50,11 +45,11 @@ public class getLessonItem extends BasicTest{
         super.getAllItems();
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void  putLesson(){
         Teacher e = new Teacher();
-        e.setSurname("Дорошин");
+        e.setSurname("ИВАНОВ");
         Teacher t = teacherDao.getByExample(e).get(0);
         List<Discipline> li = sdsyDao.getBySemesterYearTeacher(Semesters.winter(), 2009, t);
         Discipline s = li.iterator().next();
@@ -116,6 +111,7 @@ public class getLessonItem extends BasicTest{
         sdsy.setId(927175);
         l.setSdsy(sdsy);*/
            l.setLessonDate("24.04.10");
+        setDao("lessonDao");       
         System.out.println("sd   "+((ILessonDao)getDao()).getLessonCount(l));
     }
 
@@ -141,11 +137,11 @@ public class getLessonItem extends BasicTest{
          ((ILessonDao)getDao()).deleteLesson(l);
     }
     
-     // @Ignore
+      @Ignore
     @Test
     public void getListByMonth() throws DataAccessException, ParseException{
-
-        List<Lesson> l=((ILessonDao)getDao()).getListByMonth("2010", "02");
+        setDao("lessonDao");
+        List<Lesson> l= this.<ILessonDao>getDao().getListByMonth("2010", "02");
         System.out.println("!! "+l);
         for(Lesson c:l){
             System.out.println("-- "+c.getLessonDate());

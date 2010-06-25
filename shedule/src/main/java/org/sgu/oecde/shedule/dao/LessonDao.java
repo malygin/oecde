@@ -1,8 +1,6 @@
 package org.sgu.oecde.shedule.dao;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Expression;

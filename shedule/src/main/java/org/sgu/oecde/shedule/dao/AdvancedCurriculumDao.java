@@ -2,21 +2,26 @@ package org.sgu.oecde.shedule.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.Discipline;
 import org.sgu.oecde.core.education.dao.CurriculumDao;
-import org.sgu.oecde.de.education.DeCurriculum;
-import org.sgu.oecde.de.users.Group;
-import org.sgu.oecde.de.users.Teacher;
+import org.sgu.oecde.core.users.StudentGroup;
+import org.sgu.oecde.core.users.Teacher;
 import org.springframework.dao.DataAccessException;
 
 /**
  * {@inheritDoc }
  */
-public class AdvancedCurriculumDao extends CurriculumDao<DeCurriculum> implements IAdvancedCurriculumDao{
+public class AdvancedCurriculumDao<T extends Curriculum> extends CurriculumDao<T> implements IAdvancedCurriculumDao<T>{
 
     @SuppressWarnings("unchecked")
     protected AdvancedCurriculumDao() {
-        super(DeCurriculum.class);
+        super((Class<T>) Curriculum.class);
+    }
+
+    @SuppressWarnings("unchecked")
+    protected AdvancedCurriculumDao(Class<T> type){
+        super(type);
     }
     /**
      * {@inheritDoc }
@@ -32,8 +37,8 @@ public class AdvancedCurriculumDao extends CurriculumDao<DeCurriculum> implement
     /**
      * {@inheritDoc }
      */
-    public List<Group> getGroupBySemesterYearTeacherDiscipline(Integer[] semester, int year, Teacher teacher,Discipline discipline) throws DataAccessException {
-        return makeQuery("distinct t.studentGroup"," t.teacher=:t and c.discipline=:d",new String[]{"t.studentGroup.speciality"},null,semester,year)
+    public List<StudentGroup> getGroupBySemesterYearTeacherDiscipline(Integer[] semester, int year, Teacher teacher,Discipline discipline) throws DataAccessException {
+        return makeQuery("distinct t.group"," t.teacher=:t and c.discipline=:d",new String[]{"t.group.speciality"},null,semester,year)
                  .setParameter("t", teacher).setParameter("d", discipline).list();
     }
 }

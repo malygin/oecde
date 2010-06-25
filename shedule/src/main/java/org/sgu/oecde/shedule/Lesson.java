@@ -3,8 +3,8 @@ package org.sgu.oecde.shedule;
 import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
 import org.sgu.oecde.core.education.Discipline;
-import org.sgu.oecde.de.users.Group;
-import org.sgu.oecde.de.users.Teacher;
+import org.sgu.oecde.core.users.Teacher;
+import org.sgu.oecde.core.users.StudentGroup;
 
 /**
  * занятие на видеоконференции
@@ -12,7 +12,7 @@ import org.sgu.oecde.de.users.Teacher;
  */
 public class Lesson extends BasicItem{
 
-    private Set<Group> group;
+    private Set<? extends StudentGroup> group;
     private Discipline discipline;
     private Teacher teacher;
     private Integer number;
@@ -38,11 +38,11 @@ public class Lesson extends BasicItem{
     /**
      * @return коллекция город-специальность-курс, которые присутствуют на занятии
      */
-    public Set<Group> getGroup() {
-        return group;
+    public <T extends StudentGroup>Set<T> getGroup() {
+        return (Set<T>) group;
     }
 
-    public void setGroup(Set<Group> css) {
+    public void setGroup(Set<? extends StudentGroup> css) {
         this.group = css;
     }
     /**
