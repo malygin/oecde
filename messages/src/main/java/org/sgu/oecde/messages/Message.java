@@ -1,9 +1,13 @@
 package org.sgu.oecde.messages;
 
 import java.util.List;
+
 import org.sgu.oecde.core.BasicItem;
+import org.sgu.oecde.core.users.AbstractPerson;
 
 import org.sgu.oecde.core.users.AbstractUser;
+import org.sgu.oecde.core.users.Admin;
+import org.sgu.oecde.core.users.UserType;
 
 
 /**
@@ -30,6 +34,8 @@ public class Message extends BasicItem {
     private Boolean archived=false;
     private Boolean deleted=false;
     private Boolean readed=false;
+    final static public int numCharInShortText=30;
+
 
     public Message() {
     }
@@ -118,5 +124,39 @@ public class Message extends BasicItem {
         this.dateMessage = dateMessage;
     }
 
+    /**
+     * Возвращает boolean для метки письма прочитано оно или нет (jsf не выводит Boolean)
+     * @return тру если прочитан
+     */
+   public boolean getNew(){     
+       return this.readed;
+   }
+/**
+ * возвращает сокращенный, если это необходим текст письма
+ * @return сокращенный текст письма
+ */
+   public String getShortText(){
+       if (this.fullText.length()>numCharInShortText)
+       return this.fullText.substring(0, numCharInShortText)+"...";
+       else return this.fullText;
+   }
 
+   /**
+    * Возвращает фио автора
+    * @todo разобраться когда получатель - SUPERVISOR
+    * @return фио
+    */
+   public String getFioAuthor(){
+     
+    // return ((AbstractPerson)author).getFio();
+       return author.getUsername();
+   }
+
+   /**
+    * Возвращает строку - тип автора
+    * @return
+    */
+   public String getTypeAuthor(){
+       return UserType.fromRole(author).toString();
+   }
 }

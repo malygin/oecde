@@ -106,9 +106,11 @@ public class MessageTest extends BasicTest{
     public void getListIn(){
           setDao("messageDao");
          Student st1=new Student();
-         st1.setId(new Long(320815));
+         st1.setId(new Long(321073));
           List<Message> list = this.<IMessageDao>getDao().getListInAll(st1);
           for(Message l:list){
+              System.out.println(" "+l.getTypeAuthor());
+              System.out.println(" "+l.getFioAuthor());
               System.out.println(" "+l.getId());
              // System.out.println(" "+l.isArchived());
           //    System.out.println(" "+l.isDeleted());

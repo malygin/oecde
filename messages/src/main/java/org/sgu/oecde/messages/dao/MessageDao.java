@@ -43,11 +43,9 @@ public class MessageDao  extends BasicDao<Message> implements IMessageDao{
        //обработаем список вытащим метки прочитано или нет в основной список
        for(Message l:messages){
            for(MessageRecipient r:l.getRecipients()){
-              // System.out.println(""+r.getRecipient().getId());
-             //  System.out.println(""+user.getId());
-            //   System.out.println("");
-               if (r.getRecipient().getId() == user.getId()){
-                //   System.out.println("!!!");
+              
+               if (r.getRecipient().getId().equals(user.getId())){
+                
                    l.setReaded(r.getReaded());
                }
            }          
