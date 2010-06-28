@@ -1,11 +1,59 @@
     <ui:composition
-         xmlns:ui="http://java.sun.com/jsf/facelets"      
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:h="http://java.sun.com/jsf/html"
          template="baseTemplate.xhtml">
 
         <ui:define name="left">
-           левое студентческое меню
+             <ul style="padding-left: 10px;">
+              <li><a href="index.xhtml"> #{msgs.student_eduMenuControlWorks}</a></li>
+              <li><a href="index.xhtml">#{msgs.student_eduMenuControlWorksResult}</a></li>
+              <li><a href="index.xhtml">#{msgs.student_eduMenuCoursework}</a></li>
+              <li><a href="index.xhtml"> #{msgs.student_eduMenuEvents}</a></li>
+              <li><a href="index.xhtml">#{msgs.student_eduMenuLearningCourses}</a></li>
+              <li><a href="index.xhtml">  #{msgs.student_eduMenuMarks}</a></li>
+              <li><a href="index.xhtml"> #{msgs.student_eduMenuReexamination}</a></li>
+              <li><a href="index.xhtml"> #{msgs.student_eduMenuScheduleMonth}</a></li>
+              <li><a href="index.xhtml"> #{msgs.student_eduMenuScheduleSession}</a></li>
+              <li><a href="index.xhtml">  #{msgs.student_eduMenuTestsResults}</a></li>
+              <li><a href="index.xhtml"> #{msgs.student_eduMenuWinterReexamination}</a></li>
+              <li><a href="index.xhtml"> #{msgs.student_eduMenuWinterTestsResults}</a></li>
+              </ul>
+               <hr/>
+             <ul style="padding-left: 10px;">              
+                 <li><a href="message_list.xhtml">#{msgs.student_messMenuIn} - #{MessageBean.newMessages}) </a></li>
+                 <li><a href="index.xhtml">#{msgs.student_messMenuOut}</a></li>
+                 <li><a href="index.xhtml">#{msgs.student_messMenuArchive}</a></li>
+              </ul>
+
         </ui:define>
-        <ui:define name="content">
-            Студенческий контент
+
+        <ui:define name="top">
+            <a href="index.xhtml">#{msgs.student_topMenuHome}</a>
+            <a href="index.xhtml">#{msgs.student_topMenuHelp}</a>
+            <a href="index.xhtml">#{msgs.student_topMenuInfo}</a>
+            <a href="index.xhtml">#{msgs.student_topMenuNews}</a>
+            <a href="indexxhtml">#{msgs.student_topMenuSettings}</a>
+            <a href="../j_spring_security_logout" >#{msgs.student_topMenuExit}</a>
         </ui:define>
+
+        <ui:define name="right">
+          <ul style="padding-left: 10px;">
+              <li><a href="index.xhtml">#{msgs.student_comMenuTeachers}</a></li>
+              <li><a href="index.xhtml">#{msgs.student_comMenuStudents}</a></li>
+              <li><a href="index.xhtml">#{msgs.student_comMenuVideoconferencing}</a></li>
+              <li><a href="index.xhtml">#{msgs.student_comMenuForum}</a></li>
+          </ul>
+          <hr/>
+            <ul style="padding-left: 10px;">
+                <li><a href="index.xhtml">#{msgs.student_controlMenuCurriculum}</a></li>
+                <li><a href="index.xhtml">#{msgs.student_controlMenuLibrary}</a></li>
+                <li><a href="index.xhtml">#{msgs.student_controlMenuRecordBook}</a></li>
+                <li><a href="index.xhtml">#{msgs.student_controlMenuTeaching}</a></li>
+          </ul>
+        </ui:define>
+        <ui:define name="bottom">
+            <a href="index.xhtml">#{msgs.student_bottMenuHelp}</a>
+            <a href="index.xhtml">#{msgs.student_bottMenuInfo}</a>
+            <a href="index.xhtml">#{msgs.student_bottMenuSettings}</a>
+          </ui:define>
     </ui:composition>

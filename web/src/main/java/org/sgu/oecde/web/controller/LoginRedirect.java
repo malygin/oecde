@@ -39,8 +39,7 @@ public class LoginRedirect extends HttpServlet {
         try {        
              AbstractUser user = SecurityContextHandler.getUser();
          if(user!=null){
-                UserType type = UserType.fromRole((AbstractUser) user);
-                System.out.println(""+user+type);
+                UserType type = UserType.fromRole((AbstractUser) user);             
                 response.sendRedirect(""+type.toNameFolder()+"/index.xhtml");
            }
 
