@@ -1,0 +1,34 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:h="http://java.sun.com/jsf/html"
+         template="baseTemplate.xhtml">
+
+        <ui:define name="left">
+           левое студентческое меню
+        </ui:define>
+        <ui:define name="content">
+            Студенческий контент
+        </ui:define>
+        <ui:define name="right">
+            пользователи онлайн:
+            
+            студенты (#{userCache.studentsNumber})
+              <h:dataTable value="#{userCache.sixStudents}" styleClass="friends" var="st">
+                <h:column>#{st.initials}
+                    <h:outputText value="#{st.initials}"/>
+               </h:column>
+            </h:dataTable>
+             преподы (#{userCache.teachersNumber})
+              <h:dataTable value="#{userCache.sixTeachers}" styleClass="friends" var="st">
+                <h:column>
+                    <h:outputText value="#{st.initials}"/>
+                </h:column>
+              </h:dataTable>
+              админыы ((#{userCache.adminsNumber}))
+               <h:dataTable value="#{userCache.sixAdmins}" styleClass="friends" var="st">
+                    <h:column>
+                        <h:outputText value="#{st.initials}"/>
+                    </h:column>
+                </h:dataTable>
+    </ui:define>
+</ui:composition>

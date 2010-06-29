@@ -4,6 +4,10 @@
          xmlns:h="http://java.sun.com/jsf/html"
          template="../resources/adminTemplate.xhtml">
         <ui:define name="content">
-          Admin page
+           <h:dataTable value="#{userCache.sixStudents}" styleClass="friends" var="st">
+             <h:column>#{st.initials}
+                <h:outputText value="#{st.initials}"/>
+             </h:column>
+           </h:dataTable>
         </ui:define>
     </ui:composition>

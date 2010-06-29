@@ -1,0 +1,19 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         template="../resources/studentTemplate.xhtml"
+         >
+        <ui:define name="content">
+         <f:metadata>
+             <f:viewParam name="s" value="#{MaterialsBean.semester}"/>
+         </f:metadata>
+         <h:dataTable value="#{MaterialsBean.studentsDisciplines}" var="m">
+           <h:column>
+               <h:outputText value="#{m.curriculum.umk.name}"/>
+               пройдено тестов: #{m.passedTests} из #{m.testsCount}
+               результаты тестирования: 
+           </h:column>
+         </h:dataTable>
+        </ui:define>
+    </ui:composition>

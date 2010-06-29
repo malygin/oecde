@@ -1,20 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.web.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.UserType;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 
@@ -37,12 +28,10 @@ public class LoginRedirect extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {        
-             AbstractUser user = SecurityContextHandler.getUser();
-         if(user!=null){
-                UserType type = UserType.fromRole((AbstractUser) user);             
-                response.sendRedirect(""+type.toNameFolder()+"/index.xhtml");
-           }
-
+             UserType type = SecurityContextHandler.getUserType();
+             if(type!=null){
+                 response.sendRedirect(type.toNameFolder());
+             }
         } finally { 
             out.close();
         }

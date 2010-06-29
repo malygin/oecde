@@ -17,7 +17,7 @@
                 <h:inputSecret id="j_password" required="true"/>
            #{msgs.login_remeberMe}
                 <h:selectBooleanCheckbox
-                        id="j_spring_security_remember_me" />
+                        id="_spring_security_remember_me" />
                 <h:commandButton  type="submit" id="login"  action="#{loginBean.doLogin}" value="#{msgs.login_EnterButton}" />
         </h:form>
        <h:outputText rendered="#{loginBean.renderErrorEnter}" style="color: red;" value="#{msgs.login_Error}"/>

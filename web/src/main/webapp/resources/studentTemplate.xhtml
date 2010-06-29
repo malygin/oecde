@@ -9,7 +9,7 @@
               <li><a href="index.xhtml">#{msgs.student_eduMenuControlWorksResult}</a></li>
               <li><a href="index.xhtml">#{msgs.student_eduMenuCoursework}</a></li>
               <li><a href="index.xhtml"> #{msgs.student_eduMenuEvents}</a></li>
-              <li><a href="index.xhtml">#{msgs.student_eduMenuLearningCourses}</a></li>
+              <li><a href="materials.xhtml">#{msgs.student_eduMenuLearningCourses}</a></li>
               <li><a href="index.xhtml">  #{msgs.student_eduMenuMarks}</a></li>
               <li><a href="index.xhtml"> #{msgs.student_eduMenuReexamination}</a></li>
               <li><a href="index.xhtml"> #{msgs.student_eduMenuScheduleMonth}</a></li>
@@ -50,6 +50,19 @@
                 <li><a href="index.xhtml">#{msgs.student_controlMenuRecordBook}</a></li>
                 <li><a href="index.xhtml">#{msgs.student_controlMenuTeaching}</a></li>
           </ul>
+
+            студенты (#{userCache.studentsNumber})
+              <h:dataTable value="#{userCache.sixStudents}" styleClass="friends" var="st">
+                <h:column>#{st.initials}
+                    <h:outputText value="#{st.initials}"/>
+               </h:column>
+            </h:dataTable>
+             преподы (#{userCache.teachersNumber})
+              <h:dataTable value="#{userCache.sixTeachers}" styleClass="friends" var="st">
+                <h:column>
+                    <h:outputText value="#{st.initials}"/>
+                </h:column>
+              </h:dataTable>
         </ui:define>
         <ui:define name="bottom">
             <a href="index.xhtml">#{msgs.student_bottMenuHelp}</a>

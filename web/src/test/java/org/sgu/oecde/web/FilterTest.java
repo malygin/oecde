@@ -24,7 +24,7 @@ import org.springframework.util.CollectionUtils;
 @ContextConfiguration(locations={"../applicationContext.xml","../spring/cwBeans.xml","../spring/testBeans.xml","../spring/journalBeans.xml","../spring/newsBeans.xml","../spring/discussionBeans.xml","../spring/searchBeans.xml","../spring/deBeans.xml"})
 public class FilterTest extends BasicTest{
 
-//    @Ignore
+    @Ignore
     @Test
     public void beans(){
         for(Object o:applicationContext.getBeanDefinitionNames()){
@@ -32,11 +32,11 @@ public class FilterTest extends BasicTest{
         }
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void save(){
         List<IResultFilter>filters = new LinkedList();
-        IResultFilter f1 = (IResultFilter)getBean("cwFilter");
+        IResultFilter f1 = (IResultFilter)getBean("controlWorkFilter");
         IResultFilter f2 = (IResultFilter)getBean("testFilter");
         IResultFilter f3 = (IResultFilter)getBean("estimateFilter");
         ResultPreFilter pf = (ResultPreFilter) applicationContext.getBean("preFilter");
