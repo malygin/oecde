@@ -33,6 +33,9 @@ public class AdditionalCurriculum implements Serializable,Comparable<AdditionalC
     public AdditionalCurriculum() {
     }
 
+    public AdditionalCurriculum(Curriculum curriculum) {
+        this.curriculum = curriculum;
+    }
     /**
      *
      * @return количество пройденных тестов

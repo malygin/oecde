@@ -95,6 +95,8 @@ public class TestAttemptService{
                 e.setType(TestType.regular);
         }
         List<TestEntity>tests = resourceDao.getResourceByCurriculums(curriculums, e,TestEntity.class);
+        if(CollectionUtils.isEmpty(tests))
+            return new ArrayList();
         TestAttempt tmpAttempt = new TestAttempt(testingDate);
 
         List<TestAttempt> attempts = testAttemptDao.getByStudentsAndTests(tests, students, tmpAttempt, true);
@@ -162,19 +164,24 @@ public class TestAttemptService{
         boolean wasPassed = false;
         int attemptsNumber = 0;
         List<AdditionalCurriculum>list = new ArrayList<AdditionalCurriculum>();
+        for(Curriculum c:curriculums){
+            list.add(new AdditionalCurriculum(c));
+        }
         AdditionalCurriculum addCurriculum = null;
         Curriculum temp = null;
         TestEntity testTemp = null;
         for(AdditionalSelfDependentWork attempt:attempts) {
+            if(attempt.getCurriculum()==null||attempt.getWork()==null)
+                continue;
             //если лист не содержит полученную дисциплину, то дальше
-            if(!temp.equals(attempt.getCurriculum())){
+            if(!attempt.getCurriculum().equals(temp)){
                 if (addCurriculum!=null){
                     //запихивает в умк полученные значения
                        addCurriculum.setTestsCount(count);
                        addCurriculum.setPassedTests(attemptsNumber);
                        addCurriculum.setCurriculum(temp);
                 }
-                addCurriculum = new AdditionalCurriculum();
+                addCurriculum = list.get(list.indexOf(attempt.getCurriculum()));
                 list.add(addCurriculum);
                 //начинает считать общее количество тестов для дисциплины
                 count=1;
@@ -183,7 +190,7 @@ public class TestAttemptService{
                 //если да, то начинает считать прохождения
                 attemptsNumber = wasPassed?1:0;
             }else{
-                if(testTemp.equals(attempt.getWork())){
+                if(attempt.getWork().equals(testTemp)){
                     //очередная попытка всё того же теста. если до этого не было полученно данных о том,
                     // что он пройден, то у текущей попытке это выянсяется
                     wasPassed = !wasPassed?(CollectionUtils.isEmpty(attempt.getResults())):wasPassed;

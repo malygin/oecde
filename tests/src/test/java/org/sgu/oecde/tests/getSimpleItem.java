@@ -172,7 +172,7 @@ public class getSimpleItem extends BasicTest{
     @Ignore
     @Test
     public void getStudentsAttempts(){
-        TestAttemptService serv = (TestAttemptService) applicationContext.getBean("testAttemptService");
+        TestAttemptService serv = getBean("testAttemptService");
         TestAttempt a = new TestAttempt();
         Student s = new Student(324725L);
         DeCurriculum c = new DeCurriculum();
@@ -253,11 +253,20 @@ public class getSimpleItem extends BasicTest{
         this.<ITestAttemptDao>getDao().saveAttempt(a);
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void constants(){
         StringConstantsGetter g = getBean("testsDatesGetter");
 //        g.save(new CalendarConstants(ControlWorkCalendarConstantName.controlWorksBeginDate, "10"), "ControlWorkCalendarConstants");
+    }
+
+//    @Ignore
+    @Test
+    public void getStudentsDisciplines(){
+        List<DeCurriculum> sts = new ArrayList(1);
+        sts.add(new DeCurriculum(20093169482L));
+        List<AdditionalCurriculum>ac = this.<TestAttemptService>getBean("testAttemptService").getStudentAttemptsCount(sts, null, new Student(324725L));
+        System.out.println(ac);
     }
 
 }
