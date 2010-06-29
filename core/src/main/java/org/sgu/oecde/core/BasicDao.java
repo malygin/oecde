@@ -18,6 +18,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.util.Assert;
+import org.springframework.util.CollectionUtils;
 
 /**
  * {@inheritDoc}
@@ -119,7 +120,7 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
                     final Set newSet = (Set) fm.invoke(item,new Object[]{});
                     if(newSet==null)
                         continue methods;
-                    if(newSet!=null&&!newSet.isEmpty()){
+                    if(!CollectionUtils.isEmpty(newSet)){
                         Object o = newSet.iterator().next();
                         if(o instanceof BasicItem&&((BasicItem)o).getId()!=0)
                             cr.createAlias(fieldName, "alias").add(Restrictions.eq("alias.id", ((BasicItem)o).getId()));

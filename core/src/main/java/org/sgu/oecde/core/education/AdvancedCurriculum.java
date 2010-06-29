@@ -1,5 +1,7 @@
 package org.sgu.oecde.core.education;
 
+import org.springframework.util.StringUtils;
+
 /**
  * наследуется от Curriculum и добавляет специальность, дисциплину, параметр - есть ли кр или нет
  * у данной специальности по данной дисциплины в данном семестре в данном году
@@ -78,9 +80,9 @@ public class AdvancedCurriculum extends Curriculum{
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer(super.toString());
-        if(discipline!=null&&!discipline.getName().isEmpty())
+        if(discipline!=null&&StringUtils.hasText(discipline.getName()))
             sb.append("дисциплина: ").append(discipline.getName()).append("; ");
-        if(speciality!=null&&!speciality.getName().isEmpty())
+        if(speciality!=null&&StringUtils.hasText(speciality.getName()))
             sb.append("специальность: ").append(speciality.getName()).append("; ");
         return sb.toString();
     }

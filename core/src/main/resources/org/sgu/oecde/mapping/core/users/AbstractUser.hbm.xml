@@ -12,6 +12,8 @@
     <property column="medium_photo" insert="false" name="mediumPhoto" type="string"/>
     <property column="small_photo" insert="false" name="smallPhoto" type="string"/>
     <property column="original_id" insert="false" name="originalId" type="integer"/>
-    <many-to-one cascade="none" class="org.sgu.oecde.core.authentication.RoleItem" column="role" fetch="join" foreign-key="fk_user_role" insert="false" name="authority" not-null="true"/>
+    <component name="authority" class="org.sgu.oecde.core.authentication.RoleItem" insert="false" update="false" lazy="false">
+        <property name="role" type="string" length="20" not-null="true" />
+    </component>
   </class>
 </hibernate-mapping>

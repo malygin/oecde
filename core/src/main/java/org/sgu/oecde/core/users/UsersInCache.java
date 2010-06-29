@@ -6,7 +6,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import net.sf.ehcache.Ehcache;
 import net.sf.ehcache.Element;
-import org.sgu.oecde.core.util.DateConverter;
+import org.sgu.oecde.core.util.SecurityContextHandler;
 /**
  * пользователи в кеше пользователей онлайн, соответсвующем типу пользователя.
  * имеет методы на получение в кеш и получение из кеша
@@ -93,60 +93,115 @@ public class UsersInCache{
 
     /**
      *
-     * @return
+     * @return 6 случайных студентов
      */
     public List<? extends AbstractStudent> getSixStudents(){
-        List<? extends AbstractStudent> l = getStudents();
-        Collections.shuffle(l);
-        return l.subList(0, 5);
+        return getSixUsers(getStudents());
     }
 
+    /**
+     *
+     * @return 6 случайных преподавателей
+     */
     public List<? extends Teacher> getSixTeachers(){
-        List<? extends Teacher> l = getTeachers();
-        Collections.shuffle(l);
-        return l.subList(0, 5);
+        return getSixUsers(getTeachers());
     }
 
+    /**
+     *
+     * @return 6 случайных админов
+     */
     public List<? extends Admin> getSixAdmins(){
-        List<? extends Admin> l = getAdmins();
-        Collections.shuffle(l);
-        return l.subList(0, 5);
+        return getSixUsers(getAdmins());
     }
 
+    /**
+     *
+     * @return 6 случайных супервайзеров
+     */
     public List<? extends Supervisor> getSixSupervisors(){
-        List<? extends Supervisor> l = getSupervisors();
-        Collections.shuffle(l);
-        return l.subList(0, 5);
+        return getSixUsers(getSupervisors());
     }
 
-    public int getStudentsCount(){
+    /**
+     *
+     * @return число студентов
+     */
+    public int getStudentsNumber(){
         return getStudents().size();
     }
 
-    public int getTeachersCount(){
+    /**
+     *
+     * @return число преподавателей
+     */
+    public int getTeachersNumber(){
         return getTeachers().size();
     }
 
-    public int getAdminsCount(){
+    /**
+     *
+     * @return  число администраторов
+     */
+    public int getAdminsNumber(){
         return getAdmins().size();
     }
 
-    public int getSupervisorsCount(){
+    /**
+     *
+     * @return число супервайзеров
+     */
+    public int getSupervisorsNumber(){
         return getSupervisors().size();
     }
 
+    /**
+     *
+     * @param <T> extends AbstractUser
+     * @param l лист пользователей из кеша
+     * @return 6 случайных пользователей из полученного листа
+     */
+    private <T extends AbstractUser>List<T>getSixUsers(List<T> l){
+        Collections.shuffle(l);
+        if(l.size()>5)
+            return l.subList(0, 6);
+        else
+            return l;
+    }
+
+    /**
+     *
+     * @param <T> extends AbstractUser
+     * @param cache кеш
+     * @return пользователи из кеша одного типа
+     */
     private <T extends AbstractUser>List<T> getUsers(Ehcache cache){
         List<T>list = new ArrayList<T>();
+        AbstractUser currentUser = SecurityContextHandler.getUser();
+        if(currentUser==null)
+            return list;
         for(Object k:cache.getKeysWithExpiryCheck()){
-            list.add((T) cache.get(k).getValue());
+            T cachedUser = (T) cache.get(k).getValue();
+            if(!currentUser.equals(cachedUser))
+                list.add((T) cache.get(k).getValue());
         }
         return list;
     }
 
+    /**
+     *
+     * @param user пользователь
+     * @return кеш по типу тользователя
+     */
     private Ehcache cache(AbstractUser user){
         return cache(UserType.fromRole(user));
     }
 
+    /**
+     *
+     * @param name имя типа
+     * @return кеш по типу пользователя
+     */
     private Ehcache cache(UserType name){
         switch (name) {
             case ADMIN:

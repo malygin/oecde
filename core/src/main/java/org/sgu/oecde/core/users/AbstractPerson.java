@@ -1,5 +1,8 @@
 package org.sgu.oecde.core.users;
 
+import org.springframework.util.StringUtils;
+import static org.sgu.oecde.core.util.ProperCase.bringTo;
+
 /**
  * пользователь - человек. с фамилией именем и отчетсвом
  * @author ShihovMY
@@ -35,7 +38,7 @@ public abstract class AbstractPerson extends AbstractUser{
      * @param name
      */
     public void setName(String name) {
-        this.name = name;
+        this.name = bringTo(name);
     }
 
     /**
@@ -43,7 +46,7 @@ public abstract class AbstractPerson extends AbstractUser{
      * @return отчество
      */
     public String getSecondName() {
-        return secondName;
+        return bringTo(secondName);
     }
 
     /**
@@ -59,7 +62,7 @@ public abstract class AbstractPerson extends AbstractUser{
      * @return фамилия
      */
     public String getSurname() {
-        return surname;
+        return bringTo(surname);
     }
     /**
      * фамилия
@@ -88,8 +91,10 @@ public abstract class AbstractPerson extends AbstractUser{
     public String getInitials(){
         StringBuilder sb = new StringBuilder();
         sb.append(getSurname()).append(" ");
-        sb.append(getName().charAt(0)).append(". ");
-        sb.append(getSecondName().charAt(0));
+        if(StringUtils.hasText(getName()))
+            sb.append(getName().charAt(0)).append(". ");
+        if(StringUtils.hasText(getSecondName()))
+            sb.append(getSecondName().charAt(0));
         return sb.toString();
     }
 

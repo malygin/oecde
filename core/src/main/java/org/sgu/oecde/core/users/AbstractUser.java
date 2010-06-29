@@ -307,7 +307,7 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
         if ((this.username == null) ? (other.username != null) : !this.username.equals(other.username)) {
             return false;
         }
-        if (!Arrays.deepEquals(this.authorities, other.authorities)) {
+        if ((this.getAuthority() == null) ? (other.getAuthority() != null) : !this.getAuthority().equals(other.getAuthority())) {
             return false;
         }
         if (this.enabled != other.enabled) {

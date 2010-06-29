@@ -26,6 +26,10 @@ public class LogoutListner implements LogoutHandler{
      */
     @Override
     public void logout(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
-        manager.removeUserFromCache((AbstractUser)authentication.getPrincipal());
+        if(authentication==null)
+            return;
+        AbstractUser user = (AbstractUser)authentication.getPrincipal();
+        if(user!=null)
+            manager.removeUserFromCache(user);
     }
 }

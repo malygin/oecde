@@ -47,6 +47,7 @@ public enum UserType {
     public static UserType fromRole(AbstractUser user) {
         Assert.notNull(user,"user can not be null");
         Assert.notNull(user.getAuthority());
+        Assert.hasLength(user.getAuthority().getAuthority());
         String str = user.getAuthority().getAuthority();
         if ("role_student".equalsIgnoreCase(str)) {
             return STUDENT;

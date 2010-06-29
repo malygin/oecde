@@ -3,6 +3,7 @@ package org.sgu.oecde.core.education.work;
 import org.sgu.oecde.core.BasicItem;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.users.AbstractStudent;
+import org.springframework.util.StringUtils;
 
 /**
  * результат работы (контрольная, самостоятельная, тест, итоговая оценка и тд)
@@ -131,7 +132,7 @@ abstract public class AbstractResult extends BasicItem implements Comparable<Abs
     public String toString() {
         StringBuffer sb = new StringBuffer(super.toString());
         sb.append("учебный план: ").append(curriculum).append(";\n");
-        if(student!=null&&!student.getFio().isEmpty())
+        if(student!=null&&StringUtils.hasText(student.getFio()))
             sb.append("студент: ").append(student.getInitials()).append(";\n");
         sb.append("дата: ").append(date).append(";");
         return sb.toString();

@@ -3,6 +3,7 @@ package org.sgu.oecde.core.education;
 import org.sgu.oecde.core.education.resource.AbstractResource;
 import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
+import org.springframework.util.StringUtils;
 
 /**
  * модуль умк
@@ -100,7 +101,7 @@ public class Module extends BasicItem{
     public String toString() {
         StringBuffer sb = new StringBuffer(super.toString());
         sb.append("название: ").append(name).append("; ");
-        if(umk!=null&&!umk.getName().isEmpty())
+        if(umk!=null&&StringUtils.hasText(umk.getName()))
             sb.append("умк: ").append(umk.getName()).append("; ");
         return sb.toString();
     }

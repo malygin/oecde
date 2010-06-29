@@ -3,6 +3,7 @@ package org.sgu.oecde.core.education.work;
 import java.io.Serializable;
 import java.util.List;
 import org.sgu.oecde.core.education.Curriculum;
+import org.springframework.util.StringUtils;
 
 /**
  * расширенная версия самостоятельной работы. не имеет отображения в бд. Содержит ссылку
@@ -148,10 +149,10 @@ public class AdditionalSelfDependentWork implements Serializable{
 
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer(super.toString());
+        StringBuffer sb = new StringBuffer();
         sb.append("учебный план: ").append(curriculum).append(";\n");
-        if(work!=null&&!work.getTitle().isEmpty())
-            sb.append("работа: ").append(work.getTitle()).append(" (").append(work.getClass().getName()).append(");\n");
+        if(work!=null&&StringUtils.hasText(work.getTitle()))
+            sb.append("работа: ").append(work.getTitle()).append(" (").append(work.getClass().getSimpleName()).append(");\n");
         return sb.toString();
     }
 }

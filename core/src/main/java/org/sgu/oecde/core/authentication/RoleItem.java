@@ -1,6 +1,5 @@
 package org.sgu.oecde.core.authentication;
 
-import org.sgu.oecde.core.BasicItem;
 import org.springframework.security.GrantedAuthority;
 
 /**
@@ -8,7 +7,7 @@ import org.springframework.security.GrantedAuthority;
  * @author ShihovMY
  * @see org.springframework.security.GrantedAuthority
  */
-public class RoleItem extends BasicItem implements GrantedAuthority {
+public class RoleItem implements GrantedAuthority {
 
     private static final long serialVersionUID = 41L;
     /**
@@ -63,8 +62,6 @@ public class RoleItem extends BasicItem implements GrantedAuthority {
 
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer(super.toString());
-        sb.append("role: ").append(role).append("; ");
-        return sb.toString();
+        return role;
     }
 }

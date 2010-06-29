@@ -1,5 +1,7 @@
 package org.sgu.oecde.core.education.work;
 
+import org.springframework.util.StringUtils;
+
 
 /**
  * результат по самостоятельной работе, к которой могут относиться тесты, тренажёры и тд
@@ -51,7 +53,7 @@ abstract public class AbstractSelfDependentWorkResult extends AbstractResult{
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer(super.toString());
-        if(work!=null&&!work.getTitle().isEmpty())
+        if(work!=null&&StringUtils.hasText(work.getTitle()))
             sb.append("\nработа: ").append(work.getTitle()).append(" (").append(work.getClass().getName()).append(");\n");
         return sb.toString();
     }

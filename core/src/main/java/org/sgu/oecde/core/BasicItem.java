@@ -61,7 +61,7 @@ public abstract class BasicItem implements Serializable{
      */
     @Override
     public String toString(){
-        StringBuffer sb = new StringBuffer(this.getClass().getName());
+        StringBuffer sb = new StringBuffer(this.getClass().getSimpleName());
         sb.append("; ").append("айди: ").append(this.id).append("; ");
         return sb.toString();
     }

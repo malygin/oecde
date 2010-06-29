@@ -69,6 +69,7 @@ public class CurriculumBuilder<T extends Curriculum> {
         Curriculum c = getInstance();
         Assert.notNull(student,"student can not be null");
         c.setSemester(getter.getSemesterByStudentYear(student, booleanSemester));
+        c.setCalendarYear(year);
         return (T) c;
     }
 }

@@ -14,6 +14,7 @@
 
   <bean id="specialityDao" p:type="org.sgu.oecde.core.education.Speciality" parent="basicDao" />
   <bean id="disciplineDao" p:type="org.sgu.oecde.core.education.Discipline" parent="basicDao" />
+  <bean id="umkDao" p:type="org.sgu.oecde.core.education.Umk" parent="basicDao" />
   <bean id="authorDao" p:type="org.sgu.oecde.core.education.resource.Author" parent="basicDao" />
   <bean id="teacherDao" p:type="org.sgu.oecde.core.users.Teacher" parent="updateDao" />
   <bean id="adminDao" p:type="org.sgu.oecde.core.users.Admin" parent="updateDao" />
