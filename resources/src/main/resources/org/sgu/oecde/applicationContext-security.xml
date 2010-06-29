@@ -7,11 +7,13 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
 http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.4.xsd">
 
- <!--<global-method-security secured-annotations="enabled"/>-->
+<!-- SPRING SECURITY BEANS AND CONFIGS-->
+
+ <!--<global-method-security secured-annotations="enabled"/>
+ <aop:aspectj-autoproxy/>
+ -->
 	
  <authentication-provider user-service-ref='UserDetailsServiceImpl'/>
-
-  <aop:aspectj-autoproxy/>
 
   <beans:bean id="logoutFilter" class="org.springframework.security.ui.logout.LogoutFilter">
     <custom-filter position="LOGOUT_FILTER" />
@@ -27,40 +29,11 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 
   <beans:bean id="UserDetailsServiceImpl" class="org.sgu.oecde.core.authentication.UserDetailsServiceImpl" />
 
-  <beans:bean id="typeSetter" class="org.sgu.oecde.core.users.UserOnlineSetterAspect"/>
-
   <beans:bean id="eventListner" class="org.sgu.oecde.core.authentication.EventFilter">
     <custom-filter position="LAST "/>
   </beans:bean>
 
   <beans:bean id="logoutListner" class="org.sgu.oecde.core.authentication.LogoutListner"/>
-
-  <beans:bean id="userCache" class="org.sgu.oecde.core.users.UsersInCache"/>
-
-  <beans:bean id="studentCache" parent="abstractCacheBackend">
-    <beans:property name="cacheName" value="student"/>
-  </beans:bean>
-
-  <beans:bean id="teacherCache" parent="abstractCacheBackend">
-    <beans:property name="cacheName" value="student"/>
-  </beans:bean>
-
-  <beans:bean id="adminCache" parent="abstractCacheBackend">
-    <beans:property name="cacheName" value="student"/>
-  </beans:bean>
-
-  <beans:bean id="supervisorCache" parent="abstractCacheBackend">
-    <beans:property name="cacheName" value="student"/>
-  </beans:bean>
-
-  <beans:bean abstract="true" id="abstractCacheBackend" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
-    <beans:property name="cacheManager" ref="cacheManagerFactoryBean"/>
-  </beans:bean>
-
-  <beans:bean id="cacheManagerFactoryBean" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
-    <beans:property name="configLocation" value="classpath:org/sgu/oecde/ehcacheSec.xml"/>
-    <beans:property name="shared" value="false"/>
-  </beans:bean>
 
   <beans:bean id="rememberMeServices" class="org.springframework.security.ui.rememberme.TokenBasedRememberMeServices">
     <beans:property name="userDetailsService" ref="UserDetailsServiceImpl"/>

@@ -6,12 +6,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
        " default-autowire="byName">
+  <!-- SPRING ANNOTATION -->
   <context:annotation-config/>
   <context:component-scan base-package="org.sgu.oecde">
       <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
       <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
   </context:component-scan>
-  
+
+  <!-- BASIC BEANS -->
   <bean id="semesterGetter" parent="constantsGetter" p:entityName="main constants" class="org.sgu.oecde.core.util.SemesterGetter"/>
 
   <bean abstract="true" class="org.sgu.oecde.core.BasicDao" id="basicDao" >
@@ -20,6 +22,35 @@
   <bean abstract="true" parent="basicDao" class="org.sgu.oecde.core.UpdateDao" id="updateDao" />
   <bean abstract="true" class="org.sgu.oecde.core.education.StringConstantsGetter" id="constantsGetter" />
   
+  
+  <!-- CACHE -->
+  <bean id="userCache" class="org.sgu.oecde.core.users.UsersInCache"/>
+
+  <bean id="studentCache" parent="abstractCacheBackend">
+    <property name="cacheName" value="student"/>
+  </bean>
+
+  <bean id="teacherCache" parent="abstractCacheBackend">
+    <property name="cacheName" value="teacher"/>
+  </bean>
+
+  <bean id="adminCache" parent="abstractCacheBackend">
+    <property name="cacheName" value="admin"/>
+  </bean>
+
+  <bean id="supervisorCache" parent="abstractCacheBackend">
+    <property name="cacheName" value="supervisor"/>
+  </bean>
+
+  <bean abstract="true" id="abstractCacheBackend" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+    <property name="cacheManager" ref="cacheManagerFactoryBean"/>
+  </bean>
+
+  <bean id="cacheManagerFactoryBean" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+    <property name="configLocation" value="classpath:org/sgu/oecde/ehcacheSec.xml"/>
+    <property name="shared" value="false"/>
+  </bean>
+
   <import resource="spring/daoBeans.xml"/>
   <import resource="spring/dbBeans.xml"/>
 </beans>

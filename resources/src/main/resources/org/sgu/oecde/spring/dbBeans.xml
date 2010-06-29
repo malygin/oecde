@@ -8,6 +8,7 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
        ">
+<!-- DATA BASE CONFIGS-->
 
   <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
     <!-- PostgreSql 
@@ -31,7 +32,7 @@
   
   </bean>
 
-  <bean p:dataSource-ref="dataSource" id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+  <bean depends-on="UserInstantiationListener" p:dataSource-ref="dataSource" id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
     <property name="mappingDirectoryLocations">
         <list>
             <value>classpath:/org/sgu/oecde/mapping/</value>
@@ -40,8 +41,16 @@
     <property name="hibernateProperties">
         <util:properties location="classpath:/org/sgu/oecde/hibernate.properties" />
     </property>
+
+    <property name="eventListeners" >
+        <map>
+            <entry key="post-load" value-ref="UserInstantiationListener"/>
+        </map>
+    </property>
   </bean>
 
+
+  <bean id="UserInstantiationListener" class="org.sgu.oecde.core.users.UserInstantiationListener"/>
   <tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
 
   <bean p:sessionFactory-ref="sessionFactory" id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"/>
