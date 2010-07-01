@@ -16,6 +16,8 @@ import org.sgu.oecde.core.users.UserType;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
+import org.sgu.oecde.messages.service.MessageImpl;
+import org.sgu.oecde.messages.service.MessageService;
 import org.springframework.test.context.ContextConfiguration;
 
 
@@ -29,7 +31,7 @@ import org.springframework.test.context.ContextConfiguration;
 @ContextConfiguration(locations={"../applicationContext.xml","../spring/messageBeans.xml","../spring/deBeans.xml"})
 public class MessageTest extends BasicTest{
 
-   @Ignore
+    @Ignore
     @Test
     public void save(){
         Message message= new Message();
@@ -49,7 +51,7 @@ public class MessageTest extends BasicTest{
         files.add(file2);
 
         Student st1=new Student();
-        st1.setId(new Long(320815));
+        st1.setId(new Long(321073));
         MessageRecipient r1=new MessageRecipient();
         r1.setRecipient(st1);
 
@@ -70,11 +72,11 @@ public class MessageTest extends BasicTest{
         
         message.setFiles(files);
         message.setRecipients(recps);
-        setDao("messageDao");
-        this.<IMessageDao>getDao().save(message);
+        MessageService s = getBean("messageService");
+        s.save(message);
     }
 
-   @Ignore
+    @Ignore
     @Test
     public void getListAll(){
           setDao("messageDao");
@@ -91,30 +93,32 @@ public class MessageTest extends BasicTest{
 
  }
 
-    @Ignore
+//    @Ignore
     @Test
     public void getMessageById(){
-          setDao("messageDao");
-          Message mess= new Message();
+          MessageService s = getBean("messageService");
+          MessageImpl mess= s.getById(new Long(92));
          // mess.setId(10);
-          mess=this.<IMessageDao>getDao().getById(new Long(90));
-           System.out.println(" "+mess.getFullText());
+       
+           System.out.println(" "+mess.getFioAuthor());
+           System.out.println(" "+mess.getFilesExist());
 
  }
-    //@Ignore
+    @Ignore
     @Test
     public void getListIn(){
-          setDao("messageDao");
-         Student st1=new Student();
-         st1.setId(new Long(321073));
-          List<Message> list = this.<IMessageDao>getDao().getListInAll(st1);
-          for(Message l:list){
+          MessageService s = getBean("messageService");
+          Student st1=new Student();
+          st1.setId(new Long(321073));
+          List<MessageImpl> list = s.getListInAll(st1, 2, 1);
+          for(MessageImpl l:list){
               System.out.println(" "+l.getTypeAuthor());
               System.out.println(" "+l.getFioAuthor());
-              System.out.println(" "+l.getId());
+              System.out.println(" "+l.getMessage().getId());
+             // System.out.println(" "+l.getRecipients());
              // System.out.println(" "+l.isArchived());
           //    System.out.println(" "+l.isDeleted());
-              System.out.println("readed  "+l.isReaded());
+              System.out.println("readed  "+l.getNew());
               System.out.println("               ");
           }
       //    System.out.println("! "+list);
@@ -123,57 +127,58 @@ public class MessageTest extends BasicTest{
     @Ignore
     @Test
     public void getListOut(){
-          setDao("messageDao");
+          MessageService s = getBean("messageService");
           Student st=new Student(new Long(324725));
-          List<Message> list = this.<IMessageDao>getDao().getListOutAll(st);
+          List<MessageImpl> list = s.getListOutAll(st, 2, 1);
           System.out.println("! "+list);
  }
-   @Ignore
+    @Ignore
     @Test
     public void update(){
-        Message message= new Message();
-        message.setId(new Long(92));
+      
         Student st1=new Student();
-        st1.setId(new Long(324725));
-        setDao("messageDao");       
-        this.<IMessageDao>getDao().delete(message, st1);
-        this.<IMessageDao>getDao().archive(message, st1);
-        this.<IMessageDao>getDao().read(message, st1);
+        st1.setId(new Long(321073));
+        MessageService s = getBean("messageService");
+     //   s.delete(message.getId(), st1);
+      // s.archive(message.getId(), st1);
+        s.read(new Long(102), st1);
  }
 
 
-   @Ignore
+    @Ignore
     @Test
     public void getCountListIn(){
-          setDao("messageDao");
-         Student st1=new Student();
-         st1.setId(new Long(320815));
-          System.out.println("! "+this.<IMessageDao>getDao().getCountMessage(st1));
+          MessageService s = getBean("messageService");
+          Student st1=new Student();
+          st1.setId(new Long(321073));
+          System.out.println("new "+s.getCountNewMessage(st1));
+          System.out.println("in  "+s.getCountMessageIn(st1));
+          System.out.println("arch  "+s.getCountMessageArchive(st1));
 
  }
 
     @Ignore
     @Test
     public void getListArchive(){
-         setDao("messageDao");
+         MessageService s = getBean("messageService");
          Student st1=new Student();
-         st1.setId(new Long(320815));
-          List<Message> list = this.<IMessageDao>getDao().getListArchive(st1);
-          for(Message l:list){
-              System.out.println(" "+l.getId()); 
+         st1.setId(new Long(321073));
+          List<MessageImpl> list = s.getListArchive(st1, 5, 1);
+          for(MessageImpl l:list){
+              System.out.println(" "+l.getMessage().getId());
               System.out.println("               ");
           }
      }
 
-    @Ignore
+   @Ignore
     @Test
     public void getListDialog(){
-         setDao("messageDao");
+        MessageService s = getBean("messageService");
          Student st1=new Student();
-         st1.setId(new Long(320815));
+         st1.setId(new Long(321073));
          Student st2=new Student();
          st2.setId(new Long(324725));
-          List<Message> list = this.<IMessageDao>getDao().getListDialog(st1, st2);
+          List<Message> list = s.getListDialog(st1, st2);
           for(Message l:list){
               System.out.println(" "+l.getId());
               System.out.println("               ");

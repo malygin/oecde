@@ -30,40 +30,16 @@ public class Message extends BasicItem {
     private List<MessageRecipient> recipients;
     //список файлов
     private List<MessageFile> files;
-    //эти три поля здесь для удобства вывода, метки удаления, прочитано, заархивировано - в сущности получателя
-    private Boolean archived=false;
-    private Boolean deleted=false;
-    private Boolean readed=false;
-    final static public int numCharInShortText=30;
-
-
+  
     public Message() {
     }
-
-    public Boolean isArchived() {
-        return archived;
-    }
-
-    public void setArchived(Boolean archived) {
-        this.archived = archived;
-    }
-
+  
     public AbstractUser getAuthor() {
         return author;
     }
 
     public void setAuthor(AbstractUser author) {
         this.author = author;
-    }
-
-  
-
-    public Boolean isDeleted() {
-        return deleted;
-    }
-
-    public void setDeleted(Boolean deleted) {
-        this.deleted = deleted;
     }
 
     public String getFullText() {
@@ -74,14 +50,6 @@ public class Message extends BasicItem {
         this.fullText = full_text;
     }
 
-    public Boolean isReaded() {
-        return readed;
-    }
-
-    public void setReaded(Boolean readed) {
-        this.readed = readed;
-    }
-
     public List<MessageRecipient> getRecipients() {
         return recipients;
     }
@@ -89,8 +57,6 @@ public class Message extends BasicItem {
     public void setRecipients(List<MessageRecipient> recipients) {
         this.recipients = recipients;
     }
-
-
 
     public String getTheme() {
         return theme;
@@ -123,40 +89,5 @@ public class Message extends BasicItem {
     public void setDateMessage(String dateMessage) {
         this.dateMessage = dateMessage;
     }
-
-    /**
-     * Возвращает boolean для метки письма прочитано оно или нет (jsf не выводит Boolean)
-     * @return тру если прочитан
-     */
-   public boolean getNew(){     
-       return this.readed;
-   }
-/**
- * возвращает сокращенный, если это необходим текст письма
- * @return сокращенный текст письма
- */
-   public String getShortText(){
-       if (this.fullText.length()>numCharInShortText)
-       return this.fullText.substring(0, numCharInShortText)+"...";
-       else return this.fullText;
-   }
-
-   /**
-    * Возвращает фио автора
-    * @todo разобраться когда получатель - SUPERVISOR
-    * @return фио
-    */
-   public String getFioAuthor(){
-     
-    // return ((AbstractPerson)author).getFio();
-       return author.getUsername();
-   }
-
-   /**
-    * Возвращает строку - тип автора
-    * @return
-    */
-   public String getTypeAuthor(){
-       return UserType.fromRole(author).toString();
-   }
+ 
 }

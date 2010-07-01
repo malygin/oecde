@@ -15,32 +15,60 @@ import org.springframework.transaction.annotation.Transactional;
  */
 public interface IMessageDao extends IBasicDao<Message>{
 
+   /**
+    * Получение списка сообщений в зависимости от типа
+    * @param user - текущйи пользователь
+    * @param type -- строка, с меткой что за список мы возвращаем (new - новые сообщения, in-входящие, out-исходящие, arch-заархивированные)
+    * @param messageOnPage - сообщений на странице
+    * @param numPage номер страницы
+    * @return список сообщений, доработанный для вывода
+    */
     @SuppressWarnings("unchecked")
-    public List<Message> getListInAll(AbstractUser user) throws DataAccessException;
+    public List<Message> getList(AbstractUser user, String type, int messageOnPage, int numPage) throws DataAccessException;
 
-    @SuppressWarnings("unchecked")
-    public List<Message> getListOutAll(AbstractUser user) throws DataAccessException;
-
-    @SuppressWarnings("unchecked")
-    public List<Message> getListArchive(AbstractUser user) throws DataAccessException;
-
+   
+   /**
+     * Возвращает диалог текущего пользователя с другим
+     * @param current_user - текущий
+     * @param user - второй
+     * @return список сообщений
+     */
     @SuppressWarnings("unchecked")
     public List<Message> getListDialog(AbstractUser current_user, AbstractUser user) throws DataAccessException;
 
+    /**
+     * Получение списка сообщений от пользователей определенного типа
+     * @param type - тип пользователей от кого сообщения
+     * @param user - текущий пользователь, получатель сообщений
+     * @return список сообщений
+     */
     @SuppressWarnings("unchecked")
     public List<Message> getListInByUserRole(UserType type, AbstractUser user) throws DataAccessException;
 
+   /**
+     * Получение количества на разные списки сообщений
+     * @param user - текущий пользователь
+     * @param type - строка, с меткой что за список мы считаем (new - новые сообщения, in-входящие, out-исходящие, arch-заархивированные)
+     * @return количесство не прочитанных сообщений
+     */
     @SuppressWarnings("unchecked")
-    public int getCountMessage(AbstractUser user) throws DataAccessException;
+    public int getCount(AbstractUser user, String type) throws DataAccessException;
 
+   
+   /**
+     * Помечаем, что текущий пользователь удалил, заархивировал или прочитал сообщение сообщение
+     * @param messageId - id сообщения
+     * @param user - текущий пользователь
+     * @param column - строка readed-archived-deleted
+     */
     @Transactional
-    public void delete(Message message, AbstractUser user) throws DataAccessException;
+    public void update(Long messageId, AbstractUser user, String column) throws DataAccessException;
 
-    @Transactional
-    public void read(Message message, AbstractUser user) throws DataAccessException;
-
-    @Transactional
-    public void archive(Message message, AbstractUser user) throws DataAccessException;
+   /**
+     * Помечаем, что текущий пользователь прочитал  сообщение
+     * @param messageId - id сообщения
+     * @param user - текущий пользователь
+     */
 
     @Transactional
     public void save(Message message) throws DataAccessException;

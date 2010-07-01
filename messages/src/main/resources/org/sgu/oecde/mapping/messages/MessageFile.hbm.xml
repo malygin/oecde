@@ -9,7 +9,7 @@
     </id>
     <property name="name" type="string"/>
     <property name="path" type="string"/>
-    <property name="type" type="string" length="10"/>
+    <property length="10" name="type" type="string"/>
     <property name="sizeFile" type="string"/>
   </class>
 </hibernate-mapping>

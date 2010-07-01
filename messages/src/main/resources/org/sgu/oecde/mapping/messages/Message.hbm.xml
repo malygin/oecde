@@ -8,9 +8,9 @@
       </generator>
     </id>
     <property name="theme" type="string"/>
-    <property name="fullText" type="string" length="2000"/>
-    <property name="dateMessage" type="string" length="19"/>
-    <many-to-one cascade="none" class="org.sgu.oecde.core.users.AbstractUser" fetch="join" name="author" not-null="false"/>
+    <property length="2000" name="fullText" type="string"/>
+    <property length="19" name="dateMessage" type="string"/>
+    <many-to-one cascade="none" class="org.sgu.oecde.core.users.AbstractUser" fetch="join" lazy="false" name="author" not-null="false"/>
     <list cascade="all" name="files" table="message_files">
       <key column="message_id" not-null="false" update="true"/>
       <index column="id_message_file"/>
