@@ -1,0 +1,69 @@
+
+package org.sgu.oecde.web.jsfbeans.navigation;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
+/**
+ * @author Andrey Malygin (mailto: anmalygin@gmail.com)
+ * created 30.06.2010
+ * Бин для отображения панели навигации для любых списков
+ */
+@ManagedBean(name="NavigationBean")
+@ViewScoped
+public class NavigationBean implements Serializable{
+    private List<String> pages=null;
+    private String page;
+    //элементов на странице
+    private int elementOnPage;
+    //Количество элементов всего
+    private int numElements;
+
+    public NavigationBean() {
+    }
+
+    public int getElementOnPage() {
+        return elementOnPage;
+    }
+
+    public void setElementOnPage(int elementOnPage) {
+        this.elementOnPage = elementOnPage;
+    }
+
+    public String getPage() {
+        if (page==null) page="1";
+        return page;
+    }
+
+    public void setPage(String page) {
+        this.page = page;
+    }
+    //формирование списка страниц
+    public List<String> getPages() {
+        if (pages==null){
+             pages=new ArrayList();
+             for(int i=1;i<=(numElements / elementOnPage)+1;i++){
+                 pages.add(Integer.toString(i));
+             }
+        } 
+        return pages;
+    }
+
+    public void setPages(List<String> pages) {
+        this.pages = pages;
+    }
+
+    public int getNumPages() {
+        return numElements;
+    }
+
+    public void setNumPages(int numPages) {
+        this.numElements = numPages;
+    }
+
+
+
+}
