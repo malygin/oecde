@@ -1,0 +1,14 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         template="../resources/studentTemplate.xhtml"
+         xmlns:mess="http://java.sun.com/jsf/composite/components/messages">
+       <f:metadata>
+              <f:viewParam name="id" value="#{MessageReadBean.id_message}"/>
+        </f:metadata>
+        <ui:define name="content">
+            <mess:read mess="#{MessageReadBean.message}"/>
+            
+        </ui:define>
+    </ui:composition>

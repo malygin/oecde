@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:composite="http://java.sun.com/jsf/composite"
+    xmlns:h="http://java.sun.com/jsf/html">
+
+ <!-- INTERFACE -->
+  <composite:interface>
+    <composite:attribute  name="mess"/>
+  </composite:interface>
+
+  <!-- IMPLEMENTATION -->
+    <composite:implementation>
+            <h:outputText value="#{cc.attrs.mess.fioAuthor}"/><br/>
+            <h:outputText value="#{cc.attrs.mess.message.dateMessage}"/><br/>
+            <h:outputText value="#{cc.attrs.mess.message.theme}"/><br/>
+            <h:outputText value="#{cc.attrs.mess.message.fullText}"/>
+            <h:dataTable value="#{cc.attrs.mess.message.files}" var="file">
+                <h:column>
+                    <a href="../resources/userFiles/messages/#{file.name}">Скачать файл</a>
+                </h:column>
+            </h:dataTable>
+  </composite:implementation>
+</html>

@@ -1,0 +1,18 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         template="../resources/studentTemplate.xhtml"
+         xmlns:mess="http://java.sun.com/jsf/composite/components/messages"
+         xmlns:util="http://java.sun.com/jsf/composite/components/util"
+          >
+         <f:metadata>
+              <f:viewParam name="page" value="#{NavigationBean.page}"/>
+              <f:viewParam name="page" value="#{MessageBean.currentPage}"/>
+         </f:metadata>
+        <ui:define name="content">
+            <util:navigationList elementOnPage="#{MessageBean.messageOnPage}"
+                                 numElements="#{MessageBean.numOfMessages}"/>
+            <mess:list list="#{MessageBean.messages}"/>          
+         </ui:define>
+    </ui:composition>

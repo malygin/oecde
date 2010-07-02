@@ -3,10 +3,8 @@
          xmlns:f="http://java.sun.com/jsf/core"
          xmlns:h="http://java.sun.com/jsf/html"
          template="../resources/studentTemplate.xhtml"
-         xmlns:ipsil="http://java.sun.com/jsf/composite/components/util">
-        
-        <ui:define name="content"> 
-         аыфваывфаыфаыв
+         xmlns:mess="http://java.sun.com/jsf/composite/components/messages">
+        <ui:define name="content">
+            <mess:list list="#{MessageBean.messagesArchive}"/>
         </ui:define>
-      
     </ui:composition>
