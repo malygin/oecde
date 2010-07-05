@@ -91,7 +91,8 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
         Assert.isInstanceOf(type,item ,"item is not an instance of type "+type);
         Assert.notNull(item,"item can not be null");
         cr.add(Example.create(item).excludeZeroes()).addOrder(Order.asc("id")).setCacheable(true);
-        cr.add(Restrictions.idEq(item.getId()));
+        if(item.getId()!=null&&item.getId()!=0)
+            cr.add(Restrictions.idEq(item.getId()));
 
         final FastClass fc = FastClass.create(item.getClass());
         methods:
@@ -155,9 +156,9 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
     protected Criteria getCriteriaByParametrizedItem(final T item,final Criteria cr){
         Assert.isInstanceOf(type,item ,"item is not an instance of type "+type);
         Assert.notNull(item,"item can not be null");
-        Assert.notNull(item.getId(),"id can not be null");
         cr.add(Example.create(item).excludeZeroes().ignoreCase()).addOrder(Order.asc("id"));
-        cr.add(Restrictions.idEq(item.getId()));
+        if(item.getId()!=null&&item.getId()!=0)
+            cr.add(Restrictions.idEq(item.getId()));
         cr.setCacheable(true);
         final FastClass fc = FastClass.create(item.getClass());
         methods:
