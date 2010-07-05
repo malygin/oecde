@@ -59,7 +59,7 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
      */
     @Override
     public List<T> getAll() throws DataAccessException{
-        return  getSession().createCriteria(type).list();
+        return  getSession().createCriteria(type).setCacheable(true).list();
     }
 
     /**
@@ -78,7 +78,7 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
      */
     public List<T> getBySimpleExample(final T item) throws DataAccessException{
         Criteria cr =  getSession().createCriteria(type);
-        return cr.add(Example.create(item).enableLike(MatchMode.ANYWHERE).ignoreCase().excludeZeroes()).addOrder(Order.asc("id")).list();
+        return cr.setCacheable(true).add(Example.create(item).enableLike(MatchMode.ANYWHERE).ignoreCase().excludeZeroes()).addOrder(Order.asc("id")).list();
     }
 
     /**
@@ -90,7 +90,8 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
 
         Assert.isInstanceOf(type,item ,"item is not an instance of type "+type);
         Assert.notNull(item,"item can not be null");
-        cr.add(Example.create(item).excludeZeroes()).addOrder(Order.asc("id"));
+        cr.add(Example.create(item).excludeZeroes()).addOrder(Order.asc("id")).setCacheable(true);
+        cr.add(Restrictions.idEq(item.getId()));
 
         final FastClass fc = FastClass.create(item.getClass());
         methods:
@@ -154,8 +155,10 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
     protected Criteria getCriteriaByParametrizedItem(final T item,final Criteria cr){
         Assert.isInstanceOf(type,item ,"item is not an instance of type "+type);
         Assert.notNull(item,"item can not be null");
+        Assert.notNull(item.getId(),"id can not be null");
         cr.add(Example.create(item).excludeZeroes().ignoreCase()).addOrder(Order.asc("id"));
-
+        cr.add(Restrictions.idEq(item.getId()));
+        cr.setCacheable(true);
         final FastClass fc = FastClass.create(item.getClass());
         methods:
         for (Method m : item.getClass().getMethods()) {
