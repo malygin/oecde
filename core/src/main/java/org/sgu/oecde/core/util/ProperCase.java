@@ -20,7 +20,7 @@ public class ProperCase {
      * @return
      */
     public static String bringTo(String word){
-       StringBuilder finalWord = new StringBuilder("");
+       StringBuilder finalWord = new StringBuilder();
        if(StringUtils.hasText(word)){
            String[] wordAr = word.split("-");
            for(String s:wordAr){
@@ -28,7 +28,8 @@ public class ProperCase {
                if(wordAr.length>1&&!word.endsWith(s))
                    finalWord.append("-");
            }
-       }
+       }else
+           return word;
        return finalWord.toString();
     }
 }
