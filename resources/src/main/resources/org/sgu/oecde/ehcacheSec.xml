@@ -4,7 +4,7 @@
     <defaultCache maxElementsInMemory="2000" eternal="false" timeToIdleSeconds="600" timeToLiveSeconds="600" overflowToDisk="false" diskPersistent="false" diskExpiryThreadIntervalSeconds="120" memoryStoreEvictionPolicy="LRU" />
 <cache
     name="student"
-    maxElementsInMemory="2000"
+    maxElementsInMemory="300"
     eternal="false"
     timeToIdleSeconds="600"
     timeToLiveSeconds="600"
@@ -18,7 +18,7 @@
     overflowToDisk="false"
 /><cache
     name="teacher"
-    maxElementsInMemory="300"
+    maxElementsInMemory="100"
     eternal="false"
     timeToIdleSeconds="600"
     timeToLiveSeconds="600"

@@ -29,6 +29,11 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 
   <beans:bean id="UserDetailsServiceImpl" class="org.sgu.oecde.core.authentication.UserDetailsServiceImpl" />
 
+
+  <beans:bean id="hibernateFilter" class="org.springframework.orm.hibernate3.support.OpenSessionInViewFilter">
+    <custom-filter after="SWITCH_USER_FILTER "/>
+  </beans:bean>
+
   <beans:bean id="eventListner" class="org.sgu.oecde.core.authentication.EventFilter">
     <custom-filter position="LAST "/>
   </beans:bean>

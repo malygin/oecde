@@ -32,7 +32,7 @@
   
   </bean>
 
-  <bean depends-on="UserInstantiationListener" p:dataSource-ref="dataSource" id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+  <bean depends-on="userInstantiationListener" p:dataSource-ref="dataSource" id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
     <property name="mappingDirectoryLocations">
         <list>
             <value>classpath:/org/sgu/oecde/mapping/</value>
@@ -44,14 +44,12 @@
 
     <property name="eventListeners" >
         <map>
-            <entry key="post-load" value-ref="UserInstantiationListener"/>
+            <entry key="post-load" value-ref="userInstantiationListener"/>
         </map>
     </property>
   </bean>
 
-
-  <bean id="UserInstantiationListener" class="org.sgu.oecde.core.users.UserInstantiationListener"/>
-  <tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
+  <tx:annotation-driven mode="aspectj" transaction-manager="txManager" proxy-target-class="true"/>
 
   <bean p:sessionFactory-ref="sessionFactory" id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"/>
 

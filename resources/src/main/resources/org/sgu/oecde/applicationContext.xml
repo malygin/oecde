@@ -9,7 +9,6 @@
   <!-- SPRING ANNOTATION -->
   <context:annotation-config/>
   <context:component-scan base-package="org.sgu.oecde">
-      <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
       <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
   </context:component-scan>
 
@@ -24,8 +23,7 @@
   
   
   <!-- CACHE -->
-  <bean id="userCache" class="org.sgu.oecde.core.users.UsersInCache"/>
-
+  
   <bean id="studentCache" parent="abstractCacheBackend">
     <property name="cacheName" value="student"/>
   </bean>
