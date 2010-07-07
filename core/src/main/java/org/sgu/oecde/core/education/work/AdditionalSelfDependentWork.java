@@ -16,11 +16,21 @@ public class AdditionalSelfDependentWork implements Serializable{
     /**
      * количество использованных студентом попыток в зачёт
      */
-    private Integer estimateAttemptsUsedNumber;
+    private int estimateAttemptsUsedNumber;
+
+    /**
+     * количество использованных студентом пробных попыток
+     */
+    private int trialAttemptsUsedNumber;
+
+    /**
+     * количество использованных студентом попыток переэкзаменовки
+     */
+    private int reExameAttemptsUsedNumber;
     /**
      * сумма баллов, набранных студентом по данной работе
      */
-    private Integer pointsForWork;
+    private int pointsForWork;
     /**
      * результаты студента по данной работе
      */
@@ -46,7 +56,7 @@ public class AdditionalSelfDependentWork implements Serializable{
      *
      * @return количество использованных студентом попыток в зачёт
      */
-    public Integer getEstimateAttemptsUsedNumber() {
+    public int getEstimateAttemptsUsedNumber() {
         return estimateAttemptsUsedNumber;
     }
 
@@ -54,8 +64,40 @@ public class AdditionalSelfDependentWork implements Serializable{
      * количество использованных студентом попыток в зачёт
      * @param estimateAttemptsUsedNumber
      */
-    public void setEstimateAttemptsUsedNumber(Integer estimateAttemptsUsedNumber) {
+    public void setEstimateAttemptsUsedNumber(int estimateAttemptsUsedNumber) {
         this.estimateAttemptsUsedNumber = estimateAttemptsUsedNumber;
+    }
+
+    /**
+     *
+     * @return использованных попыток переэкзаменовки
+     */
+    public int getReExameAttemptsUsedNumber() {
+        return reExameAttemptsUsedNumber;
+    }
+
+    /**
+     * использованных попыток переэкзаменовки
+     * @param reExameAttemptsUsedNumber
+     */
+    public void setReExameAttemptsUsedNumber(int reExameAttemptsUsedNumber) {
+        this.reExameAttemptsUsedNumber = reExameAttemptsUsedNumber;
+    }
+
+    /**
+     *
+     * @return использованных пробных попыток
+     */
+    public int getTrialAttemptsUsedNumber() {
+        return trialAttemptsUsedNumber;
+    }
+
+    /**
+     * использованных пробных попыток
+     * @param trialAttemptsUsedNumber
+     */
+    public void setTrialAttemptsUsedNumber(int trialAttemptsUsedNumber) {
+        this.trialAttemptsUsedNumber = trialAttemptsUsedNumber;
     }
 
     /**
@@ -79,7 +121,7 @@ public class AdditionalSelfDependentWork implements Serializable{
      *
      * @return сумма баллов, набранных студентом по данной работе
      */
-    public Integer getPointsForWork() {
+    public int getPointsForWork() {
         return pointsForWork;
     }
 
@@ -87,7 +129,7 @@ public class AdditionalSelfDependentWork implements Serializable{
      * сумма баллов, набранных студентом по данной работе
      * @param pointsForWork
      */
-    public void setPointsForWork(Integer pointsForWork) {
+    public void setPointsForWork(int pointsForWork) {
         this.pointsForWork = pointsForWork;
     }
 
@@ -150,7 +192,7 @@ public class AdditionalSelfDependentWork implements Serializable{
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer();
-        sb.append("учебный план: ").append(curriculum).append(";\n");
+        sb.append("учебный план: ").append(curriculum).append("\n");
         if(work!=null&&StringUtils.hasText(work.getTitle()))
             sb.append("работа: ").append(work.getTitle()).append(" (").append(work.getClass().getSimpleName()).append(");\n");
         return sb.toString();

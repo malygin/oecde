@@ -3,6 +3,7 @@ package org.sgu.oecde.core;
 import java.util.List;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.sgu.oecde.core.education.Speciality;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.Admin;
 import org.sgu.oecde.core.users.Supervisor;
@@ -18,7 +19,7 @@ import static org.junit.Assert.*;
 public class getUsers extends BasicTest{
 
 
-//    @Ignore
+    @Ignore
     @Test
     public void getByName(){
         UserDetailsService uds = getBean("UserDetailsServiceImpl");
@@ -29,8 +30,18 @@ public class getUsers extends BasicTest{
     @Test
     public void getAllA(){
         this.setDao("adminDao");
-        List<Admin> l = this.<Admin>getAllItems();
-        for(Admin t:l){
+        Admin a = new Admin();
+        a.setUsername("shihovmy");
+        List<Admin> l = getByExample(a);
+        System.out.println(l.size());
+    }
+
+    @Ignore
+    @Test
+    public void getSpec(){
+        this.setDao("specialityDao");
+        List<Speciality> l = this.<Speciality>getAllItems();
+        for(Speciality t:l){
             System.out.println(t.getName());
         }
     }

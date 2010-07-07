@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.stereotype.Repository;
 
 /**
  * {@inheritDoc}
  */
+@Repository
 public class ConstantsDao extends HibernateDaoSupport implements IConstantsDao{
 
     protected ConstantsDao() {
@@ -18,7 +20,7 @@ public class ConstantsDao extends HibernateDaoSupport implements IConstantsDao{
      */
     @Override
     public List<Map> getConstants(String entityName) throws DataAccessException{
-        return getSession().createCriteria(entityName).list();
+        return getSession().createCriteria(entityName).setCacheable(true).list();
     }
 
     /**

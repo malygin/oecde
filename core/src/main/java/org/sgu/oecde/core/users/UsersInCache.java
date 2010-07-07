@@ -7,12 +7,13 @@ import javax.annotation.Resource;
 import net.sf.ehcache.Ehcache;
 import net.sf.ehcache.Element;
 import org.sgu.oecde.core.util.SecurityContextHandler;
+import org.springframework.stereotype.Service;
 /**
  * пользователи в кеше пользователей онлайн, соответсвующем типу пользователя.
  * имеет методы на получение в кеш и получение из кеша
  * @author ShihovMY
  */
-
+@Service
 public class UsersInCache{
 
     private UsersInCache() {

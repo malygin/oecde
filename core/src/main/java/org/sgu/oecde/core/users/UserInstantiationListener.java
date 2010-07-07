@@ -3,11 +3,13 @@ package org.sgu.oecde.core.users;
 import org.hibernate.event.PostLoadEvent;
 import org.hibernate.event.def.DefaultPostLoadEventListener;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * слушатель события пост загрузки сущности из базы
  * @author ShihovMY
  */
+@Service
 public class UserInstantiationListener extends DefaultPostLoadEventListener{
     @Autowired
     private UsersInCache cache;

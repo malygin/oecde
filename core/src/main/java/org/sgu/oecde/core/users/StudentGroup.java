@@ -8,7 +8,7 @@ import org.springframework.util.CollectionUtils;
  * студенческая группа
  * @author ShihovMY
  */
-public abstract class StudentGroup extends AbstractGroup<AbstractStudent>{
+public abstract class StudentGroup<T extends AbstractStudent> extends AbstractGroup<T>{
     /**
      * курс
      */

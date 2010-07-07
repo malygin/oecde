@@ -7,6 +7,15 @@ import java.io.Serializable;
  * @author ShihovMY
  */
 public enum CalendarConstantName implements Serializable,ICalendarConstantName{
+
+    /**
+     * дата начала переэкзаменовки
+     */
+    reExameBeginDate,
+    /**
+     * дата окончания переэкзаменовки
+     */
+    reExameEndDate,
     /**
      * семестр
      */
@@ -14,10 +23,6 @@ public enum CalendarConstantName implements Serializable,ICalendarConstantName{
     /**
      * год
      */
-    year,
-    /**
-     * режим переэкзаменовки ли
-     */
-    reExame;
+    year;
     private static final long serialVersionUID = 58L;
 }

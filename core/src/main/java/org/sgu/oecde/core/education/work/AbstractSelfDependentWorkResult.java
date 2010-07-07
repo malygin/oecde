@@ -54,7 +54,7 @@ abstract public class AbstractSelfDependentWorkResult extends AbstractResult{
     public String toString() {
         StringBuffer sb = new StringBuffer(super.toString());
         if(work!=null&&StringUtils.hasText(work.getTitle()))
-            sb.append("\nработа: ").append(work.getTitle()).append(" (").append(work.getClass().getName()).append(");\n");
+            sb.append("\nработа: ").append(work.getTitle()).append(" (").append(work.getClass().getSimpleName()).append(");\n");
         return sb.toString();
     }
 }

@@ -2,10 +2,12 @@ package org.sgu.oecde.core.education.estimation;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.springframework.util.Assert;
+import org.springframework.util.CollectionUtils;
 
 /**
  * Баллы. содержит студента, учебный план и соответсвующие им баллы/оценки, полученные на основе результатов,
@@ -66,12 +68,24 @@ public class Points implements Serializable{
     }
 
     /**
-     * баллы/оценки и соответсвующие названия полей
+     * 
      * @param <T> extends Object>Map<IEstimate, T
-     * @return
+     * @return баллы/оценки и соответсвующие названия полей
      */
     public <T extends Object>Map<IEstimate, T> getWorkPoints() {
         return (Map<IEstimate, T>) workPoints;
+    }
+
+    /**
+     * 
+     * @param <T> extends Object>Map<IEstimate, T
+     * @return баллы/оценки по соответсвующему названию поля
+     */
+    public <E>E getWorkPoints(IEstimate name) {
+        if(workPoints.containsKey(name))
+            return (E) workPoints.get(name);
+        else
+            return null;
     }
 
     /**
@@ -147,5 +161,22 @@ public class Points implements Serializable{
         hash = 83 * hash + (this.student != null ? this.student.hashCode() : 0);
         hash = 83 * hash + (this.curriculum != null ? this.curriculum.hashCode() : 0);
         return hash;
+    }
+
+    @Override
+    public String toString() {
+        StringBuffer sb = new StringBuffer();
+        sb.append("учебный план: ").append(this.curriculum).append(";");
+        sb.append("студент: ").append(this.student).append(";");
+        if(!CollectionUtils.isEmpty(getWorkPoints())){
+            Map<IEstimate,Object> m = getWorkPoints();
+            Iterator specsI = m.entrySet().iterator();
+            while(specsI.hasNext()){
+                Map.Entry<IEstimate,Object> v = (Map.Entry)specsI.next();
+                sb.append("\n").append(v.getKey()).append("   ").append(v.getValue());
+            }
+        }
+        sb.append("\n----------  ").append(getSum());
+        return sb.toString();
     }
 }

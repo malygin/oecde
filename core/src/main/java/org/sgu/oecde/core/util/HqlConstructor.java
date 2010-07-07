@@ -40,13 +40,11 @@ public abstract class HqlConstructor {
             }
         }
         query.append(" where ").append(whereHql).append(" ");
-
         if(StringUtils.hasText(postfix))
             query.append(" and ").append(postfix).append(" ");
 
         if(StringUtils.hasText(orderBy))
             query.append(" order by ").append(orderBy).append(" ");
-
-        return session.createQuery(query.toString());
+        return session.createQuery(query.toString()).setCacheable(true);
     }
 }

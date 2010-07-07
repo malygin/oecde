@@ -26,5 +26,5 @@ public interface IResourceDao<T extends AbstractResource> extends IUpdateDao<T> 
      * @return лист ресурсов
      * @throws DataAccessException
      */
-    public List<T> getResourceByCurriculums(List<? extends Curriculum> curriculums,AbstractResource resource, Class type)throws DataAccessException;
+    public List<T> getResourceByCurriculums(List<? extends Curriculum> curriculums, Long resourceId, Class type)throws DataAccessException;
 }

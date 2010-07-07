@@ -26,10 +26,6 @@ public class SemesterGetter extends StringConstantsGetter{
      * текущий семестр
      */
     private int semester;
-    /**
-     * идёт ли переэкзаменовка
-     */
-    private boolean reExame;
 
     protected SemesterGetter() {
     }
@@ -42,7 +38,7 @@ public class SemesterGetter extends StringConstantsGetter{
      */
     public Integer getSemesterByStudentYear(AbstractStudent student, int semester){
         Assert.notNull(student);
-        return student.getGroup().getYear() - semester - getCurrentSemester();
+        return student.getGroup().getYear()*2 - semester - getCurrentSemester();
     }
 
     /**
@@ -97,8 +93,6 @@ public class SemesterGetter extends StringConstantsGetter{
                     setSemester(value);
                 if(CalendarConstantName.year.equals(name))
                     setYear(value);
-                if(CalendarConstantName.reExame.equals(name))
-                    setReExame(value);
                 else
                     constants.put(name,value);
             }
@@ -129,29 +123,12 @@ public class SemesterGetter extends StringConstantsGetter{
     }
 
     /**
-     * переэкзаменовка ли
-     * @return
-     */
-    public final boolean isReExame() {
-        return reExame;
-    }
-
-    /**
      * год
      * @param year
      */
     private final void setYear(String year) {
         if(StringUtils.hasText(year))
             this.currentYear = Integer.parseInt(year);
-    }
-
-    /**
-     * переэкзаменовка ли
-     * @param reExame
-     */
-    private final void setReExame(String reExame) {
-        if(StringUtils.hasText(reExame))
-            this.reExame = Boolean.parseBoolean(reExame);
     }
 
     /**

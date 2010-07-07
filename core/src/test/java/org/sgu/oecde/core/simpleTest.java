@@ -6,6 +6,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.sgu.oecde.core.util.DateConverter;
 
 /**
  *
@@ -35,5 +36,22 @@ public class simpleTest{
         l.add(6);
         if(l.size()>5)
         System.out.println(l.subList(0, 6));
+    }
+
+    @Ignore
+    @Test
+    public void dates(){
+        String s = DateConverter.currentDate();
+        String s2 = new String("2010.04.06 13:51:09");
+        System.out.println(s.compareTo(s2));
+    }
+
+//    @Ignore
+    @Test
+    public void strun(){
+        String s = "asdasd  (уск)";
+        String s2 = "asdasd  (ус)";
+        System.out.println(s.contains("уск"));
+        System.out.println(s2.contains("уск"));
     }
 }

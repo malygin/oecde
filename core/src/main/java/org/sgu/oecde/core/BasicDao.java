@@ -64,7 +64,7 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
 
     /**
      * {@inheritDoc}
-     * @see org.hibernate.criterion.Example
+     * @see #getCriteriaByParametrizedItem(item, Criteria)
      */
     @Override
     public List<T> getByExample(final T item) throws DataAccessException{
@@ -78,7 +78,7 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
      */
     public List<T> getBySimpleExample(final T item) throws DataAccessException{
         Criteria cr =  getSession().createCriteria(type);
-        return cr.setCacheable(true).add(Example.create(item).enableLike(MatchMode.ANYWHERE).ignoreCase().excludeZeroes()).addOrder(Order.asc("id")).list();
+        return cr.add(Example.create(item).enableLike(MatchMode.ANYWHERE).ignoreCase().excludeZeroes()).addOrder(Order.asc("id")).list();
     }
 
     /**
@@ -93,7 +93,6 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
         cr.add(Example.create(item).excludeZeroes()).addOrder(Order.asc("id")).setCacheable(true);
         if(item.getId()!=null&&item.getId()!=0)
             cr.add(Restrictions.idEq(item.getId()));
-
         final FastClass fc = FastClass.create(item.getClass());
         methods:
         for (Method m : item.getClass().getMethods()) {

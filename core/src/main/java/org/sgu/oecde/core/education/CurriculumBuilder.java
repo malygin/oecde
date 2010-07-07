@@ -50,7 +50,7 @@ public class CurriculumBuilder<T extends Curriculum> {
      * @return Curriculum по году и семестру
      */
     public T getInstance(int year,int semester){
-        Assert.state(year!=0,"student can not be 0");
+        Assert.state(year!=0,"year can not be 0");
         Curriculum c = getInstance();
         c.setCalendarYear(year);
         c.setSemester(semester);

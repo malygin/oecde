@@ -23,6 +23,4 @@
   <bean id="resourceDao" p:type="org.sgu.oecde.core.education.resource.AbstractResource" parent="updateDao" class="org.sgu.oecde.core.education.dao.ResourceDao" />
   <bean id="resultDao" p:type="org.sgu.oecde.core.education.work.AbstractResult" parent="basicDao" class="org.sgu.oecde.core.education.dao.ResultDao"/>
 
-  <bean id="csDao" parent="basicDao" class="org.sgu.oecde.core.education.dao.ConstantsDao" />
-
 </beans>

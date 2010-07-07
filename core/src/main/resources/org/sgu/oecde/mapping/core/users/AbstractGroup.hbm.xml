@@ -2,6 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <class abstract="true" dynamic-insert="true" dynamic-update="true" name="org.sgu.oecde.core.users.AbstractGroup" table="abstract_group">
+    <cache usage="read-write"/>
     <id name="id" type="long" unsaved-value="0">
       <generator class="native">
         <param name="sequence">group_seq</param>
@@ -9,7 +10,8 @@
     </id>
     <property length="50" name="name" not-null="true" type="string"/>
     <set batch-size="15" cascade="none" fetch="select" lazy="true" name="persons" table="group_membership">
-      <key column="group" foreign-key="fk_group_membershp_group"/>
+      <cache usage="read-write"/>
+      <key column="group_id" foreign-key="fk_group_membershp_group"/>
       <many-to-many class="org.sgu.oecde.core.users.AbstractPerson" column="person_id" fetch="select" foreign-key="fk_group_person" lazy="false"/>
     </set>
   </class>

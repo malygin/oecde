@@ -7,7 +7,7 @@ import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.resource.AbstractResource;
 import org.sgu.oecde.core.util.HqlConstructor;
 import org.springframework.dao.DataAccessException;
-import org.springframework.util.Assert;
+import org.springframework.util.CollectionUtils;
 
 /**
  * {@inheritDoc }
@@ -21,15 +21,16 @@ public class ResourceDao <T extends AbstractResource> extends UpdateDao<T> imple
     /**
      * {@inheritDoc }
      */
-    public List<T> getResourceByCurriculums(List<? extends Curriculum> curriculums,AbstractResource resource,Class type)throws DataAccessException{
+    public List<T> getResourceByCurriculums(List<? extends Curriculum> curriculums, Long resourceId,Class type)throws DataAccessException{
+        if(CollectionUtils.isEmpty(curriculums)||type==null)
+            return null;
         String byExample = null;
-        Assert.notNull(type);
-        if(resource!=null)
-            byExample = "r=:e";
+        if(resourceId!=null)
+            byExample = "r.id=:e";
         Query q = HqlConstructor.makeQuery(getSession(), "distinct r ", "from Curriculum cr join cr.umk u join u.resources rs, "+type.getName()+" r",null, "cr in (:c) and r in (rs)", byExample, "r")
                 .setParameterList("c", curriculums);
-        if(resource!=null)
-            q.setParameter("e", resource);
+        if(resourceId!=null)
+            q.setParameter("e", resourceId);
         return q.list();
     }
 }
