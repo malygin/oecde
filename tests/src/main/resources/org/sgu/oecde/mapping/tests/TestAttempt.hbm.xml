@@ -11,6 +11,7 @@
       <key column="id" foreign-key="fk_test_attempt_result" not-null="true" on-delete="cascade"/>
       <property name="duration" scale="3" type="integer"/>
       <property column="right_answers" name="rightAnswers" scale="3" type="integer"/>
+      <property name="quantity" scale="3" type="integer"/>
       <property column="type" name="type" not-null="true">
         <type name="org.sgu.oecde.core.GenericEnumUserType">
           <param name="enumClass">org.sgu.oecde.tests.TestAttemptType</param>

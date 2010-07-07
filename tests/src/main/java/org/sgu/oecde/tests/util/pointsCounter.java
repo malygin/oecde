@@ -3,6 +3,7 @@ package org.sgu.oecde.tests.util;
 import java.util.Collections;
 import java.util.List;
 import org.sgu.oecde.tests.TestEstimationType;
+import org.springframework.util.CollectionUtils;
 
 /**
  * подсчитывает баллы коллекции в соответсвии с типом оценивания прохождения теста
@@ -22,6 +23,8 @@ public final class pointsCounter {
      */
     public static int count(TestEstimationType type,List<Integer> points){
         int point = 0;
+        if(CollectionUtils.isEmpty(points))
+            return 0;
         switch(type){
             case middle:
                 for(Integer ps:points){

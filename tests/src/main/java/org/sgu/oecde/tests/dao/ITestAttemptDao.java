@@ -33,13 +33,4 @@ public interface ITestAttemptDao<T extends TestAttempt> extends IResultDao<T>{
      * @throws DataAccessException
      */
     public List<T> getByStudentsAndTests(List<? extends TestEntity>tests,List<? extends AbstractStudent>students, T attempt,boolean allEstimatedAttempts)throws DataAccessException;
-
-    /**
-     * тесты по образцу. не используется
-     * @param attempt - образец
-     * @param allEstimatedAttempts - все ли типы попыток. если нет, то тлько те, что идут в зачёт
-     * @return лист результатов прохождений теста
-     * @throws DataAccessException
-     */
-    public List<T> getByExampleWithType(T attempt,boolean allEstimatedAttempts)throws DataAccessException;
 }

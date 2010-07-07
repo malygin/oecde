@@ -24,14 +24,6 @@ public enum TestCalendarConstants implements ICalendarConstantName{
      */
     concludingTestEndDate,
     /**
-     * дата начала прохождения тестов переэкзаменовки
-     */
-    reExameBeginDate,
-    /**
-     * дата окончания прохождения тестов переэкзаменовки
-     */
-    reExameEndDate,
-    /**
      * дата окончания прохождения тестов для не специальностей не ускоренной и не сокращённой
      * программы 1, 2 и 3 курсов
      */

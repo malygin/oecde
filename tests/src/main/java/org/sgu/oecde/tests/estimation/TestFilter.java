@@ -11,7 +11,6 @@ import org.sgu.oecde.tests.TestAttempt;
 import org.sgu.oecde.tests.TestAttemptType;
 import org.sgu.oecde.tests.TestEntity;
 import org.sgu.oecde.tests.util.pointsCounter;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -68,6 +67,8 @@ public final class TestFilter implements IResultFilter{
     @Override
     public void check(AbstractResult result,Points point) {
         TestAttempt att = (TestAttempt) result;
+        if(att==null||att.<TestEntity>getWork()==null||att.<TestEntity>getWork().getType()==null||att.getType()==null||att.getType().equals(TestAttemptType.trial))
+            return;
         if(!att.<TestEntity>getWork().equals(test)){
             setPoints(point);
             points = new LinkedList<Integer>();
@@ -112,6 +113,8 @@ public final class TestFilter implements IResultFilter{
      */
     private void fillMap(TestAttempt attempt, List pointsList,boolean doSum, Points points){
         Assert.notNull(attempt);
+        if(!attempt.getCurriculum().equals(points.getCurriculum()))
+            return;
         IEstimate name = pointsFactory.createEstimatedWorkValue(attempt);
         int p = pointsCounter.count(attempt.<TestEntity>getWork().getEstimation(),pointsList);
         if(doSum)

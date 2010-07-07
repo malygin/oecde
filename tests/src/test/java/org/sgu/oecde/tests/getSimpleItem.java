@@ -15,6 +15,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.sgu.oecde.core.BasicTest;
 import org.sgu.oecde.core.IUpdateDao;
+import org.sgu.oecde.core.education.Speciality;
 import org.sgu.oecde.core.education.StringConstantsGetter;
 import org.sgu.oecde.core.education.dao.IResourceDao;
 import org.sgu.oecde.core.education.estimation.IEstimate;
@@ -161,7 +162,7 @@ public class getSimpleItem extends BasicTest{
         DeCurriculum c = new DeCurriculum();
         c.setId(205326L);
         a.setCurriculum(c);
-        for(AdditionalSelfDependentWork w:serv.getCurriculumAttempts(c, null, sts)){
+        for(AdditionalSelfDependentWork w:serv.getCurriculumAttempts(c,  sts)){
             for(TestAttempt r:w.<TestAttempt>getResults()){
                 System.out.println(r.getId()+"   "+r.getPoints()+"  "+r.getType());
             }
@@ -188,8 +189,8 @@ public class getSimpleItem extends BasicTest{
         c = new DeCurriculum();
         c.setId(213305L);
         sts.add(c);
-        for(AdditionalSelfDependentWork w:serv.getStudentAttempts(sts, null, s)){
-//        for(AdditionalSelfDependentWork w:serv.getStudentsSingleCurriculumAttempts(c, null, s)){
+        for(AdditionalSelfDependentWork w:serv.getStudentAttempts(sts, s,false)){
+//        for(AdditionalSelfDependentWork w:serv.getStudentSingleCurriculumTestsWithAttempts(c, null, s)){
             System.out.println(w.<DeCurriculum>getCurriculum().getDiscipline().getName());
             System.out.println(w.getWork()+"   "+w.getPointsForWork()+" ");
             for(TestAttempt ta:w.<TestAttempt>getResults()){
@@ -207,7 +208,7 @@ public class getSimpleItem extends BasicTest{
         c.setId(213305L);
         List<DeCurriculum> sts = new ArrayList(1);
         sts.add(c);
-        System.out.println(this.<IResourceDao<TestEntity>>getDao().getResourceByCurriculums(sts, null,TestEntity.class));
+        System.out.println(this.<IResourceDao<TestEntity>>getDao().getResourceByCurriculums(sts,null, TestEntity.class));
 //        List<TestEntity>tests = this.<ITestDao<TestEntity>>getDao().getByCurriculums(sts, null);
 //
 //        for(TestEntity t:tests){
@@ -265,8 +266,15 @@ public class getSimpleItem extends BasicTest{
     public void getStudentsDisciplines(){
         List<DeCurriculum> sts = new ArrayList(1);
         sts.add(new DeCurriculum(20093169482L));
-        List<AdditionalCurriculum>ac = this.<TestAttemptService>getBean("testAttemptService").getStudentAttemptsCount(sts, null, new Student(324725L));
+        List<AdditionalCurriculum>ac = this.<TestAttemptService>getBean("testAttemptService").getStudentAttemptsCount(sts,  new Student(324725L));
         System.out.println(ac);
     }
-
+//    @Ignore
+    @Test
+    public void getStudentsDisciplines2(){
+        List<DeCurriculum> sts = new ArrayList(1);
+        sts.add(new DeCurriculum(20093169482L));
+        List<AdditionalCurriculum>ac = this.<TestAttemptService>getBean("testAttemptService").getStudentAttemptsCount(sts, new Student(324725L));
+        System.out.println(ac);
+    }
 }

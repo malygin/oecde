@@ -13,10 +13,6 @@ import org.sgu.oecde.core.education.estimation.Points;
  */
 public class AdditionalCurriculum implements Serializable,Comparable<AdditionalCurriculum>{
     /**
-     * баллы
-     */
-    private Points points;
-    /**
      * учебный план
      */
     private Curriculum curriculum;
@@ -28,6 +24,22 @@ public class AdditionalCurriculum implements Serializable,Comparable<AdditionalC
      * количество пройденных тестов
      */
     private int passedTests;
+    /**
+     * баллы по тестам
+     */
+    private int testPoints;
+    /**
+     * баллы по итоговым тестам
+     */
+    private int concludingTestPoints;
+    /**
+     * баллы по переэкзаменовке
+     */
+    private int reTestPoints;
+    /**
+     * баллы по итоговым тестам переэкзаменовка
+     */
+    private int concludingReTestPoints;
     private static final long serialVersionUID = 76L;
 
     public AdditionalCurriculum() {
@@ -50,22 +62,6 @@ public class AdditionalCurriculum implements Serializable,Comparable<AdditionalC
      */
     public void setPassedTests(int passedTests) {
         this.passedTests = passedTests;
-    }
-
-    /**
-     *
-     * @return баллы
-     */
-    public Points getPoints() {
-        return points;
-    }
-
-    /**
-     * баллы
-     * @param points
-     */
-    public void setPoints(Points points) {
-        this.points = points;
     }
 
     /**
@@ -98,6 +94,70 @@ public class AdditionalCurriculum implements Serializable,Comparable<AdditionalC
      */
     public void setCurriculum(Curriculum curriculum) {
         this.curriculum = curriculum;
+    }
+
+    /**
+     *
+     * @return баллы по итоговым тестам переэкзаменовка
+     */
+    public int getConcludingReTestPoints() {
+        return concludingReTestPoints;
+    }
+
+    /**
+     * баллы по итоговым тестам переэкзаменовка
+     * @param concludingReTestPoints
+     */
+    public void setConcludingReTestPoints(Integer concludingReTestPoints) {
+        this.concludingReTestPoints = concludingReTestPoints!=null?concludingReTestPoints:0;
+    }
+
+    /**
+     *
+     * @return баллы по итоговым тестам
+     */
+    public int getConcludingTestPoints() {
+        return concludingTestPoints;
+    }
+
+    /**
+     * баллы по итоговым тестам
+     * @param concludingTestPoints
+     */
+    public void setConcludingTestPoints(Integer concludingTestPoints) {
+        this.concludingTestPoints = concludingTestPoints!=null?concludingTestPoints:0;
+    }
+
+    /**
+     *
+     * @return баллы по тестам переэкзаменовка
+     */
+    public int getReTestPoints() {
+        return reTestPoints;
+    }
+
+    /**
+     * баллы по  тестам переэкзаменовка
+     * @param reTestPoints
+     */
+    public void setReTestPoints(Integer reTestPoints) {
+        this.reTestPoints = reTestPoints!=null?reTestPoints:0;
+    }
+
+    /**
+     *
+     * @return баллы по тестам
+     */
+    public int getTestPoints() {
+        return testPoints;
+    }
+
+    /**
+     * баллы по тестам
+     * @param testPoints
+     */
+    public void setTestPoints(Integer testPoints) {
+        this.testPoints = testPoints!=null?testPoints:0;
     }
 
     @Override

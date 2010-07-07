@@ -2,6 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <class mutable="false" name="org.sgu.oecde.tests.AnsweredQuestion" table="answered_questions">
+    <cache usage="read-only"/>
     <id name="id" type="long" unsaved-value="0">
       <generator class="native">
         <param name="sequence">answrd_quest_seq</param>
@@ -9,7 +10,8 @@
     </id>
     <property column="result_points" name="resultPoints" scale="3" type="integer"/>
     <property column="is_right" name="right" scale="1" type="boolean"/>
-    <set batch-size="15" cascade="all" fetch="select" inverse="true" name="givenAnswers">
+    <set batch-size="15" cascade="all" fetch="select" mutable="false" inverse="true" name="givenAnswers">
+      <cache usage="read-only"/>
       <key column="question_result_id" foreign-key="fk_given_answer_question" not-null="true"/>
       <one-to-many class="org.sgu.oecde.tests.GivenAnswer"/>
     </set>
