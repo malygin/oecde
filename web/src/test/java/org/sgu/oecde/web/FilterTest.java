@@ -1,5 +1,6 @@
 package org.sgu.oecde.web;
 
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,13 +16,15 @@ import org.sgu.oecde.core.education.estimation.ResultPreFilter;
 import org.sgu.oecde.core.education.work.AbstractResult;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
+import org.sgu.oecde.tests.TestAttempt;
+import org.sgu.oecde.tests.TestAttemptType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.util.CollectionUtils;
 
 /**
  * Unit test for simple App.
  */
-@ContextConfiguration(locations={"../applicationContext.xml","../spring/cwBeans.xml","../spring/testBeans.xml","../spring/journalBeans.xml","../spring/newsBeans.xml","../spring/discussionBeans.xml","../spring/searchBeans.xml","../spring/deBeans.xml"})
+@ContextConfiguration(locations={"../applicationContext.xml","../spring/cwBeans.xml","../spring/testBeans.xml","../spring/deBeans.xml"})
 public class FilterTest extends BasicTest{
 
     @Ignore
@@ -45,15 +48,17 @@ public class FilterTest extends BasicTest{
         filters.add(f3);
         setDao("resultDao");
         List q = new LinkedList();
-        q.add(new DeCurriculum(200837533L));
-        q.add(new DeCurriculum(2009633925L));
-        q.add(new DeCurriculum(200957825L));
-        q.add(new DeCurriculum(2009534225L));
-        q.add(new DeCurriculum(2009518325L));
+        q.add(new DeCurriculum(2009627542L));
+        q.add(new DeCurriculum(2009634942L));
+        q.add(new DeCurriculum(2009636442L));
         List s = new LinkedList();
-        s.add(new Student(321304L));
+        s.add(new Student(320269L));
         List<AbstractResult> l = this.<IResultDao>getDao().getByStudentsAndCurriculums(q, s, null);
-        System.out.println(l);
+        Collections.sort(l);
+        for(AbstractResult r:l){
+            if(r instanceof TestAttempt && !((TestAttempt)r).getType().equals(TestAttemptType.trial))
+                System.out.println(((TestAttempt)r).getWork().getTitle()+"   "+((TestAttempt)r).getPoints());
+        }
         for(Points p:pf.forEachResult(l, true,filters)){
             System.out.println(p.<DeCurriculum>getCurriculum().getDiscipline().getName());
             if(!CollectionUtils.isEmpty(p.getWorkPoints())){

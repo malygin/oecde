@@ -1,0 +1,37 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:r="http://java.sun.com/jsp/jstl/core"
+         template="../resources/studentTemplate.xhtml"
+         >
+        <ui:define name="content">
+         <f:metadata>
+             <f:viewParam name="c" value="#{testBean.curriculumId}"/>
+             <f:viewParam name="id" value="#{testBean.testId}"/>
+         </f:metadata>
+           <h:outputText rendered="#{testBean.accessDenied}" value="Не найден или не доступен" />
+           <h:outputLink value="discipline.xhtml?c=#{testBean.curriculumId}" >назад</h:outputLink>
+           <r:set var="t" value="#{testBean.test}"/>
+           <r:set var="work" value="#{t[1]}"/>
+           <r:set var="test" value="#{work.work}"/><br/>
+           <r:choose>
+               <r:when test="#{t[0]=='true'}">
+                 <h:outputLink value="javascript:void(0)" >#{test.title}</h:outputLink>
+               </r:when>
+               <r:otherwise>
+                 <h:outputText value="#{test.title}"/>
+               </r:otherwise>
+           </r:choose><br/>
+
+           <h:outputText style="color: red" value="#{t[2]}  ||  #{t[3]}  ||  #{t[4]}"/><br/>
+           попыток: #{work.estimateAttemptsUsedNumber} из #{test.estimateAttemptsNumber}<br/>
+           пробных: #{work.trialAttemptsUsedNumber} из #{test.trialNumber}<br/>
+           переэкзаменовка: #{work.reExameAttemptsUsedNumber}<br/>
+           доступен с #{test.openDate} по #{test.closeDate}<br/>
+           количество вопросов: #{test.quantity}<br/>
+           предоставленное время: #{test.duration}<br/>
+           Результаты тестирования: #{work.pointsForWork}<br/>
+           
+        </ui:define>
+    </ui:composition>

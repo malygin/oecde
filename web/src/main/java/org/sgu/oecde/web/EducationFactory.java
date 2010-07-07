@@ -65,7 +65,7 @@ public class EducationFactory {
             return null;
         List<DeCurriculum> l = new LinkedList<DeCurriculum>();
         l.add(c);
-        List<AbstractResource> rs = resourceDao.getResourceByCurriculums(l, r, clazz);
+        List<AbstractResource> rs = resourceDao.getResourceByCurriculums(l,null, clazz);
         if(rs.isEmpty())
             return null;
         return (T) rs.get(0);

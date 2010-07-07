@@ -1,0 +1,59 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         template="../resources/studentTemplate.xhtml"
+         >
+        <ui:define name="content">
+         <f:metadata>
+             <f:viewParam name="s" value="#{testResultsBean.semester}"/>
+             <f:viewParam name="c" value="#{testResultsBean.curriculumId}"/>
+         </f:metadata>
+         <h:outputLink value="#{teachersListBean.semester==0?1:0}">другой семестр</h:outputLink>
+         <h:dataTable value="#{testResultsBean.attempts}" var="r">
+               <h:column>
+                <f:facet name="header">
+                 <h:outputText value="Название" />
+                </f:facet>
+               #{r.work.title} #{r.work.id}
+               </h:column>
+               <h:column>
+                <f:facet name="header">
+                 <h:outputText value="Попыток" />
+                </f:facet>
+               #{r.estimateAttemptsUsedNumber} из #{r.work.estimateAttemptsNumber}
+               </h:column>
+
+               <h:column>
+                   <h:dataTable value="#{r.results}" var="a" id="rowId">
+                       <h:column>
+                            <f:facet name="header">
+                             <h:outputText value="Правильных ответов" />
+                            </f:facet>
+                           #{a.rightAnswers} из #{a.quantity}
+                       </h:column>
+                       <h:column>
+                            <f:facet name="header">
+                             <h:outputText value="Дата" />
+                            </f:facet>
+                           #{a.date}
+                       </h:column>
+                   </h:dataTable>
+               </h:column>
+
+               <h:column>
+                <f:facet name="header">
+                 <h:outputText value="Результат" />
+                </f:facet>
+                   #{r.pointsForWork}
+               </h:column>
+               <h:column>
+                <f:facet name="header">
+                 <h:outputText value="Способ оценивания" />
+                </f:facet>
+                   #{r.work.estimation}
+               </h:column>
+         </h:dataTable>
+            
+        </ui:define>
+    </ui:composition>

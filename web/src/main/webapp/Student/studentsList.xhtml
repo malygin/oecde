@@ -1,0 +1,14 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         template="../resources/studentTemplate.xhtml"
+         >
+        <ui:define name="content">
+         <h:dataTable value="#{groupBean.students}" var="s">
+           <h:column>
+               #{s.fio}
+           </h:column>
+         </h:dataTable>
+        </ui:define>
+    </ui:composition>

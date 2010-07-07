@@ -1,0 +1,17 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:r="http://java.sun.com/jsp/jstl/core"
+         template="../resources/studentTemplate.xhtml"
+         >
+        <ui:define name="content">
+         <f:metadata>
+             <f:viewParam name="s" value="#{groupControlWorks.semester}"/>
+         </f:metadata>
+         <h:outputLink value="#{groupControlWorks.semester==0?1:0}">другой семестр</h:outputLink>
+            <r:forEach items="${groupControlWorks.groupControlWorks}" var="w">
+                ${w.key} -  ${w.value}<br/>
+            </r:forEach>
+        </ui:define>
+    </ui:composition>

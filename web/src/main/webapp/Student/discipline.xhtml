@@ -1,0 +1,42 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:r="http://java.sun.com/jsp/jstl/core"
+         template="../resources/studentTemplate.xhtml"
+         >
+        <ui:define name="content">
+         <f:metadata>
+             <f:viewParam name="c" value="#{disciplineBean.curriculumId}"/>
+         </f:metadata>
+            <h:outputText rendered="#{disciplineBean.accessDenied}" value="Не найден или не доступен" />
+            <r:forEach items="#{disciplineBean.discipline.umk.modules}" var="m">
+                #{m.id} ${m.name}<br/>
+                <r:forEach items="${m.resources}" var="r">
+                    ${r.title}<br/>
+                </r:forEach>
+            </r:forEach>
+            <r:forEach items="#{disciplineBean.tests}" var="t">
+               <r:set var="work" value="#{t[1]}"/>
+               <r:set var="test" value="#{work.work}"/><br/>
+               #{test.id}
+               <r:choose>
+                   <r:when test="#{t[0]=='true'}">
+                     <h:outputLink value="test.xhtml?c=#{disciplineBean.discipline.id}&amp;id=#{test.id}" >#{test.title}</h:outputLink>
+                   </r:when>
+                   <r:otherwise>
+                     <h:outputText value="#{test.title}"/>
+                   </r:otherwise>
+               </r:choose><br/>
+
+               <h:outputText style="color: red" value="#{t[2]}  ||  #{t[3]}  ||  #{t[4]}"/><br/>
+               попыток: #{work.estimateAttemptsUsedNumber} из #{test.estimateAttemptsNumber}<br/>
+               пробных: #{work.trialAttemptsUsedNumber} из #{test.trialNumber}<br/>
+               переэкзаменовка: #{work.reExameAttemptsUsedNumber}<br/>
+               доступен с #{test.openDate} по #{test.closeDate}<br/>
+               количество вопросов: #{test.quantity}<br/>
+               предоставленное время: #{test.duration}<br/>
+               Результаты тестирования: #{work.pointsForWork}<br/>
+             </r:forEach>
+        </ui:define>
+    </ui:composition>

@@ -1,0 +1,79 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         template="../resources/studentTemplate.xhtml"
+         >
+        <ui:define name="content">
+         <f:metadata>
+             <f:viewParam name="s" value="#{gradesBean.semester}"/>
+         </f:metadata>
+        <h:outputLink value="#{gradesBean.semester==0?1:0}">другой семестр</h:outputLink>
+
+         <h:dataTable value="#{gradesBean.points}" var="p">
+               <h:column>
+                <f:facet name="header">
+                 <h:outputText value="дисциплина" />
+                </f:facet>
+               #{p.points.curriculum.discipline.name}
+               </h:column>
+
+               <h:column>
+                <f:facet name="header">
+                 <h:outputText value="тесты" />
+                </f:facet>
+                 #{p.testPoints}
+               </h:column>
+
+               <h:column>
+                <f:facet name="header">
+                 <h:outputText value="переэкзаменовка" />
+                </f:facet>
+                 #{p.reTestPoints}
+               </h:column>
+
+               <h:column>
+                <f:facet name="header">
+                 <h:outputText value="итоговые тесты" />
+                </f:facet>
+                 #{p.concludingTestPoints}
+               </h:column>
+
+               <h:column>
+                <f:facet name="header">
+                 <h:outputText value="итоговые тесты переэкзаменовка" />
+                </f:facet>
+                 #{p.concludingReTestPoints}
+               </h:column>
+
+               <h:column>
+                <f:facet name="header">
+                 <h:outputText value="контрольные, баллы" />
+                </f:facet>
+                 #{p.controlWorksPoints}
+               </h:column>
+
+               <h:column>
+                <f:facet name="header">
+                 <h:outputText value="контрольные" />
+                </f:facet>
+                 #{p.controlWorksValue}
+               </h:column>
+
+               <h:column>
+                <f:facet name="header">
+                 <h:outputText value="сумма" />
+                </f:facet>
+                 #{p.points.sum}
+               </h:column>
+
+               <h:column>
+                <f:facet name="header">
+                 <h:outputText value="итог" />
+                </f:facet>
+                 <h:outputText value="#{p.grade}"/>
+               </h:column>
+         </h:dataTable>
+            
+        </ui:define>
+    </ui:composition>

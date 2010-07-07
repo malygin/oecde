@@ -1,0 +1,18 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         template="../resources/studentTemplate.xhtml"
+         >
+        <ui:define name="content">
+         <f:metadata>
+             <f:viewParam name="s" value="#{teachersListBean.semester}"/>
+         </f:metadata>
+         <h:outputLink value="#{teachersListBean.semester==0?1:0}">другой семестр</h:outputLink>
+         <h:dataTable value="#{teachersListBean.teachers}" var="t">
+           <h:column>
+               #{t.initials}
+           </h:column>
+         </h:dataTable>
+        </ui:define>
+    </ui:composition>

@@ -1,0 +1,29 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         template="../resources/studentTemplate.xhtml"
+         >
+        <ui:define name="content">
+         <f:metadata>
+             <f:viewParam name="s" value="#{oldGradesBean.semester}"/>
+         </f:metadata>
+
+         <h:dataTable value="#{oldGradesBean.oldGrades}" var="p">
+
+               <h:column>
+                <f:facet name="header">
+                 <h:outputText value="дисциплина" />
+                </f:facet>
+               #{p.points.curriculum.discipline.name}
+               </h:column>
+               <h:column>
+                <f:facet name="header">
+                 <h:outputText value="итог" />
+                </f:facet>
+                 <h:outputText value="#{p.grade}"/>
+               </h:column>
+         </h:dataTable>
+            
+        </ui:define>
+    </ui:composition>

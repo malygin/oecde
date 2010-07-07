@@ -1,0 +1,18 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         template="../resources/studentTemplate.xhtml"
+         >
+        <ui:define name="content">
+         <f:metadata>
+             <f:viewParam name="s" value="#{lowGradedDisciplinesBean.semester}"/>
+         </f:metadata>
+         <h:outputLink value="#{lowGradedDisciplinesBean.semester==0?1:0}">другой семестр</h:outputLink>
+         <h:dataTable value="#{lowGradedDisciplinesBean.lowGradedDisciplines}" var="p">
+           <h:column>
+               <h:outputText value="#{p.points.curriculum.discipline.name}"/><br/>
+           </h:column>
+         </h:dataTable>
+        </ui:define>
+    </ui:composition>

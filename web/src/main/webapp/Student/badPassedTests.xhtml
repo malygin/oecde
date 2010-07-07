@@ -1,0 +1,30 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         template="../resources/studentTemplate.xhtml"
+         >
+        <ui:define name="content">
+         <f:metadata>
+             <f:viewParam name="s" value="#{badPassedTestsBean.semester}"/>
+             <f:viewParam name="c" value="#{badPassedTestsBean.concluding}"/>
+         </f:metadata>
+            <h:outputLink value="?c=#{!badPassedTestsBean.concluding}">другой тип</h:outputLink>
+            | <h:outputLink value="#{!badPassedTestsBean.concluding?'?':('?c=true&amp;')}s=#{badPassedTestsBean.semester==0?1:0}">другой семестр</h:outputLink>
+         <h:dataTable value="#{badPassedTestsBean.badPassedTests}" var="r">
+               <h:column>
+                <f:facet name="header">
+                 <h:outputText value="Название" />
+                </f:facet>
+               #{r.work.title} 
+               </h:column>
+               <h:column>
+                <f:facet name="header">
+                 <h:outputText value="Результат" />
+                </f:facet>
+               #{r.pointsForWork}
+               </h:column>
+         </h:dataTable>
+            
+        </ui:define>
+    </ui:composition>

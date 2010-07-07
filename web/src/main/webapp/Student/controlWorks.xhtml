@@ -1,0 +1,22 @@
+<ui:composition
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:r="http://java.sun.com/jsp/jstl/core"
+     template="../resources/studentTemplate.xhtml"
+     >
+    <ui:define name="content">
+     <f:metadata>
+         <f:viewParam name="s" value="#{controlWorksBean.semester}"/>
+     </f:metadata>
+     <h:outputLink value="#{controlWorksBean.semester==0?1:0}">другой семестр</h:outputLink>
+        <r:forEach items="${controlWorksBean.controlWorks}" var="o">
+            ${o[0].discipline.name}<br/>
+            ${o[1]}
+            <r:forEach items="#{o[1].cwAttempt}" varStatus="i" var="a">
+                ${i.count} ${a.filePath}<br/>
+            </r:forEach>
+            <r:if test="${o[2]}">загрузить</r:if>
+        </r:forEach>
+    </ui:define>
+</ui:composition>

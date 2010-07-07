@@ -1,0 +1,33 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         template="../resources/studentTemplate.xhtml"
+         >
+         <f:metadata>
+             <f:viewParam name="s" value="#{studentCurriculumBean.semester}"/>
+         </f:metadata>
+        <ui:define name="content">
+            <h:outputLink value="#{studentCurriculumBean.semester==0?1:0}">другой семестр</h:outputLink>
+         <h:dataTable value="#{studentCurriculumBean.curriculums}" var="m">
+           <h:column>
+            <f:facet name="header">
+             <h:outputText value="Цикл" />
+            </f:facet>
+           #{m.cycle}
+           </h:column>
+           <h:column>
+            <f:facet name="header">
+             <h:outputText value="Дисциплина" />
+            </f:facet>
+           #{m.discipline.name}
+           </h:column>
+           <h:column>
+            <f:facet name="header">
+             <h:outputText value="Контроль" />
+            </f:facet>
+           #{m.examinationType}
+           </h:column>
+         </h:dataTable>
+        </ui:define>
+    </ui:composition>

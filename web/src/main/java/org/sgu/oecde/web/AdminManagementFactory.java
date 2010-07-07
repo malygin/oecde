@@ -14,7 +14,6 @@ import org.springframework.util.StringUtils;
  *
  * @author ShihovMY
  */
-@Service
 public class AdminManagementFactory {
     private Long id;
     @Resource
