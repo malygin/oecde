@@ -8,10 +8,12 @@ import org.hibernate.criterion.Projections;
 import org.sgu.oecde.core.BasicDao;
 import org.sgu.oecde.shedule.Lesson;
 import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Repository;
 
 /**
  * {@inheritDoc }
  */
+@Repository
 public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
 
     public LessonDao() {
@@ -51,7 +53,7 @@ public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
     public List<Lesson> getListByMonth(String year, String month) throws DataAccessException, ParseException{
         Criteria crit =getSession().createCriteria(Lesson.class);
         crit.add(Expression.between("lessonDate", year+"."+month+"."+"01 00:00:00",year+"."+month+"."+"31 00:00:00"));
-        List<Lesson> lessonList = crit.list();
+        List<Lesson> lessonList = crit.setCacheable(true).list();
         return lessonList;
     }
 }

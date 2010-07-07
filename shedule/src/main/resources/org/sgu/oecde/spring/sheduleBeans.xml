@@ -4,7 +4,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
        ">
 
-  <bean id="lessonDao" class="org.sgu.oecde.shedule.dao.LessonDao" parent="basicDao"/>
   <bean id="advancedCurriculumDao" parent="basicDao" class="org.sgu.oecde.shedule.dao.AdvancedCurriculumDao" />
 
 </beans>

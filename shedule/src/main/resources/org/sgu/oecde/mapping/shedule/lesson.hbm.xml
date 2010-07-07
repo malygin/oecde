@@ -2,12 +2,14 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="OECDO_TEST">
   <class dynamic-insert="true" dynamic-update="true" name="org.sgu.oecde.shedule.Lesson" table="lesson">
+    <cache usage="read-write"/>
     <id name="id" type="long" unsaved-value="0">
       <generator class="native">
         <param name="sequence">lesson_seq</param>
       </generator>
     </id>
     <set cascade="save-update, delete" fetch="select" inverse="true" lazy="true" name="group" table="lesson_to_group">
+      <cache usage="read-write"/>
       <key column="lesson" foreign-key="fk_lesson_2_group_lesson"/>
       <many-to-many class="org.sgu.oecde.core.users.StudentGroup" foreign-key="fk_lesson_2_group_group" column="student_group"/>
     </set>
