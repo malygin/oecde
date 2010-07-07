@@ -26,11 +26,9 @@ public class DeCurriculumBuilder extends CurriculumBuilder<DeCurriculum>{
      * @param student
      * @return DeCurriculum по году, зимнему/летнему семестру и курсу обучения студента
      */
-    public DeCurriculum getInstance(int year,int booleanSemester,Student student){
-        DeCurriculum c = this.getInstance(year,booleanSemester,(AbstractStudent)student);
-        Assert.notNull(student.<Group>getGroup(),"student group can not be null");
-        Assert.notNull(student.<Group>getGroup().getSpeciality(),"student speciality can not be null");
-        c.setSpeciality(student.<Group>getGroup().getSpeciality());
+    public DeCurriculum getInstance(int semester,Student student){
+        DeCurriculum c = super.getInstance(getter.getCalendarYear(student, semester),semester);
+        setGroup(student, c);
         return c;
     }
 
@@ -39,7 +37,21 @@ public class DeCurriculumBuilder extends CurriculumBuilder<DeCurriculum>{
      * @param student
      * @return DeCurriculum по конкретной дате и курсу обучения студента
      */
-    public DeCurriculum getInstanceByCurrentDate(Student student){
-        return getInstance(getter.getCurrentSemester(),getter.getCurrentYear(),student);
+    public DeCurriculum getInstanceByCurrentDate(Student student,int booleanSemester){
+        DeCurriculum c =  getInstance(getter.getCalendarYear(booleanSemester),booleanSemester,student);
+        setGroup(student, c);
+        return c;
+    }
+
+    public DeCurriculum getInstance(Student student,Long id){
+        DeCurriculum c =  getInstance(id);
+        setGroup(student, c);
+        return c;
+    }
+
+    private void setGroup(Student student,DeCurriculum c){
+        Assert.notNull(student.<Group>getGroup(),"student group can not be null");
+        Assert.notNull(student.<Group>getGroup().getSpeciality(),"student speciality can not be null");
+        c.setSpeciality(student.<Group>getGroup().getSpeciality());
     }
 }

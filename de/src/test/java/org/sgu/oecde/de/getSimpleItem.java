@@ -10,6 +10,7 @@ import org.sgu.oecde.core.BasicItem;
 import org.sgu.oecde.core.BasicTest;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.dao.ConstantsDao;
+import org.sgu.oecde.core.education.dao.CurriculumDao;
 import org.sgu.oecde.core.education.dao.IConstantsDao;
 import org.sgu.oecde.core.education.dao.ICurriculumDao;
 import org.sgu.oecde.core.education.resource.Author;
@@ -60,7 +61,7 @@ public class getSimpleItem extends BasicTest{
         }
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void getConsts(){
         SemesterGetter g = getBean("semesterGetter");
@@ -72,9 +73,8 @@ public class getSimpleItem extends BasicTest{
     @Test
     public void getCurr(){
         setDao("curriculumDao");
-        for(BasicItem b:getAllItems()){
-            System.out.println(b.getClass()+"   "+b.getId());
-        }
+        System.out.println(getByExample(new DeCurriculum()).size());
+//        List<DeCurriculum> l= this.<CurriculumDao>getDao().getCurriculumsByModSemester(new DeCurriculum(2008610834L), Semesters.summer());
     }
 
     @Ignore

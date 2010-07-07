@@ -27,7 +27,7 @@ public class DeCurriculum extends AdvancedCurriculum{
     /**
      * выбрана ли дисциплина
      */
-    private Boolean selected;
+    private Boolean selected = true;
     private static final long serialVersionUID = 63L;
 
     public DeCurriculum() {

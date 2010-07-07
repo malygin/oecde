@@ -3,6 +3,7 @@ package org.sgu.oecde.de.users;
 import org.sgu.oecde.de.education.City;
 import org.sgu.oecde.core.education.Speciality;
 import org.sgu.oecde.core.users.StudentGroup;
+import org.springframework.util.StringUtils;
 
 /**
  * студенческая группа дистанционного образования
@@ -76,9 +77,9 @@ public class Group extends StudentGroup{
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer(super.toString());
-        if(city!=null&&!city.getName().isEmpty())
+        if(city!=null&&StringUtils.hasText(city.getName()))
             sb.append("город: ").append(city.getName()).append("; ");
-        if(speciality!=null&&!speciality.getName().isEmpty())
+        if(speciality!=null&&StringUtils.hasText(speciality.getName()))
             sb.append("специальность: ").append(speciality.getName()).append("; ");
         return sb.toString();
     }
