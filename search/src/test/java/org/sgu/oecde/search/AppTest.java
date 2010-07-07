@@ -9,8 +9,9 @@ import org.springframework.test.context.ContextConfiguration;
 /**
  * Unit test for simple App.
  */
-@ContextConfiguration(locations={"../applicationContext.xml","../spring/searchBeans.xml"})
+@ContextConfiguration(locations={"../applicationContext.xml"})
 public class AppTest  extends BasicTest{
+    
     @Test
     public void search(){
         ISearchDao s = (ISearchDao) applicationContext.getBean("searchDao");

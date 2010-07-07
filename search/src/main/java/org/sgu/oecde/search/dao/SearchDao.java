@@ -3,13 +3,16 @@ package org.sgu.oecde.search.dao;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.List;
+import javax.annotation.Resource;
 import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.stereotype.Repository;
 import org.springframework.util.Assert;
 
 /**
  * {@inheritDoc }
  */
+@Repository
 public class SearchDao extends HibernateTemplate implements ISearchDao{
 
     /**
@@ -41,6 +44,6 @@ public class SearchDao extends HibernateTemplate implements ISearchDao{
         }
         if(!notFirst)
             return null;
-        return getSession().createQuery(sb.toString()).list();
+        return getSession().createQuery(sb.toString()).setCacheable(true).list();
     }
 }
