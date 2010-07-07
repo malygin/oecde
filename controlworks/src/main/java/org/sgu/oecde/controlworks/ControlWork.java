@@ -88,6 +88,7 @@ public class ControlWork extends AbstractResult{
     public String toString() {
         StringBuffer sb = new StringBuffer(super.toString());
         sb.append("статус: ").append(progress).append("; ");
+        sb.append("баллов: ").append(points).append("; ");
         return sb.toString();
     }
 }

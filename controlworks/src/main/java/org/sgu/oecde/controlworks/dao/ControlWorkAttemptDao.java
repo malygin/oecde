@@ -1,6 +1,7 @@
 package org.sgu.oecde.controlworks.dao;
 
 import java.util.List;
+import javax.annotation.Resource;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Property;
 import org.sgu.oecde.controlworks.ControlWorkAttempt;
@@ -8,12 +9,14 @@ import org.sgu.oecde.core.UpdateDao;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Repository;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
 /**
  * {@inheritDoc }
  */
+@Repository
 public class ControlWorkAttemptDao extends UpdateDao<ControlWorkAttempt> implements IControlWorkAttemptDao{
 
     protected ControlWorkAttemptDao() {
@@ -34,6 +37,7 @@ public class ControlWorkAttemptDao extends UpdateDao<ControlWorkAttempt> impleme
                 .add(Property.forName("w.student").in(students))
                 .addOrder(Order.asc("read"))
                 .addOrder(Order.desc("attemptDate"))
+                .setCacheable(true)
                 .list();
     }
 }

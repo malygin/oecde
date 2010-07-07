@@ -62,4 +62,8 @@ public enum ControlWorkProgress {
         else
             return notAvailable;
     }
+
+    public String getName(){
+        return toString();
+    }
 }

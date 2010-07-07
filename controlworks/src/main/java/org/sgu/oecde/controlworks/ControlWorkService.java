@@ -14,6 +14,7 @@ import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.core.util.DateConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 /**
  * сервис по работе с контрольными работами.
@@ -51,6 +52,8 @@ public class ControlWorkService{
         students.add(student);
         List<ControlWork> list = controlWorkDao.getByStudentsAndCurriculums(curriculums, students,null);
         Map<K,V>map = new LinkedHashMap<K, V>();
+        if(CollectionUtils.isEmpty(list))
+            return map;
         for(Curriculum c:curriculums){
             ControlWork tmp = new ControlWork(student, c);
             if(list.contains(tmp))
@@ -88,6 +91,8 @@ public class ControlWorkService{
     public <T extends AbstractStudent,V extends ControlWork>Map<T, V>getAllControlWorks(List<? extends AbstractStudent> students,List<? extends Curriculum> curriculums){
         List<ControlWork> list = controlWorkDao.getByStudentsAndCurriculums(curriculums,students,null);
         Map<T,V>map = new LinkedHashMap<T, V>();
+        if(CollectionUtils.isEmpty(list))
+            return map;
         for(AbstractStudent s:students){
             for(Curriculum curriculum:curriculums){
                 ControlWork tmp = new ControlWork(s, curriculum);

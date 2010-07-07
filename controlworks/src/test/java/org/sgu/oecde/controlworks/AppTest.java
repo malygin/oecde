@@ -60,7 +60,7 @@ public class AppTest extends BasicTest{
         }
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void getAttempts(){
         setDao("controlWorkAttemptDao");
