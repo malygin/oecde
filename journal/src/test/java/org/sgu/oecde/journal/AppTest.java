@@ -10,7 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 /**
  * Unit test for simple App.
  */
-@ContextConfiguration(locations={"../applicationContext.xml","../spring/journalBeans.xml","../spring/newsBeans.xml","../spring/discussionBeans.xml","../spring/deBeans.xml"})
+@ContextConfiguration(locations={"../applicationContext.xml","../spring/deBeans.xml"})
 public class AppTest extends BasicTest{
     
     @Ignore

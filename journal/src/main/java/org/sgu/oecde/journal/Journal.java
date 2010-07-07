@@ -19,7 +19,6 @@ public class Journal{
     @Autowired
     private IJournalDao journalDao;
 
-    @Autowired
     private RecordEventFactory ref;
 
     private Journal() {
