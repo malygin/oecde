@@ -2,18 +2,19 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <class dynamic-insert="true" dynamic-update="true" name="org.sgu.oecde.news.NewsItem" table="news">
+    <cache usage="read-write"/>
     <id name="id" type="long" unsaved-value="0">
       <generator class="native">
         <param name="sequence">news_seq</param>
       </generator>
     </id>
-    <property name="header" type="string" length="1000"/>
-    <property name="announcement" type="string" length="1000"/>
-    <property name="fullText" column="full_text" type="string" length="4000"/>
-    <property name="time" column="news_time" type="string" length="19"/>
-    <property name="accessType" column="access_type" type="string"/>
-    <property name="reviewNumber" column="review_number" type="integer" scale="3"/>
-    <many-to-one foreign-key="fk_news_admin" class="org.sgu.oecde.core.users.Admin" name="author" fetch="join"/>
+    <property length="1000" name="header" type="string"/>
+    <property length="1000" name="announcement" type="string"/>
+    <property column="full_text" length="4000" name="fullText" type="string"/>
+    <property column="news_time" length="19" name="time" type="string"/>
+    <property column="access_type" name="accessType" type="string"/>
+    <property column="review_number" name="reviewNumber" scale="3" type="integer"/>
+    <many-to-one class="org.sgu.oecde.core.users.Admin" fetch="join" foreign-key="fk_news_admin" name="author"/>
     <!--
     <set batch-size="15" cascade="none" fetch="join" name="tags">
       <key column="question_id" not-null="true"/>

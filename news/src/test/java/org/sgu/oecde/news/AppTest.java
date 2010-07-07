@@ -8,13 +8,14 @@ import org.junit.Test;
 import org.sgu.oecde.core.BasicTest;
 import org.sgu.oecde.core.users.Admin;
 import org.sgu.oecde.news.dao.INewsDao;
+import org.sgu.oecde.news.dao.NewsDAO;
 import org.springframework.test.context.ContextConfiguration;
 
 
 /**
  * Unit test for simple App.
  */
-@ContextConfiguration(locations={"../applicationContext.xml","../spring/newsBeans.xml"})
+@ContextConfiguration(locations={"../applicationContext.xml"})
 public class AppTest extends BasicTest{
 
     @Ignore
@@ -34,7 +35,7 @@ public class AppTest extends BasicTest{
         this.<INewsDao>getDao().save(item);
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void listNews1() {
         int pageNumber = 1;
