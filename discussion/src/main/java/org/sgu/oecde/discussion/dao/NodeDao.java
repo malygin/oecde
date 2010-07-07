@@ -3,10 +3,12 @@ package org.sgu.oecde.discussion.dao;
 import org.springframework.dao.DataAccessException;
 import org.sgu.oecde.core.UpdateDao;
 import org.sgu.oecde.discussion.Node;
+import org.springframework.stereotype.Repository;
 
 /**
  * {@inheritDoc }
  */
+@Repository
 public class NodeDao extends UpdateDao<Node> implements INodeDao{
 
     protected NodeDao() {

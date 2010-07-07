@@ -2,6 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <class select-before-update="false" name="org.sgu.oecde.discussion.Root" table="discussion_root">
+    <cache usage="read-write"/>
     <id name="id" type="long" unsaved-value="0">
       <generator class="native">
         <param name="sequence">root_seq</param>
@@ -20,6 +21,7 @@
       </type>
     </property>
     <set batch-size="10" cascade="all" fetch="select" inverse="true" name="children" sort="org.sgu.oecde.discussion.util.NodeRevertComparator" table="discussion_node">
+      <cache usage="read-write"/>
       <key foreign-key="fk_root_node" column="root" not-null="true"/>
       <one-to-many class="org.sgu.oecde.discussion.Node"/>
     </set>

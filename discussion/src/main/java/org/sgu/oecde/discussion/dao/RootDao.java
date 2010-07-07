@@ -8,11 +8,13 @@ import org.sgu.oecde.core.UpdateDao;
 import org.sgu.oecde.discussion.ForumTypes;
 import org.sgu.oecde.discussion.Root;
 import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Repository;
 import org.springframework.util.CollectionUtils;
 
 /**
  * {@inheritDoc }
  */
+@Repository
 public class RootDao extends UpdateDao<Root> implements IRootDao{
 
     protected RootDao() {
@@ -29,7 +31,7 @@ public class RootDao extends UpdateDao<Root> implements IRootDao{
                 .add(Property.forName("objectType").eq(typeObject))
                 .setProjection(Projections.projectionList()
                 .add(Projections.rowCount(), "ch"));
-        List<Integer> list =  cr.list();
+        List<Integer> list =  cr.setCacheable(true).list();
         return !CollectionUtils.isEmpty(list)?list.get(0):0;
     }
 

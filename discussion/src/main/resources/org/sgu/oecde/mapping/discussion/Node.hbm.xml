@@ -2,6 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <class select-before-update="false" name="org.sgu.oecde.discussion.Node" table="discussion_node">
+    <cache usage="read-write"/>
     <id name="id" type="long" unsaved-value="0">
       <generator class="native">
         <param name="sequence">node_seq</param>
@@ -14,6 +15,7 @@
     <many-to-one foreign-key="fk_node_node" class="org.sgu.oecde.discussion.Node" name="parent" lazy="proxy" fetch="select"/>
     <many-to-one foreign-key="fk_node_user" class="org.sgu.oecde.core.users.AbstractUser" name="user" not-null="true" column="node_user" fetch="join"/>
     <set batch-size="10" cascade="all" fetch="join" inverse="true" name="children" table="discussion_node">
+      <cache usage="read-write"/>
       <key foreign-key="fk_node_node" column="parent" />
       <one-to-many class="org.sgu.oecde.discussion.Node"/>
     </set>
