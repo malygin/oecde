@@ -2,22 +2,20 @@ package org.sgu.oecde.messages.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.management.Query;
 import org.hibernate.Criteria;
 import org.sgu.oecde.core.BasicDao;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.UserType;
-import org.sgu.oecde.core.util.HqlConstructor;
 import org.sgu.oecde.messages.Message;
-import org.sgu.oecde.messages.MessageRecipient;
 import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author Andrey Malygin (mailto: anmalygin@gmail.com)
  * created 08.06.2010
  * дао для сообщений
  */
-
+@Repository
 public class MessageDao  extends BasicDao<Message> implements IMessageDao{
 
     private final String LIST_IN = "select m from Message m JOIN m.recipients  recipients  where recipients.recipient.id=:recipient_id and recipients.deleted=false ";
