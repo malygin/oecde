@@ -1,6 +1,7 @@
 package org.sgu.oecde.controlworks;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -55,10 +56,16 @@ public class ControlWorkService{
         if(CollectionUtils.isEmpty(list))
             return map;
         for(Curriculum c:curriculums){
-            ControlWork tmp = new ControlWork(student, c);
-            if(list.contains(tmp))
-                tmp = list.get(list.indexOf(tmp));
-            map.put((K) c, (V) tmp);
+            Iterator<ControlWork>i = list.iterator();
+            while(i.hasNext()){
+                ControlWork w = i.next();
+                if(w!=null&&w.getCurriculum()!=null&&w.getStudent()!=null){
+                    if(w.getCurriculum().equals(c)&&w.getStudent().equals(student)){
+                        i.remove();
+                        map.put((K) c, (V) w);
+                    }
+                }
+            }
         }
         return map;
     }
@@ -95,10 +102,16 @@ public class ControlWorkService{
             return map;
         for(AbstractStudent s:students){
             for(Curriculum curriculum:curriculums){
-                ControlWork tmp = new ControlWork(s, curriculum);
-                if(list.contains(tmp))
-                    tmp = list.get(list.indexOf(tmp));
-                map.put((T)s, (V)tmp);
+                Iterator<ControlWork>i = list.iterator();
+                while(i.hasNext()){
+                    ControlWork w = i.next();
+                    if(w!=null&&w.getCurriculum()!=null&&w.getStudent()!=null){
+                        if(w.getCurriculum().equals(curriculum)&&w.getStudent().equals(s)){
+                            i.remove();
+                            map.put((T) s, (V) w);
+                        }
+                    }
+                }
             }
         }
         return map;

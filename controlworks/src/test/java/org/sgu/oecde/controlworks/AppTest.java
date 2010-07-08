@@ -3,6 +3,7 @@ package org.sgu.oecde.controlworks;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import junit.framework.Assert;
 import org.junit.Ignore;
@@ -75,17 +76,18 @@ public class AppTest extends BasicTest{
         }
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void getStudentCw(){
         ControlWorkService s = getBean("controlWorkService");
         List l = new ArrayList();
         l.add(new DeCurriculum(200847634L));
         l.add(new DeCurriculum(200327L));
-        Assert.assertEquals(2,s.getStudensControlWorks(new Student(324725L), l).size());
+        Map m = s.getStudensControlWorks(new Student(324725L), l);
+        Assert.assertEquals(2,m.size());
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void constants(){
         StringConstantsGetter g = getBean("cwDatesGetter");
