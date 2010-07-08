@@ -7,7 +7,7 @@ import org.sgu.oecde.core.education.Speciality;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.Admin;
 import org.sgu.oecde.core.users.Supervisor;
-import org.springframework.security.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.test.context.ContextConfiguration;
 import static org.junit.Assert.*;
 

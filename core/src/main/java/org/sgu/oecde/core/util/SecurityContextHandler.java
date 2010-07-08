@@ -2,9 +2,9 @@ package org.sgu.oecde.core.util;
 
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.UserType;
-import org.springframework.security.Authentication;
-import org.springframework.security.context.SecurityContext;
-import org.springframework.security.context.SecurityContextHolder;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
  * методы по работе с авторизованным пользователем, находящемся в SecurityContext

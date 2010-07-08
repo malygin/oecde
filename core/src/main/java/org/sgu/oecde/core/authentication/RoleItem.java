@@ -1,6 +1,6 @@
 package org.sgu.oecde.core.authentication;
 
-import org.springframework.security.GrantedAuthority;
+import org.springframework.security.core.GrantedAuthority;
 
 /**
  * роль-тип пользователя
@@ -46,7 +46,6 @@ public class RoleItem implements GrantedAuthority {
     /**
      * {@inheritDoc}
      */
-    @Override
     public int compareTo(Object o) {
         if (o != null && o instanceof GrantedAuthority) {
                 String rhsRole = ((GrantedAuthority) o).getAuthority();

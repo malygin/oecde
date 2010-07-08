@@ -1,9 +1,11 @@
 package org.sgu.oecde.core.users;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.LinkedList;
 import org.sgu.oecde.core.BasicItem;
-import org.springframework.security.GrantedAuthority;
-import org.springframework.security.userdetails.UserDetails;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.Assert;
 
 /**
@@ -23,7 +25,7 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
     /**
      * массив ролей из 1го элемента
      */
-    private GrantedAuthority[] authorities;
+    private Collection<GrantedAuthority> authorities;
     /**
      * доступен ли
      */
@@ -72,7 +74,7 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
     }
 
     public AbstractUser() {
-       authorities = new GrantedAuthority[1];
+       authorities = new LinkedList<GrantedAuthority>();
     }
 
     /**
@@ -83,14 +85,10 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
         this.enabled = enabled;
     }
 
-    /**
-     * {@inheritDoc }
-     */
     @Override
-    public GrantedAuthority[] getAuthorities() {
+    public Collection<GrantedAuthority> getAuthorities() {
         return authorities;
     }
-
     /**
      * {@inheritDoc }
      */
@@ -226,7 +224,7 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
      * @param authority
      */
     public void setAuthority(GrantedAuthority authority) {
-        authorities[0]=authority;
+        authorities.add(authority);
     }
 
     /**
@@ -234,7 +232,7 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
      * @return роль
      */
     public GrantedAuthority getAuthority(){
-        return (authorities!=null&&authorities.length>0)?authorities[0]:null;
+        return (GrantedAuthority) ((authorities != null && authorities.size() > 0) ? authorities.iterator().next() : null);
     }
     
     /**
@@ -315,16 +313,13 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
         }
         return true;
     }
-    
-    /**
-     * {@inheritDoc }
-     */
+
     @Override
     public int hashCode() {
-        int hash = 7;
+        int hash = 3;
         hash = 79 * hash + (this.password != null ? this.password.hashCode() : 0);
         hash = 79 * hash + (this.username != null ? this.username.hashCode() : 0);
-        hash = 79 * hash + Arrays.deepHashCode(this.authorities);
+        hash = 79 * hash + (getAuthority() != null ? this.getAuthority().hashCode() : 0);
         hash = 79 * hash + (this.enabled ? 1 : 0);
         return hash;
     }

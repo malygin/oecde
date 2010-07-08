@@ -27,7 +27,7 @@ public class CacheTest extends AbstractJUnit4SpringContextTests{
         uic = (UsersInCache) applicationContext.getBean("usersInCache");
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void aputTeacherAndAdmin(){
         IUpdateDao<Teacher>t = (IUpdateDao<Teacher>) applicationContext.getBean("teacherDao");

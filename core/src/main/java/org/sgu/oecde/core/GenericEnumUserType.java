@@ -168,10 +168,12 @@ public class GenericEnumUserType implements EnhancedUserType, ParameterizedType,
 			case Types.DOUBLE:  //for Oracle Driver
 			case Types.FLOAT:   //for Oracle Driver
 				ordinal&=true;
+                                break;
 			case Types.CHAR:
 			case Types.LONGVARCHAR:
 			case Types.VARCHAR:
 				ordinal=false;
+                                break;
 			default:
 				throw new HibernateException( "Unable to persist an Enum in a column of SQL Type: " + paramType );
 		}

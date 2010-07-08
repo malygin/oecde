@@ -31,7 +31,6 @@ public class EventFilter implements  Filter{
      * если пользователь не равен null, то он вносится в кеш пользователей онлайн
      * {@inheritDoc}
      */
-    @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         AbstractUser u = SecurityContextHandler.getUser();
         if(u!=null)
