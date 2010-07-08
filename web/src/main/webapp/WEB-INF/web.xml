@@ -4,15 +4,8 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:/org/sgu/oecde/applicationContext.xml
-                     classpath:/org/sgu/oecde/spring/newsBeans.xml
                      classpath:/org/sgu/oecde/spring/testBeans.xml
-                     classpath:/org/sgu/oecde/spring/journalBeans.xml
-                     classpath:/org/sgu/oecde/spring/newsBeans.xml
-                     classpath:/org/sgu/oecde/spring/discussionBeans.xml
                      classpath:/org/sgu/oecde/spring/cwBeans.xml
-                     classpath:/org/sgu/oecde/spring/newsBeans.xml
-                     classpath:/org/sgu/oecde/spring/searchBeans.xml
-                     classpath:/org/sgu/oecde/spring/messageBeans.xml
                      classpath:/org/sgu/oecde/spring/deBeans.xml
                      classpath:/org/sgu/oecde/webSecurity.xml
         </param-value>
@@ -23,16 +16,6 @@
     <listener>
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>
-    <filter>
-        <filter-name>hibernateFilter</filter-name>
-        <filter-class>
-           org.springframework.orm.hibernate3.support.OpenSessionInViewFilter
-       </filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>hibernateFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
@@ -48,7 +31,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginRedirect</servlet-name>
-        <url-pattern>/LoginRedirect</url-pattern>
+        <url-pattern>/LoginRedirect.c</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>

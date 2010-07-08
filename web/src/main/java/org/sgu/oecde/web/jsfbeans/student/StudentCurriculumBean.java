@@ -5,7 +5,6 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.core.education.dao.ICurriculumDao;
 import org.sgu.oecde.core.users.AbstractUser;
@@ -14,7 +13,7 @@ import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.education.DeCurriculumBuilder;
 import org.sgu.oecde.de.users.Student;
-import org.springframework.security.annotation.Secured;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.util.Assert;
 
 /**

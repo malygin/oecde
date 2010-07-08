@@ -11,7 +11,7 @@ import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.education.DeCurriculumBuilder;
-import org.springframework.security.annotation.Secured;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.util.Assert;
 
 /**
