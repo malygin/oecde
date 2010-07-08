@@ -8,7 +8,7 @@
          <f:metadata>
              <f:viewParam name="s" value="#{materialsBean.semester}"/>
          </f:metadata>
-         <h:outputLink value="#{materialsBean.semester==0?1:0}">другой семестр</h:outputLink>
+         <h:outputLink value="?s=#{materialsBean.semester==0?1:0}">другой семестр</h:outputLink>
          <h:dataTable value="#{materialsBean.studentsDisciplines}" var="m">
            <h:column>
                <h:outputLink value="discipline.xhtml?c=#{m.curriculum.id}" >#{m.curriculum.umk.name}</h:outputLink><br/>

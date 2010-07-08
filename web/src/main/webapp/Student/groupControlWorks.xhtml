@@ -7,11 +7,11 @@
          >
         <ui:define name="content">
          <f:metadata>
-             <f:viewParam name="s" value="#{groupControlWorks.semester}"/>
+             <f:viewParam name="s" value="#{GroupCwBean.semester}"/>
          </f:metadata>
-         <h:outputLink value="#{groupControlWorks.semester==0?1:0}">другой семестр</h:outputLink>
-            <r:forEach items="${groupControlWorks.groupControlWorks}" var="w">
-                ${w.key} -  ${w.value}<br/>
+         <h:outputLink value="?s=#{GroupCwBean.semester==0?1:0}">другой семестр</h:outputLink>
+            <r:forEach items="${GroupCwBean.controlWorkInfo4Group}" var="w">
+                ${w.key.fio} -  ${w.value.curriculum.discipline.name} | ${w.value.progress}<br/>
             </r:forEach>
         </ui:define>
     </ui:composition>

@@ -9,14 +9,15 @@
      <f:metadata>
          <f:viewParam name="s" value="#{controlWorksBean.semester}"/>
      </f:metadata>
-     <h:outputLink value="#{controlWorksBean.semester==0?1:0}">другой семестр</h:outputLink>
+     <h:outputLink value="?s=#{controlWorksBean.semester==0?1:0}">другой семестр</h:outputLink>
         <r:forEach items="${controlWorksBean.controlWorks}" var="o">
             ${o[0].discipline.name}<br/>
-            ${o[1]}
+            ${o[1].points} - ${o[1].progress}<br/>
             <r:forEach items="#{o[1].cwAttempt}" varStatus="i" var="a">
                 ${i.count} ${a.filePath}<br/>
             </r:forEach>
             <r:if test="${o[2]}">загрузить</r:if>
+            <br/>------------------<br/>
         </r:forEach>
     </ui:define>
 </ui:composition>

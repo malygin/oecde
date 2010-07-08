@@ -8,7 +8,7 @@
          <f:metadata>
              <f:viewParam name="s" value="#{lowGradedDisciplinesBean.semester}"/>
          </f:metadata>
-         <h:outputLink value="#{lowGradedDisciplinesBean.semester==0?1:0}">другой семестр</h:outputLink>
+         <h:outputLink value="?s=#{lowGradedDisciplinesBean.semester==0?1:0}">другой семестр</h:outputLink>
          <h:dataTable value="#{lowGradedDisciplinesBean.lowGradedDisciplines}" var="p">
            <h:column>
                <h:outputText value="#{p.points.curriculum.discipline.name}"/><br/>

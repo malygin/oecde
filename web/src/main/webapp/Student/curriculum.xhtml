@@ -8,7 +8,7 @@
              <f:viewParam name="s" value="#{studentCurriculumBean.semester}"/>
          </f:metadata>
         <ui:define name="content">
-            <h:outputLink value="#{studentCurriculumBean.semester==0?1:0}">другой семестр</h:outputLink>
+            <h:outputLink value="?s=#{studentCurriculumBean.semester==0?1:0}">другой семестр</h:outputLink>
          <h:dataTable value="#{studentCurriculumBean.curriculums}" var="m">
            <h:column>
             <f:facet name="header">
