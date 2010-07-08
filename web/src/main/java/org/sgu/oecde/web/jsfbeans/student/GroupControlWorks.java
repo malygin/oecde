@@ -15,7 +15,7 @@ import org.sgu.oecde.de.users.Student;
  *
  * @author ShihovMY
  */
-@ManagedBean(name="GroupCwBean")
+@ManagedBean(name="groupCwBean")
 @ViewScoped
 public class GroupControlWorks extends StudentCurriculumBean{
 
