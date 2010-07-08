@@ -5,13 +5,11 @@ import org.junit.Test;
 import org.sgu.oecde.core.CacheTest;
 import org.sgu.oecde.core.IUpdateDao;
 import org.sgu.oecde.core.users.AbstractUser;
-import org.springframework.test.context.ContextConfiguration;
 
 /**
  *
  * @author ShihovMY
  */
-@ContextConfiguration(locations={"../applicationContext.xml","../applicationContext-security.xml"})
 public class AllUsersCacheTest extends CacheTest{
 
     @Ignore
