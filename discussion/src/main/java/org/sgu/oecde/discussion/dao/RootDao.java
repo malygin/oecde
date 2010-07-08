@@ -31,8 +31,8 @@ public class RootDao extends UpdateDao<Root> implements IRootDao{
                 .add(Property.forName("objectType").eq(typeObject))
                 .setProjection(Projections.projectionList()
                 .add(Projections.rowCount(), "ch"));
-        List<Integer> list =  cr.setCacheable(true).list();
-        return !CollectionUtils.isEmpty(list)?list.get(0):0;
+        List<Long> list =  cr.setCacheable(true).list();
+        return !CollectionUtils.isEmpty(list)?Long.valueOf(list.get(0)).intValue():0;
     }
 
     /**
