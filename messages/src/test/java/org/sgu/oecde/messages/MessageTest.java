@@ -28,7 +28,7 @@ import org.springframework.test.context.ContextConfiguration;
  *
  */
 
-@ContextConfiguration(locations={"../applicationContext.xml","../spring/messageBeans.xml","../spring/deBeans.xml"})
+@ContextConfiguration(locations={"../applicationContext.xml","../spring/deBeans.xml"})
 public class MessageTest extends BasicTest{
 
     @Ignore

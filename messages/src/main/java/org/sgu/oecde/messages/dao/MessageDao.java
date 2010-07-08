@@ -9,6 +9,7 @@ import org.sgu.oecde.core.users.UserType;
 import org.sgu.oecde.messages.Message;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.CollectionUtils;
 
 /**
  * @author Andrey Malygin (mailto: anmalygin@gmail.com)
@@ -84,7 +85,7 @@ public class MessageDao  extends BasicDao<Message> implements IMessageDao{
 
     @Override
     public int getCount(AbstractUser user, String type) throws DataAccessException {
-        List<Long> list= new ArrayList();
+        List<Long> list = null;
         if (type.equals("new")){
              list = getSession().createQuery(LIST_COUNT+" and recipients.archived=false and recipients.deleted=false and recipients.readed=false").setLong("recipient_id", user.getId()).list();
         }else if(type.equals("in")){
@@ -94,7 +95,7 @@ public class MessageDao  extends BasicDao<Message> implements IMessageDao{
         }else if(type.equals("out")){
             //TODO:
         }     
-      return list.get(0).intValue();       
+      return !CollectionUtils.isEmpty(list)?Long.valueOf(list.get(0)).intValue():0;
     }
 
 
