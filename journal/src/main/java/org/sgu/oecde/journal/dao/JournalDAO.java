@@ -2,7 +2,6 @@ package org.sgu.oecde.journal.dao;
 
 import java.util.List;
 import java.util.Set;
-import javax.annotation.Resource;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Property;
@@ -32,8 +31,8 @@ public class JournalDAO extends BasicDao<EventItem> implements IJournalDao {
     public int getCountOfEvents(BaseFilter filter) throws DataAccessException {
         Criteria cr = getSession().createCriteria(type).setProjection(Projections.rowCount());
         processFilter(filter, cr);
-        List<Integer> list =  cr.setCacheable(true).list();
-        return !CollectionUtils.isEmpty(list)?list.get(0):0;
+        List<Long> list =  cr.setCacheable(true).list();
+        return !CollectionUtils.isEmpty(list)?Long.valueOf(list.get(0)).intValue():0;
     }
 
     /**
