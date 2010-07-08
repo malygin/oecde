@@ -1,13 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.sgu.oecde.web.jsfbeans.messages;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -30,13 +24,18 @@ public class MessageBean implements Serializable{
     private MessageService messageService;
 
     private AbstractUser  currentUser;
+    
     private List<MessageImpl> messages;
     private List<MessageImpl> messagesArchive;
     private List<MessageImpl> messagesOut;
 
+
+
     private boolean renderDeleteSuccess=false;
 
     private String currentMessageId;
+    private String currentUserId;
+
     //Сообщений на странице
     private int messageOnPage=5;
     private int currentPage=1;
@@ -45,11 +44,7 @@ public class MessageBean implements Serializable{
         currentUser = SecurityContextHandler.getUser();
        
     }
-    @PostConstruct
-    public void init(){
-        // messages=messageService.getListInAll(currentUser);
-    }
-
+  
     public void deleteMessage(){
         //this.renderArchiveSuccess=false;
         this.renderDeleteSuccess=true;
@@ -81,6 +76,7 @@ public class MessageBean implements Serializable{
         if (messagesOut==null) messagesOut=messageService.getListOutAll(currentUser,2,1);
         return  messagesOut;
     }
+
 
     public void setMessagesOut(List<MessageImpl> messagesOut) {
         this.messagesOut = messagesOut;
@@ -150,6 +146,14 @@ public class MessageBean implements Serializable{
 
     public void setMessageService(MessageService messageService) {
         this.messageService = messageService;
+    }
+
+    public String getCurrentUserId() {
+        return currentUserId;
+    }
+
+    public void setCurrentUserId(String currentUserId) {
+        this.currentUserId = currentUserId;
     }
     
 
