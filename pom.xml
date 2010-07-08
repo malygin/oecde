@@ -23,7 +23,7 @@
     <module>de</module>
   </modules>
     <repositories>
-        <repository>
+          <repository>
             <id>central</id>
             <url>http://baldr.sgu.ru:8080/nexus/content/groups/public</url>
             <releases>
@@ -33,47 +33,195 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>central</id>
-            <url>http://baldr.sgu.ru:8080/nexus/content/groups/public</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
-    <dependencies>
+         <repository>
+          <id>repository.jboss.org</id>
+          <url>http://repository.jboss.org/maven2</url>
+        </repository>
+              <!-- SpringSource repositories -->
+        <repository>
+            <id>springsource-milestone</id>
+            <url>http://repository.springsource.com/maven/bundles/milestone</url>
+        </repository>
+        <repository>
+            <id>springsource-release</id>
+            <url>http://repository.springsource.com/maven/bundles/release</url>
+        </repository>
+        <repository>
+            <id>springsource-external</id>
+            <url>http://repository.springsource.com/maven/bundles/external</url>
+        </repository>
+        <repository>
+            <id>sourceforge-releases</id>
+            <url>https://oss.sonatype.org/content/repositories/sourceforge-releases/</url>
+        </repository>
+        <repository>
+            <id>org.sonatype.oss</id>
+            <url>https://oss.sonatype.org/content/repositories/releases/</url>
+        </repository>
+        <repository>
+            <id>glassfish-repository</id>
+            <url>http://download.java.net/maven/glassfish</url>
+         </repository>
 
+        </repositories>
+
+        <pluginRepositories>
+            <pluginRepository>
+                <id>central</id>
+                <url>http://baldr.sgu.ru:8080/nexus/content/groups/public</url>
+                <releases>
+                    <enabled>true</enabled>
+                </releases>
+                <snapshots>
+                    <enabled>true</enabled>
+                </snapshots>
+            </pluginRepository>
+        </pluginRepositories>
+
+        <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.4</version>
+            <version>4.7</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>2.5.6</version>
-            <scope>test</scope>
-            <type>jar</type>
         </dependency>
 
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate</artifactId>
-            <version>3.2.5.ga</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>commons-collections</artifactId>
-                    <groupId>commons-collections</groupId>
-                </exclusion>
-            </exclusions>
+          <groupId>org.springframework</groupId>
+          <artifactId>org.springframework.test</artifactId>
+          <version>3.0.3.RELEASE</version>
+          <scope>test</scope>
         </dependency>
 
+
+         <dependency>
+              <groupId>org.hibernate</groupId>
+              <artifactId>hibernate-core</artifactId>
+              <version>3.5.1-Final</version>
+              <exclusions>
+                  <exclusion>
+                     <artifactId>jta</artifactId>
+                     <groupId>javax.transaction</groupId>
+                  </exclusion>
+                   <exclusion>
+                        <artifactId>slf4j-api</artifactId>
+                        <groupId>org.slf4j</groupId>
+                   </exclusion>
+              </exclusions>
+         </dependency>
+          <dependency>
+              <groupId>org.hibernate</groupId>
+              <artifactId>hibernate-ehcache</artifactId>
+              <version>3.5.1-Final</version>
+               <exclusions>
+                  <exclusion>
+                     <artifactId>ehcache</artifactId>
+                     <groupId>net.sf.ehcache</groupId>
+                  </exclusion>
+                  <exclusion>
+                     <artifactId>slf4j-api</artifactId>
+                     <groupId>org.slf4j</groupId>
+                  </exclusion>
+               </exclusions>
+          </dependency>
+
+        <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>org.springframework.asm</artifactId>
+          <version>3.0.3.RELEASE</version>
+        </dependency>
+        <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>org.springframework.beans</artifactId>
+          <version>3.0.3.RELEASE</version>
+        </dependency>
+         <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>org.springframework.core</artifactId>
+          <version>3.0.3.RELEASE</version>
+        </dependency>
+        <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>org.springframework.context</artifactId>
+          <version>3.0.3.RELEASE</version>
+        </dependency>
+        <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>org.springframework.context.support</artifactId>
+          <version>3.0.3.RELEASE</version>
+        </dependency>
+        <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>org.springframework.web</artifactId>
+          <version>3.0.3.RELEASE</version>
+          <exclusions>
+           <exclusion>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+           </exclusion>
+          </exclusions>
+        </dependency>
+        <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>org.springframework.expression</artifactId>
+          <version>3.0.3.RELEASE</version>
+        </dependency>
+         <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>org.springframework.aop</artifactId>
+          <version>3.0.3.RELEASE</version>
+        </dependency>
+         <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>org.springframework.aspects</artifactId>
+          <version>3.0.3.RELEASE</version>
+        </dependency>
+        <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>org.springframework.orm</artifactId>
+          <version>3.0.3.RELEASE</version>
+        </dependency>
+          <dependency>
+             <artifactId>com.springsource.org.aopalliance</artifactId>
+             <groupId>org.aopalliance</groupId>
+             <type>jar</type>
+             <version>1.0.0</version>
+          </dependency>
+          <dependency>
+             <artifactId>org.springframework.jdbc</artifactId>
+             <groupId>org.springframework</groupId>
+             <type>jar</type>
+             <version>3.0.3.RELEASE</version>
+          </dependency>
+          <dependency>
+             <artifactId>org.springframework.transaction</artifactId>
+             <groupId>org.springframework</groupId>
+             <type>jar</type>
+             <version>3.0.3.RELEASE</version>
+          </dependency>
+
+       <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>org.springframework.security.core</artifactId>
+            <version>3.0.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>org.springframework.security.config</artifactId>
+            <version>3.0.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>org.springframework.security.web</artifactId>
+            <version>3.0.0.RELEASE</version>
+       </dependency>
+
+        <dependency>
+          <groupId>cglib</groupId>
+          <artifactId>cglib</artifactId>
+          <version>2.2</version>
+          <type>jar</type>
+        </dependency>
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc14</artifactId>
@@ -81,111 +229,9 @@
         </dependency>
 
         <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-            <version>1.1.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>aopalliance</groupId>
-            <artifactId>aopalliance</artifactId>
-            <version>1.0</version>
-            <type>jar</type>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>2.5.6</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-hibernate3</artifactId>
-            <version>2.0.8</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>2.5.6</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aop</artifactId>
-            <version>2.5.6</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-dao</artifactId>
-            <version>2.0.8</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>2.5.6</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>2.5.6</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-            <version>2.5.6</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-support</artifactId>
-            <version>2.0.8</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>2.0.8</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aspects</artifactId>
-            <version>2.5.6</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-            <version>2.0.4</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>commons-collections</artifactId>
-                    <groupId>commons-collections</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core-tiger</artifactId>
-            <version>2.0.4</version>
-        </dependency>
-
-        <dependency>
             <groupId>commons-collections</groupId>
             <artifactId>commons-collections</artifactId>
             <version>3.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
-            <type>jar</type>
         </dependency>
 
         <dependency>
@@ -199,8 +245,93 @@
             <artifactId>postgresql</artifactId>
             <version>8.4-701.jdbc4</version>
         </dependency>
-    </dependencies>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+          <dependency>
+                 <artifactId>antlr</artifactId>
+                 <groupId>antlr</groupId>
+                 <type>jar</type>
+                 <version>2.7.6</version>
+          </dependency>
+          <dependency>
+             <groupId>javassist</groupId>
+             <artifactId>javassist</artifactId>
+             <type>jar</type>
+             <version>3.9.0.GA</version>
+          </dependency>
+          <dependency>
+                 <artifactId>asm</artifactId>
+                 <groupId>asm</groupId>
+                 <type>jar</type>
+                 <version>3.1</version>
+          </dependency>
+          <dependency>
+             <artifactId>dom4j</artifactId>
+             <groupId>dom4j</groupId>
+             <type>jar</type>
+             <version>1.6.1</version>
+          </dependency>
 
+          <dependency>
+             <artifactId>slf4j-api</artifactId>
+             <groupId>org.slf4j</groupId>
+             <type>jar</type>
+             <version>1.5.8</version>
+          </dependency>
+          <dependency>
+             <groupId>org.slf4j</groupId>
+             <artifactId>slf4j-log4j12</artifactId>
+             <type>jar</type>
+             <version>1.5.8</version>
+          </dependency>
+
+          <dependency>
+                 <artifactId>xml-apis</artifactId>
+                 <groupId>xml-apis</groupId>
+                 <type>jar</type>
+                 <version>1.0.b2</version>
+          </dependency>
+
+          <dependency>
+                 <artifactId>com.springsource.org.apache.commons.logging</artifactId>
+                 <groupId>org.apache.commons</groupId>
+                 <type>jar</type>
+                 <version>1.1.1</version>
+          </dependency>
+
+            <dependency>
+                 <artifactId>jsr107cache</artifactId>
+                 <groupId>net.sf.jsr107cache</groupId>
+                 <type>jar</type>
+                 <version>1.1</version>
+            </dependency>
+            <dependency>
+                 <artifactId>ehcache-core</artifactId>
+                 <groupId>net.sf.ehcache</groupId>
+                 <type>jar</type>
+                 <version>2.1.0</version>
+            </dependency>
+            <dependency>
+                 <artifactId>ehcache-terracotta</artifactId>
+                 <groupId>net.sf.ehcache</groupId>
+                 <version>2.1.1</version>
+            </dependency>
+          <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.servlet</artifactId>
+            <version>3.0</version>
+          </dependency>
+        <dependency>
+            <groupId>javax.transaction</groupId>
+            <artifactId>jta</artifactId>
+            <version>1.1</version>
+        </dependency>
+
+        </dependencies>
+        
     <build>
         <pluginManagement>
             <plugins>
@@ -241,3 +372,8 @@
         <core.finalname>${artifactId}-${core.version}</core.finalname>
     </properties>
 </project>
+
+
+
+
+
