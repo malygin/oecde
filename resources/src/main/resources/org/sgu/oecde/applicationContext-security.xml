@@ -3,24 +3,24 @@
 xmlns:beans="http://www.springframework.org/schema/beans"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xmlns:aop="http://www.springframework.org/schema/aop"
-xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
-http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.4.xsd">
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
 
 <!-- SPRING SECURITY BEANS AND CONFIGS-->
 
  <!--<global-method-security secured-annotations="enabled"/>
  <aop:aspectj-autoproxy/>
  -->
-	
+<authentication-manager>
  <authentication-provider user-service-ref='UserDetailsServiceImpl'/>
+</authentication-manager>
 
-  <beans:bean id="logoutFilter" class="org.springframework.security.ui.logout.LogoutFilter">
-    <custom-filter position="LOGOUT_FILTER" />
+  <beans:bean id="logoutFilter" class="org.springframework.security.web.authentication.logout.LogoutFilter">
     <beans:constructor-arg index="0" value="/"/>
     <beans:constructor-arg index="1">
         <beans:list>
-            <beans:bean class="org.springframework.security.ui.logout.SecurityContextLogoutHandler"/>
+            <beans:bean class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler"/>
             <beans:ref bean="rememberMeServices"/>
             <beans:ref bean="logoutListner"/>
         </beans:list>
@@ -30,17 +30,13 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
   <beans:bean id="UserDetailsServiceImpl" class="org.sgu.oecde.core.authentication.UserDetailsServiceImpl" />
 
 
-  <beans:bean id="hibernateFilter" class="org.springframework.orm.hibernate3.support.OpenSessionInViewFilter">
-    <custom-filter after="SWITCH_USER_FILTER "/>
-  </beans:bean>
+  <beans:bean id="hibernateFilter" class="org.springframework.orm.hibernate3.support.OpenSessionInViewFilter"/>
 
-  <beans:bean id="eventListner" class="org.sgu.oecde.core.authentication.EventFilter">
-    <custom-filter position="LAST "/>
-  </beans:bean>
+  <beans:bean id="eventListner" class="org.sgu.oecde.core.authentication.EventFilter"/>
 
   <beans:bean id="logoutListner" class="org.sgu.oecde.core.authentication.LogoutListner"/>
 
-  <beans:bean id="rememberMeServices" class="org.springframework.security.ui.rememberme.TokenBasedRememberMeServices">
+  <beans:bean id="rememberMeServices" class="org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices">
     <beans:property name="userDetailsService" ref="UserDetailsServiceImpl"/>
     <beans:property name="key" value="oecde"/>
   </beans:bean>
