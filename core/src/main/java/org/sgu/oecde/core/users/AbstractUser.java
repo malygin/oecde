@@ -1,6 +1,5 @@
 package org.sgu.oecde.core.users;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedList;
 import org.sgu.oecde.core.BasicItem;
@@ -303,9 +302,6 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
             return false;
         }
         if ((this.username == null) ? (other.username != null) : !this.username.equals(other.username)) {
-            return false;
-        }
-        if ((this.getAuthority() == null) ? (other.getAuthority() != null) : !this.getAuthority().equals(other.getAuthority())) {
             return false;
         }
         if (this.enabled != other.enabled) {
