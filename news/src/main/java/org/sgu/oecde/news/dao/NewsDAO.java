@@ -1,8 +1,6 @@
 package org.sgu.oecde.news.dao;
 
 import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
 import org.hibernate.criterion.Projections;
 import org.sgu.oecde.core.BasicDao;
 import org.sgu.oecde.news.NewsItem;
@@ -34,8 +32,8 @@ public class NewsDAO extends BasicDao<NewsItem> implements INewsDao{
      * {@inheritDoc }
      */
     public int getNewsCount() throws DataAccessException  {
-        List<Integer> list =  getSession().createCriteria(type).setProjection(Projections.rowCount()).setCacheable(true).list();
-        return !CollectionUtils.isEmpty(list)?list.get(0):0;
+        List<Long> list =  getSession().createCriteria(type).setProjection(Projections.rowCount()).setCacheable(true).list();
+        return !CollectionUtils.isEmpty(list)?Long.valueOf(list.get(0)).intValue():0;
     }
 
     /**

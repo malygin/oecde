@@ -8,7 +8,6 @@ import org.junit.Test;
 import org.sgu.oecde.core.BasicTest;
 import org.sgu.oecde.core.users.Admin;
 import org.sgu.oecde.news.dao.INewsDao;
-import org.sgu.oecde.news.dao.NewsDAO;
 import org.springframework.test.context.ContextConfiguration;
 
 
