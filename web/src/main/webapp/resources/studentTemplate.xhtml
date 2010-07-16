@@ -3,63 +3,225 @@
          xmlns:h="http://java.sun.com/jsf/html"
          template="baseTemplate.xhtml">
 
+        <ui:define name="userCSS">
+            <h:outputStylesheet name="student.css" library="css" rendered="true"/>
+        </ui:define>
         <ui:define name="left">
-             <ul style="padding-left: 10px;">
-              <li><a href="controlWorks.xhtml"> #{msgs.student_eduMenuControlWorks}</a></li>
-              <li><a href="groupControlWorks.xhtml">#{msgs.student_eduMenuControlWorksResult}</a></li>
-              <li><a href="index.xhtml">#{msgs.student_eduMenuCoursework}</a></li>
-              <li><a href="index.xhtml"> #{msgs.student_eduMenuEvents}</a></li>
-              <li><a href="materials.xhtml">#{msgs.student_eduMenuLearningCourses}</a></li>
-              <li><a href="grades.xhtml">  #{msgs.student_eduMenuMarks}</a></li>
-              <li><a href="testResults.xhtml?r=1"> #{msgs.student_eduMenuReexamination}</a></li>
-              <li><a href="index.xhtml"> #{msgs.student_eduMenuScheduleMonth}</a></li>
-              <li><a href="index.xhtml"> #{msgs.student_eduMenuScheduleSession}</a></li>
-              <li><a href="testResults.xhtml">  #{msgs.student_eduMenuTestsResults}</a></li>
-              <li><a href="testResults.xhtml?r=1&amp;s=1"> #{msgs.student_eduMenuWinterReexamination}</a></li>
-              <li><a href="testResults.xhtml?s=1"> #{msgs.student_eduMenuWinterTestsResults}</a></li>
-              <li><a href="testResults.xhtml?s=1"> #{msgs.student_eduMenuWinterTestsResults}</a></li>
-              </ul>
-               <hr/>
-             <ul style="padding-left: 10px;">              
-                 <li><a href="message_list.xhtml">#{msgs.student_messMenuIn} - ) </a></li>
-                 <li><a href="index.xhtml">#{msgs.student_messMenuOut}</a></li>
-                 <li><a href="index.xhtml">#{msgs.student_messMenuArchive}</a></li>
-              </ul>
-
+            <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.student_eduMenuTitle}</p></div>
+            <ol class="leftSideMenuLinks">
+                <li><a href="index.xhtml"> #{msgs.student_eduMenuControlWorks}</a></li>
+                <li><a href="index.xhtml">#{msgs.student_eduMenuControlWorksResult}</a></li>
+                <li><a href="index.xhtml">#{msgs.student_eduMenuCoursework}</a></li>
+                <li><a href="index.xhtml"> #{msgs.student_eduMenuEvents}</a></li>
+                <li><a href="materials.xhtml">#{msgs.student_eduMenuLearningCourses}</a></li>
+                <li><a href="index.xhtml">  #{msgs.student_eduMenuMarks}</a></li>
+                <li><a href="index.xhtml"> #{msgs.student_eduMenuReexamination}</a></li>
+                <li><a href="index.xhtml"> #{msgs.student_eduMenuScheduleMonth}</a></li>
+                <li><a href="index.xhtml"> #{msgs.student_eduMenuScheduleSession}</a></li>
+                <li><a href="testResults.xhtml">  #{msgs.student_eduMenuTestsResults}</a></li>
+                <li><a href="index.xhtml"> #{msgs.student_eduMenuWinterReexamination}</a></li>
+                <li><a href="index.xhtml"> #{msgs.student_eduMenuWinterTestsResults}</a></li>
+                <li><p>Пример неактивной ссылки</p></li>
+            </ol>
+            <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_messMenuTitle}</p></div>
+            <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="message_list.xhtml">#{msgs.student_messMenuIn} #{MessageCountNewBean.newMessages}) </a></div></div>
+            <ol class="leftSideMenuLinks">
+                <li><a href="index.xhtml">#{msgs.student_messMenuWrite}</a></li>
+                <li><a href="index.xhtml">#{msgs.student_messMenuByTeachers}</a></li>
+                <li><a href="index.xhtml">#{msgs.student_messMenuByStudent}</a></li>
+                <li><a href="index.xhtml">#{msgs.student_messMenuSystem}</a></li>
+                <li><a href="index.xhtml">#{msgs.student_messMenuOut}</a></li>
+                <li><a href="index.xhtml">#{msgs.student_messMenuArchive}</a></li>
+            </ol>
+            <div class="violMenuTitle"><p class="sideBarTitle">#{msgs.student_chatMenuTitle}</p></div>
+            <div class="sideBarUnderTitleText"><div class="violUnderTitleLink"><a href="#">#{msgs.student_generalChatLink} </a></div></div>
+            <div class="chatShortHistory">
+                <div class="chatPost">
+                    <span><span class="linkToStudentsProfile"><a href="#">Сурнин Д. В.</a></span><span class="chatPostDate">14:33:45</span><div class="floatDestroyer"/></span><span class="chatPostText">sdfdsfa sdsffsd as d f asd f a sdfasdfasdf dsfsadfasdf</span>
+                    <div class="floatDestroyer"/>
+                </div>
+                <div class="chatPost">
+                    <span><span class="linkToTeachersProfile"><a href="#">Бессонов Л. Ю.</a></span><span class="chatPostDate">14:33:45</span><div class="floatDestroyer"/></span><span class="chatPostText">sdfdsfa sdsffsd as d f asd f a sdfasdfasdf dsfsadfasdf</span>
+                    <div class="floatDestroyer"/>
+                </div>
+                <div class="chatPost">
+                    <span><span class="linkToAdminsProfile"><a href="#">Коржов В. Д.</a></span><span class="chatPostDate">14:33:45</span><div class="floatDestroyer"/></span><span class="chatPostText">sdfdsfa sdsffsd as d f asd f a sdfasdfasdf dsfsadfasdf</span>
+                    <div class="floatDestroyer"/>
+                </div>
+                <div class="chatPost">
+                    <span><span class="linkToStudentsProfile"><a href="#">Fdgdsf.</a></span><span class="chatPostDate">14:33:45</span><div class="floatDestroyer"/></span><span class="chatPostText">sdfdsfa sdsffsd as d f asd f a sdfasdfasdf dsfsadfasdf</span>
+                    <div class="floatDestroyer"/>
+                </div>
+                <div class="chatPost">
+                    <span><span class="linkToTeachersProfile"><a href="#">Fdgdsf.</a></span><span class="chatPostDate">14:33:45</span><div class="floatDestroyer"/></span><span class="chatPostText">sdfdsfa sdsffsd as d f asd f a sdfasdfasdf dsfsadfasdf</span>
+                    <div class="floatDestroyer"/>
+                </div>
+                <div class="chatPost">
+                    <span><span class="linkToAdminsProfile"><a href="#">Fdgdsf.</a></span><span class="chatPostDate">14:33:45</span><div class="floatDestroyer"/></span><span class="chatPostText">sdfdsfa sdsffsd as d f asd f a sdfasdfasdf dsfsadfasdf</span>
+                    <div class="floatDestroyer"/>
+                </div>
+            </div>
+            <div class="smallChatTools">
+                <input type="input"/><button></button>
+                <div style="height:18px;"></div>
+            </div>
         </ui:define>
 
         <ui:define name="top">
-            <a href="index.xhtml">#{msgs.student_topMenuHome}</a>
-            <a href="index.xhtml">#{msgs.student_topMenuHelp}</a>
-            <a href="index.xhtml">#{msgs.student_topMenuInfo}</a>
-            <a href="index.xhtml">#{msgs.student_topMenuNews}</a>
-            <a href="indexxhtml">#{msgs.student_topMenuSettings}</a>
-            <a href="../j_spring_security_logout" >#{msgs.student_topMenuExit}</a>
+            <ol class="topMenuLinks">
+                <li class="topMenuLinkContainer"><a href="index.xhtml">#{msgs.student_topMenuHome}</a></li>
+                <li class="topMenuLinkContainer"><a href="index.xhtml">#{msgs.student_topMenuHelp}</a></li>
+                <li class="topMenuLinkContainer"><a href="index.xhtml">#{msgs.student_topMenuInfo}</a></li>
+                <li class="topMenuLinkContainer"><a href="index.xhtml">#{msgs.student_topMenuNews}</a></li>
+                <li class="topMenuLinkContainer"><a href="indexxhtml">#{msgs.student_topMenuSettings}</a></li>
+                <li class="topMenuLinkContainer" style="border: 0px;"><a href="#">#{msgs.student_topSearchInputText}</a></li>
+                <li class="topMenuLinkContainer" style="border: 0px; float: right"><a href="../j_spring_security_logout" >#{msgs.student_topMenuExit}</a></li>
+                
+                <li style="clear: both;"></li>
+            </ol>
         </ui:define>
 
         <ui:define name="right">
-          <ul style="padding-left: 10px;">
-              <li><a href="teachersList.xhtml">#{msgs.student_comMenuTeachers}</a></li>
-              <li><a href="studentsList.xhtml">#{msgs.student_comMenuStudents}</a></li>
-              <li><a href="index.xhtml">#{msgs.student_comMenuVideoconferencing}</a></li>
-              <li><a href="index.xhtml">#{msgs.student_comMenuForum}</a></li>
-          </ul>
-          <hr/>
-            <ul style="padding-left: 10px;">
-                <li><a href="curriculum.xhtml">#{msgs.student_controlMenuCurriculum}</a></li>
-                <li><a href="libraryMaterials.xhtml">#{msgs.student_controlMenuLibrary}</a></li>
-                <li><a href="oldGrades.xhtml">#{msgs.student_controlMenuRecordBook}</a></li>
-                <li><a href="lowGradedDisciplines.xhtml">#{msgs.student_controlMenuLowGradedDisciplines}</a></li>
-                <li><a href="badPassedTests.xhtml">#{msgs.student_controlMenuBadPassedTests}</a></li>
-          </ul>
+            <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_comMenuTitle}</p></div>
+            <ol class="leftSideMenuLinks">
+                <li><a href="index.xhtml">#{msgs.student_comMenuTeachers}</a></li>
+                <li><a href="index.xhtml">#{msgs.student_comMenuStudents}</a></li>
+                <li><a href="index.xhtml">#{msgs.student_comMenuVideoconferencing}</a></li>
+                <li><a href="index.xhtml">#{msgs.student_comMenuForum}</a></li>
+            </ol>
+            
+            <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.student_controlMenuTitle}</p></div>
+            <ol class="leftSideMenuLinks">
+                <li><a href="index.xhtml">#{msgs.student_controlMenuCurriculum}</a></li>
+                <li><a href="index.xhtml">#{msgs.student_controlMenuLibrary}</a></li>
+                <li><a href="index.xhtml">#{msgs.student_controlMenuRecordBook}</a></li>
+                <li><a href="index.xhtml">#{msgs.student_controlMenuTeaching}</a></li>
+            </ol>
 
-            студенты (#{userCache.studentsNumber})
+            <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_studentsOnlineMenuTitle}</p></div>
+            <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="#">#{msgs.student_studentsOnlineUnderTitleText} (#{userCache.studentsNumber})</a></div></div>
+<!--            Студенты (#{userCache.studentsNumber})-->
+            <div class="usersOnlineTableContainer">
+                    <table cellpadding="0" cellspacing="0" class="usersOnlineTable">
+                        <tr>
+                            <td>
+                                <div class="userOnlineLinkContainer">
+                                    <a href="#">
+                                        <div class="userOnlineImgContainer"><img height="10" src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                        <div>Перцев<br/>Александр</div>
+                                    </a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="userOnlineLinkContainer">
+                                    <a href="#">
+                                        <div class="userOnlineImgContainer"><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                        <div>Перцев<br/>Александр</div>
+                                    </a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="userOnlineLinkContainer">
+                                    <a href="#">
+                                        <div class="userOnlineImgContainer"><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                        <div>Перцев<br/>Александр</div>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="userOnlineLinkContainer">
+                                    <a href="#">
+                                        <div class="userOnlineImgContainer"><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                        <div>Перцев<br/>Александр</div>
+                                    </a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="userOnlineLinkContainer">
+                                    <a href="#">
+                                        <div class="userOnlineImgContainer"><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                        <div>Перцев<br/>Александр</div>
+                                    </a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="userOnlineLinkContainer">
+                                    <a href="#">
+                                        <div class="userOnlineImgContainer"><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                        <div>Перцев<br/>Александр</div>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
               <h:dataTable value="#{userCache.sixStudents}" styleClass="friends" var="st">
                 <h:column>#{st.initials}
                     <h:outputText value="#{st.initials}"/>
                </h:column>
             </h:dataTable>
-             преподы (#{userCache.teachersNumber})
+
+            <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.student_teachersOnlineMenuTitle}</p></div>
+            <div class="sideBarUnderTitleText"><div class="blueUnderTitleLink"><a href="#">#{msgs.student_teachersOnlineUnderTitleText} (#{userCache.studentsNumber})</a></div></div>
+<!--             Преподаватели (#{userCache.teachersNumber})-->
+            <div class="usersOnlineTableContainer">
+                    <table cellpadding="0" cellspacing="0" class="usersOnlineTable">
+                        <tr>
+                            <td>
+                                <div class="userOnlineLinkContainer">
+                                    <a href="#">
+                                        <div class="userOnlineImgContainer"><img height="10" src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                        <div>Перцев<br/>Александр</div>
+                                    </a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="userOnlineLinkContainer">
+                                    <a href="#">
+                                        <div class="userOnlineImgContainer"><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                        <div>Перцев<br/>Александр</div>
+                                    </a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="userOnlineLinkContainer">
+                                    <a href="#">
+                                        <div class="userOnlineImgContainer"><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                        <div>Перцев<br/>Александр</div>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="userOnlineLinkContainer">
+                                    <a href="#">
+                                        <div class="userOnlineImgContainer"><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                        <div>Перцев<br/>Александр</div>
+                                    </a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="userOnlineLinkContainer">
+                                    <a href="#">
+                                        <div class="userOnlineImgContainer"><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                        <div>Перцев<br/>Александр</div>
+                                    </a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="userOnlineLinkContainer">
+                                    <a href="#">
+                                        <div class="userOnlineImgContainer"><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                        <div>Перцев<br/>Александр</div>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
               <h:dataTable value="#{userCache.sixTeachers}" styleClass="friends" var="st">
                 <h:column>
                     <h:outputText value="#{st.initials}"/>
@@ -67,8 +229,22 @@
               </h:dataTable>
         </ui:define>
         <ui:define name="bottom">
-            <a href="index.xhtml">#{msgs.student_bottMenuHelp}</a>
-            <a href="index.xhtml">#{msgs.student_bottMenuInfo}</a>
-            <a href="index.xhtml">#{msgs.student_bottMenuSettings}</a>
+            <ol class="bottomMenu">
+                <li class="bottomMenuLinkContainer">
+                    <a href="index.xhtml">#{msgs.student_bottMenuHelp}</a>
+                </li>
+                <li class="bottomMenuLinkContainer">
+                    <a href="index.xhtml">#{msgs.student_bottMenuInfo}</a>
+                </li>
+                <li class="bottomMenuLinkContainer" style="border: 0px;">
+                    <a href="index.xhtml">#{msgs.student_bottMenuSettings}</a>
+                </li>
+                <li class="copyrightCOO">
+                    <p>
+                        #{msgs.copyright}
+                    </p>
+                </li>
+                <li class="floatDestroyer"></li>
+            </ol>
           </ui:define>
     </ui:composition>

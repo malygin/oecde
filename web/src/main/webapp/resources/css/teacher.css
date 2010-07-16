@@ -1,0 +1,81 @@
+/* 
+    Document   : teacher
+    Created on : 14.07.2010, 16:16:09
+    Author     : KorgovVD
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.mainStyle .userFile{
+    background: #D8F7E2;
+    padding: 10px 15px;
+    border-bottom: #74CF91 1px solid;
+}
+.mainStyle .userPhoto{
+    float: left;
+    width: 22%;
+}
+.mainStyle .userPhotoBorder{
+    border: 1px #74CF91 solid;
+    width: 96%;
+    padding: 3px;
+    background: white;
+}
+.mainStyle .userPhotoBorder img{
+    margin: 0px;
+    padding: 0px;
+    vertical-align: top;
+    width: 100%;
+}
+.mainStyle .loadPhotoButton{
+    background: #A7DFB8;
+    border-top: 1px solid #D1EFDB;
+    border-left: 1px solid #D1EFDB;
+    border-right: 1px solid #8ECFA3;
+    border-bottom: 1px solid #8ECFA3;
+    color: #4F9F69;
+    min-height: 25px;
+    margin-top: 10px;
+    font-size: 100%;
+    cursor: pointer;
+    padding: 0px 10px;
+}
+.mainStyle .userData{
+    width: 78%;
+    float: right;
+}
+.mainStyle .userData p{
+    color: #96A0A2;
+    text-align: left;
+    margin-right: 10px;
+}
+.mainStyle .userData div{
+    color: green;
+    text-align: left;
+}
+.mainStyle .contentHeader{
+    width: 100%;
+    background: #8BDFA6;
+    border-top: #4F9F69 1px solid;
+    border-bottom: #4F9F69 1px solid;
+}
+.mainStyle .contentHeader p{
+    font-size: 150%;
+    padding: 5px 0 5px 15px;
+    text-align: left;
+    color: white;
+    font-family: Arial;
+    float: left;
+}
+.mainStyle .onlineStatus{
+    float: right;
+    padding: 10px 15px 5px 0px;
+    color: white;
+    text-decoration: underline;
+    font-family: Arial;
+}

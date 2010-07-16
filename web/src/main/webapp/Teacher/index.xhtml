@@ -3,8 +3,7 @@
      xmlns:ui="http://java.sun.com/jsf/facelets"
      xmlns:f="http://java.sun.com/jsf/core"
      xmlns:h="http://java.sun.com/jsf/html"
-     template="../resources/studentTemplate.xhtml"
-     xmlns:ipsil="http://java.sun.com/jsf/composite/components/util">
+     template="../resources/teacherTemplate.xhtml">
 
     <ui:define name="content">
         <div class="userFile">
@@ -25,28 +24,22 @@
             <div class="userData">
                 <table cellspacing="8">
                     <tr>
-                        <td><p>#{msgs.student_mainContentUserInfoSecondName}</p></td><td><div>#{userBean.surname}</div></td>
+                        <td><p>#{msgs.teacher_mainContentUserInfoSecondName}</p></td><td><div>#{userBean.surname}</div></td>
                     </tr>
                     <tr>
-                        <td><p>#{msgs.student_mainContentUserInfoFirstName}</p></td><td><div>#{userBean.name}</div></td>
+                        <td><p>#{msgs.teacher_mainContentUserInfoFirstName}</p></td><td><div>#{userBean.name}</div></td>
                     </tr>
                     <tr>
-                        <td><p>#{msgs.student_mainContentUserInfoThirdName}</p></td><td><div>#{userBean.secondName}</div></td>
+                        <td><p>#{msgs.teacher_mainContentUserInfoThirdName}</p></td><td><div>#{userBean.secondName}</div></td>
                     </tr>
                     <tr>
-                        <td><p>#{msgs.student_mainContentUserInfoBirthDay}</p></td><td><div>#{userBean.birthDay}</div></td>
+                        <td><p>#{msgs.teacher_mainContentUserInfoBirthDay}</p></td><td><div>#{userBean.birthDay}</div></td>
                     </tr>
                     <tr>
-                        <td><p>#{msgs.student_mainContentUserInfoFaculty}</p></td><td><div>#{userBean.faculty}</div></td>
+                        <td><p>#{msgs.teacher_mainContentUserInfoDepartment}</p></td><td><div>#{userBean.department}</div></td>
                     </tr>
                     <tr>
-                        <td><p>#{msgs.student_mainContentUserInfoSpec}</p></td><td><div>#{userBean.spec}</div></td>
-                    </tr>
-                    <tr>
-                        <td><p>#{msgs.student_mainContentUserInfoCourse}</p></td><td><div>#{userBean.cource}</div></td>
-                    </tr>
-                    <tr>
-                        <td><p>#{msgs.student_mainContentUserInfoGroup}</p></td><td><div>#{userBean.group}</div></td>
+                        <td><p>#{msgs.teacher_mainContentUserInfoPost}</p></td><td><div>#{userBean.post}</div></td>
                     </tr>
                 </table>
             </div>

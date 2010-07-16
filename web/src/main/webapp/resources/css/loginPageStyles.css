@@ -1,0 +1,115 @@
+/* 
+    Document   : loginPageStyles
+    Created on : 02.07.2010, 15:35:52
+    Author     : KorgovVD
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+
+
+.login_pageBackground{
+    background: url("../resources/images/grad_top4.jpg") repeat-y scroll center #E1E1E1;
+}
+.login_pageTopSpace{
+    height: 70px;
+    width: 10px;
+}
+.login_pageFormBackground{
+    background: url("../resources/images/blue_fon.png") no-repeat scroll 0% 0% transparent;
+    width: 801px;
+    height: 261px;
+}
+.login_pageBigIcon{
+    float: left;
+    margin-left: 60px;
+    margin-top: 50px;
+    margin-right: 50px;
+}
+.login_pageFormContainer{
+    padding-top: 50px;
+    margin: 0px;
+    text-align: left;
+}
+.SDO_text{
+    margin: 4px 0px 10px;
+    color: white;
+    font-size: 15pt;
+    font-family: Arial;
+}
+.login_pageFormInputsLabels{
+    margin-top: 2px;
+    color: #016281;
+    font-size: 10pt;
+}
+.login_pageFormInputs{
+    background: url("../resources/images/log_input_fon.jpg") repeat-x scroll 0 0 transparent;
+    border: 1px solid #A6D0E7;
+    color: #016281;
+    font-size: 9pt;
+    height: 17px;
+    margin-left: 8px;
+    margin-right: 0;
+    padding-left: 6px;
+    padding-top: 0;
+    width: 100px;
+}
+.login_pageFormButtons{
+    background: url("../resources/images/buttonBlue.jpg") repeat-x scroll center transparent;
+    border: 1px solid #6CC2D9;
+    color: #016281;
+    font-size: 10pt;
+    height: 17px;
+    margin-right: 21px;
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 0;
+    vertical-align: top;
+    cursor: pointer;
+}
+.login_pageFormButtons:hover,
+.login_pageFormButtons:active{
+    background: url("../resources/images/buttonBlue2.jpg") repeat-x bottom;
+    font-size: 10pt;
+    color: #016281;
+    border: 1px solid #6cc2d9;
+    outline: none;
+}
+.login_pageHelloText{
+    background: none repeat scroll 0 0 white;
+    height: 315px;
+    width: 800px;
+    z-index: 1;
+}
+.login_pageBottomCorners{
+    width: 800px;
+    z-index: 1;
+}
+.login_pageLeftBottomCorner{
+    float: left;
+}
+.login_pageRightBottomCorner{
+    float: right;
+}
+.login_pageBetweenBottomCornersSpace{
+    width: 770px;
+    height: 28px;
+    background: none repeat scroll 0 0 white;
+}
+.login_pageHelloTextP{
+	color: #396469;
+	text-align: justify;
+	FONT-SIZE: 105%;
+	margin: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+.login_pageHelloTextTitle{
+	color: #396469;
+	FONT-SIZE: 105%;
+	margin: 10px;
+}
+.login_pageHelloTextLink:link{color:  #4AD4FF;text-decoration: underline;}
+.login_pageHelloTextLink:active{color:  #4AD4FF;text-decoration: underline;}
+.login_pageHelloTextLink:visited{color:  #4AD4FF;text-decoration: underline;}
+.login_pageHelloTextLink:hover{color:  #4AD4FF;text-decoration: none;}

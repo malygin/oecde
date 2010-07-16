@@ -1,11 +1,14 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
 body {
     background-color: #ffffff;
     font-size: 12px;
     font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     color: #000000;  
-    margin: 10px;
+    text-align: center;
 }
-
 h1 {
     font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     border-bottom: 1px solid #AFAFAF; 
@@ -15,15 +18,13 @@ h1 {
     padding: 0px;
     color: #D20005;
 }
-
-a:link, a:visited {
-  color: #045491;
-  font-weight : bold;
-  text-decoration: none;
+p{
+    margin: 0px;
 }
-
-a:link:hover, a:visited:hover  {
-  color: #045491;
-  font-weight : bold;
-  text-decoration : underline;
+.floatDestroyer{
+    clear: both;
+    margin: 0px;
+    padding: 0px;
+    width: 1px;
+    height: 1px;
 }
