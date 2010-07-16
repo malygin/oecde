@@ -104,62 +104,68 @@
         <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.teacher_studentsOnlineMenuTitle}</p></div>
         <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="#">#{msgs.teacher_studentsOnlineUnderTitleText} (#{userCache.studentsNumber})</a></div></div>
 <!--        студенты (#{userCache.studentsNumber})-->
-        <div class="usersOnlineTableContainer">
-                    <table cellpadding="0" cellspacing="0" class="usersOnlineTable">
-                        <tr>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer"><img height="10" src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer"><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer"><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer"><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer"><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer"><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+            <div class="usersOnlineTableContainer">
+                <table cellpadding="0" cellspacing="0" class="usersOnlineTable">
+                    <tr>
+                        <td>
+                            <div class="userOnlineLinkContainer">
+                                <a href="#">
+                                    <div class="userOnlineImgContainer">
+                                    <span class="userOnlineImgContainerHeightController"></span><img height="10" src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                    <div>Перцев<br/>Александр</div>
+                                </a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="userOnlineLinkContainer">
+                                <a href="#">
+                                    <div class="userOnlineImgContainer">
+                                    <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                    <div>Перцев<br/>Александр</div>
+                                </a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="userOnlineLinkContainer">
+                                <a href="#">
+                                    <div class="userOnlineImgContainer">
+                                    <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                    <div>Перцев<br/>Александр</div>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="userOnlineLinkContainer">
+                                <a href="#">
+                                    <div class="userOnlineImgContainer">
+                                    <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                    <div>Перцев<br/>Александр</div>
+                                </a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="userOnlineLinkContainer">
+                                <a href="#">
+                                    <div class="userOnlineImgContainer">
+                                    <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                    <div>Перцев<br/>Александр</div>
+                                </a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="userOnlineLinkContainer">
+                                <a href="#">
+                                    <div class="userOnlineImgContainer">
+                                    <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                    <div>Перцев<br/>Александр</div>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         <h:dataTable value="#{userCache.sixStudents}" styleClass="friends" var="st">
             <h:column>#{st.initials}
                 <h:outputText value="#{st.initials}"/>
@@ -169,62 +175,68 @@
         <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.teacher_teachersOnlineMenuTitle}</p></div>
         <div class="sideBarUnderTitleText"><div class="blueUnderTitleLink"><a href="#">#{msgs.teacher_teachersOnlineUnderTitleText} (#{userCache.studentsNumber})</a></div></div>
 <!--        преподы (#{userCache.teachersNumber})-->
-        <div class="usersOnlineTableContainer">
-            <table cellpadding="0" cellspacing="0" class="usersOnlineTable">
-                <tr>
-                    <td>
-                        <div class="userOnlineLinkContainer">
-                            <a href="#">
-                                <div class="userOnlineImgContainer"><img height="10" src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                <div>Перцев<br/>Александр</div>
-                            </a>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="userOnlineLinkContainer">
-                            <a href="#">
-                                <div class="userOnlineImgContainer"><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                <div>Перцев<br/>Александр</div>
-                            </a>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="userOnlineLinkContainer">
-                            <a href="#">
-                                <div class="userOnlineImgContainer"><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                <div>Перцев<br/>Александр</div>
-                            </a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="userOnlineLinkContainer">
-                            <a href="#">
-                                <div class="userOnlineImgContainer"><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                <div>Перцев<br/>Александр</div>
-                            </a>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="userOnlineLinkContainer">
-                            <a href="#">
-                                <div class="userOnlineImgContainer"><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                <div>Перцев<br/>Александр</div>
-                            </a>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="userOnlineLinkContainer">
-                            <a href="#">
-                                <div class="userOnlineImgContainer"><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                <div>Перцев<br/>Александр</div>
-                            </a>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
+            <div class="usersOnlineTableContainer">
+                <table cellpadding="0" cellspacing="0" class="usersOnlineTable">
+                    <tr>
+                        <td>
+                            <div class="userOnlineLinkContainer">
+                                <a href="#">
+                                    <div class="userOnlineImgContainer">
+                                    <span class="userOnlineImgContainerHeightController"></span><img height="10" src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                    <div>Перцев<br/>Александр</div>
+                                </a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="userOnlineLinkContainer">
+                                <a href="#">
+                                    <div class="userOnlineImgContainer">
+                                    <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                    <div>Перцев<br/>Александр</div>
+                                </a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="userOnlineLinkContainer">
+                                <a href="#">
+                                    <div class="userOnlineImgContainer">
+                                    <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                    <div>Перцев<br/>Александр</div>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="userOnlineLinkContainer">
+                                <a href="#">
+                                    <div class="userOnlineImgContainer">
+                                    <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                    <div>Перцев<br/>Александр</div>
+                                </a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="userOnlineLinkContainer">
+                                <a href="#">
+                                    <div class="userOnlineImgContainer">
+                                    <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                    <div>Перцев<br/>Александр</div>
+                                </a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="userOnlineLinkContainer">
+                                <a href="#">
+                                    <div class="userOnlineImgContainer">
+                                    <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
+                                    <div>Перцев<br/>Александр</div>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         <h:dataTable value="#{userCache.sixTeachers}" styleClass="friends" var="st">
             <h:column>
                 <h:outputText value="#{st.initials}"/>

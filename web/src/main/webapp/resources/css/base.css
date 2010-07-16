@@ -406,7 +406,8 @@
 }
 .mainStyle .usersOnlineTable{
     text-align: center;
-    width: 100%;
+    width: 99%;
+    margin-left: 2px;
     margin-top: 5px;
     font-size: 80%;
 }
@@ -426,3 +427,8 @@
 .mainStyle .userOnlineLinkContainer a:visited {color: #505050; text-decoration: none; font-weight: normal}
 .mainStyle .userOnlineLinkContainer a:active {color: #505050; text-decoration: none; font-weight: normal}
 .mainStyle .userOnlineLinkContainer a:hover {color: #505050; text-decoration: underline; font-weight: normal}
+
+.mainStyle .userOnlineImgContainerHeightController{
+    height: 66px;
+    width: 1px;
+}
