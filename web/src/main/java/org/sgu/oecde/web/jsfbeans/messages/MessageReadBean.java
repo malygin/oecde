@@ -15,7 +15,7 @@ import org.sgu.oecde.messages.service.MessageService;
 /**
  * @author Andrey Malygin (mailto: anmalygin@gmail.com)
  * created 28.06.2010
- *
+ * Бин для чтения сообщения
  */
 
 @ManagedBean(name="MessageReadBean")
@@ -25,10 +25,8 @@ public class MessageReadBean {
     @ManagedProperty(value="#{messageService}")
     private MessageService messageService;
 
-    private MessageType mt=MessageType.privateMessage;
-
+  
     private boolean noAccess=true;
-
     private int id_message;
     private MessageImpl message;
  
@@ -43,6 +41,9 @@ public class MessageReadBean {
         this.id_message = id_message;    
         if (message==null){ message=messageService.getById(new Long(id_message));
            //проверяем доступ к письму
+          if (message.getMessage().getAuthor().getId().equals(SecurityContextHandler.getUser().getId())){
+               noAccess=false;
+          }
            for(MessageRecipient r: message.getMessage().getRecipients()){
               if (r.getRecipient().getId().equals(SecurityContextHandler.getUser().getId())){
                    noAccess=false;
@@ -80,14 +81,5 @@ public class MessageReadBean {
     public void setNoAccess(boolean noAccess) {
         this.noAccess = noAccess;
     }
-
-    public MessageType getMt() {
-        return mt;
-    }
-
-    public void setMt(MessageType mt) {
-        this.mt = mt;
-    }
-
 
 }

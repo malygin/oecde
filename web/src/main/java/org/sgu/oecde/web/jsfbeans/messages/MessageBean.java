@@ -15,24 +15,22 @@ import org.sgu.oecde.messages.service.MessageService;
  *
  * @author Andrey Malygin (mailto: anmalygin@gmail.com)
  * @date 17.08.2010
+ * Бин для работы со списками сообщений
  */
 @ManagedBean(name="MessageBean")
 @ViewScoped
 public class MessageBean implements Serializable{    
 
     @ManagedProperty(value="#{messageService}")
-    private MessageService messageService;
-
-    private AbstractUser  currentUser;
+    private MessageService messageService;   
     
     private List<MessageImpl> messages;
     private List<MessageImpl> messagesArchive;
     private List<MessageImpl> messagesOut;
 
-
-
     private boolean renderDeleteSuccess=false;
 
+    private AbstractUser  currentUser;
     private String currentMessageId;
     private String currentUserId;
 
@@ -46,9 +44,8 @@ public class MessageBean implements Serializable{
     }
   
     public void deleteMessage(){
-        //this.renderArchiveSuccess=false;
-        this.renderDeleteSuccess=true;
-        System.out.println("delete! "+currentMessageId);
+ 
+        this.renderDeleteSuccess=true;       
         messageService.delete(new Long(currentMessageId), currentUser);
     }
  
@@ -58,28 +55,15 @@ public class MessageBean implements Serializable{
         if (messages==null)messages=messageService.getListInAll(currentUser,messageOnPage,currentPage);
         return  messages;
     }
-
-    public void setMessages(List<MessageImpl> messages) {
-        this.messages = messages;
-    }
   
     public List<MessageImpl> getMessagesArchive() {
         if (messagesArchive==null) messagesArchive=messageService.getListArchive(currentUser,2,1);
         return  messagesArchive;
     }
 
-    public void setMessagesArchive(List<MessageImpl> messagesArchive) {
-        this.messagesArchive = messagesArchive;
-    }
-
     public List<MessageImpl> getMessagesOut() {
-        if (messagesOut==null) messagesOut=messageService.getListOutAll(currentUser,2,1);
+        if (messagesOut==null) messagesOut=messageService.getListOutAll(currentUser,messageOnPage,currentPage);
         return  messagesOut;
-    }
-
-
-    public void setMessagesOut(List<MessageImpl> messagesOut) {
-        this.messagesOut = messagesOut;
     }
 
 

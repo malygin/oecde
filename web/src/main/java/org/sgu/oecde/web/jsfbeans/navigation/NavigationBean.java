@@ -34,11 +34,13 @@ public class NavigationBean implements Serializable{
     }
 
     public String getPage() {
+
         if (page==null) page="1";
         return page;
     }
 
     public void setPage(String page) {
+        System.out.println("____________________");
         this.page = page;
     }
     //формирование списка страниц
@@ -56,13 +58,15 @@ public class NavigationBean implements Serializable{
         this.pages = pages;
     }
 
-    public int getNumPages() {
+    public int getNumElements() {
         return numElements;
     }
 
-    public void setNumPages(int numPages) {
-        this.numElements = numPages;
+    public void setNumElements(int numElements) {
+        this.numElements = numElements;
     }
+
+  
 
 
 

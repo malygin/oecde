@@ -10,7 +10,7 @@ import org.sgu.oecde.messages.service.MessageService;
 /**
  * @author Andrey Malygin (mailto: anmalygin@gmail.com)
  * created 01.07.2010
- * 
+ * Бин для получения количества новых сообщений
  */
 
 @ManagedBean(name="MessageCountNewBean")
@@ -30,5 +30,4 @@ public class MessageCountNewBean {
     public void setMessageService(MessageService messageService) {
         this.messageService = messageService;
     }
-
 }

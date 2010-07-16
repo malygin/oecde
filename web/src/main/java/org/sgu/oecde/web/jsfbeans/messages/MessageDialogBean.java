@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.*;
-import javax.inject.Named;
 import org.sgu.oecde.core.IBasicDao;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.util.SecurityContextHandler;
@@ -16,7 +15,7 @@ import org.sgu.oecde.messages.service.MessageService;
 /**
  * @author Andrey Malygin (mailto: anmalygin@gmail.com)
  * created 05.07.2010
- *
+ * Бин для диалога в сообщениях
  */
 
 @ManagedBean(name="messageDialogBean")
@@ -30,8 +29,7 @@ public class MessageDialogBean implements  Serializable {
     private IBasicDao userDao;
 
     private AbstractUser  currentUser;
-    private String recipientId;
-    
+    private String recipientId;    
     private boolean noDialog=true;
     private MessageRecipient recipient;
     private List<MessageImpl> messagesDialog;
