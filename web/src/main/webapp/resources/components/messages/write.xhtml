@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+
+  <!-- INTERFACE -->
+  <cc:interface>
+          <cc:attribute name="actionMethod"
+             method-signature="java.lang.String action()"/>
+  </cc:interface>
+
+  <!-- IMPLEMENTATION -->
+  <cc:implementation>
+      <h:form  id ="formSend"  enctype="multipart/form-data" >
+             <h:outputText rendered="#{MessageWriteBean.renderSuccessSend}" value="Сообщение успешно послано!"/><br/>
+
+              <h:dataTable id="recipients" value="#{MessageWriteBean.recipients}" var="recipient">
+                    <h:column>
+                        #{recipient.fioAuthor}
+                        <h:commandLink action="#{MessageWriteBean.removeRecipient}" value="удалить">
+                            <f:ajax execute="@form" render="@form"/>
+                            <f:setPropertyActionListener target="#{MessageWriteBean.recipient_id_remove}" value="#{recipient.recipient.id}"/>
+                        </h:commandLink>
+                    </h:column>
+                </h:dataTable>         
+
+              <br/>
+                <h:inputText  value="#{MessageWriteBean.theme}"/><br/>
+                <h:inputTextarea value="#{MessageWriteBean.fullText}"/><br/>
+                <h:dataTable value="#{MessageWriteBean.files}" var="file">
+                    <h:column>
+                        #{file.name}
+                        <h:commandLink action="#{MessageWriteBean.removeFile}" value="удалить">
+                            <f:ajax execute="@form" render="@form"/>
+                            <f:setPropertyActionListener target="#{MessageWriteBean.messageNameForDelete}" value="#{file.name}"/>
+                        </h:commandLink>
+
+                    </h:column>
+                </h:dataTable>
+                 <input type="file" name="MessageFile"/><br/>
+                 <h:commandButton  action="#{MessageWriteBean.addFile}" value="add File"/>
+                 <h:commandButton  action="#{cc.attrs.actionMethod}" value="save"/>
+            </h:form>
+           
+  </cc:implementation>
+</html>

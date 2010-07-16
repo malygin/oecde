@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:composite="http://java.sun.com/jsf/composite"
-    xmlns:h="http://java.sun.com/jsf/html">
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
 
  <!-- INTERFACE -->
   <composite:interface>
@@ -11,7 +12,18 @@
 
   <!-- IMPLEMENTATION -->
     <composite:implementation>
-            <h:outputText value="#{cc.attrs.mess.fioAuthor}"/><br/>
+        <h:outputText rendered="#{MessageReadBean.noAccess}" value="У Вас нет доступа к этому письму"/>
+        <h:panelGroup rendered="#{not MessageReadBean.noAccess}">
+        <h:form  id ="formSend" >
+             <br/>
+            <h:outputLink  value="messages_dialog.xhtml?user=#{cc.attrs.mess.message.author.id}">Диалог!</h:outputLink><br/>
+            <h:commandLink action="#{MessageReadBean.delete}" value="Удалить"/><br/>
+            автор - <h:outputText value="#{cc.attrs.mess.fioAuthor}"/><br/>
+            получатели  <h:dataTable value="#{cc.attrs.mess.message.recipients}" var="rec">
+                            <h:column>
+                                <h:outputText value="#{rec.fioAuthor}"/><br/>
+                            </h:column>
+                        </h:dataTable>
             <h:outputText value="#{cc.attrs.mess.message.dateMessage}"/><br/>
             <h:outputText value="#{cc.attrs.mess.message.theme}"/><br/>
             <h:outputText value="#{cc.attrs.mess.message.fullText}"/>
@@ -20,5 +32,19 @@
                     <a href="../resources/userFiles/messages/#{file.name}">Скачать файл</a>
                 </h:column>
             </h:dataTable>
+            <br/><br/>
+            <a href="messages_write.xhtml?user=#{cc.attrs.mess.message.author.id}">Полный режим</a>
+              <br/>
+            <h:outputText rendered="#{MessageWriteBean.renderSuccessSend}" value="Сообщение успешно послано"/>
+
+                <h:inputText  value="#{MessageWriteBean.theme}"/><br/>
+                <h:inputTextarea value="#{MessageWriteBean.fullText}"/><br/>
+
+                <h:commandButton action="#{MessageWriteBean.save}" value="save!">
+                    <f:setPropertyActionListener target="#{MessageWriteBean.message}" value="#{cc.attrs.mess}"/>
+                    <f:ajax execute="@form" render="@form" />
+                </h:commandButton>
+            </h:form>
+        </h:panelGroup>
   </composite:implementation>
 </html>
