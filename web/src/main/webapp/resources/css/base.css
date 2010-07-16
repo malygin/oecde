@@ -124,9 +124,9 @@
 .mainStyle .content table *{
     text-align: left;
 }
-.mainStyle .content a:link {color: #A3A3A3; text-decoration: underline; font-size: 10pt; font-weight: bold;margin: 0px;font-family: Arial;}
-.mainStyle .content a:visited {color: #A3A3A3; text-decoration: underline; font-size:10pt; font-weight: bold;margin: 0px; font-family: Arial;}
-.mainStyle .content a:active {color: #A3A3A3; text-decoration:  underline;font-size: 10pt;font-weight: bold;margin: 0px; font-family: Arial;}
+.mainStyle .content a:link {color: #79CEFF; text-decoration: underline; font-size: 10pt; font-weight: bold;margin: 0px;font-family: Arial;}
+.mainStyle .content a:visited {color: #79CEFF; text-decoration: underline; font-size:10pt; font-weight: bold;margin: 0px; font-family: Arial;}
+.mainStyle .content a:active {color: #79CEFF; text-decoration:  underline;font-size: 10pt;font-weight: bold;margin: 0px; font-family: Arial;}
 .mainStyle .content a:hover {color: #A3A3A3; text-decoration: underline; font-size: 10pt; font-weight: bold; margin: 0px; font-family: Arial;}
 /*temporary style for page content part*/
 .mainStyle .leftMenuContainer{
