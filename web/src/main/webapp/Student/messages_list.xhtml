@@ -10,7 +10,9 @@
               <f:viewParam name="page" value="#{NavigationBean.page}"/>
               <f:viewParam name="page" value="#{MessageBean.currentPage}"/>
          </f:metadata>
+
         <ui:define name="content">
+
             <util:navigationList elementOnPage="#{MessageBean.messageOnPage}"
                                  numElements="#{MessageBean.numOfMessages}"/>
             <mess:list list="#{MessageBean.messages}"/>          

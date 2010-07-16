@@ -5,15 +5,11 @@
          template="../resources/studentTemplate.xhtml"
          xmlns:mess="http://java.sun.com/jsf/composite/components/messages"
          xmlns:util="http://java.sun.com/jsf/composite/components/util">
-        <f:metadata>
-              <f:viewParam name="page" value="#{NavigationBean.page}"/>
-              <f:viewParam name="page" value="#{MessageBean.currentPage}"/>
-         </f:metadata>
+         <f:metadata>
+             <f:viewParam name="user" value="#{messageDialogBean.recipientId}"/>
+        </f:metadata>
         <ui:define name="content">
-            <util:navigationList elementOnPage="#{MessageBean.messageOnPage}"
-                                 numElements="#{MessageBean.numOfMessagesOut}"/>
-
-
-            <mess:list_out list="#{MessageBean.messagesOut}"/>
+         
+            <mess:dialog list="#{messageDialogBean.messagesDialog}"/>
          </ui:define>
     </ui:composition>
