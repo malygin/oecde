@@ -19,9 +19,12 @@ import org.sgu.oecde.core.education.work.AbstractResult;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.StudentGroup;
+import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.core.util.Semesters;
 import org.sgu.oecde.de.education.DeCurriculum;
+import org.sgu.oecde.de.education.DeCurriculumBuilder;
+import org.sgu.oecde.de.users.Student;
 import org.springframework.test.context.ContextConfiguration;
 import static org.junit.Assert.*;
 
@@ -85,5 +88,16 @@ public class getSimpleItem extends BasicTest{
         for(Author b:l){
             System.out.println(b.getTeacher()+"   "+b.getSurname()+"   "+b.getId());
         }
+    }
+
+//    @Ignore
+    @Test
+    public void getCur(){
+        this.setDao("userDao");
+        Student st = getItem(324613L);
+
+        setDao("curriculumDao");
+        Map l = this.<ICurriculumDao>getDao().getTeachersByGroup(4,2009, st.getGroup());
+        System.out.println(l.keySet());
     }
 }
