@@ -2,12 +2,15 @@ package org.sgu.oecde.journal.util;
 
 import javax.annotation.Resource;
 import org.sgu.oecde.core.IBasicDao;
+import org.sgu.oecde.core.education.AdvancedCurriculum;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.Discipline;
 import org.sgu.oecde.core.education.Speciality;
+import org.sgu.oecde.core.education.Umk;
 import org.sgu.oecde.core.education.dao.ICurriculumDao;
 import org.sgu.oecde.core.education.dao.IResourceDao;
 import org.sgu.oecde.core.education.resource.AbstractResource;
+import org.sgu.oecde.core.education.resource.Task;
 import org.sgu.oecde.core.users.AbstractPerson;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.StudentGroup;
@@ -156,46 +159,23 @@ public class RecordEventFactory {
      * 6 - ID модуля;
      * 7 - ID UMK;
      */
-    public void saveUmkActivity(AbstractUser userId,  EventType eventType, Long taskId, Long curriculumId) {
-        if (UserType.fromRole(userId).equals(UserType.STUDENT) & !(eventType.equals(EventType.UMK_VIEW))) {
-            return;
-        }
+    public void saveUmkActivity(AbstractUser userId,  EventType eventType, Curriculum c) {
         //Формируется тело сообщения.
-        String[] str = new String[8];
-        str[0] = getType(userId);
-        str[1] = getFioByUserId(userId);
-        switch (eventType) {
-            case UMK_VIEW:
-                str[2] = "просматривал(а)";
-                break;
-            case UMK_CREATE:
-                str[2] = "создал(а)";
-                break;
-            case UMK_DELETE:
-                str[2] = "удалил(а)";
-                break;
-            case UMK_EDIT:
-                str[2] = "редактировал(а)";
-                break;
-        }
+        if(c==null)
+            return;
+        String[] str = new String[1];
+        str[0] = c.getUmk().getName();
+        save(eventType, userId, c.getId(), str);
+    }
 
-        Long umkId = 0L;
-
-        if (eventType.equals(EventType.UMK_CREATE) || eventType.equals(EventType.UMK_DELETE) || eventType.equals(EventType.UMK_EDIT)) {
-            umkId = taskId;
-            str[7] = umkId + "";
-        } else if (eventType.equals(EventType.UMK_VIEW)) {
-            Curriculum c = curriculumDao.getById(curriculumId);
-            AbstractResource t = resourceDao.getById(taskId);
-            str[3] = c.getUmk().getName();
-            str[4] = t.getTitle();
-            str[5] = t.getId() + "";
-            str[6] = null + "";
-            str[7] = c.getUmk().getId() + "";
-            umkId = c.getUmk().getId();
-        }
-
-        save(eventType, userId, umkId, str);
+    public void saveTaskView(AbstractUser userId,  EventType eventType, Curriculum c, Task t){
+        if(c==null||t==null)
+            return;
+        String[] str = new String[3];
+        str[0] = c.getUmk().getName();
+        str[1] = t.getTitle();
+        str[2] = t.getId().toString();
+        save(eventType, userId, c.getId(), str);
     }
 
     /**
@@ -206,20 +186,7 @@ public class RecordEventFactory {
      * 2 - Тип активности (значение, а не ID: добавлял/удалял/заходил в систему);     *
      */
     public void saveSimpleActivity(AbstractUser user, EventType eventType) {
-        //Формируется тело сообщения.
-        String[] str = new String[2];
-        str[0] = getType(user);
-        switch (eventType) {
-            case PHOTO_ADDITION:
-                str[1] = "добавил(а) фотографию";
-                break;
-
-            case PHOTO_DELETION:
-                str[1] = "удалил(а) фотографию";
-                break;
-
-        }
-        save(eventType, user, 0L, str);
+        save(eventType, user, 0L, null);
     }
 
     /**
@@ -229,9 +196,8 @@ public class RecordEventFactory {
      * @param ip айпи
      */
     public void saveLogInEvent(AbstractUser user,String ip){
-        String[] str = new String[2];
-        str[0] = getType(user);
-        str[1] = ip;
+        String[] str = new String[1];
+        str[0] = ip;
         save(EventType.SYSTEM_LOGIN, user, 0L, str);
     }
 
@@ -285,11 +251,12 @@ public class RecordEventFactory {
      * 0 - ФИО студента.
      * 1 - Название дисциплины.
      */
-    public void saveTaskHasBeenSent(AbstractUser userId, Long disciplineId) {
-        String[] str = new String[2];
-        str[0] = getFioByUserId(userId);
-        str[1] = getDisciplineNameById(disciplineId);
-        save(EventType.TASK_HAS_BEEN_SEND_TO_PREP, userId, disciplineId, str);
+    public void saveTaskHasBeenSent(AbstractUser user, AdvancedCurriculum c) {
+        if(c==null||c.getDiscipline()==null)
+            return;
+        String[] str = new String[1];
+        str[0] = c.getDiscipline().getName();
+        save(EventType.TASK_HAS_BEEN_SEND_TO_PREP, user, c.getId(), str);
     }
 
     /**
@@ -311,28 +278,18 @@ public class RecordEventFactory {
     }
 
     /**
-     * Логируется факт обновления новостей.
+     * Логируется факт обновления или просмотра новостей.
      * В multyId кладется id новости.
      * <p/>
      * В теле события через разделитель записаны следующий данные:
-     * 0 - Заголовок новости.
+     * @param news новость
+     * @param user пользователь-автор события
+     * @param type тип события
      */
-    public void saveNews(Long newsId, String header) {
+    public void saveNews(NewsItem news, AbstractUser user, EventType type) {
         //String newsText = journalDAO.getNewsById(newsId);
-        String[] str = {header};
-        save(EventType.NEW_NEWS, null, newsId, str);
-    }
-
-    /**
-     * Логируется факт просмотра новостей.
-     * В multyId кладется id новости.
-     * <p/>
-     * В теле события через разделитель записаны следующий данные:
-     * 0 - Заголовок новости.
-     */
-    public void saveViewNews(Long newsId, String header, AbstractUser user) {
-        String[] str = {header};
-        save(EventType.NEWS_VIEW, user, newsId, str);
+        String[] str = {news.getHeader()};
+        save(type, user, news.getId(), str);
     }
 
     /**

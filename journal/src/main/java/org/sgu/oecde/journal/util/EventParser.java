@@ -82,7 +82,8 @@ public class EventParser {
         String fio = RecordEventFactory.getFioByUserId(item.getUser());
         //Собираем текст сообщения.
         //Студент/преподаватель ФИО просматривал(а) новость <ссылка>"Заголовок"<ссылка>.
-        StringBuilder sb = new StringBuilder(item.getUser().getAuthority().getAuthority());
+        StringBuilder sb = new StringBuilder();
+        sb.append(UserType.fromRole(item.getUser()));
         sb.append(" ").append(fio);
         sb.append(" просматривал(а) новость ").append("<a href=\"#newsFullText/id=").append(item.getMultiId())
                 .append("&pN=1&count=10\">").append("\"").append(str[0]).append("\"").append("</a>");
@@ -235,28 +236,43 @@ public class EventParser {
     private String parseUmkActivity(EventItem item) {
         String str[] = item.getEventBody().split(splitter);
         StringBuilder sb = new StringBuilder();
-        sb.append(str[0]).append(" ");
+        sb.append(UserType.fromRole(item.getUser())).append(" ");
         sb.append("<a href=\"");
         switch (UserType.fromRole(item.getUser())) {
             case STUDENT:
-                sb.append("#student");
+                sb.append("student");
                 break;
             case TEACHER:
-                sb.append("#teacher");
+                sb.append("teacher");
                 break;
             case SUPERVISOR:
             case ADMIN:
-                sb.append("#admin");
+                sb.append("admin");
                 break;
         }
-        sb.append("/id=").append(item.getUser().getId()).append("\">").append(str[1]);
-        sb.append("</a> ").append(str[2]).append(" ");
-        sb.append("<a href=\"#course/id=").append(str[7]).append("\">");
-        sb.append("УМК");
+        sb.append(".xhtml?id=").append(item.getUser().getId()).append("\">").append(str[1]);
+        sb.append("</a> ");
+        switch(item.getEventType()) {
+            case UMK_VIEW:
+                sb.append("просматривал(а)");
+                break;
+            case UMK_CREATE:
+                sb.append("создал(а)");
+                break;
+            case UMK_DELETE:
+                sb.append("удалил(а)");
+                break;
+            case UMK_EDIT:
+                sb.append("редактировал(а)");
+                break;
+        }
+        sb.append(" ");
+        sb.append("<a href=\"discipline.xhtml?c=").append(item.getMultiId()).append("\">");
+        sb.append(str[0]);
+        sb.append("</a>");
         if (item.getEventType().equals(EventType.UMK_VIEW)) {
-            sb.append(" \"");
-            sb.append(str[3]).append("\"</a>, задание ");
-            sb.append("<a href=\"exbook.jsp#").append(str[5]).append("\">").append(str[4]).append("</a>");
+            sb.append(", задание ");
+            sb.append("<a href=\"exbook.jsp?id=").append(str[2]).append("\">").append(str[1]).append("</a>");
         }
         return sb.toString();
     }
@@ -269,13 +285,12 @@ public class EventParser {
      * 2 - Тип активности (значение, а не ID: добавлял/удалял);     *
      */
     private String parseSimpleActivity(EventItem item) {
-        String str[] = item.getEventBody().split(splitter);
         StringBuilder sb = new StringBuilder();
-        sb.append(str[0]).append(" ");
-        sb.append("<a href=\"");
+        sb.append(UserType.fromRole(item.getUser()));
+        sb.append(" <a href=\"");
         switch (UserType.fromRole(item.getUser())) {
             case STUDENT:
-                sb.append("/id=").append(item.getUser().getId()).append("\">");
+                sb.append("#student");
                 break;
             case TEACHER:
                 sb.append("#teacher");
@@ -288,9 +303,18 @@ public class EventParser {
         sb.append("/id=").append(item.getUser().getId()).append("\">");
         sb.append(RecordEventFactory.getFioByUserId(item.getUser()));
         sb.append("</a> ");
-        if(EventType.SYSTEM_LOGIN.equals(item.getEventType()))
-            sb.append("вошёл в систему с удалённого адреса ");
-        sb.append(str[1]);
+        switch (item.getEventType()) {
+            case PHOTO_ADDITION:
+                sb.append("добавил(а) фотографию");
+                break;
+            case PHOTO_DELETION:
+                sb.append("удалил(а) фотографию");
+                break;
+            case SYSTEM_LOGIN:
+                sb.append("вошёл в систему с удалённого адреса ");
+                sb.append(item.getEventBody().split(splitter)[0]);
+                break;
+        }
         return sb.toString();
     }
 
@@ -358,9 +382,9 @@ public class EventParser {
     private String parseTaskHasBeenSent(EventItem item) {
         StringBuilder sb = new StringBuilder();
         String[] str = item.getEventBody().split(splitter);
-        sb.append("Cтудент ").append("<a href=#student/id=");
+        sb.append("Cтудент ").append("<a href=student.xhtml?id=");
         sb.append(item.getUser().getId()).append(">");
-        sb.append(str[0]).append("</a>").append(" ");
+        sb.append(RecordEventFactory.getFioByUserId(item.getUser())).append("</a>").append(" ");
         sb.append("отправил(а) на проверку задание по дисциплине \"");
         sb.append(str[1]).append("\"");
         return sb.toString();
@@ -392,9 +416,6 @@ public class EventParser {
      * В multyId лежит id новости.
      */
     private String parseNewNews(EventItem item) {
-//        StringBuilder sb = new StringBuilder();
-//        sb.append("<a href=\"#news/id=").append(item.getMultiId()).append("\">");
-//        sb.append("Добавлена новость").append("</a>");
         String[] str = item.getEventBody().split(splitter);
         StringBuilder sb = new StringBuilder().append("Добавлена новость \"").append(str[0])
                 .append("\", подробнее <a href=\"#newsFullText/id=").append(item.getMultiId())

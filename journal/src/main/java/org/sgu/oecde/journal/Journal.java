@@ -1,10 +1,14 @@
 package org.sgu.oecde.journal;
 
 import java.util.List;
+import org.sgu.oecde.core.education.AdvancedCurriculum;
+import org.sgu.oecde.core.education.Curriculum;
+import org.sgu.oecde.core.education.resource.Task;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.journal.dao.IJournalDao;
 import org.sgu.oecde.journal.filter.BaseFilter;
 import org.sgu.oecde.journal.util.RecordEventFactory;
+import org.sgu.oecde.news.NewsItem;
 import org.sgu.oecde.shedule.Lesson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -70,8 +74,8 @@ public class Journal{
      * @param userType Тип пользователя.
      * @param taskId   Идентификатор занятия
      */
-    public void logViewUMK(AbstractUser userId,Long taskId,Long curricuumId) {
-        ref.saveUmkActivity(userId,  EventType.UMK_VIEW, taskId,curricuumId);
+    public void logViewUMK(AbstractUser userId,Curriculum curricuum,Task task) {
+        ref.saveTaskView(userId,  EventType.UMK_VIEW, curricuum, task);
     }
 
     /**
@@ -81,8 +85,8 @@ public class Journal{
      * @param userId   идентификатор пользователя.
      * @param userType Тип пользователя.
      */
-    public void logEditUMK(AbstractUser userId,Long taskId,Long curricuumId) {
-        ref.saveUmkActivity(userId,  EventType.UMK_EDIT, taskId,curricuumId);
+    public void logEditUMK(AbstractUser userId,Curriculum curricuum) {
+        ref.saveUmkActivity(userId,  EventType.UMK_EDIT, curricuum);
     }
 
     /**
@@ -93,9 +97,9 @@ public class Journal{
      * @param userType Тип пользователя.
      * @param taskId   идентификатор задания
      */
-    public void logCreateUMK(AbstractUser userId,Long taskId,Long curricuumId) {
+    public void logCreateUMK(AbstractUser userId,Curriculum curricuum) {
 
-        ref.saveUmkActivity(userId,  EventType.UMK_CREATE, taskId,curricuumId);
+        ref.saveUmkActivity(userId,  EventType.UMK_CREATE, curricuum);
     }
 
     /**
@@ -106,8 +110,8 @@ public class Journal{
      * @param userType Тип пользователя.
      * @param taskId   идентификатор УМК
      */
-    public void logDeleteUMK(AbstractUser userId,Long taskId,Long curricuumId) {
-        ref.saveUmkActivity(userId,  EventType.UMK_DELETE, taskId,curricuumId);
+    public void logDeleteUMK(AbstractUser userId,Curriculum curricuum) {
+        ref.saveUmkActivity(userId,  EventType.UMK_DELETE, curricuum);
     }
 
     /**
@@ -192,8 +196,8 @@ public class Journal{
      * @param userId       Идентификатор студента.
      * @param disciplineId id дисциплины.
      */
-    public void logTaskHasBeenSent(AbstractUser userId, Long disciplineId) {
-        ref.saveTaskHasBeenSent(userId, disciplineId);
+    public void logTaskHasBeenSent(AbstractUser user, AdvancedCurriculum c) {
+        ref.saveTaskHasBeenSent(user, c);
     }
 
     /**
@@ -210,8 +214,8 @@ public class Journal{
     /**
      * Добавение новой новости
      */
-    public void logNewNews(Long newsId, String header) {
-        ref.saveNews(newsId, header);
+    public void logNewNews(NewsItem item, AbstractUser user) {
+        ref.saveNews(item,user, EventType.NEW_NEWS);
     }
 
     /**
@@ -298,7 +302,7 @@ public class Journal{
     }
 
 
-    public void logViewNews(Long id, String header, AbstractUser user) {
-        ref.saveViewNews(id, header, user);
+    public void logViewNews(NewsItem item, AbstractUser user) {
+        ref.saveNews(item,user, EventType.NEWS_VIEW);
     }
 }
