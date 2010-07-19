@@ -9,7 +9,6 @@ import org.hibernate.Query;
 import org.hibernate.ScrollableResults;
 import org.hibernate.criterion.Property;
 import org.sgu.oecde.core.BasicDao;
-import org.sgu.oecde.core.education.AdvancedCurriculum;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.users.StudentGroup;
@@ -56,13 +55,6 @@ public class CurriculumDao<T extends Curriculum> extends BasicDao<T> implements 
                  .setParameter("t", teacher).list();
     }
 
-    public List getByParametersAndGroup(AdvancedCurriculum c,StudentGroup gr) throws DataAccessException {
-        if(gr == null|| gr.getId()==0||c==null||c.getSpeciality()==null)
-            return new ArrayList(0);
-        return getSession().createQuery("select distinct c,t.teacher from AdvancedCurriculum c join c.teacherToGroups t join fetch c.discipline join fetch c.speciality where c.calendarYear=:y and c.semester =:s and t.group=:g and c.speciality=:sp")
-                .setParameter("s", c.getSemester()).setParameter("y", c.getCalendarYear()).setParameter("g", gr).setParameter("sp", c.getSpeciality()).list();
-    }
-
     /**
      * {@inheritDoc }
      */
@@ -71,7 +63,7 @@ public class CurriculumDao<T extends Curriculum> extends BasicDao<T> implements 
         if(group == null&& group.getId()==0)
             return null;
         ScrollableResults result = getSession().createQuery("select distinct c,t.teacher from AdvancedCurriculum c join c.teacherToGroups t join fetch c.discipline join fetch c.speciality where c.calendarYear=:y and c.semester =:s and t.group=:g")
-                .setParameter("s", semester).setParameter("y", year).setParameter("g", group).scroll();
+                .setParameter("s", semester).setParameter("y", year).setParameter("g", group).setCacheable(true).scroll();
         Map map = new HashMap();
         while(result.next()){
             map.put(result.get(0), result.get(1));

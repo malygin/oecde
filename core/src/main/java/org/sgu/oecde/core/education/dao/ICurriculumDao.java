@@ -61,6 +61,4 @@ public interface ICurriculumDao<T extends Curriculum> extends IBasicDao<T>{
      */
     @SuppressWarnings("unchecked")
     public <E extends StudentGroup> List<E> getGroupsForTeacher(Integer[] semester, int year, Teacher teacher) throws DataAccessException;
-
-    public List getByParametersAndGroup(AdvancedCurriculum c,StudentGroup gr) throws DataAccessException ;
 }
