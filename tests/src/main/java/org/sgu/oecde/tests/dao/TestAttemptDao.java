@@ -6,7 +6,6 @@ import org.hibernate.criterion.Property;
 import org.sgu.oecde.core.education.dao.ResultDao;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.tests.TestAttempt;
-import org.sgu.oecde.tests.TestAttemptType;
 import org.sgu.oecde.tests.TestEntity;
 import org.springframework.dao.DataAccessException;
 import org.springframework.util.CollectionUtils;

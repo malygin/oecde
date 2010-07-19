@@ -1,6 +1,7 @@
 package org.sgu.oecde.tests.dao;
 
 import java.util.List;
+import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.dao.IResultDao;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.tests.TestAttempt;

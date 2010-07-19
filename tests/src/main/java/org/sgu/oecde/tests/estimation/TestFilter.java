@@ -7,6 +7,7 @@ import org.sgu.oecde.core.education.estimation.IResultFilter;
 import org.sgu.oecde.core.education.estimation.Points;
 import org.sgu.oecde.core.education.estimation.ResultType;
 import org.sgu.oecde.core.education.work.AbstractResult;
+import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.tests.TestAttempt;
 import org.sgu.oecde.tests.TestAttemptType;
 import org.sgu.oecde.tests.TestEntity;
@@ -69,11 +70,8 @@ public final class TestFilter implements IResultFilter{
         TestAttempt att = (TestAttempt) result;
         if(att==null||att.<TestEntity>getWork()==null||att.<TestEntity>getWork().getType()==null||att.getType()==null||att.getType().equals(TestAttemptType.trial))
             return;
-        if(!att.<TestEntity>getWork().equals(test)){
+        if(!att.<TestEntity>getWork().equals(test))
             setPoints(point);
-            points = new LinkedList<Integer>();
-            rePoints = new LinkedList<Integer>();
-        }
         if(att.getType().equals(TestAttemptType.reTest)){
             rePoints.add(att.getPoints());
             previousReAttempt = att;
@@ -101,6 +99,8 @@ public final class TestFilter implements IResultFilter{
                 fillMap(previousAttempt,points,false,point);
             fillMap(previousReAttempt,rePoints,true,point);
         }
+        points = new LinkedList<Integer>();
+        rePoints = new LinkedList<Integer>();
     }
 
     /**

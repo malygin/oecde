@@ -170,18 +170,17 @@ public class TestAttemptService{
         List<AdditionalCurriculum>list = new ArrayList<AdditionalCurriculum>();
         if(CollectionUtils.isEmpty(curriculums)||CollectionUtils.isEmpty(students))
             return list;
-        List<AdditionalSelfDependentWork> attempts = getTestsWithAttempts(curriculums, testingDate, students);
+        List<TestAttempt> attempts = attemptsByStudentAndCurriculums(curriculums, students, null);
         int count = 0;
         boolean wasPassed = false;
         int attemptsNumber = 0;
-        for(Curriculum c:curriculums){
-            list.add(new AdditionalCurriculum(c));
-        }
         AdditionalCurriculum addCurriculum = null;
         Curriculum temp = null;
         TestEntity testTemp = null;
-        for(AdditionalSelfDependentWork attempt:attempts) {
-            if(attempt.getCurriculum()==null||attempt.getWork()==null)
+        List<TestAttempt>oneTestAttempts = null;
+        Collections.sort(attempts);
+        for(TestAttempt attempt:attempts) {
+            if(attempt.getCurriculum()==null||attempt.getWork()==null||attempt.getType().equals(TestAttemptType.trial))
                 continue;
             //если лист не содержит полученную дисциплину, то дальше
             if(!attempt.getCurriculum().equals(temp)){
@@ -190,28 +189,29 @@ public class TestAttemptService{
                        addCurriculum.setTestsCount(count);
                        addCurriculum.setPassedTests(attemptsNumber);
                 }
+                oneTestAttempts = new LinkedList<TestAttempt>();
                 addCurriculum = new AdditionalCurriculum(attempt.getCurriculum());
-                if(list.contains(addCurriculum))
-                    addCurriculum = list.get(list.indexOf(addCurriculum));
+                list.add(addCurriculum);
                 //начинает считать общее количество тестов для дисциплины
                 count=1;
                 //пройден ли был тест
-                wasPassed = (!CollectionUtils.isEmpty(attempt.getResults()));
+                wasPassed = (!CollectionUtils.isEmpty(oneTestAttempts));
                 //если да, то начинает считать прохождения
                 attemptsNumber = wasPassed?1:0;
             }else{
                 if(attempt.getWork().equals(testTemp)){
                     //очередная попытка всё того же теста. если до этого не было полученно данных о том,
                     // что он пройден, то у текущей попытке это выянсяется
-                    wasPassed = !wasPassed?(!CollectionUtils.isEmpty(attempt.getResults())):wasPassed;
+                    wasPassed = !wasPassed?(!CollectionUtils.isEmpty(oneTestAttempts)):wasPassed;
                 }else{
                     //продолжается подсчёт количества тестов для дисциплины
                     count++;
                     //если он был пройден, то количество пройденных тестов увеличивается
-                    wasPassed = (!CollectionUtils.isEmpty(attempt.getResults()));
+                    wasPassed = (!CollectionUtils.isEmpty(oneTestAttempts));
                     attemptsNumber +=(wasPassed?1:0);
                 }
             }
+            oneTestAttempts.add(attempt);
             temp = attempt.getCurriculum();
             testTemp = attempt.getWork();
         }
@@ -219,6 +219,11 @@ public class TestAttemptService{
             //запихивает в умк полученные значения
                addCurriculum.setTestsCount(count);
                addCurriculum.setPassedTests(attemptsNumber);
+        }
+        for(Curriculum c:curriculums){
+            AdditionalCurriculum ac = new AdditionalCurriculum(c);
+            if(!list.contains(ac))
+                list.add(ac);
         }
         return list;
     }
@@ -231,14 +236,14 @@ public class TestAttemptService{
      * @return лист расширенных самостоятельных работ
      * @see #attemptsIterator(java.util.List, org.sgu.oecde.tests.TestAttemptService.Generator, java.util.Collection)
      */
-    public List<AdditionalSelfDependentWork> getStudentAttempts(List<? extends Curriculum> curriculums, AbstractStudent student,boolean reExame){
+    public List<AdditionalSelfDependentWork> getStudentAttempts(List<? extends Curriculum> curriculums, AbstractStudent student,Boolean reExame){
 
         List<AbstractStudent> sts = new LinkedList();
         sts.add(student);
         TestAttempt attempt = null;
-        if(reExame){
+        if(reExame!=null){
             attempt = new TestAttempt();
-            attempt.setType(TestAttemptType.reTest);
+            attempt.setType(reExame?TestAttemptType.reTest:TestAttemptType.regular);
         }
         List<TestAttempt> attempts = attemptsByStudentAndCurriculums(curriculums, sts, attempt);
 
@@ -312,11 +317,12 @@ public class TestAttemptService{
         TestEstimationType previousEstimationType = null;
         TestAttemptType previousAttemptType = null;
         TestEntity tmpTest = null;
+        AbstractStudent tmpStudent = null;
         ListIterator<TestAttempt> it = attempts.listIterator();
 
         while(it.hasNext()){
            TestAttempt attempt = it.next();
-            if(!attempt.getWork().equals(tmpTest)){
+            if(!attempt.getWork().equals(tmpTest)||!attempt.getStudent().equals(tmpStudent)){
                 if(test!=null){
                     test.setPointsForWork(pointsCounter.count(previousEstimationType, points));
                     test.setEstimateAttemptsUsedNumber(estimatedAttemptsNumber);
@@ -330,6 +336,7 @@ public class TestAttemptService{
                 test.setResults(oneTestAttempts);
                 test.setWork(attempt.getWork());
                 test.setCurriculum(attempt.getCurriculum());
+                test.setStudent(attempt.getStudent());
                 trialNumber = 0;
                 reExameNumber = 0;
                 estimatedAttemptsNumber = 0;
@@ -350,6 +357,7 @@ public class TestAttemptService{
                     reExameNumber++;
             }
 
+            tmpStudent = attempt.getStudent();
             tmpTest = attempt.getWork();
             
             if(!it.hasNext()){

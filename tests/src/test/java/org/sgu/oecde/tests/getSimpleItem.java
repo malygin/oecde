@@ -265,16 +265,12 @@ public class getSimpleItem extends BasicTest{
     @Test
     public void getStudentsDisciplines(){
         List<DeCurriculum> sts = new ArrayList(1);
-        sts.add(new DeCurriculum(20093169482L));
-        List<AdditionalCurriculum>ac = this.<TestAttemptService>getBean("testAttemptService").getStudentAttemptsCount(sts,  new Student(324725L));
-        System.out.println(ac);
-    }
-//    @Ignore
-    @Test
-    public void getStudentsDisciplines2(){
-        List<DeCurriculum> sts = new ArrayList(1);
-        sts.add(new DeCurriculum(20093169482L));
-        List<AdditionalCurriculum>ac = this.<TestAttemptService>getBean("testAttemptService").getStudentAttemptsCount(sts, new Student(324725L));
-        System.out.println(ac);
+        sts.add(new DeCurriculum(2009636442L));
+        List<AdditionalCurriculum>ac = this.<TestAttemptService>getBean("testAttemptService").getStudentAttemptsCount(sts,  new Student(320269L));
+        for(AdditionalCurriculum a:ac){
+            System.out.println("p  "+a.getPassedTests());
+            System.out.println(a.getTestsCount());
+            System.out.println("tp  "+a.getTestPoints());
+        }
     }
 }
