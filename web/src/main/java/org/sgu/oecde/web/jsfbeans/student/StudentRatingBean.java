@@ -16,17 +16,20 @@ import org.sgu.oecde.web.PointsFacade;
  *
  * @author ShihovMY
  */
-@ManagedBean(name="studentIndexBean")
+@ManagedBean(name="studentRatingBean")
 @ViewScoped
-public class StudentIndexBean extends StudentCurriculumBean{
+public class StudentRatingBean extends StudentCurriculumBean{
     @ManagedProperty(value="#{gradesService}")
     private GradesService gradesService;
 
+    private List<PointsFacade>rating;
     public List<PointsFacade>  getGroupRating() {
-        setSemester(0);
-        List<PointsFacade>points = gradesService.getCurriculumsAndStudentsGrades(getCurriculums(), new ArrayList<Student>(student.<Group>getGroup().getPersons()));
-        Collections.sort(points, new ByRating());
-        return points;
+        if(rating==null){
+            setSemester(0);
+            rating = gradesService.getCurriculumsAndStudentsGrades(getCurriculums(), new ArrayList<Student>(student.<Group>getGroup().getPersons()));
+            Collections.sort(rating, new ByRating());
+        }
+        return rating;
     }
 
     public void setGradesService(GradesService gradesService) {

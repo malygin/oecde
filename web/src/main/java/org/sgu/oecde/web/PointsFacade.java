@@ -63,4 +63,9 @@ public class PointsFacade {
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
+
+    @Override
+    public String toString() {
+        return points!=null?points.toString():super.toString();
+    }
 }

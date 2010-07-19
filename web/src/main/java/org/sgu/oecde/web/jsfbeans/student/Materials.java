@@ -1,5 +1,6 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -35,14 +36,22 @@ public class Materials extends StudentCurriculumBean{
             if(CollectionUtils.isEmpty(advCurriculums))
                 return new LinkedList();
             List<PointsFacade> points = gradesService.getStudentGrades(getCurriculumAndTeacher(), student);
-            for(PointsFacade p:points){
-                AdditionalCurriculum c = new AdditionalCurriculum(p.getPoints().getCurriculum());
-                if(advCurriculums.contains(c))
-                    c = advCurriculums.get(advCurriculums.indexOf(c));
-                c.setTestPoints(p.getTestPoints());
-                c.setConcludingReTestPoints(p.getConcludingReTestPoints());
-                c.setConcludingTestPoints(p.getConcludingTestPoints());
-                c.setReTestPoints(p.getReTestPoints());
+            for(AdditionalCurriculum c:advCurriculums){
+                PointsFacade p = null;
+                Iterator<PointsFacade>i = points.iterator();
+                while(i.hasNext()){
+                    p = i.next();
+                    if(c.getCurriculum().equals(p.getPoints().getCurriculum())){
+                        i.remove();
+                        break;
+                    }
+                }
+                if(p!=null){
+                    c.setTestPoints(p.getTestPoints());
+                    c.setConcludingReTestPoints(p.getConcludingReTestPoints());
+                    c.setConcludingTestPoints(p.getConcludingTestPoints());
+                    c.setReTestPoints(p.getReTestPoints());
+                }
             }
         }
         return advCurriculums;

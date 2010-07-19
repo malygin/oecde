@@ -79,7 +79,6 @@ public class StudentCurriculumBean implements Serializable{
 
     public void setSemester(int semester) {
         this.semester = semester;
-        curriculums = null;
     }
 
     public void setCurriculumBuilder(DeCurriculumBuilder curriculumBuilder) {

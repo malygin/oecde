@@ -18,5 +18,6 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
     <remember-me services-ref="rememberMeServices"/>
     <form-login login-page="/" default-target-url="/LoginRedirect.c" always-use-default-target="true" authentication-failure-url="/index.xhtml?error=true" />
   </http>
+  <beans:bean class="org.sgu.oecde.web.authentication.LoginListener"/>
   <beans:import resource="applicationContext-security.xml"/>
 </beans:beans>
