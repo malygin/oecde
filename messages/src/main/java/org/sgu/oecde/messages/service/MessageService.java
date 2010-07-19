@@ -70,7 +70,7 @@ public class MessageService {
      */
 
     public List<MessageImpl> getListOutAll(AbstractUser user, int messageOnPage, int numPage) throws DataAccessException{
-      List <Message> messages=messageDao.getList(user,"in", messageOnPage, numPage);
+      List <Message> messages=messageDao.getList(user,"out", messageOnPage, numPage);
       return SetMessageListReaded(user, messages);
     }
 
@@ -94,8 +94,8 @@ public class MessageService {
      * @return список сообщений
      */
     @SuppressWarnings("unchecked")
-    public List<Message> getListDialog(AbstractUser current_user, AbstractUser user) throws DataAccessException{
-      return messageDao.getListDialog(current_user, user);
+    public List<MessageImpl> getListDialog(AbstractUser current_user, Long user) throws DataAccessException{
+       return SetMessageListReaded(current_user, messageDao.getListDialog(current_user, user));
     }
 
     /**

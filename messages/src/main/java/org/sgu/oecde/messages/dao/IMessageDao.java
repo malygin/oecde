@@ -34,7 +34,7 @@ public interface IMessageDao extends IBasicDao<Message>{
      * @return список сообщений
      */
     @SuppressWarnings("unchecked")
-    public List<Message> getListDialog(AbstractUser current_user, AbstractUser user) throws DataAccessException;
+    public List<Message> getListDialog(AbstractUser current_user, Long user) throws DataAccessException;
 
     /**
      * Получение списка сообщений от пользователей определенного типа
@@ -61,7 +61,7 @@ public interface IMessageDao extends IBasicDao<Message>{
      * @param user - текущий пользователь
      * @param column - строка readed-archived-deleted
      */
-    @Transactional
+
     public void update(Long messageId, AbstractUser user, String column) throws DataAccessException;
 
    /**
@@ -70,6 +70,6 @@ public interface IMessageDao extends IBasicDao<Message>{
      * @param user - текущий пользователь
      */
 
-    @Transactional
+
     public void save(Message message) throws DataAccessException;
 }

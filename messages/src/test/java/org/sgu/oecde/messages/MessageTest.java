@@ -39,16 +39,16 @@ public class MessageTest extends BasicTest{
         message.setType(MessageType.askMessage);
         message.setFullText("полный текст");
         message.setDateMessage(DateConverter.currentDate());
-        Student person=new Student();
-        person.setId(new Long(324725));
+            Student person=new Student();
+            person.setId(new Long(324725));
         message.setAuthor(person);
-        MessageFile file= new MessageFile();
-        file.setName("file");
-        MessageFile file2= new MessageFile();
-        file2.setName("file2");
-        List files= new ArrayList();
-        files.add(file);
-        files.add(file2);
+            MessageFile file= new MessageFile();
+            file.setName("file");
+            MessageFile file2= new MessageFile();
+            file2.setName("file2");
+            List files= new ArrayList();
+            files.add(file);
+            files.add(file2);
 
         Student st1=new Student();
         st1.setId(new Long(321073));
@@ -93,7 +93,7 @@ public class MessageTest extends BasicTest{
 
  }
 
-//    @Ignore
+   @Ignore
     @Test
     public void getMessageById(){
           MessageService s = getBean("messageService");
@@ -118,18 +118,32 @@ public class MessageTest extends BasicTest{
              // System.out.println(" "+l.getRecipients());
              // System.out.println(" "+l.isArchived());
           //    System.out.println(" "+l.isDeleted());
+              for(MessageRecipient r:l.getMessage().getRecipients()){
+                  System.out.println("---"+l.getFioAuthor());
+              }
               System.out.println("readed  "+l.getNew());
               System.out.println("               ");
           }
       //    System.out.println("! "+list);
 
  }
-    @Ignore
+//    @Ignore
     @Test
     public void getListOut(){
           MessageService s = getBean("messageService");
-          Student st=new Student(new Long(324725));
-          List<MessageImpl> list = s.getListOutAll(st, 2, 1);
+          Student st=new Student(new Long(321073));
+          List<MessageImpl> list = s.getListOutAll(st, 5, 2);
+           for(MessageImpl l:list){
+              System.out.println(" "+l.getMessage().getDateMessage());
+              System.out.println(" "+l.getFioAuthor());
+              System.out.println(" "+l.getMessage().getId());
+             // System.out.println(" "+l.getRecipients());
+             // System.out.println(" "+l.isArchived());
+          //    System.out.println(" "+l.isDeleted());
+
+              System.out.println("readed  "+l.getNew());
+              System.out.println("               ");
+          }
           System.out.println("! "+list);
  }
     @Ignore
@@ -154,6 +168,7 @@ public class MessageTest extends BasicTest{
           System.out.println("new "+s.getCountNewMessage(st1));
           System.out.println("in  "+s.getCountMessageIn(st1));
           System.out.println("arch  "+s.getCountMessageArchive(st1));
+          System.out.println("out  "+s.getCountMessageOut(st1));
 
  }
 
@@ -178,11 +193,20 @@ public class MessageTest extends BasicTest{
          st1.setId(new Long(321073));
          Student st2=new Student();
          st2.setId(new Long(324725));
-          List<Message> list = s.getListDialog(st1, st2);
-          for(Message l:list){
-              System.out.println(" "+l.getId());
-              System.out.println("               ");
+          List<MessageImpl> list = s.getListDialog(st1, new Long(1));
+          for(MessageImpl l:list){
+              System.out.println(" "+l.getFioAuthor());
+              System.out.println("               "+l.getMessage().getTheme());
+
           }
+     }
+     @Ignore
+    @Test
+    public void getCount(){
+         MessageService s = getBean("messageService");
+         Student st1=new Student();
+         st1.setId(new Long(321073));
+          System.out.println("_______"+s.getCountMessageOut(st1));
      }
 }
 

@@ -1,7 +1,9 @@
 package org.sgu.oecde.messages;
 
 import org.sgu.oecde.core.BasicItem;
+import org.sgu.oecde.core.users.AbstractPerson;
 import org.sgu.oecde.core.users.AbstractUser;
+import org.sgu.oecde.core.users.UserType;
 
 /**
  * @author Andrey Malygin (mailto: anmalygin@gmail.com)
@@ -9,6 +11,7 @@ import org.sgu.oecde.core.users.AbstractUser;
  * сущность - получать сообщения
  */
 public class MessageRecipient extends BasicItem{
+
     //получатель
     private AbstractUser recipient;
     //заархивировано?
@@ -53,5 +56,27 @@ public class MessageRecipient extends BasicItem{
         this.recipient = recipient;
     }
 
+    /**
+    * Возвращает фио автора
+    * @todo разобраться когда получатель - SUPERVISOR
+    * @return фио
+    */
+   public String getFioAuthor(){
+     String fio="";
+     UserType userType=UserType.fromRole(recipient);
+     AbstractPerson person=(AbstractPerson) recipient;
+     switch(userType){
+         case STUDENT:
+            fio=person.getName();
+            break;
+         case ADMIN:
+             fio=person.getFio();
+             break;
+         case TEACHER:
+             fio=person.getFio();
+             break;
+       }
+     return fio;
+   }
 
 }
