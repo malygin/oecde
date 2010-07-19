@@ -5,7 +5,6 @@ import org.sgu.oecde.core.IBasicDao;
 import org.sgu.oecde.journal.EventItem;
 import org.sgu.oecde.journal.filter.BaseFilter;
 import org.springframework.dao.DataAccessException;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * дао событий
@@ -34,6 +33,5 @@ public interface IJournalDao extends IBasicDao<EventItem>{
      * @param evItem событие
      * @throws DataAccessException
      */
-    @Transactional
     public void saveEventItem(EventItem evItem)throws DataAccessException;
 }

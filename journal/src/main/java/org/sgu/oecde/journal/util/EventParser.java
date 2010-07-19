@@ -262,7 +262,7 @@ public class EventParser {
     }
 
     /**
-     * �?меется факт добавления/удаления фотографии.
+     * добавление/удаление фотографии, вход в систему
      * В теле события через разделитель записаны следующий данные:
      * 0 - Тип пользователя (значение, а не ID);
      * 1 - Ф�?О;
@@ -272,29 +272,25 @@ public class EventParser {
         String str[] = item.getEventBody().split(splitter);
         StringBuilder sb = new StringBuilder();
         sb.append(str[0]).append(" ");
+        sb.append("<a href=\"");
         switch (UserType.fromRole(item.getUser())) {
             case STUDENT:
-                sb.append("<a href=\"");
-                sb.append("#student");
                 sb.append("/id=").append(item.getUser().getId()).append("\">");
                 break;
             case TEACHER:
-                sb.append("<a href=\"");
                 sb.append("#teacher");
-                sb.append("/id=").append(item.getUser().getId()).append("\">");
                 break;
             case ADMIN:
             case SUPERVISOR:
-                sb.append("<a href=\"");
                 sb.append("#admin");
-                sb.append("/id=").append(item.getUser().getId()).append("\">");
                 break;
         }
+        sb.append("/id=").append(item.getUser().getId()).append("\">");
+        sb.append(RecordEventFactory.getFioByUserId(item.getUser()));
+        sb.append("</a> ");
+        if(EventType.SYSTEM_LOGIN.equals(item.getEventType()))
+            sb.append("вошёл в систему с удалённого адреса ");
         sb.append(str[1]);
-        if (!UserType.GUEST.equals(UserType.fromRole(item.getUser()))) {
-            sb.append("</a> ");
-        }
-        sb.append(" ").append(str[2]);
         return sb.toString();
     }
 

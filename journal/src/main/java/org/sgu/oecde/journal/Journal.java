@@ -19,6 +19,7 @@ public class Journal{
     @Autowired
     private IJournalDao journalDao;
 
+    @Autowired
     private RecordEventFactory ref;
 
     private Journal() {
@@ -35,8 +36,8 @@ public class Journal{
      * @param userId   идентификатор пользователя.
      * @param userType Тип пользователя.
      */
-    public void logSystemLogin(AbstractUser userId) {
-        ref.saveSimpleActivity(userId,  EventType.SYSTEM_LOGIN);
+    public void logSystemLogin(AbstractUser userId,String ip) {
+        ref.saveLogInEvent(userId, ip);
     }
 
     /**

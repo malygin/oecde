@@ -10,7 +10,7 @@
     </id>
     <property column="event_time" length="19" name="time" not-null="true" type="string"/>
     <property column="event_body" name="eventBody" not-null="true" type="string" length="4000"/>
-    <property column="multi_id" name="multiId" type="integer"/>
+    <property column="multi_id" name="multiId" type="long"/>
     <many-to-one class="org.sgu.oecde.core.users.AbstractUser" column="event_owner" fetch="join" foreign-key="fk_j_user" name="user"/>
     <property column="event_type" name="eventType" not-null="true" scale="3">
       <type name="org.sgu.oecde.core.GenericEnumUserType">

@@ -12,6 +12,7 @@ import org.sgu.oecde.journal.filter.BaseFilter;
 import org.sgu.oecde.journal.filter.StudentFilter;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import org.springframework.util.CollectionUtils;
@@ -50,6 +51,7 @@ public class JournalDAO extends BasicDao<EventItem> implements IJournalDao {
     /**
      * {@inheritDoc }
      */
+    @Transactional
     public void saveEventItem(EventItem evItem)throws DataAccessException {
         getSession().save(evItem);
     }

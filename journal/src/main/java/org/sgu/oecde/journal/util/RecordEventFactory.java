@@ -95,7 +95,7 @@ public class RecordEventFactory {
      * Сохраняет новое событие в базу.
      *
      * @param eventType - тип события.
-     * @param userId    - id пользователя.
+     * @param user    - id пользователя.
      * @param userType  -  типа пользователя.
      * @param multiId   - мульти-Id события.
      * @param body      -  тело события в виде массива строк.
@@ -199,31 +199,40 @@ public class RecordEventFactory {
     }
 
     /**
-     * Логируется факт добавления/удаления фотографии либо входа в систему.
+     * Логируется факт добавления/удаления фотографии.
      * В теле события через разделитель записаны следующий данные:
      * 0 - Тип пользователя (значение, а не ID);
      * 1 - ФИО;
      * 2 - Тип активности (значение, а не ID: добавлял/удалял/заходил в систему);     *
      */
-    public void saveSimpleActivity(AbstractUser userId, EventType eventType) {
+    public void saveSimpleActivity(AbstractUser user, EventType eventType) {
         //Формируется тело сообщения.
-        String[] str = new String[3];
-        str[0] = getType(userId);
-        str[1] = getFioByUserId(userId);
+        String[] str = new String[2];
+        str[0] = getType(user);
         switch (eventType) {
-            case SYSTEM_LOGIN:
-                str[2] = "вошел(а) в систему";
-                break;
             case PHOTO_ADDITION:
-                str[2] = "добавил(а) фотографию";
+                str[1] = "добавил(а) фотографию";
                 break;
 
             case PHOTO_DELETION:
-                str[2] = "удалил(а) фотографию";
+                str[1] = "удалил(а) фотографию";
                 break;
 
         }
-        save(eventType, userId, 0L, str);
+        save(eventType, user, 0L, str);
+    }
+
+    /**
+     * логирует вход пользователя в систему. фиксируется айпи адрес, с которого был
+     * произведён вход
+     * @param user пользователь
+     * @param ip айпи
+     */
+    public void saveLogInEvent(AbstractUser user,String ip){
+        String[] str = new String[2];
+        str[0] = getType(user);
+        str[1] = ip;
+        save(EventType.SYSTEM_LOGIN, user, 0L, str);
     }
 
     /**
