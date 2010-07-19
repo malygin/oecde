@@ -29,9 +29,6 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 
   <beans:bean id="UserDetailsServiceImpl" class="org.sgu.oecde.core.authentication.UserDetailsServiceImpl" />
 
-
-  <beans:bean id="hibernateFilter" class="org.springframework.orm.hibernate3.support.OpenSessionInViewFilter"/>
-
   <beans:bean id="eventListner" class="org.sgu.oecde.core.authentication.EventFilter"/>
 
   <beans:bean id="logoutListner" class="org.sgu.oecde.core.authentication.LogoutListner"/>

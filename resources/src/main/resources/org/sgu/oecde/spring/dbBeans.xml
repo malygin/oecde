@@ -49,7 +49,7 @@
     </property>
   </bean>
 
-  <tx:annotation-driven mode="aspectj" transaction-manager="txManager" proxy-target-class="true"/>
+  <tx:annotation-driven mode="proxy" transaction-manager="txManager" proxy-target-class="true"/>
 
   <bean p:sessionFactory-ref="sessionFactory" id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"/>
 
