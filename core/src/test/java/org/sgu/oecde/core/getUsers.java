@@ -4,6 +4,7 @@ import java.util.List;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.sgu.oecde.core.education.Speciality;
+import org.sgu.oecde.core.education.dao.ICurriculumDao;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.Admin;
 import org.sgu.oecde.core.users.Supervisor;
@@ -45,16 +46,4 @@ public class getUsers extends BasicTest{
             System.out.println(t.getName());
         }
     }
-
-    @Ignore
-    @Test
-    public void getAllSv(){
-        this.setDao("supervisorDao");
-        List<Supervisor> l = this.<Supervisor>getAllItems();
-        for(Supervisor t:l){
-            System.out.println(t.getDescription());
-        }
-    }
-
-
 }

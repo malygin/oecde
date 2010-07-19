@@ -1,5 +1,6 @@
 package org.sgu.oecde.core.education;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +14,7 @@ import org.springframework.util.CollectionUtils;
  * получает Map констант и помещает в Map constants только стринговые знацения (в основном даты)
  * @author ShihovMY
  */
-public class StringConstantsGetter{
+public class StringConstantsGetter implements Serializable{
 
     /**
      * дао календарных констант
@@ -33,6 +34,8 @@ public class StringConstantsGetter{
      */
     protected final String value = "value";
     private String entityName;
+
+    private static final long serialVersionUID = 117L;
 
     /**
      * после инициализации бина выполняется метод fillConstantsMap()

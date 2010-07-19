@@ -1,21 +1,14 @@
 package org.sgu.oecde.core;
 
 import java.util.List;
-import org.junit.Before;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
-import org.springframework.test.context.transaction.TransactionConfiguration;
-import static org.junit.Assert.*;
-
-@ContextConfiguration(locations={"../applicationContext.xml"})
-@TransactionConfiguration(defaultRollback = false,transactionManager="txManager")
-@TestExecutionListeners({HibernateSessionRegistrationTestExecutionListener.class})
 
 /**
  *
  * @author shihovmy
  */
+@ContextConfiguration(locations={"../applicationContext.xml"})
 public abstract class BasicTest extends AbstractJUnit4SpringContextTests{
     public IBasicDao dao;
 
@@ -25,7 +18,7 @@ public abstract class BasicTest extends AbstractJUnit4SpringContextTests{
     public<T extends BasicItem> void setDao(String daoName){
        dao = (IBasicDao<T>) applicationContext.getBean(daoName);
     }
-
+    
     public<T extends BasicItem> T getItem(Long id){
        return (T) dao.getById(id);
     }

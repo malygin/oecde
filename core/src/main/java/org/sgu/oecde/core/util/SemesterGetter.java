@@ -27,6 +27,8 @@ public class SemesterGetter extends StringConstantsGetter{
      */
     private int semester;
 
+    private static final long serialVersionUID = 118L;
+
     protected SemesterGetter() {
     }
 

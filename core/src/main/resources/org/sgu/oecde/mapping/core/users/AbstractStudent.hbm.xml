@@ -3,6 +3,6 @@
 <hibernate-mapping schema="oecdo_test">
   <joined-subclass abstract="true" dynamic-update="true" extends="org.sgu.oecde.core.users.AbstractPerson" name="org.sgu.oecde.core.users.AbstractStudent" table="abstract_student">
     <key column="id" foreign-key="fk_student_user" not-null="true" on-delete="cascade"/>
-    <many-to-one class="org.sgu.oecde.core.users.StudentGroup" column="student_group" fetch="join" foreign-key="fk_student_group" insert="false" name="group" not-null="true"/>
+    <many-to-one class="org.sgu.oecde.core.users.StudentGroup" lazy="false" column="student_group" fetch="join" foreign-key="fk_student_group" insert="false" name="group" not-null="true"/>
   </joined-subclass>
 </hibernate-mapping>

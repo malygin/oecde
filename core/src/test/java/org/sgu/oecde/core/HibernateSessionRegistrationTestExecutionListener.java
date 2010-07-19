@@ -14,6 +14,10 @@ public class HibernateSessionRegistrationTestExecutionListener extends AbstractT
     private SessionFactory _sessionFactory;
     private Session _session;
 
+    public HibernateSessionRegistrationTestExecutionListener() {
+        System.out.println();
+    }
+
     @Override
     public void beforeTestMethod(TestContext testContext) throws Exception {
         _sessionFactory = (SessionFactory) testContext.getApplicationContext().getBean(SESSION_FACTORY_BEAN);

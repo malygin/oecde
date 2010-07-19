@@ -13,9 +13,6 @@ public abstract class BasicItem implements Serializable{
      */
     private Long id;
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -25,16 +22,12 @@ public abstract class BasicItem implements Serializable{
             return false;
         }
         final BasicItem other = (BasicItem) obj;
-        if (this.id != other.id) {
+        if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
             return false;
         }
         return true;
     }
 
-    /**
-     * {@inheritDoc}
-     * @return
-     */
     @Override
     public int hashCode() {
         int hash = 7;

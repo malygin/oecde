@@ -1,7 +1,9 @@
 package org.sgu.oecde.core.education.dao;
 
 import java.util.List;
+import java.util.Map;
 import org.sgu.oecde.core.IBasicDao;
+import org.sgu.oecde.core.education.AdvancedCurriculum;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.users.StudentGroup;
@@ -46,7 +48,7 @@ public interface ICurriculumDao<T extends Curriculum> extends IBasicDao<T>{
      * @throws DataAccessException
      */
     @SuppressWarnings("unchecked")
-    public <E extends Teacher> List<E> getTeachersByGroup(Integer[] semester, int year, StudentGroup group) throws DataAccessException ;
+    public <K extends Curriculum,V extends Teacher>Map<K,V> getTeachersByGroup(int semester, int year, StudentGroup group) throws DataAccessException ;
 
     /**
      * получает список групп, у которых данный преподаватель ведёт в данном году в данных семестрах
@@ -59,4 +61,6 @@ public interface ICurriculumDao<T extends Curriculum> extends IBasicDao<T>{
      */
     @SuppressWarnings("unchecked")
     public <E extends StudentGroup> List<E> getGroupsForTeacher(Integer[] semester, int year, Teacher teacher) throws DataAccessException;
+
+    public List getByParametersAndGroup(AdvancedCurriculum c,StudentGroup gr) throws DataAccessException ;
 }

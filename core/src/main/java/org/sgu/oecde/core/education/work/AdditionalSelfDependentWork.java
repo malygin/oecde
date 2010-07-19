@@ -3,6 +3,7 @@ package org.sgu.oecde.core.education.work;
 import java.io.Serializable;
 import java.util.List;
 import org.sgu.oecde.core.education.Curriculum;
+import org.sgu.oecde.core.users.AbstractStudent;
 import org.springframework.util.StringUtils;
 
 /**
@@ -39,6 +40,10 @@ public class AdditionalSelfDependentWork implements Serializable{
      * ссылка на учебный план
      */
     private Curriculum curriculum;
+    /**
+     * ссылка на учебный план
+     */
+    private AbstractStudent student;
     /**
      * самостоятельная работа
      */
@@ -165,6 +170,23 @@ public class AdditionalSelfDependentWork implements Serializable{
      */
     public void setCurriculum(Curriculum curriculum) {
         this.curriculum = curriculum;
+    }
+
+    /**
+     *
+     * @param <T> extends AbstractStudent
+     * @return студент
+     */
+    public <T extends AbstractStudent>T getStudent() {
+        return (T) student;
+    }
+
+    /**
+     * студент
+     * @param student
+     */
+    public void setStudent(AbstractStudent student) {
+        this.student = student;
     }
 
     @Override

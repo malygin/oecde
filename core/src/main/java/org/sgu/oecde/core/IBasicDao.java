@@ -1,5 +1,6 @@
 package org.sgu.oecde.core;
 
+import java.io.Serializable;
 import java.util.List;
 import org.springframework.dao.DataAccessException;
 
@@ -10,7 +11,7 @@ import org.springframework.dao.DataAccessException;
  *
  * @author ShihovMY
  */
-public interface IBasicDao <T extends BasicItem>{
+public interface IBasicDao <T extends BasicItem> extends Serializable{
     /**
      * метод получает любую сущность типа {@code T} по айди
      * @param id айди сущности

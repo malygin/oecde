@@ -1,5 +1,6 @@
 package org.sgu.oecde.core.education.dao;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 import org.springframework.dao.DataAccessException;
@@ -9,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
  * интерфейс для ConstantsDao. не наследуется от базовых дао.
  * @author ShihovMY
  */
-public interface IConstantsDao {
+public interface IConstantsDao extends Serializable{
     
     /**
      * получает List<Map>, содержащих имя константы и значение
