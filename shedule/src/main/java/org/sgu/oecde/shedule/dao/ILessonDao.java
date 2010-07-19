@@ -3,6 +3,8 @@ package org.sgu.oecde.shedule.dao;
 import java.text.ParseException;
 import java.util.List;
 import org.sgu.oecde.core.IBasicDao;
+import org.sgu.oecde.core.education.Discipline;
+import org.sgu.oecde.core.users.StudentGroup;
 import org.sgu.oecde.shedule.Lesson;
 import org.springframework.dao.DataAccessException;
 import org.springframework.transaction.annotation.Transactional;
@@ -48,4 +50,14 @@ public interface ILessonDao extends IBasicDao<Lesson>{
      */
     @Transactional
     public void deleteLesson(final Lesson lesson) throws DataAccessException;
+    
+    /**
+     * 
+     * @param group рупп
+     * @param disciplines дисциплины
+     * @return список занятий по группе и дисциплинам
+     * @throws DataAccessException
+     */
+    public List<Lesson> getByGroupAndDisciplines(StudentGroup group,List<? extends Discipline>disciplines) throws DataAccessException;
+
 }

@@ -38,6 +38,8 @@ public class AdvancedCurriculumDao<T extends Curriculum> extends CurriculumDao<T
      * {@inheritDoc }
      */
     public List<StudentGroup> getGroupBySemesterYearTeacherDiscipline(Integer[] semester, int year, Teacher teacher,Discipline discipline) throws DataAccessException {
+        if(teacher == null||teacher.getId()==null||discipline == null||discipline.getId()==null)
+            return new ArrayList(0);
         return makeQuery("distinct t.group"," t.teacher=:t and c.discipline=:d",new String[]{"t.group.speciality"},null,semester,year)
                  .setParameter("t", teacher).setParameter("d", discipline).list();
     }
