@@ -1,0 +1,40 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:r="http://java.sun.com/jsp/jstl/core"
+         template="../resources/teacherTemplate.xhtml"
+         >
+
+        <ui:define name="content">
+         <f:metadata>
+             <f:viewParam name="s" value="#{groupControlWorksForTeacher.semester}"/>
+             <f:viewParam name="g" value="#{groupControlWorksForTeacher.id}"/>
+             <f:viewParam name="c" value="#{groupControlWorksForTeacher.curriculumId}"/>
+         </f:metadata>
+         <h:outputText rendered="#{groupControlWorksForTeacher.accessDenied}" value="группа не найдена или не доступна" />
+        
+        <h:panelGroup rendered="#{not groupControlWorksForTeacher.accessDenied}">
+         <h:dataTable value="#{groupControlWorksForTeacher.disciplines}" var="d">
+           <h:column>
+               <h:outputLink value="?c=#{d.id}&amp;g=#{groupControlWorksForTeacher.id}&amp;s=#{groupControlWorksForTeacher.semester}">(#{d.discipline.name})</h:outputLink>
+           </h:column>
+          </h:dataTable>
+
+         <h:outputText rendered="#{groupControlWorksForTeacher.accessDenied}" value="дисциплина не найдена или не доступна" />
+         <h:outputText value="#{groupControlWorksForTeacher.curriculum.discipline.name}"/><br/>
+         <h:outputText value="#{groupControlWorksForTeacher.group.name}"/> (<h:outputText value="#{groupControlWorksForTeacher.group.city.name}"/>,<h:outputText value="#{groupControlWorksForTeacher.group.speciality.name}"/>)
+         
+         <hr/>
+         <r:if test="${not groupControlWorksForTeacher.accessDenied}">
+         <r:forEach items="${groupControlWorksForTeacher.groupControlWorks}" var="w">
+          <h:outputLink value="?id=#{w.key.id}&a&amp;s=#{groupControlWorksForTeacher.semester}">#{w.key.fio}</h:outputLink>
+
+             -   |#{w.value.points}| #{w.value.progress}<br/>
+               ------------<br/>
+         </r:forEach>
+        </r:if>
+        </h:panelGroup>
+         
+        </ui:define>
+    </ui:composition>

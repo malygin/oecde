@@ -1,0 +1,16 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         template="../resources/teacherTemplate.xhtml"
+         >
+        <ui:define name="content">
+         <f:metadata>
+             <f:viewParam name="c" value="#{testForTeacher.curriculumId}"/>
+             <f:viewParam name="id" value="#{testForTeacher.testId}"/>
+         </f:metadata>
+           <h:outputText rendered="#{testForTeacher.accessDenied}" value="Не найден или не доступен" />
+           <h:outputLink value="discipline.xhtml?c=#{testForTeacher.curriculumId}" >назад</h:outputLink>
+          <h:outputLink value="javascript:void(0)" >#{testForTeacher.test.title}</h:outputLink>
+       </ui:define>
+    </ui:composition>

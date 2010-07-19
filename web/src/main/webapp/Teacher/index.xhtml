@@ -1,50 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ui:composition
-     xmlns:ui="http://java.sun.com/jsf/facelets"
-     xmlns:f="http://java.sun.com/jsf/core"
-     xmlns:h="http://java.sun.com/jsf/html"
-     template="../resources/teacherTemplate.xhtml">
-
-    <ui:define name="content">
-        <div class="userFile">
-            <div class="userPhoto">
-                <table cellpadding="0" cellspacing="0">
-                    <tr>
-                        <td class="userPhotoBorder">
-                            <img src="../resources/userFiles/avatars/#{userBean.avatarBig}" alt=""/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button class="loadPhotoButton">#{msgs.photoLoaderButton}</button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div class="userData">
-                <table cellspacing="8">
-                    <tr>
-                        <td><p>#{msgs.teacher_mainContentUserInfoSecondName}</p></td><td><div>#{userBean.surname}</div></td>
-                    </tr>
-                    <tr>
-                        <td><p>#{msgs.teacher_mainContentUserInfoFirstName}</p></td><td><div>#{userBean.name}</div></td>
-                    </tr>
-                    <tr>
-                        <td><p>#{msgs.teacher_mainContentUserInfoThirdName}</p></td><td><div>#{userBean.secondName}</div></td>
-                    </tr>
-                    <tr>
-                        <td><p>#{msgs.teacher_mainContentUserInfoBirthDay}</p></td><td><div>#{userBean.birthDay}</div></td>
-                    </tr>
-                    <tr>
-                        <td><p>#{msgs.teacher_mainContentUserInfoDepartment}</p></td><td><div>#{userBean.department}</div></td>
-                    </tr>
-                    <tr>
-                        <td><p>#{msgs.teacher_mainContentUserInfoPost}</p></td><td><div>#{userBean.post}</div></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="floatDestroyer"></div>
-        </div>
-    </ui:define>
-
-</ui:composition>
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         template="../resources/teacherTemplate.xhtml"
+         xmlns:ipsil="http://java.sun.com/jsf/composite/components/util">
+        
+        <ui:define name="content"> 
+         #{teacherIndexBean.estimatedGroupsCount} гр из #{teacherIndexBean.groupsCount}<br/>
+         #{teacherIndexBean.readCwAttempsCount} из #{teacherIndexBean.cwAttempsCount}
+        </ui:define>
+      
+    </ui:composition>
