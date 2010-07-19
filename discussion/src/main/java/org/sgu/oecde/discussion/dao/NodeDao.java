@@ -25,6 +25,7 @@ public class NodeDao extends UpdateDao<Node> implements INodeDao{
     /**
      * {@inheritDoc }
      */
+    
     public void save(Node node)  throws DataAccessException {
         getSession().save(node);
     }

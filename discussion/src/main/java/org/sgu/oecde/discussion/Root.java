@@ -59,7 +59,7 @@ public class Root extends BasicItem implements Comparable {
     }
 
     public Boolean addChild(Node node) {
-        if (node != null && children.add(node)) {
+        if (node != null && children!=null&& children.add(node)) {
             node.setRoot(this);
             return true;
         }

@@ -25,7 +25,9 @@ public class RootDao extends UpdateDao<Root> implements IRootDao{
      * {@inheritDoc }
      */
     @SuppressWarnings("unchecked")
-    public int getNodesCount(int idObject, ForumTypes typeObject)  throws DataAccessException {
+    public int getNodesCount(Long idObject, ForumTypes typeObject)  throws DataAccessException {
+        if(idObject == null|| typeObject == null)
+            return 0;
         Criteria cr = getSession().createCriteria(type).createAlias("children", "ch")
                 .add(Property.forName("objectId").eq(idObject))
                 .add(Property.forName("objectType").eq(typeObject))

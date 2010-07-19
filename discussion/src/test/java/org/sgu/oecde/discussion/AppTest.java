@@ -2,6 +2,7 @@ package org.sgu.oecde.discussion;
 
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.sgu.oecde.core.BasicTest;
@@ -14,7 +15,7 @@ import org.springframework.test.context.ContextConfiguration;
 /**
  * Unit test for simple App.
  */
-@ContextConfiguration(locations={"../applicationContext.xml","../spring/deBeans.xml"})
+@ContextConfiguration(locations={"../spring/deBeans.xml"})
 public class AppTest extends BasicTest{
 
     @Ignore
@@ -27,10 +28,10 @@ public class AppTest extends BasicTest{
     @Ignore
     @Test
     public void addComment(){
-        Long nodeId = 8L;
-        Long idParent = 18L;
-        Long idObject = 5L;
-        String typeObject = "stfaq";
+        Long nodeId = 683L;
+        Long idParent = 0L;
+        Long idObject = 1182L;
+        String typeObject = "news";
         String message = "ответ номер 3 ";
         setDao("nodeDao");
         Node node = getItem(nodeId);
@@ -49,7 +50,9 @@ public class AppTest extends BasicTest{
             //Создается новый корень обсуждений.
             root = new Root();
             root.setObjectId(idObject);
-            root.addChild(node);
+            Set<Node>nodes = new TreeSet<Node>();
+            nodes.add(node);
+            root.setChildren(nodes);
             root.setUser(author);
             root.setTime(DateConverter.convert(System.currentTimeMillis()));
             root.setObjectType(ForumTypes.parse(typeObject));
@@ -63,7 +66,7 @@ public class AppTest extends BasicTest{
         else
             node.setRoot(root);
         setDao("nodeDao");
-        if(node.getId()==0)
+        if(node.getId()==null)
             this.<INodeDao>getDao().save(node);
         else
             this.<INodeDao>getDao().update(node);
@@ -97,7 +100,7 @@ public class AppTest extends BasicTest{
     private void recursive(Node n,String s){
         s+="   ";
         for(Node n2:n.getChildren()){
-            System.out.println(s+n2+"  "+n2.getTime());
+            System.out.println(n.getId()+"   "+s+n2+"  "+n2.getTime());
             recursive(n2,s);
         }
     }

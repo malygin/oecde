@@ -19,7 +19,7 @@ public interface IRootDao extends IUpdateDao<Root>{
      * @return количество постов
      * @throws DataAccessException
      */
-    public int getNodesCount(int idObject, ForumTypes typeObject)  throws DataAccessException ;
+    public int getNodesCount(Long idObject, ForumTypes typeObject)  throws DataAccessException ;
 
     /**
      * сохраняет данный корневой элемент
