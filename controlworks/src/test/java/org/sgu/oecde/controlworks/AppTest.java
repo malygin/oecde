@@ -12,8 +12,8 @@ import org.sgu.oecde.controlworks.dao.IControlWorkAttemptDao;
 import org.sgu.oecde.controlworks.dao.IControlWorkDao;
 import org.sgu.oecde.core.BasicTest;
 import org.sgu.oecde.core.education.StringConstantsGetter;
+import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.util.DateConverter;
-import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
 import org.springframework.test.context.ContextConfiguration;
@@ -74,6 +74,18 @@ public class AppTest extends BasicTest{
         for (ControlWorkAttempt cw:ls){
             System.out.println(cw+"   "+cw.getWork());
         }
+    }
+
+//    @Ignore
+    @Test
+    public void getCount(){
+        setDao("controlWorkAttemptDao");
+        List q = new ArrayList();
+        q.add(new DeCurriculum(2009627542L));
+        q.add(new DeCurriculum(2009634942L));
+        q.add(new DeCurriculum(2009636442L));
+        System.out.println(this.<IControlWorkAttemptDao>getDao().getAttemptCountForTeacher(q,new Teacher(44240L),true));
+
     }
 
     @Ignore

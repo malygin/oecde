@@ -15,6 +15,7 @@ import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.core.util.DateConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
 /**
@@ -98,11 +99,10 @@ public class ControlWorkService{
     public <T extends AbstractStudent,V extends ControlWork>Map<T, V>getAllControlWorks(List<? extends AbstractStudent> students,List<? extends Curriculum> curriculums){
         List<ControlWork> list = controlWorkDao.getByStudentsAndCurriculums(curriculums,students,null);
         Map<T,V>map = new LinkedHashMap<T, V>();
-        if(CollectionUtils.isEmpty(list))
-            return map;
         for(AbstractStudent s:students){
             for(Curriculum curriculum:curriculums){
                 Iterator<ControlWork>i = list.iterator();
+                map.put((T) s, null);
                 while(i.hasNext()){
                     ControlWork w = i.next();
                     if(w!=null&&w.getCurriculum()!=null&&w.getStudent()!=null){
@@ -142,6 +142,7 @@ public class ControlWorkService{
      * @see org.sgu.oecde.core.IBasicDao#getByExample(org.sgu.oecde.core.BasicItem) 
      */
     public <T extends AdvancedCurriculum>List<T> getCurriculumsWithControlWorks(AdvancedCurriculum example){
+        Assert.notNull(example);
         example.setGotControlWork(true);
         return (List<T>) curriculumDao.getByExample(example);
     }
