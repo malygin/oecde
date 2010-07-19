@@ -17,35 +17,24 @@
         <h:outputText rendered="#{messageDialogBean.noDialog}" value="У Вас нет переписка с этим пользователем"/>
         
         <h:panelGroup rendered="#{not messageDialogBean.noDialog}">
-
             <h:form>
-                <a href="messages_write.xhtml?user=#{messageDialogBean.recipient.recipient.id}">Полный режим</a>
-                  <br/>
+                <a href="messages_write.xhtml?user=#{messageDialogBean.recipient.recipient.id}">Полный режим</a> <br/>
                 <h:outputText rendered="#{MessageWriteBean.renderSuccessSend}" value="Сообщение успешно послано"/>
                 <h:inputText  value="#{MessageWriteBean.theme}"/><br/>
                 <h:inputTextarea value="#{MessageWriteBean.fullText}"/><br/>
-
-                <h:commandButton action="#{MessageWriteBean.saveFromRead}" value="save!">
-                    <f:setPropertyActionListener target="#{MessageWriteBean.message}" value="#{cc.attrs.mess}"/>
+                <h:commandButton action="#{MessageWriteBean.save}" value="save!">
+                    <f:setPropertyActionListener target="#{MessageWriteBean.recipient_id}" value="#{messageDialogBean.recipient.recipient.id}"/>
                     <f:ajax execute="@form" render="@form" />
                 </h:commandButton>
             </h:form>
-
- собеседник #{messageDialogBean.recipient.fioAuthor}<br/><br/><br/>
-
+             собеседник #{messageDialogBean.recipient.fioAuthor}<br/><br/><br/>
             <c:forEach  items="#{cc.attrs.list}" var="message">
-            <c:if test="#{message.fioAuthor==messageDialogBean.recipient.fioAuthor}">
-              <b>ОН </b>
-            </c:if>
-          <c:if test="#{message.fioAuthor!=messageDialogBean.recipient.fioAuthor}">
-              <b>Я </b>
-            </c:if>
-            <h:outputText value="#{message.message.theme}"/>
-                    <small><h:outputText value="#{message.message.dateMessage}"/></small><br/>
-                    <h:outputText value="#{message.message.fullText}"/>                  
-                    <br/><br/>  
-        </c:forEach>
-
+              <c:if test="#{message.fioAuthor==messageDialogBean.recipient.fioAuthor}"><b>ОН</b></c:if>
+              <c:if test="#{message.fioAuthor!=messageDialogBean.recipient.fioAuthor}"><b>Я</b></c:if>
+              <h:outputText value="#{message.message.theme}"/>
+              <small><h:outputText value="#{message.message.dateMessage}"/></small><br/>
+              <h:outputText value="#{message.message.fullText}"/><br/><br/>  
+            </c:forEach>
         </h:panelGroup>
   </composite:implementation>
 </html>

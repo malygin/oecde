@@ -14,26 +14,23 @@
     <composite:implementation>
                 <h:dataTable value="#{cc.attrs.list}" var="message">
                 <h:column>
-                    <h:form id="formList">
-                     
+                    <h:form id="formList">                     
                         <h:dataTable value="#{message.message.recipients}" var="rec">
                             <h:column>
                                 <h:outputText value="#{rec.fioAuthor}"/>
                             </h:column>
                         </h:dataTable>
-                    <small><h:outputText value="#{message.message.dateMessage}"/></small><br/>
-                
-                    <b><h:outputText rendered="#{message.filesExist}" value="Файлы!"/></b>
-                    <a href="messages_read.xhtml?id=#{message.message.id}"><h:outputText value="#{message.message.theme}"/></a><br/>
-                    <h:outputText value="#{message.shortText}"/>
-                    <h:outputText  value="#{msgs.message_deleteSuccess}" rendered="#{MessageBean.renderDeleteSuccess}"/>
-                    <h:commandLink   action="#{MessageBean.deleteMessage}" >
-                        <h:outputText rendered="#{not MessageBean.renderDeleteSuccess}" value="#{msgs.message_delete}"/>
-                                     <f:setPropertyActionListener target="#{MessageBean.currentMessageId}" value="#{message.message.id}" />
-                                     <f:ajax  execute="@this" render="@form" />
-                     </h:commandLink>
-                    <br/> <h:outputLink rendered="#{not MessageBean.renderDeleteSuccess}" value="messages_read.xhtml?id=#{message.message.id}">#{msgs.message_answer}</h:outputLink>
-                    <br/><br/><br/>
+                        <small><h:outputText value="#{message.message.dateMessage}"/></small><br/>
+                        <b><h:outputText rendered="#{message.filesExist}" value="Файлы!"/></b>
+                        <a href="messages_read.xhtml?id=#{message.message.id}"><h:outputText value="#{message.message.theme}"/></a><br/>
+                        <h:outputText value="#{message.shortText}"/>
+                        <h:outputText  value="#{msgs.message_deleteSuccess}" rendered="#{MessageBean.renderDeleteSuccess}"/>
+                        <h:commandLink   action="#{MessageBean.deleteMessage}" >
+                            <h:outputText rendered="#{not MessageBean.renderDeleteSuccess}" value="#{msgs.message_delete}"/>
+                                         <f:setPropertyActionListener target="#{MessageBean.currentMessageId}" value="#{message.message.id}" />
+                                         <f:ajax  execute="@this" render="@form" />
+                         </h:commandLink><br/>
+                         <h:outputLink rendered="#{not MessageBean.renderDeleteSuccess}" value="messages_read.xhtml?id=#{message.message.id}">#{msgs.message_answer}</h:outputLink><br/><br/><br/>
                     </h:form>
                 </h:column>
             </h:dataTable>

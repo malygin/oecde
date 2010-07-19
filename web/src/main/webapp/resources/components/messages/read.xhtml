@@ -13,38 +13,35 @@
   <!-- IMPLEMENTATION -->
     <composite:implementation>
         <h:outputText rendered="#{MessageReadBean.noAccess}" value="У Вас нет доступа к этому письму"/>
-        <h:panelGroup rendered="#{not MessageReadBean.noAccess}">
-        <h:form  id ="formSend" >
-             <br/>
-            <h:outputLink  value="messages_dialog.xhtml?user=#{cc.attrs.mess.message.author.id}">Диалог!</h:outputLink><br/>
-            <h:commandLink action="#{MessageReadBean.delete}" value="Удалить"/><br/>
-            автор - <h:outputText value="#{cc.attrs.mess.fioAuthor}"/><br/>
-            получатели  <h:dataTable value="#{cc.attrs.mess.message.recipients}" var="rec">
-                            <h:column>
-                                <h:outputText value="#{rec.fioAuthor}"/><br/>
-                            </h:column>
-                        </h:dataTable>
-            <h:outputText value="#{cc.attrs.mess.message.dateMessage}"/><br/>
-            <h:outputText value="#{cc.attrs.mess.message.theme}"/><br/>
-            <h:outputText value="#{cc.attrs.mess.message.fullText}"/>
-            <h:dataTable value="#{cc.attrs.mess.message.files}" var="file">
-                <h:column>
-                    <a href="../resources/userFiles/messages/#{file.name}">Скачать файл</a>
-                </h:column>
-            </h:dataTable>
-            <br/><br/>
-            <a href="messages_write.xhtml?user=#{cc.attrs.mess.message.author.id}">Полный режим</a>
-              <br/>
-            <h:outputText rendered="#{MessageWriteBean.renderSuccessSend}" value="Сообщение успешно послано"/>
+        <h:panelGroup rendered="#{not MessageReadBean.noAccess}"> <br/>
+              <h:form  id ="formSend" >
+                <h:outputLink  value="messages_dialog.xhtml?user=#{cc.attrs.mess.message.author.id}">Диалог!</h:outputLink><br/>
+                <h:commandLink action="#{MessageReadBean.delete}" value="Удалить"/><br/>
+                автор - <h:outputText value="#{cc.attrs.mess.fioAuthor}"/><br/>
+                получатели  <h:dataTable value="#{cc.attrs.mess.message.recipients}" var="rec">
+                                <h:column>
+                                    <h:outputText value="#{rec.fioAuthor}"/><br/>
+                                </h:column>
+                            </h:dataTable>
+                <h:outputText value="#{cc.attrs.mess.message.dateMessage}"/><br/>
+                <h:outputText value="#{cc.attrs.mess.message.theme}"/><br/>
+                <h:outputText value="#{cc.attrs.mess.message.fullText}"/>
+                <h:dataTable value="#{cc.attrs.mess.message.files}" var="file">
+                    <h:column>
+                        <a href="../resources/userFiles/messages/#{file.name}">Скачать файл</a>
+                    </h:column>
+                </h:dataTable><br/><br/>
+                <a href="messages_write.xhtml?user=#{cc.attrs.mess.message.author.id}">Полный режим</a><br/>
+              
+                    <h:outputText rendered="#{MessageWriteBean.renderSuccessSend}" value="Сообщение успешно послано"/><br/>
 
-                <h:inputText  value="#{MessageWriteBean.theme}"/><br/>
-                <h:inputTextarea value="#{MessageWriteBean.fullText}"/><br/>
-
-                <h:commandButton action="#{MessageWriteBean.save}" value="save!">
-                    <f:setPropertyActionListener target="#{MessageWriteBean.message}" value="#{cc.attrs.mess}"/>
-                    <f:ajax execute="@form" render="@form" />
-                </h:commandButton>
-            </h:form>
+                    <h:inputText  value="#{MessageWriteBean.theme}"/><br/>
+                    <h:inputTextarea value="#{MessageWriteBean.fullText}"/><br/>
+                    <h:commandButton action="#{MessageWriteBean.save}" value="save!">
+                        <f:setPropertyActionListener target="#{MessageWriteBean.message}" value="#{cc.attrs.mess}"/>
+                        <f:ajax execute="@form" render="@form" />
+                    </h:commandButton>
+                 </h:form>
         </h:panelGroup>
   </composite:implementation>
 </html>

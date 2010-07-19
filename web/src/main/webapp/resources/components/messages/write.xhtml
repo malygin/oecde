@@ -16,7 +16,6 @@
   <cc:implementation>
       <h:form  id ="formSend"  enctype="multipart/form-data" >
              <h:outputText rendered="#{MessageWriteBean.renderSuccessSend}" value="Сообщение успешно послано!"/><br/>
-
               <h:dataTable id="recipients" value="#{MessageWriteBean.recipients}" var="recipient">
                     <h:column>
                         #{recipient.fioAuthor}
@@ -25,9 +24,7 @@
                             <f:setPropertyActionListener target="#{MessageWriteBean.recipient_id_remove}" value="#{recipient.recipient.id}"/>
                         </h:commandLink>
                     </h:column>
-                </h:dataTable>         
-
-              <br/>
+                </h:dataTable><br/>
                 <h:inputText  value="#{MessageWriteBean.theme}"/><br/>
                 <h:inputTextarea value="#{MessageWriteBean.fullText}"/><br/>
                 <h:dataTable value="#{MessageWriteBean.files}" var="file">
@@ -37,13 +34,11 @@
                             <f:ajax execute="@form" render="@form"/>
                             <f:setPropertyActionListener target="#{MessageWriteBean.messageNameForDelete}" value="#{file.name}"/>
                         </h:commandLink>
-
                     </h:column>
                 </h:dataTable>
                  <input type="file" name="MessageFile"/><br/>
-                 <h:commandButton  action="#{MessageWriteBean.addFile}" value="add File"/>
+                 <h:commandButton  action="#{MessageWriteBean.addFile}" value="add File"/><br/>
                  <h:commandButton  action="#{cc.attrs.actionMethod}" value="save"/>
-            </h:form>
-           
+            </h:form>           
   </cc:implementation>
 </html>
