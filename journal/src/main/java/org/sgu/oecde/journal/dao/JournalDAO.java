@@ -12,6 +12,7 @@ import org.sgu.oecde.journal.filter.BaseFilter;
 import org.sgu.oecde.journal.filter.StudentFilter;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.Assert;
 
 import org.springframework.util.CollectionUtils;
 
@@ -54,8 +55,9 @@ public class JournalDAO extends BasicDao<EventItem> implements IJournalDao {
     }
 
     private void processFilter(BaseFilter filter,Criteria cr) {
+        Assert.notNull(filter);
+        Assert.notNull(cr);
         cr.add(Property.forName("time").between(filter.getBeginDate(), filter.getEndDate()));
-        System.out.println(filter.getBeginDate()+"   "+filter.getEndDate());
         Set<EventType> events = filter.getEvents();
         if (events.size() == 0 && filter instanceof StudentFilter) {
             filter.addEventType(EventType.OWN_MESSAGE);
