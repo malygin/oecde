@@ -1,13 +1,16 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.core.education.dao.ICurriculumDao;
 import org.sgu.oecde.core.users.AbstractUser;
+import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.education.DeCurriculum;
@@ -31,6 +34,8 @@ public class StudentCurriculumBean implements Serializable{
 
     private List<DeCurriculum>curriculums;
 
+    private Map<DeCurriculum,Teacher>curriculumAndTeacher;
+
     @ManagedProperty(value="#{curriculumBuilder}")
     protected DeCurriculumBuilder curriculumBuilder;
 
@@ -50,14 +55,22 @@ public class StudentCurriculumBean implements Serializable{
 
     public List<DeCurriculum> getCurriculums() {
         if(curriculums==null)
-            curriculums = curriculumDao.getByExample(curriculumBuilder.getInstanceByCurrentDate(student, semester));
+            curriculums = new ArrayList(curriculumDao.getTeachersByGroup(semesterGetter.getSemesterByStudentYear(student, semester).intValue(), semesterGetter.getCalendarYear(semester), student.getGroup()).keySet());
         return curriculums;
     }
 
-    public List<DeCurriculum> getCurriculumsByYear()  {
-        if(curriculums==null)
-            curriculums = curriculumDao.getByExample(curriculumBuilder.getInstance(semester, student));
-        return curriculums;
+    public Map<DeCurriculum, Teacher> getCurriculumAndTeacher() {
+        if(curriculumAndTeacher == null){
+            curriculumAndTeacher = curriculumDao.<DeCurriculum,Teacher>getTeachersByGroup(semesterGetter.getSemesterByStudentYear(student, semester).intValue(), semesterGetter.getCalendarYear(semester), student.getGroup());
+        }
+        return curriculumAndTeacher;
+    }
+
+    public Map<DeCurriculum, Teacher> getCurriculumAndTeacherByYear() {
+        if(curriculumAndTeacher == null){
+            curriculumAndTeacher = curriculumDao.<DeCurriculum,Teacher>getTeachersByGroup(semester, semesterGetter.getCalendarYear(student, semester).intValue(), student.getGroup());
+        }
+        return curriculumAndTeacher;
     }
 
     public int getSemester() {

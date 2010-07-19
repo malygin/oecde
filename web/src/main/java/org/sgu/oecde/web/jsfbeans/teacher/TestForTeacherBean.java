@@ -10,14 +10,16 @@ import org.sgu.oecde.web.ResourceService;
  *
  * @author ShihovMY
  */
-@ManagedBean(name="groupControlWorks")
+@ManagedBean(name="testForTeacher")
 @ViewScoped
-public class TestForTeacherBean extends AbstractTeacherBean{
+public class TestForTeacherBean extends TeacherCurriculumBean{
 
     private TestEntity test;
 
     @ManagedProperty(value="#{resourceService}")
     private ResourceService resourceService;
+    
+    private static final long serialVersionUID = 115L;
 
     public TestEntity getTest(){
         return test;
@@ -25,7 +27,11 @@ public class TestForTeacherBean extends AbstractTeacherBean{
 
     public void setTestId(Long testId) {
         test = resourceService.getResource(getCurriculum(), new TestEntity(testId), TestEntity.class);
-        accessDenied = accessDenied?true:test==null;
+        setAccessDenied(isAccessDenied()?true:test==null);
+    }
+
+    public Long getTestId(){
+        return test==null?0:test.getId();
     }
 
     public void setResourceService(ResourceService resourceService) {

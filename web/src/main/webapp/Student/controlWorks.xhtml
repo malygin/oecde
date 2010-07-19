@@ -9,9 +9,11 @@
      <f:metadata>
          <f:viewParam name="s" value="#{controlWorksBean.semester}"/>
      </f:metadata>
-     <h:outputLink value="?s=#{controlWorksBean.semester==0?1:0}">другой семестр</h:outputLink>
+     <h:outputLink value="?s=#{controlWorksBean.semester==0?1:0}">другой семестр</h:outputLink><br/>
         <r:forEach items="${controlWorksBean.controlWorks}" var="o">
-            ${o[0].discipline.name}<br/>
+            ${o[0].discipline.name}
+            (<h:outputLink value="teacher.xhtml?id=${o[3].id}">${o[3].initials}</h:outputLink>)
+         <br/>
             ${o[1].points} - ${o[1].progress}<br/>
             <r:forEach items="#{o[1].cwAttempt}" varStatus="i" var="a">
                 ${i.count} ${a.filePath}<br/>

@@ -51,6 +51,20 @@
                 </table>
             </div>
             <div class="floatDestroyer"></div>
+            <h:dataTable value="#{studentIndexBean.groupRating}" var="p">
+               <h:column>
+                <f:facet name="header">
+                 <h:outputText value="Студент" />
+                </f:facet>
+               #{p.points.student.initials}
+               </h:column>
+               <h:column>
+                <f:facet name="header">
+                 <h:outputText value="Рейтинг" />
+                </f:facet>
+                 #{p.points.sum}
+               </h:column>
+            </h:dataTable>
         </div>
     </ui:define>
 

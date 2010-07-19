@@ -1,6 +1,7 @@
-    <ui:composition
+   <ui:composition
          xmlns:ui="http://java.sun.com/jsf/facelets"
          xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:r="http://java.sun.com/jsp/jstl/core"
          template="baseTemplate.xhtml">
 
         <ui:define name="userCSS">
@@ -9,19 +10,29 @@
         <ui:define name="left">
             <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.student_eduMenuTitle}</p></div>
             <ol class="leftSideMenuLinks">
-                <li><a href="index.xhtml"> #{msgs.student_eduMenuControlWorks}</a></li>
-                <li><a href="index.xhtml">#{msgs.student_eduMenuControlWorksResult}</a></li>
-                <li><a href="index.xhtml">#{msgs.student_eduMenuCoursework}</a></li>
-                <li><a href="index.xhtml"> #{msgs.student_eduMenuEvents}</a></li>
-                <li><a href="materials.xhtml">#{msgs.student_eduMenuLearningCourses}</a></li>
-                <li><a href="index.xhtml">  #{msgs.student_eduMenuMarks}</a></li>
-                <li><a href="index.xhtml"> #{msgs.student_eduMenuReexamination}</a></li>
-                <li><a href="index.xhtml"> #{msgs.student_eduMenuScheduleMonth}</a></li>
-                <li><a href="index.xhtml"> #{msgs.student_eduMenuScheduleSession}</a></li>
-                <li><a href="testResults.xhtml">  #{msgs.student_eduMenuTestsResults}</a></li>
-                <li><a href="index.xhtml"> #{msgs.student_eduMenuWinterReexamination}</a></li>
-                <li><a href="index.xhtml"> #{msgs.student_eduMenuWinterTestsResults}</a></li>
-                <li><p>Пример неактивной ссылки</p></li>
+              <li><a href="controlWorks.xhtml"> #{msgs.student_eduMenuControlWorks}</a></li>
+              <li><a href="groupControlWorks.xhtml">#{msgs.student_eduMenuControlWorksResult}</a></li>
+              <li>
+              <r:choose>
+                  <r:when test="#{termPaper.gotTermPaper}">
+                      <h:outputLink value="index.xhtml">#{msgs.student_eduMenuCoursework}</h:outputLink>
+                  </r:when>
+                  <r:otherwise>
+                      <p>#{msgs.student_eduMenuCoursework}</p>
+                  </r:otherwise>
+              </r:choose>
+              </li>
+              <li><a href="index.xhtml"> #{msgs.student_eduMenuEvents}</a></li>
+              <li><a href="materials.xhtml">#{msgs.student_eduMenuLearningCourses}</a></li>
+              <li><a href="grades.xhtml">  #{msgs.student_eduMenuMarks}</a></li>
+              <li><a href="testResults.xhtml?r=true"> #{msgs.student_eduMenuReexamination}</a></li>
+              <li><a href="index.xhtml"> #{msgs.student_eduMenuScheduleMonth}</a></li>
+              <li><a href="index.xhtml"> #{msgs.student_eduMenuScheduleSession}</a></li>
+              <li><a href="testResults.xhtml">  #{msgs.student_eduMenuTestsResults}</a></li>
+              <li><a href="testResults.xhtml?r=true&amp;s=1"> #{msgs.student_eduMenuWinterReexamination}</a></li>
+              <li><a href="testResults.xhtml?s=1"> #{msgs.student_eduMenuWinterTestsResults}</a></li>
+              <li><a href="testResults.xhtml?s=1"> #{msgs.student_eduMenuWinterTestsResults}</a></li>
+              <li><p>Пример неактивной ссылки</p></li>
             </ol>
             <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_messMenuTitle}</p></div>
             <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="message_list.xhtml">#{msgs.student_messMenuIn} #{MessageCountNewBean.newMessages}) </a></div></div>
@@ -84,18 +95,19 @@
         <ui:define name="right">
             <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_comMenuTitle}</p></div>
             <ol class="leftSideMenuLinks">
-                <li><a href="index.xhtml">#{msgs.student_comMenuTeachers}</a></li>
-                <li><a href="index.xhtml">#{msgs.student_comMenuStudents}</a></li>
+                <li><a href="teachersList.xhtml">#{msgs.student_comMenuTeachers}</a></li>
+                <li><a href="studentsList.xhtml">#{msgs.student_comMenuStudents}</a></li>
                 <li><a href="index.xhtml">#{msgs.student_comMenuVideoconferencing}</a></li>
                 <li><a href="index.xhtml">#{msgs.student_comMenuForum}</a></li>
             </ol>
             
             <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.student_controlMenuTitle}</p></div>
             <ol class="leftSideMenuLinks">
-                <li><a href="index.xhtml">#{msgs.student_controlMenuCurriculum}</a></li>
-                <li><a href="index.xhtml">#{msgs.student_controlMenuLibrary}</a></li>
-                <li><a href="index.xhtml">#{msgs.student_controlMenuRecordBook}</a></li>
-                <li><a href="index.xhtml">#{msgs.student_controlMenuTeaching}</a></li>
+                <li><a href="curriculum.xhtml">#{msgs.student_controlMenuCurriculum}</a></li>
+                <li><a href="libraryMaterials.xhtml">#{msgs.student_controlMenuLibrary}</a></li>
+                <li><a href="oldGrades.xhtml">#{msgs.student_controlMenuRecordBook}</a></li>
+                <li><a href="lowGradedDisciplines.xhtml">#{msgs.student_controlMenuLowGradedDisciplines}</a></li>
+                <li><a href="badPassedTests.xhtml">#{msgs.student_controlMenuBadPassedTests}</a></li>
             </ol>
 
             <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_studentsOnlineMenuTitle}</p></div>

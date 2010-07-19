@@ -34,7 +34,7 @@ public class Materials extends StudentCurriculumBean{
             advCurriculums = testAttemptService.getStudentAttemptsCount(getCurriculums(),student);
             if(CollectionUtils.isEmpty(advCurriculums))
                 return new LinkedList();
-            List<PointsFacade> points = gradesService.getStudentGrades(getCurriculums(), student);
+            List<PointsFacade> points = gradesService.getStudentGrades(getCurriculumAndTeacher(), student);
             for(PointsFacade p:points){
                 AdditionalCurriculum c = new AdditionalCurriculum(p.getPoints().getCurriculum());
                 if(advCurriculums.contains(c))

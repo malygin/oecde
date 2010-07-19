@@ -16,6 +16,7 @@
                  <h:outputText value="дисциплина" />
                 </f:facet>
                #{p.points.curriculum.discipline.name}
+               (<h:outputLink value="teacher.xhtml?id=${p.teacher.id}">#{p.teacher.initials}</h:outputLink>)
                </h:column>
                <h:column>
                 <f:facet name="header">

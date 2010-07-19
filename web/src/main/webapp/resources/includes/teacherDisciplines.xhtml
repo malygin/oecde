@@ -1,0 +1,19 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:r="http://java.sun.com/jsp/jstl/core">
+         <f:viewParam name="s" value="#{groupControlWorksForTeacher.semester}"/>
+         <f:viewParam name="g" value="#{groupControlWorksForTeacher.id}"/>
+         <f:viewParam name="c" value="#{groupControlWorksForTeacher.curriculumId}"/>
+         <h:outputText rendered="#{groupControlWorksForTeacher.accessDenied}" value="Не найдена или не доступна" />
+         <h:dataTable value="#{groupControlWorksForTeacher.disciplines}" var="d">
+           <h:column>
+             <h:outputLink value="?c=${d.id}">(#{d.discipline.name})</h:outputLink>
+           </h:column>
+          </h:dataTable>
+         <h:outputText rendered="#{groupControlWorksForTeacher.accessDenied}" value="Не найдена или не доступна" />
+         <h:outputText value="#{groupControlWorksForTeacher.curriculum.discipline.name}"/><br/>
+         <h:outputText value="#{groupControlWorksForTeacher.group.name}"/> (<h:outputText value="#{groupControlWorksForTeacher.group.city.name}"/>,<h:outputText value="#{groupControlWorksForTeacher.group.speciality.name}"/>)
+         <hr/>
+</ui:composition>

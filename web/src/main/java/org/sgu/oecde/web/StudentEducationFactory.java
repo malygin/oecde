@@ -30,6 +30,14 @@ public class StudentEducationFactory extends EducationFactory{
     private StudentEducationFactory() {
     }
 
+
+    public Task getTask(){
+        return getResource(getDisciplineForStudent(),new Task(id),Task.class);
+    }
+
+    
+/*-------------------------------------------------------*/
+
     public List<Points>  getGroupRating() {
         List<IResultFilter>filters = new LinkedList();
         filters.add(controlWorkFilter);
@@ -50,14 +58,6 @@ public class StudentEducationFactory extends EducationFactory{
         }
         return got;
     }
-
-    public Task getTask(){
-        return getResource(getDisciplineForStudent(),new Task(id),Task.class);
-    }
-
-    
-/*-------------------------------------------------------*/
-
     public Map<Student,ControlWork> getControlWorkInfo4Group() {
         List<DeCurriculum> c =  cwService.getCurriculumsWithControlWorks(curriculumBuilder.getInstance(sg.getCurrentYear(), semester, student));
         return cwService.<Student,ControlWork>getAllControlWorks(new ArrayList(student.getGroup().getPersons()), c);
@@ -142,10 +142,6 @@ public class StudentEducationFactory extends EducationFactory{
         List<DeCurriculum> c = getCurriculums(sg.getCalendarYear(student, semester));
         List<Estimate> l = estimateDao.getByStudentsAndCurriculums(c, stl, null);
         return preFilter.forEachResult(l, true,filters);
-    }
-
-    public List<Teacher> getTeachersList(){
-        return curriculumDao.<Teacher>getTeachersByGroup(sg.getSemestersByInt(0), sg.getCalendarYear(0), student.getGroup());
     }
 
     public List<Points> getStudentGrades() {

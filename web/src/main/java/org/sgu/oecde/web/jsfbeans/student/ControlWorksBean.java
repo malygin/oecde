@@ -50,19 +50,24 @@ public class ControlWorksBean extends StudentCurriculumBean{
             while(cwI.hasNext()){
                 Map.Entry<DeCurriculum,ControlWork> v = (Map.Entry)cwI.next();
                 ControlWork w = v.getValue();
+                DeCurriculum cr = v.getKey();
                 boolean available=false;
-                Object[] data = new Object[3];
+                Object[] data = new Object[5];
                 works.add(data);
-                data[0] = v.getKey();
+                data[0] = cr;
                 data[1] = w;
                 if(((currentDate.compareTo(controlWorksBeginDate)>=0
                     &&currentDate.compareTo(controlWorksEndDate)<0)
                     ||(currentDate.compareTo(reExameBeginDate)>=0
                     &&currentDate.compareTo(reExameEndDate)<0)
-                    )&&!ControlWorkProgress.passed.equals(w.getProgress())){
+                    )&&!ControlWorkProgress.passed.equals(w.getProgress())
+                    &&!cr.isControlWorksPaperOnly()){
                     available = true;
                 }
                 data[2] = available;
+                if(getCurriculumAndTeacher().containsKey(cr))
+                    data[3] = getCurriculumAndTeacher().get(cr);
+                data[4] = (cr.isControlWorksPaperOnly()!=null&&cr.isControlWorksPaperOnly())?"в рукописном":"";
             }
         }
         return works;

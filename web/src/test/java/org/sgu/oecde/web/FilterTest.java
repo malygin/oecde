@@ -1,5 +1,6 @@
 package org.sgu.oecde.web;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -14,10 +15,12 @@ import org.sgu.oecde.core.education.estimation.IResultFilter;
 import org.sgu.oecde.core.education.estimation.Points;
 import org.sgu.oecde.core.education.estimation.ResultPreFilter;
 import org.sgu.oecde.core.education.work.AbstractResult;
+import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.tests.TestAttempt;
 import org.sgu.oecde.tests.TestAttemptType;
+import org.sgu.oecde.core.education.dao.IEstimateDao;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.util.CollectionUtils;
 
@@ -37,6 +40,18 @@ public class FilterTest extends BasicTest{
 
 //    @Ignore
     @Test
+    public void groupCount(){
+        setDao("estimateDao");
+        List q = new ArrayList();
+        q.add(new DeCurriculum(2009627542L));
+        q.add(new DeCurriculum(2009634942L));
+        q.add(new DeCurriculum(2009636442L));
+        int t = this.<IEstimateDao>getDao().getEstimatedGroupsCount(q,new Teacher(44240L));
+        System.out.println(t);
+    }
+
+//    @Ignore
+    @Test
     public void save(){
         List<IResultFilter>filters = new LinkedList();
         IResultFilter f1 = (IResultFilter)getBean("controlWorkFilter");
@@ -48,19 +63,28 @@ public class FilterTest extends BasicTest{
         filters.add(f3);
         setDao("resultDao");
         List q = new LinkedList();
+        List s = new LinkedList();
+        s.add(new Student(320269L));
         q.add(new DeCurriculum(2009627542L));
         q.add(new DeCurriculum(2009634942L));
         q.add(new DeCurriculum(2009636442L));
-        List s = new LinkedList();
-        s.add(new Student(320269L));
+
+
+//        q.add(new DeCurriculum(200947525L));
+//        s.add(new Student(324607L));
+//        s.add(new Student(324718L));
+//        s.add(new Student(324744L));
+//        s.add(new Student(324824L));
+//        s.add(new Student(324748L));
         List<AbstractResult> l = this.<IResultDao>getDao().getByStudentsAndCurriculums(q, s, null);
         Collections.sort(l);
         for(AbstractResult r:l){
             if(r instanceof TestAttempt && !((TestAttempt)r).getType().equals(TestAttemptType.trial))
-                System.out.println(((TestAttempt)r).getWork().getTitle()+"   "+((TestAttempt)r).getPoints());
+                System.out.println(r.getStudent().getFio()+"    "+((TestAttempt)r).getWork().getTitle()+"   "+((TestAttempt)r).getPoints());
         }
         for(Points p:pf.forEachResult(l, true,filters)){
             System.out.println(p.<DeCurriculum>getCurriculum().getDiscipline().getName());
+            System.out.println(p.<Student>getStudent().getFio());
             if(!CollectionUtils.isEmpty(p.getWorkPoints())){
                 Map<IEstimate,Object> m = p.getWorkPoints();
                 Iterator specsI = m.entrySet().iterator();

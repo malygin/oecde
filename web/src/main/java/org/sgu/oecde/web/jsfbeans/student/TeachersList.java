@@ -1,5 +1,6 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -19,7 +20,7 @@ public class TeachersList extends StudentCurriculumBean{
 
     public List<Teacher> getTeachers(){
         if(teachersList==null)
-            teachersList = curriculumDao.<Teacher>getTeachersByGroup(semesterGetter.getSemestersByInt(semester), semesterGetter.getCalendarYear(semester), student.getGroup());
+            teachersList = new ArrayList(getCurriculumAndTeacher().values());
         return teachersList;
     }
 

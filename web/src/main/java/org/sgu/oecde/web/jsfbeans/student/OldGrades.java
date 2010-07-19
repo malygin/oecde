@@ -1,5 +1,6 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -40,8 +41,8 @@ public class OldGrades extends StudentCurriculumBean{
             filters.add(estimateFilter);
             List<Student>stl = new LinkedList<Student>();
             stl.add(student);
-            List<Estimate> l = estimateDao.getByStudentsAndCurriculums(getCurriculumsByYear(), stl, null);
-            points =  GradesService.pointsToFacades(preFilter.forEachResult(l, true,filters));
+            List<Estimate> l = estimateDao.getByStudentsAndCurriculums(new ArrayList(getCurriculumAndTeacherByYear().keySet()), stl, null);
+            points =  GradesService.pointsToFacades(preFilter.forEachResult(l, true,filters),getCurriculumAndTeacherByYear());
         }
         return points;
     }

@@ -1,12 +1,10 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
-import java.util.LinkedList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.core.education.work.AdditionalSelfDependentWork;
-import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.tests.TestAttemptService;
 
 /**
@@ -33,8 +31,6 @@ public class TestResultsBean extends StudentCurriculumBean{
             if(curriculumId==null||curriculumId==0)
                 attempts = testAttemptService.getStudentAttempts(getCurriculums(),student,reExame);
             else{
-                List<DeCurriculum>curriculums = new LinkedList<DeCurriculum>();
-                curriculums.add(curriculumBuilder.getInstance(curriculumId));
                 attempts = testAttemptService.getStudentSingleCurriculumTestsWithAttempts(curriculumBuilder.getInstance(curriculumId),student);
             }
         }

@@ -1,17 +1,18 @@
 package org.sgu.oecde.web.jsfbeans.teacher;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.controlworks.ControlWork;
 import org.sgu.oecde.controlworks.ControlWorkService;
+import org.sgu.oecde.core.IBasicDao;
 import org.sgu.oecde.core.education.work.AdditionalSelfDependentWork;
 import org.sgu.oecde.de.education.DeCurriculum;
+import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.tests.TestAttemptService;
-import org.sgu.oecde.web.jsfbeans.student.TestResultsBean;
 import org.springframework.util.CollectionUtils;
 
 /**
@@ -20,19 +21,19 @@ import org.springframework.util.CollectionUtils;
  */
 @ManagedBean(name="studentResults")
 @ViewScoped
-public class StudentResults extends AbstractTeacherBean{
+public class StudentResults extends AbstractStudentsListBean{
     
-    private Long id;
-
     private Student student;
 
-    private Map<DeCurriculum,ControlWork>works;
+    private List<ControlWork>works;
+
+    private List<AdditionalSelfDependentWork>tests;
+
+    @ManagedProperty(value="#{studentDao}")
+    IBasicDao<Student>studentDao;
 
     @ManagedProperty(value="#{testAttemptService}")
     TestAttemptService testAttemptService;
-
-    @ManagedProperty(value="#{testResultsBean}")
-    TestResultsBean testResultsBean;
 
     @ManagedProperty(value="#{controlWorkService}")
     ControlWorkService controlWorkService;
@@ -40,14 +41,16 @@ public class StudentResults extends AbstractTeacherBean{
     private static final long serialVersionUID = 109L;
 
     public List<AdditionalSelfDependentWork> getResults() {
-        return testResultsBean.getAttempts();
+        if(tests==null)
+            tests = testAttemptService.getStudentSingleCurriculumTestsWithAttempts(getCurriculum(),student);
+        return tests;
     }
 
-    public Map<DeCurriculum,ControlWork> getControlWorks(){
+    public List<ControlWork> getControlWorks(){
         if(works==null){
             List<DeCurriculum> c =  controlWorkService.getCurriculumsWithControlWorks(getCurriculum());
             if(!CollectionUtils.isEmpty(c)&&c.size()==1)
-                works = controlWorkService.<DeCurriculum,ControlWork>getStudensControlWorks(student, c);
+                works = new ArrayList(controlWorkService.<DeCurriculum,ControlWork>getStudensControlWorks(student, c).values());
         }
         return works;
     }
@@ -57,28 +60,30 @@ public class StudentResults extends AbstractTeacherBean{
     }
 
     public void setStudentId(Long studentId) {
-        testResultsBean.setStudent(new Student(studentId));
+        student = studentDao.getById(studentId);
+        setGroup(student.<Group>getGroup());
         works = null;
+        tests = null;
     }
 
     public Student getStudent() {
         return student;
     }
 
-    public Long getId() {
-        return id;
+    public Long getStudentId(){
+        return student==null?0:student.getId();
     }
 
     public void setId(Long id) {
-        testResultsBean.setCurriculumId(id);
         works = null;
+        tests = null;
     }
 
     public void setControlWorkService(ControlWorkService controlWorkService) {
         this.controlWorkService = controlWorkService;
     }
 
-    public void setTestResultsBean(TestResultsBean testResultsBean) {
-        this.testResultsBean = testResultsBean;
+    public void setStudentDao(IBasicDao<Student> studentDao) {
+        this.studentDao = studentDao;
     }
 }

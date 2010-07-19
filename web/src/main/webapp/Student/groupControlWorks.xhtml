@@ -9,9 +9,9 @@
          <f:metadata>
              <f:viewParam name="s" value="#{groupCwBean.semester}"/>
          </f:metadata>
-         <h:outputLink value="?s=#{groupCwBean.semester==0?1:0}">другой семестр</h:outputLink>
-            <r:forEach items="${groupCwBean.controlWorkInfo4Group}" var="w">
-                ${w.key.fio} -  ${w.value.curriculum.discipline.name} | ${w.value.progress}<br/>
-            </r:forEach>
+         <h:outputLink value="?s=#{groupCwBean.semester==0?1:0}">другой семестр</h:outputLink><br/>
+         <r:forEach items="${groupCwBean.controlWorkInfo4Group}" var="w">
+               #{w.key.fio} -  #{w.value.curriculum.discipline.name} | #{w.value.progress}<br/>
+         </r:forEach>
         </ui:define>
     </ui:composition>

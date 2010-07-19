@@ -23,7 +23,7 @@ public class PointsAndGradesBean extends StudentCurriculumBean{
 
     public List<PointsFacade>getPoints(){
         if(points==null){
-            points = gradesService.getStudentGrades(getCurriculums(), student);
+            points = gradesService.getStudentGrades(getCurriculumAndTeacher(), student);
         }
         return points;
     }

@@ -26,7 +26,7 @@ public class LowGradedDisciplines extends StudentCurriculumBean{
 
     public List<PointsFacade> getLowGradedDisciplines() {
         if(pointsList==null){
-            pointsList = gradesService.getStudentGrades(getCurriculumsByYear(), student);
+            pointsList = gradesService.getStudentGrades(getCurriculumAndTeacher(), student);
             Iterator<PointsFacade> i = pointsList.iterator();
             while(i.hasNext()){
                 PointsFacade points = i.next();

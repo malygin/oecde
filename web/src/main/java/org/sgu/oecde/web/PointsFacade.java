@@ -5,6 +5,7 @@ import org.sgu.oecde.controlworks.estimation.CwEstimateNames;
 import org.sgu.oecde.core.education.estimation.EstimateNames;
 import org.sgu.oecde.core.education.estimation.Points;
 import org.sgu.oecde.core.education.work.PointToEstimate;
+import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.tests.estimation.TestEstimateNames;
 
 /**
@@ -13,6 +14,7 @@ import org.sgu.oecde.tests.estimation.TestEstimateNames;
  */
 public class PointsFacade {
     private Points points;
+    private Teacher teacher;
 
     public PointsFacade(Points points) {
         this.points = points;
@@ -52,5 +54,13 @@ public class PointsFacade {
 
     public Points getPoints() {
         return points;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 }

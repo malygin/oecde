@@ -1,5 +1,6 @@
 package org.sgu.oecde.web.jsfbeans.teacher;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.faces.bean.ManagedBean;
@@ -24,14 +25,16 @@ public class GroupControlWorks extends AbstractStudentsListBean{
 
     private static final long serialVersionUID = 114L;
 
-    Map<Student,ControlWork>works;
+    private Map<Student,ControlWork>works;
 
     public Map<Student,ControlWork> getGroupControlWorks() {
         if(works==null){
             List<DeCurriculum> c =  cwService.getCurriculumsWithControlWorks(getCurriculum());
-            if(!CollectionUtils.isEmpty(c)&&c.size()==1)
+            if(!CollectionUtils.isEmpty(c)&&c.size()==1){
                 works = cwService.<Student,ControlWork>getCurriculumControlWorks(getStudentsList(), c.get(0));
-            }
+            }else
+                works = new HashMap<Student, ControlWork>();
+        }
         return works;
     }
 

@@ -9,8 +9,6 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 
  <http >
     <custom-filter position="LOGOUT_FILTER" ref="logoutFilter" />
-    <custom-filter after="SWITCH_USER_FILTER" ref="hibernateFilter" />
-    <custom-filter position="LAST" ref="eventListner" />
     <intercept-url pattern="/index.xhtml" filters="none" access="IS_AUTHENTICATED_ANONYMOUSLY" />
     <intercept-url pattern="/Admin/**" access="ROLE_ADMIN" />
     <intercept-url pattern="/Student/**" access="ROLE_STUDENT,ROLE_ADMIN" />

@@ -7,10 +7,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.core.education.Speciality;
 import org.sgu.oecde.de.users.Group;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 
 /**
  *
@@ -22,12 +24,15 @@ public class TeachersGroups extends AbstractTeacherBean{
 
     private Map<Speciality,List<Group>>groupsMap;
 
+    @ManagedProperty(value="#{teacherSessionBean}")
+    private TeacherSessionBean teacherSessionBean;
+
     private static final long serialVersionUID = 111L;
     
     public Map<Speciality,List<Group>> getTeachersGroups(){
         if(groupsMap==null){
             groupsMap = new HashMap<Speciality, List<Group>>();
-            List<Group>groups = curriculumDao.<Group>getGroupsForTeacher(semesters(), year(),teacher);
+            List<Group>groups = teacherSessionBean.getGroups(semester);
             if(!CollectionUtils.isEmpty(groups)){
                 Collections.sort(groups, new SortGroup());
                 List<Group>specialityGroups = null;
@@ -45,9 +50,16 @@ public class TeachersGroups extends AbstractTeacherBean{
         return groupsMap;
     }
 
-    public void setSemester(int semester) {
-        super.setSemester(semester);
+    public void setGrSemester(String semester) {
+        if(StringUtils.hasText(semester)){
+            semester.replaceAll("[^\\d]", "");
+            super.setSemester(semester.isEmpty()?0:Integer.parseInt(semester));
+        }
         groupsMap =null;
+    }
+
+    public void setTeacherSessionBean(TeacherSessionBean teacherSessionBean) {
+        this.teacherSessionBean = teacherSessionBean;
     }
 
     private class SortGroup implements Comparator<Group>{

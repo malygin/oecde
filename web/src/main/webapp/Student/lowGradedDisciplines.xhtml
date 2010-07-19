@@ -11,7 +11,8 @@
          <h:outputLink value="?s=#{lowGradedDisciplinesBean.semester==0?1:0}">другой семестр</h:outputLink>
          <h:dataTable value="#{lowGradedDisciplinesBean.lowGradedDisciplines}" var="p">
            <h:column>
-               <h:outputText value="#{p.points.curriculum.discipline.name}"/><br/>
+               <h:outputText value="#{p.points.curriculum.discipline.name}"/> 
+                   (<h:outputLink value="teacher.xhtml?id=${p.teacher.id}">#{p.teacher.initials}</h:outputLink>)  <br/>
            </h:column>
          </h:dataTable>
         </ui:define>
