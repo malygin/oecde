@@ -1,11 +1,13 @@
 package org.sgu.oecde.news.dao;
 
 import java.util.List;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.sgu.oecde.core.BasicDao;
 import org.sgu.oecde.news.NewsItem;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 
@@ -22,10 +24,10 @@ public class NewsDAO extends BasicDao<NewsItem> implements INewsDao{
     /**
      * {@inheritDoc }
      */
-    public List<NewsItem> getNews(int beginIndex, int endIndex)  throws DataAccessException {
-        if (beginIndex < 0 || endIndex <= 0 || beginIndex > endIndex)
-            throw new IllegalArgumentException("Неположительные аргументы");
-        return getSession().createCriteria(type).setFirstResult(beginIndex).setMaxResults(endIndex).setCacheable(true).list();
+    public List<NewsItem> getNews(int messageOnPage, int numPage)  throws DataAccessException {
+//        if (beginIndex < 0 || endIndex <= 0 || beginIndex > endIndex)
+//            throw new IllegalArgumentException("Неположительные аргументы");
+        return getSession().createCriteria(type).addOrder(Order.desc("time")).setFirstResult(messageOnPage * (numPage-1)).setMaxResults(messageOnPage).setCacheable(true).list();
     }
 
     /**
@@ -39,7 +41,14 @@ public class NewsDAO extends BasicDao<NewsItem> implements INewsDao{
     /**
      * {@inheritDoc }
      */
+    @Transactional
+    @Override
     public void save(NewsItem item) throws DataAccessException {
         getSession().saveOrUpdate(item);
+    }
+    @Transactional
+    @Override
+    public void delete(NewsItem id) throws DataAccessException {
+        getSession().delete(id);
     }
 }

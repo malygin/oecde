@@ -47,7 +47,12 @@ public class NavigationBean implements Serializable{
     public List<String> getPages() {
         if (pages==null){
              pages=new ArrayList();
-             for(int i=1;i<=(numElements / elementOnPage)+1;i++){
+           //  System.out.println("nE "+numElements);
+           //    System.out.println("el "+elementOnPage);
+             int forsum=numElements / elementOnPage;
+             if ((numElements%elementOnPage)!=0) forsum++;
+
+             for(int i=1;i<=forsum;i++){
                  pages.add(Integer.toString(i));
              }
         } 

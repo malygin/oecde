@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:composite="http://java.sun.com/jsf/composite"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+ <!-- INTERFACE -->
+  <composite:interface>
+    <composite:attribute  name="list"/>
+  </composite:interface>
+
+  <!-- IMPLEMENTATION -->
+    <composite:implementation>         
+        <h:dataTable value="#{cc.attrs.list}" var="new">
+                <h:column>
+                    <h:form id="formList">
+                         <h:outputText  rendered="#{NewsBean.renderDeleteSuccess}" value="Удалена новость"/>
+                         <h:commandLink rendered="#{not NewsBean.renderDeleteSuccess}"  action="#{NewsBean.delete}" value="Удалить" >
+                            <f:setPropertyActionListener target="#{NewsBean.newIdDelete}" value="#{new.id}" />
+                                         <f:ajax  execute="@this" render="@form" />
+                         </h:commandLink><br/>
+                    <b>#{new.time}</b>
+                    #{new.header}<br/>
+                    #{new.announcement}<br/>
+                       #{new.reviewNumber}<br/>
+                    <h:outputLink value="news_read.xhtml?id=#{new.id}" rendered="#{not NewsBean.renderDeleteSuccess}">
+                    редактировать
+                    </h:outputLink>
+                 
+                    </h:form>
+                </h:column>
+            </h:dataTable>
+  </composite:implementation>
+</html>

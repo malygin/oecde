@@ -3,17 +3,19 @@
          xmlns:f="http://java.sun.com/jsf/core"
          xmlns:h="http://java.sun.com/jsf/html"
          template="../resources/studentTemplate.xhtml"
-         xmlns:mess="http://java.sun.com/jsf/composite/components/messages"
          xmlns:util="http://java.sun.com/jsf/composite/components/util"
+         xmlns:news="http://java.sun.com/jsf/composite/components/news"
           >
-         <f:metadata>
+
+        <f:metadata>
               <f:viewParam name="page" value="#{NavigationBean.page}"/>
-              <f:viewParam name="page" value="#{MessageBean.currentPage}"/>
+              <f:viewParam name="page" value="#{NewsBean.currentPage}"/>
          </f:metadata>
 
         <ui:define name="content">
-            <util:navigationList elementOnPage="#{MessageBean.messageOnPage}"
-                                 numElements="#{MessageBean.numOfMessages}"/>
-            <mess:list list="#{MessageBean.messages}"/>          
+            <a href="news_add.xhtml">  + добавить новость</a><br/>
+            <util:navigationList elementOnPage="#{NewsBean.newsOnPage}"
+                                 numElements="#{NewsBean.countNews}"/>
+            <news:listEdit list="#{NewsBean.news}"/>
          </ui:define>
     </ui:composition>

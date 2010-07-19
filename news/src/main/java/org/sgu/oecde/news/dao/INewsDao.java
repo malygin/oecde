@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
  * новостное дао
  * @author ShihovMY
  */
+
 public interface INewsDao extends IBasicDao<NewsItem>{
     /**
      * возвращает лист новостей с {@code beginIndex} no {@code endIndex}
@@ -18,7 +19,7 @@ public interface INewsDao extends IBasicDao<NewsItem>{
      * @return новости
      * @throws DataAccessException
      */
-    public List<NewsItem> getNews(int beginIndex, int endIndex)  throws DataAccessException ;
+    public List<NewsItem> getNews(int messageOnPage, int numPage)  throws DataAccessException ;
 
     /**
      *
@@ -32,6 +33,12 @@ public interface INewsDao extends IBasicDao<NewsItem>{
      * @param item новость
      * @throws DataAccessException
      */
-    @Transactional
+ 
     public void save(NewsItem item) throws DataAccessException;
+    /** 
+     * удаляет новость
+     * @param id
+     * @throws DataAccessException
+     */
+    public void delete(NewsItem id) throws DataAccessException;
 }

@@ -33,7 +33,7 @@ public class NewsItem extends BasicItem{
     /**
      * количество просмотров
      */
-    private Integer reviewNumber;
+    private Integer reviewNumber=0;
     /**
      * доступ. не используется
      */

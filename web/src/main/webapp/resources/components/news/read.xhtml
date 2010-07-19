@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:composite="http://java.sun.com/jsf/composite"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+ <!-- INTERFACE -->
+  <composite:interface>
+    <composite:attribute  name="new"/>
+  </composite:interface>
+
+  <!-- IMPLEMENTATION -->
+    <composite:implementation>
+      #{cc.attrs.new.time} <b> #{cc.attrs.new.reviewNumber}</b><br/>
+      #{cc.attrs.new.header}<br/>
+       #{cc.attrs.new.fullText}<br/>
+  </composite:implementation>
+</html>
