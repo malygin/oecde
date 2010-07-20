@@ -43,12 +43,22 @@ public class NewsDAO extends BasicDao<NewsItem> implements INewsDao{
      */
     @Transactional
     @Override
-    public void save(NewsItem item) throws DataAccessException {
-        getSession().saveOrUpdate(item);
+    public Long save(NewsItem item) throws DataAccessException {
+       Long id= (Long) getSession().save(item);
+       // System.out.println("id "+id);
+        //getSession().saveOrUpdate(item);
+       return id;
     }
     @Transactional
     @Override
     public void delete(NewsItem id) throws DataAccessException {
         getSession().delete(id);
     }
+    
+    @Transactional
+    @Override
+    public void update(NewsItem item) throws DataAccessException {
+        getSession().saveOrUpdate(item);
+    }
+
 }

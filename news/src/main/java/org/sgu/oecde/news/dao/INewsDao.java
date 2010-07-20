@@ -34,11 +34,17 @@ public interface INewsDao extends IBasicDao<NewsItem>{
      * @throws DataAccessException
      */
  
-    public void save(NewsItem item) throws DataAccessException;
+    public Long save(NewsItem item) throws DataAccessException;
     /** 
      * удаляет новость
      * @param id
      * @throws DataAccessException
      */
     public void delete(NewsItem id) throws DataAccessException;
+    /**
+     * обновляет новость
+     * @param item
+     * @throws DataAccessException
+     */
+    public void update(NewsItem item) throws DataAccessException;
 }

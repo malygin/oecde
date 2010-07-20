@@ -6,6 +6,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.core.util.DateConverter;
+import org.sgu.oecde.core.util.SecurityContextHandler;
+import org.sgu.oecde.journal.Journal;
 import org.sgu.oecde.news.NewsItem;
 import org.sgu.oecde.news.dao.INewsDao;
 
@@ -19,6 +21,8 @@ import org.sgu.oecde.news.dao.INewsDao;
 public class NewsBean {
      @ManagedProperty(value="#{newsDao}")
      private INewsDao newsDao;
+      @ManagedProperty(value="#{journalServise}")
+      private Journal journal;
 
      private List<NewsItem> news;
      private int countNews;
@@ -57,15 +61,14 @@ public class NewsBean {
        n.setHeader(header);
          n.setTime(DateConverter.currentDate());
          renderAddSuccess=true;
-        newsDao.save(n);
+        Long id=newsDao.save(n);
+        n.setId(id);
+        journal.logNewNews(n, SecurityContextHandler.getUser());
       
     }
     public void edit(){
-
          renderAddSuccess=true;
-        newsDao.save(currentNewItem);
-
-
+         newsDao.update(currentNewItem);
     }
     public List<NewsItem> getNews(){
         if (news==null) news=newsDao.getNews(newsOnPage, currentPage);
@@ -79,9 +82,11 @@ public class NewsBean {
     public void  setCurrentNewId(int id){
         if (id!=0){
               this.currentNewId=id;
-              currentNewItem= newsDao.getById(new Long(this.currentNewId));
+              currentNewItem= newsDao.getById(new Long(this.currentNewId));            
               currentNewItem.setReviewNumber(currentNewItem.getReviewNumber()+1);
-              newsDao.save(currentNewItem);}
+              newsDao.update(currentNewItem);
+              journal.logViewNews(currentNewItem, SecurityContextHandler.getUser());
+        }
     }
 
     public int getCurrentNewId() {
@@ -168,6 +173,14 @@ public class NewsBean {
 
     public void setCurrentNewItem(NewsItem currentNewItem) {
         this.currentNewItem = currentNewItem;
+    }
+
+    public Journal getJournal() {
+        return journal;
+    }
+
+    public void setJournal(Journal journal) {
+        this.journal = journal;
     }
 
 
