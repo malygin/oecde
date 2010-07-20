@@ -16,9 +16,18 @@
          <br/>
             ${o[1].points} - ${o[1].progress}<br/>
             <r:forEach items="#{o[1].cwAttempt}" varStatus="i" var="a">
-                ${i.count} ${a.filePath}<br/>
+                ${i.count} <a href="../resources/userFiles/controlWorks/${a.filePath}"> ${a.filePath}</a><br/>
             </r:forEach>
-            <r:if test="${o[2]}">загрузить</r:if>
+            <r:if test="${o[2]}">
+                <h:form  enctype="multipart/form-data">                   
+                  <input type="file" name="CwFile"/><br/>
+                  <h:commandButton  action="#{controlWorksBean.saveCw}" value="Загрузить">
+                       <f:setPropertyActionListener target="#{controlWorksBean.currentControlWorks}" value="#{o[1]}" />
+                  </h:commandButton>
+                      <br/>
+                </h:form>
+
+            </r:if>
             <br/>------------------<br/>
         </r:forEach>
     </ui:define>
