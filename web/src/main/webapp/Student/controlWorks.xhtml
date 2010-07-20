@@ -23,6 +23,7 @@
                   <input type="file" name="CwFile"/><br/>
                   <h:commandButton  action="#{controlWorksBean.saveCw}" value="Загрузить">
                        <f:setPropertyActionListener target="#{controlWorksBean.currentControlWorks}" value="#{o[1]}" />
+                       <f:setPropertyActionListener target="#{controlWorksBean.currentDeCurriculum}" value="#{o[0]}" />
                   </h:commandButton>
                       <br/>
                 </h:form>

@@ -22,6 +22,7 @@ import org.sgu.oecde.core.education.CalendarConstantName;
 import org.sgu.oecde.core.education.StringConstantsGetter;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.de.education.DeCurriculum;
+import org.sgu.oecde.journal.Journal;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.FacesUtil;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.FileUploadUtil;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.MultipartRequestWrapper;
@@ -41,6 +42,9 @@ public class ControlWorksBean extends StudentCurriculumBean{
     @ManagedProperty(value="#{controlWorkDao}")
     private IControlWorkDao<ControlWork> controlWorkDao;
 
+    @ManagedProperty(value="#{journalServise}")
+    private Journal journal;
+
     private List<Object[]>works;
 
     @ManagedProperty(value="#{cwDatesGetter}")
@@ -52,6 +56,7 @@ public class ControlWorksBean extends StudentCurriculumBean{
     private String reExameEndDate;
 
     private ControlWork currentControlWorks;
+    private DeCurriculum currentDeCurriculum;
 
     private static final long serialVersionUID = 105L;
 
@@ -121,6 +126,7 @@ public class ControlWorksBean extends StudentCurriculumBean{
                  String name = FileUploadUtil.Upload(uf, multi, "controlWorks");
                  a.setFilePath(name);
                  controlWorkDao.save(currentControlWorks);
+                 journal.logTaskHasBeenSent(student, currentDeCurriculum);
             }
         }
          return "controlWorks";
@@ -140,6 +146,22 @@ public class ControlWorksBean extends StudentCurriculumBean{
 
     public void setControlWorkDao(IControlWorkDao<ControlWork> controlWorkDao) {
         this.controlWorkDao = controlWorkDao;
+    }
+
+    public DeCurriculum getCurrentDeCurriculum() {
+        return currentDeCurriculum;
+    }
+
+    public void setCurrentDeCurriculum(DeCurriculum currentDeCurriculum) {
+        this.currentDeCurriculum = currentDeCurriculum;
+    }
+
+    public Journal getJournal() {
+        return journal;
+    }
+
+    public void setJournal(Journal journal) {
+        this.journal = journal;
     }
 
 
