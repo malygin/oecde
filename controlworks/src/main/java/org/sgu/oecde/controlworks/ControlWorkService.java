@@ -13,6 +13,7 @@ import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.dao.ICurriculumDao;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.core.util.DateConverter;
+import org.sgu.oecde.core.util.ListUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -50,8 +51,7 @@ public class ControlWorkService{
      */
     @SuppressWarnings({"unchecked"})
     public <K extends Curriculum,V extends ControlWork>Map<K,V> getStudensControlWorks(AbstractStudent student, List<? extends Curriculum> curriculums){
-        List<AbstractStudent>students = new LinkedList<AbstractStudent>();
-        students.add(student);
+        List<AbstractStudent>students = ListUtil.oneItemList(student);
         List<ControlWork> list = controlWorkDao.getByStudentsAndCurriculums(curriculums, students,null);
         Map<K,V>map = new LinkedHashMap<K, V>();
         if(CollectionUtils.isEmpty(list))
@@ -82,8 +82,7 @@ public class ControlWorkService{
      */
     @SuppressWarnings({"unchecked"})
     public <T extends AbstractStudent,V extends ControlWork>Map<T, V>getCurriculumControlWorks(List<? extends AbstractStudent> students, Curriculum curriculum){
-        List<Curriculum>curriculums = new LinkedList<Curriculum>();
-        curriculums.add(curriculum);
+        List<Curriculum>curriculums = ListUtil.oneItemList(curriculum);
         return getAllControlWorks(students,curriculums);
     }
 
