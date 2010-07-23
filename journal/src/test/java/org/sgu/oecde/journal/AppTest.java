@@ -18,18 +18,18 @@ public class AppTest extends BasicTest{
     public void save(){
         setDao("userDao");
         AbstractUser user = this.<AbstractUser>getItem(324725L);
-        Journal journal = (Journal) applicationContext.getBean("journalServise");
+        Journal journal = (Journal) getBean("journalServise");
         journal.logTestGrading(user, 1L, 2748L);
     }
 
 //    @Ignore
     @Test
     public void zget(){
-        AdminFilter f = (AdminFilter) applicationContext.getBean("adminFilter");
+        AdminFilter f = (AdminFilter) getBean("adminFilter");
         setDao("userDao");
         AbstractUser user = this.<AbstractUser>getItem(324725L);
         f.setUserItem(user);
-        Journal journal = (Journal) applicationContext.getBean("journalServise");
+        Journal journal = (Journal) getBean("journalServise");
         System.out.println(journal.getEvents(f));
     }
 }

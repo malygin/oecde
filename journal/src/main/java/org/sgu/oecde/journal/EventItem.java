@@ -137,7 +137,7 @@ public class EventItem extends BasicItem{
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer(super.toString());
-        sb.append("событие: ").append(eventParser.parseEventBody(this)).append(";\n");
+        sb.append("событие: ").append(eventParser!=null?eventParser.parseEventBody(this):eventBody).append(";\n");
         return sb.toString();
     }
 }
