@@ -20,7 +20,7 @@
         <param name="valueOfMethod">parse</param>
       </type>
     </property>
-    <set batch-size="10" cascade="all" fetch="select" inverse="true" name="children" sort="org.sgu.oecde.discussion.util.NodeRevertComparator" table="discussion_node">
+    <set batch-size="10" cascade="all" fetch="select" lazy="true" inverse="true" name="children" sort="org.sgu.oecde.discussion.util.NodeRevertComparator" table="discussion_node">
       <cache usage="read-write"/>
       <key foreign-key="fk_root_node" column="root" not-null="true"/>
       <one-to-many class="org.sgu.oecde.discussion.Node"/>
