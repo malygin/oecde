@@ -3,15 +3,18 @@ package org.sgu.oecde.tests;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Map;
+import java.util.Set;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.dao.IResourceDao;
 import org.sgu.oecde.core.education.work.AdditionalSelfDependentWork;
 import org.sgu.oecde.core.users.AbstractStudent;
+import org.sgu.oecde.core.util.ListUtil;
 import org.sgu.oecde.tests.dao.ITestAttemptDao;
 import org.sgu.oecde.tests.util.pointsCounter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,10 +54,8 @@ public class TestAttemptService{
      * @see #getTestsWithAttempts(java.util.List, java.lang.String, java.util.List, java.lang.Boolean)
      */
     public List<AdditionalSelfDependentWork> getStudentSingleCurriculumTestsWithAttempts(Curriculum curriculum, AbstractStudent student){
-        List<Curriculum> tmpCurList = new LinkedList();
-        tmpCurList.add(curriculum);
-        List<AbstractStudent> sts = new LinkedList();
-        sts.add(student);
+        List<Curriculum> tmpCurList = ListUtil.<Curriculum>oneItemList(curriculum);
+        List<AbstractStudent> sts = ListUtil.<AbstractStudent>oneItemList(student);
         return getTestsWithAttempts(tmpCurList, null, sts);
     }
 
@@ -68,8 +69,7 @@ public class TestAttemptService{
      * @see #getTestsWithAttempts(java.util.List, java.lang.String, java.util.List, java.lang.Boolean)
      */
     public List<AdditionalSelfDependentWork> getStudentTestsWithAttempts(List<? extends Curriculum> curriculums, AbstractStudent student){
-        List<AbstractStudent> sts = new LinkedList();
-        sts.add(student);
+        List<AbstractStudent> sts = ListUtil.<AbstractStudent>oneItemList(student);
         return getTestsWithAttempts(curriculums, null, sts);
     }
 
@@ -80,13 +80,11 @@ public class TestAttemptService{
      * @return количество попыток, баллов и прочее по прохождениям конкретного студента конткретного теста
      */
     public AdditionalSelfDependentWork getStudentSingleTestWithAttempts(TestEntity test,AbstractStudent student){
-        List<TestEntity>tests = new LinkedList();
-        tests.add(test);
-        List<AbstractStudent> sts = new LinkedList();
-        sts.add(student);
-        List<TestAttempt>attempts = testAttemptDao.getByStudentsAndTests(tests, sts, new TestAttempt(), true);
+        List<TestEntity>tests = ListUtil.<TestEntity>oneItemList(test);
+        List<AbstractStudent> sts = ListUtil.<AbstractStudent>oneItemList(student);
+        List<TestAttempt>attempts = testAttemptDao.getByStudentsAndTests(tests, sts, new TestAttempt());
         List<AdditionalSelfDependentWork>works = new LinkedList();
-        attemptsIterator(attempts, new Generator(), works);
+        attemptsIterator(attempts, works);
         if(works.isEmpty())
             return null;
         return works.get(0);
@@ -106,24 +104,30 @@ public class TestAttemptService{
      * @see #attemptsIterator(java.util.List, org.sgu.oecde.tests.TestAttemptService.Generator, java.util.Collection)
      */
     public List<AdditionalSelfDependentWork>getTestsWithAttempts(List<? extends Curriculum> curriculums,String testingDate,List<? extends AbstractStudent>students){
-        List<TestEntity>tests = resourceDao.getResourceByCurriculums(curriculums,null, TestEntity.class);
+        Map<Curriculum,List<TestEntity>>m = resourceDao.<Curriculum,TestEntity>getResourceByCurriculums(curriculums,null, TestEntity.class);
         TestAttempt tmpAttempt = new TestAttempt(testingDate);
-        List<TestAttempt>attempts = testAttemptDao.getByStudentsAndTests(tests, students, tmpAttempt, true);
+        List<TestAttempt>attempts = testAttemptDao.getByStudentsAndCurriculums(curriculums, students, tmpAttempt);
         
         AdditionalSelfDependentWork test = null;
 
-        final HashMap<TestEntity,AdditionalSelfDependentWork> testMap = new LinkedHashMap<TestEntity, AdditionalSelfDependentWork>();
-        for(TestEntity t:tests){
-            test = new AdditionalSelfDependentWork(t);
-            testMap.put(t, test);
+        final Set<AdditionalSelfDependentWork> set = new HashSet<AdditionalSelfDependentWork>();
+
+        Iterator mI = m.entrySet().iterator();
+        while(mI.hasNext()){
+            Map.Entry<Curriculum,List<TestEntity>> v = (Map.Entry)mI.next();
+            for(TestEntity t:v.getValue()){
+                test = new AdditionalSelfDependentWork(t);
+                test.setCurriculum(v.getKey());
+                for(AbstractStudent s:students){
+                    test.setStudent(s);
+                }
+                set.add(test);
+            }
+            mI.remove();
         }
 
-        attemptsIterator(attempts, new Generator(){
-            protected AdditionalSelfDependentWork generate(Object object){
-                return testMap.get(((TestAttempt)object).<TestEntity>getWork());
-            }
-        },testMap.values());
-        return new ArrayList(testMap.values());
+        attemptsIterator(attempts, set);
+        return new ArrayList(set);
     }
 
     /**
@@ -136,9 +140,7 @@ public class TestAttemptService{
      * @see #getAttemptsCount(java.util.List, java.lang.String, java.util.List)
      */
     public List<AdditionalCurriculum>getCurriculumAttemptsCount(Curriculum curriculum, List<? extends AbstractStudent> students){
-        List<Curriculum>c = new LinkedList();
-        c.add(curriculum);
-        return getAttemptsCount(c, null, students);
+        return getAttemptsCount(ListUtil.<Curriculum>oneItemList(curriculum), null, students);
     }
 
     /**
@@ -151,9 +153,7 @@ public class TestAttemptService{
      * @see #getAttemptsCount(java.util.List, java.lang.String, java.util.List)
      */
     public List<AdditionalCurriculum>getStudentAttemptsCount(List<? extends Curriculum> curriculums, AbstractStudent student){
-        List<AbstractStudent>st = new LinkedList();
-        st.add(student);
-        return getAttemptsCount(curriculums, null, st);
+        return getAttemptsCount(curriculums, null, ListUtil.<AbstractStudent>oneItemList(student));
     }
 
     /**
@@ -167,33 +167,34 @@ public class TestAttemptService{
      * @see #getTestsWithAttempts(java.util.List, java.lang.String, java.util.List, java.lang.Boolean)
      */
     public List<AdditionalCurriculum> getAttemptsCount(List<? extends Curriculum> curriculums, String testingDate,List<? extends AbstractStudent> students){
+
         List<AdditionalCurriculum>list = new ArrayList<AdditionalCurriculum>();
         if(CollectionUtils.isEmpty(curriculums)||CollectionUtils.isEmpty(students))
             return list;
+        AdditionalCurriculum addCurriculum = null;
+
         List<TestAttempt> attempts = attemptsByStudentAndCurriculums(curriculums, students, null);
-        int count = 0;
         boolean wasPassed = false;
         int attemptsNumber = 0;
-        AdditionalCurriculum addCurriculum = null;
+
+        AbstractStudent stnd = null;
         Curriculum temp = null;
         TestEntity testTemp = null;
+
         List<TestAttempt>oneTestAttempts = null;
         Collections.sort(attempts);
         for(TestAttempt attempt:attempts) {
             if(attempt.getCurriculum()==null||attempt.getWork()==null||attempt.getType().equals(TestAttemptType.trial))
                 continue;
-            //если лист не содержит полученную дисциплину, то дальше
-            if(!attempt.getCurriculum().equals(temp)){
+            //если лист не содержит полученную дисциплину/студента, то дальше
+            if(!attempt.getCurriculum().equals(temp)||!attempt.getStudent().equals(stnd)){
                 if (addCurriculum!=null){
                     //запихивает в умк полученные значения
-                       addCurriculum.setTestsCount(count);
-                       addCurriculum.setPassedTests(attemptsNumber);
+                    addCurriculum.setPassedTests(attemptsNumber);
                 }
                 oneTestAttempts = new LinkedList<TestAttempt>();
                 addCurriculum = new AdditionalCurriculum(attempt.getCurriculum());
                 list.add(addCurriculum);
-                //начинает считать общее количество тестов для дисциплины
-                count=1;
                 //пройден ли был тест
                 wasPassed = (!CollectionUtils.isEmpty(oneTestAttempts));
                 //если да, то начинает считать прохождения
@@ -204,8 +205,6 @@ public class TestAttemptService{
                     // что он пройден, то у текущей попытке это выянсяется
                     wasPassed = !wasPassed?(!CollectionUtils.isEmpty(oneTestAttempts)):wasPassed;
                 }else{
-                    //продолжается подсчёт количества тестов для дисциплины
-                    count++;
                     //если он был пройден, то количество пройденных тестов увеличивается
                     wasPassed = (!CollectionUtils.isEmpty(oneTestAttempts));
                     attemptsNumber +=(wasPassed?1:0);
@@ -214,16 +213,11 @@ public class TestAttemptService{
             oneTestAttempts.add(attempt);
             temp = attempt.getCurriculum();
             testTemp = attempt.getWork();
+            stnd = attempt.getStudent();
         }
         if (addCurriculum!=null){
             //запихивает в умк полученные значения
-               addCurriculum.setTestsCount(count);
                addCurriculum.setPassedTests(attemptsNumber);
-        }
-        for(Curriculum c:curriculums){
-            AdditionalCurriculum ac = new AdditionalCurriculum(c);
-            if(!list.contains(ac))
-                list.add(ac);
         }
         return list;
     }
@@ -238,8 +232,7 @@ public class TestAttemptService{
      */
     public List<AdditionalSelfDependentWork> getStudentAttempts(List<? extends Curriculum> curriculums, AbstractStudent student,Boolean reExame){
 
-        List<AbstractStudent> sts = new LinkedList();
-        sts.add(student);
+        List<AbstractStudent> sts = ListUtil.<AbstractStudent>oneItemList(student);
         TestAttempt attempt = null;
         if(reExame!=null){
             attempt = new TestAttempt();
@@ -249,7 +242,7 @@ public class TestAttemptService{
 
         List<AdditionalSelfDependentWork> additionalTests = new ArrayList<AdditionalSelfDependentWork>();
 
-        attemptsIterator(attempts, new Generator(),additionalTests);
+        attemptsIterator(attempts, additionalTests);
         return additionalTests;
     }
 
@@ -264,22 +257,14 @@ public class TestAttemptService{
     public List<AdditionalSelfDependentWork> getCurriculumAttempts(Curriculum curriculum, List<? extends AbstractStudent> students){
 
         
-        List<Curriculum> tmpCurList = new LinkedList();
-        tmpCurList.add(curriculum);
+        List<Curriculum> tmpCurList = ListUtil.<Curriculum>oneItemList(curriculum);
         List<AdditionalSelfDependentWork> additionalTests = new ArrayList<AdditionalSelfDependentWork>();
 
         List<TestAttempt> attempts = attemptsByStudentAndCurriculums(tmpCurList, students, null);
 
-        attemptsIterator(attempts, new Generator(),additionalTests);
+        attemptsIterator(attempts, additionalTests);
 
         return additionalTests;
-    }
-
-    /**
-     * инстанциирует расширенную самостятельную работу
-     */
-    protected class Generator{
-        protected AdditionalSelfDependentWork generate(Object object){return new AdditionalSelfDependentWork(); };
     }
 
     /**
@@ -302,8 +287,7 @@ public class TestAttemptService{
      * @param service - генератор
      * @param additionalTests
      */
-    private void attemptsIterator(List<TestAttempt> attempts,Generator service,Collection additionalTests){
-        Assert.notNull(service);
+    private void attemptsIterator(List<TestAttempt> attempts,Collection additionalTests){
         Assert.notNull(additionalTests);
         if(CollectionUtils.isEmpty(attempts))
             return;
@@ -330,13 +314,12 @@ public class TestAttemptService{
                     test.setTrialAttemptsUsedNumber(trialNumber);
                 }
                 oneTestAttempts = new ArrayList<TestAttempt>();
-                test = service.generate(attempt);
-                if(additionalTests instanceof List)
-                    additionalTests.add(test);
+                test = new AdditionalSelfDependentWork();
                 test.setResults(oneTestAttempts);
                 test.setWork(attempt.getWork());
                 test.setCurriculum(attempt.getCurriculum());
                 test.setStudent(attempt.getStudent());
+                additionalTests.add(test);
                 trialNumber = 0;
                 reExameNumber = 0;
                 estimatedAttemptsNumber = 0;

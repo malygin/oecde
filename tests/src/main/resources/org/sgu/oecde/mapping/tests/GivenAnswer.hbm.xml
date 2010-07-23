@@ -10,6 +10,6 @@
     </id>
     <property column="given_answer" name="givenAnswer" type="string" length="1000"/>
     <many-to-one class="org.sgu.oecde.tests.Answer" column="right_answer" fetch="join" foreign-key="fk_given_answer_answer" name="rightAnswer" not-null="true"/>
-    <many-to-one class="org.sgu.oecde.tests.AnsweredQuestion" column="question_result_id" fetch="select" foreign-key="fk_given_answer_question" lazy="proxy" name="answeredQuestion" not-null="true"/>
+    <many-to-one class="org.sgu.oecde.tests.AnsweredQuestion" column="question_result_id" fetch="select" lazy="no-proxy" foreign-key="fk_given_answer_question" name="answeredQuestion" not-null="true"/>
   </class>
 </hibernate-mapping>

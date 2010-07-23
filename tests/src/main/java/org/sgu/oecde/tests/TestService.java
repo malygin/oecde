@@ -3,10 +3,15 @@ package org.sgu.oecde.tests;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.dao.IResourceDao;
+import org.sgu.oecde.core.education.estimation.Points;
+import org.sgu.oecde.tests.estimation.TestsCountEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -55,6 +60,33 @@ public class TestService{
             q.setAnswers(new LinkedHashSet(l));
         }
         return t;
+    }
+
+    public <T extends Curriculum>Map<T,List<TestEntity>> getCurriculumTestsMap(List<? extends Curriculum> curriculums){
+        return resourceDao.<T,TestEntity>getResourceByCurriculums(curriculums,null, TestEntity.class);
+    }
+
+    public void countTests(Map<? extends Curriculum,List<TestEntity>> m, Points p){
+        if(p==null ||CollectionUtils.isEmpty(m))
+            return;
+        List<TestEntity>list = m.get(p.getCurriculum());
+        int r = 0;
+        int ct = 0;
+        if(!CollectionUtils.isEmpty(list)){
+            Iterator<TestEntity>i = list.iterator();
+            while(i.hasNext()){
+               TestEntity t = i.next();
+               if(t!=null){
+                   if(TestType.concluding.equals(t.getType()))
+                       ct++;
+                   else if(TestType.regular.equals(t.getType()))
+                       r++;
+               }
+               i.remove();
+            }
+        }
+        p.addNewWorkPoint(TestsCountEnum.CONCLUDING_TESTS_COUNT, ct);
+        p.addNewWorkPoint(TestsCountEnum.TESTS_COUNT, r);
     }
 
     public void saveTest(TestEntity t){

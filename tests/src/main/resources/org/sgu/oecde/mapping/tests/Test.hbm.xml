@@ -22,7 +22,7 @@
         <param name="valueOfMethod">parse</param>
       </type>
     </property>
-    <set batch-size="15" fetch="select" mutable="false" name="questions" table="questions_to_test">
+    <set batch-size="15" fetch="select" mutable="false" lazy="true" name="questions" table="questions_to_test">
       <cache usage="read-only"/>
       <key column="test_id" foreign-key="fk_test_2_question_test" not-null="true"/>
       <many-to-many class="org.sgu.oecde.tests.Question" column="question_id" foreign-key="fk_test_2_question_question"/>

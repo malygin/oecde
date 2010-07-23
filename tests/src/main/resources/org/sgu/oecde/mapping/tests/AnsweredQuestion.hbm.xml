@@ -10,7 +10,7 @@
     </id>
     <property column="result_points" name="resultPoints" scale="3" type="integer"/>
     <property column="is_right" name="right" scale="1" type="boolean"/>
-    <set batch-size="15" cascade="all" fetch="select" mutable="false" inverse="true" name="givenAnswers">
+    <set batch-size="15" cascade="all" lazy="true" fetch="select" mutable="false" inverse="true" name="givenAnswers">
       <cache usage="read-only"/>
       <key column="question_result_id" foreign-key="fk_given_answer_question" not-null="true"/>
       <one-to-many class="org.sgu.oecde.tests.GivenAnswer"/>

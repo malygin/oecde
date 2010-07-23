@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <subclass discriminator-value="test" extends="org.sgu.oecde.core.education.work.AbstractSelfDependentWorkResult" name="org.sgu.oecde.tests.TestAttempt">
-    <set batch-size="15" cascade="all" fetch="select" inverse="true" name="answeredQuestions">
+    <set batch-size="15" cascade="all" lazy="true" fetch="select" inverse="true" name="answeredQuestions">
       <key column="result_id" foreign-key="fk_answered_question_test_attempt" not-null="true"/>
       <one-to-many class="org.sgu.oecde.tests.AnsweredQuestion"/>
     </set>

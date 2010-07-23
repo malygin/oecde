@@ -31,9 +31,11 @@ import org.sgu.oecde.tests.estimation.TestFilter;
 import org.sgu.oecde.core.education.estimation.ResultPreFilter;
 import org.sgu.oecde.core.education.work.AdditionalSelfDependentWork;
 import org.sgu.oecde.core.util.DateConverter;
+import org.sgu.oecde.core.util.ListUtil;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.de.users.Student;
+import org.sgu.oecde.tests.dao.TestAttemptDao;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.util.CollectionUtils;
@@ -114,7 +116,7 @@ public class getSimpleItem extends BasicTest{
         for(TestAttempt ta:l){
             System.out.println(ta.getCurriculum().getId()+"  "+ta.getStudent().getId()+"  "+ta.getWork().getId()+"   "+ta.getId()+"  "+ta.getDate()+"  "+ta.<DeCurriculum>getCurriculum().getDiscipline().getName()+"   "+ta.getPoints()+"  "+ta.<TestEntity>getWork().getType()+"   "+ta.getType());
         }
-        List<Points> ps = pf.forEachResult(l,true,filters);
+        List<Points> ps = pf.forEachResult(l,true,filters,s,q);
         for(Points p:ps){
             if(!CollectionUtils.isEmpty(p.getWorkPoints())){
                 Map<IEstimate,Object> m = p.getWorkPoints();
@@ -264,13 +266,19 @@ public class getSimpleItem extends BasicTest{
 //    @Ignore
     @Test
     public void getStudentsDisciplines(){
-        List<DeCurriculum> sts = new ArrayList(1);
-        sts.add(new DeCurriculum(2009636442L));
-        List<AdditionalCurriculum>ac = this.<TestAttemptService>getBean("testAttemptService").getStudentAttemptsCount(sts,  new Student(320269L));
+        setDao("studentDao");
+        Student st = getItem(320269L);
+        List<DeCurriculum> q = new ArrayList<DeCurriculum>();
+        q.add(new DeCurriculum(2009636442L));
+        q.add(new DeCurriculum(2009627542L));
+        q.add(new DeCurriculum(2009634942L));
+        setDao("testAttemptDao");
+//        List<Student> s = new ArrayList<Student>(st.getGroup().getPersons());
+        
+        List<AdditionalCurriculum>ac = this.<TestAttemptService>getBean("testAttemptService").getStudentAttemptsCount(q,  st);
         for(AdditionalCurriculum a:ac){
-            System.out.println("p  "+a.getPassedTests());
-            System.out.println(a.getTestsCount());
-            System.out.println("tp  "+a.getTestPoints());
+            System.out.println(a.getCurriculum());
+            System.out.println("pass  "+a.getPassedTests());
         }
     }
 }

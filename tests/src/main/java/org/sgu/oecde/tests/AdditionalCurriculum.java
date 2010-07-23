@@ -2,7 +2,6 @@ package org.sgu.oecde.tests;
 
 import java.io.Serializable;
 import org.sgu.oecde.core.education.Curriculum;
-import org.sgu.oecde.core.education.estimation.Points;
 
 /**
  * расширенная версия учебных планов. Помимо ссылки на сами планы имеет баллы, набранные студентом по
