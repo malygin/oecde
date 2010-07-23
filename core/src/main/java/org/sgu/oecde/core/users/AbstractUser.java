@@ -315,7 +315,6 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
         int hash = 3;
         hash = 79 * hash + (this.password != null ? this.password.hashCode() : 0);
         hash = 79 * hash + (this.username != null ? this.username.hashCode() : 0);
-        hash = 79 * hash + (getAuthority() != null ? this.getAuthority().hashCode() : 0);
         hash = 79 * hash + (this.enabled ? 1 : 0);
         return hash;
     }

@@ -1,6 +1,7 @@
 package org.sgu.oecde.core.education.dao;
 
 import java.util.List;
+import java.util.Map;
 import org.sgu.oecde.core.IUpdateDao;
 import org.sgu.oecde.core.education.Curriculum;
 import org.springframework.dao.DataAccessException;
@@ -26,5 +27,5 @@ public interface IResourceDao<T extends AbstractResource> extends IUpdateDao<T> 
      * @return лист ресурсов
      * @throws DataAccessException
      */
-    public List<T> getResourceByCurriculums(List<? extends Curriculum> curriculums, Long resourceId, Class type)throws DataAccessException;
+    public <K extends Curriculum,V extends AbstractResource>Map<K,List<V>> getResourceByCurriculums(List<? extends Curriculum> curriculums, Long resourceId, Class type)throws DataAccessException;
 }

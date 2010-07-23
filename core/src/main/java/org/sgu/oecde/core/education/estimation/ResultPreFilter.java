@@ -31,9 +31,13 @@ public class ResultPreFilter {
      * @return - лист баллов
      * @see IResultFilter фильтр
      */
-    public List<Points> forEachResult(List<? extends AbstractResult> results, boolean sumEachIteration,List<IResultFilter> resultFilters){
+    public List<Points> forEachResult(List<? extends AbstractResult> results, boolean sumEachIteration,List<IResultFilter> resultFilters, List<? extends AbstractStudent>students,List<? extends Curriculum>curriculums){
         Assert.state(!resultFilters.isEmpty(), "result filters Set can not be empty");
         List<Points> pointsList = new ArrayList<Points>();
+        if(CollectionUtils.isEmpty(curriculums)||CollectionUtils.isEmpty(students))
+            return pointsList;
+        List<? extends AbstractStudent>newStudents = new ArrayList<AbstractStudent>(students);
+        ArrayList<? extends Curriculum>newCurriculums = new ArrayList<Curriculum>(curriculums);
         Points points = null;
         Curriculum cur = null;
         AbstractStudent st = null;
@@ -53,6 +57,8 @@ public class ResultPreFilter {
                 if(breakPoint){
                     points = new Points();
                     points.setCurriculum(result.getCurriculum());
+                    newCurriculums.remove(result.getCurriculum());
+                    newStudents.remove(result.getStudent());
                     points.setStudent(result.getStudent());
                     pointsList.add(points);
                 }
@@ -66,6 +72,14 @@ public class ResultPreFilter {
             cur = result.getCurriculum();
             st = result.getStudent();
 
+        }
+        for(Curriculum c:newCurriculums){
+            Points p = new Points();
+            p.setCurriculum(c);
+            for(AbstractStudent s:newStudents){
+                p.setStudent(s);
+            }
+            pointsList.add(p);
         }
         return pointsList;
     }

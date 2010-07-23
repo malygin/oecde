@@ -24,6 +24,11 @@ public class Points implements Serializable{
     public Points() {
     }
 
+    public Points(AbstractStudent student, Curriculum curriculum) {
+        this.student = student;
+        this.curriculum = curriculum;
+    }
+
     /**
      * учебный план
      * @param <T> extends Curriculum

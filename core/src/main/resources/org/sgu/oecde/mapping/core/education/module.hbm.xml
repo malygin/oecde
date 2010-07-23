@@ -7,7 +7,7 @@
     <property insert="false" length="250" name="name" type="string"/>
     <property insert="false" length="400" name="description" type="string"/>
     <many-to-one fetch="select" foreign-key="fk_module_umk" insert="false" lazy="no-proxy" name="umk" not-null="true"/>
-    <set batch-size="5" cascade="none" fetch="select" mutable="false" name="resources" order-by="resource_id asc" table="module_resources">
+    <set batch-size="5" cascade="none" lazy="true" fetch="select" mutable="false" name="resources" order-by="resource_id asc" table="module_resources">
       <cache usage="read-only"/>
       <key column="module" foreign-key="fk_module_resource_module" not-null="true"/>
       <many-to-many class="org.sgu.oecde.core.education.resource.AbstractResource" column="resource_id" foreign-key="fk_module_resource"/>

@@ -198,6 +198,12 @@ public class AdditionalSelfDependentWork implements Serializable{
             return false;
         }
         final AdditionalSelfDependentWork other = (AdditionalSelfDependentWork) obj;
+        if (this.curriculum != other.curriculum && (this.curriculum == null || !this.curriculum.equals(other.curriculum))) {
+            return false;
+        }
+        if (this.student != other.student && (this.student == null || !this.student.equals(other.student))) {
+            return false;
+        }
         if (this.work != other.work && (this.work == null || !this.work.equals(other.work))) {
             return false;
         }
@@ -207,7 +213,9 @@ public class AdditionalSelfDependentWork implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 61 * hash + (this.work != null ? this.work.hashCode() : 0);
+        hash = 17 * hash + (this.curriculum != null ? this.curriculum.hashCode() : 0);
+        hash = 17 * hash + (this.student != null ? this.student.hashCode() : 0);
+        hash = 17 * hash + (this.work != null ? this.work.hashCode() : 0);
         return hash;
     }
 
