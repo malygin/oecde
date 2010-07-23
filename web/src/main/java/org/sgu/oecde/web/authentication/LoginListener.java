@@ -20,7 +20,7 @@ public class LoginListener implements ApplicationListener{
     private LoginListener() {
         System.out.println();
     }
-    
+
     public void onApplicationEvent(ApplicationEvent appEvent){
         if (appEvent instanceof AuthenticationSuccessEvent){
             AuthenticationSuccessEvent event = (AuthenticationSuccessEvent) appEvent;

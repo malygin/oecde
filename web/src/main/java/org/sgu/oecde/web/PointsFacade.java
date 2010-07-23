@@ -7,6 +7,7 @@ import org.sgu.oecde.core.education.estimation.Points;
 import org.sgu.oecde.core.education.work.PointToEstimate;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.tests.estimation.TestEstimateNames;
+import org.sgu.oecde.tests.estimation.TestsCountEnum;
 
 /**
  *
@@ -18,6 +19,14 @@ public class PointsFacade {
 
     public PointsFacade(Points points) {
         this.points = points;
+    }
+
+    public Integer getTestsCount(){
+        return points.getWorkPoints(TestsCountEnum.TESTS_COUNT);
+    }
+
+    public Integer getConcludingTestsCount(){
+        return points.getWorkPoints(TestsCountEnum.CONCLUDING_TESTS_COUNT);
     }
     
     public Integer getTestPoints(){

@@ -11,6 +11,7 @@ import org.sgu.oecde.core.education.dao.IResourceDao;
 import org.sgu.oecde.core.education.resource.AbstractResource;
 import org.sgu.oecde.core.education.work.AdditionalSelfDependentWork;
 import org.sgu.oecde.core.util.DateConverter;
+import org.sgu.oecde.core.util.ListUtil;
 import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.education.DeCurriculumBuilder;
@@ -54,10 +55,11 @@ public class ResourceService {
     public <T extends AbstractResource>T getResource(DeCurriculum c,AbstractResource r,Class clazz){
         if(c==null||r==null||r.getId()==null)
             return null;
-        List<DeCurriculum> l = new LinkedList<DeCurriculum>();
-        l.add(c);
-        List<AbstractResource> rs = resourceDao.getResourceByCurriculums(l,r.getId(), clazz);
-        return (T) rs.get(0);
+        List<DeCurriculum> l = ListUtil.oneItemList(c);
+        List<T> rs = resourceDao.<DeCurriculum,T>getResourceByCurriculums(l,r.getId(), clazz).get(c);
+        if(CollectionUtils.isEmpty(rs))
+            return null;
+        return rs.get(0);
     }
 
     public DeCurriculum getDisciplineForStudent(Student student,Long id){

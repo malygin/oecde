@@ -30,5 +30,4 @@ public class GroupPoints extends AbstractStudentsListBean{
     public void setGradesService(GradesService gradesService) {
         this.gradesService = gradesService;
     }
-
 }

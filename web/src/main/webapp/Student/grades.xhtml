@@ -27,7 +27,7 @@
                 <f:facet name="header">
                  <h:outputText value="тесты" />
                 </f:facet>
-                 #{p.testPoints}
+                 #{p.testPoints} #{p.concludingTestsCount}
                </h:column>
 
                <h:column>
@@ -41,7 +41,7 @@
                 <f:facet name="header">
                  <h:outputText value="итоговые тесты" />
                 </f:facet>
-                 #{p.concludingTestPoints}
+                 #{p.concludingTestPoints} #{p.testsCount}
                </h:column>
 
                <h:column>

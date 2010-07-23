@@ -8,8 +8,11 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.core.education.dao.IResultDao;
 import org.sgu.oecde.core.education.estimation.IResultFilter;
+import org.sgu.oecde.core.education.estimation.Points;
 import org.sgu.oecde.core.education.estimation.ResultPreFilter;
 import org.sgu.oecde.core.education.work.Estimate;
+import org.sgu.oecde.core.util.ListUtil;
+import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.web.GradesService;
 import org.sgu.oecde.web.PointsFacade;
@@ -42,7 +45,11 @@ public class OldGrades extends StudentCurriculumBean{
             List<Student>stl = new LinkedList<Student>();
             stl.add(student);
             List<Estimate> l = estimateDao.getByStudentsAndCurriculums(new ArrayList(getCurriculumAndTeacherByYear().keySet()), stl, null);
-            points =  GradesService.pointsToFacades(preFilter.forEachResult(l, true,filters),getCurriculumAndTeacherByYear());
+            List<Points> ps = preFilter.forEachResult(l, true,filters,ListUtil.<Student>oneItemList(student),getCurriculums());
+            List<PointsFacade>facades = new ArrayList<PointsFacade>(ps.size());
+            for(Points p:ps){
+                facades.add(GradesService.putTeacherIntoFacade(p, getCurriculumAndTeacherByYear()));
+            }
         }
         return points;
     }

@@ -82,7 +82,7 @@ public class FilterTest extends BasicTest{
             if(r instanceof TestAttempt && !((TestAttempt)r).getType().equals(TestAttemptType.trial))
                 System.out.println(r.getStudent().getFio()+"    "+((TestAttempt)r).getWork().getTitle()+"   "+((TestAttempt)r).getPoints());
         }
-        for(Points p:pf.forEachResult(l, true,filters)){
+        for(Points p:pf.forEachResult(l, true,filters,s,q)){
             System.out.println(p.<DeCurriculum>getCurriculum().getDiscipline().getName());
             System.out.println(p.<Student>getStudent().getFio());
             if(!CollectionUtils.isEmpty(p.getWorkPoints())){
