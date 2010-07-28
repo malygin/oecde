@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tests>
+    <Test id="5" time="60">
+        <Title>Итоговый тест по курсу "Основы бизнеса"</Title>
+        <Annotation/>
+        <Comment/>
+        <Questions>
+            <Question id="1" weight="1">
+                <Type>radio</Type>
+                <Text>Природный эгоизм и склонность к обмену являются условием для возникновения бизнеса.</Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Да                 </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="2" weight="1">
+                <Type>radio</Type>
+                <Text>Эгоистические интересы в бизнесе проявляются в стремлении предпринимателей удовлетворить интересы конечного пользователя</Text>
+                <Answers>
+                    <Answer id="1" value="0">
+                        <Text>а) Да                 </Text>
+                    </Answer>
+                    <Answer id="2" value="1">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="3" weight="1">
+                <Type>radio</Type>
+                <Text>Выгода в бизнесе всегда является прибылью</Text>
+                <Answers>
+                    <Answer id="1" value="0">
+                        <Text>а) Да             </Text>
+                    </Answer>
+                    <Answer id="2" value="1">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="4" weight="1">
+                <Type>radio</Type>
+                <Text>В бизнесе  доход – это выручка от реализации товаров и услуг</Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Да                  </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="5" weight="1">
+                <Type>radio</Type>
+                <Text>Макроэкономические функции бизнеса показывают, что бизнес ответственен за экономическое развитие страны в целом, благоприятную социальную обстановку в обществе</Text>
+                <Answers>
+                    <Answer id="1" value="0">
+                        <Text>а) Да                    </Text>
+                    </Answer>
+                    <Answer id="2" value="1">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="6" weight="1">
+                <Type>radio</Type>
+                <Text>Правительство является субъектом бизнеса</Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Да                    </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="7" weight="1">
+                <Type>radio</Type>
+                <Text>Основные инвестиции в бизнесе осуществляются за счет собственных средств</Text>
+                <Answers>
+                    <Answer id="1" value="0">
+                        <Text>а) Да    </Text>
+                    </Answer>
+                    <Answer id="2" value="1">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="8" weight="1">
+                <Type>radio</Type>
+                <Text>Предпринимательская фирма является юридическим лицом</Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Да                      </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="9" weight="1">
+                <Type>radio</Type>
+                <Text>Индивидуальный частный предприниматель должен создавать и регистрировать юридическое лицо</Text>
+                <Answers>
+                    <Answer id="1" value="0">
+                        <Text>а) Да                       </Text>
+                    </Answer>
+                    <Answer id="2" value="1">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="10" weight="1">
+                <Type>radio</Type>
+                <Text>Основным преимуществом малого бизнеса является наличие льгот по налогообложению.</Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Да                       </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="11" weight="1">
+                <Type>radio</Type>
+                <Text>Основным преимуществом малого бизнеса является  способность  перестраиваться на производство другого товара, который пользуется повышенным спросом.</Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Да                         </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="12" weight="1">
+                <Type>radio</Type>
+                <Text>Обыкновенная акция дает право ее владельцу получать регулярно определенный фиксированный доход</Text>
+                <Answers>
+                    <Answer id="1" value="0">
+                        <Text>а) Да                         </Text>
+                    </Answer>
+                    <Answer id="2" value="1">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="13" weight="1">
+                <Type>radio</Type>
+                <Text>Привилегированная акция дает право ее владельцу на получение фиксированного дохода, но не дает право на участие в управлении акционерным обществом</Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Да                           </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="14" weight="1">
+                <Type>radio</Type>
+                <Text>Малый бизнес может выжить только в условиях поддержки его Правительством и законодательно. </Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Да                           </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="15" weight="1">
+                <Type>radio</Type>
+                <Text>Количество бизнес-сделок является измерителем активности бизнеса</Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Да                            </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="16" weight="1">
+                <Type>radio</Type>
+                <Text>Конкуренция заставляет бизнесменов постоянно совершенствовать свое рыночное поведение, осуществлять в бизнесе инновации</Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Да                            </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="17" weight="1">
+                <Type>radio</Type>
+                <Text>Нарастают риски в бизнесе потому, что рынок представляет собой неустойчивую систему, подверженную воздействию множества факторов</Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Да                             </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="18" weight="1">
+                <Type>radio</Type>
+                <Text>Для управления риском в бизнесе важно преодолеть представление о риске как об угрозе, опасности, неизбежности наступления риска</Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Да                              </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="19" weight="1">
+                <Type>radio</Type>
+                <Text>Современной технологией управления рисками в бизнесе является их программирование</Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Да </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="20" weight="1">
+                <Type>radio</Type>
+                <Text>Производственный бизнес представляет собой создание товаров и товарных услуг.</Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Да </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="21" weight="1">
+                <Type>radio</Type>
+                <Text>Производственный бизнес существует в  форме предпринимательства </Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Да                               </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="22" weight="1">
+                <Type>radio</Type>
+                <Text>Производственный бизнес осуществляет комбинацию факторов производства для снижения издержек</Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Да                               </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="23" weight="1">
+                <Type>radio</Type>
+                <Text>Особое значение для производственного бизнеса имеют технологическое и предметное разделение труда</Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Да                               </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="24" weight="1">
+                <Type>radio</Type>
+                <Text>Производственный бизнес постоянно стремится к увеличению. Есть ли предел роста масштаба производства ?</Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Да                               </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="25" weight="1">
+                <Type>radio</Type>
+                <Text>Что дает борьба с потерями ресурсов в производстве</Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Экономию издержек           </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Рост прибыли</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="26" weight="1">
+                <Type>radio</Type>
+                <Text>Без соответствующей инфраструктуры производственный бизнес не может эффективно работать</Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Да                                 </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="27" weight="1">
+                <Type>radio</Type>
+                <Text>В коммерческом бизнесе происходит превращение товара в деньги, а денег в товар. Можно ли во времени разделить эти сделки?</Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Да                  </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="28" weight="1">
+                <Type>radio</Type>
+                <Text>Наряду с внутренними операциями купли-продажи коммерческий бизнес включает в себя экспорт и импорт товаров</Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Да                  </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="29" weight="1">
+                <Type>radio</Type>
+                <Text>Коммерческий бизнес существует как</Text>
+                <Answers>
+                    <Answer id="1" value="0">
+                        <Text>а) Внутренняя и внешняя торговля</Text>
+                    </Answer>
+                    <Answer id="2" value="1">
+                        <Text>б) Оптовая и розничная торговля</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+            <Question id="30" weight="1">
+                <Type>radio</Type>
+                <Text>Самый простой метод ценообразования в коммерческом бизнесе – метод  « издержки + прибыль».                      </Text>
+                <Answers>
+                    <Answer id="1" value="1">
+                        <Text>а) Да                  </Text>
+                    </Answer>
+                    <Answer id="2" value="0">
+                        <Text>б) Нет</Text>
+                    </Answer>
+                </Answers>
+            </Question>
+        </Questions>
+    </Test>
+</Tests>

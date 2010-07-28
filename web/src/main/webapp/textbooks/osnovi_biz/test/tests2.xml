@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tests>
+<Test id="2" time="30">
+<Title>Тест по курсу "Основы бизнеса", модуль 2</Title>
+<Annotation> </Annotation>
+<Comment> </Comment>
+<Questions>
+<Question id="1" weight="1">
+<Type>radio</Type>
+<Text>1.Сферой жизни бизнеса является рынок</Text>
+<Answers>
+<Answer id="1" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="2" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="2" weight="1">
+<Type>radio</Type>
+<Text>2.Рынок представляет собой совокупность соглашений, контрактов, использования экономических инструментов, при помощи которых осуществляется процесс обмена</Text>
+<Answers>
+<Answer id="6" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="7" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="3" weight="1">
+<Type>radio</Type>
+<Text>3.Факторы, воздействующие на спрос и предложение на рынке, влияют на эффективность бизнеса</Text>
+<Answers>
+<Answer id="11" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="12" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="4" weight="1">
+<Type>radio</Type>
+<Text>4.На рынке происходит оборот прав  использования недвижимости. Это происходит в виде:</Text>
+<Answers>
+<Answer id="21" value="0">
+<Text>а) Заключения арендных договоров</Text>
+</Answer>
+<Answer id="22" value="1">
+<Text>б) Купли-продажи недвижимости</Text>
+</Answer>
+<Answer id="23" value="0">
+<Text>в) Обеспечения сделок информацией</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="5" weight="1">
+<Type>radio</Type>
+<Text>5.На рынке происходит получение и возврат кредита</Text>
+<Answers>
+<Answer id="26" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="27" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="6" weight="1">
+<Type>radio</Type>
+<Text>6.Для бизнеса важны только затраты на реализацию товара</Text>
+<Answers>
+<Answer id="31" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="32" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="7" weight="1">
+<Type>radio</Type>
+<Text>7.Бизнес работает всегда только на одном рынке</Text>
+<Answers>
+<Answer id="36" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="37" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="8" weight="1">
+<Type>radio</Type>
+<Text>8.Маркетинг для бизнеса означает ориентацию бизнес-процессов на удовлетворение потребностей, запросов потребителя, на интересы потребителя</Text>
+<Answers>
+<Answer id="41" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="42" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="9" weight="1">
+<Type>radio</Type>
+<Text>9.Маркетинговые исследования осуществляются только для выявления особенностей конкурентов</Text>
+<Answers>
+<Answer id="46" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="47" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="10" weight="1">
+<Type>radio</Type>
+<Text>10.Конкуренция заставляет бизнесменов постоянно совершенствовать свое рыночное поведение, осуществлять в бизнесе инновации</Text>
+<Answers>
+<Answer id="51" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="52" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="11" weight="1">
+<Type>radio</Type>
+<Text>11.Наиболее эффективно в конкуренции креативное поведение</Text>
+<Answers>
+<Answer id="56" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="57" value="0">
+<Text>б) Нет</Text>
+</Answer>
+<Answer id="58" value="1">
+<Text>в) Не всегда</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="12" weight="1">
+<Type>radio</Type>
+<Text>12.Монополии воздействуют на рынок и конкурентов, организуя бойкот, демпинг, дискриминацию конкурентов в торговле</Text>
+<Answers>
+<Answer id="61" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="62" value="1">
+<Text>б) Нет</Text>
+</Answer>
+<Answer id="63" value="0">
+<Text>в) Не всегда</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="13" weight="1">
+<Type>radio</Type>
+<Text>13. В современных условиях в российском бизнесе преобладает неценовая конкуренция</Text>
+<Answers>
+<Answer id="66" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="67" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="14" weight="1">
+<Type>radio</Type>
+<Text>14. Нарастают риски в бизнесе потому, что рынок представляет собой неустойчивую систему, подверженную воздействию множества факторов</Text>
+<Answers>
+<Answer id="71" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="72" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="15" weight="1">
+<Type>radio</Type>
+<Text>15. Для управления риском в бизнесе важно преодолеть представление о риске как об угрозе, опасности, неизбежности наступления риска</Text>
+<Answers>
+<Answer id="76" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="77" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="16" weight="1">
+<Type>radio</Type>
+<Text>16. Для управления рисками необходимо бизнесу выделять некоторую сумму затрат. Эти затраты пойдут только на страхование бизнеса</Text>
+<Answers>
+<Answer id="81" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="82" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="17" weight="1">
+<Type>radio</Type>
+<Text>17. Современной технологией управления рисками в бизнесе является их программирование</Text>
+<Answers>
+<Answer id="86" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="87" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="18" weight="1">
+<Type>radio</Type>
+<Text>18. Производственный бизнес представляет собой создание товаров и товарных услуг, получение доходов от их реализации, присвоение прибыли</Text>
+<Answers>
+<Answer id="91" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="92" value="0">
+<Text>б) Нет</Text>
+</Answer>
+<Answer id="93" value="0">
+<Text>в) Не только</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="19" weight="1">
+<Type>radio</Type>
+<Text>19. Производственный бизнес существует в  форме предпринимательства </Text>
+<Answers>
+<Answer id="96" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="97" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="20" weight="1">
+<Type>radio</Type>
+<Text>20. Функции производственного бизнеса на макроэкономическом уровне отличается от его функций на микроэкономическом уровне</Text>
+<Answers>
+<Answer id="101" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="102" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="21" weight="1">
+<Type>radio</Type>
+<Text>21. Контроль над выполнением производственных заданий, над использованием ресурсов выполняет руководитель низшего звена</Text>
+<Answers>
+<Answer id="106" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="107" value="1">
+<Text>б) Нет</Text>
+</Answer>
+<Answer id="108" value="0">
+<Text>в) Не только</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="22" weight="1">
+<Type>radio</Type>
+<Text>22. С помощью планирования в производственном бизнесе определяются его цели, с помощью организации внутренней среды фирмы – наиболее эффективные методы их достижения</Text>
+<Answers>
+<Answer id="111" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="112" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="23" weight="1">
+<Type>check</Type>
+<Text>23. Выделите три основные причины, почему необходимо планировать производственный бизнес</Text>
+<Answers>
+<Answer id="116" value="1">
+<Text>а) Планирование производственного бизнеса- обдумывание идеи</Text>
+</Answer>
+<Answer id="117" value="1">
+<Text>б) Планирование – рабочий инструмент для принятия решения по развитию производства</Text>
+</Answer>
+<Answer id="118" value="1">
+<Text>в) Планирование – способ сообщения идей заинтересованным инвесторам</Text>
+</Answer>
+<Answer id="119" value="0">
+<Text>г) Планирование – способ получения денег</Text>
+</Answer>
+<Answer id="120" value="0">
+<Text>д) Планирование – средство для получения  льгот</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="24" weight="1">
+<Type>radio</Type>
+<Text>24. Следует ли разрабатывать бизнес план производства, если отсутствует план маркетинга</Text>
+<Answers>
+<Answer id="122" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="123" value="1">
+<Text>б) Нет</Text>
+</Answer>
+<Answer id="124" value="0">
+<Text>в) Зависит от степени развитости производства</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="25" weight="1">
+<Type>radio</Type>
+<Text>25. Производственный бизнес осуществляет комбинацию факторов производства для снижения издержек</Text>
+<Answers>
+<Answer id="127" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="128" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="26" weight="1">
+<Type>radio</Type>
+<Text>26. Особое значение для производственного бизнеса имеют технологическое и предметное разделение труда</Text>
+<Answers>
+<Answer id="132" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="133" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="27" weight="1">
+<Type>radio</Type>
+<Text>27. Издержки современного производства можно представить так: блок материальных затрат + блок затрат на оплату труда + сервисные затраты. Можно ли не включать сервисные затраты?</Text>
+<Answers>
+<Answer id="137" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="138" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="28" weight="1">
+<Type>radio</Type>
+<Text>28. Производственный бизнес постоянно стремится к увеличению. Есть ли предел роста масштаба производства?</Text>
+<Answers>
+<Answer id="142" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="143" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="29" weight="1">
+<Type>radio</Type>
+<Text>29. Что дает борьба с потерями ресурсов в производстве</Text>
+<Answers>
+<Answer id="147" value="1">
+<Text>а) Экономию издержек</Text>
+</Answer>
+<Answer id="148" value="0">
+<Text>б) Рост прибыли</Text>
+</Answer>
+<Answer id="149" value="0">
+<Text>в) Хороший имидж фирме</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="30" weight="1">
+<Type>radio</Type>
+<Text>30. Без соответствующей инфраструктуры производственный бизнес не может эффективно работать</Text>
+<Answers>
+<Answer id="152" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="153" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="31" weight="1">
+<Type>radio</Type>
+<Text>31. Влияет ли на эффективность производственного бизнеса межотраслевая конкуренция</Text>
+<Answers>
+<Answer id="157" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="158" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="32" weight="1">
+<Type>radio</Type>
+<Text>32. Наличие проблем, ошибок, неудач может ли принести успех производственному бизнесу</Text>
+<Answers>
+<Answer id="162" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="163" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+</Questions>
+</Test>
+</Tests>

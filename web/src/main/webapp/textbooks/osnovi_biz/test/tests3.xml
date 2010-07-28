@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tests>
+<Test id="3" time="30">
+<Title>Тест по курсу "Основы бизнеса", модуль 3</Title>
+<Annotation> </Annotation>
+<Comment> </Comment>
+<Questions>
+<Question id="1" weight="1">
+<Type>radio</Type>
+<Text>1.Что полнее определяет содержание коммерческого бизнеса:</Text>
+<Answers>
+<Answer id="1" value="1">
+<Text>а) Бизнес-деятельность в сфере товарного обращения, торговля на рынке</Text>
+</Answer>
+<Answer id="2" value="0">
+<Text>б) составная часть любого бизнеса в виде заключения торговых сделок</Text>
+</Answer>
+<Answer id="3" value="0">
+<Text>в) торговля на рынке, заключение сделок реализации другими видами бизнеса</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="2" weight="1">
+<Type>radio</Type>
+<Text>2.Какой вид коммерции эффективнее:</Text>
+<Answers>
+<Answer id="6" value="0">
+<Text>а) в рамках крупных производственных фирм</Text>
+</Answer>
+<Answer id="7" value="0">
+<Text>б) обособленных специализированных фирм</Text>
+</Answer>
+<Answer id="8" value="1">
+<Text>в) вопрос поставлен некорректно</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="3" weight="1">
+<Type>radio</Type>
+<Text>3.В коммерческом бизнесе происходит превращение товара в деньги, а денег в товар. Можно ли во времени разделить эти сделки?                  </Text>
+<Answers>
+<Answer id="11" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="12" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="4" weight="1">
+<Type>radio</Type>
+<Text>4.Верно ли утверждение, что коммерческий бизнес начинает и завершает производство?</Text>
+<Answers>
+<Answer id="16" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="17" value="0">
+<Text>б) Нет </Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="5" weight="1">
+<Type>radio</Type>
+<Text>5.Наряду с внутренними операциями купли-продажи коммерческий бизнес включает в себя экспорт и импорт товаров</Text>
+<Answers>
+<Answer id="21" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="22" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="6" weight="1">
+<Type>radio</Type>
+<Text>6.Посредническая деятельность в коммерческом бизнесе уменьшает издержки обращения, сокращает время обращения, снижает трансакционные издержки</Text>
+<Answers>
+<Answer id="26" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="27" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="7" weight="1">
+<Type>radio</Type>
+<Text>7.Коммерция производственной фирмы имеет дело с рынком товаров, производимых фирмой, и с рынками факторов производства</Text>
+<Answers>
+<Answer id="31" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="32" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="8" weight="1">
+<Type>radio</Type>
+<Text>8.Коммерческий бизнес существует как</Text>
+<Answers>
+<Answer id="36" value="0">
+<Text>а) Внутренняя и внешняя торговля</Text>
+</Answer>
+<Answer id="37" value="1">
+<Text>б) Оптовая и розничная торговля</Text>
+</Answer>
+<Answer id="38" value="0">
+<Text>в) Что ещё?</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="9" weight="1">
+<Type>radio</Type>
+<Text>9.Экономический выигрыш, обеспечиваемый оптовой торговлей  товарами сезонного производства</Text>
+<Answers>
+<Answer id="41" value="0">
+<Text>а) Сглаживает сезонные противоречия     производства и потребления этой продукции</Text>
+</Answer>
+<Answer id="42" value="1">
+<Text>б) Преодолевает территориальные противоречия производства и потребления сезонных товаров</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="10" weight="1">
+<Type>radio</Type>
+<Text>10.Оптовая торговля обеспечивает ритмичность снабжения товарами всех звеньев торговли</Text>
+<Answers>
+<Answer id="46" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="47" value="0">
+<Text/>
+</Answer>
+</Answers>
+</Question>
+<Question id="11" weight="1">
+<Type>radio</Type>
+<Text>11.Какие  фирмы розничной торговли перспективнее в своем развитии</Text>
+<Answers>
+<Answer id="51" value="0">
+<Text>а) Мелкие</Text>
+</Answer>
+<Answer id="52" value="0">
+<Text>б) Крупные</Text>
+</Answer>
+<Answer id="53" value="1">
+<Text>в) Другой ответ</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="12" weight="1">
+<Type>radio</Type>
+<Text>12.Цель ценообразования в коммерческом бизнесе только получение прибыли</Text>
+<Answers>
+<Answer id="56" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="57" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="13" weight="1">
+<Type>radio</Type>
+<Text>13.Величину цены в коммерческом бизнесе определяет только спрос       </Text>
+<Answers>
+<Answer id="61" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="62" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="14" weight="1">
+<Type>radio</Type>
+<Text>14.Самый простой метод ценообразования в коммерческом бизнесе – метод «средние издержки + прибыль». Он всегда применяется?</Text>
+<Answers>
+<Answer id="66" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="67" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="15" weight="1">
+<Type>radio</Type>
+<Text>15.При установлении цен на новые товары применяется политика:</Text>
+<Answers>
+<Answer id="71" value="0">
+<Text>а) «проникновения товара на рынок» (низкие цены)</Text>
+</Answer>
+<Answer id="72" value="1">
+<Text>б) «снятия сливок» (высокие цены)</Text>
+</Answer>
+<Answer id="73" value="0">
+<Text>в) Оба ответа верны</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="16" weight="1">
+<Type>radio</Type>
+<Text>16.Значимость в розничной торговле упаковки товара определяется тем, что упаковка</Text>
+<Answers>
+<Answer id="76" value="0">
+<Text>а) Придает товару определенный образ</Text>
+</Answer>
+<Answer id="77" value="0">
+<Text>б)  Сохраняет товар</Text>
+</Answer>
+<Answer id="78" value="0">
+<Text>в)  Увеличивает цену товара</Text>
+</Answer>
+<Answer id="79" value="1">
+<Text>г) Формирует спрос на товар</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="17" weight="1">
+<Type>radio</Type>
+<Text>17. Финансовый бизнес имеет дело только с деньгами как предметом труда</Text>
+<Answers>
+<Answer id="81" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="82" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="18" weight="1">
+<Type>radio</Type>
+<Text>18. Посредниками депозитного типа на финансовом рынке являются:</Text>
+<Answers>
+<Answer id="86" value="0">
+<Text>а) коммерческие банки</Text>
+</Answer>
+<Answer id="87" value="0">
+<Text>б) сберегательные ассоциации</Text>
+</Answer>
+<Answer id="88" value="1">
+<Text>в) страховые компании</Text>
+</Answer>
+<Answer id="89" value="0">
+<Text>г) кредитные союзы</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="19" weight="1">
+<Type>radio</Type>
+<Text>19. Укажите неверный ответ. Посредниками контрактного типа на финансовом рынке являются: </Text>
+<Answers>
+<Answer id="91" value="0">
+<Text>а) брокеры</Text>
+</Answer>
+<Answer id="92" value="0">
+<Text>б) страховые компании</Text>
+</Answer>
+<Answer id="93" value="1">
+<Text>в) пенсионные фонды</Text>
+</Answer>
+<Answer id="94" value="0">
+<Text>г) другие финансовые фонды</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="20" weight="1">
+<Type>radio</Type>
+<Text>20. Укажите неверный ответ. Финансовый бизнес высоко рисковый. Результат движения денег и ценных бумаг нельзя прогнозировать со 100% точностью </Text>
+<Answers>
+<Answer id="96" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="97" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="21" weight="1">
+<Type>radio</Type>
+<Text>21. Эффективность российской экономики в значительной мере определяется составом и активностью банковского капитала</Text>
+<Answers>
+<Answer id="101" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="102" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="22" weight="1">
+<Type>check</Type>
+<Text>22. Коммерческие банки выполняют операции (правильные ответы):</Text>
+<Answers>
+<Answer id="111" value="1">
+<Text>а) Пассивные</Text>
+</Answer>
+<Answer id="112" value="0">
+<Text>б) Собирательные</Text>
+</Answer>
+<Answer id="113" value="1">
+<Text>в) Активные</Text>
+</Answer>
+<Answer id="114" value="0">
+<Text>г) Комиссионные</Text>
+</Answer>
+<Answer id="115" value="0">
+<Text>д) Кредитные</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="23" weight="1">
+<Type>radio</Type>
+<Text>23. Применение безналичного оборота финансовых ресурсов ускоряет деловые процессы, обеспечивает высокую степень их надежности</Text>
+<Answers>
+<Answer id="117" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="118" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="24" weight="1">
+<Type>radio</Type>
+<Text>24. Маржа – разница между банковскими процентами</Text>
+<Answers>
+<Answer id="122" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="123" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="25" weight="1">
+<Type>radio</Type>
+<Text>25. На рынке ценных бумаг (фондовом рынке) происходит:</Text>
+<Answers>
+<Answer id="127" value="1">
+<Text>а) вложение финансовых ресурсов в ценные бумаги или финансовое инвестирование</Text>
+</Answer>
+<Answer id="128" value="0">
+<Text>б) деловое общение инвесторов</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="26" weight="1">
+<Type>radio</Type>
+<Text>26. Деловые интересы участников фондового рынка находятся за пределами этого рынка, если они хотят участвовать в реальных экономических процессах</Text>
+<Answers>
+<Answer id="132" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="133" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="27" weight="1">
+<Type>radio</Type>
+<Text>27. Управление портфелем ценных бумаг представляет собой распоряжение набором различного вида ценных бумаг</Text>
+<Answers>
+<Answer id="137" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="138" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="28" weight="1">
+<Type>radio</Type>
+<Text>28. При активном управлении портфелем ценных бумаг часто используется «свопинг» - постоянный обмен, ротация ценных бумаг на фондовом рынке</Text>
+<Answers>
+<Answer id="142" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="143" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="29" weight="1">
+<Type>radio</Type>
+<Text>29. При пассивном управлении портфелем ценных бумаг он должен быть хорошо диверсифицирован</Text>
+<Answers>
+<Answer id="147" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="148" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="30" weight="1">
+<Type>radio</Type>
+<Text>30. Любое управление портфелем ценных бумаг требует постоянного мониторинга состояния фондового рынка, экономической и политической ситуации в стране и между странами</Text>
+<Answers>
+<Answer id="152" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="153" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="31" weight="1">
+<Type>radio</Type>
+<Text>31. Страховой бизнес выступает почти обязательным участником всех крупных финансовых сделок</Text>
+<Answers>
+<Answer id="157" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="158" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="32" weight="1">
+<Type>radio</Type>
+<Text>32. Страховой бизнес, аккумулируя большие средства, осуществляет:</Text>
+<Answers>
+<Answer id="162" value="0">
+<Text>а) долгосрочное финансирование сделок</Text>
+</Answer>
+<Answer id="163" value="1">
+<Text>б) инвестирование в различные виды бизнеса</Text>
+</Answer>
+<Answer id="164" value="0">
+<Text>в) смягчает остроту безработицы</Text>
+</Answer>
+<Answer id="165" value="0">
+<Text>г) развивает политические отношения стран</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="33" weight="1">
+<Type>radio</Type>
+<Text>33. Страхование – единственный вид бизнеса, предметом деятельности которого являются риски</Text>
+<Answers>
+<Answer id="167" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="168" value="0">
+<Text>б) Нет                       </Text>
+</Answer>
+</Answers>
+</Question>
+</Questions>
+</Test>
+</Tests>

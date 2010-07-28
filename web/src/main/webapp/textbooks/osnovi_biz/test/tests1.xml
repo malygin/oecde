@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tests>
+<Test id="1" time="30">
+<Title>Тест к модулю 1</Title>
+<Annotation> </Annotation>
+<Comment> </Comment>
+<Questions>
+<Question id="1" weight="1">
+<Type>radio</Type>
+<Text>1.Природный эгоизм и склонность к обмену являются условием для возникновения бизнеса</Text>
+<Answers>
+<Answer id="1" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="2" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="2" weight="1">
+<Type>radio</Type>
+<Text>2.Эгоистические интересы в бизнесе проявляются в стремлении предпринимателей удовлетворить интересы конечного пользователя</Text>
+<Answers>
+<Answer id="6" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="7" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="3" weight="1">
+<Type>radio</Type>
+<Text>3.Деловые интересы бизнеса содержат две тенденции: конкуренция и инновация</Text>
+<Answers>
+<Answer id="11" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="12" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="4" weight="1">
+<Type>radio</Type>
+<Text>4.Разрешение противоречия в бизнесе между частным и общественным состоит в том, что работать на себя бизнесмен может, лишь работая на других. Но и работать на других , забыв о себе, он не может</Text>
+<Answers>
+<Answer id="16" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="17" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="5" weight="1">
+<Type>radio</Type>
+<Text>5.Бизнесмен является носителем прав и ответственности за использование произведенного им товара</Text>
+<Answers>
+<Answer id="21" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="22" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="6" weight="1">
+<Type>radio</Type>
+<Text>6.Выгода в бизнесе всегда является прибылью</Text>
+<Answers>
+<Answer id="26" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="27" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="7" weight="1">
+<Type>radio</Type>
+<Text>7.В бизнесе доход – это выручка, возникающая при реализации товаров и услуг</Text>
+<Answers>
+<Answer id="31" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="32" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="8" weight="1">
+<Type>radio</Type>
+<Text>8.Физическими лицами в бизнесе являются отдельные люди, занимающиеся бизнесом</Text>
+<Answers>
+<Answer id="36" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="37" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="9" weight="1">
+<Type>radio</Type>
+<Text>9.Юридические лица в бизнесе – это фирмы, организации, предприятия, общества</Text>
+<Answers>
+<Answer id="41" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="42" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="10" weight="1">
+<Type>radio</Type>
+<Text>10.Макроэкономические функции бизнеса показывают, что бизнес ответственен за экономическое развитие страны в целом, благоприятную социальную обстановку в обществе</Text>
+<Answers>
+<Answer id="46" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="47" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="11" weight="1">
+<Type>radio</Type>
+<Text>11.Государство является субъектом бизнеса, имея иную, чем коммерческие и некоммерческие организации, ответственность</Text>
+<Answers>
+<Answer id="51" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="52" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="12" weight="1">
+<Type>radio</Type>
+<Text>12.Особенностью российского бизнеса является его слабая социальная ориентация</Text>
+<Answers>
+<Answer id="56" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="57" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="13" weight="1">
+<Type>radio</Type>
+<Text>13.Основные инвестиции в бизнесе современной России осуществляются за счет собственных средств</Text>
+<Answers>
+<Answer id="61" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="62" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="14" weight="1">
+<Type>radio</Type>
+<Text>14.Определенная часть российского бизнеса осуществляется как теневой бизнес</Text>
+<Answers>
+<Answer id="66" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="67" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="15" weight="1">
+<Type>radio</Type>
+<Text>15.Малый бизнес в России составляет примерно 25% числа экономически занятого населения, в то время как зарубежные страны имеют этот показатель - 75-80%</Text>
+<Answers>
+<Answer id="71" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="72" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="16" weight="1">
+<Type>radio</Type>
+<Text>16.Государство ждет от бизнеса преимущественно роста поступления денег в казну, а не  создания новых рабочих мест, социального улучшения развития общества</Text>
+<Answers>
+<Answer id="76" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="77" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="17" weight="1">
+<Type>radio</Type>
+<Text>17.Предпринимательская фирма является юридическим лицом</Text>
+<Answers>
+<Answer id="81" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="82" value="0">
+<Text>б) Нет</Text>
+</Answer>
+<Answer id="183" value="0">
+<Text>в) не всегда</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="18" weight="1">
+<Type>radio</Type>
+<Text>18.Индивидуальный частный предприниматель должен создавать и регистрировать юридическое лицом</Text>
+<Answers>
+<Answer id="86" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="87" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="19" weight="1">
+<Type>radio</Type>
+<Text>19.Участник и учредитель фирмы – это одно и то же лицо</Text>
+<Answers>
+<Answer id="92" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="93" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="20" weight="1">
+<Type>radio</Type>
+<Text>20.Некоммерческая организация может заниматься бизнесом</Text>
+<Answers>
+<Answer id="97" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="98" value="1">
+<Text>б) Нет</Text>
+</Answer>
+<Answer id="101" value="0">
+<Text>в) не всегда</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="21" weight="1">
+<Type>radio</Type>
+<Text>21.Деятельность бизнеса не является нелегальной, если фирма осуществляет ее без регистрации, но преследует законные цели</Text>
+<Answers>
+<Answer id="103" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="104" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="22" weight="1">
+<Type>radio</Type>
+<Text>22.Основным преимуществом малого бизнеса является наличие льгот по налогообложению и способность принимать быстрые решения, быстро перестраиваться на производство другого товара, который пользуется повышенным спросом</Text>
+<Answers>
+<Answer id="108" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="109" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="23" weight="1">
+<Type>radio</Type>
+<Text>23.Юридический адрес юридического лица должен совпадать с фактическим адресом расположения фирмы</Text>
+<Answers>
+<Answer id="113" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="114" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="24" weight="1">
+<Type>radio</Type>
+<Text>24.Некоммерческие организации могут преследовать в качестве основной цели извлечение прибыли. Такая цель будет считаться:</Text>
+<Answers>
+<Answer id="118" value="0">
+<Text>а) Законной</Text>
+</Answer>
+<Answer id="119" value="1">
+<Text>б) Незаконной</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="25" weight="1">
+<Type>radio</Type>
+<Text>25.Коллективная собственность – имущество, принадлежащее одновременно нескольким лицам с определением доли каждого из них (долевая собственность) или без определенных долей (совместная собственность)</Text>
+<Answers>
+<Answer id="123" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="124" value="0">
+<Text>б) Нет</Text>
+</Answer>
+<Answer id="127" value="1">
+<Text>в) Не всегда</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="26" weight="1">
+<Type>radio</Type>
+<Text>26.Обыкновенная акция дает право ее владельцу получать регулярно определенный фиксированный доход</Text>
+<Answers>
+<Answer id="129" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="130" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="27" weight="1">
+<Type>radio</Type>
+<Text>27.Привилегированная акция дает право ее владельцу на получение фиксированного дохода, но не дает право на участие в управлении акционерным обществом</Text>
+<Answers>
+<Answer id="134" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="135" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="28" weight="1">
+<Type>radio</Type>
+<Text>28.Для начала деятельности ОАО необходима только его регистрация в регистрационной палате и налоговой инспекции</Text>
+<Answers>
+<Answer id="139" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="140" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="29" weight="1">
+<Type>radio</Type>
+<Text>29.Малый бизнес может выжить только в условиях поддержки его государством и местной властью</Text>
+<Answers>
+<Answer id="144" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="145" value="0">
+<Text>б) Нет</Text>
+</Answer>
+<Answer id="146" value="0">
+<Text>в) Другое</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="30" weight="1">
+<Type>radio</Type>
+<Text>30.В России все больше распространяется такая форма взаимодействия  малого и крупного бизнеса как фрэнчайзинг</Text>
+<Answers>
+<Answer id="149" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="150" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="31" weight="1">
+<Type>radio</Type>
+<Text>31.Бизнес-сделка – это действия гражданина и юридического лица, направленные на установление, изменение или прекращение гражданских прав и обязанностей</Text>
+<Answers>
+<Answer id="154" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="155" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="32" weight="1">
+<Type>radio</Type>
+<Text>32.Количество бизнес-сделок является измерителем активности бизнеса</Text>
+<Answers>
+<Answer id="159" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="160" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="33" weight="1">
+<Type>radio</Type>
+<Text>33.Реорганизация и ликвидация фирм может происходить только в форме банкротства</Text>
+<Answers>
+<Answer id="164" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="165" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="34" weight="1">
+<Type>radio</Type>
+<Text>34.Банкротство имеет позитивные и негативные последствия</Text>
+<Answers>
+<Answer id="169" value="1">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="170" value="0">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+<Question id="35" weight="1">
+<Type>radio</Type>
+<Text>35.Объединение разных видов бизнеса на определенный период осложняет работу в бизнесе</Text>
+<Answers>
+<Answer id="174" value="0">
+<Text>а) Да</Text>
+</Answer>
+<Answer id="175" value="1">
+<Text>б) Нет</Text>
+</Answer>
+</Answers>
+</Question>
+</Questions>
+</Test>
+</Tests>

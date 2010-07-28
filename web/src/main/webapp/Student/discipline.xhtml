@@ -13,7 +13,8 @@
             <r:forEach items="#{disciplineBean.discipline.umk.modules}" var="m">
                 #{m.id} ${m.name}<br/>
                 <r:forEach items="${m.resources}" var="r">
-                    ${r.title}<br/>
+                    <b>${r.id}</b>
+                    <a href="exbook.xhtml?cId=${disciplineBean.curriculumId}&amp;mId=${m.id}&amp;tId=${r.id}">   ${r.title}</a><br/>
                 </r:forEach>
             </r:forEach>
             <r:forEach items="#{disciplineBean.tests}" var="t">

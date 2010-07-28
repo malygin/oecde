@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="./../resources/umkTemplate.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+       <f:metadata>
+            <f:viewParam name="mId" value="#{umkBean.moduleId}"/>
+           <f:viewParam name="tId" value="#{umkBean.taskId}"/>
+           <f:viewParam name="cId" value="#{umkBean.cId}"/>         
+       </f:metadata>
+    
+    <ui:define name="name">
+        <b> умк</b> -  #{umkBean.curriculum.umk.name}
+        <b>модуль</b> - #{umkBean.currentModule.name}
+        <b> занятие</b> -#{umkBean.currentTask.title}<br/>
+        <c:forEach items="#{umkBean.tasks}" var="task" varStatus="st">
+            <c:if test="${task.id!=umkBean.taskId}">
+               <a title="${task.title}" href="exbook.xhtml?cId=${umkBean.cId}&amp;mId=${umkBean.moduleId}&amp;tId=${task.id}">  ${st.count}</a>&nbsp;
+            </c:if>
+            <c:if test="${task.id==umkBean.taskId}">
+             ${st.count}&nbsp;
+            </c:if>
+        </c:forEach>
+
+        <c:if test="${umkBean.prevTask.id==0}">пред </c:if>
+        <c:if test="${umkBean.prevTask.id!=0}">
+            <a  href="exbook.xhtml?cId=#{umkBean.cId}&amp;mId=#{umkBean.prevModule.id}&amp;tId=#{umkBean.prevTask.id}"> пред (#{umkBean.prevTask.title}) </a>
+        </c:if>
+        
+        <c:if test="${umkBean.nextTask.id==0}">след </c:if>
+        <c:if test="${umkBean.nextTask.id!=0}">
+            <a  href="exbook.xhtml?cId=#{umkBean.cId}&amp;mId=#{umkBean.nextModule.id}&amp;tId=#{umkBean.nextTask.id}"> след (#{umkBean.nextTask.title}) </a>
+       </c:if>
+
+        </ui:define>
+
+    <ui:define name="content">
+        <h:outputText escape="false"  value="#{umkBean.task}"/>
+    </ui:define>
+
+    <ui:define name="bottom">
+        bottom
+    </ui:define>
+
+</ui:composition>

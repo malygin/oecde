@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Ipsilon_course>
+
+<Modules> 
+	  
+	<Module>
+		    <ID>0</ID>
+            <NAME>Установочный модуль</NAME>
+			<File_Name>raz0</File_Name>
+			<Time_Interval> </Time_Interval>
+			<Information> </Information>
+			<Comment> </Comment>
+		
+		<Tasks>
+		  <Task>
+               <File_Name>m0-z8.html</File_Name>
+               <ID>1</ID>
+               <NAME>Описание дисциплины</NAME>
+               <time_interval>null</time_interval>
+               <information>null</information>
+               <comment>null</comment>
+           </Task>
+           <Task>
+               <File_Name>m0-z1.html</File_Name>
+               <ID>2</ID>
+               <NAME>Содержание курса</NAME>
+               <time_interval>null</time_interval>
+               <information>null</information>
+               <comment>null</comment>
+           </Task>
+           <Task>
+               <File_Name>m0-z3.html</File_Name>
+               <ID>3</ID>
+               <NAME>Календарный план и система оценивания</NAME>
+               <time_interval>null</time_interval>
+               <information>null</information>
+               <comment>null</comment>
+           </Task>
+           <Task>
+               <File_Name>m0-z4.html</File_Name>
+               <ID>4</ID>
+               <NAME>Самостоятельная работа над курсом</NAME>
+               <time_interval>null</time_interval>
+               <information>null</information>
+               <comment>null</comment>
+           </Task>
+           <Task>
+               <File_Name>m0-z5.html</File_Name>
+               <ID>5</ID>
+               <NAME>Вопросы для самопроверки </NAME>
+               <time_interval>null</time_interval>
+               <information>null</information>
+               <comment>null</comment>
+           </Task>
+           <Task>
+               <File_Name>m0-z6.html</File_Name>
+               <ID>6</ID>
+               <NAME>Контрольная  зачетная работа </NAME>
+               <time_interval>null</time_interval>
+               <information>null</information>
+               <comment>null</comment>
+           </Task>
+           <Task>
+               <File_Name>m0-z7.html</File_Name>
+               <ID>7</ID>
+               <NAME>Перечень литературы и ресурсов Интернет </NAME>
+               <time_interval>null</time_interval>
+               <information>null</information>
+               <comment>null</comment>
+           </Task>
+		   </Tasks> 
+ 
+	</Module>
+	<Module>
+		    <ID>1</ID>
+            <NAME>Модуль 1</NAME>
+			<File_Name>raz1</File_Name>
+			<Time_Interval> </Time_Interval>
+			<Information> </Information>
+			<Comment> </Comment>
+			
+
+			
+			<Tasks>
+			
+			    <Task>
+                    <ID>1</ID>
+                    <NAME>Введение в курс «Основы бизнеса»</NAME>
+					<File_Name>m1-z0.html</File_Name>
+				    <Time_Interval> </Time_Interval>
+				    <Information> </Information>
+				    <Comment> </Comment>
+
+			    </Task>
+					
+                <Task>
+                    <ID>2</ID>
+                    <NAME>Основы организации бизнеса</NAME>
+					<File_Name>m1-z1.html</File_Name>
+				    <Time_Interval> </Time_Interval>
+				    <Information> </Information>
+				    <Comment> </Comment>
+
+
+			    </Task>
+								
+				<Task>
+                    <ID>3</ID>
+                    <NAME>Вопросы для обсуждения</NAME>
+					<File_Name>m1-z2.html</File_Name>
+				    <Time_Interval> </Time_Interval>
+				    <Information> </Information>
+				    <Comment> </Comment>
+
+			    </Task>
+		   </Tasks> 
+			
+		</Module>	
+	<Module>
+		    <ID>2</ID>
+            <NAME>Модуль 2</NAME>
+			<File_Name>raz2</File_Name>
+			<Time_Interval> </Time_Interval>
+			<Information> </Information>
+			<Comment> </Comment>
+			
+			<Tasks>
+			
+			    <Task>
+                    <ID>1</ID>
+                    <NAME>Рынок и конкуренция в бизнесе</NAME>
+					<File_Name>m2-z0.html</File_Name>
+				    <Time_Interval> </Time_Interval>
+				    <Information> </Information>
+				    <Comment> </Comment>
+
+			    </Task>
+					
+                <Task>
+                    <ID>2</ID>
+                    <NAME>Производственный бизнес</NAME>
+					<File_Name>m2-z1.html</File_Name>
+				    <Time_Interval> </Time_Interval>
+				    <Information> </Information>
+				    <Comment> </Comment>
+
+			    </Task>
+									
+                <Task>
+                    <ID>3</ID>
+                    <NAME>Вопросы для обсуждения</NAME>
+					<File_Name>m2-z2.html</File_Name>
+				    <Time_Interval> </Time_Interval>
+				    <Information> </Information>
+				    <Comment> </Comment>
+
+			    </Task>
+		   </Tasks> 
+			
+		</Module>	
+	<Module>
+		    <ID>3</ID>
+            <NAME>Модуль 3</NAME>
+			<File_Name>raz3</File_Name>
+			<Time_Interval> </Time_Interval>
+			<Information> </Information>
+			<Comment> </Comment>
+			
+			<Tasks>
+			
+			    <Task>
+                    <ID>1</ID>
+                    <NAME>Коммерческий бизнес</NAME>
+					<File_Name>m3-z0.html</File_Name>
+				    <Time_Interval> </Time_Interval>
+				    <Information> </Information>
+				    <Comment> </Comment>
+
+			    </Task>
+					
+                <Task>
+                    <ID>2</ID>
+                    <NAME>Финансовый бизнес</NAME>
+					<File_Name>m3-z1.html</File_Name>
+				    <Time_Interval> </Time_Interval>
+				    <Information> </Information>
+				    <Comment> </Comment>
+
+			    </Task>
+						
+				<Task>
+                    <ID>3</ID>
+                    <NAME>Вопросы для обсуждения</NAME>
+					<File_Name>m3-z2.html</File_Name>
+				    <Time_Interval> </Time_Interval>
+				    <Information> </Information>
+				    <Comment> </Comment>
+
+			    </Task>
+		   </Tasks> 
+			
+		</Module>	
+	<Module>
+		    <ID>4</ID>
+            <NAME>Модуль 4</NAME>
+			<File_Name>raz4</File_Name>
+			<Time_Interval> </Time_Interval>
+			<Information> </Information>
+			<Comment> </Comment>
+			
+			<Tasks>
+			
+			    <Task>
+                    <ID>1</ID>
+                    <NAME>Информационный бизнес</NAME>
+					<File_Name>m4-z0.html</File_Name>
+				    <Time_Interval> </Time_Interval>
+				    <Information> </Information>
+				    <Comment> </Comment>
+
+		
+
+			    </Task>
+					
+                <Task>
+                    <ID>2</ID>
+                    <NAME>Международный бизнес. Культура бизнеса</NAME>
+					<File_Name>m4-z1.html</File_Name>
+				    <Time_Interval> </Time_Interval>
+				    <Information> </Information>
+				    <Comment> </Comment>
+
+			    </Task>
+				
+
+				
+				<Task>
+                    <ID>3</ID>
+                    <NAME>Вопросы для обсуждения</NAME>
+					<File_Name>m4-z2.html</File_Name>
+				    <Time_Interval> </Time_Interval>
+				    <Information> </Information>
+				    <Comment> </Comment>
+
+			    </Task>
+		   </Tasks> 
+			
+		</Module>	
+	<Module>
+		    <ID>5</ID>
+            <NAME>Контрольный модуль</NAME>
+			<File_Name> </File_Name>
+			<Time_Interval> </Time_Interval>
+			<Information> </Information>
+			<Comment> </Comment>
+			
+				
+		</Module>	
+		
+</Modules> 
+		
+</Ipsilon_course>

@@ -1,5 +1,11 @@
 package org.sgu.oecde.web;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -24,6 +30,11 @@ import org.sgu.oecde.core.education.dao.IEstimateDao;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.util.CollectionUtils;
 
+import java.util.*;
+import java.io.*;
+import java.net.*;
+import org.sgu.oecde.web.jsfbeans.util.HTMLSanitiser;
+
 /**
  * Unit test for simple App.
  */
@@ -38,7 +49,7 @@ public class FilterTest extends BasicTest{
         }
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void groupCount(){
         setDao("estimateDao");
@@ -50,7 +61,7 @@ public class FilterTest extends BasicTest{
         System.out.println(t);
     }
 
-//    @Ignore
+ @Ignore
     @Test
     public void save(){
         List<IResultFilter>filters = new LinkedList();
@@ -103,4 +114,30 @@ public class FilterTest extends BasicTest{
         setDao("resultDao");
         System.out.println(getItem(42L));
     }
+    @Ignore
+    @Test
+    public void htmlbyurl() throws MalformedURLException, UnsupportedEncodingException, IOException{
+      String str="";
+      URL url = new URL("http://oecdo.sgu.ru/textbooks/avtomat_offise/test.html");
+      StringBuffer strbuf = new StringBuffer();
+      BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
+      String str2;
+      while ((str2 = in.readLine()) != null) {strbuf.append(str2);}
+      str=strbuf.toString();
+      System.out.println("" +str);
+        System.out.println("ispr "+HTMLSanitiser.encodeInvalidMarkup(str));   
+
+    }
+      @Ignore
+    @Test
+    public void getResourses(){
+        setDao("estimateDao");
+        List q = new ArrayList();
+        q.add(new DeCurriculum(2009627542L));
+        q.add(new DeCurriculum(2009634942L));
+        q.add(new DeCurriculum(2009636442L));
+        int t = this.<IEstimateDao>getDao().getEstimatedGroupsCount(q,new Teacher(44240L));
+        System.out.println(t);
+    }
+
 }
