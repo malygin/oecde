@@ -157,6 +157,7 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
      * @return
      */
     public String getLargePhoto() {
+//        if (largePhoto==null) return "defaultLarge.jpg";
         return largePhoto;
     }
 
@@ -173,6 +174,7 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
      * @return средняя фото
      */
     public String getMediumPhoto() {
+    //    if (mediumPhoto==null) return "defaultMedium.jpg";
         return mediumPhoto;
     }
 
@@ -189,6 +191,7 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
      * @return маленькая фото
      */
     public String getSmallPhoto() {
+   //     if (smallPhoto==null) return "defaultSmall.jpg";
         return smallPhoto;
     }
 

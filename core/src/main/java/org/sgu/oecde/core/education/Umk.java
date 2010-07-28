@@ -15,6 +15,10 @@ public class Umk extends BasicItem{
      */
     private String name;
     /**
+     * папка, в которой лежит умк
+     */
+    private String folder;
+    /**
      * описание
      */
     private String description;
@@ -117,6 +121,15 @@ public class Umk extends BasicItem{
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String getFolder() {
+        return folder;
+    }
+
+    public void setFolder(String folder) {
+        this.folder = folder;
+    }
+
 
     @Override
     public String toString() {
