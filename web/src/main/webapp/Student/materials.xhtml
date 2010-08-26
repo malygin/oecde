@@ -1,20 +1,42 @@
-    <ui:composition
-         xmlns:ui="http://java.sun.com/jsf/facelets"
-         xmlns:f="http://java.sun.com/jsf/core"
-         xmlns:h="http://java.sun.com/jsf/html"
-         template="../resources/studentTemplate.xhtml" >
-        <ui:define name="content">
-         <f:metadata>
-             <f:viewParam name="s" value="#{materialsBean.semester}"/>
-         </f:metadata>
-         <h:outputLink value="?s=#{materialsBean.semester==0?1:0}">другой семестр</h:outputLink>
-         <h:dataTable value="#{materialsBean.studentsDisciplines}" var="m">
-           <h:column>
-               <h:outputLink value="discipline.xhtml?c=#{m.curriculum.id}" >#{m.curriculum.umk.name}</h:outputLink><br/>
-               пройдено тестов: #{m.passedTests} из #{m.testsCount}<br/>
-               Результаты тестирования: #{m.testPoints}<br/>
-               Итоговый тест: #{m.concludingTestPoints}
-           </h:column>
-         </h:dataTable>
-        </ui:define>
-    </ui:composition>
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:r="http://java.sun.com/jsp/jstl/core"
+    template="../resources/studentTemplate.xhtml" 
+    >
+
+    <ui:define name="contentHeader">
+        #{msgs.student_myMaterials}
+    </ui:define>
+    <ui:define name="content">
+        <div class="interfaceContent">
+            <f:metadata>
+                <f:viewParam name="s" value="#{materialsBean.semester}"/>
+            </f:metadata>
+            <div class="navigationLinks">
+                <h:outputLink value="?s=#{materialsBean.semester==0?1:0}">${msgs.student_otherSemestr}</h:outputLink>
+            </div>
+            <r:forEach items="#{materialsBean.studentsDisciplines}" var="m">
+                <div class="studentInterfaceStandartList">
+                    <span class="controlWorksDisciplineNameLink"><h:outputLink value="discipline.xhtml?c=#{m.curriculum.id}" >#{m.curriculum.umk.name}</h:outputLink><br/></span>
+                    <br/>
+                    <div class="materialInfo">
+                        ${msgs.student_finishedTests} #{m.passedTests} ${msgs.student_fromWord} #{m.testsCount}<br/>
+                        ${msgs.student_testResults} #{m.testPoints}<br/>
+                        ${msgs.student_mainTest} #{m.concludingTestPoints}
+                    </div>
+                </div>
+            </r:forEach>
+<!--            <br/>1<br/>
+            <h:dataTable value="# {materialsBean.studentsDisciplines}" var="m">
+                <h:column>
+                    <h:outputLink value="discipline.xhtml?c=# {m.curriculum.id}" ># {m.curriculum.umk.name}</h:outputLink><br/>
+                    пройдено тестов: # {m.passedTests} из # {m.testsCount}<br/>
+                    Результаты тестирования: # {m.testPoints}<br/>
+                    Итоговый тест: # {m.concludingTestPoints}
+                </h:column>
+            </h:dataTable>-->
+        </div>
+    </ui:define>
+</ui:composition>

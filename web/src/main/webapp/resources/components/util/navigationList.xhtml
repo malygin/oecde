@@ -14,16 +14,19 @@
   </composite:interface>
 
   <!-- IMPLEMENTATION -->
-    <composite:implementation>       
+    <composite:implementation>
+        <div class="navigationLinks" style="margin-top: 5px;">
         <c:set target="${NavigationBean}" property="elementOnPage" value="${cc.attrs.elementOnPage}"/>
         <c:set target="${NavigationBean}" property="numElements" value="${cc.attrs.numElements}"/>
         <c:forEach items="#{NavigationBean.pages}" var="page">
             <c:if test="${page==NavigationBean.page}">
-                <h:outputText value="#{page}"/>
+                <h:outputText value="#{page}"/>&nbsp;
             </c:if>
             <c:if test="${page!=NavigationBean.page}">
-                <a href="?page=#{page}"> <h:outputText value="#{page}"/></a>
+                <a href="?page=#{page}"><h:outputText value="#{page}"/></a>&nbsp;
             </c:if>
         </c:forEach>
+        </div>
+        
   </composite:implementation>
 </html>

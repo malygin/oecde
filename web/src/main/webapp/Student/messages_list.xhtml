@@ -11,9 +11,19 @@
               <f:viewParam name="page" value="#{MessageBean.currentPage}"/>
          </f:metadata>
 
+        <ui:define name="contentHeader">
+            #{msgs.message_interfaceTitleInListMessages}
+        </ui:define>
+        
         <ui:define name="content">
             <util:navigationList elementOnPage="#{MessageBean.messageOnPage}"
                                  numElements="#{MessageBean.numOfMessages}"/>
-            <mess:list list="#{MessageBean.messages}"/>          
+
+            <div class="interfaceContent">
+                <mess:list list="#{MessageBean.messages}"/>
+            </div>
+            
+            <util:navigationList elementOnPage="#{MessageBean.messageOnPage}"
+                                 numElements="#{MessageBean.numOfMessages}"/>
          </ui:define>
     </ui:composition>

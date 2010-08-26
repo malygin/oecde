@@ -6,39 +6,71 @@
       xmlns:f="http://java.sun.com/jsf/core"
       >
 
-  <!-- INTERFACE -->
-  <cc:interface>
-          <cc:attribute name="actionMethod"
-             method-signature="java.lang.String action()"/>
-  </cc:interface>
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="actionMethod"
+                      method-signature="java.lang.String action()"/>
+    </cc:interface>
 
-  <!-- IMPLEMENTATION -->
-  <cc:implementation>
-      <h:form  id ="formSend"  enctype="multipart/form-data" >
-             <h:outputText rendered="#{MessageWriteBean.renderSuccessSend}" value="Сообщение успешно послано!"/><br/>
-              <h:dataTable id="recipients" value="#{MessageWriteBean.recipients}" var="recipient">
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        <div class="interfaceContent">
+            <h:form  id="formSend"  enctype="multipart/form-data" >
+                <h:outputText rendered="#{MessageWriteBean.renderSuccessSend}" value="#{msgs.message_sentSuccess}"/>
+                <h:dataTable id="recipients" value="#{MessageWriteBean.recipients}" var="recipient">
+                    <h:column>
+                        <div style="width: 52px;">
+                            #{msgs.message_author}
+                        </div>
+                    </h:column>
                     <h:column>
                         #{recipient.fioAuthor}
-                        <h:commandLink action="#{MessageWriteBean.removeRecipient}" value="удалить">
-                            <f:ajax execute="@form" render="@form"/>
-                            <f:setPropertyActionListener target="#{MessageWriteBean.recipient_id_remove}" value="#{recipient.recipient.id}"/>
-                        </h:commandLink>
+                        <span class="navigationLinksRed">
+                            <h:commandLink action="#{MessageWriteBean.removeRecipient}" value="#{msgs.message_delete}">
+                                <f:ajax execute="@form" render="@form"/>
+                                <f:setPropertyActionListener target="#{MessageWriteBean.recipient_id_remove}" value="#{recipient.recipient.id}"/>
+                            </h:commandLink>
+                        </span>
                     </h:column>
-                </h:dataTable><br/>
-                <h:inputText  value="#{MessageWriteBean.theme}"/><br/>
-                <h:inputTextarea value="#{MessageWriteBean.fullText}"/><br/>
+                </h:dataTable>
+                <table cellpadding="0" cellspacing="3" class="writeMessageInterfaceTableForm">
+                    <tr>
+                        <td style="width: 50px;">#{msgs.message_forWhom}</td>
+                        <td>
+                            <h:inputText styleClass="writeMessageInterfaceTheme" value="#{msgs.message_forWhom}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 40px;">#{msgs.message_theme}</td>
+                        <td>
+                            <h:inputText styleClass="writeMessageInterfaceTheme" value="#{MessageWriteBean.theme}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <h:inputTextarea styleClass="writeMessageInterfaceMessBody" value="#{MessageWriteBean.fullText}"/>
+                        </td>
+                    </tr>
+                </table>
                 <h:dataTable value="#{MessageWriteBean.files}" var="file">
                     <h:column>
                         #{file.name}
-                        <h:commandLink action="#{MessageWriteBean.removeFile}" value="удалить">
-                            <f:ajax execute="@form" render="@form"/>
-                            <f:setPropertyActionListener target="#{MessageWriteBean.messageNameForDelete}" value="#{file.name}"/>
-                        </h:commandLink>
+                        <span class="navigationLinks">
+                            <h:commandLink action="#{MessageWriteBean.removeFile}" value="#{msgs.message_delete}">
+                                <f:ajax execute="@form" render="@form"/>
+                                <f:setPropertyActionListener target="#{MessageWriteBean.messageNameForDelete}" value="#{file.name}"/>
+                            </h:commandLink>
+                        </span>
                     </h:column>
                 </h:dataTable>
-                 <input type="file" name="MessageFile"/><br/>
-                 <h:commandButton  action="#{MessageWriteBean.addFile}" value="add File"/><br/>
-                 <h:commandButton  action="#{cc.attrs.actionMethod}" value="save"/>
-            </h:form>           
-  </cc:implementation>
+                <div style="padding: 3px;">
+                    <input type="file" name="MessageFile" />
+                    <h:commandButton  action="#{MessageWriteBean.addFile}" value="#{msgs.message_addFile}"/>
+                    <div style="width: 100%; text-align: center; margin-top: 8px;">
+                    <h:commandButton style="margin-left: 3px;" action="#{cc.attrs.actionMethod}" value="#{msgs.message_sendMess}"/>
+                    </div>
+                </div>
+            </h:form>
+        </div>
+    </cc:implementation>
 </html>

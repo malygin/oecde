@@ -78,3 +78,104 @@
     text-decoration: underline;
     font-family: Arial;
 }
+.mainStyle .controlWorksControlTitle{
+    
+}
+.mainStyle .controlWorksDisciplineName{
+    font-size: 10pt;
+    font-weight: bolder;
+    color: #669999;
+}
+.mainStyle .controlWorksDisciplineNameLink a:link{color: #669999;}
+.mainStyle .controlWorksDisciplineNameLink a:visited{}
+.mainStyle .controlWorksDisciplineNameLink a:active{}
+.mainStyle .controlWorksDisciplineNameLink a:hover{color: #8DBEE0;}
+
+.mainStyle .interfaceContent{
+    padding: 0px 10px 0px 10px;
+    text-align: left;
+}
+.mainStyle .studentInterfaceStandartList{
+    margin-top: 3px;
+    padding: 10px;
+    border-bottom: 1px solid silver;
+    border-top: 1px solid silver;
+}
+.mainStyle .groupControlWorksCWProgress{
+    color: gray;
+}
+.mainStyle .materialInfo{
+    margin-left: 25px;
+}
+.mainStyle .studentStandatrTable{
+    margin-top: 10px;
+}
+.mainStyle .studentStandatrTable th{
+    font-weight: normal;
+    font-size: 8pt;
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-bottom: 3px double silver;
+    padding: 1px;
+    background: #EFEFEF;
+    padding: 7px 0px;
+    color: gray;
+}
+.mainStyle .studentStandatrTable .studentStandatrTableTd{
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+    padding: 3px 0px;
+}
+.mainStyle .studentStandatrTable .studentStandatrTableTdLastTd{
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+}
+.mainStyle .studentStandatrTable .studentStandatrTableSubtableTd{
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-top: 0px;
+    border-bottom: 0px;
+    font-size: 8pt;
+}
+.mainStyle .studentTabInStandartTable{
+        
+}
+.mainStyle .studentTabInStandartTable .studentTabInStandartTableTh{
+    border: 0px;
+    border-bottom: 1px solid silver;
+    background: none;
+    padding: 0px;
+    
+}
+.mainStyle .studentTabInStandartTable .studentTabInStandartTableThContainer{
+    border-right: 1px solid silver;
+    height: 100%;
+    text-align: center;
+    padding: 3px;
+}
+.mainStyle .studentTabInStandartTable .studentTabInStandartTableLeftTd{
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+    padding: 3px 0px;
+}
+.mainStyle .studentTabInStandartTable .studentTabInStandartTableRightTd{
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+    padding: 3px 0px;
+}

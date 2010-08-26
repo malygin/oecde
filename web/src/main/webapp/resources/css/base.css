@@ -361,18 +361,21 @@
 }
 .mainStyle .linkToStudentsProfile{
     font-weight: bolder;
-    width: 70%;
-    float: left;
+    XxXwidth: 70%;
+    XxXfloat: left;
+    color: #00A4FF;
 }
 .mainStyle .linkToTeachersProfile{
-    width: 70%;
-    float: left;
+    XxXwidth: 70%;
+    XxXfloat: left;
     font-weight: bolder;
+    color: #64D359;
 }
 .mainStyle .linkToAdminsProfile{
-    width: 70%;
-    float: left;
+    XxXwidth: 70%;
+    XxXfloat: left;
     font-weight: bolder;
+    color: #EF596D;
 }
 .mainStyle .linkToStudentsProfile a:link {color: #00A4FF; text-decoration: underline; font-size: 100%; font-family: Tahoma;}
 .mainStyle .linkToStudentsProfile a:visited {color: #00A4FF; text-decoration: underline; font-size: 100%; font-family: Tahoma;}
@@ -433,11 +436,76 @@
     width: 100%;
 }
 .mainStyle .userOnlineLinkContainer a:link {color: #505050; text-decoration: none; font-weight: normal; }
-.mainStyle .userOnlineLinkContainer a:visited {color: #505050; text-decoration: none; font-weight: normal}
-.mainStyle .userOnlineLinkContainer a:active {color: #505050; text-decoration: none; font-weight: normal}
-.mainStyle .userOnlineLinkContainer a:hover {color: #505050; text-decoration: underline; font-weight: normal}
+.mainStyle .userOnlineLinkContainer a:visited {color: #505050; text-decoration: none; font-weight: normal;}
+.mainStyle .userOnlineLinkContainer a:active {color: #505050; text-decoration: none; font-weight: normal;}
+.mainStyle .userOnlineLinkContainer a:hover {color: #505050; text-decoration: underline; font-weight: normal;}
 
 .mainStyle .userOnlineImgContainerHeightController{
     height: 66px;
     width: 1px;
+}
+.mainStyle .downLoadFileLink a:link{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
+.mainStyle .downLoadFileLink a:visited{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .downLoadFileLink a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .downLoadFileLink a:hover{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+
+.mainStyle .downLoadFileLink span{/*links counter*/
+    color: #8BB5DF;
+    text-decoration: none;
+    font-weight: normal;
+}
+.mainStyle .navigationLinks,.mainStyle .navigationLinks a{
+    font-size: 10pt;
+}
+.mainStyle .navigationLinks a:link{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
+.mainStyle .navigationLinks a:visited{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
+.mainStyle .navigationLinks a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinks a:hover{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+
+.mainStyle .navigationLinksRed a:link{color: red; text-decoration: underline; font-weight: normal;}
+.mainStyle .navigationLinksRed a:visited{color: red; text-decoration: underline; font-weight: normal;}
+.mainStyle .navigationLinksRed a:active{color: #FF3F3F; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinksRed a:hover{color: #FF3F3F; text-decoration: none; font-weight: normal;}
+
+.mainStyle .writeMessageInterfaceTheme{
+    width: 100%;
+}
+.mainStyle .writeMessageInterfaceMessBody{
+    width: 100%;
+    height: 300px;
+}
+.mainStyle .writeMessageInterfaceTableForm{
+    width: 100%;
+}
+.mainStyle .writeMessageInterfaceTableForm input,
+.mainStyle .writeMessageInterfaceTableForm textarea{
+    border: 1px solid #7F9DB9;
+}
+.mainStyle .writeMessageInterfaceTableForm input{
+    color: gray;
+}
+.mainStyle .listMessagesShortMessage{
+    min-height: 50px;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid silver;
+    background: #EFEFEF;
+}
+.mainStyle .listMessagesAttachmentsIco{
+    position: relative;
+    top: -6px;
+    right: -6px;
+    float: right;
+    height: 16px;
+    width: 16px;
+    border: 1px solid silver;
+    padding: 1px;
+}
+.mainStyle .actionResultSuccessfull{
+    color: #64D359;
+    text-align: center !important;
+}
+.mainStyle .actionResultFailed{
+    color: #FF3F3F;
+    text-align: center !important;
 }

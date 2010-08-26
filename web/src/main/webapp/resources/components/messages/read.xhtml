@@ -13,7 +13,7 @@
   <!-- IMPLEMENTATION -->
     <composite:implementation>
         <h:outputText rendered="#{MessageReadBean.noAccess}" value="У Вас нет доступа к этому письму"/>
-        <h:panelGroup rendered="#{not MessageReadBean.noAccess}"> <br/>
+        <h:panelGroup rendered="#{not MessageReadBean.noAccess}"> 
               <h:form  id ="formSend" >
                 <h:outputLink  value="messages_dialog.xhtml?user=#{cc.attrs.mess.message.author.id}">Диалог!</h:outputLink><br/>
                 <h:commandLink action="#{MessageReadBean.delete}" value="Удалить"/><br/>

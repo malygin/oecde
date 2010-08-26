@@ -8,7 +8,13 @@
               <f:viewParam name="id" value="#{MessageReadBean.id_message}"/>
         </f:metadata>
 
+        <ui:define name="contentHeader">
+            #{msgs.message_interfaceTitleReadMessage}
+        </ui:define>
+        
         <ui:define name="content">
-            <mess:read mess="#{MessageReadBean.message}"/>
+            <div class="interfaceContent">
+                <mess:read mess="#{MessageReadBean.message}"/>
+            </div>
         </ui:define>
     </ui:composition>
