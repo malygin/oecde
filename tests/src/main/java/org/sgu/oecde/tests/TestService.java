@@ -1,5 +1,6 @@
 package org.sgu.oecde.tests;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -21,13 +22,15 @@ import org.springframework.util.CollectionUtils;
  * @author ShihovMY
  */
 @Service
-public class TestService{
+public class TestService implements Serializable{
 
     /**
      * тест дао
      */
     @Autowired
     IResourceDao<TestEntity> resourceDao;
+
+    private static final long serialVersionUID = 151L;
 
     /**
      * получает тест. Если стоит флажок перемешивать - перемешивает варианты ответов и вопросы,
@@ -72,21 +75,28 @@ public class TestService{
         List<TestEntity>list = m.get(p.getCurriculum());
         int r = 0;
         int ct = 0;
+        int rPoints = 0;
+        int ctPoints = 0;
         if(!CollectionUtils.isEmpty(list)){
             Iterator<TestEntity>i = list.iterator();
             while(i.hasNext()){
                TestEntity t = i.next();
                if(t!=null){
-                   if(TestType.concluding.equals(t.getType()))
+                   if(TestType.concluding.equals(t.getType())){
                        ct++;
-                   else if(TestType.regular.equals(t.getType()))
+                       ctPoints+=(t.getWeight()!=null&&t.getWeight()>0)?t.getWeight():TestsCountEnum.CONCLUDING_TESTS_MAXIMUM_POINTS.getDedault();
+                   } else if (TestType.regular.equals(t.getType())){
                        r++;
+                       rPoints+=(t.getWeight()!=null&&t.getWeight()>0)?t.getWeight():TestsCountEnum.TESTS_MAXIMUM_POINTS.getDedault();
+                   }
                }
                i.remove();
             }
         }
         p.addNewWorkPoint(TestsCountEnum.CONCLUDING_TESTS_COUNT, ct);
         p.addNewWorkPoint(TestsCountEnum.TESTS_COUNT, r);
+        p.addNewWorkPoint(TestsCountEnum.CONCLUDING_TESTS_MAXIMUM_POINTS, ctPoints);
+        p.addNewWorkPoint(TestsCountEnum.TESTS_MAXIMUM_POINTS, rPoints);
     }
 
     public void saveTest(TestEntity t){

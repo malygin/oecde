@@ -20,6 +20,8 @@ public class TestsPointsFactory extends EstimatedWorkPointsAbstractFactory{
     private TestsPointsFactory() {
     }
 
+    private static final long serialVersionUID = 154L;
+
     /**
      * в зависимтости от типа теста и типа прохождения возвращает соответсвующее имя поля
      * @param result тест

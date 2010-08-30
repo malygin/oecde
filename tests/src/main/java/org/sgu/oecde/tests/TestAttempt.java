@@ -9,10 +9,6 @@ import org.sgu.oecde.core.education.work.AbstractSelfDependentWorkResult;
  */
 public class TestAttempt extends AbstractSelfDependentWorkResult{
     /**
-     * количетсво вопросов, на которые был дан ответ
-     */
-    private Integer quantity;
-    /**
      * время прохождения теста
      */
     private Integer duration;
@@ -76,22 +72,6 @@ public class TestAttempt extends AbstractSelfDependentWorkResult{
      */
     public void setDuration(Integer duration) {
         this.duration = duration;
-    }
-
-    /**
-     *
-     * @return количество ответов
-     */
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    /**
-     * количество ответов
-     * @param quantity
-     */
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
     }
 
     /**

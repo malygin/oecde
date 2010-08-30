@@ -1,5 +1,6 @@
 package org.sgu.oecde.tests;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -27,7 +28,7 @@ import org.springframework.util.CollectionUtils;
  * @author ShihovMY
  */
 @Service
-public class TestAttemptService{
+public class TestAttemptService implements Serializable{
 
     /**
      * дао прохождений тестов
@@ -40,6 +41,8 @@ public class TestAttemptService{
      */
     @Autowired
     IResourceDao<TestEntity> resourceDao;
+
+    private static final long serialVersionUID = 152L;
 
 
     protected TestAttemptService() {
@@ -174,14 +177,11 @@ public class TestAttemptService{
         AdditionalCurriculum addCurriculum = null;
 
         List<TestAttempt> attempts = attemptsByStudentAndCurriculums(curriculums, students, null);
-        boolean wasPassed = false;
         int attemptsNumber = 0;
 
         AbstractStudent stnd = null;
         Curriculum temp = null;
         TestEntity testTemp = null;
-
-        List<TestAttempt>oneTestAttempts = null;
         Collections.sort(attempts);
         for(TestAttempt attempt:attempts) {
             if(attempt.getCurriculum()==null||attempt.getWork()==null||attempt.getType().equals(TestAttemptType.trial))
@@ -192,25 +192,15 @@ public class TestAttemptService{
                     //запихивает в умк полученные значения
                     addCurriculum.setPassedTests(attemptsNumber);
                 }
-                oneTestAttempts = new LinkedList<TestAttempt>();
                 addCurriculum = new AdditionalCurriculum(attempt.getCurriculum());
                 list.add(addCurriculum);
-                //пройден ли был тест
-                wasPassed = (!CollectionUtils.isEmpty(oneTestAttempts));
                 //если да, то начинает считать прохождения
-                attemptsNumber = wasPassed?1:0;
+                attemptsNumber = 1;
             }else{
-                if(attempt.getWork().equals(testTemp)){
-                    //очередная попытка всё того же теста. если до этого не было полученно данных о том,
-                    // что он пройден, то у текущей попытке это выянсяется
-                    wasPassed = !wasPassed?(!CollectionUtils.isEmpty(oneTestAttempts)):wasPassed;
-                }else{
-                    //если он был пройден, то количество пройденных тестов увеличивается
-                    wasPassed = (!CollectionUtils.isEmpty(oneTestAttempts));
-                    attemptsNumber +=(wasPassed?1:0);
+                if(!attempt.getWork().equals(testTemp)){
+                    attemptsNumber +=1;
                 }
             }
-            oneTestAttempts.add(attempt);
             temp = attempt.getCurriculum();
             testTemp = attempt.getWork();
             stnd = attempt.getStudent();

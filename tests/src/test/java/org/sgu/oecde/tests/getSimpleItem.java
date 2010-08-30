@@ -229,7 +229,6 @@ public class getSimpleItem extends BasicTest{
         a.setStudent(new Student(324725L));
         a.setDuration(1);
         a.setPoints(1);
-        a.setQuantity(1);
         a.setRightAnswers(1);
         a.setWork(te);
         a.setType(TestAttemptType.regular);

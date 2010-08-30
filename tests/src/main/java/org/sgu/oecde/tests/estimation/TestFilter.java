@@ -7,7 +7,6 @@ import org.sgu.oecde.core.education.estimation.IResultFilter;
 import org.sgu.oecde.core.education.estimation.Points;
 import org.sgu.oecde.core.education.estimation.ResultType;
 import org.sgu.oecde.core.education.work.AbstractResult;
-import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.tests.TestAttempt;
 import org.sgu.oecde.tests.TestAttemptType;
 import org.sgu.oecde.tests.TestEntity;
@@ -52,6 +51,8 @@ public final class TestFilter implements IResultFilter{
      * предыдущая попытка переэкзаменовки
      */
     private TestAttempt previousReAttempt;
+
+    private static final long serialVersionUID = 153L;
 
     private TestFilter() {
     }
@@ -113,8 +114,6 @@ public final class TestFilter implements IResultFilter{
      */
     private void fillMap(TestAttempt attempt, List pointsList,boolean doSum, Points points){
         Assert.notNull(attempt);
-        if(!attempt.getCurriculum().equals(points.getCurriculum()))
-            return;
         IEstimate name = pointsFactory.createEstimatedWorkValue(attempt);
         int p = pointsCounter.count(attempt.<TestEntity>getWork().getEstimation(),pointsList);
         if(doSum)
