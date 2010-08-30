@@ -86,7 +86,7 @@ public class MessageTest extends BasicTest{
         for(Message m:list){
             System.out.println("__"+m.getFullText());
             System.out.println(" "+m.getAuthor().getUsername());
-            System.out.println(" "+UserType.fromRole(m.getAuthor()));
+            System.out.println(" "+UserType.toType(m.getAuthor()));
             System.out.println(" "+m.getFiles());
             System.out.println(" "+m.getRecipients());
         }
@@ -104,7 +104,7 @@ public class MessageTest extends BasicTest{
            System.out.println(" "+mess.getFilesExist());
 
  }
-    @Ignore
+//    @Ignore
     @Test
     public void getListIn(){
           MessageService s = getBean("messageService");
@@ -185,7 +185,7 @@ public class MessageTest extends BasicTest{
           }
      }
 
-   @Ignore
+//   @Ignore
     @Test
     public void getListDialog(){
         MessageService s = getBean("messageService");

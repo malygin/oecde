@@ -51,7 +51,7 @@ public class MessageImpl {
     */
    public String getFioAuthor(){
      String fio="";
-     UserType userType=UserType.fromRole(message.getAuthor());
+     UserType userType=UserType.toType(message.getAuthor());
      AbstractPerson person=(AbstractPerson) message.getAuthor();
      switch(userType){
          case STUDENT:
@@ -72,7 +72,7 @@ public class MessageImpl {
     * @return
     */
    public String getTypeAuthor(){
-       return UserType.fromRole(message.getAuthor()).toString();
+       return UserType.toType(message.getAuthor()).toString();
    }
 
     public Boolean getArchived() {

@@ -63,7 +63,7 @@ public class MessageRecipient extends BasicItem{
     */
    public String getFioAuthor(){
      String fio="";
-     UserType userType=UserType.fromRole(recipient);
+     UserType userType=UserType.toType(recipient);
      AbstractPerson person=(AbstractPerson) recipient;
      switch(userType){
          case STUDENT:
