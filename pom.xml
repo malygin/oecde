@@ -21,7 +21,7 @@
     <module>messages</module>
     <module>shedule</module>
     <module>de</module>
-  </modules>
+  </modules><!--
     <repositories>
           <repository>
             <id>central</id>
@@ -37,7 +37,10 @@
           <id>repository.jboss.org</id>
           <url>http://repository.jboss.org/maven2</url>
         </repository>
-              <!-- SpringSource repositories -->
+        <repository>
+            <id>repository.maven.org</id>
+            <url>http://repo1.maven.org/maven2/</url>
+        </repository>
         <repository>
             <id>springsource-milestone</id>
             <url>http://repository.springsource.com/maven/bundles/milestone</url>
@@ -58,10 +61,6 @@
             <id>org.sonatype.oss</id>
             <url>https://oss.sonatype.org/content/repositories/releases/</url>
         </repository>
-        <repository>
-            <id>glassfish-repository</id>
-            <url>http://download.java.net/maven/glassfish</url>
-         </repository>
 
         </repositories>
 
@@ -77,7 +76,7 @@
                 </snapshots>
             </pluginRepository>
         </pluginRepositories>
-
+  -->
         <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -109,7 +108,7 @@
                    </exclusion>
               </exclusions>
          </dependency>
-          <dependency>
+        <dependency>
               <groupId>org.hibernate</groupId>
               <artifactId>hibernate-ehcache</artifactId>
               <version>3.5.1-Final</version>
@@ -378,8 +377,3 @@
         <core.finalname>${artifactId}-${core.version}</core.finalname>
     </properties>
 </project>
-
-
-
-
-
