@@ -14,6 +14,8 @@ public class ControlWorkDao<T extends ControlWork> extends ResultDao<T> implemen
         super(type);
     }
 
+    private static final long serialVersionUID = 158L;
+
     protected ControlWorkDao(){
         super((Class<T>)ControlWork.class);
     }

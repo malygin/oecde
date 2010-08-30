@@ -18,6 +18,8 @@ public class CwPointsFactory extends EstimatedWorkPointsAbstractFactory{
     private CwPointsFactory() {
     }
 
+    private static final long serialVersionUID = 150L;
+
     /**
      *
      * @param result

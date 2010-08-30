@@ -1,5 +1,6 @@
 package org.sgu.oecde.controlworks;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -24,7 +25,7 @@ import org.springframework.util.CollectionUtils;
  * @author ShihovMY
  */
 @Service
-public class ControlWorkService{
+public class ControlWorkService implements Serializable{
 
     /**
      * кр дао
@@ -36,6 +37,8 @@ public class ControlWorkService{
      */
     @Autowired
     ICurriculumDao<AdvancedCurriculum> curriculumDao;
+
+    private static final long serialVersionUID = 148L;
 
     private ControlWorkService() {
     }

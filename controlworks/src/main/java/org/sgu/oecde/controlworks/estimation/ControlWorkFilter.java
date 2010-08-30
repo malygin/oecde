@@ -21,6 +21,8 @@ public class ControlWorkFilter implements IResultFilter{
      */
     @Autowired
     private CwPointsFactory pointsFactory;
+
+    private static final long serialVersionUID = 149L;
     
     private ControlWorkFilter() {
     }
@@ -31,7 +33,7 @@ public class ControlWorkFilter implements IResultFilter{
      * @param points баллы
      */
     public void check(AbstractResult result,Points points) {
-        if(points!=null&&result!=null&&result.getCurriculum()!=null&&result.getCurriculum().equals(points.getCurriculum())){
+        if(points!=null&&result!=null&&result.getCurriculum()!=null){
             points.addSum(result!=null?((ControlWork)result).getPoints():0);
             points.addWorkPoints(pointsFactory.createEstimatedWorkValue(result));
         }

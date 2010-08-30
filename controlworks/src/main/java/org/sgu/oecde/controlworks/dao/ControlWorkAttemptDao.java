@@ -23,6 +23,8 @@ public class ControlWorkAttemptDao extends UpdateDao<ControlWorkAttempt> impleme
         super(ControlWorkAttempt.class);
     }
 
+    private static final long serialVersionUID = 159L;
+
     /**
      * {@inheritDoc }
      */
