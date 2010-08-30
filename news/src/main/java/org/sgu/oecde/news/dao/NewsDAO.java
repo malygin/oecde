@@ -21,6 +21,8 @@ public class NewsDAO extends BasicDao<NewsItem> implements INewsDao{
         super(NewsItem.class);
     }
 
+    private static final long serialVersionUID = 160L;
+
     /**
      * {@inheritDoc }
      */
