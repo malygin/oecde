@@ -21,6 +21,8 @@ public class RootDao extends UpdateDao<Root> implements IRootDao{
         super(Root.class);
     }
 
+    private static final long serialVersionUID = 162L;
+
     /**
      * {@inheritDoc }
      */

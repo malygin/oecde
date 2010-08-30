@@ -15,6 +15,8 @@ public class NodeDao extends UpdateDao<Node> implements INodeDao{
         super(Node.class);
     }
 
+    private static final long serialVersionUID = 163L;
+
     /**
      * {@inheritDoc }
      */
