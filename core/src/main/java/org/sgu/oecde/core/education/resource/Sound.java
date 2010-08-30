@@ -29,6 +29,8 @@ public class Sound extends AbstractResource{
     //todo: будет ли еще что то кроме mp3?
     private String  type;
 
+    private static final long serialVersionUID = 146L;
+
     public Sound() {
     }
 

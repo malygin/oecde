@@ -21,6 +21,7 @@ public class UserInstantiationListener extends DefaultPostLoadEventListener{
      */
     @Override
     public void onPostLoad(PostLoadEvent event) {
+        super.onPostLoad(event);
         if(event!=null){
             if(event.getEntity() instanceof AbstractUser){
                 if(cache.isUserInCache((AbstractUser) event.getEntity()))

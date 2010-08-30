@@ -22,6 +22,8 @@ public class ResourceDao <T extends AbstractResource> extends UpdateDao<T> imple
         super((Class<T>)AbstractResource.class);
     }
 
+    private static final long serialVersionUID = 132L;
+
     /**
      * {@inheritDoc }
      */

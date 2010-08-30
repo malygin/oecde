@@ -39,6 +39,6 @@ public class SecurityContextHandler {
      * @return тип авторизованного пользователя
      */
     public static UserType getUserType(){
-        return UserType.fromRole(getUser());
+        return UserType.toType(getUser());
     }
 }

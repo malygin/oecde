@@ -1,6 +1,5 @@
 package org.sgu.oecde.core.education.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Property;
@@ -23,6 +22,8 @@ public class ResultDao<T extends AbstractResult> extends BasicDao<T> implements 
     protected ResultDao(){
         super((Class<T>)AbstractResult.class);
     }
+
+    private static final long serialVersionUID = 133L;
     /**
      * {@inheritDoc }
      */

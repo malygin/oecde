@@ -12,6 +12,8 @@ public class Task extends AbstractResource{
      * урл
      */
     private String url;
+    
+    private static final long serialVersionUID = 140L;
 
     public Task() {
     }

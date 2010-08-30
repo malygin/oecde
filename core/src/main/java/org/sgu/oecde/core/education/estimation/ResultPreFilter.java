@@ -1,5 +1,6 @@
 package org.sgu.oecde.core.education.estimation;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,10 +17,12 @@ import org.springframework.util.CollectionUtils;
  * @author ShihovMY
  */
 @Service(value="preFilter")
-public class ResultPreFilter {
+public class ResultPreFilter implements Serializable{
 
     private ResultPreFilter() {
     }
+
+    private static final long serialVersionUID = 139L;
 
     /**
      * пробегается по листу результатов и для каждого результата вызывает все фильтры.
@@ -34,7 +37,7 @@ public class ResultPreFilter {
     public List<Points> forEachResult(List<? extends AbstractResult> results, boolean sumEachIteration,List<IResultFilter> resultFilters, List<? extends AbstractStudent>students,List<? extends Curriculum>curriculums){
         Assert.state(!resultFilters.isEmpty(), "result filters Set can not be empty");
         List<Points> pointsList = new ArrayList<Points>();
-        if(CollectionUtils.isEmpty(curriculums)||CollectionUtils.isEmpty(students))
+        if(curriculums==null||students==null)
             return pointsList;
         List<? extends AbstractStudent>newStudents = new ArrayList<AbstractStudent>(students);
         ArrayList<? extends Curriculum>newCurriculums = new ArrayList<Curriculum>(curriculums);
@@ -68,7 +71,6 @@ public class ResultPreFilter {
                 if(filter.getClass().getAnnotation(ResultType.class)!=null&&filter.getClass().getAnnotation(ResultType.class).type().equals(result.getClass()))                    
                     filter.check(result,points);
             }
-            
             cur = result.getCurriculum();
             st = result.getStudent();
 

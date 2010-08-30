@@ -29,37 +29,17 @@ public enum UserType {
      */
     GUEST;
 
-    public static UserType parse(String str) {
-        if ("student".equals(str) || "4".equals(str)) {
-            return STUDENT;
-        } else if ("teacher".equals(str) || "3".equals(str)) {
-            return TEACHER;
-        } else if ("adminLite".equals(str) || "2".equals(str)) {
-            return SUPERVISOR;
-        } else if ("admin".equals(str) || "1".equals(str)||"superadmin".equals(str)) {
-            return ADMIN;
-        } else if ("guest".equals(str)) {
-            return GUEST;
-        }
-        return null;
-    }
-
-    public static UserType fromRole(AbstractUser user) {
+    public static UserType toType(AbstractUser user) {
         Assert.notNull(user,"user can not be null");
-        Assert.notNull(user.getAuthority());
-        Assert.hasLength(user.getAuthority().getAuthority());
-        String str = user.getAuthority().getAuthority();
-        if ("role_student".equalsIgnoreCase(str)) {
+        if (user instanceof AbstractStudent) {
             return STUDENT;
-        } else if ("role_teacher".equalsIgnoreCase(str)) {
+        } else if (user instanceof Teacher) {
             return TEACHER;
-        } else if ("role_supervisor".equalsIgnoreCase(str) ) {
+        } else if (user instanceof Supervisor ) {
             return SUPERVISOR;
-        } else if ("role_admin".equalsIgnoreCase(str) ) {
+        } else if (user instanceof Admin ) {
             return ADMIN;
-        } else if ("role_guest".equalsIgnoreCase(str)) {
-            return GUEST;
-        }
+        } 
         return null;
     }
 

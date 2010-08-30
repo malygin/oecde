@@ -44,7 +44,7 @@ public class simpleTest{
         String s = DateConverter.currentDate();
         String s2 = new String("2010.04.06 13:51:09");
         System.out.println(s.compareTo(s2));
-    }
+	}
 
 //    @Ignore
     @Test
@@ -53,5 +53,5 @@ public class simpleTest{
         String s2 = "asdasd  (ус)";
         System.out.println(s.contains("уск"));
         System.out.println(s2.contains("уск"));
-    }
+}
 }

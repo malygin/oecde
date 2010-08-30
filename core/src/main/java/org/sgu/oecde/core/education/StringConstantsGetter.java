@@ -24,7 +24,7 @@ public class StringConstantsGetter implements Serializable{
     /**
      * календарные константы
      */
-    protected final Map<ICalendarConstantName,String> constants = new HashMap();
+    protected final Map<ICalendarConstantName,Object> constants = new HashMap();
     /**
      * имя поля, содержащее название константы
      */
@@ -70,11 +70,11 @@ public class StringConstantsGetter implements Serializable{
      * @param name имя константы
      * @return значение константы по имени, если такое есть в  {@code constants}
      */
-    public final String getConstant(ICalendarConstantName name) {
-        if(constants.containsKey(name))
-            return constants.get(name);
-        else
-            throw new AssertionError("there is no such constant in constants map with name "+name);
+    public final Object getConstant(ICalendarConstantName name) {
+        if(name == null)
+            throw new AssertionError();
+        Object o = constants.get(name);
+        return o==null?name.getDefault():o;
     }
 
     /**
@@ -84,7 +84,7 @@ public class StringConstantsGetter implements Serializable{
      * @param entity
      * @see org.hibernate.Session#update(java.lang.Object) update
      */
-    public void update(ICalendarConstantName name,String value){
+    public void update(ICalendarConstantName name,Object value){
         Map map = new HashMap();
         map.put(this.key, name);
         map.put(this.value, value);
@@ -98,7 +98,7 @@ public class StringConstantsGetter implements Serializable{
      * @param entity
      * @see org.hibernate.Session#save(java.lang.Object) save
      */
-    public void save(ICalendarConstantName name,String value){
+    public void save(ICalendarConstantName name,Object value){
         Map map = new HashMap();
         map.put(this.key, name);
         map.put(this.value, value);

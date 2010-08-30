@@ -2,6 +2,7 @@ package org.sgu.oecde.core.users;
 
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.List;
 import org.sgu.oecde.core.BasicItem;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,7 +25,7 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
     /**
      * массив ролей из 1го элемента
      */
-    private Collection<GrantedAuthority> authorities;
+    private List<GrantedAuthority> authorities;
     /**
      * доступен ли
      */
@@ -73,7 +74,6 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
     }
 
     public AbstractUser() {
-       authorities = new LinkedList<GrantedAuthority>();
     }
 
     /**
@@ -85,7 +85,7 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
     }
 
     @Override
-    public Collection<GrantedAuthority> getAuthorities() {
+    public List<GrantedAuthority> getAuthorities() {
         return authorities;
     }
     /**
@@ -157,7 +157,6 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
      * @return
      */
     public String getLargePhoto() {
-//        if (largePhoto==null) return "defaultLarge.jpg";
         return largePhoto;
     }
 
@@ -174,7 +173,6 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
      * @return средняя фото
      */
     public String getMediumPhoto() {
-    //    if (mediumPhoto==null) return "defaultMedium.jpg";
         return mediumPhoto;
     }
 
@@ -191,7 +189,6 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
      * @return маленькая фото
      */
     public String getSmallPhoto() {
-   //     if (smallPhoto==null) return "defaultSmall.jpg";
         return smallPhoto;
     }
 
@@ -219,22 +216,6 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
     @Override
     public boolean isAccountNonLocked() {
         return true;
-    }
-
-    /**
-     * роль
-     * @param authority
-     */
-    public void setAuthority(GrantedAuthority authority) {
-        authorities.add(authority);
-    }
-
-    /**
-     *
-     * @return роль
-     */
-    public GrantedAuthority getAuthority(){
-        return (GrantedAuthority) ((authorities != null && authorities.size() > 0) ? authorities.iterator().next() : null);
     }
     
     /**
@@ -269,22 +250,19 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
     public boolean isEnabled() {
         return enabled;
     }
+
+    public void setAuthorities(List<GrantedAuthority> authorities) {
+        this.authorities = authorities;
+    }
     
     /**
      * {@inheritDoc }
      */
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer(super.toString());
+        StringBuilder sb = new StringBuilder(super.toString());
         sb.append("Username: ").append(this.username).append(";\n");
         sb.append("Enabled: ").append(this.enabled).append(";\n");
-
-        if (this.getAuthority() != null) {
-            sb.append("Granted Authorities: ");
-            sb.append(this.getAuthority()).append(";\n");
-        } else {
-            sb.append("Not granted any authorities\n");
-        }
 
         return sb.toString();
     }

@@ -11,7 +11,7 @@
     <property column="date_last_change" insert="false" length="19" name="dateLastСhange" type="string"/>
     <set batch-size="5" cascade="none" lazy="true" fetch="select" mutable="false" name="authors" table="resource_author">
       <cache usage="read-only"/>
-      <key column="resource" foreign-key="fk_resource_author_resource" not-null="true"/>
+      <key column="resource_id" foreign-key="fk_resource_author_resource" not-null="true"/>
       <many-to-many class="org.sgu.oecde.core.education.resource.Author" column="author" foreign-key="fk_resource_author"/>
     </set>
     <property column="access_resource" insert="false" name="accessResource">

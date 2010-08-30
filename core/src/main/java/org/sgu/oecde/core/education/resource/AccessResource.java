@@ -16,6 +16,8 @@ public enum AccessResource {
     //доступен только самому пользователю - по умолчанию
     notPublic;
 
+    private static final long serialVersionUID = 141L;
+
     /**
      * {@inheritDoc }
      */

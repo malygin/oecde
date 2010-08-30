@@ -7,4 +7,5 @@ import java.io.Serializable;
  * @author ShihovMY
  */
 public interface ICalendarConstantName extends Serializable{
+    public Object getDefault();
 }

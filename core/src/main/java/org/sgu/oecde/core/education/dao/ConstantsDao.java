@@ -15,6 +15,8 @@ public class ConstantsDao extends HibernateDaoSupport implements IConstantsDao{
     protected ConstantsDao() {
     }
 
+    private static final long serialVersionUID = 130L;
+
     /**
      * {@inheritDoc }
      */

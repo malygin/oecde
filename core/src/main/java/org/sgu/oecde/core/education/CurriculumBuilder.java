@@ -1,5 +1,6 @@
 package org.sgu.oecde.core.education;
 
+import java.io.Serializable;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.core.util.SemesterGetter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import org.springframework.util.Assert;
  * @param <T> extends Curriculum
  * @see org.sgu.oecde.core.education.Curriculum
  */
-public class CurriculumBuilder<T extends Curriculum> {
+public class CurriculumBuilder<T extends Curriculum> implements Serializable{
 
     /**
      * @see org.sgu.oecde.core.util.SemesterGetter

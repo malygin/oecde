@@ -15,6 +15,8 @@ import java.util.Set;
      */
     private Set<Image> images;
 
+    private static final long serialVersionUID = 144L;
+
     public ImageGallery() {
     }
 

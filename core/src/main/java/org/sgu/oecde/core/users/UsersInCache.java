@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import net.sf.ehcache.Ehcache;
 import net.sf.ehcache.Element;
+import org.sgu.oecde.core.authentication.RoleItem;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.springframework.stereotype.Service;
 /**
@@ -195,7 +196,7 @@ public class UsersInCache{
      * @return кеш по типу тользователя
      */
     private Ehcache cache(AbstractUser user){
-        return cache(UserType.fromRole(user));
+        return cache(UserType.toType(user));
     }
 
     /**

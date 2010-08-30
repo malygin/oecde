@@ -13,6 +13,7 @@ public class Link extends AbstractResource{
      */
     private String url;
 
+    private static final long serialVersionUID = 145L;
 
     public Link() {
     }

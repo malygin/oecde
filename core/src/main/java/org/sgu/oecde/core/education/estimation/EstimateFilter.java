@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 @ResultType(type=Estimate.class)
 public class EstimateFilter implements IResultFilter{
 
+
+    private static final long serialVersionUID = 138L;
     /**
      * получает результат и в зависимости от него помещает соответсвующую итоговую оценку
      * @param result - результат

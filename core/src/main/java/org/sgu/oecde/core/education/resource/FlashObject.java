@@ -26,6 +26,7 @@ public class FlashObject extends AbstractResource{
      */
     private Integer height;
 
+    private static final long serialVersionUID = 142L;
 
     public FlashObject() {
     }

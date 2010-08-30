@@ -25,6 +25,8 @@ package org.sgu.oecde.core.education.resource;
      */
     private Integer height;
 
+    private static final long serialVersionUID = 143L;
+
     public Image() {
     }
 

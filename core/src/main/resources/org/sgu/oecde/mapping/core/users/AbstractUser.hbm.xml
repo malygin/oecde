@@ -13,8 +13,17 @@
     <property column="medium_photo" insert="false" name="mediumPhoto" type="string"/>
     <property column="small_photo" insert="false" name="smallPhoto" type="string"/>
     <property column="original_id" insert="false" name="originalId" type="integer"/>
-    <component name="authority" class="org.sgu.oecde.core.authentication.RoleItem" insert="false" update="false" lazy="false">
-        <property name="role" type="string" length="20" not-null="true" />
-    </component>
+    <list batch-size="5" cascade="none" fetch="join" lazy="false" name="authorities" table="users_roles">
+      <cache usage="read-write"/>
+      <key column="user_id" foreign-key="fk_users_roles_user" not-null="true"/>
+      <index column="role_order" length="3" type="integer"/>
+      <element column="role" length="30" not-null="true">
+        <type name="org.sgu.oecde.core.GenericEnumUserType">
+          <param name="enumClass">org.sgu.oecde.core.authentication.RoleItem</param>
+          <param name="identifierMethod">valueOf</param>
+          <param name="valueOfMethod">parse</param>
+        </type>
+      </element>
+    </list>
   </class>
 </hibernate-mapping>

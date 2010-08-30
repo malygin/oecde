@@ -25,4 +25,20 @@ public enum CalendarConstantName implements Serializable,ICalendarConstantName{
      */
     year;
     private static final long serialVersionUID = 58L;
+
+    @Override
+    public Object getDefault() {
+        switch(this){
+            case reExameBeginDate:
+                return "2009.01.01 00:00:00";
+            case reExameEndDate:
+                return "2009.01.01 00:00:00";
+            case semester:
+                return 0;
+            case year:
+                return 2009;
+            default:
+                return new AssertionError();
+        }
+    }
 }

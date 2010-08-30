@@ -8,7 +8,6 @@ import org.sgu.oecde.core.education.ICalendarConstantName;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
 
 /**
  * хранит текущий год, семестр и идёт ли переэкзаменовка.
@@ -98,13 +97,9 @@ public class SemesterGetter extends StringConstantsGetter{
                 else
                     constants.put(name,value);
             }
-        }else if(CollectionUtils.isEmpty(constants)
-                ||!StringUtils.hasText(getConstant(CalendarConstantName.semester))
-                ||getCurrentYear()==0){
-            save(CalendarConstantName.year,"2009");
-            save(CalendarConstantName.semester,"0");
-            setSemester("0");
-            setYear("2009");
+        }else{
+            setSemester(CalendarConstantName.year.getDefault());
+            setYear(CalendarConstantName.semester.getDefault());
         }
     }
 
@@ -128,17 +123,17 @@ public class SemesterGetter extends StringConstantsGetter{
      * год
      * @param year
      */
-    private final void setYear(String year) {
-        if(StringUtils.hasText(year))
-            this.currentYear = Integer.parseInt(year);
+    private final void setYear(Object year) {
+        if(year!=null&&!year.toString().isEmpty())
+            this.currentYear = Integer.parseInt(year.toString());
     }
 
     /**
      * семестр
      * @param semester
      */
-    private void setSemester(String semester) {
-        if(StringUtils.hasText(semester))
-            this.semester = Integer.parseInt(semester);
+    private void setSemester(Object semester) {
+        if(semester!=null&&!semester.toString().isEmpty())
+            this.semester = Integer.parseInt(semester.toString());
     }
 }

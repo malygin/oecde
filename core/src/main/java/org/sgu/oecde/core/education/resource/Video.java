@@ -29,6 +29,7 @@ public class Video extends AbstractResource{
      */
     private Integer height;
 
+    private static final long serialVersionUID = 147L;
 
     public Video() {
     }

@@ -1,5 +1,6 @@
 package org.sgu.oecde.core.authentication;
 
+import java.io.Serializable;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.UsersInCache;
 import javax.servlet.http.HttpServletRequest;
@@ -12,13 +13,15 @@ import org.springframework.security.web.authentication.logout.LogoutHandler;
  * Слушатель, отлавливающий момент выхода пользователя из системы и удаляет его из кеша пользователей онлайн
  * @author ShihovMY
  */
-public class LogoutListner implements LogoutHandler{
+public class LogoutListner implements LogoutHandler,Serializable{
 
     @Autowired
     private UsersInCache manager;
 
     private LogoutListner() {
     }
+    
+    private static final long serialVersionUID = 134L;
 
     /**
      * удаляет текущего пользователя из кеша пользователей онлайн

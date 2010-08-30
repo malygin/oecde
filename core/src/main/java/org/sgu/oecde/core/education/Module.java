@@ -1,5 +1,6 @@
 package org.sgu.oecde.core.education;
 
+import java.util.List;
 import org.sgu.oecde.core.education.resource.AbstractResource;
 import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
@@ -26,7 +27,7 @@ public class Module extends BasicItem{
     /**
      * сет ресурсов
      */
-    private Set<? extends AbstractResource>resources;
+    private List<? extends AbstractResource>resources;
     private static final long serialVersionUID = 55L;
 
     public Module() {
@@ -69,15 +70,15 @@ public class Module extends BasicItem{
      * @param <T> extends AbstractResource
      * @return
      */
-    public <T extends AbstractResource>Set<T> getResources() {
-        return (Set<T>) resources;
+    public <T extends AbstractResource>List<T> getResources() {
+        return (List<T>) resources;
     }
 
     /**
      * ресурсы модуля
      * @param resources
      */
-    public void setResources(Set<? extends AbstractResource> resources) {
+    public void setResources(List<? extends AbstractResource> resources) {
         this.resources = resources;
     }
 
