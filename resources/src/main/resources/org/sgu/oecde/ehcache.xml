@@ -287,5 +287,12 @@
     timeToIdleSeconds="10800"
     timeToLiveSeconds="86400"
     overflowToDisk="true"
+/><cache
+    name="org.sgu.oecde.core.users.AbstractUser.authorities"
+    maxElementsInMemory="2000"
+    eternal="false"
+    timeToIdleSeconds="10800"
+    timeToLiveSeconds="86400"
+    overflowToDisk="true"
 />
 </ehcache>
