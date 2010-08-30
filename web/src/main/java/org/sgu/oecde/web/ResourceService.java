@@ -1,6 +1,6 @@
 package org.sgu.oecde.web;
 
-import java.util.LinkedList;
+import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
@@ -28,7 +28,7 @@ import org.springframework.util.StringUtils;
  * @author ShihovMY
  */
 @Service
-public class ResourceService {
+public class ResourceService implements Serializable{
     @Resource
     protected IResourceDao<AbstractResource> resourceDao;
 
@@ -51,6 +51,8 @@ public class ResourceService {
     private String simpleSpecialitiesTestsClosing;
     private String regularTestEndDate;
     private String regularTestBeginDate;
+
+    private static final long serialVersionUID = 164L;
 
     public <T extends AbstractResource>T getResource(DeCurriculum c,AbstractResource r,Class clazz){
         if(c==null||r==null||r.getId()==null)
@@ -129,12 +131,12 @@ public class ResourceService {
 
     @PostConstruct
     public void postConstract(){
-        reExameBeginDate = semesterGetter.getConstant(CalendarConstantName.reExameBeginDate);
-        reExameEndDate = semesterGetter.getConstant(CalendarConstantName.reExameEndDate);
-        concludingTestBeginDate = testsDatesGetter.getConstant(TestCalendarConstants.concludingTestBeginDate);
-        concludingTestEndDate = testsDatesGetter.getConstant(TestCalendarConstants.concludingTestEndDate);
-        simpleSpecialitiesTestsClosing = testsDatesGetter.getConstant(TestCalendarConstants.simpleSpecialitiesTestsClosing);
-        regularTestBeginDate = testsDatesGetter.getConstant(TestCalendarConstants.regularTestBeginDate);
-        regularTestEndDate = testsDatesGetter.getConstant(TestCalendarConstants.regularTestEndDate);
+        reExameBeginDate = semesterGetter.getConstant(CalendarConstantName.reExameBeginDate).toString();
+        reExameEndDate = semesterGetter.getConstant(CalendarConstantName.reExameEndDate).toString();
+        concludingTestBeginDate = testsDatesGetter.getConstant(TestCalendarConstants.concludingTestBeginDate).toString();
+        concludingTestEndDate = testsDatesGetter.getConstant(TestCalendarConstants.concludingTestEndDate).toString();
+        simpleSpecialitiesTestsClosing = testsDatesGetter.getConstant(TestCalendarConstants.simpleSpecialitiesTestsClosing).toString();
+        regularTestBeginDate = testsDatesGetter.getConstant(TestCalendarConstants.regularTestBeginDate).toString();
+        regularTestEndDate = testsDatesGetter.getConstant(TestCalendarConstants.regularTestEndDate).toString();
     }
 }

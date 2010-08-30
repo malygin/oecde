@@ -31,7 +31,7 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="#{msgs.student_testResultAttempts}" />
+                        <h:outputText value="#{msgs.student_testResultAttempt}" />
                     </f:facet>
                     #{r.estimateAttemptsUsedNumber} #{msgs.student_fromWord} #{r.work.estimateAttemptsNumber}
                 </h:column>
@@ -47,9 +47,9 @@
                                     <h:outputText value="#{msgs.student_testResultCorrectAnswers}" />
                                 </div>
                             </f:facet>
-                            #{a.rightAnswers} #{msgs.student_fromWord} #{a.quantity}
-                        </h:column>
-                        <h:column>
+                           #{a.rightAnswers} #{msgs.student_fromWord} #{r.work.quantity}
+                       </h:column>
+                       <h:column>
                             <f:facet name="header">
                                 <div class="studentTabInStandartTableThContainer" style="border: 0px;">
                                     <h:outputText value="#{msgs.student_testResultDate}" />
@@ -70,7 +70,7 @@
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_testResultEstimationMethod}" />
                     </f:facet>
-                    #{r.work.estimation}
+                    <h:outputText converter="enumConverter" value="#{r.work.estimation}" />
                 </h:column>
             </h:dataTable>
         </div>

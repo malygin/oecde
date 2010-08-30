@@ -24,9 +24,15 @@
            </h:column>
            <h:column>
             <f:facet name="header">
+             <h:outputText value="Курсовых" />
+            </f:facet>
+               <h:outputText value="#{m.termPapersNumber}" />
+           </h:column>
+           <h:column>
+            <f:facet name="header">
              <h:outputText value="Контроль" />
             </f:facet>
-           #{m.examinationType}
+             <h:outputText converter="enumConverter" value="#{m.examinationType}" />
            </h:column>
          </h:dataTable>
         </ui:define>

@@ -42,8 +42,7 @@ public class OldGrades extends StudentCurriculumBean{
         if(points==null){
             List<IResultFilter>filters = new LinkedList();
             filters.add(estimateFilter);
-            List<Student>stl = new LinkedList<Student>();
-            stl.add(student);
+            List<Student>stl = ListUtil.<Student>oneItemList(student);
             List<Estimate> l = estimateDao.getByStudentsAndCurriculums(new ArrayList(getCurriculumAndTeacherByYear().keySet()), stl, null);
             List<Points> ps = preFilter.forEachResult(l, true,filters,ListUtil.<Student>oneItemList(student),getCurriculums());
             List<PointsFacade>facades = new ArrayList<PointsFacade>(ps.size());

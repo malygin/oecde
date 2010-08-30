@@ -16,45 +16,67 @@ import org.sgu.oecde.tests.estimation.TestsCountEnum;
 public class PointsFacade {
     private Points points;
     private Teacher teacher;
+    private Integer testsCount;
+    private Integer concludingTestsCount;
+    private Integer testsMaxPoints;
+    private Integer concludingTestsMaxPoints;
+    private Integer test;
+    private Integer reTest;
+    private Integer concludingReTest;
+    private Integer concludingTest;
+    private Integer controlWorkPoints;
+    private ControlWorkProgress controlWorkValue;
+    private PointToEstimate estimate;
 
     public PointsFacade(Points points) {
         this.points = points;
+        testsCount = points.getWorkPoints(TestsCountEnum.TESTS_COUNT);
+        concludingTestsCount = points.getWorkPoints(TestsCountEnum.CONCLUDING_TESTS_COUNT);
+        testsMaxPoints = points.getWorkPoints(TestsCountEnum.TESTS_MAXIMUM_POINTS);
+        concludingTestsMaxPoints = points.getWorkPoints(TestsCountEnum.CONCLUDING_TESTS_MAXIMUM_POINTS);
+        test = points.getWorkPoints(TestEstimateNames.TEST);
+        reTest = points.getWorkPoints(TestEstimateNames.RE_TEST);
+        concludingReTest = points.getWorkPoints(TestEstimateNames.CONCLUDING_RE_TEST);
+        concludingTest = points.getWorkPoints(TestEstimateNames.CONCLUDING_TEST);
+        controlWorkPoints = points.getWorkPoints(CwEstimateNames.control_work_points);
+        controlWorkValue = points.getWorkPoints(CwEstimateNames.control_work_value);
+        estimate = points.getWorkPoints(EstimateNames.estimate);
     }
 
     public Integer getTestsCount(){
-        return points.getWorkPoints(TestsCountEnum.TESTS_COUNT);
+        return testsCount;
     }
 
     public Integer getConcludingTestsCount(){
-        return points.getWorkPoints(TestsCountEnum.CONCLUDING_TESTS_COUNT);
+        return concludingTestsCount;
     }
     
     public Integer getTestPoints(){
-        return points.getWorkPoints(TestEstimateNames.TEST);
+        return test;
     }
 
     public Integer getReTestPoints(){
-        return points.getWorkPoints(TestEstimateNames.RE_TEST);
+        return reTest;
     }
 
     public Integer getConcludingReTestPoints(){
-        return points.getWorkPoints(TestEstimateNames.CONCLUDING_RE_TEST);
+        return concludingReTest;
     }
 
     public Integer getConcludingTestPoints(){
-        return points.getWorkPoints(TestEstimateNames.CONCLUDING_TEST);
+        return concludingTest;
     }
 
     public Integer getControlWorksPoints(){
-        return points.getWorkPoints(CwEstimateNames.control_work_points);
+        return controlWorkPoints;
     }
 
     public ControlWorkProgress getControlWorksValue(){
-        return points.getWorkPoints(CwEstimateNames.control_work_value);
+        return controlWorkValue;
     }
 
     public PointToEstimate getGrade(){
-        return points.getWorkPoints(EstimateNames.estimate);
+        return estimate;
     }
 
     public void setPoints(Points points) {
@@ -67,6 +89,14 @@ public class PointsFacade {
 
     public Teacher getTeacher() {
         return teacher;
+    }
+
+    public Integer getConcludingTestsMaxPoints() {
+        return concludingTestsMaxPoints;
+    }
+
+    public Integer getTestsMaxPoints() {
+        return testsMaxPoints;
     }
 
     public void setTeacher(Teacher teacher) {

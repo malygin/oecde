@@ -103,10 +103,10 @@ public class ControlWorksBean extends StudentCurriculumBean{
 
     @PostConstruct
     public void postConstract(){
-        reExameBeginDate = semesterGetter.getConstant(CalendarConstantName.reExameBeginDate);
-        reExameEndDate = semesterGetter.getConstant(CalendarConstantName.reExameEndDate);
-        controlWorksBeginDate = cwDatesGetter.getConstant(ControlWorkCalendarConstantName.controlWorksBeginDate);
-        controlWorksEndDate = cwDatesGetter.getConstant(ControlWorkCalendarConstantName.controlWorksEndDate);
+        reExameBeginDate = semesterGetter.getConstant(CalendarConstantName.reExameBeginDate).toString();
+        reExameEndDate = semesterGetter.getConstant(CalendarConstantName.reExameEndDate).toString();
+        controlWorksBeginDate = cwDatesGetter.getConstant(ControlWorkCalendarConstantName.controlWorksBeginDate).toString();
+        controlWorksEndDate = cwDatesGetter.getConstant(ControlWorkCalendarConstantName.controlWorksEndDate).toString();
     }
 
     public String saveCw() throws IOException{

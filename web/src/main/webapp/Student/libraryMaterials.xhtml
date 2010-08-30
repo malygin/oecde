@@ -8,7 +8,7 @@
          <f:metadata>
              <f:viewParam name="s" value="#{studentCurriculumBean.semester}"/>
          </f:metadata>
-         <h:dataTable value="#{studentCurriculumBean.curriculumsByYear}" var="m">
+            <h:dataTable value="#{studentCurriculumBean.curriculums}" var="m">
              <h:outputText value="#{m.umk.name}"/><br/>
          </h:dataTable>
         </ui:define>

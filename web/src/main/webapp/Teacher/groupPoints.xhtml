@@ -36,7 +36,7 @@
                 <f:facet name="header">
                  <h:outputText value="тесты" />
                 </f:facet>
-                 #{p.testPoints}
+                 #{p.testPoints}(#{p.testsMaxPoints})
                </h:column>
 
                <h:column>
@@ -50,7 +50,7 @@
                 <f:facet name="header">
                  <h:outputText value="итоговые тесты" />
                 </f:facet>
-                 #{p.concludingTestPoints}
+                 #{p.concludingTestPoints}(#{p.concludingTestsMaxPoints})
                </h:column>
 
                <h:column>

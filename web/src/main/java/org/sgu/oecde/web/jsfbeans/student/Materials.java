@@ -1,24 +1,19 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.estimation.Points;
-import org.sgu.oecde.core.util.ListUtil;
 import org.sgu.oecde.de.education.DeCurriculum;
-import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.tests.AdditionalCurriculum;
 import org.sgu.oecde.tests.TestAttemptService;
 import org.sgu.oecde.tests.TestEntity;
 import org.sgu.oecde.tests.TestService;
+import org.sgu.oecde.tests.estimation.TestsCountEnum;
 import org.sgu.oecde.web.GradesService;
 import org.sgu.oecde.web.PointsFacade;
 import org.springframework.util.CollectionUtils;
@@ -75,6 +70,7 @@ public class Materials extends StudentCurriculumBean{
             while(pI.hasNext()){
                 Points ps = pI.next();
                 AdditionalCurriculum c = new AdditionalCurriculum(ps.getCurriculum());
+                c.setTestsCount(ps.<Integer>getWorkPoints(TestsCountEnum.TESTS_COUNT)+ps.<Integer>getWorkPoints(TestsCountEnum.CONCLUDING_TESTS_COUNT));
                 advCurriculums.add(c);
             }
         }

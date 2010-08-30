@@ -21,7 +21,7 @@
                     <div class="controlWorksControlTitle">
                         <span class="controlWorksDisciplineName">${o[0].discipline.name}</span>
                         <span class="linkToTeachersProfile" style="color:#669999;">(<h:outputLink value="teacher.xhtml?id=${o[3].id}">${o[3].initials}</h:outputLink>)</span>
-                        <span class="chatPostDate" style="color: #AFAFAF; font-size: 10pt; margin: 0px;">(${o[1].points} - ${o[1].progress})</span>
+                        <span class="chatPostDate" style="color: #AFAFAF; font-size: 10pt; margin: 0px;">(${o[1].points} - <h:outputText converter="enumConverter" value="${o[1].progress}"/>)</span>
                     </div>
                     <br/>
                     <ol style="padding-left: 25px; list-style: none;">

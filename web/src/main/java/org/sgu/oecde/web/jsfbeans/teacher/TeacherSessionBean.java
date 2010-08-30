@@ -25,7 +25,7 @@ public class TeacherSessionBean extends AbstractTeacherBean{
     private static final long serialVersionUID = 110L;
 
     public List<DeCurriculum> getDisciplines(int semester){
-        if((currentCurriculums==null||previousCurriculums==null)){
+        if(((currentCurriculums==null&&semester==0)||(previousCurriculums==null&&semester==1))){
             setSemester(semester);
             List<DeCurriculum> l = curriculumDao.getBySemesterYearAndParameters(semesters(), year(),teacher);
             if(semester == 0)
