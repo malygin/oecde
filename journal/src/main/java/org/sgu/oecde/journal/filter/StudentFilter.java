@@ -87,7 +87,7 @@ public class StudentFilter extends BaseFilter {
             case TASK_HAS_BEEN_READ:
                 return new StringBuilder("AND MULTI_ID = ").append(getUserId()).toString();
             case POST_ANSWER:
-                Long multiId = userItem.getId() *100 +  UserType.fromRole(userItem).toInt();
+                Long multiId = userItem.getId() *100 +  UserType.toType(userItem).toInt();
                 return new StringBuilder("AND MULTI_ID = ").append(multiId).toString();
             default:
                 return super.getAddCondition(event);

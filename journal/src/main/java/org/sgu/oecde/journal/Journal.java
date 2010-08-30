@@ -1,5 +1,6 @@
 package org.sgu.oecde.journal;
 
+import java.io.Serializable;
 import java.util.List;
 import org.sgu.oecde.core.education.AdvancedCurriculum;
 import org.sgu.oecde.core.education.Curriculum;
@@ -18,13 +19,15 @@ import org.springframework.stereotype.Service;
  * @author basakov,ShihovMY
  */
 @Service(value="journalServise")
-public class Journal{
+public class Journal implements Serializable{
 
     @Autowired
     private IJournalDao journalDao;
 
     @Autowired
     private RecordEventFactory ref;
+
+    private static final long serialVersionUID = 155L;
 
     private Journal() {
     }

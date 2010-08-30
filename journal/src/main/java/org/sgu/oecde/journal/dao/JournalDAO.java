@@ -27,6 +27,8 @@ public class JournalDAO extends BasicDao<EventItem> implements IJournalDao {
         super(EventItem.class);
     }
 
+    private static final long serialVersionUID = 161L;
+
     /**
      * {@inheritDoc }
      */

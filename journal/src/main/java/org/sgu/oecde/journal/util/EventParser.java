@@ -1,5 +1,6 @@
 package org.sgu.oecde.journal.util;
 
+import java.io.Serializable;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.UserType;
 import org.sgu.oecde.discussion.ForumTypes;
@@ -16,10 +17,12 @@ import static org.sgu.oecde.journal.util.LogTerms.splitter;
  * @TODO Админы личных страниц не имеют, но их имена выводятся в ввиде ссылок(нерабочих, конечно).
  */
 @Service
-public class EventParser {
+public class EventParser implements Serializable{
 
     private EventParser() {
     }
+
+    private static final long serialVersionUID = 156L;
 
     public String parseEventBody(EventItem item) {
         switch (item.getEventType()) {
@@ -83,7 +86,7 @@ public class EventParser {
         //Собираем текст сообщения.
         //Студент/преподаватель ФИО просматривал(а) новость <ссылка>"Заголовок"<ссылка>.
         StringBuilder sb = new StringBuilder();
-        sb.append(UserType.fromRole(item.getUser()));
+        sb.append(UserType.toType(item.getUser()));
         sb.append(" ").append(fio);
         sb.append(" просматривал(а) новость ").append("<a href=\"#newsFullText/id=").append(item.getMultiId())
                 .append("&pN=1&count=10\">").append("\"").append(str[0]).append("\"").append("</a>");
@@ -157,14 +160,14 @@ public class EventParser {
             case STUDENT_CITY:
             case TEACHER_FAQ:
             case TEACHER_ORG:
-                sb = new StringBuilder().append(UserType.fromRole(user)).append(" ").append(fio)
+                sb = new StringBuilder().append(UserType.toType(user)).append(" ").append(fio)
                         .append(" добавил комментарий ")
                         .append("<a href=\"#forum/type=").append(postType).append("&id=").append(subjectID)
                         .append("\">").append("на форуме")
                         .append("</a>.");
                 return sb.toString();
             case NEWS:
-                sb = new StringBuilder().append(UserType.fromRole(user)).append(" ").append(fio)
+                sb = new StringBuilder().append(UserType.toType(user)).append(" ").append(fio)
                         .append(" добавил комментарий к новости")
                         .append("<a href=\"#newsFullText/id=").append(subjectID).append("&pN=1&count=10\">\"");
                 if(str.length>3)
@@ -172,7 +175,7 @@ public class EventParser {
                 sb.append("\"</a>.");
                 return sb.toString();
         }
-        return new StringBuilder().append(UserType.fromRole(user)).append(" ").append(fio).append(" добавил комментарий.")
+        return new StringBuilder().append(UserType.toType(user)).append(" ").append(fio).append(" добавил комментарий.")
                 .toString();
     }
 
@@ -191,7 +194,7 @@ public class EventParser {
         StringBuilder sb = new StringBuilder();
         sb.append(str[0]).append(" ");
         sb.append("<a href=\"#");
-        switch (UserType.fromRole(item.getUser())) {
+        switch (UserType.toType(item.getUser())) {
             case TEACHER:
                 sb.append("teacher");
                 break;
@@ -236,9 +239,9 @@ public class EventParser {
     private String parseUmkActivity(EventItem item) {
         String str[] = item.getEventBody().split(splitter);
         StringBuilder sb = new StringBuilder();
-        sb.append(UserType.fromRole(item.getUser())).append(" ");
+        sb.append(UserType.toType(item.getUser())).append(" ");
         sb.append("<a href=\"");
-        switch (UserType.fromRole(item.getUser())) {
+        switch (UserType.toType(item.getUser())) {
             case STUDENT:
                 sb.append("student");
                 break;
@@ -286,9 +289,9 @@ public class EventParser {
      */
     private String parseSimpleActivity(EventItem item) {
         StringBuilder sb = new StringBuilder();
-        sb.append(UserType.fromRole(item.getUser()));
+        sb.append(UserType.toType(item.getUser()));
         sb.append(" <a href=\"");
-        switch (UserType.fromRole(item.getUser())) {
+        switch (UserType.toType(item.getUser())) {
             case STUDENT:
                 sb.append("#student");
                 break;

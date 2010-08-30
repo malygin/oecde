@@ -1,12 +1,12 @@
 package org.sgu.oecde.journal.util;
 
+import java.io.Serializable;
 import javax.annotation.Resource;
 import org.sgu.oecde.core.IBasicDao;
 import org.sgu.oecde.core.education.AdvancedCurriculum;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.Discipline;
 import org.sgu.oecde.core.education.Speciality;
-import org.sgu.oecde.core.education.Umk;
 import org.sgu.oecde.core.education.dao.ICurriculumDao;
 import org.sgu.oecde.core.education.dao.IResourceDao;
 import org.sgu.oecde.core.education.resource.AbstractResource;
@@ -32,7 +32,7 @@ import static org.sgu.oecde.journal.util.LogTerms.splitter;
  * @author basakov, ShihovMY
  */
 @Service
-public class RecordEventFactory {
+public class RecordEventFactory implements Serializable{
     
     @Resource
     private IJournalDao journalDao;
@@ -48,6 +48,8 @@ public class RecordEventFactory {
     private IBasicDao<Discipline>disciplineDao;
     @Resource
     private IBasicDao<AbstractPerson>userDao;
+
+    private static final long serialVersionUID = 157L;
 
     //Так мы гарантируем, что получить экземпляр класса можно получить только через сприногвый контекст.
     private RecordEventFactory() {
@@ -91,7 +93,7 @@ public class RecordEventFactory {
     }
 
     private String getType(AbstractUser user){
-        return UserType.fromRole(user).toString();
+        return UserType.toType(user).toString();
     }
 
     /**
@@ -378,7 +380,7 @@ public class RecordEventFactory {
         AbstractUser author = node.getParent().getUser();
         Long authorId = author.getId();
         //Подобно массовой рассылке в мульти id сохраняется 2 значения: индетификатор пользователя и его тип.
-        Long multiId = authorId * 100 + UserType.fromRole(user).toInt();
+        Long multiId = authorId * 100 + UserType.toType(user).toInt();
         save(EventType.POST_ANSWER,user,  multiId, str);
     }
 
@@ -400,7 +402,7 @@ public class RecordEventFactory {
         }
         //Автор поста
         //Подобно массовой рассылке в мульти id сохраняется 2 значения: индетификатор пользователя и его тип.
-        Long multiId = user.getId() * 100 + UserType.fromRole(user).toInt();
+        Long multiId = user.getId() * 100 + UserType.toType(user).toInt();
         save(EventType.POST_ADD, user, multiId, str);
     }
 }
