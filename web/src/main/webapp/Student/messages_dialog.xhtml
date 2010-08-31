@@ -8,8 +8,10 @@
          <f:metadata>
              <f:viewParam name="user" value="#{messageDialogBean.recipientId}"/>
         </f:metadata>
+        <ui:define name="contentHeader">История сообщений от #{messageDialogBean.recipient.fioAuthor}</ui:define>
         <ui:define name="content">
-         
-            <mess:dialog list="#{messageDialogBean.messagesDialog}"/>
+            <div class="interfaceContent">
+                <mess:dialog list="#{messageDialogBean.messagesDialog}"/>
+            </div>
          </ui:define>
     </ui:composition>

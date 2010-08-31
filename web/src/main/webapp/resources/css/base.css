@@ -474,6 +474,10 @@
     width: 100%;
     height: 300px;
 }
+.mainStyle .writeMessageInterfaceMessBodySmall{
+    height: 150px;
+    width: 100%;
+}
 .mainStyle .writeMessageInterfaceTableForm{
     width: 100%;
 }
@@ -491,6 +495,13 @@
     border: 1px solid silver;
     background: #EFEFEF;
 }
+.mainStyle .fullMessageMessageText{
+    min-height: 50px;
+    margin: 0px 5px;
+    padding: 5px;
+    border: 1px solid silver;
+    background: #EFEFEF;
+}
 .mainStyle .listMessagesAttachmentsIco{
     position: relative;
     top: -6px;
@@ -504,8 +515,36 @@
 .mainStyle .actionResultSuccessfull{
     color: #64D359;
     text-align: center !important;
+    background: #E4FFDF;
+    width: 40%;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid green;
+}
+.mainStyle .actionResultNeutral{
+    text-align: center !important;
+    color: #7FB9FF;
+    background: #E4FFDF;
+    width: 40%;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #BFDCFF;
+    background: #DFEEFF;
 }
 .mainStyle .actionResultFailed{
     color: #FF3F3F;
     text-align: center !important;
+    background: #FFDFDF;
+    width: 40%;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid red;
+}
+.mainStyle .trashIconContainer{
+    margin-left: 5px;
+    width: 19px;
+    height: 19px;
+    float: right;
+    border: 1px solid silver;
+    background: #EFEFEF;
 }

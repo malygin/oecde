@@ -35,11 +35,11 @@
                         </div>
                         <div>
                             <div class="contentArea">
-                                <div class="FIOplace">
+                                <div class="FIOplace" style="display: none;">
                                     <p class="sguLink"><a href="http://www.sgu.ru">#{msgs.sguLinkText}</a></p>
-                                    <p class="greenFIO">#{userBean.FIO}</p>
+                                    <p class="greenFIO"><ui:insert name="fio">#{msgs.userFIO}</ui:insert></p>
                                 </div>
-                                <div class="content">
+                                <div class="content" style="margin: 0px;">
                                     <div class="contentHeader">
                                         <p><ui:insert name="contentHeader">#{msgs.mainContentUserInfo}</ui:insert></p><div class="onlineStatus">#{msgs.onlineStatusOnline}</div><div class="floatDestroyer"></div>
                                     </div>

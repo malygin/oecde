@@ -1,47 +1,115 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:composite="http://java.sun.com/jsf/composite"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:r="http://java.sun.com/jsp/jstl/core">
 
- <!-- INTERFACE -->
-  <composite:interface>
-    <composite:attribute  name="mess"/>
-  </composite:interface>
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute  name="mess"/>
+    </composite:interface>
 
-  <!-- IMPLEMENTATION -->
+    <!-- IMPLEMENTATION -->
     <composite:implementation>
-        <h:outputText rendered="#{MessageReadBean.noAccess}" value="У Вас нет доступа к этому письму"/>
-        <h:panelGroup rendered="#{not MessageReadBean.noAccess}"> 
-              <h:form  id ="formSend" >
-                <h:outputLink  value="messages_dialog.xhtml?user=#{cc.attrs.mess.message.author.id}">Диалог!</h:outputLink><br/>
-                <h:commandLink action="#{MessageReadBean.delete}" value="Удалить"/><br/>
-                автор - <h:outputText value="#{cc.attrs.mess.fioAuthor}"/><br/>
-                получатели  <h:dataTable value="#{cc.attrs.mess.message.recipients}" var="rec">
-                                <h:column>
-                                    <h:outputText value="#{rec.fioAuthor}"/><br/>
-                                </h:column>
-                            </h:dataTable>
-                <h:outputText value="#{cc.attrs.mess.message.dateMessage}"/><br/>
-                <h:outputText value="#{cc.attrs.mess.message.theme}"/><br/>
-                <h:outputText value="#{cc.attrs.mess.message.fullText}"/>
-                <h:dataTable value="#{cc.attrs.mess.message.files}" var="file">
-                    <h:column>
-                        <a href="../resources/userFiles/messages/#{file.name}">Скачать файл</a>
-                    </h:column>
-                </h:dataTable><br/><br/>
-                <a href="messages_write.xhtml?user=#{cc.attrs.mess.message.author.id}">Полный режим</a><br/>
-              
-                    <h:outputText rendered="#{MessageWriteBean.renderSuccessSend}" value="Сообщение успешно послано"/><br/>
+        <div style="padding-top: 10px;">
+            <h:outputText rendered="#{MessageReadBean.noAccess}" value="#{msgs.message_messAccessDenied}"/>
+            <h:panelGroup rendered="#{not MessageReadBean.noAccess}">
+                <h:form  id ="formSend">
+                    <div style="float: left;">
+                        <table cellpadding="3" cellspacing="6">
+                            <tr>
+                                <td>
+                                    #{msgs.message_author}
+                                </td>
+                                <td>
+                                    <h:outputText value="#{cc.attrs.mess.fioAuthor}"/>
+                                </td>
+                                <td class="navigationLinks">
+                                    (<h:outputLink  value="messages_dialog.xhtml?user=#{cc.attrs.mess.message.author.id}">#{msgs.message_showHistory}</h:outputLink>)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" style="width: 100px;">
+                                    #{msgs.message_recipients}
+                                </td>
+                                <td>
+                                    <r:forEach items="#{cc.attrs.mess.message.recipients}" var="rec">
+                                        <h:outputText value="#{rec.fioAuthor}"/><br/>
+                                    </r:forEach>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    #{msgs.message_theme}
+                                </td>
+                                <td>
+                                    <h:outputText value="#{cc.attrs.mess.message.theme}"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="chatPostDate" style="font-size: 8pt;">
+                        <h:outputText value="#{cc.attrs.mess.message.dateMessage}"/>
+                    </div>
+                    <div class="floatDestroyer"/>
 
-                    <h:inputText  value="#{MessageWriteBean.theme}"/><br/>
-                    <h:inputTextarea value="#{MessageWriteBean.fullText}"/><br/>
-                    <h:commandButton action="#{MessageWriteBean.save}" value="save!">
-                        <f:setPropertyActionListener target="#{MessageWriteBean.message}" value="#{cc.attrs.mess}"/>
-                        <f:ajax execute="@form" render="@form" />
-                    </h:commandButton>
-                 </h:form>
-        </h:panelGroup>
-  </composite:implementation>
+                    <div style="margin: 0px 5px; height: 20px;">
+                        <div style="" class="trashIconContainer">
+                            <h:commandLink action="#{MessageReadBean.delete}">
+                                <img style="margin: 2px; margin-top: 1px;" src="../resources/images/trashMessage.gif" title="#{msgs.message_iconDeleteMessTitle}" alt=""/>
+                            </h:commandLink>
+                        </div>
+                        <div class="floatDestroyer"/>
+                    </div>
+                    <div style="" class="fullMessageMessageText">
+                        <h:outputText value="#{cc.attrs.mess.message.fullText}"/>
+
+                    </div>
+                    <div>
+                        <div>
+                            <ol>
+                                <r:forEach items="#{cc.attrs.mess.message.files}" var="file">
+                                    <li style="margin-left: 30px;" class="navigationLinks">
+                                        <a href="../resources/userFiles/messages/#{file.name}">#{msgs.message_downLoadFile}</a><br/>
+                                    </li>
+                                </r:forEach>
+                            </ol>
+                        </div>
+                    </div>
+                    <br/>
+                    <div align="center" style="padding: 10px; border-top: 1px solid silver; text-align: center;">
+                        <h:outputText rendered="#{MessageWriteBean.renderSuccessSend}" value="#{msgs.message_sentSuccess}"/>
+                        <div style="width: 60%; margin: 0 auto;">
+                            <div style="width: 100%; text-align: right;" class="navigationLinks">
+                                <a href="messages_write.xhtml?user=#{cc.attrs.mess.message.author.id}">#{msgs.message_goToFullWritingVersion}</a>
+                            </div>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td style="width: 40px;">#{msgs.message_theme}</td>
+                                    <td ><h:inputText styleClass="writeMessageInterfaceTheme" value="#{MessageWriteBean.theme}"/></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><h:inputTextarea styleClass="writeMessageInterfaceMessBodySmall" value="#{MessageWriteBean.fullText}"/></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align: center;">
+                                        <h:commandButton action="#{MessageWriteBean.save}" value="#{msgs.message_sendMess}">
+                                            <f:setPropertyActionListener target="#{MessageWriteBean.message}" value="#{cc.attrs.mess}"/>
+                                            <f:ajax execute="@form" render="@form" />
+                                        </h:commandButton>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </h:form>
+            </h:panelGroup>
+        </div>
+    </composite:implementation>
 </html>

@@ -52,31 +52,16 @@
                         <div class="floatDestroyer"/>
                     </div>
                     <div style="" class="listMessagesShortMessage">
-                        <h:outputText value="#{message.shortText}"/>
-                        <div class="listMessagesAttachmentsIco"><r:if test="#{message.filesExist eq true}"><img title="В сообщении присутствуют вложенные файлы." src="../resources/images/isAttachment.png" alt=""/></r:if><r:if test="#{message.filesExist ne true}"><img title="В сообщении отсутствуют вложенные файлы." src="../resources/images/isNotAttachment.png" alt=""/></r:if></div>
+                        <div style="float: left; width: 95%;"><h:outputText value="#{message.shortText}"/></div>
+                        <div class="listMessagesAttachmentsIco"><r:if test="#{message.filesExist eq true}"><img title="#{msgs.message_iconFilesExistTitle}" src="../resources/images/isAttachment.png" alt=""/></r:if><r:if test="#{message.filesExist ne true}"><img title="#{msgs.message_iconFilesNotExistTitle}" src="../resources/images/isNotAttachment.png" alt=""/></r:if></div>
+                        <div class="floatDestroyer"/>
                     </div>
                     <table style="width: 100%;">
-                        <tr>
-                            <td colspan="2">
-                                <div class="actionResultSuccessfull">
-                                    <h:outputText  value="#{msgs.message_deleteSuccess}" rendered="#{MessageBean.renderDeleteSuccess}"/>
-                                </div>
-                                <!--                                        <div class="actionResultFailed">
-                                                                        <h:outputText  value="# {msgs.message_deleteFailed}" rendered="# {MessageBean.renderDeleteSuccess}"/>
-                                                                    </div>-->
-                            </td>
-                        </tr>
                         <tr>
                             <td class="navigationLinks">
                                 <h:outputLink rendered="#{not MessageBean.renderDeleteSuccess}" value="messages_read.xhtml?id=#{message.message.id}">#{msgs.message_answer}</h:outputLink>
                             </td>
-                            <td class="navigationLinksRed" style="text-align: right;">
-                                <h:commandLink   action="#{MessageBean.deleteMessage}" >
-                                    <h:outputText rendered="#{not MessageBean.renderDeleteSuccess}" value="#{msgs.message_delete}"/>
-                                    <f:setPropertyActionListener target="#{MessageBean.currentMessageId}" value="#{message.message.id}" />
-                                    <f:ajax  execute="@this" render="@form" />
-                                </h:commandLink>
-                            </td>
+                            
                         </tr>
                     </table>
                 </div>

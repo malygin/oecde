@@ -49,8 +49,9 @@
                         <div class="floatDestroyer"/>
                     </div>
                     <div style="" class="listMessagesShortMessage">
-                        <h:outputText value="#{message.shortText}"/>
-                        <div class="listMessagesAttachmentsIco"><r:if test="#{message.filesExist eq true}"><img title="В сообщении присутствуют вложенные файлы." src="../resources/images/isAttachment.png" alt=""/></r:if><r:if test="#{message.filesExist ne true}"><img title="В сообщении отсутствуют вложенные файлы." src="../resources/images/isNotAttachment.png" alt=""/></r:if></div>
+                        <div style="float: left; width: 95%;"><h:outputText value="#{message.shortText}"/></div>
+                        <div class="listMessagesAttachmentsIco"><r:if test="#{message.filesExist eq true}"><img title="#{msgs.message_iconFilesExistTitle}" src="../resources/images/isAttachment.png" alt=""/></r:if><r:if test="#{message.filesExist ne true}"><img title="#{msgs.message_iconFilesNotExistTitle}" src="../resources/images/isNotAttachment.png" alt=""/></r:if></div>
+                        <div class="floatDestroyer"/>
                     </div>
                     <table style="width: 100%;">
                         <tr>

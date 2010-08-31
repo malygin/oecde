@@ -1,40 +1,87 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:composite="http://java.sun.com/jsf/composite"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:c="http://java.sun.com/jsp/jstl/core">
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
 
- <!-- INTERFACE -->
-  <composite:interface>
-    <composite:attribute  name="list"/>
-  </composite:interface>
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute  name="list"/>
+    </composite:interface>
 
-  <!-- IMPLEMENTATION -->
+    <!-- IMPLEMENTATION -->
     <composite:implementation>
 
-        <h:outputText rendered="#{messageDialogBean.noDialog}" value="У Вас нет переписка с этим пользователем"/>
-        
+
+        <c:if test="${messageDialogBean.noDialog}">
+            <div style="text-align: center; padding: 10px;">
+                <div class="actionResultNeutral">
+                    #{msgs.message_emptyHistory}
+                </div>
+            </div>
+        </c:if>
+
         <h:panelGroup rendered="#{not messageDialogBean.noDialog}">
-            <h:form>
-                <a href="messages_write.xhtml?user=#{messageDialogBean.recipient.recipient.id}">Полный режим</a> <br/>
-                <h:outputText rendered="#{MessageWriteBean.renderSuccessSend}" value="Сообщение успешно послано"/>
-                <h:inputText  value="#{MessageWriteBean.theme}"/><br/>
-                <h:inputTextarea value="#{MessageWriteBean.fullText}"/><br/>
-                <h:commandButton action="#{MessageWriteBean.save}" value="save!">
-                    <f:setPropertyActionListener target="#{MessageWriteBean.recipient_id}" value="#{messageDialogBean.recipient.recipient.id}"/>
-                    <f:ajax execute="@form" render="@form" />
-                </h:commandButton>
-            </h:form>
-             собеседник #{messageDialogBean.recipient.fioAuthor}<br/><br/><br/>
             <c:forEach  items="#{cc.attrs.list}" var="message">
-              <c:if test="#{message.fioAuthor==messageDialogBean.recipient.fioAuthor}"><b>ОН</b></c:if>
-              <c:if test="#{message.fioAuthor!=messageDialogBean.recipient.fioAuthor}"><b>Я</b></c:if>
-              <h:outputText value="#{message.message.theme}"/>
-              <small><h:outputText value="#{message.message.dateMessage}"/></small><br/>
-              <h:outputText value="#{message.message.fullText}"/><br/><br/>  
+                <div class="studentInterfaceStandartList">
+                    <div class="chatPostDate" style="font-size: 8pt;">
+                        <h:outputText value="#{message.message.dateMessage}"/>
+                    </div>
+                    <table>
+                        <tr>
+                            <td>
+                                #{msgs.message_author}
+                            </td>
+                            <td>
+                                <c:if test="#{message.fioAuthor==messageDialogBean.recipient.fioAuthor}"><span class="linkToAdminsProfile"><a href="#">#{messageDialogBean.recipient.fioAuthor}</a></span></c:if>
+                                <c:if test="#{message.fioAuthor!=messageDialogBean.recipient.fioAuthor}"><b>#{msgs.message_historyFromYouMess}</b></c:if>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                #{msgs.message_theme}
+                            </td>
+                            <td>
+                                <h:outputText value="#{message.message.theme}"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="floatDestroyer"/>
+                    <div class="listMessagesShortMessage">
+                        <h:outputText value="#{message.message.fullText}"/>
+                    </div>
+                </div>
             </c:forEach>
+           
+            <h:form>
+                <div align="center" style="padding: 10px; border-top: 1px solid silver; margin-top: 3px; text-align: center;">
+                    <h:outputText rendered="#{MessageWriteBean.renderSuccessSend}" value="#{msgs.message_sentSuccess}"/>
+                    <div style="width: 60%; margin: 0 auto;">
+                        <div style="width: 100%; text-align: right;" class="navigationLinks">
+                            <a href="messages_write.xhtml?user=#{cc.attrs.mess.message.author.id}">#{msgs.message_goToFullWritingVersion}</a>
+                        </div>
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width: 40px;">#{msgs.message_theme}</td>
+                                <td ><h:inputText styleClass="writeMessageInterfaceTheme" value="#{MessageWriteBean.theme}"/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><h:inputTextarea styleClass="writeMessageInterfaceMessBodySmall" value="#{MessageWriteBean.fullText}"/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align: center;">
+                                    <h:commandButton action="#{MessageWriteBean.save}" value="#{msgs.message_sendMess}">
+                                        <f:setPropertyActionListener target="#{MessageWriteBean.message}" value="#{cc.attrs.mess}"/>
+                                        <f:ajax execute="@form" render="@form" />
+                                    </h:commandButton>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </h:form>
         </h:panelGroup>
-  </composite:implementation>
+    </composite:implementation>
 </html>
