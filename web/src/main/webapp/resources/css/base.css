@@ -548,3 +548,36 @@
     border: 1px solid silver;
     background: #EFEFEF;
 }
+.mainStyle .standartContainerForTeacherMediumAvatar{
+    border: 1px #64D359 solid;
+    padding: 3px;
+    background: white;
+    width: 100px;
+    float: left;
+    margin-right: 20px;
+    overflow: hidden;
+    text-align: center;
+}
+.mainStyle .standartContainerForTeacherMediumAvatar img{
+    margin: auto;
+    padding: 0px;
+    vertical-align: top;
+}
+.mainStyle .standartContainerForStudentMediumAvatar{
+    border: 1px #4DB7F1 solid;
+    padding: 3px;
+    background: white;
+    width: 100px;
+    float: left;
+    margin-right: 20px;
+    overflow: hidden;
+    text-align: center;
+}
+.mainStyle .standartContainerForStudentMediumAvatar img{
+    margin: auto;
+    padding: 0px;
+    vertical-align: top;
+}
+.mainStyle .standartContainerForTeacherInfoInTeachersList{
+    width: 100%;
+}

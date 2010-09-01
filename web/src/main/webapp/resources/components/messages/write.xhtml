@@ -16,7 +16,9 @@
     <cc:implementation>
         <div class="interfaceContent">
             <h:form  id="formSend"  enctype="multipart/form-data" >
-                <h:outputText rendered="#{MessageWriteBean.renderSuccessSend}" value="#{msgs.message_sentSuccess}"/>
+                <h:panelGroup rendered="#{MessageWriteBean.renderSuccessSend}" styleClass="actionResultSuccessfull">
+                    #{msgs.message_sentSuccess}
+                </h:panelGroup>
                 <h:dataTable id="recipients" value="#{MessageWriteBean.recipients}" var="recipient">
                     <h:column>
                         <div style="width: 52px;">

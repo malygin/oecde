@@ -56,9 +56,9 @@
                     <table style="width: 100%;">
                         <tr>
                             <td colspan="2">
-                                <div class="actionResultSuccessfull">
-                                    <h:outputText  value="#{msgs.message_deleteSuccess}" rendered="#{MessageBean.renderDeleteSuccess}"/>
-                                </div>
+                                <h:panelGroup layout="block" rendered="#{MessageBean.renderDeleteSuccess}" styleClass="actionResultSuccessfull">
+                                        #{msgs.message_deleteSuccess}
+                                </h:panelGroup>
                                 <!--                                        <div class="actionResultFailed">
                                                                         <h:outputText  value="# {msgs.message_deleteFailed}" rendered="# {MessageBean.renderDeleteSuccess}"/>
                                                                     </div>-->
