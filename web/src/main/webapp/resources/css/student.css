@@ -87,8 +87,8 @@
     color: #669999;
 }
 .mainStyle .controlWorksDisciplineNameLink a:link{color: #669999;}
-.mainStyle .controlWorksDisciplineNameLink a:visited{}
-.mainStyle .controlWorksDisciplineNameLink a:active{}
+.mainStyle .controlWorksDisciplineNameLink a:visited{color: #669999;}
+.mainStyle .controlWorksDisciplineNameLink a:active{color: #8DBEE0;}
 .mainStyle .controlWorksDisciplineNameLink a:hover{color: #8DBEE0;}
 
 .mainStyle .interfaceContent{

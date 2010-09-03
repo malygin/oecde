@@ -149,6 +149,15 @@
 .mainStyle .topMenuLinkContainer a:active {color: #F95E62; text-decoration: none; font-size: 100%; font-weight: normal; padding-top:0px;}
 .mainStyle .topMenuLinkContainer a:hover {color: #F95E62; text-decoration: none; font-size: 100%; font-weight: normal;  padding-top:0px;}
 
+.mainStyle .topMenuLinkContainer p{
+    color:#AFAFAF;
+    font-family:Tahoma;
+    font-size: 100%;
+    font-weight:normal;
+    margin-bottom:0;
+    margin-top:0;
+    text-decoration:none;
+}
 .mainStyle .searchPannelContainer{
     float: left;
     margin-top: 7px;
@@ -580,4 +589,19 @@
 }
 .mainStyle .standartContainerForTeacherInfoInTeachersList{
     width: 100%;
+}
+.mainStyle .newsListNewPreview{
+    min-height: 50px;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #9FDDFF;
+    background: #EFF9FF;
+}
+.mainStyle .newsListNewPreview img{
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 3px;
+    border: 1px solid #61CADF;
+    background: white;
 }
