@@ -5,6 +5,9 @@
     template="../resources/studentTemplate.xhtml"
     xmlns:r="http://java.sun.com/jsp/jstl/core"
     >
+    <ui:define name="contentHeader">
+        #{msgs.student_studentListHeader}
+    </ui:define>
     <ui:define name="content">
         <div class="interfaceContent">
             <r:forEach items="#{groupBean.students}" var="s">
@@ -16,7 +19,7 @@
                         <table>
                             <tr>
                                 <td>
-                                    ФИО:
+                                    #{msgs.student_studentListFIO}
                                 </td>
                                 <td>
                                     <span class="linkToStudentsProfile"><a href="student.xhtml?id=${s.id}">#{s.fio}</a></span>
@@ -24,7 +27,7 @@
                             </tr>
                             <tr>
                                 <td colspan="2" class="navigationLinks">
-                                    <a href="messages_write.xhtml?id=${s.id}">Написать сообщение</a> <a href="messages_dialog.xhtml?user=${s.id}">Просмотреть переписку</a>
+                                    <a href="messages_write.xhtml?id=${s.id}">#{msgs.student_studentListWriteMessage}</a> <a href="messages_dialog.xhtml?user=${s.id}">#{msgs.student_studentLestShowDialog}</a>
                                 </td>
                             </tr>
                         </table>

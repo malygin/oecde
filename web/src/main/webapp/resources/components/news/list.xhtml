@@ -1,26 +1,39 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:composite="http://java.sun.com/jsf/composite"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:r="http://java.sun.com/jsp/jstl/core">
 
- <!-- INTERFACE -->
-  <composite:interface>
-    <composite:attribute  name="list"/>
-  </composite:interface>
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute  name="list"/>
+    </composite:interface>
 
-  <!-- IMPLEMENTATION -->
+    <!-- IMPLEMENTATION -->
     <composite:implementation>         
-        <h:dataTable value="#{cc.attrs.list}" var="new">
-                <h:column>
-
-                    <b>#{new.time}</b>
-                    #{new.header}
-                    #{new.announcement}
-                    #{new.reviewNumber}
-                    <a href="news_read.xhtml?id=#{new.id}">подробнее</a>
-                </h:column>
-            </h:dataTable>
-  </composite:implementation>
+        <r:forEach items="#{cc.attrs.list}" var="new">
+            <div class="studentInterfaceStandartList">
+                <div>
+                    <div style="float: left; font-size: 10pt;" class="controlWorksDisciplineNameLink"><a href="news_read.xhtml?id=#{new.id}">#{new.header}</a></div>
+                    <span class="chatPostDate" >#{new.time}</span>
+                    <div class="floatDestroyer"/>
+                    <div class="newsListNewPreview">
+                        <img src="../resources/testImages/images.jpeg" alt="" style="width: 100px;"/>
+                        <div>
+                            #{new.announcement}
+                        </div>
+                        <div class="floatDestroyer"/>
+                    </div>
+                    <div>
+                        <span style="font-size: 8pt;">#{msgs.student_newsLooks} #{new.reviewNumber}</span>
+                        <span class="navigationLinks" style="float: right;">
+                            <a href="news_read.xhtml?id=#{new.id}">#{msgs.student_newsMore}</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </r:forEach>
+    </composite:implementation>
 </html>

@@ -1,30 +1,37 @@
-    <ui:composition
-         xmlns:ui="http://java.sun.com/jsf/facelets"
-         xmlns:f="http://java.sun.com/jsf/core"
-         xmlns:h="http://java.sun.com/jsf/html"
-         template="../resources/studentTemplate.xhtml"
-         >
-        <ui:define name="content">
-         <f:metadata>
-             <f:viewParam name="s" value="#{oldGradesBean.semester}"/>
-         </f:metadata>
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/studentTemplate.xhtml"
+    >
+    <ui:define name="contentHeader">
+        #{msgs.student_oldGradesHeader}
+    </ui:define>
+    <ui:define name="content">
+        <div class="interfaceContent">
+            <f:metadata>
+                <f:viewParam name="s" value="#{oldGradesBean.semester}"/>
+            </f:metadata>
 
-         <h:dataTable value="#{oldGradesBean.oldGrades}" var="p">
+            <h:dataTable value="#{oldGradesBean.oldGrades}" var="p"
+                         style="width: 100%;"
+                         columnClasses="studentStandatrTableTd,
+                         studentStandatrTableTdLastTd" cellpadding="0" cellspacing="0" styleClass="studentStandatrTable">
 
-               <h:column>
-                <f:facet name="header">
-                 <h:outputText value="дисциплина" />
-                </f:facet>
-               #{p.points.curriculum.discipline.name}
-               (<h:outputLink value="teacher.xhtml?id=${p.teacher.id}">#{p.teacher.initials}</h:outputLink>)
-               </h:column>
-               <h:column>
-                <f:facet name="header">
-                 <h:outputText value="итог" />
-                </f:facet>
-                 <h:outputText value="#{p.grade}"/>
-               </h:column>
-         </h:dataTable>
-            
-        </ui:define>
-    </ui:composition>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
+                    </f:facet>
+                    <span class="controlWorksDisciplineName" style="font-size: 8pt;">#{p.points.curriculum.discipline.name}</span>
+                    (<span class="linkToTeachersProfile"><h:outputLink value="teacher.xhtml?id=${p.teacher.id}">#{p.teacher.initials}</h:outputLink></span>)
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msgs.student_gradesTableHeadFinal}" />
+                    </f:facet>
+                    <h:outputText value="#{p.grade}"/>
+                </h:column>
+            </h:dataTable>
+        </div>
+    </ui:define>
+</ui:composition>

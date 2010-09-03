@@ -1,20 +1,26 @@
-    <ui:composition
-         xmlns:ui="http://java.sun.com/jsf/facelets"
-         xmlns:f="http://java.sun.com/jsf/core"
-         xmlns:h="http://java.sun.com/jsf/html"
-         template="../resources/studentTemplate.xhtml"
-         xmlns:util="http://java.sun.com/jsf/composite/components/util"
-         xmlns:news="http://java.sun.com/jsf/composite/components/news"
-          >
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/studentTemplate.xhtml"
+    xmlns:util="http://java.sun.com/jsf/composite/components/util"
+    xmlns:news="http://java.sun.com/jsf/composite/components/news"
+    >
 
-        <f:metadata>
-              <f:viewParam name="page" value="#{NavigationBean.page}"/>
-              <f:viewParam name="page" value="#{NewsBean.currentPage}"/>
-         </f:metadata>
-
-        <ui:define name="content">
-            <util:navigationList elementOnPage="#{NewsBean.newsOnPage}"
-                                 numElements="#{NewsBean.countNews}"/>
+    <f:metadata>
+        <f:viewParam name="page" value="#{NavigationBean.page}"/>
+        <f:viewParam name="page" value="#{NewsBean.currentPage}"/>
+    </f:metadata>
+    <ui:define name="contentHeader">
+        #{msgs.student_newsTitle}
+    </ui:define>
+    <ui:define name="content">
+        <util:navigationList elementOnPage="#{NewsBean.newsOnPage}"
+                             numElements="#{NewsBean.countNews}"/>
+        <div class="interfaceContent">
             <news:list list="#{NewsBean.news}"/>
-         </ui:define>
-    </ui:composition>
+        </div>
+        <util:navigationList elementOnPage="#{NewsBean.newsOnPage}"
+                             numElements="#{NewsBean.countNews}"/>
+    </ui:define>
+</ui:composition>

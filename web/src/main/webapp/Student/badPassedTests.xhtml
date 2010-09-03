@@ -1,30 +1,40 @@
-    <ui:composition
-         xmlns:ui="http://java.sun.com/jsf/facelets"
-         xmlns:f="http://java.sun.com/jsf/core"
-         xmlns:h="http://java.sun.com/jsf/html"
-         template="../resources/studentTemplate.xhtml"
-         >
-        <ui:define name="content">
-         <f:metadata>
-             <f:viewParam name="s" value="#{badPassedTestsBean.semester}"/>
-             <f:viewParam name="c" value="#{badPassedTestsBean.concluding}"/>
-         </f:metadata>
-            <h:outputLink value="?c=#{!badPassedTestsBean.concluding}">другой тип</h:outputLink>
-            | <h:outputLink value="#{!badPassedTestsBean.concluding?'?':('?c=true&amp;')}s=#{badPassedTestsBean.semester==0?1:0}">другой семестр</h:outputLink>
-         <h:dataTable value="#{badPassedTestsBean.badPassedTests}" var="r">
-               <h:column>
-                <f:facet name="header">
-                 <h:outputText value="Название" />
-                </f:facet>
-               #{r.work.title} 
-               </h:column>
-               <h:column>
-                <f:facet name="header">
-                 <h:outputText value="Результат" />
-                </f:facet>
-               #{r.pointsForWork}
-               </h:column>
-         </h:dataTable>
-            
-        </ui:define>
-    </ui:composition>
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/studentTemplate.xhtml"
+    >
+    <ui:define name="contentHeader">
+        #{msgs.student_badPassedTestsHeader}
+    </ui:define>
+    <ui:define name="content">
+        <div class="interfaceContent">
+            <f:metadata>
+                <f:viewParam name="s" value="#{badPassedTestsBean.semester}"/>
+                <f:viewParam name="c" value="#{badPassedTestsBean.concluding}"/>
+            </f:metadata>
+            <span class="navigationLinks">
+                <h:outputLink value="?c=#{!badPassedTestsBean.concluding}">#{msgs.student_otherType}</h:outputLink>
+                | <h:outputLink value="#{!badPassedTestsBean.concluding?'?':('?c=true&amp;')}s=#{badPassedTestsBean.semester==0?1:0}">#{msgs.student_otherSemestr}</h:outputLink>
+            </span>
+            <h:dataTable cellpadding="0" cellspacing="0"
+                         columnClasses="studentStandatrTableTd,
+                         studentStandatrTableTdLastTd" styleClass="studentStandatrTable"
+                         style="width: 100%;"
+                         value="#{badPassedTestsBean.badPassedTests}" var="r">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msgs.student_testResultName}" />
+                    </f:facet>
+                    <span class="controlWorksDisciplineName" style="font-size: 8pt;">#{r.work.title}</span>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msgs.student_testResultResult}" />
+                    </f:facet>
+                    #{r.pointsForWork}
+                </h:column>
+            </h:dataTable>
+        </div>
+    </ui:define>
+</ui:composition>

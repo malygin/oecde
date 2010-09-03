@@ -1,19 +1,31 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:composite="http://java.sun.com/jsf/composite"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
- <!-- INTERFACE -->
-  <composite:interface>
-    <composite:attribute  name="new"/>
-  </composite:interface>
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute  name="new"/>
+    </composite:interface>
 
-  <!-- IMPLEMENTATION -->
+    <!-- IMPLEMENTATION -->
     <composite:implementation>
-      #{cc.attrs.new.time} <b> #{cc.attrs.new.reviewNumber}</b><br/>
-      #{cc.attrs.new.header}<br/>
-       #{cc.attrs.new.fullText}<br/>
-  </composite:implementation>
+        <div style="margin-top: 10px;">
+            <span class="chatPostDate" style="font-size: 10pt;">
+                #{cc.attrs.new.time}
+            </span>
+            <span style="float: left; font-size: 12pt;" class="controlWorksDisciplineName">
+                #{cc.attrs.new.header}
+            </span>
+            <div class="floatDestroyer"/>
+        </div>
+        <div class="newsListNewPreview">
+            <img src="../resources/testImages/images.jpeg" alt=""/>
+            #{cc.attrs.new.fullText}
+            <div class="floatDestroyer"/>
+        </div>
+        <span style="font-size: 8pt;">Просмотров: #{cc.attrs.new.reviewNumber}</span>
+    </composite:implementation>
 </html>

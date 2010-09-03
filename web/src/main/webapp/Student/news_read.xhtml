@@ -7,8 +7,12 @@
         <f:metadata>
             <f:viewParam name="id" value="#{NewsBean.currentNewId}"/>
         </f:metadata>
-
+        <ui:define name="contentHeader">
+            #{msgs.student_newsTitle}
+        </ui:define>
         <ui:define name="content">
-            <news:read new="#{NewsBean.currentNewItem}"/>
+            <div class="interfaceContent">
+                <news:read new="#{NewsBean.currentNewItem}"/>
+            </div>
         </ui:define>
     </ui:composition>

@@ -20,7 +20,7 @@
 
             <r:forEach items="${groupCwBean.controlWorkInfo4Group}" var="w">
                 <div class="studentInterfaceStandartList">
-                    <span class="">#{w.key.fio}</span> - <span class="controlWorksDisciplineName">#{w.value.curriculum.discipline.name} (</span><span class="groupControlWorksCWProgress"><h:outputText converter="enumConverter" value="#{w.value.progress}"/></span><span class="controlWorksDisciplineName">)</span><br/>
+                    <span class="linkToStudentsProfile"><a href="student.xhtml/?id=#{w.key.id}">#{w.key.fio}</a></span> - <span class="controlWorksDisciplineName">#{w.value.curriculum.discipline.name} (</span><span class="groupControlWorksCWProgress"><h:outputText converter="enumConverter" value="#{w.value.progress}"/></span><span class="controlWorksDisciplineName">)</span><br/>
                 </div>
             </r:forEach>
         </div>
