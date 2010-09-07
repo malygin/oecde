@@ -604,26 +604,26 @@
     border: 1px solid #61CADF;
     background: white;
 }
-.mainStyle .discussionComment{
-    margin: 0px;
-    margin-top: 5px;
-    border-top: 1px dotted silver;
-    padding: 10px 0px 0px 20px;
-}
 .mainStyle .discussionCommentContentUserAvatar{
     float: left;
     margin: 0px 7px 7px 0px;
     padding: 3px;
     border: 1px solid silver;
 }
-.mainStyle .discussionCommentContentText{
-    padding: 10px;
-    text-align: justify;
+.mainStyle .discussionComment{
+    margin: 10px 0px 0px 0px; 
+    border-top: 1px dotted silver;
+    padding: 5px 5px 5px 20px;
 }
 .mainStyle .discussionCommentDate{
-    text-align: right;
-    color: silver;
-    font-size: 8pt;
-    margin-top: -10px;
-    padding-bottom: 3px;
+    float: right; 
+    color: silver; 
+    font-size: 8pt; 
+    margin-top: 2px;
 }
+.mainStyle .discussionCommentContentText{
+    text-align: justify;
+    margin-top: 5px;
+    margin-left: 71px;
+}
+
