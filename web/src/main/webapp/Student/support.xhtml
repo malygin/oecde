@@ -7,12 +7,29 @@
                 xmlns:c="http://java.sun.com/jsp/jstl/core">
     
     <ui:define name="content">
-        <c:if test="${param['page'] eq 'help'}">
-            <ui:include src="support/help.xhtml"/>
-        </c:if>
-        <c:if test="${param['page'] eq 'faq'}">
-            <ui:include src="support/faq.xhtml"/>
-        </c:if>
+        <c:choose>
+            <c:when test="${param['page'] eq 'cookie'}">
+                <ui:include src="support/cookie.xhtml"/>
+            </c:when>
+            <c:when test="${param['page'] eq 'cash'}">
+                <ui:include src="support/cash.xhtml"/>
+            </c:when>
+            <c:when test="${param['page'] eq 'dean'}">
+                <ui:include src="support/dean.xhtml"/>
+            </c:when>
+            <c:when test="${param['page'] eq 'movieConf'}">
+                <ui:include src="support/movieConf.xhtml"/>
+            </c:when>
+            <c:when test="${param['page'] eq 'avatar'}">
+                <ui:include src="support/avatar.xhtml"/>
+            </c:when>
+            <c:when test="${param['page'] eq 'bf'}">
+                <ui:include src="support/bf.xhtml"/>
+            </c:when>
+            <c:otherwise>
+                <ui:include src="support/tree.xhtml"/>
+            </c:otherwise>
+        </c:choose>
     </ui:define>
     
 </ui:composition>

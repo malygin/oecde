@@ -626,4 +626,15 @@
     margin-top: 5px;
     margin-left: 71px;
 }
-
+.mainStyle .notLink:link,
+.mainStyle .notLink:hover,
+.mainStyle .notLink:visited,
+.mainStyle .notLink:active{
+    color: inherit !important;
+    text-decoration: inherit !important;
+    font-weight: inherit !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    margin: 0px;
+    padding: 0px;
+}
