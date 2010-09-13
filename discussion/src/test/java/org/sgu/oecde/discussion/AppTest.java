@@ -80,7 +80,7 @@ public class AppTest extends BasicTest{
         System.out.println(node.getChildren());
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void getRoot(){
         DiscussionDaoProxy dp = this.<DiscussionDaoProxy>getBean("discussionDaoProxy");
