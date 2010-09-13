@@ -30,8 +30,7 @@ public class StudentFilter extends BaseFilter {
         availableEvents.add(EventType.SPAM_GROUP);
         availableEvents.add(EventType.SPAM_SPECIALITY);
         availableEvents.add(EventType.SPAM_STREAM);
-        availableEvents.add(EventType.GRADING_FIRST);
-        availableEvents.add(EventType.GRADING_SECOND);
+        availableEvents.add(EventType.GRADING);
         availableEvents.add(EventType.TASK_HAS_BEEN_READ);
         availableEvents.add(EventType.UMK_EDIT);
         availableEvents.add(EventType.UMK_CREATE);
@@ -58,8 +57,7 @@ public class StudentFilter extends BaseFilter {
         final Student user = (Student) getUserItem();
         int spamId = 0;
         switch (event) {
-            case GRADING_FIRST:
-            case GRADING_SECOND:
+            case GRADING:
                 Long gradeId = user.<Group>getGroup().getSpeciality().getId() * 10000 + user.getGroup().getId();
                 return " AND MULTI_ID = " + gradeId;
             case SPAM_GROUP:

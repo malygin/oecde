@@ -5,7 +5,10 @@ import java.util.List;
 import org.sgu.oecde.core.education.AdvancedCurriculum;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.resource.Task;
+import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.core.users.AbstractUser;
+import org.sgu.oecde.core.users.StudentGroup;
+import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.journal.dao.IJournalDao;
 import org.sgu.oecde.journal.filter.BaseFilter;
 import org.sgu.oecde.journal.util.RecordEventFactory;
@@ -181,16 +184,8 @@ public class Journal implements Serializable{
      * Добавляет в таблицу логов
      * запись о выставлении оценок.
      */
-    public void logGradesPutting(AbstractUser userId, Long specId, Long groupId) {
-        ref.saveGradesActivity(userId, EventType.GRADING_FIRST, specId, groupId);
-    }
-
-    /**
-     * Добавляет в таблицу логов
-     * запись о ДОвыставлении оценок.
-     */
-    public void logSecondGradesPutting(AbstractUser userId, Long specId, Long groupId) {
-        ref.saveGradesActivity(userId, EventType.GRADING_SECOND, specId, groupId);
+    public void logGradesPutting(AbstractUser userId, StudentGroup group, AdvancedCurriculum c) {
+        ref.saveGradesActivity(userId, EventType.GRADING, group, c);
     }
 
     /**
@@ -210,8 +205,12 @@ public class Journal implements Serializable{
      * @param disciplineId id дисциплины
      * @param studentId    id студента
      */
-    public void logTaskHasBeenRead(AbstractUser userId, Long disciplineId, Long studentId) {
-        ref.saveTaskHasBeenRead(userId, disciplineId, studentId);
+    public void logTaskHasBeenRead(Teacher userId, AdvancedCurriculum c, AbstractStudent s) {
+        ref.saveTaskHasBeenRead(userId, c, s);
+    }
+
+    public void logHandWrittenWorkGot(AbstractUser u, AdvancedCurriculum c, AbstractStudent studentId) {
+        ref.saveHandWrittenWorkGot(u, studentId, c);
     }
 
     /**

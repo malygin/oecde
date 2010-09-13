@@ -42,8 +42,9 @@ public class EventParser implements Serializable{
                 return parseSpamActivity(item);
             case TEST_END:
                 return parseTestActivity(item);
-            case GRADING_SECOND:
-            case GRADING_FIRST:
+            case HAND_WRITTEN_CONTROL_WORK:
+                return parseHandWrittenWorkGot(item);
+            case GRADING:
                 return parseGradesActivity(item);
             case OWN_MESSAGE:
                 return parseOwnMessage(item);
@@ -340,11 +341,8 @@ public class EventParser implements Serializable{
         sb.append("/id=").append(item.getUser().getId()).append("\">");
         sb.append(str[0]).append(" ").append(str[1]).append("</a>");
         switch (item.getEventType()) {
-            case GRADING_FIRST:
+            case GRADING:
                 sb.append(" выставил(а) оценки группе ");
-                break;
-            case GRADING_SECOND:
-                sb.append(" довыставил(а) оценки группе ");
                 break;
         }
         sb.append(str[2]).append(" специальности \"");
@@ -386,6 +384,19 @@ public class EventParser implements Serializable{
         StringBuilder sb = new StringBuilder();
         String[] str = item.getEventBody().split(splitter);
         sb.append("Cтудент ").append("<a href=student.xhtml?id=");
+        sb.append(item.getUser().getId()).append(">");
+        sb.append(RecordEventFactory.getFioByUserId(item.getUser())).append("</a>").append(" ");
+        sb.append("отправил(а) на проверку задание по дисциплине \"");
+        sb.append(str[1]).append("\"");
+        return sb.toString();
+    }
+
+    private String parseHandWrittenWorkGot(EventItem item) {
+        StringBuilder sb = new StringBuilder();
+        String[] str = item.getEventBody().split(splitter);
+        sb.append(UserType.toType(item.getUser()).toString());
+        sb.append(" ").append("отметил, что").append("студент ");
+        sb.append("<a href=student.xhtml?id=");
         sb.append(item.getUser().getId()).append(">");
         sb.append(RecordEventFactory.getFioByUserId(item.getUser())).append("</a>").append(" ");
         sb.append("отправил(а) на проверку задание по дисциплине \"");

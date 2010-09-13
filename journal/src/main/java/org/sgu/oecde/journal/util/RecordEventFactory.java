@@ -1,5 +1,6 @@
 package org.sgu.oecde.journal.util;
 
+import org.sgu.oecde.core.users.AbstractStudent;
 import java.io.Serializable;
 import javax.annotation.Resource;
 import org.sgu.oecde.core.IBasicDao;
@@ -218,15 +219,16 @@ public class RecordEventFactory implements Serializable{
      * !!! Номер группы уникален только в пределах специальности. В разных спец-х
      * возможно дублирование.
      */
-    public void saveGradesActivity(AbstractUser userId, EventType eventType, Long specId, Long groupId) {
-        String[] str = new String[5];
+    public void saveGradesActivity(AbstractUser userId, EventType eventType, StudentGroup group, AdvancedCurriculum c) {
+        if(c==null||c.getDiscipline()==null||group==null||userId==null)
+            return;
+        String[] str = new String[4];
         str[0] = UserType.TEACHER.toString();
         str[1] = getFioByUserId(userId);
-        str[2] = groupId + "";
-        str[3] = specId + "";
-        str[4] = getSpecialytyNameById(specId);
+        str[2] = group.getName();
+        str[3] = c.getDiscipline().getName();
         //Формируется multiId
-        Long multiId = specId * 10000 + groupId;
+        Long multiId = group.getId();
         save(eventType, userId,  multiId, str);
     }
 
@@ -261,6 +263,15 @@ public class RecordEventFactory implements Serializable{
         save(EventType.TASK_HAS_BEEN_SEND_TO_PREP, user, c.getId(), str);
     }
 
+    public void saveHandWrittenWorkGot(AbstractUser user, AbstractStudent st, AdvancedCurriculum c) {
+        if(c==null||c.getDiscipline()==null||st==null)
+            return;
+        String[] str = new String[2];
+        str[0] = c.getDiscipline().getName();
+        str[1] = getFioByUserId(user);
+        save(EventType.HAND_WRITTEN_CONTROL_WORK, user, c.getId(), str);
+    }
+
     /**
      * Логируется факт прочтения преподавателем по дисциплине задания студета. Событие для админа.
      * В теле события через разделитель записаны следующий данные:
@@ -271,12 +282,14 @@ public class RecordEventFactory implements Serializable{
      * Решено, что хранить id этих объектов не имеет смысла, достаточно
      * Стринговых значений ФИО и  названия дисциплины.
      */
-    public void saveTaskHasBeenRead(AbstractUser userId, Long disciplineId, Long studentId) {
+    public void saveTaskHasBeenRead(AbstractUser userId, AdvancedCurriculum c, AbstractStudent s) {
+        if(c==null||c.getDiscipline()==null||s==null||s.getId()==null)
+            return;
         String[] str = new String[3];
-        str[0] = getDisciplineNameById(disciplineId);
-        str[1] = getFioByUserId(studentId);
+        str[0] = c.getDiscipline().getName();
+        str[1] = getFioByUserId(s);
         str[2] = getFioByUserId(userId);
-        save(EventType.TASK_HAS_BEEN_READ, userId, studentId, str);
+        save(EventType.TASK_HAS_BEEN_READ, userId, s.getId(), str);
     }
 
     /**

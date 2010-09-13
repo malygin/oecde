@@ -14,13 +14,13 @@ public enum EventType {
      */
     UMK_VIEW,
     /**
-     * Довыставление оценок.
+     * отметка о получении рукописной контрольной рабоы
      */
-    GRADING_SECOND,
+    HAND_WRITTEN_CONTROL_WORK,
     /**
      * Выставление оценки.
      */
-    GRADING_FIRST,
+    GRADING,
     /**
      * Обновление новостей.
      */
@@ -118,10 +118,8 @@ public enum EventType {
                 return 7;
             case TEST_END:
                 return 9;
-            case GRADING_FIRST:
+            case GRADING:
                 return 45;
-            case GRADING_SECOND:
-                return 76;
             case TASK_HAS_BEEN_SEND_TO_PREP:
                 return 50;
             case TASK_HAS_BEEN_READ:
@@ -212,10 +210,8 @@ public enum EventType {
                 return "Удаление фотографии";
             case TEST_END:
                 return "Завершение прохождения теста";
-            case GRADING_FIRST:
+            case GRADING:
                 return "Выставление оценок";
-            case GRADING_SECOND:
-                return "Довыставление оценок";
             case TASK_HAS_BEEN_SEND_TO_PREP:
                 return "Отправка задания";
             case TASK_HAS_BEEN_READ:

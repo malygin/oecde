@@ -47,8 +47,7 @@ public abstract class BaseFilter {
         addAvailableEvent(EventType.UMK_EDIT);
         addAvailableEvent(EventType.UMK_DELETE);
 
-        addAvailableEvent(EventType.GRADING_FIRST);
-        addAvailableEvent(EventType.GRADING_SECOND);
+        addAvailableEvent(EventType.GRADING);
     }
 
     public void addEventType(EventType type) {
