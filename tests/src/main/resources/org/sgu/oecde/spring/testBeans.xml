@@ -5,5 +5,5 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
        ">
   <bean id="testAttemptDao" p:type="org.sgu.oecde.tests.TestAttempt"  parent="basicDao" class="org.sgu.oecde.tests.dao.TestAttemptDao" />
-  <bean id="testsDatesGetter" parent="constantsGetter" p:entityName="Tests Calendar Constants"/>
+  <bean id="testsDatesGetter" parent="constantsGetter" p:entityName="tests_constants"/>
 </beans>

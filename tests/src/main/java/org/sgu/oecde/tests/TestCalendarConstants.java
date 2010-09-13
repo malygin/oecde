@@ -61,13 +61,13 @@ public enum TestCalendarConstants implements ICalendarConstantName{
             case simpleSpecialitiesTestsClosing:
                 return "2009.01.01 00:00:00";
             case summerConcludingTestReExameAttemtpsCount:
-                return 1;
+                return "1";
             case summerRegularTestReExameAttemtpsCount:
-                return 1;
+                return "1";
             case winterConcludingTestReExameAttemtpsCount:
-                return 1;
+                return "1";
             case winterRegularTestReExameAttemtpsCount:
-                return 1;
+                return "1";
             default:
                 return new AssertionError();
         }

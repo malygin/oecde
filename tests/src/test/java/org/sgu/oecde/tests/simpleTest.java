@@ -1,5 +1,8 @@
 package org.sgu.oecde.tests;
 
+import org.sgu.oecde.core.education.CalendarConstantName;
+import org.sgu.oecde.tests.TestCalendarConstants;
+import org.sgu.oecde.core.education.ICalendarConstantName;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -22,7 +25,7 @@ import static org.junit.Assert.*;
  */
 public class simpleTest{
 
-//    @Ignore
+    @Ignore
     @Test
     public void getF(){
 
@@ -35,6 +38,13 @@ public class simpleTest{
         System.out.println(l);
         Collections.shuffle(l);
         System.out.println(new LinkedHashSet(l));
+
     }
-    
+
+//    @Ignore
+    @Test
+    public void contan(){
+        ICalendarConstantName n = null;
+        System.out.println(n instanceof CalendarConstantName);
+    }
 }

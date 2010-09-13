@@ -83,8 +83,8 @@ public class AdditionalCurriculum implements Serializable,Comparable<AdditionalC
      *
      * @return учебный план
      */
-    public Curriculum getCurriculum() {
-        return curriculum;
+    public <T extends Curriculum>T getCurriculum() {
+        return (T) curriculum;
     }
 
     /**
