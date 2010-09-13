@@ -5,14 +5,33 @@
          xmlns:f="http://java.sun.com/jsf/core"
          template="baseTemplate.xhtml">
         <ui:define name="left">
-            <r:set target="#{teachersGroups}" value="${param.s}" property="grSemester"/>
-            <h:outputLink value="?s=#{teachersGroups.semester==0?1:0}">другой семестр</h:outputLink><br/>
-            <r:forEach items="${teachersGroups.teachersGroups}" var="w">
-               ${w.key.name} <br/>
-                <r:forEach items="${w.value}" var="g">
-                    <h:outputLink value="groupPoints.xhtml?g=${g.id}&amp;s=${teachersGroups.semester}">${g.name} (${g.city.name})</h:outputLink><br/>
-                </r:forEach>
-            </r:forEach>
+            <h:form>
+            <h:commandLink id="handle">
+                <f:ajax event="click" render="table" listener="#{teachersGroups.changeSemester}"/>
+                <f:attribute name="semester" value="#{teachersGroups.semester==0?1:0}"/>
+                <h:outputText value="другой семестр"/>
+            </h:commandLink>
+
+            <h:dataTable id="table" value="#{teachersGroups.teachersGroups}" var="w">
+                <h:column>
+                    <f:facet name="header">
+                     <h:outputText value="спец-ть" />
+                    </f:facet>
+                    <h:outputText value="#{w.key.name}"/>
+                    <h:outputText value="#{w.key.rusShort}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                     <h:outputText value="группа" />
+                    </f:facet>
+                    <h:dataTable id="groups" value="#{w.value}" var="g">
+                        <h:column>
+                            <h:outputLink value="groupPoints.xhtml?g=#{g.id}&amp;s=#{teachersGroups.semester}">#{g.name} (#{g.city.name})</h:outputLink>
+                        </h:column>
+                    </h:dataTable>
+                </h:column>
+            </h:dataTable>
+            </h:form>
         </ui:define>
         <ui:define name="content">
             Студенческий контент

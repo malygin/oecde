@@ -1,10 +1,10 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.core.users.Teacher;
+import org.sgu.oecde.de.education.DeCurriculum;
 
 /**
  *
@@ -14,13 +14,13 @@ import org.sgu.oecde.core.users.Teacher;
 @ViewScoped
 public class TeachersList extends StudentCurriculumBean{
 
-    private List<Teacher>teachersList;
+    private Map<DeCurriculum, Teacher>teachersList;
 
     private static final long serialVersionUID = 99L;
 
-    public List<Teacher> getTeachers(){
+    public Map<DeCurriculum, Teacher> getTeachers(){
         if(teachersList==null)
-            teachersList = new ArrayList(getCurriculumAndTeacher().values());
+            teachersList = getCurriculumAndTeacher();
         return teachersList;
     }
 

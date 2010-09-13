@@ -4,6 +4,7 @@ import org.sgu.oecde.controlworks.ControlWorkProgress;
 import org.sgu.oecde.controlworks.estimation.CwEstimateNames;
 import org.sgu.oecde.core.education.estimation.EstimateNames;
 import org.sgu.oecde.core.education.estimation.Points;
+import org.sgu.oecde.core.education.work.Estimate;
 import org.sgu.oecde.core.education.work.PointToEstimate;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.tests.estimation.TestEstimateNames;
@@ -26,7 +27,7 @@ public class PointsFacade {
     private Integer concludingTest;
     private Integer controlWorkPoints;
     private ControlWorkProgress controlWorkValue;
-    private PointToEstimate estimate;
+    private PointToEstimate grade;
 
     public PointsFacade(Points points) {
         this.points = points;
@@ -40,67 +41,113 @@ public class PointsFacade {
         concludingTest = points.getWorkPoints(TestEstimateNames.CONCLUDING_TEST);
         controlWorkPoints = points.getWorkPoints(CwEstimateNames.control_work_points);
         controlWorkValue = points.getWorkPoints(CwEstimateNames.control_work_value);
-        estimate = points.getWorkPoints(EstimateNames.estimate);
+        Estimate e = points.getWorkPoints(EstimateNames.estimate);
+        grade = e==null?PointToEstimate.notEstimated:e.getGradeCode();
+
     }
 
-    public Integer getTestsCount(){
-        return testsCount;
-    }
-
-    public Integer getConcludingTestsCount(){
-        return concludingTestsCount;
-    }
-    
-    public Integer getTestPoints(){
-        return test;
-    }
-
-    public Integer getReTestPoints(){
-        return reTest;
-    }
-
-    public Integer getConcludingReTestPoints(){
+    public Integer getConcludingReTest() {
         return concludingReTest;
     }
 
-    public Integer getConcludingTestPoints(){
+    public void setConcludingReTest(Integer concludingReTest) {
+        this.concludingReTest = concludingReTest;
+    }
+
+    public Integer getConcludingTest() {
         return concludingTest;
     }
 
-    public Integer getControlWorksPoints(){
-        return controlWorkPoints;
+    public void setConcludingTest(Integer concludingTest) {
+        this.concludingTest = concludingTest;
     }
 
-    public ControlWorkProgress getControlWorksValue(){
-        return controlWorkValue;
+    public Integer getConcludingTestsCount() {
+        return concludingTestsCount;
     }
 
-    public PointToEstimate getGrade(){
-        return estimate;
-    }
-
-    public void setPoints(Points points) {
-        this.points = points;
-    }
-
-    public Points getPoints() {
-        return points;
-    }
-
-    public Teacher getTeacher() {
-        return teacher;
+    public void setConcludingTestsCount(Integer concludingTestsCount) {
+        this.concludingTestsCount = concludingTestsCount;
     }
 
     public Integer getConcludingTestsMaxPoints() {
         return concludingTestsMaxPoints;
     }
 
-    public Integer getTestsMaxPoints() {
-        return testsMaxPoints;
+    public void setConcludingTestsMaxPoints(Integer concludingTestsMaxPoints) {
+        this.concludingTestsMaxPoints = concludingTestsMaxPoints;
+    }
+
+    public Integer getControlWorkPoints() {
+        return controlWorkPoints;
+    }
+
+    public void setControlWorkPoints(Integer controlWorkPoints) {
+        this.controlWorkPoints = controlWorkPoints;
+    }
+
+    public ControlWorkProgress getControlWorkValue() {
+        return controlWorkValue;
+    }
+
+    public void setControlWorkValue(ControlWorkProgress controlWorkValue) {
+        this.controlWorkValue = controlWorkValue;
+    }
+
+    public PointToEstimate getGrade() {
+        return grade;
+    }
+
+    public void setGrade(PointToEstimate grade) {
+        this.grade = grade;
+    }
+
+    public Points getPoints() {
+        return points;
+    }
+
+    public void setPoints(Points points) {
+        this.points = points;
+    }
+
+    public Integer getReTest() {
+        return reTest;
+    }
+
+    public void setReTest(Integer reTest) {
+        this.reTest = reTest;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
     }
 
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
+    }
+
+    public Integer getTest() {
+        return test;
+    }
+
+    public void setTest(Integer test) {
+        this.test = test;
+    }
+
+    public Integer getTestsCount() {
+        return testsCount;
+    }
+
+    public void setTestsCount(Integer testsCount) {
+        this.testsCount = testsCount;
+    }
+
+    public Integer getTestsMaxPoints() {
+        return testsMaxPoints;
+    }
+
+    public void setTestsMaxPoints(Integer testsMaxPoints) {
+        this.testsMaxPoints = testsMaxPoints;
     }
 
     @Override

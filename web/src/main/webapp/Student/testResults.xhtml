@@ -14,9 +14,6 @@
                 <f:viewParam name="c" value="#{testResultsBean.curriculumId}"/>
                 <f:viewParam name="r" value="#{testResultsBean.reExame}"/>
             </f:metadata>
-            <div class="navigationLinks">
-                <h:outputLink value="?s=#{teachersListBean.semester==0?1:0}">#{msgs.student_otherSemestr}</h:outputLink>
-            </div>
             <h:dataTable style="width: 100%;" value="#{testResultsBean.attempts}" cellpadding="0" cellspacing="0"
                          columnClasses="studentStandatrTableTd,
                          studentStandatrTableTd,
@@ -33,7 +30,7 @@
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_testResultAttempt}" />
                     </f:facet>
-                    #{r.estimateAttemptsUsedNumber} #{msgs.student_fromWord} #{r.work.estimateAttemptsNumber}
+                    #{testResultsBean.reExame?r.reExameAttemptsUsedNumber:r.estimateAttemptsUsedNumber} #{msgs.student_fromWord} #{r.work.estimateAttemptsNumber}
                 </h:column>
 
                 <h:column>
@@ -47,7 +44,10 @@
                                     <h:outputText value="#{msgs.student_testResultCorrectAnswers}" />
                                 </div>
                             </f:facet>
-                           #{a.rightAnswers} #{msgs.student_fromWord} #{r.work.quantity}
+                            #{a.rightAnswers} #{msgs.student_fromWord}
+                            #{testResultsBean.reExame?
+                               (r.work.type eq testResultsBean.concludingType?testResultsBean.concludingAttemtpsCount:testResultsBean.regularAttemtpsCount)
+                            :r.work.quantity}
                        </h:column>
                        <h:column>
                             <f:facet name="header">

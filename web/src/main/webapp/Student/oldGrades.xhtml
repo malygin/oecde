@@ -10,14 +10,28 @@
     <ui:define name="content">
         <div class="interfaceContent">
             <f:metadata>
-                <f:viewParam name="s" value="#{oldGradesBean.semester}"/>
-            </f:metadata>
+             <f:viewParam name="s" value="#{oldGradesBean.semester}"/>
+             <f:viewParam name="w" value="#{oldGradesBean.winter}"/>
+         </f:metadata>
+            <h:form id="form">
+            <h:commandLink id="handle">
+                <f:ajax render="isWinter years years:year" listener="#{oldGradesBean.changeIsWinter}"/>
+                <f:attribute name="winter" value="#{!oldGradesBean.winter}"/>
+                <h:outputText id="isWinter" value="#{oldGradesBean.winter?('зима'):('лето')}"/>
+            </h:commandLink>
+                <br/>
+            <h:dataTable id="years" value="#{oldGradesBean.years}" var="y">
+                <h:column rowHeader="true" >
+                    <h:outputLink disabled="#{oldGradesBean.semester eq y}" id="handle" value="?w=#{oldGradesBean.winter}&amp;s=#{y}">
+                    <h:outputText id="year" value="#{y}"/>
+                </h:outputLink>  |
+                </h:column>
+            </h:dataTable>
 
             <h:dataTable value="#{oldGradesBean.oldGrades}" var="p"
                          style="width: 100%;"
                          columnClasses="studentStandatrTableTd,
                          studentStandatrTableTdLastTd" cellpadding="0" cellspacing="0" styleClass="studentStandatrTable">
-
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
@@ -29,7 +43,7 @@
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_gradesTableHeadFinal}" />
                     </f:facet>
-                    <h:outputText value="#{p.grade}"/>
+                    <h:outputText converter="enumConverter" value="#{p.grade}"/>
                 </h:column>
             </h:dataTable>
         </div>

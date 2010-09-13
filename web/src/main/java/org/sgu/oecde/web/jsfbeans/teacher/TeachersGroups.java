@@ -1,18 +1,18 @@
 package org.sgu.oecde.web.jsfbeans.teacher;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.AjaxBehaviorEvent;
 import org.sgu.oecde.core.education.Speciality;
 import org.sgu.oecde.de.users.Group;
+import org.sgu.oecde.web.jsfbeans.util.NewEntry;
 import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
 
 /**
  *
@@ -22,16 +22,16 @@ import org.springframework.util.StringUtils;
 @ViewScoped
 public class TeachersGroups extends AbstractTeacherBean{
 
-    private Map<Speciality,List<Group>>groupsMap;
+    private List<NewEntry<Speciality,List<Group>>>groupsMap;
 
     @ManagedProperty(value="#{teacherSessionBean}")
     private TeacherSessionBean teacherSessionBean;
 
     private static final long serialVersionUID = 111L;
     
-    public Map<Speciality,List<Group>> getTeachersGroups(){
+    public List<NewEntry<Speciality,List<Group>>> getTeachersGroups(){
         if(groupsMap==null){
-            groupsMap = new HashMap<Speciality, List<Group>>();
+            groupsMap = new ArrayList<NewEntry<Speciality, List<Group>>>();
             List<Group>groups = teacherSessionBean.getGroups(semester);
             if(!CollectionUtils.isEmpty(groups)){
                 Collections.sort(groups, new SortGroup());
@@ -40,7 +40,7 @@ public class TeachersGroups extends AbstractTeacherBean{
                 for(Group g:groups){
                     if(!g.getSpeciality().equals(s)){
                         specialityGroups = new LinkedList<Group>();
-                        groupsMap.put(g.getSpeciality(), specialityGroups);
+                        groupsMap.add(new NewEntry<Speciality, List<Group>>(g.getSpeciality(), specialityGroups));
                     }
                     specialityGroups.add(g);
                     s = g.getSpeciality();
@@ -50,11 +50,13 @@ public class TeachersGroups extends AbstractTeacherBean{
         return groupsMap;
     }
 
-    public void setGrSemester(String semester) {
-        if(StringUtils.hasText(semester)){
-            semester.replaceAll("[^\\d]", "");
-            super.setSemester(semester.isEmpty()?0:Integer.parseInt(semester));
-        }
+    public void setGroupsMap(List<NewEntry<Speciality, List<Group>>> groupsMap) {
+        this.groupsMap = groupsMap;
+    }
+
+    public void changeSemester(AjaxBehaviorEvent event){
+        Long w = (Long) event.getComponent().getAttributes().get("semester");
+        setSemester(w!=null?w.intValue():0);
         groupsMap =null;
     }
 

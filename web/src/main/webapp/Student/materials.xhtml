@@ -23,8 +23,8 @@
                     <br/>
                     <div class="materialInfo">
                         ${msgs.student_finishedTests} #{m.passedTests} ${msgs.student_fromWord} #{m.testsCount}<br/>
-                        ${msgs.student_testResults} #{m.testPoints}<br/>
-                        ${msgs.student_mainTest} #{m.concludingTestPoints}
+                        ${msgs.student_testResults} #{m.reTestPoints==0?m.testPoints:m.reTestPoints}<br/>
+                        ${msgs.student_mainTest} #{m.concludingReTestPoints==0?m.concludingTestPoints:m.concludingReTestPoints}
                     </div>
                 </div>
             </r:forEach>

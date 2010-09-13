@@ -1,10 +1,10 @@
 package org.sgu.oecde.web;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import javax.annotation.Resource;
 import org.sgu.oecde.core.education.dao.IResultDao;
 import org.sgu.oecde.core.education.estimation.IResultFilter;
@@ -65,6 +65,7 @@ public class GradesService {
             testService.countTests(m, p);
             facades.add(new PointsFacade(p));
         }
+        Collections.sort(facades, new OrderByStudentName());
         return facades;
     }
 
@@ -76,6 +77,7 @@ public class GradesService {
             testService.countTests(m, p);
             facades.add(putTeacherIntoFacade(p, curriculums));
         }
+        Collections.sort(facades, new OrderByDisciplineName());
         return facades;
     }
 
@@ -84,5 +86,39 @@ public class GradesService {
         if(curriculums.containsKey(p.<DeCurriculum>getCurriculum()))
             pf.setTeacher(curriculums.get(p.<DeCurriculum>getCurriculum()));
         return pf;
+    }
+
+    private class OrderByDisciplineName implements Comparator<PointsFacade>{
+
+        @Override
+        public int compare(PointsFacade o1, PointsFacade o2) {
+            int discipline = 0;
+            if(o1!=null &&o2!=null &&
+                    o1.getPoints()!=null&&o2.getPoints()!=null&&o1.getPoints().getCurriculum()!=null&&
+                    o2.getPoints().getCurriculum()!=null&&
+                    o1.getPoints().<DeCurriculum>getCurriculum().getDiscipline()!=null &o2.getPoints().<DeCurriculum>getCurriculum().getDiscipline()!=null &&
+                    o1.getPoints().<DeCurriculum>getCurriculum().getDiscipline().getName()!=null
+                ){
+                discipline = o1.getPoints().<DeCurriculum>getCurriculum().getDiscipline().getName().compareTo(o2.getPoints().<DeCurriculum>getCurriculum().getDiscipline().getName());
+            }
+            return discipline;
+        }
+
+    }
+
+    private class OrderByStudentName implements Comparator<PointsFacade>{
+
+        @Override
+        public int compare(PointsFacade o1, PointsFacade o2) {
+            int st = 0;
+            if(o1!=null &&o2!=null &&
+                    o1.getPoints()!=null&&o2.getPoints()!=null&&o1.getPoints().getStudent()!=null&&
+                    o2.getPoints().getStudent()!=null
+                ){
+                st = o1.getPoints().getStudent().getFio().compareTo(o2.getPoints().getStudent().getFio());
+            }
+            return st;
+        }
+
     }
 }

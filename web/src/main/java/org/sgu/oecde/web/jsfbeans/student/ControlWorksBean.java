@@ -1,6 +1,8 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -43,7 +45,7 @@ public class ControlWorksBean extends StudentCurriculumBean{
     private IControlWorkDao<ControlWork> controlWorkDao;
 
     @ManagedProperty(value="#{journalServise}")
-    private Journal journal;
+    private Journal journalServise;
 
     private List<Object[]>works;
 
@@ -89,6 +91,7 @@ public class ControlWorksBean extends StudentCurriculumBean{
                     data[3] = getCurriculumAndTeacher().get(cr);
                 data[4] = (cr.isControlWorksPaperOnly()!=null&&cr.isControlWorksPaperOnly())?"в рукописном":"";
             }
+            Collections.sort(works,new OrderByDisciplineName());
         }
         return works;
     }
@@ -111,7 +114,7 @@ public class ControlWorksBean extends StudentCurriculumBean{
 
     public String saveCw() throws IOException{
          HttpServletRequest req = FacesUtil.getRequest();
-        if(req instanceof MultipartRequestWrapper){
+         if(req instanceof MultipartRequestWrapper){
             MultipartRequestWrapper multi = (MultipartRequestWrapper)req;
             //CwFile -  имя файла в форме
             UploadFile uf = multi.findFile("CwFile");
@@ -126,10 +129,10 @@ public class ControlWorksBean extends StudentCurriculumBean{
                  String name = FileUploadUtil.Upload(uf, multi, "controlWorks");
                  a.setFilePath(name);
                  controlWorkDao.save(currentControlWorks);
-                 journal.logTaskHasBeenSent(student, currentDeCurriculum);
+                 journalServise.logTaskHasBeenSent(student, currentDeCurriculum);
             }
         }
-         return "controlWorks";
+        return "controlWorks";
     }
 
     public ControlWork getCurrentControlWorks() {
@@ -138,10 +141,6 @@ public class ControlWorksBean extends StudentCurriculumBean{
 
     public void setCurrentControlWorks(ControlWork currentControlWorks) {
         this.currentControlWorks = currentControlWorks;
-    }
-
-    public IControlWorkDao<ControlWork> getControlWorkDao() {
-        return controlWorkDao;
     }
 
     public void setControlWorkDao(IControlWorkDao<ControlWork> controlWorkDao) {
@@ -156,13 +155,24 @@ public class ControlWorksBean extends StudentCurriculumBean{
         this.currentDeCurriculum = currentDeCurriculum;
     }
 
-    public Journal getJournal() {
-        return journal;
+    public void setJournalServise(Journal journalServise) {
+        this.journalServise = journalServise;
     }
 
-    public void setJournal(Journal journal) {
-        this.journal = journal;
+    private class OrderByDisciplineName implements Comparator<Object[]>{
+
+        @Override
+        public int compare(Object[] o1, Object[] o2) {
+            int discipline = 0;
+            if(o1!=null &&o2!=null &&o1[1]!=null&&o2[1]!=null&&
+                    ((ControlWork)o1[1]).getCurriculum()!=null&&((ControlWork)o2[1]).getCurriculum()!=null&&
+                    ((ControlWork)o1[1]).<DeCurriculum>getCurriculum().getDiscipline()!=null &&((ControlWork)o2[1]).<DeCurriculum>getCurriculum().getDiscipline()!=null &&
+                    ((ControlWork)o1[1]).<DeCurriculum>getCurriculum().getDiscipline().getName()!=null
+                ){
+                discipline = ((ControlWork)o1[1]).<DeCurriculum>getCurriculum().getDiscipline().getName().compareTo( ((ControlWork)o2[1]).<DeCurriculum>getCurriculum().getDiscipline().getName());
+            }
+            return discipline;
+        }
+
     }
-
-
 }

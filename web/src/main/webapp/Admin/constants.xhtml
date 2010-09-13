@@ -1,0 +1,31 @@
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/adminTemplate.xhtml"
+    >
+    <ui:define name="content">
+        <h:form>
+            <h:inputText maxlength="19" size="19" value="#{calendarConstantsBean.concludingTestBeginDate}"/>concludingTestBeginDate<br/>
+            <h:inputText maxlength="19" size="19" value="#{calendarConstantsBean.reExameBeginDate}"/>reExameBeginDate<br/>
+            <h:inputText maxlength="19" size="19" value="#{calendarConstantsBean.reExameEndDate}"/>reExameEndDate<br/>
+            <h:inputText maxlength="19" size="19" value="#{calendarConstantsBean.concludingTestEndDate}"/>concludingTestEndDate<br/>
+            <h:inputText maxlength="19" size="19" value="#{calendarConstantsBean.simpleSpecialitiesTestsClosing}"/>simpleSpecialitiesTestsClosing<br/>
+            <h:inputText maxlength="19" size="19" value="#{calendarConstantsBean.regularTestEndDate}"/>regularTestEndDate<br/>
+            <h:inputText maxlength="19" size="19" value="#{calendarConstantsBean.regularTestBeginDate}"/>regularTestBeginDate<br/>
+            <h:inputText maxlength="19" size="19" value="#{calendarConstantsBean.controlWorksBeginDate}"/>controlWorksBeginDate<br/>
+            <h:inputText maxlength="19" size="19" value="#{calendarConstantsBean.controlWorksEndDate}"/>controlWorksEndDate<br/>
+            <h:inputText maxlength="19" size="19" value="#{calendarConstantsBean.summerRegularTestReExameAttemtpsCount}"/>summerRegularTestReExameAttemtpsCount<br/>
+            <h:inputText maxlength="19" size="19" value="#{calendarConstantsBean.summerConcludingTestReExameAttemtpsCount}"/>summerConcludingTestReExameAttemtpsCount<br/>
+            <h:inputText maxlength="19" size="19" value="#{calendarConstantsBean.winterRegularTestReExameAttemtpsCount}"/>winterRegularTestReExameAttemtpsCount<br/>
+            <h:inputText maxlength="19" size="19" value="#{calendarConstantsBean.winterConcludingTestReExameAttemtpsCount}"/>winterConcludingTestReExameAttemtpsCount<br/>
+            <h:inputText maxlength="4" size="4" value="#{calendarConstantsBean.year}"/>year<br/>
+            <h:selectBooleanCheckbox  value="#{calendarConstantsBean.semester}"/>semester<br/>
+            <h:commandButton value="ОКЭ">
+                <f:ajax execute="@form" render="@form error saved" listener="#{calendarConstantsBean.save}"/>
+            </h:commandButton><br/>
+            <h:outputText id="error" rendered="#{calendarConstantsBean.error}" value="ERROR"/>
+            <h:outputText id="saved" rendered="#{calendarConstantsBean.saved}" value="saved"/>
+        </h:form>
+    </ui:define>
+</ui:composition>

@@ -43,42 +43,42 @@
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_gradesTableHeadTests}" />
                     </f:facet>
-                    #{p.testPoints} (#{p.testsMaxPoints})
+                    #{p.test} (#{p.testsMaxPoints})
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_gradesTableHeadResit}" />
                     </f:facet>
-                    #{p.reTestPoints}
+                    #{p.reTest}
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_gradesTableHeadFinTests}" />
                     </f:facet>
-                   #{p.concludingTestPoints} (#{p.concludingTestsMaxPoints})
+                   #{p.concludingTest} (#{p.concludingTestsMaxPoints})
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_gradesTableHeadFinTestsResit}" />
                     </f:facet>
-                    #{p.concludingReTestPoints}
+                    #{p.concludingReTest}
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_gradesTableHeadCWPoints}" />
                     </f:facet>
-                    #{p.controlWorksPoints}
+                    #{p.controlWorkPoints}
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_gradesTableHeadCWs}" />
                     </f:facet>
-                    <h:outputText converter="enumConverter" value="#{p.controlWorksValue}"/>
+                    <h:outputText converter="enumConverter" value="#{p.controlWorkValue}"/>
                 </h:column>
 
                 <h:column>

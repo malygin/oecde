@@ -6,6 +6,7 @@
          >
         <ui:define name="content">
          <f:metadata>
+             <f:viewParam name="s" value="#{teachersGroups.semester}"/>
              <f:viewParam name="s" value="#{groupPoints.semester}"/>
              <f:viewParam name="g" value="#{groupPoints.id}"/>
              <f:viewParam name="c" value="#{groupPoints.curriculumId}"/>
@@ -24,71 +25,79 @@
          <h:outputText value="#{groupPoints.group.name}"/> (<h:outputText value="#{groupPoints.group.city.name}"/>,<h:outputText value="#{groupPoints.group.speciality.name}"/>)
 
          <hr/>
-         <h:dataTable value="#{groupPoints.groupPointsAndGrades}" var="p">
-               <h:column>
-                <f:facet name="header">
-                 <h:outputText value="студент" />
-                </f:facet>
-                   <h:outputLink value="student.xhtml?id=#{p.points.student.id}&amp;s=#{groupPoints.semester}">#{p.points.student.initials}</h:outputLink>
-               </h:column>
+         <h:form id="form" prependId="false">
+             <h:dataTable id="table" value="#{groupPoints.points}" var="p">
+           <h:column>
+            <f:facet name="header">
+             <h:outputText value="студент" />
+            </f:facet>
+               <h:outputLink value="student.xhtml?id=#{p.points.student.id}&amp;s=#{groupPoints.semester}">#{p.points.student.initials}</h:outputLink>
+           </h:column>
 
-               <h:column>
-                <f:facet name="header">
-                 <h:outputText value="тесты" />
-                </f:facet>
-                 #{p.testPoints}(#{p.testsMaxPoints})
-               </h:column>
+           <h:column>
+            <f:facet name="header">
+             <h:outputText value="тесты" />
+            </f:facet>
+             #{p.test}(#{p.testsMaxPoints})
+           </h:column>
 
-               <h:column>
-                <f:facet name="header">
-                 <h:outputText value="переэкзаменовка" />
-                </f:facet>
-                 #{p.reTestPoints}
-               </h:column>
+           <h:column>
+            <f:facet name="header">
+             <h:outputText value="переэкзаменовка" />
+            </f:facet>
+             #{p.reTest}
+           </h:column>
 
-               <h:column>
-                <f:facet name="header">
-                 <h:outputText value="итоговые тесты" />
-                </f:facet>
-                 #{p.concludingTestPoints}(#{p.concludingTestsMaxPoints})
-               </h:column>
+           <h:column>
+            <f:facet name="header">
+             <h:outputText value="итоговые тесты" />
+            </f:facet>
+             #{p.concludingTest}(#{p.concludingTestsMaxPoints})
+           </h:column>
 
-               <h:column>
-                <f:facet name="header">
-                 <h:outputText value="итоговые тесты переэкзаменовка" />
-                </f:facet>
-                 #{p.concludingReTestPoints}
-               </h:column>
+           <h:column>
+            <f:facet name="header">
+             <h:outputText value="итоговые тесты переэкзаменовка" />
+            </f:facet>
+             #{p.concludingReTest}
+           </h:column>
 
-               <h:column>
-                <f:facet name="header">
-                 <h:outputText value="контрольные, баллы" />
-                </f:facet>
-                 #{p.controlWorksPoints}
-               </h:column>
+           <h:column>
+            <f:facet name="header">
+             <h:outputText value="контрольные, баллы" />
+            </f:facet>
+                 #{p.controlWorkPoints}
+           </h:column>
 
-               <h:column>
-                <f:facet name="header">
-                 <h:outputText value="контрольные" />
-                </f:facet>
-                 #{p.controlWorksValue}
-               </h:column>
+           <h:column>
+            <f:facet name="header">
+             <h:outputText value="контрольные" />
+            </f:facet>
+               <h:outputText converter="enumConverter" value="#{p.controlWorkValue}" />
+           </h:column>
 
-               <h:column>
-                <f:facet name="header">
-                 <h:outputText value="сумма" />
-                </f:facet>
-                 #{p.points.sum}
-               </h:column>
+           <h:column>
+            <f:facet name="header">
+             <h:outputText value="сумма" />
+            </f:facet>
+             #{p.points.sum}
+           </h:column>
 
-               <h:column>
-                <f:facet name="header">
-                 <h:outputText value="итог" />
-                </f:facet>
-                 <h:outputText value="#{p.grade}"/>
-               </h:column>
-
+           <h:column>
+            <f:facet name="header">
+             <h:outputText value="итог" />
+            </f:facet>
+               <h:selectOneMenu id="grade" value="#{p.grade}">
+                   <f:selectItems value="#{groupPoints.enum}" />
+               </h:selectOneMenu>
+           </h:column>
          </h:dataTable>
-        </h:panelGroup>
+         <h:commandButton id="btn" value="ОКЭ">
+            <f:ajax execute="@form" render="table:grade error saved" listener="#{groupPoints.save}"/>
+         </h:commandButton>
+         <h:outputText id="error" rendered="#{groupPoints.error}" value="ERROR"/>
+         <h:outputText id="saved" rendered="#{groupPoints.saved}" value="saved"/>
+       </h:form>
+       </h:panelGroup>
        </ui:define>
     </ui:composition>

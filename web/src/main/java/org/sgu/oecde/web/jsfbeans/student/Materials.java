@@ -1,6 +1,8 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -56,10 +58,10 @@ public class Materials extends StudentCurriculumBean{
                     while(it.hasNext()){
                         AdditionalCurriculum c = it.next();
                         if(c.getCurriculum().equals(ps.getCurriculum())){
-                            c.setTestPoints(p.getTestPoints());
-                            c.setConcludingReTestPoints(p.getConcludingReTestPoints());
-                            c.setConcludingTestPoints(p.getConcludingTestPoints());
-                            c.setReTestPoints(p.getReTestPoints());
+                            c.setTestPoints(p.getTest());
+                            c.setConcludingReTestPoints(p.getConcludingReTest());
+                            c.setConcludingTestPoints(p.getConcludingTest());
+                            c.setReTestPoints(p.getReTest());
                             c.setTestsCount(p.getTestsCount()+p.getConcludingTestsCount());
                             pI.remove();
                         }
@@ -73,6 +75,7 @@ public class Materials extends StudentCurriculumBean{
                 c.setTestsCount(ps.<Integer>getWorkPoints(TestsCountEnum.TESTS_COUNT)+ps.<Integer>getWorkPoints(TestsCountEnum.CONCLUDING_TESTS_COUNT));
                 advCurriculums.add(c);
             }
+            Collections.sort(advCurriculums, new OrderByDisciplineName());
         }
         return advCurriculums;
     }
@@ -87,5 +90,23 @@ public class Materials extends StudentCurriculumBean{
 
     public void setTestService(TestService testService) {
         this.testService = testService;
+    }
+
+    private class OrderByDisciplineName implements Comparator<AdditionalCurriculum>{
+
+        @Override
+        public int compare(AdditionalCurriculum o1, AdditionalCurriculum o2) {
+            int discipline = 0;
+            if(o1!=null &&o2!=null &&
+                    o1.getCurriculum()!=null&&
+                    o2.getCurriculum()!=null&&
+                    o1.<DeCurriculum>getCurriculum().getDiscipline()!=null &o2.<DeCurriculum>getCurriculum().getDiscipline()!=null &&
+                    o1.<DeCurriculum>getCurriculum().getDiscipline().getName()!=null
+                ){
+                discipline = o1.<DeCurriculum>getCurriculum().getDiscipline().getName().compareTo(o2.<DeCurriculum>getCurriculum().getDiscipline().getName());
+            }
+            return discipline;
+        }
+
     }
 }

@@ -8,12 +8,13 @@
 
         <ui:define name="content">
          <f:metadata>
+             <f:viewParam name="s" value="#{teachersGroups.semester}"/>
              <f:viewParam name="s" value="#{groupControlWorksForTeacher.semester}"/>
              <f:viewParam name="g" value="#{groupControlWorksForTeacher.id}"/>
              <f:viewParam name="c" value="#{groupControlWorksForTeacher.curriculumId}"/>
          </f:metadata>
          <h:outputText rendered="#{groupControlWorksForTeacher.accessDenied}" value="группа не найдена или не доступна" />
-        
+
         <h:panelGroup rendered="#{not groupControlWorksForTeacher.accessDenied}">
          <h:dataTable value="#{groupControlWorksForTeacher.disciplines}" var="d">
            <h:column>
@@ -24,17 +25,69 @@
          <h:outputText rendered="#{groupControlWorksForTeacher.accessDenied}" value="дисциплина не найдена или не доступна" />
          <h:outputText value="#{groupControlWorksForTeacher.curriculum.discipline.name}"/><br/>
          <h:outputText value="#{groupControlWorksForTeacher.group.name}"/> (<h:outputText value="#{groupControlWorksForTeacher.group.city.name}"/>,<h:outputText value="#{groupControlWorksForTeacher.group.speciality.name}"/>)
-         
-         <hr/>
-         <r:if test="${not groupControlWorksForTeacher.accessDenied}">
-         <r:forEach items="${groupControlWorksForTeacher.groupControlWorks}" var="w">
-          <h:outputLink value="?id=#{w.key.id}&a&amp;s=#{groupControlWorksForTeacher.semester}">#{w.key.fio}</h:outputLink>
 
-             -   |#{w.value.points}| #{w.value.progress}<br/>
-               ------------<br/>
-         </r:forEach>
-        </r:if>
+         <hr/>
+         <h:panelGroup id="form" rendered="#{not groupControlWorksForTeacher.accessDenied}">
+          <h:form>
+           <h:dataTable id="table" value="#{groupControlWorksForTeacher.groupControlWorks}" var="w">
+            <h:column>
+                <f:facet name="header">
+                 <h:outputText value="студент" />
+                </f:facet>
+               <h:outputLink value="student.xhtml?id=#{w.key.id}&amp;s=#{groupControlWorksForTeacher.semester}">#{w.key.fio}</h:outputLink>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                 <h:outputText value="попытки" />
+                </f:facet>
+                <h:outputLink value="../addressbook.csv" id="log">
+                <f:ajax  event="mousedown" listener="#{groupControlWorksForTeacher.logWorkDownload}"/>
+                    <f:attribute name="student" value="#{w.key}"/>
+                    <f:attribute name="attempt" value="attempt"/>
+                    <h:outputText value="link"/>
+                </h:outputLink>
+                <h:outputText value="#{w.value.cwAttempt}" id="attempts"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                 <h:outputText value="в рукописной" />
+                </f:facet>
+                <h:commandLink id="handle">
+                    <f:ajax event="click" render="attempts" listener="#{groupControlWorksForTeacher.saveEmpty}"/>
+                    <f:attribute name="work" value="#{w.value}"/>
+                    <h:outputText value="отметить"/>
+                </h:commandLink>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                 <h:outputText value="баллы" />
+                </f:facet>
+             <h:inputText id="points" size="3" maxlength="3" value="#{w.value.points}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                 <h:outputText value="оценка" />
+                </f:facet>
+               <h:selectOneMenu id="progress" value="#{w.value.progress}">
+                   <f:selectItems value="#{groupControlWorksForTeacher.values}" />
+               </h:selectOneMenu>
+            </h:column>
+           </h:dataTable>
+
+              <h:commandButton id="btn" value="ОКЭ">
+                  <f:ajax execute="@form" event="click" render="table:points table:progress error saved" listener="#{groupControlWorksForTeacher.save}"/>
+             </h:commandButton>
+
+             <h:outputText id="error" rendered="#{groupControlWorksForTeacher.error}" value="ERROR"/>
+             <h:outputText id="saved" rendered="#{groupControlWorksForTeacher.saved}" value="saved"/>
+                 <br/>
+          </h:form>
+         </h:panelGroup>
         </h:panelGroup>
-         
+
         </ui:define>
     </ui:composition>
