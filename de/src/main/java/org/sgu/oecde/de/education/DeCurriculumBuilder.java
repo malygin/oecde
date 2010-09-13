@@ -1,7 +1,6 @@
 package org.sgu.oecde.de.education;
 
 import org.sgu.oecde.core.education.CurriculumBuilder;
-import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.de.users.Student;
 import org.springframework.stereotype.Service;
@@ -18,6 +17,8 @@ public class DeCurriculumBuilder extends CurriculumBuilder<DeCurriculum>{
     public DeCurriculum getInstance(){
         return new DeCurriculum();
     }
+
+    private static final long serialVersionUID = 154L;
 
     /**
      *
