@@ -14,4 +14,5 @@ public interface IEstimateDao extends IResultDao<Estimate>{
 
     public int getEstimatedGroupsCount(List<? extends Curriculum>curriculums,Teacher teacher)throws DataAccessException ;
 
+    public void save(Estimate result) throws DataAccessException;
 }

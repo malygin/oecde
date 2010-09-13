@@ -8,6 +8,7 @@ import org.sgu.oecde.core.education.ICalendarConstantName;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 
 /**
  * хранит текущий год, семестр и идёт ли переэкзаменовка.
@@ -98,9 +99,18 @@ public class SemesterGetter extends StringConstantsGetter{
                     constants.put(name,value);
             }
         }else{
-            setSemester(CalendarConstantName.year.getDefault());
-            setYear(CalendarConstantName.semester.getDefault());
+            setSemester(CalendarConstantName.semester.getDefault());
+            setYear(CalendarConstantName.year.getDefault());
         }
+    }
+
+    @Override
+    public void save(ICalendarConstantName name, Object value, boolean update) {
+        super.save(name, value, update);
+        if(CalendarConstantName.semester.equals(name))
+            setSemester(value);
+        if(CalendarConstantName.year.equals(name))
+            setYear(value);
     }
 
     /**

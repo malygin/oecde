@@ -11,6 +11,7 @@ import org.sgu.oecde.core.users.UsersInCache;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
+import static org.junit.Assert.*;
 
 /**
  *
@@ -49,8 +50,6 @@ public class CacheTest extends AbstractJUnit4SpringContextTests{
         IUpdateDao<Teacher>t = (IUpdateDao<Teacher>) applicationContext.getBean("teacherDao");
         Teacher st = t.getById(44240L);
         st.setCellPhone(456456);
-        Teacher te = new Teacher();
-        te.setCellPhone(Integer.MIN_VALUE);
         System.out.println(st.isOnline()+"    4444");
 
 

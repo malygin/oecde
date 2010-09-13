@@ -12,6 +12,11 @@ public abstract class AbstractStudent extends AbstractPerson {
      */
     private StudentGroup group;
 
+    /**
+     * переведён/не переведён на следующий год
+     */
+    private Boolean transfered;
+    
     public AbstractStudent() {
     }
 
@@ -30,5 +35,21 @@ public abstract class AbstractStudent extends AbstractPerson {
      */
     public void setGroup(StudentGroup group) {
         this.group = group;
+    }
+
+    /**
+     * 
+     * @return переведён/не переведён на следующий год
+     */
+    public Boolean isTransfered() {
+        return transfered;
+    }
+
+    /**
+     * переведён/не переведён на следующий год
+     * @param transfered
+     */
+    public void setTransfered(Boolean transfered) {
+        this.transfered = transfered;
     }
 }

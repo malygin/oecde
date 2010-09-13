@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
-  <class abstract="true" dynamic-insert="true" mutable="false" name="org.sgu.oecde.core.education.work.AbstractResult" table="abstract_result">
+  <class abstract="true" dynamic-insert="true" name="org.sgu.oecde.core.education.work.AbstractResult" table="abstract_result">
     <id name="id" type="long" unsaved-value="0">
       <generator class="native">
         <param name="sequence">result_seq</param>

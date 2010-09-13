@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import org.sgu.oecde.core.education.dao.IConstantsDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
+import org.springframework.dao.DataAccessException;
 import org.springframework.util.CollectionUtils;
 
 /**
@@ -24,7 +25,7 @@ public class StringConstantsGetter implements Serializable{
     /**
      * календарные константы
      */
-    protected final Map<ICalendarConstantName,Object> constants = new HashMap();
+    protected final Map<ICalendarConstantName,String> constants = new HashMap();
     /**
      * имя поля, содержащее название константы
      */
@@ -78,31 +79,26 @@ public class StringConstantsGetter implements Serializable{
     }
 
     /**
-     * формирует из заданных параметров {@code Map}, который после заносится в базу методом апдейт
-     * @param name
-     * @param value
-     * @param entity
-     * @see org.hibernate.Session#update(java.lang.Object) update
-     */
-    public void update(ICalendarConstantName name,Object value){
-        Map map = new HashMap();
-        map.put(this.key, name);
-        map.put(this.value, value);
-        csDao.update(map,entityName);
-    }
-
-    /**
-     * формирует из заданных параметров {@code Map}, который после заносится в базу методом save
+     * формирует из заданных параметров {@code Map}, который после заносится в базу методом save/update
      * @param name
      * @param value
      * @param entity
      * @see org.hibernate.Session#save(java.lang.Object) save
      */
-    public void save(ICalendarConstantName name,Object value){
-        Map map = new HashMap();
-        map.put(this.key, name);
-        map.put(this.value, value);
-        csDao.save(map,entityName);
+    public void save(ICalendarConstantName name,Object value,boolean update) throws DataAccessException{
+        String s = null;
+        if(value!=null){
+            s = String.valueOf(value);
+            Map map = new HashMap();
+            map.put(this.key, name);
+            map.put(this.value, s);
+            if(value instanceof String)
+                constants.put(name, s);
+            if(update)
+                csDao.update(map,entityName);
+            else
+                csDao.save(map,entityName);
+        }
     }
 
     /**

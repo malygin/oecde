@@ -92,13 +92,33 @@ public enum PointToEstimate {
             return four;
         if("5".equals(name))
             return five;
-        if("6".equals(name))
+        if("absence".equals(name))
             return absence;
-        if("7".equals(name))
+        if("passed".equals(name))
             return passed;
-        if("8".equals(name))
+        if("failed".equals(name))
             return failed;
         else
             return notEstimated;
+    }
+
+    public static PointToEstimate[] exameGrades(){
+        PointToEstimate[] estimates = new PointToEstimate[6];
+        estimates[0] = notEstimated;
+        estimates[1] = two;
+        estimates[2] = three;
+        estimates[3] = four;
+        estimates[4] = five;
+        estimates[5] = absence;
+        return estimates;
+    }
+
+    public static PointToEstimate[] testGrades(){
+        PointToEstimate[] estimates = new PointToEstimate[4];
+        estimates[0] = notEstimated;
+        estimates[1] = passed;
+        estimates[2] = failed;
+        estimates[3] = absence;
+        return estimates;
     }
 }

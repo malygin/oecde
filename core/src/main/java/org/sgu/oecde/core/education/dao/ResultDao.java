@@ -8,6 +8,7 @@ import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.work.AbstractResult;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.springframework.dao.DataAccessException;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 /**
@@ -40,5 +41,4 @@ public class ResultDao<T extends AbstractResult> extends BasicDao<T> implements 
         cr.add(Property.forName("curriculum").in(curriculums)).add(Property.forName("student").in(students));
         return cr.setCacheable(false).list();
     }
-
 }

@@ -1,8 +1,6 @@
 package org.sgu.oecde.core.users;
 
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -25,7 +23,7 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
     /**
      * массив ролей из 1го элемента
      */
-    private List<GrantedAuthority> authorities;
+    private Set<GrantedAuthority> authorities;
     /**
      * доступен ли
      */
@@ -85,7 +83,7 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
     }
 
     @Override
-    public List<GrantedAuthority> getAuthorities() {
+    public Set<GrantedAuthority> getAuthorities() {
         return authorities;
     }
     /**
@@ -251,7 +249,7 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
         return enabled;
     }
 
-    public void setAuthorities(List<GrantedAuthority> authorities) {
+    public void setAuthorities(Set<GrantedAuthority> authorities) {
         this.authorities = authorities;
     }
     

@@ -29,4 +29,9 @@ public class Estimate extends AbstractResult {
     public void setGradeCode(PointToEstimate gradeCode) {
         this.gradeCode = gradeCode;
     }
+
+    @Override
+    public String toString() {
+        return this.gradeCode!=null?(gradeCode.toString()):(PointToEstimate.notEstimated.toString());
+    }
 }

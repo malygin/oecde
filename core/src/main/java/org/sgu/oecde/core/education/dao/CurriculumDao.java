@@ -64,9 +64,9 @@ public class CurriculumDao<T extends Curriculum> extends BasicDao<T> implements 
             return null;
         ScrollableResults result = getSession().createQuery("select distinct c,t.teacher from AdvancedCurriculum c join c.teacherToGroups t join fetch c.discipline join fetch c.speciality where c.calendarYear=:y and c.semester =:s and t.group=:g")
                 .setParameter("s", semester).setParameter("y", year).setParameter("g", group).setCacheable(true).scroll();
-        Map map = new HashMap();
+        Map<K,V>map = new HashMap<K,V>();
         while(result.next()){
-            map.put(result.get(0), result.get(1));
+            map.put((K)result.get(0), (V)result.get(1));
         }
         return map;
     }

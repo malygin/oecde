@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 import org.springframework.dao.DataAccessException;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * интерфейс для ConstantsDao. не наследуется от базовых дао.
@@ -27,7 +26,6 @@ public interface IConstantsDao extends Serializable{
      * @param entity - имя entity
      * @throws DataAccessException
      */
-    @Transactional
     public void save(Map c,String entity) throws DataAccessException;
 
     /**
@@ -36,6 +34,5 @@ public interface IConstantsDao extends Serializable{
      * @param entity - имя entity
      * @throws DataAccessException
      */
-    @Transactional
     public void update(Map c,String entity) throws DataAccessException;
 }

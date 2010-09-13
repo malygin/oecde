@@ -23,7 +23,7 @@ public class EstimateFilter implements IResultFilter{
      * @see org.sgu.oecde.core.education.work.PointToEstimate - парсер оценки в результате
      */
     public void check(AbstractResult result,Points points) {
-        points.<PointToEstimate>getWorkPoints().put(EstimateNames.estimate, result!=null?((Estimate)result).getGradeCode():PointToEstimate.notEstimated);
+        points.<Estimate>getWorkPoints().put(EstimateNames.estimate, (Estimate) result);
     }
 
     /**

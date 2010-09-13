@@ -8,4 +8,5 @@ import java.io.Serializable;
  */
 public interface ICalendarConstantName extends Serializable{
     public Object getDefault();
+    public String name();
 }

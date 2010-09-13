@@ -5,6 +5,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.sgu.oecde.core.education.Speciality;
 import org.sgu.oecde.core.education.dao.ICurriculumDao;
+import org.sgu.oecde.core.education.work.Estimate;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.Admin;
 import org.sgu.oecde.core.users.Supervisor;
