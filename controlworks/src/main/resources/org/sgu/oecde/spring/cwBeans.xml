@@ -5,5 +5,5 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
        ">
 <bean id="controlWorkDao"  parent="basicDao" class="org.sgu.oecde.controlworks.dao.ControlWorkDao" />
-<bean id="cwDatesGetter" parent="constantsGetter" p:entityName="cw dates"/>
+<bean id="cwDatesGetter" parent="constantsGetter" p:entityName="cw_dates"/>
 </beans>

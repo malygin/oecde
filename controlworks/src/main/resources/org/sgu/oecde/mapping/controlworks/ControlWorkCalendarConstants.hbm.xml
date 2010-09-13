@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
-  <class discriminator-value="cw" dynamic-insert="true" dynamic-update="true" entity-name="cw dates" table="calendar_constants">
+  <class discriminator-value="cw" dynamic-insert="true" dynamic-update="true" entity-name="cw_dates" table="calendar_constants">
     <cache usage="read-write"/>
     <id length="30" name="name" unsaved-value="null">
       <type name="org.sgu.oecde.core.GenericEnumUserType">

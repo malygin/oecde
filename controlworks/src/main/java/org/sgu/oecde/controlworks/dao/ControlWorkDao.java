@@ -25,6 +25,6 @@ public class ControlWorkDao<T extends ControlWork> extends ResultDao<T> implemen
      */
     @Transactional
     public void save(ControlWork work) throws DataAccessException{
-        getSession().saveOrUpdate(work);
+        getSession().merge(work);
     }
 }

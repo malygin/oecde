@@ -4,10 +4,11 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.sgu.oecde.controlworks.dao.ControlWorkAttemptDao;
+import org.sgu.oecde.controlworks.dao.IControlWorkAttemptDao;
 import org.sgu.oecde.controlworks.dao.IControlWorkDao;
 import org.sgu.oecde.core.education.AdvancedCurriculum;
 import org.sgu.oecde.core.education.Curriculum;
@@ -16,6 +17,7 @@ import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.core.util.ListUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
@@ -32,6 +34,11 @@ public class ControlWorkService implements Serializable{
      */
     @Autowired
     IControlWorkDao<ControlWork> controlWorkDao;
+    /**
+     * кр дао
+     */
+    @Autowired
+    IControlWorkAttemptDao controlWorkAttemptDao;
     /**
      * кр попытка дао
      */
@@ -123,15 +130,20 @@ public class ControlWorkService implements Serializable{
      * сохраняет пустую кр, что является отметкой об отправки кр в рукописном
      * @param work
      */
-    public void saveEmptyCw(ControlWork work){
+    public void saveEmptyCw(ControlWork work) throws DataAccessException{
         if(work!=null){
             ControlWorkAttempt a = new ControlWorkAttempt();
             a.setFilePath("empty");
             a.setAttemptDate(DateConverter.currentDate());
             a.setWork(work);
-            Set set = new HashSet();
+            Set<ControlWorkAttempt>set = null;
+            if(CollectionUtils.isEmpty(work.getCwAttempt())){
+                set = new HashSet<ControlWorkAttempt>();
+                work.setCwAttempt(set);
+            }else{
+                set = (Set<ControlWorkAttempt>) work.getCwAttempt();
+            }
             set.add(a);
-            work.setCwAttempt(set);
             controlWorkDao.save(work);
         }
     }
@@ -147,5 +159,16 @@ public class ControlWorkService implements Serializable{
         Assert.notNull(example);
         example.setGotControlWork(true);
         return (List<T>) curriculumDao.getByExample(example);
+    }
+
+    public void save(ControlWork w) throws DataAccessException{
+        w.setDate(DateConverter.currentDate());
+        controlWorkDao.save(w);
+    }
+
+    public void setWorkRead(ControlWorkAttempt a) throws DataAccessException{
+        Assert.notNull(a);
+        a.setRead(true);
+        controlWorkAttemptDao.update(a);
     }
 }

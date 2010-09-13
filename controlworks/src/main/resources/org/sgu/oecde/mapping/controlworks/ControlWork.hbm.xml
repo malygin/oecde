@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
-  <subclass discriminator-value="cw" dynamic-insert="true" dynamic-update="true" extends="org.sgu.oecde.core.education.work.AbstractResult" name="org.sgu.oecde.controlworks.ControlWork">
+  <subclass discriminator-value="cw" select-before-update="true" dynamic-update="true" extends="org.sgu.oecde.core.education.work.AbstractResult" name="org.sgu.oecde.controlworks.ControlWork">
     <set batch-size="15" cascade="all" fetch="select" inverse="true" name="cwAttempt" lazy="true" order-by="attempt_date desc" table="control_work_attempt">
       <key column="work" foreign-key="fk_cw_cw" not-null="true"/>
       <one-to-many class="org.sgu.oecde.controlworks.ControlWorkAttempt"/>
