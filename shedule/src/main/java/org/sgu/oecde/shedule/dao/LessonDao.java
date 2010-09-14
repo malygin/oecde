@@ -12,6 +12,7 @@ import org.sgu.oecde.core.users.StudentGroup;
 import org.sgu.oecde.shedule.Lesson;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 /**
@@ -27,14 +28,16 @@ public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
     /**
      * {@inheritDoc }
      */
+    @Transactional
     @Override
     public void saveLesson(final Lesson lesson) throws DataAccessException {
-        getHibernateTemplate().saveOrUpdate(lesson);
+        getHibernateTemplate().merge(lesson);
     }
 
     /**
      * {@inheritDoc }
      */
+    @Transactional
     @Override
     public void deleteLesson(final Lesson lesson) throws DataAccessException {
         getHibernateTemplate().delete(lesson);

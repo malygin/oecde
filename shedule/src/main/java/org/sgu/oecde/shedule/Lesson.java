@@ -3,7 +3,6 @@ package org.sgu.oecde.shedule;
 import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
 import org.sgu.oecde.core.education.Curriculum;
-import org.sgu.oecde.core.education.Discipline;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.users.StudentGroup;
 
@@ -18,12 +17,12 @@ public class Lesson extends BasicItem{
     private Teacher teacher;
     private Integer number;
     private Integer room;
-    private Boolean warning;
     private String lessonDate;
     private String updateDate;
     private String color;
     private String colorDisable;
-    private Boolean notUsed = true;
+    private boolean notUsed = true;
+    private boolean warning;
     private static final long serialVersionUID = 44L;
 
     public Lesson() {
@@ -49,21 +48,21 @@ public class Lesson extends BasicItem{
     /**
      * @return количество человек на занятии
      */
-    public int getNumber() {
+    public Integer getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(Integer number) {
         this.number = number;
     }
     /**
      * @return номер комнаты
      */
-    public int getRoom() {
+    public Integer getRoom() {
         return room;
     }
 
-    public void setRoom(int room) {
+    public void setRoom(Integer room) {
         this.room = room;
     }
 

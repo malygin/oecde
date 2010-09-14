@@ -13,6 +13,7 @@ import org.junit.Test;
 import org.sgu.oecde.core.BasicTest;
 import org.sgu.oecde.core.IBasicDao;
 import org.sgu.oecde.core.education.Discipline;
+import org.sgu.oecde.core.education.dao.ICurriculumDao;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.util.Semesters;
 import org.sgu.oecde.de.education.DeCurriculum;
@@ -26,17 +27,17 @@ import org.springframework.test.context.ContextConfiguration;
  *
  * @author shihovmy
  */
-@ContextConfiguration(locations={"../applicationContext.xml","../spring/sheduleBeans.xml","../spring/deBeans.xml"})
+@ContextConfiguration(locations={"../applicationContext.xml","../spring/deBeans.xml"})
 public class getLessonItem extends BasicTest{
 
 
     IBasicDao<Teacher>  teacherDao;
-    IAdvancedCurriculumDao sdsyDao;
+    ICurriculumDao<DeCurriculum> sdsyDao;
 
     @Before
     public void setBean(){
         teacherDao = (IBasicDao) getBean("teacherDao");
-        sdsyDao = (IAdvancedCurriculumDao) getBean("advancedCurriculumDao");
+        sdsyDao = (ICurriculumDao<DeCurriculum>) getBean("curriculumDao");
     }
 
     @Ignore
@@ -51,25 +52,23 @@ public class getLessonItem extends BasicTest{
         Teacher e = new Teacher();
         e.setSurname("ИВАНОВ");
         Teacher t = teacherDao.getByExample(e).get(0);
-        List<Discipline> li = sdsyDao.getBySemesterYearTeacher(Semesters.winter(), 2009, t);
-        Discipline s = li.iterator().next();
+        List<DeCurriculum> li = sdsyDao.getBySemesterYearAndParameters(Semesters.winter(), 2009, t);
+        DeCurriculum s = li.iterator().next();
         Set<Group> cis = new HashSet<Group>();
         int number = 0;
-        List<Group> cssIs = sdsyDao.getGroupBySemesterYearTeacherDiscipline(Semesters.winter(), 2009, t, s);
+        List<Group> cssIs = sdsyDao.getGroupsForTeacher(Semesters.winter(), 2009, t);
         System.out.println(cssIs.size());
         for(Iterator<Group> it = cssIs.iterator();it.hasNext();){
             Group css = it.next();
             number+=css.getNumber();
         }
         cis= new HashSet<Group>(cssIs);
-        DeCurriculum si = new DeCurriculum();
-        si.setDiscipline(s);
         Lesson l = new Lesson();
         l.setLessonDate("05.02.10 16:38:21");
         l.setGroup(cis);
         l.setNumber(number);
         l.setRoom(1);
-//        l.setDiscipline(s);
+        l.setCurriculum(s);
         l.setTeacher(t);
         setDao("lessonDao");
         this.<ILessonDao>getDao().saveLesson(l);
@@ -137,7 +136,7 @@ public class getLessonItem extends BasicTest{
          ((ILessonDao)getDao()).deleteLesson(l);
     }
     
-      @Ignore
+//      @Ignore
     @Test
     public void getListByMonth() throws DataAccessException, ParseException{
         setDao("lessonDao");

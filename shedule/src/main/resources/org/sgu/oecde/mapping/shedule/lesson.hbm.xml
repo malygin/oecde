@@ -13,8 +13,8 @@
       <key column="lesson" foreign-key="fk_lesson_2_group_lesson"/>
       <many-to-many class="org.sgu.oecde.core.users.StudentGroup" foreign-key="fk_lesson_2_group_group" column="student_group"/>
     </set>
-    <many-to-one cascade="none" foreign-key="fk_lesson_teacher" class="org.sgu.oecde.core.users.Teacher" fetch="join" name="teacher"/>
-    <many-to-one cascade="none" foreign-key="fk_lesson_discipline" class="org.sgu.oecde.core.education.Discipline" fetch="join" name="discipline"/>
+    <many-to-one cascade="delete" foreign-key="fk_lesson_teacher" class="org.sgu.oecde.core.users.Teacher" fetch="join" name="teacher"/>
+    <many-to-one cascade="none" foreign-key="fk_lesson_curriculum" class="org.sgu.oecde.core.education.Curriculum" fetch="join" name="curriculum"/>
     <property name="room" type="integer" scale="2"/>
     <property column="date_update" name="updateDate" not-null="false" type="string" length="19" update="false"/>
     <property column="lesson_date" name="lessonDate" not-null="false" length="19" type="string"/>

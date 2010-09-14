@@ -22,7 +22,6 @@ public interface ILessonDao extends IBasicDao<Lesson>{
      * @param lesson - сохраняемая сущность
      * @throws DataAccessException
      */
-    @Transactional
     public void saveLesson(final Lesson lesson) throws DataAccessException;
 
     /**
@@ -48,7 +47,6 @@ public interface ILessonDao extends IBasicDao<Lesson>{
      * @param lesson - сохраняемая сущность
      * @throws DataAccessException
      */
-    @Transactional
     public void deleteLesson(final Lesson lesson) throws DataAccessException;
     
     /**
