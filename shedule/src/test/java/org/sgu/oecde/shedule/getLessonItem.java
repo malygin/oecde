@@ -69,7 +69,7 @@ public class getLessonItem extends BasicTest{
         l.setGroup(cis);
         l.setNumber(number);
         l.setRoom(1);
-        l.setDiscipline(s);
+//        l.setDiscipline(s);
         l.setTeacher(t);
         setDao("lessonDao");
         this.<ILessonDao>getDao().saveLesson(l);

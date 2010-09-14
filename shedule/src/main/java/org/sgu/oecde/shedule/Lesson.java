@@ -2,6 +2,7 @@ package org.sgu.oecde.shedule;
 
 import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
+import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.Discipline;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.users.StudentGroup;
@@ -13,7 +14,7 @@ import org.sgu.oecde.core.users.StudentGroup;
 public class Lesson extends BasicItem{
 
     private Set<? extends StudentGroup> group;
-    private Discipline discipline;
+    private Curriculum curriculum;
     private Teacher teacher;
     private Integer number;
     private Integer room;
@@ -69,12 +70,12 @@ public class Lesson extends BasicItem{
     /**
      * @return привязка из плана
      */
-    public Discipline getDiscipline() {
-        return discipline;
+    public <T extends Curriculum>T getCurriculum() {
+        return (T) curriculum;
     }
 
-    public void setDiscipline(Discipline discipline) {
-        this.discipline = discipline;
+    public void setCurriculum(Curriculum curriculum) {
+        this.curriculum = curriculum;
     }
 
     /**
