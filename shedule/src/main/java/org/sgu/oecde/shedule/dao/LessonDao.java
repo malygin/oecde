@@ -7,8 +7,8 @@ import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
 import org.sgu.oecde.core.BasicDao;
 import org.sgu.oecde.core.education.Curriculum;
-import org.sgu.oecde.core.education.Discipline;
 import org.sgu.oecde.core.users.StudentGroup;
+import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.shedule.Lesson;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
@@ -64,11 +64,19 @@ public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
         return lessonList;
     }
 
-    public List<Lesson> getByGroupAndDisciplines(StudentGroup group,List<? extends Discipline>disciplines) throws DataAccessException{
-        if(CollectionUtils.isEmpty(disciplines)||group==null)
+    public List<Lesson> getGroupLessons(StudentGroup group,List<? extends Curriculum>curriculums) throws DataAccessException{
+        if(CollectionUtils.isEmpty(curriculums)||group==null)
             return null;
         Criteria cr =getSession().createCriteria(Lesson.class);
         return cr.add(Property.forName("group").in(new StudentGroup[]{group}))
-                .add(Property.forName("group").in(disciplines)).list();
+                .add(Property.forName("curriculum").in(curriculums)).list();
+    }
+
+    public List<Lesson> getTeacherLessons(Teacher teacher,List<? extends Curriculum>curriculums) throws DataAccessException{
+        if(CollectionUtils.isEmpty(curriculums)||teacher==null)
+            return null;
+        Criteria cr =getSession().createCriteria(Lesson.class);
+        return cr.add(Property.forName("teacher").eq(teacher))
+                .add(Property.forName("curriculum").in(curriculums)).list();
     }
 }

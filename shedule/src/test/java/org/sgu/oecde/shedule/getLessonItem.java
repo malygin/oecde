@@ -1,8 +1,6 @@
 package org.sgu.oecde.shedule;
 
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -12,13 +10,11 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.sgu.oecde.core.BasicTest;
 import org.sgu.oecde.core.IBasicDao;
-import org.sgu.oecde.core.education.Discipline;
 import org.sgu.oecde.core.education.dao.ICurriculumDao;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.util.Semesters;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Group;
-import org.sgu.oecde.shedule.dao.IAdvancedCurriculumDao;
 import org.sgu.oecde.shedule.dao.ILessonDao;
 import org.springframework.dao.DataAccessException;
 import org.springframework.test.context.ContextConfiguration;
