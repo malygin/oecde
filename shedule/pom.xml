@@ -7,10 +7,10 @@
         <version>2.0-SNAPSHOT</version>
     </parent>
     <groupId>org.sgu.oecde</groupId>
-    <artifactId>shedule</artifactId>
+    <artifactId>schedule</artifactId>
     <packaging>jar</packaging>
     <version>2.0-SNAPSHOT</version>
-    <name>shedule</name>
+    <name>schedule</name>
     <dependencies>
     <dependency>
       <groupId>${project.groupId}</groupId>
