@@ -21,6 +21,10 @@ public class StudentGroup<T extends AbstractStudent> extends AbstractGroup<T>{
     public  StudentGroup() {
     }
 
+    public StudentGroup(Long id) {
+        setId(id);
+    }
+
     /**
      *
      * @return количество человек
