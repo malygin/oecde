@@ -10,7 +10,7 @@
     <list batch-size="5" cascade="none" lazy="true" fetch="select" mutable="false" name="resources" table="module_resources">
       <cache usage="read-only"/>
       <key column="module" foreign-key="fk_module_resource_module" not-null="true"/>
-      <index column="resource_order" length="3" type="integer"/>
+      <list-index base="1" column="resource_order"  />
       <many-to-many class="org.sgu.oecde.core.education.resource.AbstractResource" column="resource_id" foreign-key="fk_module_resource"/>
     </list>
   </class>

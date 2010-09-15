@@ -23,6 +23,6 @@
         <many-to-one cascade="none" class="org.sgu.oecde.core.users.StudentGroup" column="student_group" fetch="join" foreign-key="fk_teacher_2_group_group" insert="false" name="group"/>
       </composite-element>
     </set>
-    <many-to-one class="org.sgu.oecde.core.education.Umk" fetch="join" foreign-key="fk_curriculum_umk" insert="false" name="umk"/>
+    <many-to-one class="org.sgu.oecde.core.education.Umk" fetch="join" foreign-key="fk_curriculum_umk" lazy="false" insert="false" name="umk"/>
   </class>
 </hibernate-mapping>
