@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:r="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute  name="list"/>
+    </composite:interface>
+
+    <!-- IMPLEMENTATION -->
+
+    <composite:implementation>
+   
+            <div style="text-align: center;">
+                <div style="width: 50%; margin: auto;">
+                    <h:form>
+                        <p style="text-align: left; margin: 3px 0px 5px 3px; font-size: 8pt; color: gray;">Текст Вашего вопроса:</p>
+                        <h:inputTextarea value="#{DiscussionBean.nodeText}" rows="5" style="width: 100%;"/>
+
+                        <div class="navigationLinks" style="text-align: right;">
+                            <h:commandLink action="#{DiscussionBean.saveNodes}" value="Отправить"/>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+        <r:forEach items="#{cc.attrs.list}" var="node">
+             <h:form>
+                <div class="discussionComment" style="margin-left: #{(node.level-2)*30}px;">
+                    <img class="discussionCommentContentUserAvatar" src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/>
+                    <div>
+                        <span class="linkToAdminsProfile" style="margin-left: 15px;"><a href="#">#{node.user.username}</a></span>
+                        <span class="discussionCommentDate">#{node.time}</span>
+                    </div>
+                    <div class="discussionCommentContentText">
+                        #{node.message}
+                        <div class="navigationLinks" style="margin: 5px 0px 0px 15px;">
+                            <h:commandLink style="margin-right: 10px;" action="#{DiscussionBean.showReply}" value="Ответить">
+                                        <f:ajax  execute="@this" render="@form" />
+                                        <f:setPropertyActionListener target="#{DiscussionBean.nodeId}" value="#{node.id}" />
+                             </h:commandLink>
+                         
+                            <h:panelGroup rendered="#{DiscussionBean.currentUser.id==node.user.id}">
+                                <a href="#" style="margin-right: 10px;">Редактировать</a>
+                                <span class="navigationLinksRed">
+                                    <h:commandLink action="#{DiscussionBean.deleteNode}" value="Удалить">
+                                        <f:setPropertyActionListener target="#{DiscussionBean.nodeId}" value="#{node.id}" />                                     
+                                   </h:commandLink>
+                                </span>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{DiscussionBean.renderReply}">
+                                <div style="max-width: 50%; margin-top: 10px;" >
+                                    <h:inputTextarea cols="30" rows="5"  value="#{DiscussionBean.nodeTextReply}" style="width: 100%;" />
+                                    <div class="navigationLinks" style="text-align: right;">
+                                        <h:commandLink action="#{DiscussionBean.saveReply}" value="Отправить">
+                                            <f:setPropertyActionListener target="#{DiscussionBean.nodeId}" value="#{node.id}" />
+                                       </h:commandLink>
+                                    </div>
+                                </div>
+                            </h:panelGroup>
+                        </div>
+                    </div>
+                    <div class="floatDestroyer"/>
+                </div>
+            </h:form>
+            </r:forEach>
+       
+
+
+    </composite:implementation>
+</html>

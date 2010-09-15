@@ -52,7 +52,7 @@ public class UmkBean implements Serializable {
     private List<Task> tasks =new ArrayList<Task>();
     private List<SelectItem> modules ;
 
-    final private String mainUrl="http://localhost:8080/oecde/textbooks/";
+    final private String mainUrl="http://localhost:8080/web/textbooks/";
     private String currentUrl="";
  
    // private String
@@ -75,6 +75,7 @@ public class UmkBean implements Serializable {
     public String getcId() {
         return cId;
     }
+
 /**
  * @todo проверить на доступ и метод сервиса будет другой и возвращает он не только таски- учесть и это!
  * @todo сделать как работу с обычным массивом!
@@ -100,6 +101,7 @@ public class UmkBean implements Serializable {
              //если это нужный нам модуль - вытаскиеваем нужный таск (+ следующий и предыдущий) из него и список всех тасков модуля
              if (m.getId().toString().equals(moduleId)){
                   currentModule=m;
+                  System.out.println(""+m.getResources());
                   for(AbstractResource t:m.getResources()){
                      Task t1=(Task)t;
                      if ((currentTask!=null)&&(nextTask.getId().equals(0L))) nextTask=t1;
