@@ -10,40 +10,24 @@ import org.sgu.oecde.core.users.AbstractUser;
 /**
  * корневой элемент ветки обсуждений
  * @author Basakovvy
+ * @todo почистить надо от лишних методов
  */
 public class Root extends BasicItem implements Comparable {
 
-    /**
-     * айди объекта, обсуждение которого ведётся
-     */
+    //id объекта к которому прицеплен рут
     private Long objectId;
-    /**
-     * тип объекта обсуждения
-     */
+    //тип объекта к которому прицеплен рут
     private ForumTypes objectType;
-    /**
-     * дата создания
-     */
     private String time;
-    /**
-     * открыт ли
-     */
+    //открыт ли рут, пока не используется
     private Boolean open;
-    /**
-     * заголовок
-     */
+    //заголовок рута, типа "город Саратов"
     private String title;
-    /**
-     * автор
-     */
+    //автор
     private AbstractUser user;
-    /**
-     * посты
-     */
+    //список нодов
     private Set<Node> children;
     private static final long serialVersionUID = 88L;
-
-    //private HashMap<Integer,Node> nodes = new HashMap<Integer,Node>();
 
     public Root() {
     }
@@ -57,36 +41,13 @@ public class Root extends BasicItem implements Comparable {
         this.objectId = objectId;
         this.objectType = objectType;
     }
-
-    public Boolean addChild(Node node) {
-        if (node != null && children!=null&& children.add(node)) {
-            node.setRoot(this);
-            return true;
-        }
-        return false;
-    }
-
-    private Node getNearestNode(Long id) {
-        for (Node node : children) {
-            if (node.getId() == id) {
-                return node;
-            }
-        }
-        return null;
-    }
-
+    
     public AbstractUser getUser() {
         return user;
     }
 
     public void setUser(AbstractUser user) {
         this.user = user;
-    }
-
-    public void addChildren(Collection<Node> nodes) {
-        for (Node node : nodes) {
-            addChild(node);
-        }
     }
 
     //@TODO У детей удалить этот корень из родителей
@@ -105,60 +66,6 @@ public class Root extends BasicItem implements Comparable {
     public void setObjectType(ForumTypes objectType) {
         this.objectType = objectType;
     }
-
-    public int getNodesCount() {
-        int result = children.size();
-        for (Node node : children) {
-            result += node.getNodesCount();
-        }
-        return result;
-    }
-
-    /**
-     * Возвращает записей на определенную страницу.
-     */
-    public Set<Node> getPage(int i) {
-        int nodesPerPage = 5;
-        int[][] pages = null;
-        int[] numbers = pages[i];
-        Set<Node> res = new TreeSet<Node>();
-        for (Integer k : numbers) {
-            res.add(getNearestNode(k.longValue()));
-        }
-        return res;
-    }
-
-    public int getPages() {
-        return 0;
-    }
-
-    public Set<Node> getNodesForPage(int pageNum) {
-        return null;
-    }
-
-    public String print() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("**").append(title).append("**").append("\n");
-        for (Node node : children) {
-            sb.append(print(1, node));
-        }
-        return sb.toString();
-    }
-
-    public String print(int i, Node node) {
-        StringBuilder sb = new StringBuilder();
-        for (int k = 1; k <= i; k++) {
-            sb.append("      ");
-        }
-        sb.append(node.getMessage()).append("\n");
-//        System.out.println(node.getMessage());
-        i++;
-        for (Node child : node.getChildren()) {
-            sb.append(print(i, child));
-        }
-        return sb.toString();
-    }
-
 
     public Long getObjectId() {
         return objectId;
@@ -200,23 +107,5 @@ public class Root extends BasicItem implements Comparable {
     public void setTime(String time) {
         this.time = time;
     }
-
-    public String printFields() {
-        StringBuilder sb = new StringBuilder();
-        final Class aClass = this.getClass();
-        for (Field field : aClass.getDeclaredFields()) {
-            try {
-                sb.append(field.getName()).append(" = ");
-                sb.append(field.get(this)).append("\n");
-            } catch (IllegalArgumentException ex) {
-                ex.printStackTrace();
-            } catch (IllegalAccessException ex) {
-                ex.printStackTrace();
-            }
-        }
-
-        return sb.toString();
-    }
-
-
+  
 }

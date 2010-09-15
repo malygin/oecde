@@ -9,6 +9,7 @@ import org.sgu.oecde.discussion.ForumTypes;
 import org.sgu.oecde.discussion.Root;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 /**
@@ -39,10 +40,22 @@ public class RootDao extends UpdateDao<Root> implements IRootDao{
         return !CollectionUtils.isEmpty(list)?Long.valueOf(list.get(0)).intValue():0;
     }
 
-    /**
-     * {@inheritDoc }
-     */
+    @SuppressWarnings("unchecked")
+    public Root getRootByPage(Long idObject, ForumTypes typeObject,  int messageOnPage, int numPage)  throws DataAccessException {
+        Root r =  new Root();
+        Criteria cr = getSession().createCriteria(type)
+                .add(Property.forName("objectId").eq(idObject))
+                .add(Property.forName("objectType").eq(typeObject))
+                .setFirstResult(messageOnPage * (numPage-1)).setMaxResults(messageOnPage);
+        List l =  cr.setCacheable(true).list();
+        return r;
+    }
+
+
+    @Transactional
     public void save(Root root) throws DataAccessException {
         getSession().save(root);
     }
+
+  
 }

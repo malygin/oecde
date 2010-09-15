@@ -1,46 +1,40 @@
 package org.sgu.oecde.discussion;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import org.sgu.oecde.core.BasicItem;
 import org.sgu.oecde.core.users.AbstractUser;
+import org.sgu.oecde.discussion.util.NodeRevertComparator;
 
 /**
  * пост ветки обсуждений
  * @author Basakovvy
+ * @todo почистить надо от лишних методов
  */
 public class Node extends BasicItem implements Comparable {
 
-    /**
-     * текст
-     */
-    private String message;
-    /**
-     * дата
-     */
+   
+    private String message; 
     private String time;
-    /**
-     * автор
-     */
     private AbstractUser user;
-    /**
-     * открыт ли
-     */
+    //открыт ли, пока не используется, возможно пригодится если решим не удалять ноды, а помечать как закрытые
     private Boolean open;
-    /**
-     * корень, к которому относится данный пост
-     */
+    // корень к которому относитя нод, если нод потомок нода - пустой
     private Root root;
-    /**
-     * пост, ответом на который является данный
-     */
+    // нод - родитель
     private Node parent;
-    /**
-     * дочерние элементы
-     */
+    // множество нодов-потомков
     private Set<Node> children;
+    // уровень вложенности нода в иерархии, используется для удобства вывода
+    private int level=1;
+
     private static final long serialVersionUID = 87L;
+
+ 
 
     public Node() {
         children = new TreeSet<Node>();
@@ -70,33 +64,25 @@ public class Node extends BasicItem implements Comparable {
         throw new IllegalArgumentException("instance of Node.class expected");
     }
 
-    /**
-     * Добавляет дочерний элемент.
-     *
-     * @param child добавляемый элемент.
-     * @return true, если успешно.
-     */
-    public Boolean addChild(Node child) {
-        if (child != null && children.add(child)) {
-            child.setParent(this);
-            return true;
-        }
-        return false;
+    public List<Node> getChildrenList(){
+            return (new ArrayList(children));
     }
 
-    public Node getChild(Long id) {
+    public SortedSet<Node> getAllNodes() {
+        SortedSet<Node> set = new TreeSet<Node>();
         for (Node node : children) {
-            if (node.getId() == id) {
-                return node;
-            }
-            Node res = node.getChild(id);
-            if (res != null) {
-                return res;
-            }
+            set.addAll(node.getAllNodes());
         }
-        return null;
+        return set;
     }
 
+   public int getNodesCount() {
+        int result = children.size();
+        for (Node node : children) {
+            result += node.getNodesCount();
+        }
+        return result;
+    }
     public Boolean addChildren(Set<Node> nodes) {
         return children.addAll(nodes);
     }
@@ -109,53 +95,19 @@ public class Node extends BasicItem implements Comparable {
         return child != null && children.contains(child) && children.remove(child);
     }
 
-    /**
-     * Возвращает список дочерних элементов.
-     *
-     * @return элементы
-     */
-    public Set<Node> getChildren() {
-        return children;
+    public TreeSet<Node> getChildren() {
+          NodeRevertComparator comp= new NodeRevertComparator();
+          TreeSet<Node> nodeSet=new TreeSet<Node>(comp);
+          nodeSet.addAll(this.children);
+          return nodeSet;
     }
 
-    public SortedSet<Node> getAllNodes() {
-        SortedSet<Node> set = new TreeSet<Node>();
-        for (Node node : children) {
-            set.addAll(node.getAllNodes());
-        }
-        return set;
-    }
-
-    /**
-     * Возвращает элемент ветки, к которому "привязан" текущий элемент.
-     *
-     * @return родитель.
-     */
     public Node getParent() {
         return parent;
     }
 
-    /**
-     * Устанавливает элемент ветки,
-     * который будет "родительским" по отношению к текущему элементу.
-     *
-     * @param parent родитель.
-     */
     public void setParent(Node parent) {
         this.parent = parent;
-//        //На всякий случай(((
-//        if (this.equals(parent)) {
-//            return;
-//        }
-//        if (parent != null) {
-//            if (this.parent != null) {
-//                this.parent.removeChild(this);
-//            }
-//            this.parent = parent;
-//        } else {
-//            final String message = "Родитель записи не может быть равен null";
-//            throw new IllegalArgumentException(message, new NullPointerException());
-//        }
     }
 
     public String getMessage() {
@@ -203,11 +155,12 @@ public class Node extends BasicItem implements Comparable {
         this.user = user;
     }
 
-    public int getNodesCount() {
-        int result = children.size();
-        for (Node node : children) {
-            result += node.getNodesCount();
-        }
-        return result;
+    public int getLevel() {
+        return level;
     }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+    
 }

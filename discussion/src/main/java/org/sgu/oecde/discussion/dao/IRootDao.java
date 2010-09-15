@@ -1,5 +1,6 @@
 package org.sgu.oecde.discussion.dao;
 
+import java.util.List;
 import org.sgu.oecde.core.IUpdateDao;
 import org.sgu.oecde.discussion.ForumTypes;
 import org.sgu.oecde.discussion.Root;
@@ -20,6 +21,9 @@ public interface IRootDao extends IUpdateDao<Root>{
      * @throws DataAccessException
      */
     public int getNodesCount(Long idObject, ForumTypes typeObject)  throws DataAccessException ;
+
+    public Root getRootByPage(Long idObject, ForumTypes typeObject,  int messageOnPage, int numPage);
+
 
     /**
      * сохраняет данный корневой элемент

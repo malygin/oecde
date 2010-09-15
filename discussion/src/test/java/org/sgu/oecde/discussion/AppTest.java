@@ -10,6 +10,7 @@ import org.sgu.oecde.core.users.Admin;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.discussion.dao.INodeDao;
 import org.sgu.oecde.discussion.dao.IRootDao;
+import org.sgu.oecde.discussion.service.DiscussionService;
 import org.springframework.test.context.ContextConfiguration;
 
 /**
@@ -18,58 +19,46 @@ import org.springframework.test.context.ContextConfiguration;
 @ContextConfiguration(locations={"../spring/deBeans.xml"})
 public class AppTest extends BasicTest{
 
-    @Ignore
+//   @Ignore
     @Test
     public void removeComment() {
-        setDao("nodeDao");
-        this.<INodeDao>getDao().delete(new Node(1L));
+        DiscussionService s = getBean("discussionService");
+      //  setDao("nodeDao");
+        Node node = new Node();
+        node.setId(1122L);
+        s.removeNode(node);
+
     }
 
     @Ignore
     @Test
-    public void addComment(){
-        Long nodeId = 683L;
+    public void addRoot() {
         Long idParent = 0L;
         Long idObject = 1182L;
         String typeObject = "news";
-        String message = "ответ номер 3 ";
-        setDao("nodeDao");
-        Node node = getItem(nodeId);
-        if(node == null)
-            node = new Node();
-        node.setMessage(message);
         setDao("adminDao");
         Admin author = this.<Admin>getItem(1L);
-        node.setUser(author);
-        node.setOpen(true);
-        node.setTime(DateConverter.convert(System.currentTimeMillis()));
-        Root root = new Root(idObject,ForumTypes.parse(typeObject));
+
+        Root root = new Root();
+        root.setObjectId(idObject);
+        Set<Node>nodes = new TreeSet<Node>();
+     //   nodes.add(node);
+      //  root.setChildren(nodes);
+        root.setUser(author);
+        root.setTime(DateConverter.convert(System.currentTimeMillis()));
+        root.setObjectType(ForumTypes.parse(typeObject));
         setDao("rootDao");
-        List<Root>l = getByExample(root);
-        if (l==null||l.isEmpty()||l.get(0)==null) {
-            //Создается новый корень обсуждений.
-            root = new Root();
-            root.setObjectId(idObject);
-            Set<Node>nodes = new TreeSet<Node>();
-            nodes.add(node);
-            root.setChildren(nodes);
-            root.setUser(author);
-            root.setTime(DateConverter.convert(System.currentTimeMillis()));
-            root.setObjectType(ForumTypes.parse(typeObject));
-            setDao("rootDao");
-            this.<IRootDao>getDao().save(root);
-        }else{
-            root = l.get(0);
-        }
-        if(idParent!=0)
-            node.setParent(new Node(idParent));
-        else
-            node.setRoot(root);
-        setDao("nodeDao");
-        if(node.getId()==null)
-            this.<INodeDao>getDao().save(node);
-        else
-            this.<INodeDao>getDao().update(node);
+        this.<IRootDao>getDao().save(root);
+    }
+
+
+   @Ignore
+    @Test
+    public void addComment(){
+          DiscussionService s = getBean("discussionService");
+          setDao("adminDao");
+          Admin author = this.<Admin>getItem(1L);
+          s.addNode(null, 1186L, ForumTypes.NEWS, 1084L, "tyyyyyyyyyyyyyyyyy", author);
     }
 
     @Ignore
@@ -83,18 +72,11 @@ public class AppTest extends BasicTest{
     @Ignore
     @Test
     public void getRoot(){
-        DiscussionDaoProxy dp = this.<DiscussionDaoProxy>getBean("discussionDaoProxy");
-        dp.setIdObject(1182L);
-        dp.setTypeObject("news");
-        dp.setCurrentPage(1);
-        Root r = dp.getRoot();
-        Set<Node> nodes = dp.getPage();
-        System.out.println("--------");
-        String s = "";
-        for(Node n:nodes){
-            System.out.println(s+n+"  "+n.getTime());
-            recursive(n,s);
-        }
+         DiscussionService s = getBean("discussionService");
+        System.out.println(""+ s.getCount(1186L, ForumTypes.NEWS));
+        setDao("rootDao");
+        List<Node> nodes=s.getNodesByPage(1186L, ForumTypes.NEWS, 10, 1);
+        System.out.println(" "+nodes);
     }
 
     private void recursive(Node n,String s){
