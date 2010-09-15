@@ -8,17 +8,17 @@
         <param name="sequence">lesson_seq</param>
       </generator>
     </id>
-    <set cascade="save-update, delete" fetch="select" inverse="true" lazy="true" name="group" table="lesson_to_group">
+    <set cascade="save-update, delete" fetch="select" inverse="true" lazy="true" name="groups" table="lesson_to_group">
       <cache usage="read-write"/>
       <key column="lesson" foreign-key="fk_lesson_2_group_lesson"/>
-      <many-to-many class="org.sgu.oecde.core.users.StudentGroup" foreign-key="fk_lesson_2_group_group" column="student_group"/>
+      <many-to-many class="org.sgu.oecde.core.users.StudentGroup" column="student_group" foreign-key="fk_lesson_2_group_group"/>
     </set>
-    <many-to-one cascade="delete" foreign-key="fk_lesson_teacher" class="org.sgu.oecde.core.users.Teacher" fetch="join" name="teacher"/>
-    <many-to-one cascade="none" foreign-key="fk_lesson_curriculum" class="org.sgu.oecde.core.education.Curriculum" fetch="join" name="curriculum"/>
-    <property name="room" type="integer" scale="2"/>
-    <property column="date_update" name="updateDate" not-null="false" type="string" length="19" update="false"/>
-    <property column="lesson_date" name="lessonDate" not-null="false" length="19" type="string"/>
+    <many-to-one cascade="delete" class="org.sgu.oecde.core.users.Teacher" fetch="join" foreign-key="fk_lesson_teacher" name="teacher"/>
+    <many-to-one cascade="none" class="org.sgu.oecde.core.education.Curriculum" fetch="join" foreign-key="fk_lesson_curriculum" name="curriculum"/>
+    <property name="room" scale="2" type="integer"/>
+    <property column="date_update" length="19" name="updateDate" not-null="false" type="string" update="false"/>
+    <property column="lesson_date" length="19" name="lessonDate" not-null="false" type="string"/>
     <property column="student_number" name="number" not-null="true" scale="3" type="integer"/>
-    <property name="color" length="30" type="string"/>
+    <property length="30" name="color" type="string"/>
   </class>
 </hibernate-mapping>

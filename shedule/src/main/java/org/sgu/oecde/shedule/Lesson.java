@@ -12,7 +12,7 @@ import org.sgu.oecde.core.users.StudentGroup;
  */
 public class Lesson extends BasicItem{
 
-    private Set<? extends StudentGroup> group;
+    private Set<? extends StudentGroup> groups;
     private Curriculum curriculum;
     private Teacher teacher;
     private Integer number;
@@ -38,12 +38,12 @@ public class Lesson extends BasicItem{
     /**
      * @return коллекция город-специальность-курс, которые присутствуют на занятии
      */
-    public <T extends StudentGroup>Set<T> getGroup() {
-        return (Set<T>) group;
+    public <T extends StudentGroup>Set<T> getGroups() {
+        return (Set<T>) groups;
     }
 
-    public void setGroup(Set<? extends StudentGroup> css) {
-        this.group = css;
+    public void setGroups(Set<? extends StudentGroup> groups) {
+        this.groups = groups;
     }
     /**
      * @return количество человек на занятии

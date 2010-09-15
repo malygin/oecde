@@ -61,7 +61,7 @@ public class getLessonItem extends BasicTest{
         cis= new HashSet<Group>(cssIs);
         Lesson l = new Lesson();
         l.setLessonDate("05.02.10 16:38:21");
-        l.setGroup(cis);
+        l.setGroups(cis);
         l.setNumber(number);
         l.setRoom(1);
         l.setCurriculum(s);
