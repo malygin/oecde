@@ -439,6 +439,7 @@
     display: table-cell;
     vertical-align: middle;
     width: 100%;
+    min-height: 68px;
 }
 .mainStyle .userOnlineImgContainer img{
     width: 100%;
