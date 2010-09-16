@@ -5,7 +5,10 @@
                 template="../resources/studentTemplate.xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:c="http://java.sun.com/jsp/jstl/core">
-    
+
+    <ui:define name="contentHeader">
+        Помощь
+    </ui:define>
     <ui:define name="content">
         <c:choose>
             <c:when test="${param['page'] eq 'cookie'}">

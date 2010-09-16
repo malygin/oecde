@@ -5,37 +5,52 @@
                 template="./../resources/umkTemplate.xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:c="http://java.sun.com/jsp/jstl/core">
-       <f:metadata>
-           <f:viewParam name="mId" value="#{umkBean.moduleId}"/>
-           <f:viewParam name="tId" value="#{umkBean.taskId}"/>
-           <f:viewParam name="cId" value="#{umkBean.cId}"/>         
-       </f:metadata>
-    
-    <ui:define name="name">
-        <b> умк</b> -  #{umkBean.curriculum.umk.name}
-        <b>модуль</b> - #{umkBean.currentModule.name}
-        <b> занятие</b> -#{umkBean.currentTask.title}<br/>
-        <c:forEach items="#{umkBean.tasks}" var="task" varStatus="st">
-            <c:if test="${task.id!=umkBean.taskId}">
-               <a title="${task.title}" href="exbook.xhtml?cId=${umkBean.cId}&amp;mId=${umkBean.moduleId}&amp;tId=${task.id}">  ${st.count}</a>&nbsp;
-            </c:if>
-            <c:if test="${task.id==umkBean.taskId}">
-             ${st.count}&nbsp;
-            </c:if>
-        </c:forEach>
+    <f:metadata>
+        <f:viewParam name="mId" value="#{umkBean.moduleId}"/>
+        <f:viewParam name="tId" value="#{umkBean.taskId}"/>
+        <f:viewParam name="cId" value="#{umkBean.cId}"/>
+    </f:metadata>
 
-        <c:if test="${umkBean.prevTask.id==0}">пред </c:if>
-        <c:if test="${umkBean.prevTask.id!=0}">
-            <a  href="exbook.xhtml?cId=#{umkBean.cId}&amp;mId=#{umkBean.prevModule.id}&amp;tId=#{umkBean.prevTask.id}"> пред (#{umkBean.prevTask.title}) </a>
-        </c:if>
-        
-        <c:if test="${umkBean.nextTask.id==0}">след </c:if>
-        <c:if test="${umkBean.nextTask.id!=0}">
-            <a  href="exbook.xhtml?cId=#{umkBean.cId}&amp;mId=#{umkBean.nextModule.id}&amp;tId=#{umkBean.nextTask.id}"> след (#{umkBean.nextTask.title}) </a>
-       </c:if>
+    <ui:define name="umkNavigation">
+        <!--        <b> умк</b> -  #{umkBean.curriculum.umk.name}
+                
+                <b> занятие</b> -#{umkBean.currentTask.title}<br/>-->
+        <div class="umkModuleName">Название модуля - "#{umkBean.currentModule.name}"</div>
+        <ol class="umkNavigationLinksList">
+            <li class="umkNavigationLinkContainer" style="border-left: 1px solid silver; padding-left: 10px;">
+                <c:if test="${umkBean.prevTask.id==0}"><span>&larr;</span></c:if>
+                <c:if test="${umkBean.prevTask.id!=0}">
+                    <a  href="exbook.xhtml?cId=#{umkBean.cId}&amp;mId=#{umkBean.prevModule.id}&amp;tId=#{umkBean.prevTask.id}" title="перейти к разделу - ${umkBean.prevTask.title}.">&larr;</a>
+                </c:if>
+            </li>
+            <c:forEach items="#{umkBean.tasks}" var="task" varStatus="st">
+                
+                <c:if test="${task.id!=umkBean.taskId}">
+                    <li class="umkNavigationLinkContainer"><a title="${task.title}" href="exbook.xhtml?cId=${umkBean.cId}&amp;mId=${umkBean.moduleId}&amp;tId=${task.id}">  ${st.count}</a></li>
+                </c:if>
+                <c:if test="${task.id==umkBean.taskId}">
+                    <li class="umkNavigationLinkContainer"><span>${st.count}</span></li>
+                </c:if>
+            </c:forEach>
+            <li class="umkNavigationLinkContainer">
+                <c:if test="${umkBean.nextTask.id==0}"><span>&rarr;</span></c:if>
+                <c:if test="${umkBean.nextTask.id!=0}">
+                    <a  href="exbook.xhtml?cId=#{umkBean.cId}&amp;mId=#{umkBean.nextModule.id}&amp;tId=#{umkBean.nextTask.id}" title="перейти к разделу - ${umkBean.nextTask.title}.">&rarr;</a>
+                </c:if>
+            </li>
+            <li style="padding-top: 0px; height: 25px;">
+                <a href="discipline.xhtml?c=#{umkBean.curriculum.id}" title="">
+                    <img src="../resources/images/umkCourseTasksList.jpg" alt=""/>
+                </a>
+            </li>
+            <li class="floatDestroyer"></li>
+        </ol>
+        <div class="floatDestroyer"/>
+    </ui:define>
 
-        </ui:define>
-
+    <ui:define name="taskName">
+        ${umkBean.currentTask.title}
+    </ui:define>
     <ui:define name="content">
         <h:outputText escape="false"  value="#{umkBean.task}"/>
     </ui:define>

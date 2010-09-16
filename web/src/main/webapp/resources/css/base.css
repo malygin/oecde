@@ -639,3 +639,121 @@
     margin: 0px;
     padding: 0px;
 }
+
+/*UMK Styles*/
+.mainStyle .umkFixedHeadBlock{
+    height: 108px;
+}
+.mainStyle .umkTopLinksContainer{
+    height: 32px;
+    background: url("../resources/images/umkTopLinksContainerBackground.jpg") repeat-x bottom;
+}
+.mainStyle .umkTopLinksContainer ol{
+    list-style: none;
+    margin: 0px 0 0 30px;
+    padding: 0px;
+}
+.mainStyle .umkTopLinkActive{
+    border-color: white;
+    border-image: url("../resources/images/umkActiveLinkBorder.png") 0 7 0 7 stretch stretch;
+    -moz-border-image: url("../resources/images/umkActiveLinkBorder.png") 0 7 0 7 stretch stretch;
+    -webkit-border-image: url("../resources/images/umkActiveLinkBorder.png") 0 7 0 7 stretch stretch;
+    border-width: 4px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    border-style: solid;
+    height: 32px;
+}
+.mainStyle .umkTopLinksContainer ol li{
+    float: left;
+    padding: 0px 20px;
+}
+.mainStyle .umkTopLinksContainer ol li a:link,
+.mainStyle .umkTopLinksContainer ol li a:hover,
+.mainStyle .umkTopLinksContainer ol li a:visited,
+.mainStyle .umkTopLinksContainer ol li a:active{color: white; text-decoration: none; font-weight: normal; font-family: "Arial"; font-size: 11pt;}
+
+.mainStyle .umkTaskTitleContainer{
+    background: #4AA9E5;
+    height: 32px;
+    text-align: left;
+}
+.mainStyle .umkTaskTitleContainer p{
+    padding-top: 4px;
+    margin-left: 40px;
+    color: white;
+    font-size: 12pt;
+    font-family: "Times new roman";
+    font-weight: bold;
+}
+.mainStyle .umkNavigationLinksContainer{
+    border-top: 1px solid silver;
+    background: url("../resources/images/umkNavigationLinksContainerBackground.jpg") repeat-x bottom;
+    height: 35px;
+    text-align: left;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.mainStyle .umkNavigationLinksList{
+    list-style: none;
+}
+.mainStyle .umkNavigationLinksList li{
+    float: left;
+    margin-right: 10px;
+    border-right: 1px solid silver;
+    padding-right: 10px;
+    height: 19px;
+    padding-top: 6px;
+}
+.mainStyle .umkModuleName{
+    height: 19px;
+    float: right;
+    padding-top: 6px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
+    color: #777777;
+}
+.mainStyle .umkFixedHeadBlockContainer{
+    position: fixed;
+    width: 100%;
+}
+.mainStyle .umkTaskContentContainer{
+    padding: 108px 10px 0px 10px;
+    margin: 0px 50px;
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
+    color: #777777;
+}
+.mainStyle .umkTaskContentContainer p,
+.mainStyle .umkTaskContentContainer li{
+    text-align: justify;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #777777 !important;    
+}
+.mainStyle .umkTaskContentContainer li{
+    margin-left: 40px;
+}
+.mainStyle .umkTaskContentContainer h2{
+    color: #777777 !important;
+}
+.mainStyle .umkTaskContentContainer h1,
+.mainStyle .umkTaskContentContainer h2{
+    margin-top: 20px !important;
+    font-family: "Arial" !important;
+    font-weight: normal !important;
+}
+.mainStyle .umkTaskContentContainer *{
+    border: 0px;
+}
+.mainStyle .umkTaskContentContainer a:link{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
+.mainStyle .umkTaskContentContainer a:hover{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
+.mainStyle .umkNavigationLinkContainer a:visited{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .umkNavigationLinkContainer a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+
+.mainStyle .umkNavigationLinkContainer a:link{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .umkNavigationLinkContainer a:hover{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .umkNavigationLinkContainer a:visited{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .umkNavigationLinkContainer a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}

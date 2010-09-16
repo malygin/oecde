@@ -6,25 +6,46 @@
     
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link href="./css/default.css" rel="stylesheet" type="text/css" />
-        <link href="./css/cssLayout.css" rel="stylesheet" type="text/css" />
+        <link href="../resources/css/default.css"  rel="stylesheet" type="text/css" />
+        <h:outputStylesheet name="base.css" library="css" rendered="true"/>
         <title>#{msgs.title}</title>
     </h:head>
     
     <h:body>
-        
-        <div id="top">
-            <ui:insert name="name">Top</ui:insert>
-        </div>
-        
-        <div id="content" class="center_content">
-            <ui:insert name="content">Content</ui:insert>
-        </div>
-        
-        <div id="bottom">
-            <ui:insert name="bottom">Bottom</ui:insert>
-        </div>
+        <div class="mainStyle">
+            <div id="top" class="umkFixedHeadBlockContainer">
+                <div class="umkFixedHeadBlock">
+                    <div style="background: #1A5B79; padding-top: 8px;">
+                        <div class="umkTopLinksContainer">
+                            <ol>
+                                <li>
+                                    <a href="index.xhtml">Главная</a>
+                                </li>
+                                <li>
+                                    <a href="news_list.xhtml">Новости</a>
+                                </li>
+                                <li class="umkTopLinkActive">
+                                    <a href="materials.xhtml">Материалы</a>
+                                </li>
+                                <li class="floatDestroyer"></li>
+                            </ol>
+                        </div>
+                        <div class="umkTaskTitleContainer">
+                            <p>
+                                <ui:insert name="taskName">TaskName</ui:insert>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="umkNavigationLinksContainer">
+                        <ui:insert name="umkNavigation">Top</ui:insert>
+                    </div>
+                </div>
+            </div>
 
+            <div id="content" class="umkTaskContentContainer">
+                <ui:insert name="content">Content</ui:insert>
+            </div>
+        </div>
     </h:body>
     
 </html>
