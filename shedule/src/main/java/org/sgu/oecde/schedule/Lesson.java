@@ -147,7 +147,7 @@ public class Lesson extends BasicItem{
             return "";
     }
 
-    public Boolean isWinter() {
+    public Boolean getWinter() {
         return winter;
     }
 
