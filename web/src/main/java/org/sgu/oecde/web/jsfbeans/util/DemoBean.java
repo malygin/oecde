@@ -10,7 +10,8 @@ import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name="demo")
 @SessionScoped
-public class Controller implements Serializable{
+public class DemoBean implements Serializable{
+    private String date="10.09.2010";
     private String status = "[Unknown]";
     
     public void drag() {
@@ -23,6 +24,15 @@ public class Controller implements Serializable{
 
     public String getStatus() {
         return status;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+        System.out.println("!"+date);
     }
 
 
