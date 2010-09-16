@@ -153,8 +153,8 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
      */
     @SuppressWarnings("unchecked")
     protected Criteria getCriteriaByParametrizedItem(final T item,final Criteria cr){
-        Assert.isInstanceOf(type,item ,"item is not an instance of type "+type);
         Assert.notNull(item,"item can not be null");
+        Assert.isInstanceOf(type,item ,"item is not an instance of type "+type.getSimpleName()+" ");
         cr.add(Example.create(item).excludeZeroes().ignoreCase()).addOrder(Order.asc("id"));
         if(item.getId()!=null&&item.getId()!=0)
             cr.add(Restrictions.idEq(item.getId()));
