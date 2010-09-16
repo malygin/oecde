@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="OECDO_TEST">
-  <class dynamic-insert="true" dynamic-update="true" name="org.sgu.oecde.shedule.Lesson" table="lesson">
+  <class dynamic-insert="true" dynamic-update="true" name="org.sgu.oecde.schedule.Lesson" table="lesson">
     <cache usage="read-write"/>
     <id name="id" type="long" unsaved-value="0">
       <generator class="native">
         <param name="sequence">lesson_seq</param>
       </generator>
     </id>
-    <set cascade="save-update, delete" fetch="select" inverse="true" lazy="true" name="groups" table="lesson_to_group">
+    <list cascade="save-update, delete" fetch="select" lazy="true" name="groups" table="lesson_to_group">
       <cache usage="read-write"/>
       <key column="lesson" foreign-key="fk_lesson_2_group_lesson"/>
+      <list-index column="group_order"/>
       <many-to-many class="org.sgu.oecde.core.users.StudentGroup" column="student_group" foreign-key="fk_lesson_2_group_group"/>
-    </set>
+    </list>
     <many-to-one cascade="delete" class="org.sgu.oecde.core.users.Teacher" fetch="join" foreign-key="fk_lesson_teacher" name="teacher"/>
-    <many-to-one cascade="none" class="org.sgu.oecde.core.education.Curriculum" fetch="join" foreign-key="fk_lesson_curriculum" name="curriculum"/>
+    <many-to-one cascade="none" class="org.sgu.oecde.core.education.Discipline" fetch="join" foreign-key="fk_lesson_discipline" name="discipline"/>
     <property name="room" scale="2" type="integer"/>
     <property column="date_update" length="19" name="updateDate" not-null="false" type="string" update="false"/>
     <property column="lesson_date" length="19" name="lessonDate" not-null="false" type="string"/>
     <property column="student_number" name="number" not-null="true" scale="3" type="integer"/>
+    <property column="year" name="year" not-null="true" scale="4" type="integer"/>
+    <property column="winter" name="winter" not-null="true" scale="1" type="boolean"/>
     <property length="30" name="color" type="string"/>
   </class>
 </hibernate-mapping>
