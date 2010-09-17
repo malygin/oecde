@@ -13,7 +13,7 @@ import org.sgu.oecde.journal.dao.IJournalDao;
 import org.sgu.oecde.journal.filter.BaseFilter;
 import org.sgu.oecde.journal.util.RecordEventFactory;
 import org.sgu.oecde.news.NewsItem;
-import org.sgu.oecde.shedule.Lesson;
+import org.sgu.oecde.schedule.Lesson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

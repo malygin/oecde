@@ -1,5 +1,6 @@
 package org.sgu.oecde.journal.util;
 
+import org.sgu.oecde.schedule.Lesson;
 import org.sgu.oecde.core.users.AbstractStudent;
 import java.io.Serializable;
 import javax.annotation.Resource;
@@ -25,7 +26,6 @@ import org.sgu.oecde.journal.EventType;
 import org.sgu.oecde.journal.dao.IJournalDao;
 import org.sgu.oecde.news.NewsItem;
 import org.sgu.oecde.news.dao.INewsDao;
-import org.sgu.oecde.shedule.Lesson;
 import org.springframework.stereotype.Service;
 import static org.sgu.oecde.journal.util.LogTerms.splitter;
 
@@ -365,9 +365,9 @@ public class RecordEventFactory implements Serializable{
      */
     public void saveScheduleChanging(Lesson lesson) {
         Long multiId = lesson.getId() * 10000;
-        final String[] str = new String[lesson.getGroup().size()];
+        final String[] str = new String[lesson.getGroups().size()];
         StringBuilder sb = new StringBuilder();
-        for (StudentGroup gr:lesson.getGroup()){
+        for (StudentGroup gr:lesson.getGroups()){
             if(gr instanceof Group)
                 sb.append(((Group)gr).getCity().getName()).append(", ").append(((Group)gr).getSpeciality().getRusShort()).append(", ").append(gr.getName()).append("; ").append(splitter);
         }
