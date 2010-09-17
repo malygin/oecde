@@ -1,0 +1,36 @@
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/studentTemplate.xhtml"
+    >
+    <ui:define name="content">
+        <h:dataTable value="#{scheduleBean.schedule}" var="s">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="дисциплина"/>
+                </f:facet>
+                <h:outputText value="#{s.discipline.name}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="преподаватель"/>
+                </f:facet>
+                <h:outputText value="#{s.teacher.initials}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="комната"/>
+                </f:facet>
+                <h:outputText value="#{s.room}" style="color: #{s.color}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="дата"/>
+                </f:facet>
+                <h:outputText value="#{s.lessonDate})"/>
+            </h:column>
+        </h:dataTable>
+
+    </ui:define>
+</ui:composition>

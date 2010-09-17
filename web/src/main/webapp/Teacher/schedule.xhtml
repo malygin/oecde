@@ -1,0 +1,57 @@
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/teacherTemplate.xhtml"
+    >
+    <ui:define name="content">
+        <h:dataTable value="#{teacherScheduleBean.schedule}" var="s">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="дисциплина"/>
+                </f:facet>
+                <h:outputText value="#{s.discipline.name}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="группа"/>
+                </f:facet>
+                <h:dataTable value="#{s.groups}" var="g">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="группа"/>
+                        </f:facet>
+                        <h:outputText value="#{g.name}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="спец-ть"/>
+                        </f:facet>
+                        <h:outputText value="#{g.speciality.name}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="город"/>
+                        </f:facet>
+                        <h:outputText value="#{g.city.name}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="комната"/>
+                </f:facet>
+                <h:outputText value="#{s.room}" style="color: #{s.color}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="дата"/>
+                </f:facet>
+                <h:outputText value="#{s.lessonDate})"/>
+            </h:column>
+        </h:dataTable>
+
+    </ui:define>
+</ui:composition>
