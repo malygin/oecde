@@ -2,19 +2,13 @@ package org.sgu.oecde.schedule.dao;
 
 import java.util.List;
 import org.hibernate.Criteria;
-import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
-import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
 import org.sgu.oecde.core.BasicDao;
-import org.sgu.oecde.core.education.Curriculum;
-import org.sgu.oecde.core.users.StudentGroup;
-import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.schedule.Lesson;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.CollectionUtils;
 
 /**
  * {@inheritDoc }
@@ -63,21 +57,5 @@ public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
         crit.add(Restrictions.between("lessonDate", year+"."+month+"."+"01 00:00:00",year+"."+month+"."+"31 00:00:00"));
         List<Lesson> lessonList = crit.setCacheable(true).list();
         return lessonList;
-    }
-
-    public List<Lesson> getGroupLessons(StudentGroup group,List<? extends Curriculum>curriculums) throws DataAccessException{
-        if(CollectionUtils.isEmpty(curriculums)||group==null)
-            return null;
-        Criteria cr =getSession().createCriteria(type);
-        return cr.createAlias("groups", "gr").add(Restrictions.eq("gr.id",group.getId()))
-                .add(Property.forName("curriculum").in(curriculums))
-                .addOrder(Order.asc("curriculum")).addOrder(Order.asc("lessonDate"))
-                .list();
-    }
-
-    public List<Lesson> getTeacherLessons(Teacher teacher,List<? extends Curriculum>curriculums) throws DataAccessException{
-        if(CollectionUtils.isEmpty(curriculums)||teacher==null)
-            return null;
-        return getSession().createQuery("select distinct l from Lesson l join fetch l.groups g join fetch l.curriculum c join fetch l.teacher t order by c,g,l.lessonDate").list();
     }
 }

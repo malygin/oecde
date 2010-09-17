@@ -44,7 +44,7 @@ public class getLessonItem extends BasicTest{
         super.getAllItems();
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void  putLesson(){
         Teacher e = new Teacher();
@@ -54,7 +54,7 @@ public class getLessonItem extends BasicTest{
         Discipline s = getDisciplines(li).iterator().next();
         List<Group> cis;
         int number = 0;
-        List<Group> cssIs = sdsyDao.getGroupsForTeacher(Semesters.winter(), 2009, t);
+        List<Group> cssIs = sdsyDao.getGroupsForTeacher(Semesters.summer(), 2009, t);
         System.out.println(cssIs.size());
         for(Iterator<Group> it = cssIs.iterator();it.hasNext();){
             Group css = it.next();
@@ -69,7 +69,7 @@ public class getLessonItem extends BasicTest{
         l.setDiscipline(s);
         l.setTeacher(t);
         l.setYear(2009);
-        l.setWinter(true);
+        l.setWinter(false);
         setDao("lessonDao");
         this.<ILessonDao>getDao().saveLesson(l);
         System.out.println("ok!");
