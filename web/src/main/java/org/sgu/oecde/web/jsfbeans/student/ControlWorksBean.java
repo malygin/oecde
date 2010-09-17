@@ -1,6 +1,7 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -83,13 +84,13 @@ public class ControlWorksBean extends StudentCurriculumBean{
                     ||(currentDate.compareTo(reExameBeginDate)>=0
                     &&currentDate.compareTo(reExameEndDate)<0)
                     )&&!ControlWorkProgress.passed.equals(w.getProgress())
-                    &&!cr.isControlWorksPaperOnly()){
+                    &&!cr.getControlWorksPaperOnly()){
                     available = true;
                 }
                 data[2] = available;
                 if(getCurriculumAndTeacher().containsKey(cr))
                     data[3] = getCurriculumAndTeacher().get(cr);
-                data[4] = (cr.isControlWorksPaperOnly()!=null&&cr.isControlWorksPaperOnly())?"в рукописном":"";
+                data[4] = (cr.getControlWorksPaperOnly()!=null&&cr.getControlWorksPaperOnly())?"в рукописном":"";
             }
             Collections.sort(works,new OrderByDisciplineName());
         }
@@ -120,7 +121,7 @@ public class ControlWorksBean extends StudentCurriculumBean{
             UploadFile uf = multi.findFile("CwFile");
             if(uf != null){
                  ControlWorkAttempt a = new ControlWorkAttempt();
-                 Set s=new HashSet<ControlWorkAttempt>();         
+                 List<ControlWorkAttempt> s=new ArrayList<ControlWorkAttempt>(1);
                  s.add(a);
                  currentControlWorks.setCwAttempt(s);
                  a.setAttemptDate(DateConverter.convert(System.currentTimeMillis()));
