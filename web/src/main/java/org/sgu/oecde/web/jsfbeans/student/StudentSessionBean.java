@@ -29,7 +29,7 @@ public class StudentSessionBean extends AbstractStudentBean{
     public Map<DeCurriculum, Teacher> getCurriculumAndTeacher(int semester) {
         if(((currentCurriculums==null&&semester==0)||(previousCurriculums==null&&semester==1))){
             setSemester(semester);
-            int correctSemester = student.getTransfered()!=null&&student.getTransfered()?0:1;
+            int correctSemester = student.isTransfered()!=null&&student.isTransfered()?0:1;
             Map<DeCurriculum,Teacher> l = curriculumDao.<DeCurriculum,Teacher>getTeachersByGroup(semesterGetter.getSemesterByStudentYear(student, semester-correctSemester).intValue(), semesterGetter.getCalendarYear(correctSemester), student.getGroup());
             if(semester == 0)
                 currentCurriculums=l;

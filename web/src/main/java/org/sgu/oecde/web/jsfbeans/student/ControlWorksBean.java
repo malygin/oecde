@@ -4,12 +4,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -84,13 +82,13 @@ public class ControlWorksBean extends StudentCurriculumBean{
                     ||(currentDate.compareTo(reExameBeginDate)>=0
                     &&currentDate.compareTo(reExameEndDate)<0)
                     )&&!ControlWorkProgress.passed.equals(w.getProgress())
-                    &&!cr.getControlWorksPaperOnly()){
+                    &&!cr.isControlWorksPaperOnly()){
                     available = true;
                 }
                 data[2] = available;
                 if(getCurriculumAndTeacher().containsKey(cr))
                     data[3] = getCurriculumAndTeacher().get(cr);
-                data[4] = (cr.getControlWorksPaperOnly()!=null&&cr.getControlWorksPaperOnly())?"в рукописном":"";
+                data[4] = (cr.isControlWorksPaperOnly()!=null&&cr.isControlWorksPaperOnly())?"в рукописном":"";
             }
             Collections.sort(works,new OrderByDisciplineName());
         }
