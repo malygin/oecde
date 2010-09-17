@@ -21,7 +21,7 @@
     <module>messages</module>
     <module>shedule</module>
     <module>de</module>
-  </modules><!--
+  </modules>
     <repositories>
           <repository>
             <id>central</id>
@@ -76,7 +76,7 @@
                 </snapshots>
             </pluginRepository>
         </pluginRepositories>
-  -->
+
         <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -278,19 +278,29 @@
              <artifactId>slf4j-api</artifactId>
              <groupId>org.slf4j</groupId>
              <type>jar</type>
-             <version>1.5.8</version>
+             <version>1.5.11</version>
           </dependency>
           <dependency>
              <groupId>org.slf4j</groupId>
              <artifactId>slf4j-log4j12</artifactId>
              <type>jar</type>
              <version>1.5.8</version>
+               <exclusions>
+                    <exclusion>
+                         <artifactId>slf4j-api</artifactId>
+                         <groupId>org.slf4j</groupId>
+                    </exclusion>
+                    <exclusion>
+                         <artifactId>log4j</artifactId>
+                         <groupId>log4j</groupId>
+                    </exclusion>
+               </exclusions>
           </dependency>
           <dependency>
              <groupId>log4j</groupId>
              <artifactId>log4j</artifactId>
              <type>jar</type>
-             <version>1.2.12</version>
+             <version>1.2.14</version>
           </dependency>
 
           <dependency>
@@ -318,6 +328,12 @@
                  <groupId>net.sf.ehcache</groupId>
                  <type>jar</type>
                  <version>2.1.0</version>
+                 <exclusions>
+                      <exclusion>
+                           <artifactId>slf4j-api</artifactId>
+                           <groupId>org.slf4j</groupId>
+                      </exclusion>
+                 </exclusions>
             </dependency>
             <dependency>
                  <artifactId>ehcache-terracotta</artifactId>
