@@ -1,6 +1,6 @@
 package org.sgu.oecde.controlworks;
 
-import java.util.Set;
+import java.util.List;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.work.AbstractResult;
 import org.sgu.oecde.core.users.AbstractStudent;
@@ -18,7 +18,7 @@ public class ControlWork extends AbstractResult{
     /**
      * коллекция сущностей с попытками
      */
-    private Set<? extends ControlWorkAttempt> cwAttempt;
+    private List<? extends ControlWorkAttempt> cwAttempt;
 
     /**
      * баллы
@@ -39,7 +39,7 @@ public class ControlWork extends AbstractResult{
      *
      * @return попытки
      */
-    public Set<? extends ControlWorkAttempt> getCwAttempt() {
+    public List<? extends ControlWorkAttempt> getCwAttempt() {
         return cwAttempt;
     }
 
@@ -47,7 +47,7 @@ public class ControlWork extends AbstractResult{
      * попытки
      * @param cwTrial
      */
-    public void setCwAttempt(Set<? extends ControlWorkAttempt> cwTrial) {
+    public void setCwAttempt(List<? extends ControlWorkAttempt> cwTrial) {
         this.cwAttempt = cwTrial;
     }
 

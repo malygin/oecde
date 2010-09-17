@@ -1,6 +1,7 @@
 package org.sgu.oecde.controlworks;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -136,12 +137,12 @@ public class ControlWorkService implements Serializable{
             a.setFilePath("empty");
             a.setAttemptDate(DateConverter.currentDate());
             a.setWork(work);
-            Set<ControlWorkAttempt>set = null;
+            List<ControlWorkAttempt>set = null;
             if(CollectionUtils.isEmpty(work.getCwAttempt())){
-                set = new HashSet<ControlWorkAttempt>();
+                set = new ArrayList<ControlWorkAttempt>(1);
                 work.setCwAttempt(set);
             }else{
-                set = (Set<ControlWorkAttempt>) work.getCwAttempt();
+                set = (List<ControlWorkAttempt>) work.getCwAttempt();
             }
             set.add(a);
             controlWorkDao.save(work);

@@ -30,24 +30,28 @@ public class AppTest extends BasicTest{
     public void save(){
         setDao("controlWorkDao");
         ControlWork w = getItem(3L);
-        Set s = null;
+        List s = null;
         if(w==null){
             w = new ControlWork();
             w.setCurriculum(new DeCurriculum(200847634L));
             w.setStudent(new Student(324725L));
-            s = new HashSet<ControlWorkAttempt>();
+            s = new ArrayList<ControlWorkAttempt>(2);
         }else{
             s = w.getCwAttempt();
         }
         ControlWorkAttempt a = new ControlWorkAttempt();
-        s.add(a);
+        ControlWorkAttempt a2 = new ControlWorkAttempt();
         w.setCwAttempt(s);
         a.setAttemptDate(DateConverter.convert(System.currentTimeMillis()));
+        a2.setAttemptDate(DateConverter.convert(System.currentTimeMillis()));
+        s.add(a);
+        s.add(a2);
+        a2.setWork(w);
         a.setWork(w);
         this.<IControlWorkDao>getDao().save(w);
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void get(){
         setDao("controlWorkDao");
@@ -61,7 +65,7 @@ public class AppTest extends BasicTest{
         }
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void getAttempts(){
         setDao("controlWorkAttemptDao");
@@ -76,7 +80,7 @@ public class AppTest extends BasicTest{
         }
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void getCount(){
         setDao("controlWorkAttemptDao");
