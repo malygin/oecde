@@ -44,7 +44,7 @@ public class getLessonItem extends BasicTest{
         super.getAllItems();
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void  putLesson(){
         Teacher e = new Teacher();
@@ -143,9 +143,9 @@ public class getLessonItem extends BasicTest{
     @Ignore
     @Test
     public void DeleteItem(){
-        Lesson l = new Lesson();
-         l.setId(128L);
-         ((ILessonDao)getDao()).deleteLesson(l);
+        setDao("lessonDao");
+        Lesson l = getItem(283L);
+        ((ILessonDao)getDao()).deleteLesson(l);
     }
 
       @Ignore

@@ -26,7 +26,7 @@ public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
     @Transactional
     @Override
     public void saveLesson(final Lesson lesson) throws DataAccessException {
-        getHibernateTemplate().merge(lesson);
+        getSession().merge(lesson);
     }
 
     /**
@@ -35,7 +35,7 @@ public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
     @Transactional
     @Override
     public void deleteLesson(final Lesson lesson) throws DataAccessException {
-        getHibernateTemplate().delete(lesson);
+           getSession().delete(lesson);
     }
 
     /**
