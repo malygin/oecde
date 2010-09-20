@@ -24,6 +24,8 @@ abstract class AbstractStudentsListBean extends TeacherCurriculumBean{
 
     public List<DeCurriculum>getDisciplines(){
         List<DeCurriculum>l = new LinkedList();
+        if(group==null)
+            return l;
         Student tmp  = new Student();
         tmp.setGroup(group);
         List<DeCurriculum>dl = getTeacherSessionBean().getDisciplines(semester);

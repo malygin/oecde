@@ -25,8 +25,8 @@
          <h:outputText value="#{groupPoints.group.name}"/> (<h:outputText value="#{groupPoints.group.city.name}"/>,<h:outputText value="#{groupPoints.group.speciality.name}"/>)
 
          <hr/>
-         <h:form id="form" prependId="false">
-             <h:dataTable id="table" value="#{groupPoints.points}" var="p">
+         <h:form rendered="#{not groupPoints.accessDenied}" id="form" prependId="false">
+           <h:dataTable id="table" value="#{groupPoints.points}" var="p">
            <h:column>
             <f:facet name="header">
              <h:outputText value="студент" />

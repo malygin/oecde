@@ -89,10 +89,9 @@ public class GroupControlWorks extends AbstractStudentsListBean{
     }
 
     public void logWorkDownload(AjaxBehaviorEvent event){
-        Student s = (Student) event.getComponent().getAttributes().get("student");
         ControlWorkAttempt a = (ControlWorkAttempt) event.getComponent().getAttributes().get("attempt");
         cwService.setWorkRead(a);
-        journalServise.logTaskHasBeenRead(teacher, getCurriculum(), s);
+        journalServise.logTaskHasBeenRead(teacher, getCurriculum(), a.getWork().getStudent());
     }
 
     public ControlWorkProgress[] getValues(){

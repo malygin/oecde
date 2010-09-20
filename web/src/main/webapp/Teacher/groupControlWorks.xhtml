@@ -2,10 +2,8 @@
          xmlns:ui="http://java.sun.com/jsf/facelets"
          xmlns:f="http://java.sun.com/jsf/core"
          xmlns:h="http://java.sun.com/jsf/html"
-         xmlns:r="http://java.sun.com/jsp/jstl/core"
          template="../resources/teacherTemplate.xhtml"
          >
-
         <ui:define name="content">
          <f:metadata>
              <f:viewParam name="s" value="#{teachersGroups.semester}"/>
@@ -14,11 +12,10 @@
              <f:viewParam name="c" value="#{groupControlWorksForTeacher.curriculumId}"/>
          </f:metadata>
          <h:outputText rendered="#{groupControlWorksForTeacher.accessDenied}" value="группа не найдена или не доступна" />
-
-        <h:panelGroup rendered="#{not groupControlWorksForTeacher.accessDenied}">
-         <h:dataTable value="#{groupControlWorksForTeacher.disciplines}" var="d">
+         <h:panelGroup id="group" rendered="#{not groupControlWorksForTeacher.accessDenied}">
+         <h:dataTable id="disciplines" value="#{groupControlWorksForTeacher.disciplines}" var="d">
            <h:column>
-               <h:outputLink value="?c=#{d.id}&amp;g=#{groupControlWorksForTeacher.id}&amp;s=#{groupControlWorksForTeacher.semester}">(#{d.discipline.name})</h:outputLink>
+               <h:outputLink value="?c=#{d.id}&amp;g=#{groupControlWorksForTeacher.id}&amp;s=#{groupControlWorksForTeacher.semester}">(<h:outputText value="#{d.discipline.name}"/>)</h:outputLink>
            </h:column>
           </h:dataTable>
 
@@ -27,27 +24,31 @@
          <h:outputText value="#{groupControlWorksForTeacher.group.name}"/> (<h:outputText value="#{groupControlWorksForTeacher.group.city.name}"/>,<h:outputText value="#{groupControlWorksForTeacher.group.speciality.name}"/>)
 
          <hr/>
-         <h:panelGroup id="form" rendered="#{not groupControlWorksForTeacher.accessDenied}">
-          <h:form>
-           <h:dataTable id="table" value="#{groupControlWorksForTeacher.groupControlWorks}" var="w">
+         <h:form id="form" rendered="#{not groupControlWorksForTeacher.accessDenied}">
+           <h:dataTable rendered="#{not groupControlWorksForTeacher.accessDenied}" id="table" value="#{groupControlWorksForTeacher.groupControlWorks}" var="w">
             <h:column>
                 <f:facet name="header">
                  <h:outputText value="студент" />
                 </f:facet>
-               <h:outputLink value="student.xhtml?id=#{w.key.id}&amp;s=#{groupControlWorksForTeacher.semester}">#{w.key.fio}</h:outputLink>
+                <h:outputLink value="student.xhtml?id=#{w.key.id}&amp;s=#{groupControlWorksForTeacher.semester}"><h:outputText value="#{w.key.fio}"/></h:outputLink>
             </h:column>
 
             <h:column>
                 <f:facet name="header">
-                 <h:outputText value="попытки" />
+                    <h:outputText value="попытки" />
                 </f:facet>
-                <h:outputLink value="../addressbook.csv" id="log">
-                <f:ajax  event="mousedown" listener="#{groupControlWorksForTeacher.logWorkDownload}"/>
-                    <f:attribute name="student" value="#{w.key}"/>
-                    <f:attribute name="attempt" value="attempt"/>
-                    <h:outputText value="link"/>
-                </h:outputLink>
-                <h:outputText value="#{w.value.cwAttempt}" id="attempts"/>
+
+                <h:dataTable  id="attempts" value="#{w.value.cwAttempt}" var="a">
+                    <h:column>
+                        <h:outputLink rendered="#{a.filePath ne 'empty'}" value="#{a.filePath}" id="log">
+                        <f:ajax  event="mousedown" listener="#{groupControlWorksForTeacher.logWorkDownload}"/>
+                            <f:attribute name="attempt" value="#{a}"/>
+                            <h:outputText value="#{a.attemptDate}"/>
+                        </h:outputLink>
+                        
+                        <h:outputText rendered="#{a.filePath eq 'empty'}" value="#{a.attemptDate}"/>
+                    </h:column>
+                </h:dataTable>
             </h:column>
 
             <h:column>
@@ -87,7 +88,5 @@
                  <br/>
           </h:form>
          </h:panelGroup>
-        </h:panelGroup>
-
         </ui:define>
     </ui:composition>
