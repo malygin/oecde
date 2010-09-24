@@ -26,6 +26,11 @@ public class DemoBean implements Serializable{
         return status;
     }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    
+
     public String getDate() {
         return date;
     }
