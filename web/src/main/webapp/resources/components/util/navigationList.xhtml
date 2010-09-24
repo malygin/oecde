@@ -10,6 +10,7 @@
   <composite:interface>
     <composite:attribute  name="elementOnPage"/>
     <composite:attribute  name="numElements"/>
+    <composite:attribute  name="idObject"/>
   
   </composite:interface>
 
@@ -23,7 +24,13 @@
                 <h:outputText value="#{page}"/>&nbsp;
             </c:if>
             <c:if test="${page!=NavigationBean.page}">
-                <a href="?page=#{page}"><h:outputText value="#{page}"/></a>&nbsp;
+                <c:if test="${cc.attrs.idObject!=null}">
+                    <a href="?id=#{cc.attrs.idObject}&amp;page=#{page}"><h:outputText value="#{page}"/></a>&nbsp;
+                </c:if>
+                <c:if test="${cc.attrs.idObject==null}">
+                     <a href="?page=#{page}"><h:outputText value="#{page}"/></a>&nbsp;
+                </c:if>
+
             </c:if>
         </c:forEach>
         </div>

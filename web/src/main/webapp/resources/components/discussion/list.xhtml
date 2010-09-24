@@ -5,8 +5,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:r="http://java.sun.com/jsp/jstl/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      >
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 
     <!-- INTERFACE -->
     <composite:interface>
@@ -29,6 +28,8 @@
                     </h:form>
                 </div>
             </div>
+
+
         <r:forEach items="#{cc.attrs.list}" var="node">
              <h:form>
                 <div class="discussionComment" style="margin-left: #{(node.level-2)*30}px;">
@@ -38,21 +39,28 @@
                         <span class="discussionCommentDate">#{node.time}</span>
                     </div>
                     <div class="discussionCommentContentText">
-                        #{node.message}
+                        <h:outputText value="#{node.message}" rendered="#{not DiscussionBean.renderEdit}"/>
+                        <h:inputTextarea value="#{DiscussionBean.nodeText}" rendered="#{DiscussionBean.renderEdit}"/>
+                        <h:commandLink rendered="#{DiscussionBean.renderEdit}" action="#{DiscussionBean.editNodes}" value="Изменить"/>
+                      
                         <div class="navigationLinks" style="margin: 5px 0px 0px 15px;">
                             <h:commandLink style="margin-right: 10px;" action="#{DiscussionBean.showReply}" value="Ответить">
                                         <f:ajax  execute="@this" render="@form" />
-                                        <f:setPropertyActionListener target="#{DiscussionBean.nodeId}" value="#{node.id}" />
+                                        <f:setPropertyActionListener target="#{DiscussionBean.currentNode}" value="#{node}" />
                              </h:commandLink>
                          
                             <h:panelGroup rendered="#{DiscussionBean.currentUser.id==node.user.id}">
-                                <a href="#" style="margin-right: 10px;">Редактировать</a>
+                                <h:commandLink style="margin-right: 10px;" action="#{DiscussionBean.showEdit}" value="Редактировать">
+                                        <f:ajax  execute="@this" render="@form" />
+                                        <f:setPropertyActionListener target="#{DiscussionBean.currentNode}" value="#{node}" />
+                             </h:commandLink>
                                 <span class="navigationLinksRed">
                                     <h:commandLink action="#{DiscussionBean.deleteNode}" value="Удалить">
                                         <f:setPropertyActionListener target="#{DiscussionBean.nodeId}" value="#{node.id}" />                                     
                                    </h:commandLink>
                                 </span>
                             </h:panelGroup>
+
                             <h:panelGroup rendered="#{DiscussionBean.renderReply}">
                                 <div style="max-width: 50%; margin-top: 10px;" >
                                     <h:inputTextarea cols="30" rows="5"  value="#{DiscussionBean.nodeTextReply}" style="width: 100%;" />
@@ -63,14 +71,13 @@
                                     </div>
                                 </div>
                             </h:panelGroup>
+                            
                         </div>
                     </div>
                     <div class="floatDestroyer"/>
                 </div>
             </h:form>
-            </r:forEach>
+          </r:forEach>
        
-
-
     </composite:implementation>
 </html>
