@@ -21,7 +21,7 @@
             <h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.winterRegularTestReExameAttemtpsCount}"/>winterRegularTestReExameAttemtpsCount<br/>
             <h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.winterConcludingTestReExameAttemtpsCount}"/>winterConcludingTestReExameAttemtpsCount<br/>
             <h:inputText maxlength="4" size="4" value="#{calendarConstantsBean.year}"/>year<br/>
-            <h:selectBooleanCheckbox  value="#{calendarConstantsBean.semester}"/>semester<br/>
+            <h:selectBooleanCheckbox  value="#{calendarConstantsBean.semester}"/>is winter<br/>
             <h:commandButton value="ОКЭ">
                 <f:ajax execute="@form" render="@form error saved" listener="#{calendarConstantsBean.save}"/>
             </h:commandButton><br/>
