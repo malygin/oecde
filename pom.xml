@@ -21,6 +21,7 @@
     <module>messages</module>
     <module>shedule</module>
     <module>de</module>
+    <module>tabs</module>
   </modules>
     <repositories>
           <repository>

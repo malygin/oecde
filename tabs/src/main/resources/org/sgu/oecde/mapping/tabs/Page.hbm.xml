@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <class dynamic-insert="true" dynamic-update="true" name="org.sgu.oecde.tabs.Page" select-before-update="false" table="tab_page">
+    <cache usage="read-write"/>
+    <id name="id" type="long" unsaved-value="0">
+      <generator class="native">
+        <param name="sequence">tab_page_seq</param>
+      </generator>
+    </id>
+    <property length="3000" name="text" not-null="true" type="string"/>
+    <property length="250" name="title" not-null="true" type="string"/>
+    <property name="visible" scale="1" type="boolean"/>
+    <list batch-size="10" cascade="save-update,merge,delete" fetch="join" lazy="false" name="files" table="tab_page_file">
+      <cache usage="read-write"/>
+      <key column="page" foreign-key="fk_tab_page" not-null="true"/>
+      <list-index column="file_order"/>
+      <one-to-many class="org.sgu.oecde.tabs.PageFile"/>
+    </list>
+  </class>
+</hibernate-mapping>
