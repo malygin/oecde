@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:composite="http://java.sun.com/jsf/composite"
     xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core">
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:util="http://java.sun.com/jsf/composite/components/util">
 
  <!-- INTERFACE -->
   <composite:interface>
@@ -17,9 +18,10 @@
         <h:outputText  rendered="#{NewsBean.renderAddSuccess}" value=" успешно!"/><br/>
 
         <h:inputText value="#{NewsBean.currentNewItem.header}"/><br/>
-      <h:inputTextarea value="#{NewsBean.currentNewItem.announcement}"/><br/>
-      <h:inputTextarea value="#{NewsBean.currentNewItem.fullText}"/><br/>
-      <h:commandButton action="#{NewsBean.edit}" value="редактировать"/><br/>
+        <h:inputTextarea value="#{NewsBean.currentNewItem.announcement}"/><br/>    
+        <util:editor value="#{NewsBean.currentNewItem.fullText}"/><br/>
+    
+        <h:commandButton action="#{NewsBean.edit}" value="редактировать"/><br/>
       </h:form>
 
     </composite:implementation>

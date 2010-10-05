@@ -16,8 +16,10 @@
 
   <!-- IMPLEMENTATION -->
    <composite:implementation>
-           <script src="resources/tiny_mce/tiny_mce.js"/>
-           <script src="resources/tiny_mce/tinymce_init.js"/>
+           <script src="../resources/tiny_mce/tiny_mce.js"/>
+           <script src="../resources/tiny_mce/tinymce_init.js"/>
+<!--<h:outputScript target="head" name="tiny_mce/tiny_mce.js"/>
+              <h:outputScript  name="tiny_mce/tinymce_init.js"/>-->
           <h:inputTextarea rows="5" cols="80" styleClass="tinymce" value="#{cc.attrs.value}"/>
   </composite:implementation>
 </html>

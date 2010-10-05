@@ -22,7 +22,7 @@
                 <h:dataTable id="recipients" value="#{MessageWriteBean.recipients}" var="recipient">
                     <h:column>
                         <div style="width: 52px;">
-                            #{msgs.message_author}
+                           #{msgs.message_forWhom}
                         </div>
                     </h:column>
                     <h:column>
@@ -37,9 +37,9 @@
                 </h:dataTable>
                 <table cellpadding="0" cellspacing="3" class="writeMessageInterfaceTableForm">
                     <tr>
-                        <td style="width: 50px;">#{msgs.message_forWhom}</td>
+                        <td style="width: 50px;"></td>
                         <td>
-                            <h:inputText styleClass="writeMessageInterfaceTheme" value="#{msgs.message_forWhom}"/>
+
                         </td>
                     </tr>
                     <tr>
