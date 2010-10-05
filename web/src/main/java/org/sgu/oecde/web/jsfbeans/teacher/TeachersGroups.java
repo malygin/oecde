@@ -34,7 +34,7 @@ public class TeachersGroups extends AbstractTeacherBean{
             groupsMap = new ArrayList<NewEntry<Speciality, List<Group>>>();
             List<Group>groups = teacherSessionBean.getGroups(semester);
             if(!CollectionUtils.isEmpty(groups)){
-                Collections.sort(groups, new SortGroup());
+                Collections.sort(groups);
                 List<Group>specialityGroups = null;
                 Speciality s = null;
                 for(Group g:groups){
@@ -62,21 +62,5 @@ public class TeachersGroups extends AbstractTeacherBean{
 
     public void setTeacherSessionBean(TeacherSessionBean teacherSessionBean) {
         this.teacherSessionBean = teacherSessionBean;
-    }
-
-    private class SortGroup implements Comparator<Group>{
-
-        @Override
-        public int compare(Group o1, Group o2) {
-            int speciality = 0;
-            int name = 0;
-            if(o1!=null&&o2!=null){
-                if(o1.getSpeciality()!=null&&o1.getSpeciality().getId()!=null&&o2.getSpeciality()!=null)
-                    speciality = o1.getSpeciality().getId().compareTo(o2.getSpeciality().getId());
-                if(o1.getName()!=null)
-                    name = o1.getName().compareTo(o2.getName());
-            }
-            return speciality==0?(name):speciality;
-        }
     }
 }

@@ -3,7 +3,7 @@
          xmlns:f="http://java.sun.com/jsf/core"
          xmlns:h="http://java.sun.com/jsf/html"
          template="../resources/teacherTemplate.xhtml"
-         >
+         xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
         <ui:define name="content">
          <f:metadata>
              <f:viewParam name="s" value="#{teachersGroups.semester}"/>
@@ -11,19 +11,7 @@
              <f:viewParam name="g" value="#{groupControlWorksForTeacher.id}"/>
              <f:viewParam name="c" value="#{groupControlWorksForTeacher.curriculumId}"/>
          </f:metadata>
-         <h:outputText rendered="#{groupControlWorksForTeacher.accessDenied}" value="группа не найдена или не доступна" />
-         <h:panelGroup id="group" rendered="#{not groupControlWorksForTeacher.accessDenied}">
-         <h:dataTable id="disciplines" value="#{groupControlWorksForTeacher.disciplines}" var="d">
-           <h:column>
-               <h:outputLink value="?c=#{d.id}&amp;g=#{groupControlWorksForTeacher.id}&amp;s=#{groupControlWorksForTeacher.semester}">(<h:outputText value="#{d.discipline.name}"/>)</h:outputLink>
-           </h:column>
-          </h:dataTable>
-
-         <h:outputText rendered="#{groupControlWorksForTeacher.accessDenied}" value="дисциплина не найдена или не доступна" />
-         <h:outputText value="#{groupControlWorksForTeacher.curriculum.discipline.name}"/><br/>
-         <h:outputText value="#{groupControlWorksForTeacher.group.name}"/> (<h:outputText value="#{groupControlWorksForTeacher.group.city.name}"/>,<h:outputText value="#{groupControlWorksForTeacher.group.speciality.name}"/>)
-
-         <hr/>
+         <est:header bean="#{groupControlWorksForTeacher}"/>
          <h:form id="form" rendered="#{not groupControlWorksForTeacher.accessDenied}">
            <h:dataTable rendered="#{not groupControlWorksForTeacher.accessDenied}" id="table" value="#{groupControlWorksForTeacher.groupControlWorks}" var="w">
             <h:column>
@@ -41,7 +29,7 @@
                 <h:dataTable  id="attempts" value="#{w.value.cwAttempt}" var="a">
                     <h:column>
                         <h:outputLink rendered="#{a.filePath ne 'empty'}" value="#{a.filePath}" id="log">
-                        <f:ajax  event="mousedown" listener="#{groupControlWorksForTeacher.logWorkDownload}"/>
+                            <f:ajax  event="mousedown" listener="#{groupControlWorksForTeacher.logWorkDownload}"/>
                             <f:attribute name="attempt" value="#{a}"/>
                             <h:outputText value="#{a.attemptDate}"/>
                         </h:outputLink>
@@ -56,7 +44,7 @@
                  <h:outputText value="в рукописной" />
                 </f:facet>
                 <h:commandLink id="handle">
-                    <f:ajax event="click" render="attempts" listener="#{groupControlWorksForTeacher.saveEmpty}"/>
+                    <f:ajax execute="@this" event="click" render="attempts" listener="#{groupControlWorksForTeacher.saveEmpty}"/>
                     <f:attribute name="work" value="#{w.value}"/>
                     <h:outputText value="отметить"/>
                 </h:commandLink>
@@ -87,6 +75,5 @@
              <h:outputText id="saved" rendered="#{groupControlWorksForTeacher.saved}" value="saved"/>
                  <br/>
           </h:form>
-         </h:panelGroup>
         </ui:define>
     </ui:composition>

@@ -23,7 +23,13 @@
                    #{w.points}| #{w.progress}<br/>
                    <h:dataTable value="#{w.cwAttempt}" var="a">
                        <h:column>
-                         {i.count}{a.filePath}
+                        <h:outputLink rendered="#{a.filePath ne 'empty'}" value="#{a.filePath}" id="log">
+                            <f:ajax  event="mousedown" listener="#{groupControlWorksForTeacher.logWorkDownload}"/>
+                            <f:attribute name="attempt" value="#{a}"/>
+                            <h:outputText value="#{a.attemptDate}"/>
+                        </h:outputLink>
+
+                        <h:outputText rendered="#{a.filePath eq 'empty'}" value="#{a.attemptDate}"/>
                        </h:column>
                    </h:dataTable>
                </h:column>
@@ -41,7 +47,8 @@
                 <f:facet name="header">
                  <h:outputText value="Попыток" />
                 </f:facet>
-               #{r.estimateAttemptsUsedNumber} из #{r.work.estimateAttemptsNumber}
+               с #{r.estimateAttemptsUsedNumber} из #{r.work.estimateAttemptsNumber}<br/>
+               п: #{r.reExameAttemptsUsedNumber} из #{r.work.type eq groupTestResults.concludingType?groupTestResults.concludingAttemtpsCount:groupTestResults.regularAttemtpsCount}
                </h:column>
 
                <h:column>
@@ -50,7 +57,7 @@
                             <f:facet name="header">
                              <h:outputText value="Правильных ответов" />
                             </f:facet>
-                           #{a.rightAnswers} из #{a.quantity}
+                           #{a.rightAnswers} #{msgs.student_fromWord} #{r.work.quantity}
                        </h:column>
                        <h:column>
                             <f:facet name="header">

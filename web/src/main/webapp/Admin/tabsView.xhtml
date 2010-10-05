@@ -1,0 +1,40 @@
+ <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         template="../resources/adminTemplate.xhtml">
+
+     <ui:define name="content">
+         <h:dataTable id="tabs" value="#{tabsViewBean.all}" var="t">
+
+               <h:column>
+                 <f:facet name="header">
+                     Заголовок вкладки
+                 </f:facet>
+                   <h:outputText value="#{t.name}"/>
+               </h:column>
+               <h:column>
+                 <f:facet name="header">
+                     Тип
+                 </f:facet>
+                   <h:outputText converter="enumConverter" value="#{t.type}"/>
+               </h:column>
+               <h:column>
+                  <h:outputLink value="tabEdit.xhtml?id=#{t.id}">Редактировать</h:outputLink>
+               </h:column>
+         </h:dataTable>
+     <hr/>
+
+     <h:form id="edit">
+         Имя вкладки
+         <h:inputText id="tabName" value="#{tabEditBean.tab.name}"/>
+         Тип вкладки
+         <h:selectOneMenu id="tabType" value="#{tabEditBean.tab.type}">
+             <f:selectItems value="#{tabEditBean.types}" />
+         </h:selectOneMenu>
+         <hr/>
+         <h:commandLink action="#{tabEditBean.updateTab}" value="добавить"/>
+     </h:form>
+     </ui:define>
+ </ui:composition>
+  

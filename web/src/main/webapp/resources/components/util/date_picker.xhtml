@@ -10,8 +10,10 @@
 
  <!-- INTERFACE -->
   <composite:interface>
-      <composite:attribute name="value"/>
-
+      <composite:attribute name="value" shortDescription="дата"/>
+      <composite:attribute name="size" default="10" shortDescription="длина инпут текста"/>
+      <composite:attribute name="maxlength" default="10" shortDescription="количество знаков в инпуттексте"/>
+      <composite:attribute name="format" default="yy.mm.dd" shortDescription="формат даты"/>
   </composite:interface>
 
   <!-- IMPLEMENTATION -->
@@ -23,10 +25,9 @@
 
         <script type="text/javascript">
            $(function() {
-               console.log('jkhjkhjk');
-                   $(".datepicker").datepicker();
+               $(".datepicker").datepicker({ dateFormat: '#{cc.attrs.format}'});
 	   });
 	</script>
-        <h:inputText styleClass="datepicker" value="#{cc.attrs.value}" id="datepicker"/>
+        <h:inputText maxlength="#{cc.attrs.maxlength}" size="#{cc.attrs.size}" styleClass="datepicker" value="#{cc.attrs.value}" id="datepicker"/>
   </composite:implementation>
 </html>

@@ -3,7 +3,7 @@
          xmlns:f="http://java.sun.com/jsf/core"
          xmlns:h="http://java.sun.com/jsf/html"
          template="../resources/teacherTemplate.xhtml"
-         >
+         xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
         <ui:define name="content">
          <f:metadata>
              <f:viewParam name="s" value="#{teachersGroups.semester}"/>
@@ -11,20 +11,7 @@
              <f:viewParam name="g" value="#{groupPoints.id}"/>
              <f:viewParam name="c" value="#{groupPoints.curriculumId}"/>
          </f:metadata>
-         <h:outputText rendered="#{groupPoints.accessDenied}" value="группа не найдена или не доступна" />
-
-         <h:panelGroup rendered="#{not groupPoints.accessDenied}">
-         <h:dataTable value="#{groupPoints.disciplines}" var="d">
-           <h:column>
-               <h:outputLink value="?c=#{d.id}&amp;g=#{groupPoints.id}&amp;s=#{groupPoints.semester}">(#{d.discipline.name})</h:outputLink>
-           </h:column>
-          </h:dataTable>
-
-         <h:outputText rendered="#{groupPoints.accessDenied}" value="дисциплина не найдена или не доступна" />
-         <h:outputText value="#{groupPoints.curriculum.discipline.name}"/><br/>
-         <h:outputText value="#{groupPoints.group.name}"/> (<h:outputText value="#{groupPoints.group.city.name}"/>,<h:outputText value="#{groupPoints.group.speciality.name}"/>)
-
-         <hr/>
+         <est:header bean="#{groupPoints}"/>
          <h:form rendered="#{not groupPoints.accessDenied}" id="form" prependId="false">
            <h:dataTable id="table" value="#{groupPoints.points}" var="p">
            <h:column>
@@ -98,6 +85,5 @@
          <h:outputText id="error" rendered="#{groupPoints.error}" value="ERROR"/>
          <h:outputText id="saved" rendered="#{groupPoints.saved}" value="saved"/>
        </h:form>
-       </h:panelGroup>
        </ui:define>
     </ui:composition>

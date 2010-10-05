@@ -1,38 +1,48 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:f="http://java.sun.com/jsf/core"
-                template="../resources/studentTemplate.xhtml"
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:c="http://java.sun.com/jsp/jstl/core">
+ <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         template="../resources/studentTemplate.xhtml">
 
-    <ui:define name="contentHeader">
-        Помощь
-    </ui:define>
-    <ui:define name="content">
-        <c:choose>
-            <c:when test="${param['page'] eq 'cookie'}">
-                <ui:include src="support/cookie.xhtml"/>
-            </c:when>
-            <c:when test="${param['page'] eq 'cash'}">
-                <ui:include src="support/cash.xhtml"/>
-            </c:when>
-            <c:when test="${param['page'] eq 'dean'}">
-                <ui:include src="support/dean.xhtml"/>
-            </c:when>
-            <c:when test="${param['page'] eq 'movieConf'}">
-                <ui:include src="support/movieConf.xhtml"/>
-            </c:when>
-            <c:when test="${param['page'] eq 'avatar'}">
-                <ui:include src="support/avatar.xhtml"/>
-            </c:when>
-            <c:when test="${param['page'] eq 'bf'}">
-                <ui:include src="support/bf.xhtml"/>
-            </c:when>
-            <c:otherwise>
-                <ui:include src="support/tree.xhtml"/>
-            </c:otherwise>
-        </c:choose>
-    </ui:define>
-    
-</ui:composition>
+     <ui:define name="content">
+        <f:metadata>
+            <f:viewParam name="i" value="#{tabsViewBean.information}"/>
+        </f:metadata>
+         <table>
+             <tr><td>
+             <h:form>
+                 <h:dataTable title="разделы" id="tabs" value="#{tabsViewBean.tabs}" var="t">
+               <h:column>
+                 <f:facet name="header">
+                     Раздел
+                 </f:facet>
+                   <h:outputText value="#{t.name}"/>
+               </h:column>
+               <h:column>
+                   <h:dataTable id="tabs" value="#{t.pages}" var="p">
+                   <h:column>
+                       <h:commandLink id="link" rendered="#{p.visible}" value="#{p.title}">
+                     <f:attribute name="page" value="#{p}"/>
+                     <f:ajax render=":page :files :title" listener="#{tabsViewBean.setCurrentPage}"/>
+                    </h:commandLink>
+                   </h:column>
+                   </h:dataTable>
+               </h:column>
+         </h:dataTable>
+             </h:form>
+         </td><td>
+         <h:outputText id="title" value="#{tabsViewBean.currentPage.title}"/><br/>
+         <h:outputText id="page" value="#{tabsViewBean.currentPage.text}"/><br/>
+         <h:dataTable id="files" value="#{tabsViewBean.currentPage.files}" var="f">
+           <h:column>
+               <h:panelGroup rendered="#{f.visible}">
+               <h:graphicImage rendered="#{f.image}" value="../resources/userFiles/tabs/#{f.name}" alt="#{f.description}"/>
+               <h:outputLink rendered="#{!f.image}" value="../resources/userFiles/tabs/#{f.name}"><h:outputText value="#{f.description}"/></h:outputLink>
+               </h:panelGroup>
+           </h:column>
+           </h:dataTable>
+         </td></tr>
+         </table>
+     <hr/>
+     </ui:define>
+ </ui:composition>

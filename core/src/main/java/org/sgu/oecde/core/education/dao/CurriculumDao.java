@@ -62,11 +62,11 @@ public class CurriculumDao<T extends Curriculum> extends BasicDao<T> implements 
     public <K extends Curriculum,V extends Teacher>Map<K,V> getTeachersByGroup(int semester, int year, StudentGroup group) throws DataAccessException {
         if(group == null&& group.getId()==0)
             return null;
-        ScrollableResults result = getSession().createQuery("select distinct c,t.teacher from AdvancedCurriculum c join c.teacherToGroups t join fetch c.discipline join fetch c.speciality where c.calendarYear=:y and c.semester =:s and t.group=:g")
+        ScrollableResults result = getSession().createQuery("select distinct c,t.teacher from AdvancedCurriculum c join c.teacherToGroups t join fetch c.discipline join fetch c.speciality join fetch c.umk u left join fetch u.authors where c.calendarYear=:y and c.semester =:s and t.group=:g")
                 .setParameter("s", semester).setParameter("y", year).setParameter("g", group).setCacheable(true).scroll();
         Map<K,V>map = new HashMap<K,V>();
         while(result.next()){
-            map.put((K)result.get(0), (V)result.get(1));
+            map.put((K)(((Object[])result.get(0))[0]), (V)(((Object[])result.get(0))[1]));
         }
         return map;
     }

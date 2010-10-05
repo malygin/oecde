@@ -115,7 +115,7 @@ public class ResourceService implements Serializable{
                     &&(currentDate.compareTo(testBeginDate)>=0)&&(currentDate.compareTo(testEndDate)<=0))
                 available = true;
             else{
-                data[2] = "тест не открыт";
+                data[2] = "Тест не доступен";
             }
         }
         if(w.getTrialAttemptsUsedNumber()>=e.getTrialNumber())
@@ -123,6 +123,10 @@ public class ResourceService implements Serializable{
         if(w.getEstimateAttemptsUsedNumber()>=e.getEstimateAttemptsNumber()){
             data[2] = "Попытки исчерпаны";
             available = data[4]==null?false:available;
+        }
+        if(!student.getFullAccess()){
+            data[4] = "Тесты не доступны";
+            available = false;
         }
         data[1]=w;
         data[0]=available;

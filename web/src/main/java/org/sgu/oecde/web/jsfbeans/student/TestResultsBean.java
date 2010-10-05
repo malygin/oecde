@@ -1,17 +1,12 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
-import java.util.Comparator;
 import java.util.List;
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-import org.sgu.oecde.core.education.StringConstantsGetter;
 import org.sgu.oecde.core.education.work.AdditionalSelfDependentWork;
-import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.tests.TestAttemptService;
-import org.sgu.oecde.tests.TestCalendarConstants;
-import org.sgu.oecde.tests.TestType;
+import org.sgu.oecde.web.TestConstantsServise;
 
 /**
  *
@@ -22,21 +17,16 @@ import org.sgu.oecde.tests.TestType;
 public class TestResultsBean extends StudentCurriculumBean{
 
     @ManagedProperty(value="#{testAttemptService}")
-    TestAttemptService testAttemptService;
+    private TestAttemptService testAttemptService;
 
-    @ManagedProperty(value="#{testsDatesGetter}")
-    private StringConstantsGetter testsDatesGetter;
+    @ManagedProperty(value="#{testConstantsServise}")
+    private TestConstantsServise testConstantsServise;
 
-    Long curriculumId;
+    private Long curriculumId;
 
     boolean reExame;
     
-    private String winterConcludingTestReExameAttemtpsCount;
-    private String summerRegularTestReExameAttemtpsCount;
-    private String summerConcludingTestReExameAttemtpsCount;
-    private String winterRegularTestReExameAttemtpsCount;
-    
-    List<AdditionalSelfDependentWork>attempts;
+    private List<AdditionalSelfDependentWork>attempts;
 
     private static final long serialVersionUID = 98L;
 
@@ -73,27 +63,15 @@ public class TestResultsBean extends StudentCurriculumBean{
         attempts = null;
     }
 
-    public void setTestsDatesGetter(StringConstantsGetter testsDatesGetter) {
-        this.testsDatesGetter = testsDatesGetter;
-    }
-
-    @PostConstruct
-    public void postConstract(){
-        summerConcludingTestReExameAttemtpsCount = testsDatesGetter.getConstant(TestCalendarConstants.summerConcludingTestReExameAttemtpsCount).toString();
-        summerRegularTestReExameAttemtpsCount = testsDatesGetter.getConstant(TestCalendarConstants.summerRegularTestReExameAttemtpsCount).toString();
-        winterConcludingTestReExameAttemtpsCount = testsDatesGetter.getConstant(TestCalendarConstants.winterConcludingTestReExameAttemtpsCount).toString();
-        winterRegularTestReExameAttemtpsCount = testsDatesGetter.getConstant(TestCalendarConstants.winterRegularTestReExameAttemtpsCount).toString();
-    }
-
     public String getRegularAttemtpsCount() {
-        return getSemester()==1?summerRegularTestReExameAttemtpsCount:winterRegularTestReExameAttemtpsCount;
+        return testConstantsServise.getRegularAttemtpsCount(getSemester());
     }
 
     public String getConcludingAttemtpsCount() {
-        return getSemester()==1?summerConcludingTestReExameAttemtpsCount:winterConcludingTestReExameAttemtpsCount;
+        return testConstantsServise.getConcludingAttemtpsCount(getSemester());
     }
 
-    public TestType getConcludingType(){
-        return TestType.concluding;
+    public void setTestConstantsServise(TestConstantsServise testConstantsServise) {
+        this.testConstantsServise = testConstantsServise;
     }
 }

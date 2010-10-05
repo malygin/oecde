@@ -2,9 +2,9 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:r="http://java.sun.com/jsp/jstl/core"
     template="../resources/studentTemplate.xhtml"
-    >
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
     <ui:define name="contentHeader">
         #{msgs.student_CWResults}
     </ui:define>
@@ -14,15 +14,13 @@
             <f:metadata>
                 <f:viewParam name="s" value="#{groupCwBean.semester}"/>
             </f:metadata>
-            <div class="navigationLinks">
-                <h:outputLink value="?s=#{groupCwBean.semester==0?1:0}">${msgs.student_otherSemestr}</h:outputLink><br/>
-            </div>
+            <est:changeSemester bean="#{groupCwBean}"/>
 
-            <r:forEach items="${groupCwBean.controlWorkInfo4Group}" var="w">
+            <c:forEach items="${groupCwBean.controlWorkInfo4Group}" var="w">
                 <div class="studentInterfaceStandartList">
                     <span class="linkToStudentsProfile"><a href="student.xhtml/?id=#{w.key.id}">#{w.key.fio}</a></span> - <span class="controlWorksDisciplineName">#{w.value.curriculum.discipline.name} (</span><span class="groupControlWorksCWProgress"><h:outputText converter="enumConverter" value="#{w.value.progress}"/></span><span class="controlWorksDisciplineName">)</span><br/>
                 </div>
-            </r:forEach>
+            </c:forEach>
         </div>
     </ui:define>
 </ui:composition>

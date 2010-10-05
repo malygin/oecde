@@ -3,6 +3,7 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/studentTemplate.xhtml"
+    xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
     >
     <ui:define name="contentHeader">
         #{msgs.student_grades}
@@ -12,9 +13,7 @@
             <f:metadata>
                 <f:viewParam name="s" value="#{gradesBean.semester}"/>
             </f:metadata>
-            <div class="navigationLinks">
-                <h:outputLink value="?s=#{gradesBean.semester==0?1:0}">${msgs.student_otherSemestr}</h:outputLink>
-            </div>
+            <est:changeSemester bean="#{gradesBean}"/>
             <h:dataTable  value="#{gradesBean.points}"
                          columnClasses="studentStandatrTableTd,
                          studentStandatrTableTd,

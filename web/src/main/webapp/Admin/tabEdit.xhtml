@@ -1,0 +1,50 @@
+ <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         template="../resources/adminTemplate.xhtml">
+
+     <ui:define name="content">
+        <f:metadata>
+            <f:viewParam name="id" value="#{tabEditBean.id}"/>
+        </f:metadata>
+     <h:form id="edit">
+         Имя вкладки
+         <h:inputText id="tabName" value="#{tabEditBean.tab.name}"/>
+         Тип вкладки
+         <h:selectOneMenu id="tabType" value="#{tabEditBean.tab.type}">
+             <f:selectItems value="#{tabEditBean.types}" />
+         </h:selectOneMenu>
+         | <h:outputLink value="tabsView.xhtml">к списку</h:outputLink>
+         | <h:commandLink action="#{tabEditBean.deleteTab}" id="del" value="удалить вкладку"/>
+         <hr/>
+         <h:dataTable id="pages" value="#{tabEditBean.tab.pages}" var="p">
+           <h:column>
+             <f:facet name="header">
+                 Заголовок страницы
+             </f:facet>
+             <h:outputText id="pName" value="#{p.title}"/>
+           </h:column>
+           <h:column>
+             <f:facet name="header">
+                 Видима ли страница
+             </f:facet>
+               <h:outputText id="visibility" rendered="#{p.visible}" value="да"/>
+           </h:column>
+           <h:column>
+               <h:outputLink value="pageEdit.xhtml?id=#{tabEditBean.tab.id}&amp;p=#{p.id}">Редактировать</h:outputLink>
+           </h:column>
+           <h:column>
+              <h:commandLink id="delete" value="Удалить">
+                  <f:attribute name="page" value="#{p}"/>
+                  <f:ajax render=":edit" listener="#{tabEditBean.deletePage}"/>
+              </h:commandLink>
+           </h:column>
+         </h:dataTable>
+         <h:commandLink id="updt" value="ОКЭ">
+             <f:ajax execute="@form" render="@form" event="click" listener="#{tabEditBean.updateTab}"/>
+         </h:commandLink>
+     </h:form>          
+         <h:outputLink value="pageEdit.xhtml?id=#{tabEditBean.tab.id}">Добавить страницу</h:outputLink>
+   </ui:define>
+ </ui:composition>

@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Random;
+import org.sgu.oecde.core.util.DateConverter;
 
 /**
  * @author Andrey Malygin (mailto: anmalygin@gmail.com)
@@ -18,7 +19,8 @@ public class FileUploadUtil {
                String name =type+"_"+Math.abs(random.nextInt())+uf.getFileName().substring(uf.getFileName().lastIndexOf("."));
              // System.out.println("m"+name);
                File someFile = new File(multi.getRequest().getServletContext().getRealPath("/resources/userFiles/"+type+"/"+name));
-		if(!someFile.exists())someFile.createNewFile();
+		if(!someFile.exists())
+                    someFile.createNewFile();
 		FileOutputStream fos = new FileOutputStream(someFile);
 		fos.write(uf.getFileData());
 		fos.flush();

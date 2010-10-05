@@ -82,7 +82,8 @@ public class ControlWorksBean extends StudentCurriculumBean{
                     ||(currentDate.compareTo(reExameBeginDate)>=0
                     &&currentDate.compareTo(reExameEndDate)<0)
                     )&&!ControlWorkProgress.passed.equals(w.getProgress())
-                    &&!cr.isControlWorksPaperOnly()){
+                    &&!cr.isControlWorksPaperOnly()
+                    &&student.getFullAccess()){
                     available = true;
                 }
                 data[2] = available;

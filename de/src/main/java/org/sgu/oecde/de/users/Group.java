@@ -9,7 +9,7 @@ import org.springframework.util.StringUtils;
  * студенческая группа дистанционного образования
  * @author ShihovMY
  */
-public class Group extends StudentGroup{
+public class Group extends StudentGroup implements Comparable<Group>{
     /**
      * специальность
      */
@@ -82,5 +82,20 @@ public class Group extends StudentGroup{
         if(speciality!=null&&StringUtils.hasText(speciality.getName()))
             sb.append("специальность: ").append(speciality.getName()).append("; ");
         return sb.toString();
+    }
+
+    @Override
+    public int compareTo(Group o) {
+        int city = 0;
+        int speciality = 0;
+        int group = 0;
+        if(this!= null && o != null && this.getCity()!=null && o.getCity() != null
+                && this.getSpeciality()!=null && o.getSpeciality() != null && this.getName() != null
+                && this.getSpeciality().getName()!= null && this.getCity().getName()!=null){
+            group = this.getName().compareTo(o.getName());
+            speciality = this.getSpeciality().getName().compareTo(o.getSpeciality().getName());
+            city = this.getCity().getName().compareTo(o.getCity().getName());
+        }
+        return city==0?(speciality==0?group:speciality):city;
     }
 }

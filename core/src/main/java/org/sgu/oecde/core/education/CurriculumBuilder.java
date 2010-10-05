@@ -68,7 +68,7 @@ public class CurriculumBuilder<T extends Curriculum> implements Serializable{
      */
     public T getInstance(int year,int booleanSemester,AbstractStudent student){
         Curriculum c = getInstance();
-        Assert.notNull(student,"student can not be null");
+        Assert.notNull(student,"student cannot be null");
         c.setSemester(getter.getSemesterByStudentYear(student, booleanSemester));
         c.setCalendarYear(year);
         return (T) c;

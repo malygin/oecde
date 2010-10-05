@@ -99,10 +99,8 @@ public class OldGrades extends StudentCurriculumBean{
         this.winter = winter;
     }
 
-    @Override
     @PostConstruct
     public void afterPropertiesSet() {
-        super.afterPropertiesSet();
         winter=(semesterGetter.getCurrentSemester()==1);
         setSemester(0);
     }

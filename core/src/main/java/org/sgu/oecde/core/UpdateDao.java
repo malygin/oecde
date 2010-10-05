@@ -22,6 +22,6 @@ public class UpdateDao<T extends BasicItem> extends BasicDao<T> implements IUpda
     @Override
     @Transactional
     public void update(T item) throws DataAccessException {
-        getSession().update(item);
+        getSession().merge(item);
     }
 }

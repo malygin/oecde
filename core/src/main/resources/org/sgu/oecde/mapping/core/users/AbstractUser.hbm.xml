@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
-  <class abstract="true" dynamic-update="true" name="org.sgu.oecde.core.users.AbstractUser" table="abstract_user">
+  <class abstract="true" select-before-update="false" dynamic-update="true" name="org.sgu.oecde.core.users.AbstractUser" table="abstract_user">
     <cache usage="read-write"/>
     <id name="id" type="long"/>
     <discriminator column="DISCRIMINATOR" length="15" not-null="false"/>
@@ -12,13 +12,14 @@
     <property column="large_photo" insert="false" name="largePhoto" type="string"/>
     <property column="medium_photo" insert="false" name="mediumPhoto" type="string"/>
     <property column="small_photo" insert="false" name="smallPhoto" type="string"/>
-    <property column="original_id" insert="false" name="originalId" type="integer"/>
-    <set batch-size="20" cascade="none" fetch="select" lazy="true" name="authorities" table="users_roles">
+    <property column="original_id" update="false" insert="false" name="originalId" type="integer"/>
+    <list cascade="delete" inverse="true" fetch="select" lazy="true" name="authorities" table="users_roles">
       <cache usage="read-write"/>
       <key column="user_id" foreign-key="fk_users_roles_user" not-null="true"/>
+      <list-index column="role_order"/>
       <composite-element class="org.sgu.oecde.core.authentication.RoleItem" >
           <property name="role" type="string" length="20" not-null="true" />
       </composite-element>
-    </set>
+    </list>
   </class>
 </hibernate-mapping>

@@ -1,7 +1,6 @@
 package org.sgu.oecde.web.jsfbeans.teacher;
 
 import java.io.Serializable;
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedProperty;
 import org.sgu.oecde.core.education.dao.ICurriculumDao;
 import org.sgu.oecde.core.users.AbstractUser;
@@ -9,14 +8,11 @@ import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.education.DeCurriculum;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.util.Assert;
 
 /**
  *
  * @author ShihovMY
  */
-@Secured(value="ROLE_TEACHER,ROLE_ADMIN")
 public abstract class AbstractTeacherBean implements Serializable{
 
     protected Teacher teacher;
@@ -59,6 +55,10 @@ public abstract class AbstractTeacherBean implements Serializable{
         this.teacher = teacher;
     }
 
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
     public void setAccessDenied(boolean accessDenied) {
         this.accessDenied = accessDenied;
     }
@@ -69,10 +69,5 @@ public abstract class AbstractTeacherBean implements Serializable{
 
     public void setCurriculumDao(ICurriculumDao<DeCurriculum> curriculumDao) {
         this.curriculumDao = curriculumDao;
-    }
-
-    @PostConstruct
-    public void afterPropertiesSet(){
-        Assert.notNull(teacher);
     }
 }

@@ -2,8 +2,8 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:r="http://java.sun.com/jsp/jstl/core"
     template="../resources/studentTemplate.xhtml"
+    xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
     >
     <ui:define name="contentHeader">
         #{msgs.student_myCWs}
@@ -13,10 +13,9 @@
             <f:viewParam name="s" value="#{controlWorksBean.semester}"/>
         </f:metadata>
         <div class="interfaceContent">
-            <div class="navigationLinks">
-                <h:outputLink value="?s=#{controlWorksBean.semester==0?1:0}">${msgs.student_otherSemestr}</h:outputLink><br/>
-            </div>
-            <r:forEach items="${controlWorksBean.controlWorks}" var="o">
+            <est:changeSemester bean="#{controlWorksBean}"/>
+             <h:dataTable width="100%" value="#{controlWorksBean.controlWorks}" var="o">
+                 <h:column>
                 <div class="studentInterfaceStandartList">
                     <div class="controlWorksControlTitle">
                         <span class="controlWorksDisciplineName">${o[0].discipline.name}</span>
@@ -26,29 +25,30 @@
                     <br/>
                     <ol style="padding-left: 25px; list-style: none;">
                         <li>
-                            <span>${msgs.student_mcwCWNumber} 1</span>
                             <ol style="padding-left: 25px; list-style: none;">
-                                <r:forEach items="#{o[1].cwAttempt}" varStatus="i" var="a">
-                                    <li class="downLoadFileLink"><span>${i.count}.</span> <a href="../resources/userFiles/controlWorks/${a.filePath}">${a.filePath}</a></li>
-                                </r:forEach>
+                                <h:dataTable value="#{o[1].cwAttempt}" var="a">
+                                    <li class="downLoadFileLink"><h:outputText rendered="#{a.filePath eq 'empty'}" value="#{a.attemptDate}"/>
+                                    <h:outputLink rendered="#{a.filePath ne 'empty'}" value="#{a.filePath}" id="log">
+                                        <h:outputText value="#{a.attemptDate}"/>
+                                    </h:outputLink>
+                                    </li>
+                                </h:dataTable>
                             </ol>
                         </li>
                     </ol>
                     <br/>
-                    <r:if test="${o[2]}">
-                        <h:form  enctype="multipart/form-data">
-                            <div class="controlWorksFileLoadButtons">
-                                <input type="file" name="CwFile"/>
-                                <h:commandButton  action="#{controlWorksBean.saveCw}" value="Загрузить">
-                                    <f:setPropertyActionListener target="#{controlWorksBean.currentControlWorks}" value="#{o[1]}" />
-                                    <f:setPropertyActionListener target="#{controlWorksBean.currentDeCurriculum}" value="#{o[0]}" />
-                                </h:commandButton>
-                            </div>
-                        </h:form>
-
-                    </r:if>
+                    <h:form rendered="#{o[2]}"  enctype="multipart/form-data">
+                        <div class="controlWorksFileLoadButtons">
+                            <input type="file" name="CwFile"/>
+                            <h:commandButton  action="#{controlWorksBean.saveCw}" value="Загрузить">
+                                <f:setPropertyActionListener target="#{controlWorksBean.currentControlWorks}" value="#{o[1]}" />
+                                <f:setPropertyActionListener target="#{controlWorksBean.currentDeCurriculum}" value="#{o[0]}" />
+                            </h:commandButton>
+                        </div>
+                    </h:form>
                 </div>
-            </r:forEach>
+     </h:column>
+            </h:dataTable>
         </div>
     </ui:define>
 </ui:composition>

@@ -59,7 +59,7 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
      */
     @Override
     public List<T> getAll() throws DataAccessException{
-        return  getSession().createCriteria(type).setCacheable(true).list();
+        return  getSession().createCriteria(type).setCacheable(true).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
     /**

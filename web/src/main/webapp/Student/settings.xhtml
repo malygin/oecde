@@ -3,18 +3,20 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/studentTemplate.xhtml"
+    xmlns:pass="http://java.sun.com/jsf/composite/components/settings">
     >
     <ui:define name="content">
         <h:form>
-            <h:inputText id="cellPhone" maxlength="19" size="19" value="#{studentSettingsBean.cellPhone}"/>cellPhone<br/>
-            <h:inputText id="eMail" maxlength="19" size="19" value="#{studentSettingsBean.eMail}"/>eMail<br/>
-            <h:inputText id="icq" maxlength="19" size="19" value="#{studentSettingsBean.icq}"/>icq<br/>
-            <h:inputSecret id="password" maxlength="19"  size="19" value="#{studentSettingsBean.password}"/>pass<br/>
+            <h:inputText id="cellPhone" maxlength="10" size="10" value="#{studentSettingsBean.cellPhone}"/>cellPhone<br/>
+            <h:inputText id="eMail" size="19" value="#{studentSettingsBean.eMail}"/>eMail<br/>
+            <h:inputText id="icq" maxlength="9" size="9" value="#{studentSettingsBean.icq}"/>icq<br/>
             <h:commandButton value="ОКЭ">
-                <f:ajax execute="@form" render="@form error saved" listener="#{studentSettingsBean.save}"/>
+                <f:ajax execute="@form" render="@form mess saved error" listener="#{studentSettingsBean.save}"/>
             </h:commandButton><br/>
-            <h:outputText id="error" rendered="#{studentSettingsBean.error}" value="ERROR"/>
             <h:outputText id="saved" rendered="#{studentSettingsBean.saved}" value="saved"/>
+            <h:outputText id="error" rendered="#{studentSettingsBean.error ne null}" value="#{studentSettingsBean.error}"/>
+            <h:messages id="mess"/>
         </h:form>
+        <pass:changePassword user="#{studentSessionBean.student}"/>
     </ui:define>
 </ui:composition>

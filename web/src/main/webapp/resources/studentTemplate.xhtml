@@ -81,7 +81,11 @@
             <li class="topMenuLinkContainer"><a href="news_list.xhtml">#{msgs.student_topMenuNews}</a></li>
             <li class="topMenuLinkContainer"><p>#{msgs.student_topMenuSettings}</p></li>
             <li class="topMenuLinkContainer" style="border: 0px;"><p>#{msgs.student_topSearchInputText}</p></li>
-            <li class="topMenuLinkContainer" style="border: 0px; float: right"><a href="../j_spring_security_logout" >#{msgs.student_topMenuExit}</a></li>
+            <li class="topMenuLinkContainer" style="border: 0px; float: right">
+                
+            <h:outputLink rendered="#{studentSessionBean.switched}" value="../Admin/exit_user" >Назад</h:outputLink>
+            <h:outputLink rendered="#{!studentSessionBean.switched}" value="../j_spring_security_logout" >#{msgs.student_topMenuExit}</h:outputLink>
+            </li>
 
             <li style="clear: both;"></li>
         </ol>

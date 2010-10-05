@@ -7,7 +7,7 @@ import static org.sgu.oecde.core.util.ProperCase.bringTo;
  * пользователь - человек. с фамилией именем и отчетсвом
  * @author ShihovMY
  */
-public abstract class AbstractPerson extends AbstractUser{
+public abstract class AbstractPerson extends AbstractUser implements Comparable<AbstractPerson>{
 
     /**
      * имя
@@ -109,5 +109,14 @@ public abstract class AbstractPerson extends AbstractUser{
         sb.append("Name: ").append(this.name).append(";\n");
         sb.append("Second name: ").append(this.secondName).append(";\n");
         return sb.toString();
+    }
+
+    @Override
+    public int compareTo(AbstractPerson o) {
+        int st = 0;
+        if(this!=null &&o!=null && this.getFio()!=null){
+            st = this.getFio().compareTo(o.getFio());
+        }
+        return st;
     }
 }

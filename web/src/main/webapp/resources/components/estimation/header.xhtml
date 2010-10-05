@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html">
+    
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute name="bean"/>
+    </composite:interface>
+
+    <!-- IMPLEMENTATION -->
+    <composite:implementation>
+         <h:outputText rendered="#{cc.attrs.bean.accessDenied}" value="группа не найдена или не доступна" />
+         <h:panelGroup id="group" rendered="#{not cc.attrs.bean.accessDenied}">
+         <h:dataTable id="disciplines" value="#{cc.attrs.bean.disciplines}" var="d">
+           <h:column>
+               <h:outputLink value="?c=#{d.id}&amp;g=#{cc.attrs.bean.id}&amp;s=#{cc.attrs.bean.semester}">(<h:outputText value="#{d.discipline.name}"/>)</h:outputLink>
+           </h:column>
+          </h:dataTable>
+
+         <h:outputText rendered="#{cc.attrs.bean.accessDenied}" value="дисциплина не найдена или не доступна" />
+         <h:outputText value="#{cc.attrs.bean.curriculum.discipline.name}"/><br/>
+         <h:outputText value="#{cc.attrs.bean.group.name}"/> (<h:outputText value="#{cc.attrs.bean.group.city.name}"/>,<h:outputText value="#{cc.attrs.bean.group.speciality.name}"/>)
+
+         </h:panelGroup>
+         <hr/>
+    </composite:implementation>
+</html>

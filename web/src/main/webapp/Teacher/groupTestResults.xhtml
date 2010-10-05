@@ -1,31 +1,30 @@
-    <ui:composition
-         xmlns:ui="http://java.sun.com/jsf/facelets"
-         xmlns:f="http://java.sun.com/jsf/core"
-         xmlns:h="http://java.sun.com/jsf/html"
-         template="../resources/teacherTemplate.xhtml"
-         >
-        <ui:define name="content">
-         <f:metadata>
-             <f:viewParam name="s" value="#{groupTestResults.semester}"/>
-             <f:viewParam name="g" value="#{groupTestResults.id}"/>
-             <f:viewParam name="c" value="#{groupTestResults.curriculumId}"/>
-         </f:metadata>
-         <h:outputText rendered="#{groupTestResults.accessDenied}" value="группа не найдена или не доступна" />
-
-         <h:panelGroup rendered="#{not groupTestResults.accessDenied}">
-         <h:dataTable value="#{groupTestResults.disciplines}" var="d">
-           <h:column>
-               <h:outputLink value="?c=#{d.id}&amp;g=#{groupTestResults.id}&amp;s=#{groupTestResults.semester}">(#{d.discipline.name})</h:outputLink>
-           </h:column>
-          </h:dataTable>
-
-         <h:outputText rendered="#{groupTestResults.accessDenied}" value="дисциплина не найдена или не доступна" />
-         <h:outputText value="#{groupTestResults.curriculum.discipline.name}"/><br/>
-         <h:outputText value="#{groupTestResults.group.name}"/> (<h:outputText value="#{groupTestResults.group.city.name}"/>,<h:outputText value="#{groupTestResults.group.speciality.name}"/>)
-
-         <hr/>
-         <h:dataTable value="#{groupTestResults.groupTestResults}" var="r">
-               <h:column>
+<ui:composition
+ xmlns:ui="http://java.sun.com/jsf/facelets"
+ xmlns:f="http://java.sun.com/jsf/core"
+ xmlns:h="http://java.sun.com/jsf/html"
+ template="../resources/teacherTemplate.xhtml"
+ xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
+<ui:define name="content">
+ <f:metadata>
+     <f:viewParam name="s" value="#{teachersGroups.semester}"/>
+     <f:viewParam name="s" value="#{groupTestResults.semester}"/>
+     <f:viewParam name="g" value="#{groupTestResults.id}"/>
+     <f:viewParam name="c" value="#{groupTestResults.curriculumId}"/>
+ </f:metadata>
+ <est:header bean="#{groupTestResults}"/>
+ <h:dataTable rendered="#{not groupTestResults.accessDenied}" value="#{groupTestResults.groupTestResults}" var="w">
+       <h:column>
+        <f:facet name="header">
+         <h:outputText value="студент" />
+        </f:facet>
+           <h:outputLink value="student.xhtml?id=#{w.key.id}&amp;s=#{groupTestResults.semester}">#{w.key.fio}</h:outputLink>
+       </h:column>
+     <h:column>
+      <f:facet name="header">
+       <h:outputText value="результаты" />
+      </f:facet>
+         <h:dataTable value="#{w.value}" var="r">
+             <h:column>
                 <f:facet name="header">
                  <h:outputText value="Название" />
                 </f:facet>
@@ -33,16 +32,10 @@
                </h:column>
                <h:column>
                 <f:facet name="header">
-                 <h:outputText value="студент" />
-                </f:facet>
-                   <h:outputLink value="?id=#{r.student.id}&a&amp;s=#{groupTestResults.semester}">#{r.student.fio}</h:outputLink>
-
-               </h:column>
-               <h:column>
-                <f:facet name="header">
                  <h:outputText value="Попыток" />
                 </f:facet>
-               #{r.estimateAttemptsUsedNumber} из #{r.work.estimateAttemptsNumber}
+               с #{r.estimateAttemptsUsedNumber} из #{r.work.estimateAttemptsNumber}<br/>
+               п: #{r.reExameAttemptsUsedNumber} из #{r.work.type eq groupTestResults.concludingType?groupTestResults.concludingAttemtpsCount:groupTestResults.regularAttemtpsCount}
                </h:column>
 
                <h:column>
@@ -51,7 +44,7 @@
                             <f:facet name="header">
                              <h:outputText value="Правильных ответов" />
                             </f:facet>
-                           #{a.rightAnswers} из #{a.quantity}
+                           #{a.rightAnswers} #{msgs.student_fromWord} #{r.work.quantity}
                        </h:column>
                        <h:column>
                             <f:facet name="header">
@@ -72,9 +65,10 @@
                 <f:facet name="header">
                  <h:outputText value="Способ оценивания" />
                 </f:facet>
-                   #{r.work.estimation}
+                   <h:outputText converter="enumConverter" value="#{r.work.estimation}" />
                </h:column>
          </h:dataTable>
-         </h:panelGroup>
-        </ui:define>
-    </ui:composition>
+     </h:column>
+ </h:dataTable>
+</ui:define>
+</ui:composition>

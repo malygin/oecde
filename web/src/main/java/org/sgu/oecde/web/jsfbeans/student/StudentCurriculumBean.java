@@ -10,7 +10,6 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.de.education.DeCurriculum;
-import org.springframework.security.access.annotation.Secured;
 
 /**
  *
@@ -18,7 +17,6 @@ import org.springframework.security.access.annotation.Secured;
  */
 @ManagedBean(name="studentCurriculumBean")
 @ViewScoped
-@Secured(value="ROLE_STUDENT,ROLE_ADMIN")
 public class StudentCurriculumBean extends AbstractStudentBean{
 
     private List<DeCurriculum>curriculums;

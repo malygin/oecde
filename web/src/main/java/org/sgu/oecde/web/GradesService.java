@@ -1,5 +1,6 @@
 package org.sgu.oecde.web;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -24,7 +25,7 @@ import org.springframework.stereotype.Service;
  * @author ShihovMY
  */
 @Service
-public class GradesService {
+public class GradesService implements Serializable{
 
     @Resource
     private ResultPreFilter preFilter;
@@ -43,6 +44,8 @@ public class GradesService {
 
     @Resource
     private TestService testService;
+
+    private static final long serialVersionUID = 165L;
 
     public List<Points> getGrades(List<DeCurriculum> curriculums,List<Student>students) {
         List<IResultFilter>filters = new ArrayList(3);

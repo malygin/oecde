@@ -13,6 +13,7 @@ import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.tests.TestAttemptService;
+import org.sgu.oecde.web.TestConstantsServise;
 import org.springframework.util.CollectionUtils;
 
 /**
@@ -37,6 +38,9 @@ public class StudentResults extends AbstractStudentsListBean{
 
     @ManagedProperty(value="#{controlWorkService}")
     ControlWorkService controlWorkService;
+
+    @ManagedProperty(value="#{testConstantsServise}")
+    private TestConstantsServise testConstantsServise;
 
     private static final long serialVersionUID = 109L;
 
@@ -85,5 +89,17 @@ public class StudentResults extends AbstractStudentsListBean{
 
     public void setStudentDao(IBasicDao<Student> studentDao) {
         this.studentDao = studentDao;
+    }
+
+    public String getRegularAttemtpsCount() {
+        return testConstantsServise.getRegularAttemtpsCount(getSemester());
+    }
+
+    public String getConcludingAttemtpsCount() {
+        return testConstantsServise.getConcludingAttemtpsCount(getSemester());
+    }
+
+    public void setTestConstantsServise(TestConstantsServise testConstantsServise) {
+        this.testConstantsServise = testConstantsServise;
     }
 }

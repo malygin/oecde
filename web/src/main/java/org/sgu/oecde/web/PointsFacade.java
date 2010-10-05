@@ -1,5 +1,6 @@
 package org.sgu.oecde.web;
 
+import java.io.Serializable;
 import org.sgu.oecde.controlworks.ControlWorkProgress;
 import org.sgu.oecde.controlworks.estimation.CwEstimateNames;
 import org.sgu.oecde.core.education.estimation.EstimateNames;
@@ -14,7 +15,7 @@ import org.sgu.oecde.tests.estimation.TestsCountEnum;
  *
  * @author ShihovMY
  */
-public class PointsFacade {
+public class PointsFacade implements Serializable{
     private Points points;
     private Teacher teacher;
     private Integer testsCount;
@@ -28,6 +29,8 @@ public class PointsFacade {
     private Integer controlWorkPoints;
     private ControlWorkProgress controlWorkValue;
     private PointToEstimate grade;
+
+    private static final long serialVersionUID = 163L;
 
     public PointsFacade(Points points) {
         this.points = points;

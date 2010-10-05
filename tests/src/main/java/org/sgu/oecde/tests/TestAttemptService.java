@@ -293,6 +293,7 @@ public class TestAttemptService implements Serializable{
         TestEntity tmpTest = null;
         AbstractStudent tmpStudent = null;
         ListIterator<TestAttempt> it = attempts.listIterator();
+        boolean inserted = false;
 
         while(it.hasNext()){
            TestAttempt attempt = it.next();
@@ -309,7 +310,11 @@ public class TestAttemptService implements Serializable{
                 test.setWork(attempt.getWork());
                 test.setCurriculum(attempt.getCurriculum());
                 test.setStudent(attempt.getStudent());
-                additionalTests.add(test);
+                inserted = additionalTests.add(test);
+                if(!inserted){
+                    additionalTests.remove(test);
+                    additionalTests.add(test);
+                }
                 trialNumber = 0;
                 reExameNumber = 0;
                 estimatedAttemptsNumber = 0;

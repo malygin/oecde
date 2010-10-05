@@ -157,7 +157,8 @@ public class ControlWorkService implements Serializable{
      * @see org.sgu.oecde.core.IBasicDao#getByExample(org.sgu.oecde.core.BasicItem) 
      */
     public <T extends AdvancedCurriculum>List<T> getCurriculumsWithControlWorks(AdvancedCurriculum example){
-        Assert.notNull(example);
+        if(example==null)
+            return null;
         example.setGotControlWork(true);
         return (List<T>) curriculumDao.getByExample(example);
     }

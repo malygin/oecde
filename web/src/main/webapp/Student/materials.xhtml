@@ -3,7 +3,8 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:r="http://java.sun.com/jsp/jstl/core"
-    template="../resources/studentTemplate.xhtml" 
+    template="../resources/studentTemplate.xhtml"
+    xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
     >
 
     <ui:define name="contentHeader">
@@ -14,9 +15,7 @@
             <f:metadata>
                 <f:viewParam name="s" value="#{materialsBean.semester}"/>
             </f:metadata>
-            <div class="navigationLinks">
-                <h:outputLink value="?s=#{materialsBean.semester==0?1:0}">${msgs.student_otherSemestr}</h:outputLink>
-            </div>
+            <est:changeSemester bean="#{materialsBean}"/>
             <r:forEach items="#{materialsBean.studentsDisciplines}" var="m">
                 <div class="studentInterfaceStandartList">
                     <span class="controlWorksDisciplineNameLink"><h:outputLink value="discipline.xhtml?c=#{m.curriculum.id}" >#{m.curriculum.umk.name}</h:outputLink><br/></span>

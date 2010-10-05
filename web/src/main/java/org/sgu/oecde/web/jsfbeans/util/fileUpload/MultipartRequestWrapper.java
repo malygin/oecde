@@ -26,27 +26,15 @@ public class MultipartRequestWrapper extends HttpServletRequestWrapper {
     public MultipartRequestWrapper(HttpServletRequest request) throws UnsupportedEncodingException {
         super(request);
         request.setCharacterEncoding("UTF-8");
-        System.out.println("Created multipart wrapper....");
-        try {
-            System.out.println("Looping parts");            
-            for (Part p : request.getParts()) {
-
-                System.out.println(String.format("Part name: %1$s, contentType : %2$s", p.getName(), p.getContentType()));
-                for(String header : p.getHeaderNames()){
-                    System.out.println("Header name : " + header + ", value : " + p.getHeader(header));
-                    System.out.println("!"+p.toString());                    
-                }
-            
+        try {           
+            for (Part p : request.getParts()) {            
                 byte[] b = new byte[(int) p.getSize()];
                 p.getInputStream().read(b);
                 params.put(p.getName(), new String[]{new String(b,"UTF-8")});
             }
-        } catch (IOException ex) {
-            Logger.getLogger(MultipartRequestWrapper.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ServletException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(MultipartRequestWrapper.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     public UploadFile findFile(String attrName){

@@ -30,7 +30,6 @@ public enum UserType {
     GUEST;
 
     public static UserType toType(AbstractUser user) {
-        Assert.notNull(user,"user can not be null");
         if (user instanceof AbstractStudent) {
             return STUDENT;
         } else if (user instanceof Teacher) {

@@ -1,12 +1,10 @@
 package org.sgu.oecde.web.jsfbeans.teacher;
 
-import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.controlworks.dao.IControlWorkAttemptDao;
 import org.sgu.oecde.core.education.dao.IEstimateDao;
-import org.sgu.oecde.de.users.Group;
 
 /**
  *

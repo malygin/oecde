@@ -144,7 +144,8 @@ public class getLessonItem extends BasicTest{
     @Test
     public void DeleteItem(){
         setDao("lessonDao");
-        Lesson l = getItem(283L);
+        Lesson l = getItem(286L);
+        l.setGroups(null);
         ((ILessonDao)getDao()).deleteLesson(l);
     }
 

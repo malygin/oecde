@@ -3,6 +3,7 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/studentTemplate.xhtml"
+    xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
     >
     <f:metadata>
         <f:viewParam name="s" value="#{studentCurriculumBean.semester}"/>
@@ -12,7 +13,7 @@
     </ui:define>
     <ui:define name="content">
         <div class="interfaceContent">
-            <span class="navigationLinks"><h:outputLink value="?s=#{studentCurriculumBean.semester==0?1:0}">#{msgs.student_otherSemestr}</h:outputLink></span>
+            <est:changeSemester bean="#{studentCurriculumBean}"/>
             <h:dataTable style="width: 100%"
                      columnClasses="studentStandatrTableTd,
                      studentStandatrTableTd,

@@ -30,7 +30,10 @@
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_testResultAttempt}" />
                     </f:facet>
-                    #{testResultsBean.reExame?r.reExameAttemptsUsedNumber:r.estimateAttemptsUsedNumber} #{msgs.student_fromWord} #{r.work.estimateAttemptsNumber}
+                    #{testResultsBean.reExame?r.reExameAttemptsUsedNumber:r.estimateAttemptsUsedNumber} #{msgs.student_fromWord}
+                    #{testResultsBean.reExame?
+                       (r.work.type eq testResultsBean.concludingType?testResultsBean.concludingAttemtpsCount:testResultsBean.regularAttemtpsCount)
+                    :r.work.estimateAttemptsNumber}
                 </h:column>
 
                 <h:column>
@@ -44,10 +47,7 @@
                                     <h:outputText value="#{msgs.student_testResultCorrectAnswers}" />
                                 </div>
                             </f:facet>
-                            #{a.rightAnswers} #{msgs.student_fromWord}
-                            #{testResultsBean.reExame?
-                               (r.work.type eq testResultsBean.concludingType?testResultsBean.concludingAttemtpsCount:testResultsBean.regularAttemtpsCount)
-                            :r.work.quantity}
+                            #{a.rightAnswers} #{msgs.student_fromWord} #{r.work.quantity}
                        </h:column>
                        <h:column>
                             <f:facet name="header">

@@ -1,16 +1,11 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.de.education.DeCurriculum;
+import org.springframework.security.core.GrantedAuthority;
 
 /**
  *
@@ -23,6 +18,8 @@ public class StudentSessionBean extends AbstractStudentBean{
     private Map<DeCurriculum,Teacher>currentCurriculums;
 
     private Map<DeCurriculum,Teacher>previousCurriculums;
+
+    private Boolean switched;
 
     private static final long serialVersionUID = 150L;
 
@@ -37,5 +34,17 @@ public class StudentSessionBean extends AbstractStudentBean{
                 previousCurriculums=l;
         }
         return semester == 0?currentCurriculums:previousCurriculums;
+    }
+
+    public boolean isSwitched(){
+        if(switched == null){
+            switched = false;
+            for(GrantedAuthority a:student.getAuthorities()){
+                if("ROLE_PREVIOUS_ADMINISTRATOR".equals(a.getAuthority())){
+                    switched = true;
+                }
+            }
+        }
+        return switched;
     }
 }
