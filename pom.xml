@@ -23,7 +23,11 @@
     <module>de</module>
     <module>tabs</module>
   </modules>
-    <repositories>
+    <repositories><!--
+        <repository>
+            <id>org.springframework.security.taglibs.facelets</id>
+            <url>http://spring-security-facelets-taglib.googlecode.com/svn/repo/</url>
+        </repository>
           <repository>
             <id>central</id>
             <url>http://baldr.sgu.ru:8080/nexus/content/groups/public</url>
@@ -61,7 +65,7 @@
         <repository>
             <id>org.sonatype.oss</id>
             <url>https://oss.sonatype.org/content/repositories/releases/</url>
-        </repository>
+        </repository>-->
 
         </repositories>
 
