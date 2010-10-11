@@ -4,9 +4,10 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import org.sgu.oecde.core.util.ListUtil;
 import org.sgu.oecde.de.education.DeCurriculum;
-import org.sgu.oecde.de.education.DeCurriculumBuilder;
-import org.springframework.util.CollectionUtils;
+import org.sgu.oecde.tests.TestEntity;
+import org.sgu.oecde.tests.TestService;
 
 /**
  *
@@ -14,55 +15,22 @@ import org.springframework.util.CollectionUtils;
  */
 @ManagedBean(name="teacherCurriculumBean")
 @ViewScoped
-public class TeacherCurriculumBean extends AbstractTeacherBean{
-    private DeCurriculum curriculum;
-    private Long curriculumId;
+public class TeacherCurriculumBean extends AbstractTeacherCurriculumBean{
 
-    @ManagedProperty(value="#{curriculumBuilder}")
-    protected DeCurriculumBuilder curriculumBuilder;
+    List<TestEntity>tests;
 
-    @ManagedProperty(value="#{teacherSessionBean}")
-    protected TeacherSessionBean teacherSessionBean;
+    @ManagedProperty(value="#{testService}")
+    protected TestService testService;
 
-    private static final long serialVersionUID = 116L;
-
-    public DeCurriculum getCurriculum(){
-        if(curriculum==null){
-            if(curriculumId!=null&&curriculumId!=0){
-                DeCurriculum c = curriculumBuilder.getInstance(curriculumId);
-                List<DeCurriculum>l = teacherSessionBean.getDisciplines(semester);
-                if(!CollectionUtils.isEmpty(l)){
-                        for(DeCurriculum d:l){
-                            if(d.equals(c)){
-                                curriculum = d;
-                                break;
-                            }
-                        }
-                }
-            }
-            setAccessDenied(isAccessDenied()?true:curriculum==null);
+    public List<TestEntity> getTests() {
+        if(tests == null){
+            DeCurriculum c = getCurriculum();
+            tests = testService.getCurriculumTestsMap(ListUtil.oneItemList(c)).get(c);
         }
-        return curriculum;
+        return tests;
     }
 
-    public void setCurriculumId(Long curriculumId) {
-        this.curriculumId = curriculumId;
-        curriculum = null;
-    }
-
-    public Long getCurriculumId() {
-        return curriculumId;
-    }
-
-    public TeacherSessionBean getTeacherSessionBean() {
-        return teacherSessionBean;
-    }
-
-    public void setTeacherSessionBean(TeacherSessionBean teacherSessionBean) {
-        this.teacherSessionBean = teacherSessionBean;
-    }
-
-    public void setCurriculumBuilder(DeCurriculumBuilder curriculumBuilder) {
-        this.curriculumBuilder = curriculumBuilder;
+    public void setTestService(TestService testService) {
+        this.testService = testService;
     }
 }

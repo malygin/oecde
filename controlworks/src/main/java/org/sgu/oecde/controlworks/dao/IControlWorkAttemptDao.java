@@ -4,7 +4,7 @@ import java.util.List;
 import org.sgu.oecde.controlworks.ControlWorkAttempt;
 import org.sgu.oecde.core.IUpdateDao;
 import org.sgu.oecde.core.education.Curriculum;
-import org.sgu.oecde.core.users.AbstractStudent;
+import org.sgu.oecde.core.users.StudentGroup;
 import org.sgu.oecde.core.users.Teacher;
 import org.springframework.dao.DataAccessException;
 
@@ -24,7 +24,7 @@ public interface IControlWorkAttemptDao extends IUpdateDao<ControlWorkAttempt>{
      * @throws DataAccessException
      */
     @SuppressWarnings("unchecked")
-    public List<ControlWorkAttempt> getAttemptsList(int beginIndex, int endIndex, List<AbstractStudent>students,List<Curriculum>curriculums) throws DataAccessException;
+    public List<ControlWorkAttempt> getAttemptsList(int beginIndex, int endIndex, List<? extends StudentGroup>groups,List<? extends Curriculum>curriculums) throws DataAccessException;
     
     /**
      * 

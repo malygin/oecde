@@ -15,6 +15,7 @@ import org.sgu.oecde.core.education.StringConstantsGetter;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.de.education.DeCurriculum;
+import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.de.users.Student;
 import org.springframework.test.context.ContextConfiguration;
 
@@ -70,13 +71,13 @@ public class AppTest extends BasicTest{
     public void getAttempts(){
         setDao("controlWorkAttemptDao");
         List l = new ArrayList();
-        l.add(new DeCurriculum(198326L));
+        l.add(new DeCurriculum(200927527L));
         List l2 = new ArrayList();
-        l2.add(new Student(324725L));
+        l2.add(new Group(13327102L));
         List<ControlWorkAttempt>ls = this.<IControlWorkAttemptDao>getDao().getAttemptsList(0,10,l2,l);
-        System.out.println(ls);
+        System.out.println(ls.size());
         for (ControlWorkAttempt cw:ls){
-            System.out.println(cw+"   "+cw.getWork());
+            System.out.println(cw);
         }
     }
 

@@ -8,7 +8,6 @@ import org.sgu.oecde.core.education.ICalendarConstantName;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
 
 /**
  * хранит текущий год, семестр и идёт ли переэкзаменовка.
@@ -26,6 +25,14 @@ public class SemesterGetter extends StringConstantsGetter{
      * текущий семестр
      */
     private int semester;
+
+    public static final int CURRENT_SEMESTER = 0;
+
+    public static final int PREVIOUS_SEMESTER = 1;
+
+    public static final int WINTER_SEMESTER = 1;
+
+    public static final int SUMMER_SEMESTER = 0;
 
     private static final long serialVersionUID = 118L;
 

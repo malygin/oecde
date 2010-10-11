@@ -92,7 +92,7 @@ public class getSimpleItem extends BasicTest{
         this.<ITestAttemptDao>getDao().saveAttempt(a);
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void filtResults(){
         List<IResultFilter>filters = new LinkedList();
@@ -129,7 +129,7 @@ public class getSimpleItem extends BasicTest{
         }
     }
     
-    @Ignore
+//    @Ignore
     @Test
     public void getByExampleWithType(){
         setDao("testAttemptDao");
@@ -152,7 +152,7 @@ public class getSimpleItem extends BasicTest{
         }
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void getCurriculumAttempts(){
         TestAttemptService serv = (TestAttemptService) applicationContext.getBean("testAttemptService");

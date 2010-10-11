@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.sgu.oecde.core.users.UserType;
 import org.sgu.oecde.core.util.SecurityContextHandler;
+import org.sgu.oecde.core.util.SwitchedUserCheker;
 import org.sgu.oecde.journal.Journal;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -27,7 +28,8 @@ public class CustomAuthenticationSuccessHandler implements  AuthenticationSucces
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         doRedirect(request,response,true);
-        journal.logSystemLogin(SecurityContextHandler.getUser(), request.getRemoteAddr());
+        if(SwitchedUserCheker.check(authentication.getAuthorities()))
+            journal.logSystemLogin(SecurityContextHandler.getUser(), request.getRemoteAddr());
     }
 
     public static void doRedirect(HttpServletRequest request, HttpServletResponse response, boolean returnToIndex)throws IOException, ServletException {

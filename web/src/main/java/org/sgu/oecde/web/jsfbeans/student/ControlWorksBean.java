@@ -82,14 +82,14 @@ public class ControlWorksBean extends StudentCurriculumBean{
                     ||(currentDate.compareTo(reExameBeginDate)>=0
                     &&currentDate.compareTo(reExameEndDate)<0)
                     )&&!ControlWorkProgress.passed.equals(w.getProgress())
-                    &&!cr.isControlWorksPaperOnly()
+                    &&!cr.getControlWorksPaperOnly()
                     &&student.getFullAccess()){
                     available = true;
                 }
                 data[2] = available;
                 if(getCurriculumAndTeacher().containsKey(cr))
                     data[3] = getCurriculumAndTeacher().get(cr);
-                data[4] = (cr.isControlWorksPaperOnly()!=null&&cr.isControlWorksPaperOnly())?"в рукописном":"";
+                data[4] = (cr.getControlWorksPaperOnly()!=null&&cr.getControlWorksPaperOnly())?"в рукописном":"";
             }
             Collections.sort(works,new OrderByDisciplineName());
         }

@@ -103,7 +103,7 @@ public class TestEntity extends SelfDependentWork{
      *
      * @return перемешивать ли
      */
-    public Boolean isShuffle() {
+    public Boolean getShuffle() {
         return shuffle;
     }
 
@@ -135,7 +135,7 @@ public class TestEntity extends SelfDependentWork{
      *
      * @return записывать ли полностью прохождение
      */
-    public Boolean isWritable() {
+    public Boolean getWritable() {
         return writable;
     }
 

@@ -82,14 +82,18 @@ public class TestAttemptService implements Serializable{
      * @param student студент
      * @return количество попыток, баллов и прочее по прохождениям конкретного студента конткретного теста
      */
-    public AdditionalSelfDependentWork getStudentSingleTestWithAttempts(TestEntity test,AbstractStudent student){
+    public AdditionalSelfDependentWork getStudentSingleTestWithAttempts(TestEntity test,AbstractStudent student,Curriculum curriculum){
         List<TestEntity>tests = ListUtil.<TestEntity>oneItemList(test);
         List<AbstractStudent> sts = ListUtil.<AbstractStudent>oneItemList(student);
         List<TestAttempt>attempts = testAttemptDao.getByStudentsAndTests(tests, sts, new TestAttempt());
         List<AdditionalSelfDependentWork>works = new LinkedList();
         attemptsIterator(attempts, works);
-        if(works.isEmpty())
-            return null;
+        if(works.isEmpty()){
+            AdditionalSelfDependentWork work = new AdditionalSelfDependentWork(test);
+            work.setStudent(student);
+            work.setCurriculum(curriculum);
+            return work;
+        }
         return works.get(0);
     }
 

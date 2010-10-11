@@ -11,7 +11,7 @@ import org.sgu.oecde.core.education.ICalendarConstantName;
 import org.sgu.oecde.core.education.StringConstantsGetter;
 import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.tests.TestCalendarConstants;
-
+import org.sgu.oecde.web.ResourceService;
 /**
  *
  * @author ShihovMY
@@ -41,6 +41,9 @@ public class ConstantsFormBean implements Serializable{
 
     @ManagedProperty(value="#{testsDatesGetter}")
     private StringConstantsGetter testsDatesGetter;
+
+    @ManagedProperty(value="#{resourceService}")
+    private ResourceService resourceService;
 
     @ManagedProperty(value="#{semesterGetter}")
     private SemesterGetter semesterGetter;
@@ -224,6 +227,7 @@ public class ConstantsFormBean implements Serializable{
                 getter.save(n, newCnstnt,!update);
             }
             saved = true;
+            resourceService.postConstract();
         }catch(Exception e){
             e.fillInStackTrace();
             error = true;
@@ -257,5 +261,9 @@ public class ConstantsFormBean implements Serializable{
         summerRegularTestReExameAttemtpsCount = testsDatesGetter.getConstant(TestCalendarConstants.summerRegularTestReExameAttemtpsCount).toString();
         winterConcludingTestReExameAttemtpsCount = testsDatesGetter.getConstant(TestCalendarConstants.winterConcludingTestReExameAttemtpsCount).toString();
         winterRegularTestReExameAttemtpsCount = testsDatesGetter.getConstant(TestCalendarConstants.winterRegularTestReExameAttemtpsCount).toString();
+    }
+
+    public void setResourceService(ResourceService resourceService) {
+        this.resourceService = resourceService;
     }
 }

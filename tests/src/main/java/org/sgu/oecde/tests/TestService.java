@@ -42,7 +42,7 @@ public class TestService implements Serializable{
         TestEntity t = resourceDao.getById(id);
         if(t==null&&CollectionUtils.isEmpty(t.getQuestions()))
             return null;
-        if(t.isShuffle()){
+        if(t.getShuffle()){
             List l = new ArrayList(t.getQuestions());
             Collections.shuffle(l);
             t.setQuestions(new LinkedHashSet(l));

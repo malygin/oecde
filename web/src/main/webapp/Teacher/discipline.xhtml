@@ -1,0 +1,47 @@
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:r="http://java.sun.com/jsp/jstl/core"
+    template="../resources/teacherTemplate.xhtml"
+    >
+    <ui:define name="contentHeader">
+        #{teacherCurriculumBean.curriculum.umk.name}
+    </ui:define>
+    <ui:define name="content">
+        <div class="interfaceContent">
+            <f:metadata>
+                <f:viewParam name="id" value="#{teacherCurriculumBean.curriculumId}"/>
+                <f:viewParam name="s" value="#{teacherCurriculumBean.semester}"/>
+            </f:metadata>
+            <h:outputLink value="curriculums.xhtml?s=#{teacherCurriculumBean.semester}"><h:outputText value="Ко всем курсам" /></h:outputLink>
+            <h:outputText rendered="#{teacherCurriculumBean.accessDenied}" value="Не найден или не доступен" />
+            <r:forEach items="#{teacherCurriculumBean.curriculum.umk.modules}" var="m">
+                <div class="studentInterfaceStandartList">
+                    <div class="controlWorksDisciplineName">${m.name}</div>
+                    <r:forEach items="${m.resources}" var="r" varStatus="i">
+                        <div class="navigationLinks" style="margin-left: 20px;">
+                            <a href="exbook.xhtml?cId=${teacherCurriculumBean.curriculumId}&amp;mId=${m.id}&amp;tId=${r.id}">${r.title}</a>
+                        </div>
+                    </r:forEach>
+                </div>
+            </r:forEach>
+            <br/>
+            <div>
+                Тесты:
+            </div>
+            <r:forEach items="#{teacherCurriculumBean.tests}" var="test">
+                <div class="studentInterfaceStandartList">
+                <div class="controlWorksDisciplineNameLink">
+                    <h:outputLink value="test.xhtml?c=#{teacherCurriculumBean.curriculumId}&amp;id=#{test.id}&amp;s=#{teacherCurriculumBean.semester}" >
+                        #{test.title}
+                    </h:outputLink>
+                    <h:outputLink value="testEdit.xhtml?c=#{teacherCurriculumBean.curriculumId}&amp;id=#{test.id}&amp;s=#{teacherCurriculumBean.semester}" >
+                        (редактировать)
+                    </h:outputLink>
+                </div>
+                </div>
+            </r:forEach>
+        </div>
+    </ui:define>
+</ui:composition>

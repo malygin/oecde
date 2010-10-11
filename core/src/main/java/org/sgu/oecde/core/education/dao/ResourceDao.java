@@ -36,7 +36,7 @@ public class ResourceDao <T extends AbstractResource> extends UpdateDao<T> imple
             byExample = "r.id=:e";
 
         Query q = HqlConstructor.makeQuery(getSession(), "distinct cr,r ", "from Curriculum cr join cr.umk u join u.resources rs, "+type.getName()+" r",null, "cr in (:c) and r in (rs)", byExample, "r")
-                .setParameterList("c", curriculums);
+                .setParameterList("c", curriculums).setCacheable(true);
 
         if(resourceId!=null)
             q.setParameter("e", resourceId);

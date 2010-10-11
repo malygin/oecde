@@ -50,7 +50,7 @@ public class CacheTest extends AbstractJUnit4SpringContextTests{
         IUpdateDao<Teacher>t = (IUpdateDao<Teacher>) applicationContext.getBean("teacherDao");
         Teacher st = t.getById(44240L);
         st.setCellPhone(456456);
-        System.out.println(st.isOnline()+"    4444");
+        System.out.println(st.getOnline()+"    4444");
 
 
     }

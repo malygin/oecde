@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute name="attempt"/>
+    </composite:interface>
+
+    <!-- IMPLEMENTATION -->
+    <composite:implementation>
+        <h:outputLink rendered="#{cc.attrs.attempt.filePath ne 'empty'}" value="#{cc.attrs.attempt.filePath}" id="log">
+            <f:ajax  event="mousedown" listener="#{groupControlWorksForTeacher.logWorkDownload}"/>
+            <f:attribute name="attempt" value="#{cc.attrs.attempt}"/>
+            <h:outputText value="#{cc.attrs.attempt.attemptDate}"/>
+        </h:outputLink>
+        <h:outputText rendered="#{cc.attrs.attempt.filePath eq 'empty'}" value="#{cc.attrs.attempt.attemptDate}"/>
+    </composite:implementation>
+</html>

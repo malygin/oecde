@@ -8,7 +8,7 @@ import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.core.education.work.AdditionalSelfDependentWork;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.tests.TestAttemptService;
-import org.sgu.oecde.web.TestConstantsServise;
+import org.sgu.oecde.web.ResourceService;
 import org.sgu.oecde.web.jsfbeans.util.NewEntry;
 
 /**
@@ -22,8 +22,8 @@ public class GroupTestResults extends AbstractStudentsListBean{
     @ManagedProperty(value="#{testAttemptService}")
     TestAttemptService testAttemptService;
 
-    @ManagedProperty(value="#{testConstantsServise}")
-    private TestConstantsServise testConstantsServise;
+    @ManagedProperty(value="#{resourceService}")
+    private ResourceService resourceService;
 
     private List<NewEntry<Student,AdditionalSelfDependentWork>>tests;
 
@@ -47,15 +47,15 @@ public class GroupTestResults extends AbstractStudentsListBean{
     }
 
     public String getRegularAttemtpsCount() {
-        return testConstantsServise.getRegularAttemtpsCount(getSemester());
+        return resourceService.getRegularAttemtpsCount(getSemester());
     }
 
     public String getConcludingAttemtpsCount() {
-        return testConstantsServise.getConcludingAttemtpsCount(getSemester());
+        return resourceService.getConcludingAttemtpsCount(getSemester());
     }
 
-    public void setTestConstantsServise(TestConstantsServise testConstantsServise) {
-        this.testConstantsServise = testConstantsServise;
+    public void setResourceService(ResourceService resourceService) {
+        this.resourceService = resourceService;
     }
 
     public void setTestAttemptService(TestAttemptService testAttemptService) {

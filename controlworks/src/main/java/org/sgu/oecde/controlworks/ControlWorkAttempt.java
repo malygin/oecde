@@ -65,7 +65,7 @@ public class ControlWorkAttempt  extends BasicItem{
      *
      * @return прочитана ли
      */
-    public Boolean  isRead() {
+    public Boolean  getRead() {
         return read;
     }
 

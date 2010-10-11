@@ -63,7 +63,7 @@ public abstract class AbstractTeacherBean implements Serializable{
         this.accessDenied = accessDenied;
     }
 
-    public boolean isAccessDenied() {
+    public boolean getAccessDenied() {
         return accessDenied;
     }
 

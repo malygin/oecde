@@ -5,7 +5,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Group;
-import org.springframework.security.core.GrantedAuthority;
 
 /**
  *
@@ -23,8 +22,6 @@ public class TeacherSessionBean extends AbstractTeacherBean{
     private List<Group>currentGroups;
 
     private List<Group>previousGroups;
-
-    private Boolean switched;
     private static final long serialVersionUID = 110L;
 
     public List<DeCurriculum> getDisciplines(int semester){
@@ -49,15 +46,5 @@ public class TeacherSessionBean extends AbstractTeacherBean{
                 previousGroups=l;
         }
         return semester == 0?currentGroups:previousGroups;
-    }
-
-    public boolean isSwitched(){
-        if(switched == null)
-            for(GrantedAuthority a:teacher.getAuthorities()){
-                if("ROLE_PREVIOUS_ADMINISTRATOR".equals(a.getAuthority())){
-                    switched = true;
-                }
-            }
-        return switched;
     }
 }

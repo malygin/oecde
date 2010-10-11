@@ -50,7 +50,7 @@ public class AdvancedCurriculum extends Curriculum{
      *
      * @return есть ли кр
      */
-    public Boolean isGotControlWork() {
+    public Boolean getGotControlWork() {
         return gotControlWork;
     }
 

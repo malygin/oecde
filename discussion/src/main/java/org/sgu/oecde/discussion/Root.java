@@ -75,7 +75,7 @@ public class Root extends BasicItem implements Comparable {
         this.objectId = objectId;
     }
 
-    public Boolean isOpen() {
+    public Boolean getOpen() {
         return open;
     }
 

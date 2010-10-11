@@ -2,6 +2,8 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:r="http://java.sun.com/jsp/jstl/core"
+    xmlns:sec="http://www.springframework.org/security/facelets/tags"
+    xmlns:ut="http://java.sun.com/jsf/composite/components/util"
     template="baseTemplate.xhtml">
 
     <ui:define name="userCSS">
@@ -77,14 +79,16 @@
         <ol class="topMenuLinks">
             <li class="topMenuLinkContainer"><a href="index.xhtml">#{msgs.student_topMenuHome}</a></li>
             <li class="topMenuLinkContainer"><a href="support.xhtml">#{msgs.student_topMenuHelp}</a></li>
-            <li class="topMenuLinkContainer"><p>#{msgs.student_topMenuInfo}</p></li>
+            <li class="topMenuLinkContainer"><a href="support.xhtml?i=true">#{msgs.student_topMenuInfo}</a></li>
             <li class="topMenuLinkContainer"><a href="news_list.xhtml">#{msgs.student_topMenuNews}</a></li>
-            <li class="topMenuLinkContainer"><p>#{msgs.student_topMenuSettings}</p></li>
-            <li class="topMenuLinkContainer" style="border: 0px;"><p>#{msgs.student_topSearchInputText}</p></li>
+            <li class="topMenuLinkContainer"><a href="settings.xhtml">#{msgs.student_topMenuSettings}</a></li>
             <li class="topMenuLinkContainer" style="border: 0px; float: right">
-                
-            <h:outputLink rendered="#{studentSessionBean.switched}" value="../Admin/exit_user" >Назад</h:outputLink>
-            <h:outputLink rendered="#{!studentSessionBean.switched}" value="../j_spring_security_logout" >#{msgs.student_topMenuExit}</h:outputLink>
+            <sec:ifAnyGranted roles="ROLE_PREVIOUS_ADMINISTRATOR">
+                <h:outputLink value="../Admin/exit_user" >Назад</h:outputLink>
+            </sec:ifAnyGranted>
+             <sec:ifNotGranted roles="ROLE_PREVIOUS_ADMINISTRATOR">
+                 <h:outputLink value="../j_spring_security_logout" >#{msgs.student_topMenuExit}</h:outputLink>
+             </sec:ifNotGranted>            
             </li>
 
             <li style="clear: both;"></li>
@@ -105,69 +109,25 @@
         <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.student_controlMenuTitle}</p></div>
         <ol class="leftSideMenuLinks">
             <li><a href="curriculum.xhtml">#{msgs.student_controlMenuCurriculum}</a></li>
+            <li><a href="schedule.xhtml">#{msgs.student_controlMenuSchedule}</a></li>
             <li><a href="libraryMaterials.xhtml">#{msgs.student_controlMenuLibrary}</a></li>
             <li><a href="oldGrades.xhtml">#{msgs.student_controlMenuRecordBook}</a></li>
             <li><a href="lowGradedDisciplines.xhtml">#{msgs.student_controlMenuLowGradedDisciplines}</a></li>
             <li><a href="badPassedTests.xhtml">#{msgs.student_controlMenuBadPassedTests}</a></li>
         </ol>
 
-        <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_studentsOnlineMenuTitle}</p></div>
-        <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="#">#{msgs.student_studentsOnlineUnderTitleText} (#{usersInCache.studentsNumber})</a></div></div>
-
-        <div class="usersOnlineTableContainer">
-            <table cellpadding="3" cellspacing="1" >
-                <tr>
-                    <ui:repeat value="#{usersInCache.sixStudents}" var="st" varStatus="i">
-                        <td style="max-width: 68px;">
-                            <div class="userOnlineLinkContainer">
-                                <a href="#">
-                                    <div class="userOnlineImgContainer">
-                                        <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/#{st.smallPhoto}" alt=""/>
-                                    </div>
-                                    <span style=" text-align: center; font-size: 75%;">
-                                        <h:outputText value="#{st.name}"/>
-                                    </span>
-                                </a>
-                            </div>
-                        </td>
-                    </ui:repeat>
-                </tr>
-            </table>
-        </div>
-
-        <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.student_teachersOnlineMenuTitle}</p></div>
-        <div class="sideBarUnderTitleText"><div class="blueUnderTitleLink"><a href="#">#{msgs.student_teachersOnlineUnderTitleText} (#{usersInCache.teachersNumber})</a></div></div>
-        <div class="usersOnlineTableContainer">
-            <table cellpadding="3" cellspacing="1" >
-                <tr>
-                    <ui:repeat value="#{usersInCache.sixTeachers}" var="st" varStatus="i">
-                        <td style="max-width: 68px;">
-                            <div class="userOnlineLinkContainer">
-                                <a href="#">
-                                    <div class="userOnlineImgContainer">
-                                        <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/#{st.smallPhoto}" alt=""/>
-                                    </div>
-                                    <span style=" text-align: center; font-size: 75%;">
-                                        <h:outputText value="#{st.name}"/>
-                                    </span>
-                                </a>
-                            </div>
-                        </td>
-                    </ui:repeat>
-                </tr>
-            </table>
-        </div>
+        <ut:usersOnline/>
     </ui:define>
     <ui:define name="bottom">
         <ol class="bottomMenu">
             <li class="bottomMenuLinkContainer">
-                <a href="index.xhtml">#{msgs.student_bottMenuHelp}</a>
+                <a href="support.xhtml">#{msgs.student_bottMenuHelp}</a>
             </li>
             <li class="bottomMenuLinkContainer">
-                <a href="index.xhtml">#{msgs.student_bottMenuInfo}</a>
+                <a href="support.xhtml?i=true">#{msgs.student_bottMenuInfo}</a>
             </li>
             <li class="bottomMenuLinkContainer" style="border: 0px;">
-                <a href="index.xhtml">#{msgs.student_bottMenuSettings}</a>
+                <a href="settings.xhtml">#{msgs.student_bottMenuSettings}</a>
             </li>
             <li class="copyrightCOO">
                 <p>

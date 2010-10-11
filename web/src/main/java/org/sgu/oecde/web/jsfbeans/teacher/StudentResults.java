@@ -13,7 +13,7 @@ import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.tests.TestAttemptService;
-import org.sgu.oecde.web.TestConstantsServise;
+import org.sgu.oecde.web.ResourceService;
 import org.springframework.util.CollectionUtils;
 
 /**
@@ -39,8 +39,8 @@ public class StudentResults extends AbstractStudentsListBean{
     @ManagedProperty(value="#{controlWorkService}")
     ControlWorkService controlWorkService;
 
-    @ManagedProperty(value="#{testConstantsServise}")
-    private TestConstantsServise testConstantsServise;
+    @ManagedProperty(value="#{resourceService}")
+    private ResourceService resourceService;
 
     private static final long serialVersionUID = 109L;
 
@@ -92,14 +92,14 @@ public class StudentResults extends AbstractStudentsListBean{
     }
 
     public String getRegularAttemtpsCount() {
-        return testConstantsServise.getRegularAttemtpsCount(getSemester());
+        return resourceService.getRegularAttemtpsCount(getSemester());
     }
 
     public String getConcludingAttemtpsCount() {
-        return testConstantsServise.getConcludingAttemtpsCount(getSemester());
+        return resourceService.getConcludingAttemtpsCount(getSemester());
     }
 
-    public void setTestConstantsServise(TestConstantsServise testConstantsServise) {
-        this.testConstantsServise = testConstantsServise;
+    public void setResourceService(ResourceService resourceService) {
+        this.resourceService = resourceService;
     }
 }

@@ -1,17 +1,18 @@
 package org.sgu.oecde.web.jsfbeans;
 
 import java.io.Serializable;
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-import org.sgu.oecde.core.IBasicDao;
+import org.sgu.oecde.core.IUpdateDao;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.Admin;
 import org.sgu.oecde.core.users.Supervisor;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.users.UserType;
 import org.sgu.oecde.de.users.Student;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.util.Assert;
 
 /**
  *
@@ -21,44 +22,58 @@ import org.sgu.oecde.de.users.Student;
 @ViewScoped
 public class UserViewBean implements Serializable{
     @ManagedProperty(value="#{adminDao}")
-    IBasicDao<Admin>adminDao;
+    IUpdateDao<Admin>adminDao;
 
     @ManagedProperty(value="#{teacherDao}")
-    IBasicDao<Teacher>teacherDao;
+    IUpdateDao<Teacher>teacherDao;
 
     @ManagedProperty(value="#{studentDao}")
-    IBasicDao<Student>studentDao;
+    IUpdateDao<Student>studentDao;
 
     @ManagedProperty(value="#{supervisorDao}")
-    IBasicDao<Supervisor>supervisorDao;
+    IUpdateDao<Supervisor>supervisorDao;
 
     private Long id;
     private String type;
-    private AbstractUser user;
+    protected AbstractUser user;
 
     private static final long serialVersionUID = 163L;
 
     public AbstractUser getUser(){
-        if(user == null){
-            UserType t = UserType.valueOf(type);
-            switch(t){
-                case ADMIN:
-                    user = adminDao.getById(id);
-                    break;
-                case SUPERVISOR:
-                    user = supervisorDao.getById(id);
-                    break;
-                case TEACHER:
-                    user = teacherDao.getById(id);
-                    break;
-                case STUDENT:
-                    user = studentDao.getById(id);
-                    break;
-                default:
-                    throw new IllegalAccessError();
-            }
-        }
         return user;
+    }
+
+    public void setUser(AbstractUser user) {
+        this.user = user;
+    }
+
+    @Secured("ROLE_ADMIN")
+    public void save(){
+        UserType t = UserType.valueOf(type);
+        switch(t){
+            case ADMIN:
+                adminDao.update((Admin) user);
+                break;
+            case SUPERVISOR:
+                supervisorDao.update((Supervisor) user);
+                break;
+            case TEACHER:
+                teacherDao.update((Teacher) user);
+                break;
+            case STUDENT:
+                teacherDao.update((Teacher) user);
+                break;
+            default:
+                throw new IllegalAccessError();
+        }
+    }
+
+    @Secured("ROLE_ADMIN")
+    public void deletePhoto(){
+        user.setLargePhoto(null);
+        user.setMediumPhoto(null);
+        user.setSmallPhoto(null);
+        save();
     }
 
     public Long getId() {
@@ -66,6 +81,25 @@ public class UserViewBean implements Serializable{
     }
 
     public void setId(Long id) {
+        Assert.notNull(type);
+        Assert.notNull(id);
+        UserType t = UserType.valueOf(type);
+        switch(t){
+            case ADMIN:
+                user = adminDao.getById(id);
+                break;
+            case SUPERVISOR:
+                user = supervisorDao.getById(id);
+                break;
+            case TEACHER:
+                user = teacherDao.getById(id);
+                break;
+            case STUDENT:
+                user = studentDao.getById(id);
+                break;
+            default:
+                throw new IllegalAccessError();
+        }
         this.id = id;
     }
 
@@ -77,19 +111,19 @@ public class UserViewBean implements Serializable{
         this.type = type;
     }
 
-    public void setAdminDao(IBasicDao<Admin> adminDao) {
+    public void setAdminDao(IUpdateDao<Admin> adminDao) {
         this.adminDao = adminDao;
     }
 
-    public void setStudentDao(IBasicDao<Student> studentDao) {
+    public void setStudentDao(IUpdateDao<Student> studentDao) {
         this.studentDao = studentDao;
     }
 
-    public void setSupervisorDao(IBasicDao<Supervisor> supervisorDao) {
+    public void setSupervisorDao(IUpdateDao<Supervisor> supervisorDao) {
         this.supervisorDao = supervisorDao;
     }
 
-    public void setTeacherDao(IBasicDao<Teacher> teacherDao) {
+    public void setTeacherDao(IUpdateDao<Teacher> teacherDao) {
         this.teacherDao = teacherDao;
     }
 }

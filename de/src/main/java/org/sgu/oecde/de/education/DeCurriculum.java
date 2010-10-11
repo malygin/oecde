@@ -42,7 +42,7 @@ public class DeCurriculum extends AdvancedCurriculum{
      * @return кр только в рукописном
      * @see #controlWorksPaperOnly
      */
-    public Boolean isControlWorksPaperOnly() {
+    public Boolean getControlWorksPaperOnly() {
         return controlWorksPaperOnly;
     }
 
@@ -75,7 +75,7 @@ public class DeCurriculum extends AdvancedCurriculum{
      *
      * @return выбрана
      */
-    public Boolean isSelected() {
+    public Boolean getSelected() {
         return selected;
     }
 

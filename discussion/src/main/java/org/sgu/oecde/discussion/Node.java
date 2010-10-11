@@ -139,7 +139,7 @@ public class Node extends BasicItem implements Comparable {
         return root;
     }
 
-    public Boolean isOpen() {
+    public Boolean getOpen() {
         return open;
     }
 

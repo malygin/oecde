@@ -35,7 +35,7 @@
                  <h:outputText value="Попыток" />
                 </f:facet>
                с #{r.estimateAttemptsUsedNumber} из #{r.work.estimateAttemptsNumber}<br/>
-               п: #{r.reExameAttemptsUsedNumber} из #{r.work.type eq groupTestResults.concludingType?groupTestResults.concludingAttemtpsCount:groupTestResults.regularAttemtpsCount}
+               п: #{r.reExameAttemptsUsedNumber} из #{(r.work.type eq 'concluding')?groupTestResults.concludingAttemtpsCount:groupTestResults.regularAttemtpsCount}
                </h:column>
 
                <h:column>

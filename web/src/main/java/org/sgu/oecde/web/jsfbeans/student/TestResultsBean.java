@@ -6,7 +6,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.core.education.work.AdditionalSelfDependentWork;
 import org.sgu.oecde.tests.TestAttemptService;
-import org.sgu.oecde.web.TestConstantsServise;
+import org.sgu.oecde.web.ResourceService;
 
 /**
  *
@@ -19,8 +19,8 @@ public class TestResultsBean extends StudentCurriculumBean{
     @ManagedProperty(value="#{testAttemptService}")
     private TestAttemptService testAttemptService;
 
-    @ManagedProperty(value="#{testConstantsServise}")
-    private TestConstantsServise testConstantsServise;
+    @ManagedProperty(value="#{resourceService}")
+    private ResourceService resourceService;
 
     private Long curriculumId;
 
@@ -64,14 +64,14 @@ public class TestResultsBean extends StudentCurriculumBean{
     }
 
     public String getRegularAttemtpsCount() {
-        return testConstantsServise.getRegularAttemtpsCount(getSemester());
+        return resourceService.getRegularAttemtpsCount(getSemester());
     }
 
     public String getConcludingAttemtpsCount() {
-        return testConstantsServise.getConcludingAttemtpsCount(getSemester());
+        return resourceService.getConcludingAttemtpsCount(getSemester());
     }
 
-    public void setTestConstantsServise(TestConstantsServise testConstantsServise) {
-        this.testConstantsServise = testConstantsServise;
+    public void setResourceService(ResourceService resourceService) {
+        this.resourceService = resourceService;
     }
 }

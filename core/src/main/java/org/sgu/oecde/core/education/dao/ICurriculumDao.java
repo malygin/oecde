@@ -2,8 +2,7 @@ package org.sgu.oecde.core.education.dao;
 
 import java.util.List;
 import java.util.Map;
-import org.sgu.oecde.core.IBasicDao;
-import org.sgu.oecde.core.education.AdvancedCurriculum;
+import org.sgu.oecde.core.IUpdateDao;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.users.StudentGroup;
@@ -16,7 +15,7 @@ import org.springframework.dao.DataAccessException;
  * @see org.sgu.oecde.core.IBasicDao
  * @see org.sgu.oecde.core.education.dao.CurriculumDao
  */
-public interface ICurriculumDao<T extends Curriculum> extends IBasicDao<T>{
+public interface ICurriculumDao<T extends Curriculum> extends IUpdateDao<T>{
 
     /**
      * @param item образец

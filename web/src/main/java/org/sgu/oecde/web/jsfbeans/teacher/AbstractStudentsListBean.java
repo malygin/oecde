@@ -12,7 +12,7 @@ import org.springframework.util.CollectionUtils;
  *
  * @author ShihovMY
  */
-abstract class AbstractStudentsListBean extends TeacherCurriculumBean{
+abstract class AbstractStudentsListBean extends AbstractTeacherCurriculumBean{
 
     private Long id;
     private List<Student>students;
@@ -22,7 +22,7 @@ abstract class AbstractStudentsListBean extends TeacherCurriculumBean{
         return students==null?new ArrayList():students;
     }
 
-    public List<DeCurriculum>getDisciplines(){
+    public List<DeCurriculum>getGroupCurriculums(Group group){
         List<DeCurriculum>l = new LinkedList();
         if(group==null)
             return l;
@@ -34,6 +34,10 @@ abstract class AbstractStudentsListBean extends TeacherCurriculumBean{
                 l.add(d);
         }
         return l;
+    }
+
+    public List<DeCurriculum>getDisciplines(){
+        return getGroupCurriculums(group);
     }
 
     public DeCurriculum getCurriculum(){

@@ -4,7 +4,7 @@
          xmlns:h="http://java.sun.com/jsf/html"
          xmlns:r="http://java.sun.com/jsp/jstl/core"
          template="../resources/teacherTemplate.xhtml"
-         xmlns:ipsil="http://java.sun.com/jsf/composite/components/util">
+         xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
         
         <ui:define name="content">
          <f:metadata>
@@ -23,13 +23,7 @@
                    #{w.points}| #{w.progress}<br/>
                    <h:dataTable value="#{w.cwAttempt}" var="a">
                        <h:column>
-                        <h:outputLink rendered="#{a.filePath ne 'empty'}" value="#{a.filePath}" id="log">
-                            <f:ajax  event="mousedown" listener="#{groupControlWorksForTeacher.logWorkDownload}"/>
-                            <f:attribute name="attempt" value="#{a}"/>
-                            <h:outputText value="#{a.attemptDate}"/>
-                        </h:outputLink>
-
-                        <h:outputText rendered="#{a.filePath eq 'empty'}" value="#{a.attemptDate}"/>
+                        <est:readCwAttempt attempt="#{a}"/>
                        </h:column>
                    </h:dataTable>
                </h:column>
@@ -48,7 +42,7 @@
                  <h:outputText value="Попыток" />
                 </f:facet>
                с #{r.estimateAttemptsUsedNumber} из #{r.work.estimateAttemptsNumber}<br/>
-               п: #{r.reExameAttemptsUsedNumber} из #{r.work.type eq groupTestResults.concludingType?groupTestResults.concludingAttemtpsCount:groupTestResults.regularAttemtpsCount}
+               п: #{r.reExameAttemptsUsedNumber} из #{(r.work.type eq 'concluding')?groupTestResults.concludingAttemtpsCount:groupTestResults.regularAttemtpsCount}
                </h:column>
 
                <h:column>

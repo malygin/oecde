@@ -32,7 +32,7 @@
                     </f:facet>
                     #{testResultsBean.reExame?r.reExameAttemptsUsedNumber:r.estimateAttemptsUsedNumber} #{msgs.student_fromWord}
                     #{testResultsBean.reExame?
-                       (r.work.type eq testResultsBean.concludingType?testResultsBean.concludingAttemtpsCount:testResultsBean.regularAttemtpsCount)
+                       ((r.work.type eq 'concluding')?testResultsBean.concludingAttemtpsCount:testResultsBean.regularAttemtpsCount)
                     :r.work.estimateAttemptsNumber}
                 </h:column>
 

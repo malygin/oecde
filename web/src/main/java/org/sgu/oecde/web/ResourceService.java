@@ -19,6 +19,7 @@ import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.tests.TestCalendarConstants;
 import org.sgu.oecde.tests.TestEntity;
+import org.sgu.oecde.tests.TestType;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
@@ -51,8 +52,21 @@ public class ResourceService implements Serializable{
     private String simpleSpecialitiesTestsClosing;
     private String regularTestEndDate;
     private String regularTestBeginDate;
+    private String winterConcludingTestReExameAttemtpsCount;
+    private String summerRegularTestReExameAttemtpsCount;
+    private String summerConcludingTestReExameAttemtpsCount;
+    private String winterRegularTestReExameAttemtpsCount;
 
     private static final long serialVersionUID = 164L;
+
+
+    public String getRegularAttemtpsCount(int semester) {
+        return semester==SemesterGetter.SUMMER_SEMESTER?summerRegularTestReExameAttemtpsCount:winterRegularTestReExameAttemtpsCount;
+    }
+
+    public String getConcludingAttemtpsCount(int semester) {
+        return semester==SemesterGetter.SUMMER_SEMESTER?summerConcludingTestReExameAttemtpsCount:winterConcludingTestReExameAttemtpsCount;
+    }
 
     public <T extends AbstractResource>T getResource(DeCurriculum c,AbstractResource r,Class clazz){
         if(c==null||r==null||r.getId()==null)
@@ -86,7 +100,10 @@ public class ResourceService implements Serializable{
         String testEndDate = reExameEndDate;
         String currentDate = DateConverter.currentDate();
         if((currentDate.compareTo(testBeginDate)>=0)&&(currentDate.compareTo(testEndDate)<0)){
-            if(w.getReExameAttemptsUsedNumber()>=1){
+            if(w.getReExameAttemptsUsedNumber()>=Integer.parseInt(
+                    (TestType.concluding.equals(e.getType())
+                    ?getConcludingAttemtpsCount(semesterGetter.getCurrentSemester())
+                    :getRegularAttemtpsCount(semesterGetter.getCurrentSemester())))){
                 data[4] = "Попытки переэкзаменовки исчерпаны";
             }else
                 available = true;
@@ -142,5 +159,9 @@ public class ResourceService implements Serializable{
         simpleSpecialitiesTestsClosing = testsDatesGetter.getConstant(TestCalendarConstants.simpleSpecialitiesTestsClosing).toString();
         regularTestBeginDate = testsDatesGetter.getConstant(TestCalendarConstants.regularTestBeginDate).toString();
         regularTestEndDate = testsDatesGetter.getConstant(TestCalendarConstants.regularTestEndDate).toString();
+        summerConcludingTestReExameAttemtpsCount = testsDatesGetter.getConstant(TestCalendarConstants.summerConcludingTestReExameAttemtpsCount).toString();
+        summerRegularTestReExameAttemtpsCount = testsDatesGetter.getConstant(TestCalendarConstants.summerRegularTestReExameAttemtpsCount).toString();
+        winterConcludingTestReExameAttemtpsCount = testsDatesGetter.getConstant(TestCalendarConstants.winterConcludingTestReExameAttemtpsCount).toString();
+        winterRegularTestReExameAttemtpsCount = testsDatesGetter.getConstant(TestCalendarConstants.winterRegularTestReExameAttemtpsCount).toString();
     }
 }

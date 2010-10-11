@@ -90,7 +90,7 @@ public class AnsweredQuestion extends BasicItem{
      *
      * @return правильный ли был дан овтет
      */
-    public Boolean isRight() {
+    public Boolean getRight() {
         return right;
     }
 

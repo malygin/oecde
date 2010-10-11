@@ -12,10 +12,8 @@ import org.sgu.oecde.core.education.estimation.IResultFilter;
 import org.sgu.oecde.core.education.estimation.Points;
 import org.sgu.oecde.core.education.estimation.ResultPreFilter;
 import org.sgu.oecde.core.education.work.AbstractResult;
-import org.sgu.oecde.core.util.ListUtil;
 import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.de.users.Student;
-import org.sgu.oecde.web.GradesService;
 
 /**
  *

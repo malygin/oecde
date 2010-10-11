@@ -1,6 +1,7 @@
 package org.sgu.oecde.search.dao;
 
 import java.util.List;
+import org.sgu.oecde.search.SearchType;
 import org.springframework.dao.DataAccessException;
 
 /**
@@ -16,5 +17,5 @@ public interface ISearchDao {
      * @return коллекция объектов
      * @throws DataAccessException
      */
-    public List search(Class type,String[] words) throws DataAccessException;
+    public List search(SearchType type,String[] words) throws DataAccessException;
 }

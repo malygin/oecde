@@ -41,7 +41,7 @@ public abstract class AbstractStudent extends AbstractPerson {
      * 
      * @return переведён/не переведён на следующий год
      */
-    public Boolean isTransfered() {
+    public Boolean getTransfered() {
         return transfered;
     }
 

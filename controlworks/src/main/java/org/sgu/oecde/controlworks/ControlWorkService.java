@@ -2,13 +2,10 @@ package org.sgu.oecde.controlworks;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import org.sgu.oecde.controlworks.dao.ControlWorkAttemptDao;
 import org.sgu.oecde.controlworks.dao.IControlWorkAttemptDao;
 import org.sgu.oecde.controlworks.dao.IControlWorkDao;
 import org.sgu.oecde.core.education.AdvancedCurriculum;

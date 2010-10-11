@@ -122,7 +122,7 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
      *
      * @return онлайн ли
      */
-    public boolean isOnline() {
+    public boolean getOnline() {
         return online;
     }
 

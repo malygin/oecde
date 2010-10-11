@@ -1,7 +1,9 @@
 package org.sgu.oecde.search;
 
+import java.util.List;
 import org.junit.Test;
 import org.sgu.oecde.core.BasicTest;
+import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.search.dao.ISearchDao;
 import org.springframework.test.context.ContextConfiguration;
@@ -15,6 +17,9 @@ public class AppTest  extends BasicTest{
     @Test
     public void search(){
         ISearchDao s = (ISearchDao) applicationContext.getBean("searchDao");
-        System.out.println(s.search(Student.class, new String[]{"иванов"}));
+        List<Teacher>ts = s.search(SearchType.teacher, new String[]{"иванов","валер"});
+        for(Teacher t:ts){
+            System.out.println(t.getFio());
+        }
     }
 }

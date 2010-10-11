@@ -1,6 +1,7 @@
     <ui:composition
          xmlns:ui="http://java.sun.com/jsf/facelets"
          xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:ut="http://java.sun.com/jsf/composite/components/util"
          template="baseTemplate.xhtml">
 
         <ui:define name="userCSS">
@@ -68,9 +69,7 @@
                 <li class="topMenuLinkContainer"><a href="index.xhtml">#{msgs.admin_topMenuInfo}</a></li>
                 <li class="topMenuLinkContainer"><a href="index.xhtml">#{msgs.admin_topMenuHelp}</a></li>
                 <li class="topMenuLinkContainer"><a href="index.xhtml">#{msgs.admin_topMenuSettings}</a></li>
-                <li class="topMenuLinkContainer"><a href="#">#{msgs.admin_topSearchInputText}</a></li>
-                <li class="topMenuLinkContainer"><a href="http://localhost:8084/oecde/Teacher">Teacher</a></li>
-                <li class="topMenuLinkContainer" style="border: 0px;"><a href="http://localhost:8084/oecde/Student">Student</a></li>
+                <li class="topMenuLinkContainer"><a href="search.xhtml">#{msgs.admin_topSearchInputText}</a></li>
                 <li class="topMenuLinkContainer" style="border: 0px; float: right"><a href="../j_spring_security_logout" >#{msgs.admin_topMenuExit}</a></li>
 
                 <li style="clear: both;"></li>
@@ -113,149 +112,7 @@
                 <li><a href="index.xhtml">#{msgs.admin_forumMenuTeachOrgForum}</a></li>
                 <li><a href="index.xhtml">#{msgs.admin_forumMenuCityForums}</a></li>
             </ol>
-            <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.admin_studentsOnlineMenuTitle}</p></div>
-            <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="#">#{msgs.admin_studentsOnlineUnderTitleText} (#{userCache.studentsNumber})</a></div></div>
-
-<!--                студенты (#{userCache.studentsNumber})-->
-            <div class="usersOnlineTableContainer">
-                    <table cellpadding="0" cellspacing="0" class="usersOnlineTable">
-                        <tr>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer">
-                                        <span class="userOnlineImgContainerHeightController"></span><img height="10" src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer">
-                                        <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer">
-                                        <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer">
-                                        <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer">
-                                        <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer">
-                                        <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <h:dataTable value="#{userCache.sixStudents}" styleClass="friends" var="st">
-                    <h:column>#{st.initials}
-                        <h:outputText value="#{st.initials}"/>
-                    </h:column>
-                </h:dataTable>
-
-            <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.admin_teachersOnlineMenuTitle}</p></div>
-            <div class="sideBarUnderTitleText"><div class="blueUnderTitleLink"><a href="#">#{msgs.admin_teachersOnlineUnderTitleText} (#{userCache.studentsNumber})</a></div></div>
-<!--                преподы (#{userCache.teachersNumber})-->
-                <div class="usersOnlineTableContainer">
-                    <table cellpadding="0" cellspacing="0" class="usersOnlineTable">
-                        <tr>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer">
-                                        <span class="userOnlineImgContainerHeightController"></span><img height="10" src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer">
-                                        <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer">
-                                        <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer">
-                                        <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer">
-                                        <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer">
-                                        <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <h:dataTable value="#{userCache.sixTeachers}" styleClass="friends" var="st">
-                    <h:column>
-                        <h:outputText value="#{st.initials}"/>
-                    </h:column>
-                </h:dataTable>
-
+        <ut:usersOnline/>
             <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.admin_adminsOnlineMenuTitle}</p></div>
             <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="#">#{msgs.admin_adminsOnlineUnderTitleText} (#{userCache.studentsNumber})</a></div></div>
 <!--                админы ((#{userCache.adminsNumber}))-->

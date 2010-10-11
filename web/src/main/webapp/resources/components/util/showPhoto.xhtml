@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      >
+
+
+ <!-- INTERFACE -->
+  <composite:interface>
+      <composite:attribute name="size" default="small" shortDescription="тип аватары (large,medium,small)"/>
+      <composite:attribute name="user" shortDescription="пользователей с аватарой"/>
+  </composite:interface>
+
+  <!-- IMPLEMENTATION -->
+   <composite:implementation>
+       <h:panelGroup rendered="#{cc.attrs.size eq 'large'}">
+       <h:graphicImage rendered="#{cc.attrs.user.largePhoto ne null}" value="../resources/userFiles/avatars/#{cc.attrs.user.largePhoto}"/>
+       <h:graphicImage rendered="#{cc.attrs.user.largePhoto eq null}" value="../resources/userFiles/avatars/defaultAvatarBig.jpg"/>
+     </h:panelGroup>
+       <h:panelGroup rendered="#{cc.attrs.size eq 'small'}">
+       <h:graphicImage rendered="#{cc.attrs.user.smallPhoto ne null}" value="../resources/userFiles/avatars/#{cc.attrs.user.smallPhoto}"/>
+       <h:graphicImage rendered="#{cc.attrs.user.smallPhoto eq null}" value="../resources/userFiles/avatars/defaultAvatarSmall.jpg"/>
+     </h:panelGroup>
+       <h:panelGroup rendered="#{cc.attrs.size eq 'medium'}">
+       <h:graphicImage rendered="#{cc.attrs.user.mediumPhoto ne null}" value="../resources/userFiles/avatars/#{cc.attrs.user.mediumPhoto}"/>
+       <h:graphicImage rendered="#{cc.attrs.user.mediumPhoto eq null}" value="../resources/userFiles/avatars/defaultAvatarMedium.jpg"/>
+     </h:panelGroup>
+   </composite:implementation>
+</html>

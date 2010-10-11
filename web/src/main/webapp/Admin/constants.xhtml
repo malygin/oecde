@@ -7,26 +7,28 @@
     >
     <ui:define name="content">
         <h:form>
-            <util:date_picker value="#{calendarConstantsBean.concludingTestBeginDate}"/>concludingTestBeginDate<br/>
-            <util:date_picker value="#{calendarConstantsBean.reExameBeginDate}"/>reExameBeginDate<br/>
-            <util:date_picker value="#{calendarConstantsBean.reExameEndDate}"/>reExameEndDate<br/>
-            <util:date_picker value="#{calendarConstantsBean.concludingTestEndDate}"/>concludingTestEndDate<br/>
-            <util:date_picker value="#{calendarConstantsBean.simpleSpecialitiesTestsClosing}"/>simpleSpecialitiesTestsClosing<br/>
-            <util:date_picker value="#{calendarConstantsBean.regularTestEndDate}"/>regularTestEndDate<br/>
-            <util:date_picker value="#{calendarConstantsBean.regularTestBeginDate}"/>regularTestBeginDate<br/>
-            <util:date_picker value="#{calendarConstantsBean.controlWorksBeginDate}"/>controlWorksBeginDate<br/>
-            <util:date_picker value="#{calendarConstantsBean.controlWorksEndDate}"/>controlWorksEndDate<br/>
-            <h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.summerRegularTestReExameAttemtpsCount}"/>summerRegularTestReExameAttemtpsCount<br/>
-            <h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.summerConcludingTestReExameAttemtpsCount}"/>summerConcludingTestReExameAttemtpsCount<br/>
-            <h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.winterRegularTestReExameAttemtpsCount}"/>winterRegularTestReExameAttemtpsCount<br/>
-            <h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.winterConcludingTestReExameAttemtpsCount}"/>winterConcludingTestReExameAttemtpsCount<br/>
-            <h:inputText maxlength="4" size="4" value="#{calendarConstantsBean.year}"/>year<br/>
-            <h:selectBooleanCheckbox  value="#{calendarConstantsBean.semester}"/>is winter<br/>
-            <h:commandButton value="ОКЭ">
+            <table>
+            <tr><td><util:date_picker value="#{calendarConstantsBean.concludingTestBeginDate}"/></td><td>concludingTestBeginDate</td></tr>
+            <tr><td><util:date_picker value="#{calendarConstantsBean.reExameBeginDate}"/></td><td>reExameBeginDate</td></tr>
+            <tr><td><util:date_picker value="#{calendarConstantsBean.reExameEndDate}"/></td><td>reExameEndDate</td></tr>
+            <tr><td><util:date_picker value="#{calendarConstantsBean.concludingTestEndDate}"/></td><td>concludingTestEndDate</td></tr>
+            <tr><td><util:date_picker value="#{calendarConstantsBean.simpleSpecialitiesTestsClosing}"/></td><td>simpleSpecialitiesTestsClosing</td></tr>
+            <tr><td><util:date_picker value="#{calendarConstantsBean.regularTestEndDate}"/></td><td>regularTestEndDate</td></tr>
+            <tr><td><util:date_picker value="#{calendarConstantsBean.regularTestBeginDate}"/></td><td>regularTestBeginDate</td></tr>
+            <tr><td><util:date_picker value="#{calendarConstantsBean.controlWorksBeginDate}"/></td><td>controlWorksBeginDate</td></tr>
+            <tr><td><util:date_picker value="#{calendarConstantsBean.controlWorksEndDate}"/></td><td>controlWorksEndDate</td></tr>
+            <tr><td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.summerRegularTestReExameAttemtpsCount}"/></td><td>summerRegularTestReExameAttemtpsCount</td></tr>
+            <tr><td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.summerConcludingTestReExameAttemtpsCount}"/></td><td>summerConcludingTestReExameAttemtpsCount</td></tr>
+            <tr><td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.winterRegularTestReExameAttemtpsCount}"/></td><td>winterRegularTestReExameAttemtpsCount</td></tr>
+            <tr><td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.winterConcludingTestReExameAttemtpsCount}"/></td><td>winterConcludingTestReExameAttemtpsCount</td></tr>
+            <tr><td><h:inputText maxlength="4" size="4" value="#{calendarConstantsBean.year}"/></td><td>year</td></tr>
+            <tr><td><h:selectBooleanCheckbox  value="#{calendarConstantsBean.semester}"/></td><td>is winter</td></tr>
+            <tr><td><h:commandButton value="ОКЭ">
                 <f:ajax execute="@form" render="@form error saved" listener="#{calendarConstantsBean.save}"/>
-            </h:commandButton><br/>
-            <h:outputText id="error" rendered="#{calendarConstantsBean.error}" value="ERROR"/>
-            <h:outputText id="saved" rendered="#{calendarConstantsBean.saved}" value="saved"/>
+            </h:commandButton></td>
+            <td><h:outputText id="error" rendered="#{calendarConstantsBean.error}" value="ERROR"/>
+            <h:outputText id="saved" rendered="#{calendarConstantsBean.saved}" value="saved"/></td></tr>
+            </table>
         </h:form>
     </ui:define>
 </ui:composition>

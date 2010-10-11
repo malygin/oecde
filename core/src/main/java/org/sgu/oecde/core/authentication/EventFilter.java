@@ -12,6 +12,8 @@ import javax.servlet.ServletResponse;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.UsersInCache;
 import org.sgu.oecde.core.util.SecurityContextHandler;
+import org.sgu.oecde.core.util.SwitchedUserCheker;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
  * фильтр, вносящий текущего пользователя в кеш пользователей онлайн при каждом запросе.
@@ -36,7 +38,7 @@ public class EventFilter implements  Filter,Serializable{
      */
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         AbstractUser u = SecurityContextHandler.getUser();
-        if(u!=null)
+        if(u!=null && !SwitchedUserCheker.check(SecurityContextHolder.getContext().getAuthentication().getAuthorities()))
             userCache.putUserInCache(u);
         chain.doFilter(request, response);
     }

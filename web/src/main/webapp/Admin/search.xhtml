@@ -1,0 +1,35 @@
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+    template="../resources/adminTemplate.xhtml"
+    >
+    <ui:define name="content">
+        <h:form>
+            <table><tr><td>
+                <h:inputText value="#{searchBean.keyWord}">
+                    <f:ajax execute="@form" event="keypress" render=":table" listener="#{searchBean.doSearch}"/>
+                </h:inputText></td>
+            <td><h:selectOneMenu id="type" value="#{searchBean.type}">
+                     <f:ajax execute="@form" render=":table" listener="#{searchBean.doSearch}"/>
+                     <f:selectItems value="#{searchBean.types}" />
+                 </h:selectOneMenu></td><td>
+                 <h:commandButton value="ОКЭ">
+                     <f:ajax execute="@form" render=":table" listener="#{searchBean.doSearch}"/>
+                 </h:commandButton>
+            </td></tr></table>
+        </h:form>
+        <h:dataTable value="#{searchBean.items}" var="i" id="table">
+                <h:column>
+                    <h:panelGroup rendered="#{searchBean.type eq 'teacher' or searchBean.type eq 'student'}">
+                        <ut:showPhoto user="#{i}" size="medium"/>
+                        <h:outputLink value="#{searchBean.type}.xhtml?id=#{i.id}">#{i.fio}</h:outputLink>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{searchBean.type eq 'umk'}">
+                        <h:outputLink value="umk.xhtml?id=#{i.id}">#{i.name}</h:outputLink>
+                    </h:panelGroup>
+                </h:column>
+            </h:dataTable>
+    </ui:define>
+</ui:composition>

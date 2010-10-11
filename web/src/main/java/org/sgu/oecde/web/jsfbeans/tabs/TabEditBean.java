@@ -18,6 +18,7 @@ import org.sgu.oecde.web.jsfbeans.util.fileUpload.FacesUtil;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.FileUploadUtil;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.MultipartRequestWrapper;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.UploadFile;
+import org.springframework.security.access.annotation.Secured;
 
 /**
  *
@@ -36,6 +37,7 @@ public class TabEditBean implements Serializable{
 
     private static final long serialVersionUID = 162L;
 
+    @Secured("ROLE_ADMIN")
     public String updateTab(){
         String redirect = null;
         if(pageId == null&&page!=null){
@@ -51,17 +53,20 @@ public class TabEditBean implements Serializable{
         return redirect;
     }
 
+    @Secured("ROLE_ADMIN")
     public void deletePage(AjaxBehaviorEvent event){
         Page np = (Page) event.getComponent().getAttributes().get("page");
         tab.getPages().remove(np);
         tabsDao.update(tab);
     }
 
+    @Secured("ROLE_ADMIN")
     public String deleteTab(){
         tabsDao.delete(tab);
         return "tabsView.xhtml?faces-redirect=true";
     }
-    
+
+    @Secured("ROLE_ADMIN")
     public String addFile() throws IOException {
         HttpServletRequest req = FacesUtil.getRequest();
         if(req instanceof MultipartRequestWrapper){
@@ -79,6 +84,7 @@ public class TabEditBean implements Serializable{
         return "pageEdit.xhtml?faces-redirect=true&id="+tab.getId()+"&p="+page.getId();
     }
 
+    @Secured("ROLE_ADMIN")
     public void deleteFile(AjaxBehaviorEvent event){
         PageFile f = (PageFile) event.getComponent().getAttributes().get("file");
         page.getFiles().remove(f);

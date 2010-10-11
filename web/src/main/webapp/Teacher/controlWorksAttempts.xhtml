@@ -1,0 +1,49 @@
+<ui:composition
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     template="../resources/teacherTemplate.xhtml"
+     xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
+    <ui:define name="content">
+     <f:metadata>
+         <f:viewParam name="s" value="#{teachersGroups.semester}"/>
+         <f:viewParam name="s" value="#{controlWorksAttemptsBean.semester}"/>
+         <f:viewParam name="p" value="#{controlWorksAttemptsBean.page}"/>
+     </f:metadata>
+        <h:dataTable id="table" value="#{controlWorksAttemptsBean.attempts}" var="a">
+        <h:column>
+            <f:facet name="header">
+             <h:outputText value="дисциплина" />
+            </f:facet>
+            <h:outputText value="#{a.work.curriculum.discipline}"/>
+         </h:column>
+        <h:column>
+            <f:facet name="header">
+             <h:outputText value="студент" />
+            </f:facet>
+            <h:outputLink value="student.xhtml?id=#{a.work.student.id}&amp;s=#{controlWorksAttemptsBean.semester}"><h:outputText value="#{a.work.student.fio}"/></h:outputLink>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+             <h:outputText value="группа" />
+            </f:facet>
+            <h:outputLink value="groupControlWorks.xhtml?g=#{a.work.student.group.id}&amp;c=#{a.work.curriculum.id}&amp;s=#{controlWorksAttemptsBean.semester}"><h:outputText value="#{a.work.student.group.name} гр."/></h:outputLink>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+             <h:outputText value="результат" />
+            </f:facet>
+            <h:outputText converter="enumConverter" value="#{a.work.progress}"/>
+            <h:outputText value="#{a.work.points}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+             <h:outputText value="скачать" />
+            </f:facet>
+            <h:outputText rendered="#{a.read}" value="downloaded"/>
+            <est:readCwAttempt attempt="#{a}"/>
+            <h:outputLink value="../resources/userFiles/controlWorks/#{a.filePath}"><h:outputText value="#{a.attemptDate}"/></h:outputLink>
+        </h:column>
+       </h:dataTable>
+    </ui:define>
+</ui:composition>

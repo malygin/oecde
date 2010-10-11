@@ -8,7 +8,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.ScrollableResults;
 import org.hibernate.criterion.Property;
-import org.sgu.oecde.core.BasicDao;
+import org.sgu.oecde.core.UpdateDao;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.users.StudentGroup;
@@ -18,7 +18,7 @@ import org.springframework.dao.DataAccessException;
 /**
  * {@inheritDoc}
  */
-public class CurriculumDao<T extends Curriculum> extends BasicDao<T> implements ICurriculumDao<T>{
+public class CurriculumDao<T extends Curriculum> extends UpdateDao<T> implements ICurriculumDao<T>{
 
     private final String CURRICULUM_HQL_QUERY = "from Curriculum c join c.teacherToGroups t";
     private final String CURRICULUM_HQL_QUERY_WHERE = "c.calendarYear=:y and c.semester in (:s)";

@@ -1,0 +1,49 @@
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:r="http://java.sun.com/jsp/jstl/core"
+    template="../resources/teacherTemplate.xhtml"
+    xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
+    >
+
+    <ui:define name="contentHeader">
+        #{msgs.student_myMaterials}
+    </ui:define>
+    <ui:define name="content">
+        <div class="interfaceContent">
+            <f:metadata>
+                <f:viewParam name="s" value="#{teacherCurriculumsEditBean.semester}"/>
+            </f:metadata>
+            <h:form>
+            <h:dataTable value="#{teacherCurriculumsEditBean.curriculums}" var="c">
+                <h:column>
+                    <f:facet name="header">дисциплина</f:facet>
+                    <h:outputText value="#{c.discipline.name}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">специальность</f:facet>
+                    <h:outputText value="#{c.speciality.name}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">УМК</f:facet>
+                    <h:outputLink value="discipline.xhtml?id=#{c.id}&amp;s=#{teacherCurriculumsEditBean.semester}">#{c.umk.name}</h:outputLink>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">год</f:facet>
+                    <h:outputText value="#{c.calendarYear}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">семестр</f:facet>
+                    <h:outputText value="#{c.semester}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">кр только в рукописном</f:facet>
+                    <h:selectBooleanCheckbox  value="#{c.controlWorksPaperOnly}"/>
+                </h:column>
+            </h:dataTable>
+                <h:commandButton value="ОКЭ" action="#{teacherCurriculumsEditBean.save}"/>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>

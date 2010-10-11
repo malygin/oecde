@@ -148,7 +148,7 @@ abstract public class AbstractResource extends BasicItem{
      * видимый ли
      * @return
      */
-    public Boolean isVisible() {
+    public Boolean getVisible() {
         return visible;
     }
 
