@@ -19,7 +19,7 @@ import org.springframework.test.context.ContextConfiguration;
 @ContextConfiguration(locations={"../spring/deBeans.xml"})
 public class AppTest extends BasicTest{
 
-//   @Ignore
+   @Ignore
     @Test
     public void removeComment() {
         DiscussionService s = getBean("discussionService");
@@ -52,7 +52,7 @@ public class AppTest extends BasicTest{
     }
 
 
-   @Ignore
+    @Ignore
     @Test
     public void addComment(){
           DiscussionService s = getBean("discussionService");

@@ -6,8 +6,8 @@
     
     <!-- INTERFACE -->
     <composite:interface>
-        <composite:attribute name="bean" default="true" shortDescription="бин, содержащий данные о выбранном семестре"/>
-        <composite:attribute name="link" default="" shortDescription="продолжение ссылки"/>
+        <composite:attribute name="bean" required="true" type="org.sgu.oecde.web.IBeanWithSemester" default="true" shortDescription="бин, содержащий данные о выбранном семестре"/>
+        <composite:attribute name="link" default="" type="java.lang.String" shortDescription="продолжение ссылки"/>
     </composite:interface>
 
     <!-- IMPLEMENTATION -->

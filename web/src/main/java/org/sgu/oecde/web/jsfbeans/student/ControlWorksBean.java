@@ -126,10 +126,13 @@ public class ControlWorksBean extends StudentCurriculumBean{
                  a.setAttemptDate(DateConverter.convert(System.currentTimeMillis()));
                  a.setWork(currentControlWorks);
                  //controlWorks -  в данном случае имя папки и имя префикса в именах файлов
-                 String name = FileUploadUtil.Upload(uf, multi, "controlWorks");
-                 a.setFilePath(name);
-                 controlWorkDao.save(currentControlWorks);
-                 journalServise.logTaskHasBeenSent(student, currentDeCurriculum);
+                 String name = FileUploadUtil.Upload(uf, multi, "controlWorks",true);
+                 if(name!=null){
+                     a.setFilePath(name);
+                     controlWorkDao.save(currentControlWorks);
+                     journalServise.logTaskHasBeenSent(student, currentDeCurriculum);
+                }else
+                    return null;
             }
         }
         return "controlWorks";

@@ -9,12 +9,13 @@ import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.education.DeCurriculumBuilder;
 import org.sgu.oecde.de.users.Student;
+import org.sgu.oecde.web.IBeanWithSemester;
 
 /**
  *
  * @author ShihovMY
  */
-abstract public class AbstractStudentBean implements Serializable{
+abstract class AbstractStudentBean implements Serializable,IBeanWithSemester{
 
     protected int semester;
 

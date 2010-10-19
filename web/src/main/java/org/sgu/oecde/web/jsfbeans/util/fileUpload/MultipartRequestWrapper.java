@@ -2,6 +2,7 @@ package org.sgu.oecde.web.jsfbeans.util.fileUpload;
 
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.Enumeration;
 import java.util.Hashtable;
@@ -37,20 +38,29 @@ public class MultipartRequestWrapper extends HttpServletRequestWrapper {
         }
     }
 
+    public InputStream getStream(String attrName){
+        try {
+            Part p = findPart(attrName);
+            if(p != null){
+                return p.getInputStream();
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(MultiPart.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
     public UploadFile findFile(String attrName){
         UploadFile uf = null;
         try {
-
             Part p = findPart(attrName);
             if(p != null){
                 String fileName = getFilename(p);
-                System.out.println("Filename : " + fileName + ", contentType " + p.getContentType());
                 byte[] b = new byte[(int) p.getSize()];
                 p.getInputStream().read(b);
                 params.put(p.getName(), new String[]{new String(b)});
                 uf = new UploadFile(fileName, p.getContentType(), b);
             }
-
         } catch (IOException ex) {
             Logger.getLogger(MultiPart.class.getName()).log(Level.SEVERE, null, ex);
         }

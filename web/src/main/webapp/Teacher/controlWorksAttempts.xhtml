@@ -3,13 +3,16 @@
      xmlns:f="http://java.sun.com/jsf/core"
      xmlns:h="http://java.sun.com/jsf/html"
      template="../resources/teacherTemplate.xhtml"
-     xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
+     xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
+     xmlns:ut="http://java.sun.com/jsf/composite/components/util">
     <ui:define name="content">
      <f:metadata>
          <f:viewParam name="s" value="#{teachersGroups.semester}"/>
          <f:viewParam name="s" value="#{controlWorksAttemptsBean.semester}"/>
          <f:viewParam name="p" value="#{controlWorksAttemptsBean.page}"/>
      </f:metadata>
+        <ut:navigationList elementOnPage="#{controlWorksAttemptsBean.elementsOnPage}" numElements="#{controlWorksAttemptsBean.readCwAttempsCount}" link="s=#{controlWorksAttemptsBean.semester}"/>
+
         <h:dataTable id="table" value="#{controlWorksAttemptsBean.attempts}" var="a">
         <h:column>
             <f:facet name="header">
@@ -45,5 +48,6 @@
             <h:outputLink value="../resources/userFiles/controlWorks/#{a.filePath}"><h:outputText value="#{a.attemptDate}"/></h:outputLink>
         </h:column>
        </h:dataTable>
+       <ut:navigationList elementOnPage="#{controlWorksAttemptsBean.elementsOnPage}" numElements="#{controlWorksAttemptsBean.readCwAttempsCount}" link="s=#{controlWorksAttemptsBean.semester}"/>
     </ui:define>
 </ui:composition>

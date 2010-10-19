@@ -1,6 +1,9 @@
 package org.sgu.oecde.core.users;
 
 import java.util.Set;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.Email;
 import org.sgu.oecde.core.education.TeacherToGroup;
 
 /**
@@ -25,18 +28,22 @@ public class Teacher extends AbstractPerson{
     /**
      * и меил
      */
+    @Email(message="неверный и-меил")
     private String email;
     /**
      * сотовый
      */
+    @Digits(integer=10,message="Содержит недопустимые символы",fraction=0)
     private Integer cellPhone;
     /**
      * рабочий
      */
+    @Digits(integer=10,message="Содержит недопустимые символы",fraction=0)
     private Integer officePhoneNumber;
     /**
      * дополнительная информация, заполняемая преподавателем
      */
+    @Size(max=250,message="слишком много символов")
     private String additionalInformation;
     
     private static final long serialVersionUID = 52L;

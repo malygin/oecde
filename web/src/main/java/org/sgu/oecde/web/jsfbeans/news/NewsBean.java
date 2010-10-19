@@ -10,6 +10,7 @@ import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.journal.Journal;
 import org.sgu.oecde.news.NewsItem;
 import org.sgu.oecde.news.dao.INewsDao;
+import org.springframework.security.access.annotation.Secured;
 
 /**
  * @author Andrey Malygin (mailto: anmalygin@gmail.com)
@@ -49,6 +50,7 @@ public class NewsBean {
     public NewsBean() {
     }
 
+    @Secured("ROLE_ADMIN")
     public void delete (){
         NewsItem n=new NewsItem();
         n.setId(new Long(NewIdDelete));
@@ -56,6 +58,7 @@ public class NewsBean {
         renderDeleteSuccess=true;
     }
 
+    @Secured("ROLE_ADMIN")
     public void save(){
         NewsItem n=new NewsItem();
        n.setFullText(fulltext);
@@ -68,6 +71,8 @@ public class NewsBean {
         journal.logNewNews(n, SecurityContextHandler.getUser());
       
     }
+    
+    @Secured("ROLE_ADMIN")
     public void edit(){
          renderAddSuccess=true;
          newsDao.update(currentNewItem);
@@ -78,8 +83,7 @@ public class NewsBean {
     }
     public int getCountNews(){
         return newsDao.getNewsCount();
-    }
-   
+    }   
 
     public void  setCurrentNewId(int id){
         if (id!=0){
@@ -93,12 +97,7 @@ public class NewsBean {
 
     public int getCurrentNewId() {
         return currentNewId;
-    }    
-
-  
-    public INewsDao getNewsDao() {
-        return newsDao;
-    }
+    }  
 
     public void setNewsDao(INewsDao newsDao) {
         this.newsDao = newsDao;
@@ -175,10 +174,6 @@ public class NewsBean {
 
     public void setCurrentNewItem(NewsItem currentNewItem) {
         this.currentNewItem = currentNewItem;
-    }
-
-    public Journal getJournal() {
-        return journal;
     }
 
     public void setJournal(Journal journal) {

@@ -11,7 +11,7 @@
     <property not-null="true" name="time" column="root_time" type="string" length="19"/>
     <property name="title" type="string" length="3000"/>
     <property name="objectId" type="long" column="object_id"/>
-    <property name="open" type="boolean" scale="1"/>
+    <property name="open" type="true_false" scale="1"/>
     <many-to-one foreign-key="fk_root_user" class="org.sgu.oecde.core.users.AbstractUser" name="user" column="root_owner" fetch="join"/>
     <property column="object_type" name="objectType" not-null="true">
       <type name="org.sgu.oecde.core.GenericEnumUserType">

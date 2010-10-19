@@ -44,6 +44,8 @@ public class UsersInCache{
      * @param user
      */
     public void putUserInCache(AbstractUser user) {
+        if(user == null)
+            return;
         Ehcache c = cache(user);
         Element element = new Element(user.getUsername(), user);
         c.put(element);

@@ -1,0 +1,35 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         template="../resources/studentTemplate.xhtml"
+         xmlns:util="http://java.sun.com/jsf/composite/components/util"
+         xmlns:discuss="http://java.sun.com/jsf/composite/components/discussion"
+
+         xmlns:c="http://java.sun.com/jsp/jstl/core">
+        <f:metadata>
+              <f:viewParam name="page" value="#{NavigationBean.page}"/>
+              <f:viewParam name="page" value="#{DiscussionBean.currentPage}"/>
+         </f:metadata>       
+
+        <ui:define name="content">
+             <c:set target="${DiscussionBean}" property="objectId" value="1195"/>
+             <c:set target="${DiscussionBean}" property="objectType" value="NEWS"/>
+
+           <util:navigationList elementOnPage="#{DiscussionBean.nodesOnPage}"
+                              numElements="#{DiscussionBean.numOfNodes}"/>
+             <div class="interfaceContent">
+                    <div class="studentInterfaceStandartList" style="padding-top: 4px; padding-bottom: 2px;">
+                        <util:showPhoto user="#{st}" size="medium"/>
+                        <div style="text-align: justify; margin: 5px 0px 5px 0px;">
+                            Этот !! форум посвящен техническим проблемам. Прежде чем, задать вопрос - посмотрите в разделе помощь - список частых вопросов. Возможно это вам поможет. Вы также может задать вопрос в закрытую тех поддержку.
+                        </div>
+                        <div class="floatDestroyer"/>
+                    </div>
+
+                    <div class="interfaceContent">
+                        <discuss:list list="#{DiscussionBean.nodesByPage}"/>
+                    </div>
+              </div>
+         </ui:define>
+    </ui:composition>

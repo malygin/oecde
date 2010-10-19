@@ -13,7 +13,7 @@ import org.sgu.oecde.de.education.DeCurriculum;
  *
  * @author ShihovMY
  */
-public abstract class AbstractTeacherBean implements Serializable{
+abstract class AbstractTeacherBean implements Serializable{
 
     protected Teacher teacher;
     protected int semester;

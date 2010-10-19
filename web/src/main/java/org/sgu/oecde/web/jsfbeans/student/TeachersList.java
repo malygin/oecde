@@ -23,9 +23,4 @@ public class TeachersList extends StudentCurriculumBean{
             teachersList = getCurriculumAndTeacher();
         return teachersList;
     }
-
-    public void setSemester(int semester) {
-        this.semester = semester;
-        teachersList = null;
-    }
 }

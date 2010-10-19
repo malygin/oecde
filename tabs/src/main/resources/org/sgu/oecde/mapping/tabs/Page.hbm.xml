@@ -10,7 +10,7 @@
     </id>
     <property length="3000" name="text" not-null="true" type="string"/>
     <property length="250" name="title" not-null="true" type="string"/>
-    <property name="visible" scale="1" type="boolean"/>
+    <property name="visible" scale="1" type="true_false"/>
     <list batch-size="10" cascade="save-update,merge,delete" fetch="join" lazy="false" name="files" table="tab_page_file">
       <cache usage="read-write"/>
       <key column="page" foreign-key="fk_tab_page" not-null="true"/>

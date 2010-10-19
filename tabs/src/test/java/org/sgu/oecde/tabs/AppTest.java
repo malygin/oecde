@@ -14,7 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
  */
 public class AppTest extends BasicTest{
 
-    @Ignore
+//    @Ignore
     @Test
     public void save(){
         setDao("tabsDao");
@@ -60,7 +60,7 @@ public class AppTest extends BasicTest{
         this.<IUpdateDao>getDao().update(t);
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void get(){
         setDao("tabsDao");

@@ -61,7 +61,7 @@ public class UserViewBean implements Serializable{
                 teacherDao.update((Teacher) user);
                 break;
             case STUDENT:
-                teacherDao.update((Teacher) user);
+                studentDao.update((Student) user);
                 break;
             default:
                 throw new IllegalAccessError();

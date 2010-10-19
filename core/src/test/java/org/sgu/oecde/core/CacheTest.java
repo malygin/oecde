@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
  *
  * @author ShihovMY
  */
-@ContextConfiguration(locations={"../applicationContext.xml","../applicationContext-security.xml"})
+@ContextConfiguration(locations={"../applicationContext.xml"})
 @TestExecutionListeners({HibernateSessionRegistrationTestExecutionListener.class})
 public class CacheTest extends AbstractJUnit4SpringContextTests{
 
@@ -39,7 +39,7 @@ public class CacheTest extends AbstractJUnit4SpringContextTests{
         uic.putUserInCache(st2);
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void get(){
         System.out.println(((net.sf.ehcache.Cache)applicationContext.getBean("teacherCache")).getKeys());
@@ -50,7 +50,7 @@ public class CacheTest extends AbstractJUnit4SpringContextTests{
         IUpdateDao<Teacher>t = (IUpdateDao<Teacher>) applicationContext.getBean("teacherDao");
         Teacher st = t.getById(44240L);
         st.setCellPhone(456456);
-        System.out.println(st.getOnline()+"    4444");
+        System.out.println(st.getOnline()+"    4444"+st.isEnabled());
 
 
     }

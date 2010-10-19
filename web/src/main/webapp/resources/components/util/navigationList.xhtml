@@ -8,9 +8,9 @@
 
  <!-- INTERFACE -->
   <composite:interface>
-    <composite:attribute  name="elementOnPage"/>
-    <composite:attribute  name="numElements"/>
-    <composite:attribute  name="idObject"/>
+      <composite:attribute name="elementOnPage" required="true" type="int" shortDescription="количество элементов, отображаемых на странице"/>
+      <composite:attribute name="numElements" required="true" type="int" shortDescription="общее количество элементов"/>
+      <composite:attribute name="link" type="java.lang.String" shortDescription="продолжение ссылки"/>
   
   </composite:interface>
 
@@ -25,7 +25,7 @@
             </c:if>
             <c:if test="${page!=NavigationBean.page}">
                 <c:if test="${cc.attrs.idObject!=null}">
-                    <a href="?id=#{cc.attrs.idObject}&amp;page=#{page}"><h:outputText value="#{page}"/></a>&nbsp;
+                    <a href="?page=#{page}&amp;#{cc.attrs.link}"><h:outputText value="#{page}"/></a>&nbsp;
                 </c:if>
                 <c:if test="${cc.attrs.idObject==null}">
                      <a href="?page=#{page}"><h:outputText value="#{page}"/></a>&nbsp;

@@ -10,7 +10,7 @@
     </id>
     <property  name="time" column="node_time" type="string" length="19"/>
     <property name="message" type="string" length="3000"/>
-    <property name="open" type="boolean" scale="1"/>
+    <property name="open" type="true_false" scale="1"/>
     <many-to-one foreign-key="fk_root_node" class="org.sgu.oecde.discussion.Root" lazy="proxy" name="root" />
     <many-to-one foreign-key="fk_node_node" class="org.sgu.oecde.discussion.Node" name="parent" lazy="proxy" fetch="select"/>
     <many-to-one foreign-key="fk_node_user" class="org.sgu.oecde.core.users.AbstractUser" name="user"  column="node_user" fetch="join"/>

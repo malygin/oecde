@@ -2,7 +2,7 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+    xmlns:ut="http://java.sun.com/jsf/composite/components/util"
     template="../resources/adminTemplate.xhtml"
     >
     <ui:define name="content">
@@ -23,8 +23,7 @@
         <h:dataTable value="#{searchBean.items}" var="i" id="table">
                 <h:column>
                     <h:panelGroup rendered="#{searchBean.type eq 'teacher' or searchBean.type eq 'student'}">
-                        <ut:showPhoto user="#{i}" size="medium"/>
-                        <h:outputLink value="#{searchBean.type}.xhtml?id=#{i.id}">#{i.fio}</h:outputLink>
+                      <ut:userListItem type="#{searchBean.type}" u="#{i}"/>
                     </h:panelGroup>
                     <h:panelGroup rendered="#{searchBean.type eq 'umk'}">
                         <h:outputLink value="umk.xhtml?id=#{i.id}">#{i.name}</h:outputLink>

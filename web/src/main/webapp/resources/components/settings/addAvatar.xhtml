@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute name="bean" required="true" type="org.sgu.oecde.web.IBeanWithAvatarAdding" shortDescription="бин с методом addAvatar"/>
+    </composite:interface>
+
+    <!-- IMPLEMENTATION -->
+    <composite:implementation>
+        <h:form enctype="multipart/form-data">
+            <ut:showPhoto user="#{cc.attrs.bean.user}" size="large"/>
+            <input type="file" name="avatar" />
+            <h:commandButton action="#{cc.attrs.bean.uploadAvatar}" styleClass="loadPhotoButton" value="#{msgs.photoLoaderButton}"/>
+        </h:form><br/><hr/>
+    </composite:implementation>
+</html>

@@ -4,6 +4,7 @@
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/studentTemplate.xhtml"
     xmlns:r="http://java.sun.com/jsp/jstl/core"
+    xmlns:ut="http://java.sun.com/jsf/composite/components/util"
     xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
     >
     <ui:define name="contentHeader">Список преподавателей</ui:define>
@@ -16,18 +17,7 @@
             <r:forEach items="#{teachersListBean.teachers}" var="t">
                 <div class="studentInterfaceStandartList">
                     <div class="standartContainerForTeacherMediumAvatar" align="center">
-                        <img src="../resources/userFiles/avatars/defaultAvatarMedium.jpg" alt=""/>
-                    </div>
-                    <div class="standartContainerForTeacherInfoInTeachersList">
                         <table>
-                            <tr>
-                                <td>
-                                    ФИО:
-                                </td>
-                                <td>
-                                    <span class="linkToTeachersProfile"><a href="teacher.xhtml?id=${t.value['id']}">#{t.value['surname']} #{t.value['name']} #{t.value['secondName']}</a></span>
-                                </td>
-                            </tr>
                             <tr>
                                 <td style="width: 105px;">
                                     Дисциплина:
@@ -36,13 +26,9 @@
                                     ${t.key['discipline'].name}
                                 </td>
                             </tr>
-                            <tr>
-                                <td colspan="2" class="navigationLinks">
-                                    <a href="messages_write.xhtml?id=${t.value['id']}">Написать сообщение</a> <a href="messages_dialog.xhtml?user=${t.value['id']}">Просмотреть переписку</a>
-                                </td>
-                            </tr>
                         </table>
                     </div>
+                    <ut:userListItem type="teacher" u="${t.value}"/>
                     <div class="floatDestroyer"/>
                 </div>
             </r:forEach>

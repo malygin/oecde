@@ -10,7 +10,7 @@
     </id>
     <property column="attempt_date" update="false" length="19" name="attemptDate" not-null="true" type="string"/>
     <property column="file_path" update="false" name="filePath" type="string"/>
-    <property name="read" scale="1" type="boolean"/>
+    <property name="read" scale="1" type="true_false"/>
     <many-to-one update="false" class="org.sgu.oecde.controlworks.ControlWork" fetch="join" insert="false" foreign-key="fk_cw_cw" name="work" not-null="true"/>
   </class>
 </hibernate-mapping>

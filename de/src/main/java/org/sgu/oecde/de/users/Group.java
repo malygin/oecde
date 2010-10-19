@@ -32,6 +32,10 @@ public class Group extends StudentGroup implements Comparable<Group>{
     public Group() {
     }
 
+    public Group(City city) {
+        this.city = city;
+    }
+
     /**
      *
      * @param <T> extends City

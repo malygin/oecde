@@ -12,6 +12,10 @@ public class UploadFile {
     private String contentType;
     private byte[] fileData;
 
+    public UploadFile(String fileName) {
+        this.fileName = fileName;
+    }
+
     public UploadFile(String fileName, String contentType, byte[] fileData) {
         this.fileName = fileName;
         this.contentType = contentType;

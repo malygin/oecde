@@ -8,9 +8,9 @@
         <param name="sequence">tab_page_file_seq</param>
       </generator>
     </id>
-    <property name="image" not-null="true" scale="1" type="boolean"/>
+    <property name="image" not-null="true" scale="1" type="true_false"/>
     <property length="250" name="name" not-null="true" type="string"/>
     <property length="500" name="description" type="string"/>
-    <property name="visible" scale="1" type="boolean"/>
+    <property name="visible" scale="1" type="true_false"/>
   </class>
 </hibernate-mapping>

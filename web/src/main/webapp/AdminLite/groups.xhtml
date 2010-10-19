@@ -1,0 +1,20 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         template="../resources/adminTemplate.xhtml">
+        <ui:define name="content">
+            <h:dataTable id="table" value="#{oneCityGroupsBean.specialities}" var="s">
+                <h:column>
+                    <h:outputText value="#{s.key.name}"/>
+                </h:column>
+                <h:column>
+                    <h:dataTable  value="#{s.value}" var="g">
+                        <h:column>
+                            <h:outputLink value="group.xhtml?id=#{g.id}">#{g.name}</h:outputLink>
+                        </h:column>
+                    </h:dataTable>
+                </h:column>
+           </h:dataTable>
+        </ui:define>
+    </ui:composition>

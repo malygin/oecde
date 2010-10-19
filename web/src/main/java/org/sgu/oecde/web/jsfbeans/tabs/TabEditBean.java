@@ -3,7 +3,6 @@ package org.sgu.oecde.web.jsfbeans.tabs;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -32,8 +31,7 @@ public class TabEditBean implements Serializable{
     private ITabsDao tabsDao;
     private Page page;
     private Tab tab;
-    private Long id;
-    private Long pageId;
+    private Long id,pageId;
 
     private static final long serialVersionUID = 162L;
 
@@ -73,12 +71,14 @@ public class TabEditBean implements Serializable{
            MultipartRequestWrapper multi = (MultipartRequestWrapper)req;
            UploadFile uf = multi.findFile("file");
            if(uf != null){
-              String name = FileUploadUtil.Upload(uf, multi, "tabs");
-              PageFile pageFile = new PageFile();
-              pageFile.setImage(false);
-              pageFile.setName(name);
-              page.getFiles().add(pageFile);
-              tabsDao.update(tab);
+              String name = FileUploadUtil.Upload(uf, multi, "tabs",true);
+              if(name!=null){
+                  PageFile pageFile = new PageFile();
+                  pageFile.setImage(false);
+                  pageFile.setName(name);
+                  page.getFiles().add(pageFile);
+                  tabsDao.update(tab);
+              }
            }
         }
         return "pageEdit.xhtml?faces-redirect=true&id="+tab.getId()+"&p="+page.getId();

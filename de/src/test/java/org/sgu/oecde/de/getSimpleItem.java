@@ -54,14 +54,14 @@ public class getSimpleItem extends BasicTest{
         }
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void getSt(){
         this.setDao("userDao");
          System.out.println(this.<AbstractUser>getByExample(AbstractUser.getUserWithName("belousovyae")));
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void getResults(){
         this.setDao("resultDao");
@@ -79,7 +79,7 @@ public class getSimpleItem extends BasicTest{
         System.out.println(g.getCurrentSemester());
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void getCurr(){
         setDao("curriculumDao");
@@ -97,7 +97,7 @@ public class getSimpleItem extends BasicTest{
         }
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void getCur(){
         this.setDao("userDao");
@@ -108,7 +108,7 @@ public class getSimpleItem extends BasicTest{
         System.out.println(l.keySet());
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void saveRes(){
         Estimate e1 = new Estimate();

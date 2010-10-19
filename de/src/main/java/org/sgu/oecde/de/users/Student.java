@@ -1,6 +1,8 @@
 package org.sgu.oecde.de.users;
 
 import org.sgu.oecde.core.users.AbstractStudent;
+import org.hibernate.validator.constraints.Email;
+import javax.validation.constraints.Digits;
 
 /**
  * студент дистанционного образования
@@ -11,14 +13,17 @@ public class Student extends AbstractStudent{
     /**
      * e-mail
      */
+    @Email(message="неверный и-меил")
     private String email;
     /**
      * мобильный
      */
+    @Digits(integer=10,message="Содержит недопустимые символы",fraction=0)
     private Integer cellPhone;
     /**
      * icq
      */
+    @Digits(integer=9,message="Содержит недопустимые символы",fraction=0)
     private Integer icq;
     private static final long serialVersionUID = 51L;
 

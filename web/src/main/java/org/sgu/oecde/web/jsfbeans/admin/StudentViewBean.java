@@ -1,12 +1,11 @@
 package org.sgu.oecde.web.jsfbeans.admin;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.AjaxBehaviorEvent;
-import org.sgu.oecde.core.IBasicDao;
 import org.sgu.oecde.de.users.Student;
+import org.sgu.oecde.web.IBeanWithSemester;
 import org.sgu.oecde.web.jsfbeans.UserViewBean;
 import org.sgu.oecde.web.jsfbeans.student.ControlWorksBean;
 import org.sgu.oecde.web.jsfbeans.student.PointsAndGradesBean;
@@ -19,7 +18,7 @@ import org.sgu.oecde.web.jsfbeans.tests.TestResultsBean;
  */
 @ManagedBean(name="studentViewBean")
 @ViewScoped
-public class StudentViewBean extends UserViewBean{
+public class StudentViewBean extends UserViewBean implements IBeanWithSemester{
 
     @ManagedProperty(value="#{controlWorksBean}")
     ControlWorksBean controlWorksBean;
@@ -37,7 +36,7 @@ public class StudentViewBean extends UserViewBean{
     private static final long serialVersionUID = 171L;
 
     public StudentViewBean() {
-        setType("student");
+        setType("STUDENT");
     }
 
     public int getCurrentSemester(){

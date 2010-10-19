@@ -1,11 +1,12 @@
 <ui:composition
     xmlns:ui="http://java.sun.com/jsf/facelets"
     template="../resources/studentTemplate.xhtml"
-    xmlns:pass="http://java.sun.com/jsf/composite/components/settings"
+    xmlns:set="http://java.sun.com/jsf/composite/components/settings"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core">
     >
     <ui:define name="content">
-        <pass:changePassword user="#{adminSessionBean.admin}"/>
+        <set:addAvatar bean="#{studentSettingsBean}"/>
+        <set:changePassword user="#{adminSessionBean.admin}"/>
     </ui:define>
 </ui:composition>

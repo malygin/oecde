@@ -10,7 +10,6 @@ import org.sgu.oecde.controlworks.ControlWorkAttempt;
 import org.sgu.oecde.controlworks.dao.ControlWorkAttemptDao;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Group;
-import org.sgu.oecde.de.users.Student;
 
 /**
  *
@@ -55,6 +54,10 @@ public class ControlWorksAttemptsBean extends AbstractStudentsListBean{
             attempts = controlWorkAttemptDao.getAttemptsList(first, elementsOnPage, groups, curriculums);
         }
         return attempts;
+    }
+
+    public int getReadCwAttempsCount(){
+        return controlWorkAttemptDao.getAttemptCountForTeacher(teacherSessionBean.getDisciplines(0), teacher, true);
     }
 
     public void setControlWorkAttemptDao(ControlWorkAttemptDao controlWorkAttemptDao) {

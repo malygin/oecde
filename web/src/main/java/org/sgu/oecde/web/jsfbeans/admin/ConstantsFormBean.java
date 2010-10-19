@@ -228,6 +228,9 @@ public class ConstantsFormBean implements Serializable{
             }
             saved = true;
             resourceService.postConstract();
+            semesterGetter.fillConstantsMap();
+            testsDatesGetter.afterPropertiesSet();
+            cwDatesGetter.afterPropertiesSet();
         }catch(Exception e){
             e.fillInStackTrace();
             error = true;

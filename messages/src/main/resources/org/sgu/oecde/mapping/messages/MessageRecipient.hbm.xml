@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping>
+<hibernate-mapping schema="oecdo_test">
   <class dynamic-insert="true" dynamic-update="true" name="org.sgu.oecde.messages.MessageRecipient" table="Message_Recipient">
     <id name="id" type="long">
       <generator class="native">
@@ -8,8 +8,8 @@
       </generator>
     </id>
     <many-to-one class="org.sgu.oecde.core.users.AbstractUser" fetch="join" name="recipient" not-null="false"/>
-    <property name="archived" type="boolean"/>
-    <property name="deleted" type="boolean"/>
-    <property name="readed" type="boolean"/>
+    <property name="archived" type="true_false"/>
+    <property name="deleted" type="true_false"/>
+    <property name="readed" type="true_false"/>
   </class>
 </hibernate-mapping>

@@ -100,9 +100,11 @@ public class MessageWriteBean  implements Serializable{
             if(uf != null){
              MessageFile mfile= new MessageFile();
              //messages -  в данном случае имя папки и имя префикса в именах файлов
-             String name = FileUploadUtil.Upload(uf, multi, "messages");
-             mfile.setName(name);
-             files.add(mfile);
+             String name = FileUploadUtil.Upload(uf, multi, "messages",true);
+             if(name!=null){
+                 mfile.setName(name);
+                 files.add(mfile);
+             }
             }
         }   
     }

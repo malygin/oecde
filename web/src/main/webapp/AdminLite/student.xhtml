@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
+     xmlns:ut="http://java.sun.com/jsf/composite/components/util">
+    <ui:define name="content">
+        <f:metadata>
+            <f:viewParam name="id" value="#{studentViewBean.id}"/>
+            <f:viewParam name="s" value="#{studentViewBean.semester}"/>
+            <f:viewParam name="r" value="#{testResultsBean.reExame}"/>
+        </f:metadata>
+        <ui:include src="../resources/includes/student.xhtml"/>
+    </ui:define>
+</ui:composition>

@@ -66,9 +66,9 @@
             <ol class="topMenuLinks">
                 <li class="topMenuLinkContainer"><a href="index.xhtml">#{msgs.admin_topMenuHome}</a></li>
                 <li class="topMenuLinkContainer"><a href="news_list.xhtml">#{msgs.admin_topMenuNews}</a></li>
-                <li class="topMenuLinkContainer"><a href="index.xhtml">#{msgs.admin_topMenuInfo}</a></li>
-                <li class="topMenuLinkContainer"><a href="index.xhtml">#{msgs.admin_topMenuHelp}</a></li>
-                <li class="topMenuLinkContainer"><a href="index.xhtml">#{msgs.admin_topMenuSettings}</a></li>
+                <li class="topMenuLinkContainer"><a href="tabsView.xhtml">#{msgs.admin_topMenuInfo}</a></li>
+                <li class="topMenuLinkContainer"><a href="constants.xhtml">#{msgs.admin_topMenuSettings}</a></li>
+                <li class="topMenuLinkContainer"><a href="settings.xhtml">#{msgs.admin_topMenuSettings}</a></li>
                 <li class="topMenuLinkContainer"><a href="search.xhtml">#{msgs.admin_topSearchInputText}</a></li>
                 <li class="topMenuLinkContainer" style="border: 0px; float: right"><a href="../j_spring_security_logout" >#{msgs.admin_topMenuExit}</a></li>
 
@@ -97,9 +97,7 @@
         <ui:define name="right">
             <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.admin_communicationMenuTitle}</p></div>
             <ol class="leftSideMenuLinks">
-                <li><a href="index.xhtml">#{msgs.admin_communicationMenuMain}</a></li>
-                <li><a href="index.xhtml">#{msgs.admin_communicationMenuTeachers}</a></li>
-                <li><a href="index.xhtml">#{msgs.admin_communicationMenuStudents}</a></li>
+                <li><a href="groups.xhtml">#{msgs.admin_communicationMenuStudents}</a></li>
                 <li><a href="index.xhtml">#{msgs.admin_communicationMenuVideoConfs}</a></li>
                 <li><a href="index.xhtml">#{msgs.admin_communicationMenuForum}</a></li>
                 <li><a href="index.xhtml">#{msgs.admin_communicationMenuCalendar}</a></li>
@@ -114,74 +112,50 @@
             </ol>
         <ut:usersOnline/>
             <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.admin_adminsOnlineMenuTitle}</p></div>
-            <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="#">#{msgs.admin_adminsOnlineUnderTitleText} (#{userCache.studentsNumber})</a></div></div>
-<!--                админы ((#{userCache.adminsNumber}))-->
+            <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="usersOnlineList.xhtml?type=admin">#{msgs.admin_adminsOnlineUnderTitleText} (#{userCache.adminsNumber})</a></div></div>
             <div class="usersOnlineTableContainer">
-                    <table cellpadding="0" cellspacing="0" class="usersOnlineTable">
-                        <tr>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer">
-                                        <span class="userOnlineImgContainerHeightController"></span><img height="10" src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer">
-                                        <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer">
-                                        <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer">
-                                        <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer">
-                                        <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="userOnlineLinkContainer">
-                                    <a href="#">
-                                        <div class="userOnlineImgContainer">
-                                        <span class="userOnlineImgContainerHeightController"></span><img src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/></div>
-                                        <div>Перцев<br/>Александр</div>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <h:dataTable value="#{userCache.sixAdmins}" styleClass="friends" var="st">
-                    <h:column>
-                        <h:outputText value="#{st.initials}"/>
-                    </h:column>
-                </h:dataTable>
+            <table cellpadding="3" cellspacing="1" >
+                <tr>
+                    <ui:repeat value="#{usersInCache.sixAdmins}" var="st" varStatus="i">
+                        <td style="max-width: 68px;">
+                            <div class="userOnlineLinkContainer">
+                                <a href="admin.xhtml?id=#{st.id}">
+                                    <div class="userOnlineImgContainer">
+                                        <span class="userOnlineImgContainerHeightController"></span>
+                                    <ut:showPhoto user="#{st}" size="small"/>
+                                    </div>
+                                    <span style=" text-align: center; font-size: 75%;">
+                                        <h:outputLink value="admin.xhtml?id=#{st.id}"><h:outputText value="#{st.initials}"/></h:outputLink>
+                                    </span>
+                                </a>
+                            </div>
+                        </td>
+                    </ui:repeat>
+                </tr>
+            </table>
+        </div>
+            <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.admin_adminsOnlineMenuTitle}</p></div>
+            <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="usersOnlineList.xhtml?type=supervisor">#{msgs.admin_adminsOnlineUnderTitleText} (#{userCache.supervisorsNumber})</a></div></div>
+            <div class="usersOnlineTableContainer">
+            <table cellpadding="3" cellspacing="1" >
+                <tr>
+                    <ui:repeat value="#{usersInCache.sixSupervisors}" var="st" varStatus="i">
+                        <td style="max-width: 68px;">
+                            <div class="userOnlineLinkContainer">
+                                <a href="supervisor.xhtml?id=#{st.id}">
+                                    <div class="userOnlineImgContainer">
+                                        <span class="userOnlineImgContainerHeightController"></span>
+                                    <ut:showPhoto user="#{st}" size="small"/>
+                                    </div>
+                                    <span style=" text-align: center; font-size: 75%;">
+                                        <h:outputLink value="supervisor.xhtml?id=#{st.id}"><h:outputText value="#{st.initials}"/></h:outputLink>
+                                    </span>
+                                </a>
+                            </div>
+                        </td>
+                    </ui:repeat>
+                </tr>
+            </table>
+        </div>
     </ui:define>
 </ui:composition>

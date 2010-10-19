@@ -59,7 +59,6 @@ public class ResourceService implements Serializable{
 
     private static final long serialVersionUID = 164L;
 
-
     public String getRegularAttemtpsCount(int semester) {
         return semester==SemesterGetter.SUMMER_SEMESTER?summerRegularTestReExameAttemtpsCount:winterRegularTestReExameAttemtpsCount;
     }

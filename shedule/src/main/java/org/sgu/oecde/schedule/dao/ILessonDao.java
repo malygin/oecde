@@ -3,6 +3,7 @@ package org.sgu.oecde.schedule.dao;
 import java.text.ParseException;
 import java.util.List;
 import org.sgu.oecde.core.IBasicDao;
+import org.sgu.oecde.core.users.StudentGroup;
 import org.sgu.oecde.schedule.Lesson;
 import org.springframework.dao.DataAccessException;
 
@@ -45,4 +46,6 @@ public interface ILessonDao extends IBasicDao<Lesson>{
      * @throws DataAccessException
      */
     public void deleteLesson(final Lesson lesson) throws DataAccessException;
+
+    public List<Lesson>getByGroups(List<? extends StudentGroup>groups, boolean isWinter, int year)throws DataAccessException;
 }

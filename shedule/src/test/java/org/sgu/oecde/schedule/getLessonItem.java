@@ -160,4 +160,20 @@ public class getLessonItem extends BasicTest{
 
         }
     }
+
+//      @Ignore
+    @Test
+    public void getByGroups() throws DataAccessException, ParseException{
+        List gs = new ArrayList();
+        Group g = new Group();
+        g.setId(25548224L);
+        gs.add(g);
+        setDao("lessonDao");
+        List<Lesson> l= this.<ILessonDao>getDao().getByGroups(gs,false,2009);
+        System.out.println("!! "+l);
+        for(Lesson c:l){
+            System.out.println("-- "+c.getLessonDate());
+
+        }
+    }
 }

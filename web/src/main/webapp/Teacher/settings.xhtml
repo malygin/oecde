@@ -1,9 +1,25 @@
 <ui:composition
     xmlns:ui="http://java.sun.com/jsf/facelets"
          template="../resources/teacherTemplate.xhtml"
-    xmlns:pass="http://java.sun.com/jsf/composite/components/settings">
+     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+     xmlns:set="http://java.sun.com/jsf/composite/components/settings"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core">
    
     <ui:define name="content">
-        <pass:changePassword user="#{teacherSessionBean.teacher}"/>
+        <set:addAvatar bean="#{teacherSettingsBean}"/>
+        <h:form>
+            <h:inputText id="cellPhone" maxlength="10" size="10" value="#{teacherSettingsBean.teacher.cellPhone}"/>cellPhone<br/>
+            <h:inputText id="eMail" size="19" value="#{teacherSettingsBean.teacher.eMail}"/>eMail<br/>
+            <h:inputText id="officePhoneNumber" maxlength="10" size="10" value="#{teacherSettingsBean.teacher.officePhoneNumber}"/>officePhoneNumber<br/>
+            <h:commandButton value="ОКЭ">
+                <f:ajax execute="@form" render="@form mess saved error" listener="#{teacherSettingsBean.save}"/>
+            </h:commandButton><br/>
+            <h:outputText id="saved" rendered="#{teacherSettingsBean.saved}" value="saved"/>
+            <h:outputText id="error" rendered="#{teacherSettingsBean.error ne null}" value="#{teacherSettingsBean.error}"/>
+            <h:messages id="mess"/>
+        </h:form><br/><hr/>
+        <set:changePassword user="#{teacherSettingsBean.teacher}"/>
+        <hr/>
     </ui:define>
 </ui:composition>

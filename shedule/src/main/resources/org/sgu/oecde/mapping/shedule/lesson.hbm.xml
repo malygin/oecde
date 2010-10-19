@@ -20,8 +20,8 @@
     <property column="date_update" length="19" name="updateDate" not-null="false" type="string" update="false"/>
     <property column="lesson_date" length="19" name="lessonDate" not-null="false" type="string"/>
     <property column="student_number" name="number" not-null="true" scale="3" type="integer"/>
-    <property column="year" name="year" not-null="true" scale="4" type="integer"/>
-    <property column="winter" name="winter" not-null="true" scale="1" type="boolean"/>
+    <property column="lesson_year" name="year" not-null="true" scale="4" type="integer"/>
+    <property column="winter" name="winter" not-null="true" scale="1" type="true_false"/>
     <property length="30" name="color" type="string"/>
   </class>
 </hibernate-mapping>
