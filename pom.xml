@@ -23,7 +23,7 @@
     <module>de</module>
     <module>tabs</module>
   </modules>
-    <repositories><!--
+    <repositories>
         <repository>
             <id>org.springframework.security.taglibs.facelets</id>
             <url>http://spring-security-facelets-taglib.googlecode.com/svn/repo/</url>
@@ -65,7 +65,12 @@
         <repository>
             <id>org.sonatype.oss</id>
             <url>https://oss.sonatype.org/content/repositories/releases/</url>
-        </repository>-->
+        </repository>
+        <repository>
+            <id>glassfish-repository</id>
+            <url>http://download.java.net/maven/glassfish</url>
+            <name>Java.net Repository for Glassfish</name>
+        </repository>
 
         </repositories>
 
@@ -128,6 +133,12 @@
                   </exclusion>
                </exclusions>
           </dependency>
+
+        <dependency>
+             <groupId>org.hibernate</groupId>
+             <artifactId>hibernate-validator</artifactId>
+             <version>4.0.2.GA</version>
+         </dependency>
 
         <dependency>
           <groupId>org.springframework</groupId>
@@ -203,7 +214,6 @@
              <type>jar</type>
              <version>3.0.3.RELEASE</version>
           </dependency>
-
        <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>org.springframework.security.core</artifactId>
@@ -345,15 +355,16 @@
                  <groupId>net.sf.ehcache</groupId>
                  <version>2.1.1</version>
             </dependency>
-          <dependency>
-            <groupId>org.glassfish</groupId>
-            <artifactId>javax.servlet</artifactId>
-            <version>3.0</version>
-          </dependency>
         <dependency>
-            <groupId>javax.transaction</groupId>
-            <artifactId>jta</artifactId>
-            <version>1.1</version>
+          <groupId>org.glassfish.extras</groupId>
+          <artifactId>glassfish-embedded-static-shell</artifactId>
+          <version>3.0.1</version>
+          <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>6.0</version>
         </dependency>
 
         </dependencies>
