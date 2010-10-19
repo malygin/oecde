@@ -30,13 +30,13 @@ public enum CalendarConstantName implements Serializable,ICalendarConstantName{
     public Object getDefault() {
         switch(this){
             case reExameBeginDate:
-                return "2009.01.01 00:00:00";
+                return "2010.11.01 00:00:00";
             case reExameEndDate:
-                return "2009.01.01 00:00:00";
+                return "2010.12.01 00:00:00";
             case semester:
                 return 0;
             case year:
-                return 2009;
+                return 2010;
             default:
                 return new AssertionError();
         }
