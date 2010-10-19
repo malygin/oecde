@@ -49,7 +49,7 @@ public class TestService implements Serializable{
         }
 
         for(Question q:t.getQuestions()){
-            if(q==null&&!q.getType().equals(QuestionType.comparison)&&CollectionUtils.isEmpty(q.getAnswers()))
+            if(q==null||!q.getType().equals(QuestionType.comparison)||CollectionUtils.isEmpty(q.getAnswers()))
                 continue;
             Answer compare = null;
             Set<Answer>comparisons = new HashSet<Answer>();

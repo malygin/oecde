@@ -35,6 +35,7 @@ public class TestAttemptDao <T extends TestAttempt> extends ResultDao<T> impleme
             attempt.setWork(null);
             attempt.setStudent(null);
             cr = getCriteriaByParametrizedItem(attempt, cr);
+            cr.setCacheable(false);
         }
         return cr.add(Property.forName("student").in(students))
                 .add(Property.forName("work").in(tests)).list();

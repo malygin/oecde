@@ -51,15 +51,15 @@ public enum TestCalendarConstants implements ICalendarConstantName{
     public Object getDefault() {
         switch(this){
             case concludingTestBeginDate:
-                return "2009.01.01 00:00:00";
+                return "2010.10.01 00:00:00";
             case concludingTestEndDate:
-                return "2009.01.01 00:00:00";
+                return "2010.11.01 00:00:00";
             case regularTestBeginDate:
                 return "2009.01.01 00:00:00";
             case regularTestEndDate:
-                return "2009.01.01 00:00:00";
+                return "2010.10.01 00:00:00";
             case simpleSpecialitiesTestsClosing:
-                return "2009.01.01 00:00:00";
+                return "2010.11.01 00:00:00";
             case summerConcludingTestReExameAttemtpsCount:
                 return "1";
             case summerRegularTestReExameAttemtpsCount:
