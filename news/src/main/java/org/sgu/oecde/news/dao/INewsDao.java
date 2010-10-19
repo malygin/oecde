@@ -47,4 +47,5 @@ public interface INewsDao extends IBasicDao<NewsItem>{
      * @throws DataAccessException
      */
     public void update(NewsItem item) throws DataAccessException;
+    
 }

@@ -34,6 +34,10 @@ public class NewsItem extends BasicItem{
      * количество просмотров
      */
     private Integer reviewNumber=0;
+   /**
+     * количество комментариев
+     */
+    private Integer commentNumber=0;
     /**
      * доступ. не используется
      */
@@ -167,4 +171,13 @@ public class NewsItem extends BasicItem{
     public void setTime(String time) {
         this.time = time;
     }
+
+    public Integer getCommentNumber() {
+        return commentNumber;
+    }
+
+    public void setCommentNumber(Integer commentNumber) {
+        this.commentNumber = commentNumber;
+    }
+    
 }

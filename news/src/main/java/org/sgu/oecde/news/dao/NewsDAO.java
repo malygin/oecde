@@ -23,26 +23,20 @@ public class NewsDAO extends BasicDao<NewsItem> implements INewsDao{
 
     private static final long serialVersionUID = 160L;
 
-    /**
-     * {@inheritDoc }
-     */
+   
     public List<NewsItem> getNews(int messageOnPage, int numPage)  throws DataAccessException {
 //        if (beginIndex < 0 || endIndex <= 0 || beginIndex > endIndex)
 //            throw new IllegalArgumentException("Неположительные аргументы");
         return getSession().createCriteria(type).addOrder(Order.desc("time")).setFirstResult(messageOnPage * (numPage-1)).setMaxResults(messageOnPage).setCacheable(true).list();
     }
 
-    /**
-     * {@inheritDoc }
-     */
+
     public int getNewsCount() throws DataAccessException  {
         List<Long> list =  getSession().createCriteria(type).setProjection(Projections.rowCount()).setCacheable(true).list();
         return !CollectionUtils.isEmpty(list)?Long.valueOf(list.get(0)).intValue():0;
     }
 
-    /**
-     * {@inheritDoc }
-     */
+  
     @Transactional
     @Override
     public Long save(NewsItem item) throws DataAccessException {
@@ -62,5 +56,7 @@ public class NewsDAO extends BasicDao<NewsItem> implements INewsDao{
     public void update(NewsItem item) throws DataAccessException {
         getSession().saveOrUpdate(item);
     }
+
+   
 
 }
