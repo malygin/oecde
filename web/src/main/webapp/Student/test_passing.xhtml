@@ -1,0 +1,116 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:r="http://java.sun.com/jsp/jstl/core"
+         template="../resources/studentTemplate.xhtml"
+         >
+        <ui:define name="content">
+         <f:metadata>
+             <f:viewParam name="id" value="#{testPassingBean.testId}"/>
+             <f:viewParam name="c" value="#{testPassingBean.curriculumId}"/>
+         </f:metadata>
+         <r:set var="question" value="#{testPassingBean.currentQustionView.question}"/>
+        <link type="text/css" href="../resources/jquery/css/ui-lightness/jquery-ui-1.8.4.custom.css" rel="stylesheet" />
+	<script type="text/javascript" src="../resources/jquery/js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="../resources/jquery/js/jquery-ui-1.8.4.custom.min.js"></script>
+        <script type="text/javascript" src="../resources/jquery/js/jquery.jCountr.js"></script>
+
+     
+
+        <h:panelGroup rendered="#{testPassingBean.renderNoAccess}">
+          Нет доступа!
+        </h:panelGroup>
+
+        <h:panelGroup rendered="#{not testPassingBean.renderNoAccess}">
+        <script type="text/javascript">
+           $(function(){
+            $("#counter").counter({
+                      min:'#{testPassingBean.timeTest}',
+                      sec:'0',
+                      message: 'Время вышло!',
+                      finish_function: 'checkTime()' });
+
+	   });
+
+           $(window).bind('beforeunload', function(){
+		return 'Ваша попытка не будет засчитана, вы уверены?';
+	   });
+
+
+         function checkTime() {
+           document.getElementById('testForm:completeTest').click();
+
+        }
+         function removeCounter() {
+          $("#counter").remove();
+
+        }
+
+	</script>
+         <span id="counter"></span><br/>
+         <h:form id="testForm">
+   
+                
+             <h:panelGroup id="mainPanel" rendered="#{not testPassingBean.renderCompleteTest}">
+                     <h:outputText escape="false" value="#{testPassingBean.questionTitle}"/><br/>
+                     <h:panelGroup id="radioType" rendered="#{question.type=='radio'}">
+                         <h:selectOneRadio converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}">
+                          <f:selectItems     value="#{testPassingBean.answers}"/><br/>
+                        </h:selectOneRadio>
+                     </h:panelGroup>
+
+                      <h:panelGroup id="checkType" rendered="#{question.type=='check'}">
+                          <h:selectManyCheckbox converter="testConverter"  layout="pageDirection"  value="#{testPassingBean.selectedAnswers}" >
+                            <f:selectItems   value="#{testPassingBean.answers}" /><br/>
+                        </h:selectManyCheckbox >
+                     </h:panelGroup>
+
+                      <h:panelGroup id="textType" rendered="#{question.type=='text'}">                          
+                         <br/> <h:inputText value="#{testPassingBean.selectedAnswerText}"/>
+                     </h:panelGroup>
+                      <h:panelGroup id="comparisonType" rendered="#{question.type=='comparison'}">
+                          <ol>
+                          <ui:repeat value="#{testPassingBean.answerComparisnView}"  var="a">
+                             <li> <h:outputText value="#{a.title}"/> --  <h:outputText value="#{a.title2}"/></li>
+                          </ui:repeat>
+                          </ol>
+
+                          <ol>
+                          <ui:repeat value="#{testPassingBean.answerComparisnView}"  var="a">
+                              <li><h:inputText value="#{a.answer}"/></li>
+                          </ui:repeat>
+                          </ol>
+                     </h:panelGroup>
+
+                     <h:commandButton value="следующий" action="#{testPassingBean.next}">
+                         <f:ajax render="@form"/>
+                     </h:commandButton>
+
+                      <h:commandButton value="ответить" action="#{testPassingBean.answer}">
+                          <f:ajax execute="@form" render="@form"/>
+                     </h:commandButton>
+
+                     <h:commandButton id="completeTest" onclick="removeCounter();" value="завершить тест" action="#{testPassingBean.completeTest}">
+                         <f:ajax render="@form"/>
+                     </h:commandButton>
+
+             </h:panelGroup>
+
+             <h:panelGroup   rendered="#{testPassingBean.renderCompleteTest}">
+                     <script type="text/javascript">
+                           $(function(){
+                               $("#counter").remove();
+                               $(window).unbind('beforeunload');
+                           });
+	            </script>
+                тест успешно завершен!!
+                Баллов  #{testPassingBean.points} <br/>
+                Правильно ответил на  #{testPassingBean.countRight}
+             </h:panelGroup>
+             <h:messages/>
+        </h:form>
+     </h:panelGroup>
+
+        </ui:define>
+    </ui:composition>

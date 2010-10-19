@@ -164,4 +164,30 @@ public class ResourceService implements Serializable{
         winterConcludingTestReExameAttemtpsCount = testsDatesGetter.getConstant(TestCalendarConstants.winterConcludingTestReExameAttemtpsCount).toString();
         winterRegularTestReExameAttemtpsCount = testsDatesGetter.getConstant(TestCalendarConstants.winterRegularTestReExameAttemtpsCount).toString();
     }
+
+    public String getConcludingTestBeginDate() {
+        return concludingTestBeginDate;
+    }
+
+    public String getConcludingTestEndDate() {
+        return concludingTestEndDate;
+    }
+
+    public String getReExameBeginDate() {
+        return reExameBeginDate;
+    }
+
+    public String getReExameEndDate() {
+        return reExameEndDate;
+    }
+
+    public String getRegularTestBeginDate() {
+        return regularTestBeginDate;
+    }
+
+    public String getRegularTestEndDate() {
+        return regularTestEndDate;
+    }
+
+    
 }

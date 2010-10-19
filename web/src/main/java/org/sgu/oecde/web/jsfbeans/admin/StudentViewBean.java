@@ -11,7 +11,7 @@ import org.sgu.oecde.web.jsfbeans.UserViewBean;
 import org.sgu.oecde.web.jsfbeans.student.ControlWorksBean;
 import org.sgu.oecde.web.jsfbeans.student.PointsAndGradesBean;
 import org.sgu.oecde.web.jsfbeans.student.StudentSessionBean;
-import org.sgu.oecde.web.jsfbeans.student.TestResultsBean;
+import org.sgu.oecde.web.jsfbeans.tests.TestResultsBean;
 
 /**
  *

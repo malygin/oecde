@@ -10,11 +10,11 @@
         <f:metadata>
               <f:viewParam name="page" value="#{NavigationBean.page}"/>
               <f:viewParam name="page" value="#{DiscussionBean.currentPage}"/>
-         </f:metadata>       
+         </f:metadata>
 
         <ui:define name="content">
-             <c:set target="${DiscussionBean}" property="objectId" value="1195"/>
-             <c:set target="${DiscussionBean}" property="objectType" value="NEWS"/>
+             <c:set target="${DiscussionBean}" property="objectId" value="1"/>
+             <c:set target="${DiscussionBean}" property="objectType" value="STUDENT_ORG"/>
 
            <util:navigationList elementOnPage="#{DiscussionBean.nodesOnPage}"
                               numElements="#{DiscussionBean.numOfNodes}"/>

@@ -21,6 +21,8 @@ import org.sgu.oecde.discussion.ForumTypes;
 import org.sgu.oecde.discussion.Node;
 import org.sgu.oecde.discussion.service.DiscussionService;
 import org.sgu.oecde.discussion.util.NodeRevertComparator;
+import org.sgu.oecde.news.NewsItem;
+import org.sgu.oecde.news.dao.INewsDao;
 
 /**
  * @author Andrey Malygin (mailto: anmalygin@gmail.com)
@@ -34,6 +36,9 @@ public class DiscussionBean {
     @ManagedProperty(value="#{discussionService}")
     private DiscussionService discussionService;
 
+    @ManagedProperty(value="#{newsDao}")
+    private INewsDao newsDao;
+
     private AbstractUser  currentUser;
     List<Node> nodes;
 
@@ -42,7 +47,10 @@ public class DiscussionBean {
     private String nodeText;
     private String nodeTextReply;
     private String nodeId;
+    private Node currentNode;
+
     private boolean renderReply=false;
+    private boolean renderEdit=false;
 
     private ForumTypes objectTypeEnum;
 
@@ -56,63 +64,122 @@ public class DiscussionBean {
          currentUser = SecurityContextHandler.getUser();
     }
 
+    /**
+     * получение списка нодов по страницам
+     * @return лист нодов для вывода
+     */
     public List<Node> getNodesByPage(){
         if(nodes==null){
-           //nodes= new ArrayList();
            List<Node> nodesTemp=discussionService.getNodesByPage(new Long(objectId), objectTypeEnum, nodesOnPage, currentPage);
            Node nodeRoot=new Node();
            NodeRevertComparator comp= new NodeRevertComparator();
+           //создали корень дерева для обработки листа
            TreeSet<Node> nodeSet=new TreeSet<Node>(comp);
            nodeSet.addAll(nodesTemp);
-
-          // Collections.sort(nodesTemp);
-           nodeRoot.setChildren(nodeSet);         
+           nodeRoot.setChildren(nodeSet);
+           //составили дерево для вывода в виде листа
            nodes=walk(new ArrayList<Node>(), nodeRoot, 1);
-          nodes.remove(0);
+           //удалили корень
+           nodes.remove(0);
         }
         return nodes;
     }
 
-    private List<Node> walk(List<Node> list, Node node, int level) {
-       // System.out.println("");
-        node.setLevel(level);
-            //    System.out.println("add "+node.getMessage() );
+
+    /**
+     * служебный метод для рекурсии по дереву нодов
+     */
+    private List<Node> walk(List<Node> list, Node node, int level) {  
+        node.setLevel(level);       
         list.add(node);
         for(Node kid : node.getChildren()) {
-         //   System.out.println(" "+kid.getMessage()+" "+kid.getTime());
-          walk(list, kid, level+1);
+              walk(list, kid, level+1);
         }
         return list;
-  }
+   }
 
+    /**
+     * получение количества нодов
+     * @return
+     */
      public int getNumOfNodes() {
         if(numOfNodes==-1)numOfNodes=discussionService.getCount(new Long(objectId), objectTypeEnum);
         return numOfNodes;
     }
 
-     public String saveNodes(){
-         discussionService.addNode(null, new Long(objectId), objectTypeEnum, 0L, nodeText , currentUser);       
-         return "discussion_list";
+    /**
+     * сохранение нода
+     * @throws IOException
+     */
+     public void saveNodes() throws IOException{
+         discussionService.addNode(null, new Long(objectId), objectTypeEnum, 0L, nodeText , currentUser);
+         if(objectTypeEnum==ForumTypes.NEWS){
+                 NewsItem news=newsDao.getById(new Long(objectId));
+                 news.setCommentNumber(news.getCommentNumber()+1);
+                 newsDao.update(news);
+         }
+            HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+            String url=request.getRequestURI().split("/")[3];      
+            FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId);
      }
-     public void saveReply() throws IOException{
-         discussionService.addNode(null, new Long(objectId), objectTypeEnum, new Long(nodeId), nodeTextReply , currentUser);
-             HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-             String url=request.getRequestURI().split("/")[3];
-             FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?page="+currentPage);
-  
+    /**
+     * редактирование нода
+     * @throws IOException
+     */
+     public void editNodes() throws IOException{
+         discussionService.addNode(currentNode.getId(), new Long(objectId), objectTypeEnum, currentNode.getParent().getId(), nodeText , currentUser);
+            HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+            String url=request.getRequestURI().split("/")[3];
+            FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId);
      }
 
+     /**
+      * сохранение ответа
+      * @throws IOException
+      */
+     public void saveReply() throws IOException{
+          discussionService.addNode(null, new Long(objectId), objectTypeEnum, new Long(nodeId), nodeTextReply , currentUser);
+            if(objectTypeEnum==ForumTypes.NEWS){
+                 NewsItem news=newsDao.getById(new Long(objectId));
+                 news.setCommentNumber(news.getCommentNumber()+1);
+                 newsDao.update(news);
+             }
+             HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+             String url=request.getRequestURI().split("/")[3];
+             FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId+"&page="+currentPage);
+     }
+
+     /**
+      * удаление нода
+      * @throws IOException
+      */
      public void deleteNode() throws IOException{
          Node node = new Node();
          node.setId(Long.parseLong(nodeId));
          discussionService.removeNode(node);
+           if(objectTypeEnum==ForumTypes.NEWS){
+                 NewsItem news=newsDao.getById(new Long(objectId));
+                 news.setCommentNumber(news.getCommentNumber()-1);
+                 newsDao.update(news);
+             }
              HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
              String url=request.getRequestURI().split("/")[3];
-             FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?page="+currentPage);
+             FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId+"&page="+currentPage);
      }
 
+     /**
+      * показать форму ответа
+      */
      public void showReply(){
          this.renderReply=true;
+     }
+
+     /** 
+      * показать форму редактирования
+      */
+     public void showEdit(){
+         this.nodeText=currentNode.getMessage();
+         this.renderEdit=true;
      }
 
 
@@ -123,7 +190,7 @@ public class DiscussionBean {
     public void setDiscussionService(DiscussionService discussionService) {
         this.discussionService = discussionService;
     }
-//todo: он возвращет что не надо убить или перенаправить на лист по страницам
+
     public List<Node> getNodes() {
         return nodes;
     }
@@ -161,7 +228,7 @@ public class DiscussionBean {
     }
 
     public void setObjectType(String objectType) {
-        objectTypeEnum=ForumTypes.valueOf("NEWS");
+        objectTypeEnum=ForumTypes.valueOf(objectType);
     }
 
     public String getNodeText() {
@@ -204,5 +271,28 @@ public class DiscussionBean {
         this.renderReply = renderReply;
     }
 
+    public boolean isRenderEdit() {
+        return renderEdit;
+    }
+
+    public void setRenderEdit(boolean renderEdit) {
+        this.renderEdit = renderEdit;
+    }
+
+    public Node getCurrentNode() {
+        return currentNode;
+    }
+
+    public void setCurrentNode(Node currentNode) {
+        this.currentNode = currentNode;
+    }
+
+    public INewsDao getNewsDao() {
+        return newsDao;
+    }
+
+    public void setNewsDao(INewsDao newsDao) {
+        this.newsDao = newsDao;
+    }
 
 }

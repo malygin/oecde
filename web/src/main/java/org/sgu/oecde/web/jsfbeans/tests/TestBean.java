@@ -1,4 +1,4 @@
-package org.sgu.oecde.web.jsfbeans.student;
+package org.sgu.oecde.web.jsfbeans.tests;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -7,6 +7,7 @@ import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.tests.TestAttemptService;
 import org.sgu.oecde.tests.TestEntity;
 import org.sgu.oecde.web.ResourceService;
+import org.sgu.oecde.web.jsfbeans.student.StudentCurriculumBean;
 
 /**
  *

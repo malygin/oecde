@@ -33,13 +33,15 @@ public class NewsBean {
 
      private boolean renderDeleteSuccess=false;
      private boolean renderAddSuccess=false;
+
      //Сообщений на странице
      private int newsOnPage=3;
      private int currentPage=1;
-    //поля для добавления новостей
-    private String header;
-    private String anons;
-    private String fulltext;
+
+     //поля для добавления новостей
+     private String header;
+     private String anons;
+     private String fulltext;
 
 
 
