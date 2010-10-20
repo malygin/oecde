@@ -28,7 +28,7 @@ public class CustomAuthenticationSuccessHandler implements  AuthenticationSucces
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         doRedirect(request,response,true);
-        if(SwitchedUserCheker.check(authentication.getAuthorities()))
+        if(!SwitchedUserCheker.check(authentication.getAuthorities()))
             journal.logSystemLogin(SecurityContextHandler.getUser(), request.getRemoteAddr());
     }
 

@@ -19,7 +19,7 @@
                     <div class="standartContainerForTeacherMediumAvatar" align="center">
                         <table>
                             <tr>
-                                <td style="width: 105px;">
+                                <td>
                                     Дисциплина:
                                 </td>
                                 <td>
@@ -28,7 +28,7 @@
                             </tr>
                         </table>
                     </div>
-                    <ut:userListItem type="teacher" u="${t.value}"/>
+                    <ut:userListItem type="teacher" u="#{t.value}"/>
                     <div class="floatDestroyer"/>
                 </div>
             </r:forEach>

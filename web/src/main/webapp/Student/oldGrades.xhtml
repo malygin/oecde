@@ -15,10 +15,11 @@
          </f:metadata>
             <h:form id="form">
             <h:commandLink id="handle">
-                <f:ajax render="isWinter years years:year" listener="#{oldGradesBean.changeIsWinter}"/>
+                <f:ajax render="isWinter :years :years:year" listener="#{oldGradesBean.changeIsWinter}"/>
                 <f:attribute name="winter" value="#{!oldGradesBean.winter}"/>
                 <h:outputText id="isWinter" value="#{oldGradesBean.winter?('зима'):('лето')}"/>
             </h:commandLink>
+            </h:form>
                 <br/>
             <h:dataTable id="years" value="#{oldGradesBean.years}" var="y">
                 <h:column rowHeader="true" >

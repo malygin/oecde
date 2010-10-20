@@ -16,7 +16,7 @@
   <!-- IMPLEMENTATION -->
    <composite:implementation>
         <div class="standartContainerForStudentMediumAvatar" align="center">
-            <ut:showPhoto user="#{u}" size="medium"/>
+            <ut:showPhoto user="#{cc.attrs.u}" size="medium"/>
         </div>
         <div class="standartContainerForTeacherInfoInTeachersList">
             <table>
@@ -26,20 +26,20 @@
                     </td>
                     <td>
                         <span class="linkToStudentsProfile">
-                            <a href="#{type}.xhtml?id=#{u.id}">
-                                #{u.fio}
+                            <a href="#{type}.xhtml?id=#{cc.attrs.u.id}">
+                                #{cc.attrs.u.fio}
                             </a>
                         </span>
                     </td>
                 </tr>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'student'}">
-                    <tr><td>Город:</td><td>#{u.group.city.name}</td></tr>
-                    <tr><td>Специальность:</td><td>#{u.group.speciality.name}</td></tr>
-                    <tr><td>Группа:</td><td>#{u.group.name}</td></tr>
-                    <tr><td>Курс:</td><td>#{u.group.year}</td></tr>
+                    <tr><td>Город:</td><td>#{cc.attrs.u.group.city.name}</td></tr>
+                    <tr><td>Специальность:</td><td>#{cc.attrs.u.group.speciality.name}</td></tr>
+                    <tr><td>Группа:</td><td>#{cc.attrs.u.group.name}</td></tr>
+                    <tr><td>Курс:</td><td>#{cc.attrs.u.group.year}</td></tr>
                 </h:panelGroup>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'teacher'}">
-                    <tr><td>Отдел:</td><td>#{u.department.name}</td></tr>
+                    <tr><td>Отдел:</td><td>#{cc.attrs.u.department.name}</td></tr>
                 </h:panelGroup>
                 <tr>
                     <td colspan="2" class="navigationLinks">
