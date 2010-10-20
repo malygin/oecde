@@ -186,6 +186,6 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
                 Logger.getLogger(BasicDao.class.getName()).log(Level.SEVERE, null, ex);
            }
         }
-        return cr;
+        return cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
     }
 }
