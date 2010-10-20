@@ -37,15 +37,13 @@ public class ResultPreFilter implements Serializable{
     public List<Points> forEachResult(List<? extends AbstractResult> results, boolean sumEachIteration,List<IResultFilter> resultFilters, List<? extends AbstractStudent>students,List<? extends Curriculum>curriculums){
         Assert.state(!resultFilters.isEmpty(), "result filters Set can not be empty");
         List<Points> pointsList = new ArrayList<Points>();
-        if(curriculums==null||students==null)
+        if(curriculums==null||students==null||results == null)
             return pointsList;
         List<? extends AbstractStudent>newStudents = new ArrayList<AbstractStudent>(students);
         ArrayList<? extends Curriculum>newCurriculums = new ArrayList<Curriculum>(curriculums);
         Points points = null;
         Curriculum cur = null;
         AbstractStudent st = null;
-        if(CollectionUtils.isEmpty(results))
-            return pointsList;
         Collections.sort(results);
         ListIterator<? extends AbstractResult>iterator = results.listIterator();
         boolean breakPoint = false;
