@@ -104,7 +104,7 @@ public class MessageTest extends BasicTest{
            System.out.println(" "+mess.getFilesExist());
 
  }
-//    @Ignore
+   @Ignore
     @Test
     public void getListIn(){
           MessageService s = getBean("messageService");
@@ -127,7 +127,7 @@ public class MessageTest extends BasicTest{
       //    System.out.println("! "+list);
 
  }
-//    @Ignore
+    @Ignore
     @Test
     public void getListOut(){
           MessageService s = getBean("messageService");

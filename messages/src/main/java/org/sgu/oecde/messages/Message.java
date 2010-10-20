@@ -17,9 +17,9 @@ import org.sgu.oecde.core.users.UserType;
  */
 public class Message extends BasicItem {
     //тема
-    private String theme;
+    private String theme="";
     //текст сообщения
-    private String fullText;
+    private String fullText="";
     //дата отправки
     private String dateMessage;
     //тип сообщения(личная переписка, вопрос)
@@ -43,6 +43,7 @@ public class Message extends BasicItem {
     }
 
     public String getFullText() {
+        if (fullText==null) return "";
         return fullText;
     }
 
