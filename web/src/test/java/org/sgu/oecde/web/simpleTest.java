@@ -22,14 +22,35 @@ public class simpleTest{
 //    @Ignore
     @Test
     public void getTypes(){
-        Integer i1 = 1000;
-        Integer i2 = 1000;
-        System.out.println(i1 == i2);
-        System.out.println(i1 == 1000);
-        Integer i11 = 10;
-        Integer i12 = 10;
-        System.out.println(i11 == i12);
-        System.out.println(i11 == 10);
-         System.out.printf("%1$b", "123");
+
+        class a{
+            int a=2;
+            private int b = 3;
+
+            public int getB() {
+                return b;
+            }
+
+            public void setB(int b) {
+                this.b = b;
+            }
+        }
+        class b extends a{
+            int a=2;
+            private int b = 3;
+
+            public int getB() {
+                return b;
+            }
+
+            public void setB(int b) {
+                this.b = b;
+            }
+        }
+        a b = new b();
+        b.a = 1;
+        b.setB(2);
+        System.out.println(b.a+"   "+((b)b).a);
+        System.out.println(b.getB()+"   "+((b)b).getB());
     }
 }
