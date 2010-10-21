@@ -1,48 +1,71 @@
- <ui:composition
-         xmlns:ui="http://java.sun.com/jsf/facelets"
-         xmlns:f="http://java.sun.com/jsf/core"
-         xmlns:h="http://java.sun.com/jsf/html"
-         template="../resources/studentTemplate.xhtml">
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/studentTemplate.xhtml">
 
-     <ui:define name="content">
-        <f:metadata>
-            <f:viewParam name="i" value="#{tabsViewBean.information}"/>
-        </f:metadata>
-         <table>
-             <tr><td>
-             <h:form>
-                 <h:dataTable title="разделы" id="tabs" value="#{tabsViewBean.tabs}" var="t">
-               <h:column>
-                 <f:facet name="header">
-                     Раздел
-                 </f:facet>
-                   <h:outputText value="#{t.name}"/>
-               </h:column>
-               <h:column>
-                   <h:dataTable id="tabs" value="#{t.pages}" var="p">
-                   <h:column>
-                       <h:commandLink id="link" rendered="#{p.visible}" value="#{p.title}">
-                     <f:attribute name="page" value="#{p}"/>
-                     <f:ajax render=":page :files :title" listener="#{tabsViewBean.setCurrentPage}"/>
-                    </h:commandLink>
-                   </h:column>
-                   </h:dataTable>
-               </h:column>
-         </h:dataTable>
-             </h:form>
-         </td><td>
-         <h:outputText id="title" value="#{tabsViewBean.currentPage.title}"/><br/>
-         <h:outputText id="page" value="#{tabsViewBean.currentPage.text}"/><br/>
-         <h:dataTable id="files" value="#{tabsViewBean.currentPage.files}" var="f">
-           <h:column>
-               <h:panelGroup rendered="#{f.visible}">
-               <h:graphicImage rendered="#{f.image}" value="../resources/userFiles/tabs/#{f.name}" alt="#{f.description}"/>
-               <h:outputLink rendered="#{!f.image}" value="../resources/userFiles/tabs/#{f.name}"><h:outputText value="#{f.description}"/></h:outputLink>
-               </h:panelGroup>
-           </h:column>
-           </h:dataTable>
-         </td></tr>
-         </table>
-     <hr/>
-     </ui:define>
- </ui:composition>
+    <ui:define name="contentHeader">
+        Помощь
+    </ui:define>
+    <ui:define name="content">
+        <div class="interfaceContent" style="padding-top: 10px;">
+            <f:metadata>
+                <f:viewParam name="i" value="#{tabsViewBean.information}"/>
+            </f:metadata>
+            <table>
+                <tr>
+                    <td style="width: 245px; border-right: 1px solid silver;" valign="top">
+                <h:form>
+                    <h:dataTable title="разделы" id="tabs" value="#{tabsViewBean.tabs}" var="t" border="0" cellpadding="0" cellspacing="0">
+                        <h:column>
+                            <f:facet name="header">
+                                <div style="line-height: 30px; font-weight: normal; color: silver;">
+                                    Оглавление:
+                                </div>
+                            </f:facet>
+                            <div style="margin-left: 10px;">
+                                <span class="controlWorksDisciplineName">
+                                    <h:outputText value="#{t.name}"/>
+                                </span>
+                                <h:dataTable id="tabs" style="margin-left: 20px;" value="#{t.pages}" var="p">
+                                    <h:column>
+                                        <span class="navigationLinks">
+                                            <img src="../resources/images/listMarker.png" alt=""/>
+                                            <h:commandLink id="link" rendered="#{p.visible}" value="#{p.title}">
+                                                <f:attribute name="page" value="#{p}"/>
+                                                <f:ajax render=":page :files :title" listener="#{tabsViewBean.setCurrentPage}"/>
+                                            </h:commandLink>
+                                        </span>
+                                    </h:column>
+                                </h:dataTable>
+                            </div>
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+                </td>
+                <td valign="top" style="padding-left: 10px; padding-bottom: 10px; padding-right: 10px;">
+                    <div style="height: 30px;">
+                        <span style="line-height: 30px; color: silver;"></span>
+                    </div>
+                    <div style="margin-left: 10px;">
+                        <div class="controlWorksDisciplineName" style="margin-bottom: 5px;">
+                            <h:outputText id="title" value="#{tabsViewBean.currentPage.title}"/>
+                        </div>
+                        <div style="text-align: justify;">
+                            <h:outputText escape="false" id="page" value="#{tabsViewBean.currentPage.text}"/>
+                        </div>
+                    </div>
+                </td>
+                </tr>
+            </table>
+            <h:dataTable id="files" value="#{tabsViewBean.currentPage.files}" var="f">
+                <h:column>
+                    <h:panelGroup rendered="#{f.visible}">
+                        <h:graphicImage rendered="#{f.image}" value="../resources/userFiles/tabs/#{f.name}" alt="#{f.description}"/>
+                        <h:outputLink rendered="#{!f.image}" value="../resources/userFiles/tabs/#{f.name}"><h:outputText value="#{f.description}"/></h:outputLink>
+                    </h:panelGroup>
+                </h:column>
+            </h:dataTable>
+        </div>
+    </ui:define>
+</ui:composition>

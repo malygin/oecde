@@ -1,67 +1,96 @@
 <ui:composition
-         xmlns:ui="http://java.sun.com/jsf/facelets"
-         xmlns:f="http://java.sun.com/jsf/core"
-         xmlns:h="http://java.sun.com/jsf/html"
-         template="../resources/adminTemplate.xhtml">
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/adminTemplate.xhtml">
 
- <ui:define name="content">
-        <f:metadata>
-            <f:viewParam name="id" value="#{tabEditBean.id}"/>
-            <f:viewParam name="p" value="#{tabEditBean.pageId}"/>
-        </f:metadata>
-         Вкладка
-     <h:outputText id="tabName" value="#{tabEditBean.tab.name}"/><br/><br/>
-     <h:form id="form">
-             Заголовок страницы
-         <h:inputText id="pName" value="#{tabEditBean.page.title}"/><br/>
-             Содержимое страницы
-         <h:inputTextarea id="pContent" value="#{tabEditBean.page.text}"/><br/>
-             Видима ли страница
-         <h:selectBooleanCheckbox id="visibility" value="#{tabEditBean.page.visible}"/><br/>
-               файлы
-         <h:dataTable rendered="#{tabEditBean.pageId ne null}" id="files" value="#{tabEditBean.page.files}" var="f">
-            <h:column>
-               <f:facet name="header">
-                   имя файла
-               </f:facet>
-               <h:outputLink id="fLink" value="../resources/userFiles/tabs/#{f.name}">#{f.name}</h:outputLink>
-            </h:column>
-             <h:column>
-               <f:facet name="header">
-                   описание
-               </f:facet>
-                <h:inputText id="desc" value="#{f.description}"/><br/>
-             </h:column>
-            <h:column>
-               <f:facet name="header">
-                   видим ли файл
-               </f:facet>
-               <h:selectBooleanCheckbox id="fVisibility" value="#{f.visible}"/>
-            </h:column>
-            <h:column>
-               <f:facet name="header">
-                   изображение ли
-               </f:facet>
-            <h:selectBooleanCheckbox id="image" value="#{f.image}"/>
-            </h:column>
-            <h:column>
-             <h:commandLink id="delF" value="удалить">
-                 <f:attribute name="file" value="#{f}"/>
-                 <f:ajax render="@form"  listener="#{tabEditBean.deleteFile}"/>
-             </h:commandLink>
-            </h:column>
-        </h:dataTable>
-               
-       <h:commandLink rendered="#{tabEditBean.pageId eq null}" action="#{tabEditBean.updateTab}" id="newBtn" value="ОКЭ"/>
-         <h:commandLink rendered="#{tabEditBean.pageId ne null}" id="updt" value="ОКЭ">
-             <f:ajax execute="@form" render="@form" event="click" listener="#{tabEditBean.updateTab}"/>
-         </h:commandLink>
-     </h:form>
-          <h:outputLink value="tabEdit.xhtml?id=#{tabEditBean.tab.id}">назад</h:outputLink>
-     <hr/>
-        <h:form rendered="#{tabEditBean.pageId ne null}" id="addFile" enctype="multipart/form-data">
-        <input type="file" name="file" />
-        <h:commandLink action="#{tabEditBean.addFile}" id="fileBtn" value="ОКЭ"/>
-       </h:form>
- </ui:define>
+    <ui:define name="content">
+        <div class="interfaceContent">
+            <div style="text-align: right; padding-top: 5px;">
+                <span class="navigationLinks">
+                    <h:outputLink value="tabEdit.xhtml?id=#{tabEditBean.tab.id}">Hазад</h:outputLink>
+                </span>
+            </div>
+            <f:metadata>
+                <f:viewParam name="id" value="#{tabEditBean.id}"/>
+                <f:viewParam name="p" value="#{tabEditBean.pageId}"/>
+            </f:metadata>
+            Название раздела:
+            "<span class="controlWorksDisciplineName"><h:outputText id="tabName" value="#{tabEditBean.tab.name}"/></span>"<br/><br/>
+            <h:form id="form">
+                <table  class="studentStandatrTable">
+                    <tr>
+                        <td style="width: 200px;">
+                            Заголовок страницы
+                        </td>
+                        <td>
+                    <h:inputText style="width: 100%;" id="pName" value="#{tabEditBean.page.title}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top">
+                            Содержимое страницы
+                        </td>
+                        <td>
+                            <h:inputTextarea style="width: 100%; height: 400px;" id="pContent" value="#{tabEditBean.page.text}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Видима ли страница
+                        </td>
+                        <td>
+                            <h:selectBooleanCheckbox id="visibility" value="#{tabEditBean.page.visible}"/>
+                        </td>
+                    </tr>
+                </table>
+                файлы
+                <h:dataTable rendered="#{tabEditBean.pageId ne null}" id="files" value="#{tabEditBean.page.files}" var="f">
+                    <h:column>
+                        <f:facet name="header">
+                            имя файла
+                        </f:facet>
+                        <h:outputLink id="fLink" value="../resources/userFiles/tabs/#{f.name}">#{f.name}</h:outputLink>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            описание
+                        </f:facet>
+                        <h:inputText id="desc" value="#{f.description}"/><br/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            видим ли файл
+                        </f:facet>
+                        <h:selectBooleanCheckbox id="fVisibility" value="#{f.visible}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            изображение ли
+                        </f:facet>
+                        <h:selectBooleanCheckbox id="image" value="#{f.image}"/>
+                    </h:column>
+                    <h:column>
+                        <h:commandLink id="delF" value="удалить">
+                            <f:attribute name="file" value="#{f}"/>
+                            <f:ajax render="@form"  listener="#{tabEditBean.deleteFile}"/>
+                        </h:commandLink>
+                    </h:column>
+                </h:dataTable>
+
+                <span class="navigationLinks">
+                    <h:commandLink rendered="#{tabEditBean.pageId eq null}" action="#{tabEditBean.updateTab}" id="newBtn" value="Сохранить изменения"/>
+                </span>
+                <span class="navigationLinks">
+                    <h:commandLink rendered="#{tabEditBean.pageId ne null}" id="updt" value="Сохранить изменения">
+                        <f:ajax execute="@form" render="@form" event="click" listener="#{tabEditBean.updateTab}"/>
+                    </h:commandLink>
+                </span>
+            </h:form>
+            <h:form rendered="#{tabEditBean.pageId ne null}" id="addFile" enctype="multipart/form-data">
+                <input type="file" name="file" />
+                <h:commandLink action="#{tabEditBean.addFile}" id="fileBtn" value="ОКЭ"/>
+            </h:form>
+        </div>
+    </ui:define>
 </ui:composition>

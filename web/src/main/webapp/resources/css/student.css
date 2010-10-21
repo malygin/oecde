@@ -81,20 +81,6 @@
 .mainStyle .controlWorksControlTitle{
     
 }
-.mainStyle .controlWorksDisciplineName{
-    font-size: 10pt;
-    font-weight: bolder;
-    color: #669999;
-}
-.mainStyle .controlWorksDisciplineNameLink a:link{color: #669999;}
-.mainStyle .controlWorksDisciplineNameLink a:visited{color: #669999;}
-.mainStyle .controlWorksDisciplineNameLink a:active{color: #8DBEE0;}
-.mainStyle .controlWorksDisciplineNameLink a:hover{color: #8DBEE0;}
-
-.mainStyle .interfaceContent{
-    padding: 0px 10px 0px 10px;
-    text-align: left;
-}
 .mainStyle .studentInterfaceStandartList{
     margin-top: 3px;
     padding: 10px;
@@ -106,37 +92,6 @@
 }
 .mainStyle .materialInfo{
     margin-left: 25px;
-}
-.mainStyle .studentStandatrTable{
-    margin-top: 10px;
-}
-.mainStyle .studentStandatrTable th{
-    font-weight: normal;
-    font-size: 8pt;
-    text-align: center;
-    border: 1px solid silver;
-    border-left: 0px;
-    border-bottom: 3px double silver;
-    padding: 1px;
-    background: #EFEFEF;
-    padding: 7px 0px;
-    color: gray;
-}
-.mainStyle .studentStandatrTable .studentStandatrTableTd{
-    text-align: center;
-    border: 1px solid silver;
-    border-left: 0px;
-    border-top: 0px;
-    font-size: 8pt;
-    padding: 3px 0px;
-}
-.mainStyle .studentStandatrTable .studentStandatrTableTdLastTd{
-    text-align: center;
-    border: 1px solid silver;
-    border-left: 0px;
-    border-right: 0px;
-    border-top: 0px;
-    font-size: 8pt;
 }
 .mainStyle .studentStandatrTable .studentStandatrTableSubtableTd{
     text-align: center;

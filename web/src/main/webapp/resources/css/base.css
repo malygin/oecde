@@ -1,4 +1,4 @@
-/* 
+/*
     Document   : base
     Created on : 06.07.2010, 10:40:52
     Author     : KorgovVD
@@ -6,7 +6,7 @@
         Purpose of the stylesheet follows.
 */
 
-/* 
+/*
    TODO customize this sample style
    Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
@@ -15,6 +15,10 @@
    base-disign styles
 */
 
+.mainStyle .interfaceContent{
+    padding: 0px 10px 0px 10px;
+    text-align: left;
+}
 .mainStyle .firstBorder{
     border-color: white;
     border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
@@ -56,7 +60,7 @@
     }
 }
 .mainStyle .leftMenu{
-    
+
 }
 .mainStyle .contentArea{
     width: 80%;
@@ -76,7 +80,7 @@
     text-align: left;
 }
 .mainStyle .sguLink{
-    color: #A3A3A3; 
+    color: #A3A3A3;
     text-decoration: none;
     font-size: 10pt;
     font-weight: bold;
@@ -90,7 +94,7 @@
 .mainStyle .sguLink a:hover {color: #A3A3A3; text-decoration: underline; font-size: 10pt; font-weight: bold; margin: 0px; font-family: Arial;}
 
 .mainStyle .greenFIO{
-    color: #64D359; 
+    color: #64D359;
     text-decoration: none;
     font-size: 11pt;
     font-weight: bold;
@@ -98,7 +102,7 @@
     margin-bottom: 0px;
 }
 .mainStyle .blueFIO{
-    color: #00A4FF; 
+    color: #00A4FF;
     text-decoration: none;
     font-size: 11pt;
     font-weight: bold;
@@ -337,7 +341,6 @@
     font-weight: normal;
     font-family: Tahoma;
     margin:0px;
-    margin-left: 120px;
     padding: 0px;
     margin-top: 2px;
     line-height: 11px;
@@ -612,14 +615,14 @@
     border: 1px solid silver;
 }
 .mainStyle .discussionComment{
-    margin: 10px 0px 0px 0px; 
+    margin: 10px 0px 0px 0px;
     border-top: 1px dotted silver;
     padding: 5px 5px 5px 20px;
 }
 .mainStyle .discussionCommentDate{
-    float: right; 
-    color: silver; 
-    font-size: 8pt; 
+    float: right;
+    color: silver;
+    font-size: 8pt;
     margin-top: 2px;
 }
 .mainStyle .discussionCommentContentText{
@@ -731,7 +734,7 @@
     text-align: justify;
     margin-top: 10px;
     margin-left: 10px;
-    color: #777777 !important;    
+    color: #777777 !important;
 }
 .mainStyle .umkTaskContentContainer li{
     margin-left: 40px;
@@ -757,3 +760,48 @@
 .mainStyle .umkNavigationLinkContainer a:hover{color: #8BB5DF; text-decoration: none; font-weight: normal;}
 .mainStyle .umkNavigationLinkContainer a:visited{color: #8BB5DF; text-decoration: none; font-weight: normal;}
 .mainStyle .umkNavigationLinkContainer a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+
+.mainStyle .studentStandatrTable{
+    margin-top: 10px;
+    width: 100%;
+}
+.mainStyle .studentStandatrTable th:nth-last-child(1){
+    border-right: 0px;
+}
+.mainStyle .studentStandatrTable th{
+    font-weight: normal;
+    font-size: 8pt;
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-bottom: 3px double silver;
+    padding: 1px;
+    background: #EFEFEF;
+    padding: 7px 0px;
+    color: gray;
+}
+.mainStyle .studentStandatrTable .studentStandatrTableTd{
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+    padding: 3px 0px;
+}
+.mainStyle .studentStandatrTable .studentStandatrTableTdLastTd{
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+}
+.mainStyle .controlWorksDisciplineName{
+    font-size: 10pt;
+    font-weight: bolder;
+    color: #669999;
+}
+.mainStyle .controlWorksDisciplineNameLink a:link{color: #669999;}
+.mainStyle .controlWorksDisciplineNameLink a:visited{color: #669999;}
+.mainStyle .controlWorksDisciplineNameLink a:active{color: #8DBEE0;}
+.mainStyle .controlWorksDisciplineNameLink a:hover{color: #8DBEE0;}

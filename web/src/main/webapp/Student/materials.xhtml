@@ -16,7 +16,7 @@
                 <f:viewParam name="s" value="#{materialsBean.semester}"/>
             </f:metadata>
             <est:changeSemester bean="#{materialsBean}"/>
-            <r:forEach items="#{materialsBean.studentsDisciplines}" var="m">
+            <r:forEach items="#{materialsBean.studentsDisciplines}" var="m" varStatus="i">
                 <div class="studentInterfaceStandartList">
                     <span class="controlWorksDisciplineNameLink"><h:outputLink value="discipline.xhtml?c=#{m.curriculum.id}" >#{m.curriculum.umk.name}</h:outputLink><br/></span>
                     <br/>
@@ -24,6 +24,17 @@
                         ${msgs.student_finishedTests} #{m.passedTests} ${msgs.student_fromWord} #{m.testsCount}<br/>
                         ${msgs.student_testResults} #{m.reTestPoints==0?m.testPoints:m.reTestPoints}<br/>
                         ${msgs.student_mainTest} #{m.concludingReTestPoints==0?m.concludingTestPoints:m.concludingReTestPoints}
+                    </div>
+                    <div style="width: 100%;">
+                        <r:if test="${i.count eq 1}">
+                            <img src="../resources/images/materialsImages/greenProgress.png" alt=""/>
+                        </r:if>
+                        <r:if test="${i.count eq 2}">
+                            <img src="../resources/images/materialsImages/yellowProgress.png" alt=""/>
+                        </r:if>
+                        <r:if test="${i.count eq 3}">
+                            <img src="../resources/images/materialsImages/redProgress.png" alt=""/>
+                        </r:if>
                     </div>
                 </div>
             </r:forEach>

@@ -1,40 +1,64 @@
- <ui:composition
-         xmlns:ui="http://java.sun.com/jsf/facelets"
-         xmlns:f="http://java.sun.com/jsf/core"
-         xmlns:h="http://java.sun.com/jsf/html"
-         template="../resources/adminTemplate.xhtml">
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/adminTemplate.xhtml">
 
-     <ui:define name="content">
-         <h:dataTable id="tabs" value="#{tabsViewBean.all}" var="t">
 
-               <h:column>
-                 <f:facet name="header">
-                     Заголовок вкладки
-                 </f:facet>
-                   <h:outputText value="#{t.name}"/>
-               </h:column>
-               <h:column>
-                 <f:facet name="header">
-                     Тип
-                 </f:facet>
-                   <h:outputText converter="enumConverter" value="#{t.type}"/>
-               </h:column>
-               <h:column>
-                  <h:outputLink value="tabEdit.xhtml?id=#{t.id}">Редактировать</h:outputLink>
-               </h:column>
-         </h:dataTable>
-     <hr/>
-
-     <h:form id="edit">
-         Имя вкладки
-         <h:inputText id="tabName" value="#{tabEditBean.tab.name}"/>
-         Тип вкладки
-         <h:selectOneMenu id="tabType" value="#{tabEditBean.tab.type}">
-             <f:selectItems value="#{tabEditBean.types}" />
-         </h:selectOneMenu>
-         <hr/>
-         <h:commandLink action="#{tabEditBean.updateTab}" value="добавить"/>
-     </h:form>
-     </ui:define>
- </ui:composition>
-  
+    <ui:define name="contentHeader">
+        Редактирование справочной информации студента
+    </ui:define>
+    <ui:define name="content">
+        <div class="interfaceContent">
+            <div style="line-height: 30px; font-weight: normal; color: silver;">
+                Существующие вкладки:
+            </div>
+            <h:dataTable styleClass="studentStandatrTable" columnClasses="studentStandatrTableTd,studentStandatrTableTdLastTd" cellpadding="0" cellspacing="0" id="tabs" style="width: 100%;" value="#{tabsViewBean.all}" var="t">
+                <h:column>
+                    <f:facet name="header">
+                        Заголовок вкладки
+                    </f:facet>
+                    <h:outputText value="#{t.name}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        Тип
+                    </f:facet>
+                    <h:outputText converter="enumConverter" value="#{t.type}"/>
+                    <span class="navigationLinks">
+                        <h:outputLink value="tabEdit.xhtml?id=#{t.id}">Редактировать</h:outputLink>
+                    </span>
+                </h:column>
+            </h:dataTable>
+            <br/>
+            <div style="line-height: 30px; font-weight: normal; color: silver;">
+                Добавление новой вкладки:
+            </div>
+            <h:form id="edit">
+                <table Class="studentStandatrTable" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th>
+                            Имя вкладки
+                        </th>
+                        <th>
+                            Тип вкладки
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="studentStandatrTableTd">
+                            <h:inputText style="width: 90%;" id="tabName" value="#{tabEditBean.tab.name}"/>
+                        </td>
+                        <td class="studentStandatrTableTdLastTd">
+                            <h:selectOneMenu style="width: 50%;" id="tabType" value="#{tabEditBean.tab.type}">
+                                <f:selectItems value="#{tabEditBean.types}" />
+                            </h:selectOneMenu>
+                            <span class="navigationLinks" >
+                                <h:commandLink action="#{tabEditBean.updateTab}" value="Добавить"/>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
