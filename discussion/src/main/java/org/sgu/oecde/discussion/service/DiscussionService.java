@@ -95,7 +95,6 @@ public class DiscussionService {
         }        
         if(idParent!=0) node.setParent(new Node(idParent));
         else node.setRoot(root);
-
         if(node.getId()==null)  nodeDao.save(node);
         else  nodeDao.update(node);
     }

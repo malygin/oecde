@@ -33,7 +33,7 @@ public class NodeDao extends UpdateDao<Node> implements INodeDao{
 
     @Override
     public List<Node> getByPage(Long id, ForumTypes type, int nodeOnPage, int numPage) throws DataAccessException {
-       return getSession().createQuery(GET_BY_PAGE).
+           return getSession().createQuery(GET_BY_PAGE).setCacheable(false).
                 setLong("id", id).
                 setString("type", type.toString()).
                 setFirstResult(nodeOnPage * (numPage-1)).setMaxResults(nodeOnPage).list();
