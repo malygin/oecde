@@ -29,7 +29,7 @@ public class NewsBean {
      private int countNews;
 
      private NewsItem currentNewItem;
-     private int currentNewId;
+     private String currentNewId;
      private int NewIdDelete;
 
      private boolean renderDeleteSuccess=false;
@@ -85,8 +85,8 @@ public class NewsBean {
         return newsDao.getNewsCount();
     }   
 
-    public void  setCurrentNewId(int id){
-        if (id!=0){
+    public void  setCurrentNewId(String id){
+        if (!id.equals("0")){
               this.currentNewId=id;
               currentNewItem= newsDao.getById(new Long(this.currentNewId));            
               currentNewItem.setReviewNumber(currentNewItem.getReviewNumber()+1);
@@ -95,7 +95,7 @@ public class NewsBean {
         }
     }
 
-    public int getCurrentNewId() {
+    public String getCurrentNewId() {
         return currentNewId;
     }  
 

@@ -5,7 +5,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.component.UIComponent;
 
 /**
  * @author Andrey Malygin (mailto: anmalygin@gmail.com)
@@ -21,10 +23,15 @@ public class NavigationBean implements Serializable{
     private int elementOnPage;
     //Количество элементов всего
     private int numElements;
+    private UIComponent params;
+    private Object field;
 
     public NavigationBean() {
     }
 
+    public void SimpleMethod(){
+
+    }
     public int getElementOnPage() {
         return elementOnPage;
     }
@@ -44,11 +51,13 @@ public class NavigationBean implements Serializable{
         this.page = page;
     }
     //формирование списка страниц
-    public List<String> getPages() {
-        if (pages==null){
+    public List<String> getPages(String onPage, String  num) {
+        this.elementOnPage=Integer.parseInt(onPage);
+        this.numElements=Integer.parseInt(num);
+        if ((pages==null)&&(numElements!=0)){
              pages=new ArrayList();
-           //  System.out.println("nE "+numElements);
-           //    System.out.println("el "+elementOnPage);
+              System.out.println("nE "+numElements);
+              System.out.println("el "+elementOnPage);
              int forsum=numElements / elementOnPage;
              if ((numElements%elementOnPage)!=0) forsum++;
 
@@ -71,6 +80,23 @@ public class NavigationBean implements Serializable{
         this.numElements = numElements;
     }
 
+    public UIComponent getParams() {
+        return params;
+    }
+
+    public void setParams(UIComponent params) {
+        this.params = params;
+        String field = (String) params.getAttributes().get("foo");
+    }
+    private void lookupFields() {
+      field = params.getAttributes().get("foo");
+    }
+    public String getSomething() {
+      if (field == null) {
+        lookupFields();
+      }
+      return "" + field;
+    }
   
 
 

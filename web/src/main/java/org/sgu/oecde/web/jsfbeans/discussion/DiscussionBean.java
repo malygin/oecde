@@ -2,16 +2,12 @@
 package org.sgu.oecde.web.jsfbeans.discussion;
 
 import java.io.IOException;
-import java.util.AbstractSet;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.SortedSet;
 import java.util.TreeSet;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
@@ -35,7 +31,6 @@ import org.sgu.oecde.news.dao.INewsDao;
 public class DiscussionBean {
     @ManagedProperty(value="#{discussionService}")
     private DiscussionService discussionService;
-
     @ManagedProperty(value="#{newsDao}")
     private INewsDao newsDao;
 
@@ -52,7 +47,7 @@ public class DiscussionBean {
     private boolean renderReply=false;
     private boolean renderEdit=false;
 
-    private ForumTypes objectTypeEnum;
+    private ForumTypes objectTypeEnum=ForumTypes.STUDENT_ORG;
 
 
     //Нодов на странице
@@ -61,15 +56,17 @@ public class DiscussionBean {
     private int numOfNodes=-1;
 
     public DiscussionBean() {
-         currentUser = SecurityContextHandler.getUser();
-    }
+        currentUser = SecurityContextHandler.getUser();
 
+    }
+       
     /**
      * получение списка нодов по страницам
      * @return лист нодов для вывода
      */
     public List<Node> getNodesByPage(){
-        if(nodes==null){
+       if(objectId==null) return new ArrayList<Node>();
+       if((nodes==null)){
            List<Node> nodesTemp=discussionService.getNodesByPage(new Long(objectId), objectTypeEnum, nodesOnPage, currentPage);
            Node nodeRoot=new Node();
            NodeRevertComparator comp= new NodeRevertComparator();
@@ -102,8 +99,10 @@ public class DiscussionBean {
      * получение количества нодов
      * @return
      */
-     public int getNumOfNodes() {
-        if(numOfNodes==-1)numOfNodes=discussionService.getCount(new Long(objectId), objectTypeEnum);
+     public int getNumOfNodes(String oId, String oTypeEnum ) {
+         this.setObjectId(oId);
+         this.setObjectType(oTypeEnum);
+        if((numOfNodes==-1)&&(objectId!=null))numOfNodes=discussionService.getCount(new Long(objectId), objectTypeEnum);
         return numOfNodes;
     }
 
@@ -127,7 +126,9 @@ public class DiscussionBean {
      * @throws IOException
      */
      public void editNodes() throws IOException{
-         discussionService.addNode(currentNode.getId(), new Long(objectId), objectTypeEnum, currentNode.getParent().getId(), nodeText , currentUser);
+         Long parentId=0L;
+         if (currentNode.getParent() != null) parentId= currentNode.getParent().getId();
+         discussionService.addNode(currentNode.getId(), new Long(objectId), objectTypeEnum,  parentId, nodeText, currentUser);
             HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
             String url=request.getRequestURI().split("/")[3];
             FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId);
@@ -138,6 +139,7 @@ public class DiscussionBean {
       * @throws IOException
       */
      public void saveReply() throws IOException{
+
           discussionService.addNode(null, new Long(objectId), objectTypeEnum, new Long(nodeId), nodeTextReply , currentUser);
             if(objectTypeEnum==ForumTypes.NEWS){
                  NewsItem news=newsDao.getById(new Long(objectId));
@@ -204,6 +206,7 @@ public class DiscussionBean {
     }
 
     public void setCurrentPage(int currentPage) {
+    
         this.currentPage = currentPage;
     }
 
