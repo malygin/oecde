@@ -10,14 +10,7 @@
                      classpath:/org/sgu/oecde/webSecurity.xml
         </param-value>
     </context-param>
-    <context-param>
-        <param-name>com.sun.faces.numberOfViewsInSession</param-name>
-        <param-value>1</param-value>
-    </context-param>
-    <context-param>
-        <param-name>com.sun.faces.numberOfLogicalViews</param-name>
-        <param-value>2</param-value>
-    </context-param>
+  
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
@@ -33,7 +26,7 @@
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
-    <servlet-mapping>
+      <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
