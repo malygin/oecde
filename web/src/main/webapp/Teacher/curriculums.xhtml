@@ -16,33 +16,44 @@
                 <f:viewParam name="s" value="#{teacherCurriculumsEditBean.semester}"/>
             </f:metadata>
             <h:form>
-            <h:dataTable value="#{teacherCurriculumsEditBean.curriculums}" var="c">
-                <h:column>
-                    <f:facet name="header">дисциплина</f:facet>
-                    <h:outputText value="#{c.discipline.name}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">специальность</f:facet>
-                    <h:outputText value="#{c.speciality.name}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">УМК</f:facet>
-                    <h:outputLink value="discipline.xhtml?id=#{c.id}&amp;s=#{teacherCurriculumsEditBean.semester}">#{c.umk.name}</h:outputLink>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">год</f:facet>
-                    <h:outputText value="#{c.calendarYear}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">семестр</f:facet>
-                    <h:outputText value="#{c.semester}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">кр только в рукописном</f:facet>
-                    <h:selectBooleanCheckbox  value="#{c.controlWorksPaperOnly}"/>
-                </h:column>
-            </h:dataTable>
-                <h:commandButton value="ОКЭ" action="#{teacherCurriculumsEditBean.save}"/>
+                <h:dataTable styleClass="studentStandatrTable"
+                             columnClasses="studentStandatrTableTd,
+                             studentStandatrTableTd,
+                             studentStandatrTableTd,
+                             studentStandatrTableTd,
+                             studentStandatrTableTd,
+                             studentStandatrTableTdLastTd" cellpadding="0" cellspacing="0" value="#{teacherCurriculumsEditBean.curriculums}" var="c">
+                    <h:column>
+                        <f:facet name="header">дисциплина</f:facet>
+                        <span class="controlWorksDisciplineName"><h:outputText value="#{c.discipline.name}"/></span>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">специальность</f:facet>
+                        <h:outputText value="#{c.speciality.name}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">УМК</f:facet>
+                        <span class="controlWorksDisciplineNameLink">
+                            <h:outputLink value="discipline.xhtml?id=#{c.id}&amp;s=#{teacherCurriculumsEditBean.semester}">#{c.umk.name}</h:outputLink>
+                        </span>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">год</f:facet>
+                        <h:outputText value="#{c.calendarYear}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">семестр</f:facet>
+                        <h:outputText value="#{c.semester}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">кр только в рукописном</f:facet>
+                        <h:selectBooleanCheckbox  value="#{c.controlWorksPaperOnly}"/>
+                    </h:column>
+                </h:dataTable>
+
+                <div style="text-align: right; padding: 5px; ">
+                    <h:commandButton value="#{msgs.teacher_saveButton}" action="#{teacherCurriculumsEditBean.save}"/>
+                </div>
             </h:form>
         </div>
     </ui:define>

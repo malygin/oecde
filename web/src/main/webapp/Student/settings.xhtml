@@ -3,14 +3,14 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/studentTemplate.xhtml"
-     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+    xmlns:ut="http://java.sun.com/jsf/composite/components/util"
     xmlns:set="http://java.sun.com/jsf/composite/components/settings">
     >
     <ui:define name="content">
         <set:addAvatar bean="#{studentSettingsBean}"/>
         <h:form>
             <h:inputText id="cellPhone" maxlength="10" size="10" value="#{studentSettingsBean.student.cellPhone}"/>cellPhone<br/>
-            <h:inputText id="eMail" size="19" value="#{studentSettingsBean.student.eMail}"/>eMail<br/>
+            <h:inputText id="eMail" size="19" value="#{studentSettingsBean.student.email}"/>eMail<br/>
             <h:inputText id="icq" maxlength="9" size="9" value="#{studentSettingsBean.student.icq}"/>icq<br/>
             <h:commandButton value="ОКЭ">
                 <f:ajax execute="@form" render="@form mess saved error" listener="#{studentSettingsBean.save}"/>

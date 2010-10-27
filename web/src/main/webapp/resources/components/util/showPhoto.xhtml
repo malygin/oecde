@@ -6,25 +6,34 @@
       >
 
 
- <!-- INTERFACE -->
-  <composite:interface>
-      <composite:attribute name="size" required="true" type="java.lang.String" default="small" shortDescription="тип аватары (large,medium,small)"/>
-      <composite:attribute name="user" required="true" type="org.sgu.oecde.core.users.AbstractUser" shortDescription="пользователей с аватарой"/>
-  </composite:interface>
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute name="size" required="true" type="java.lang.String" default="small" shortDescription="тип аватары (large,medium,small)"/>
+        <composite:attribute name="user" required="true" type="org.sgu.oecde.core.users.AbstractUser" shortDescription="пользователей с аватарой"/>
+    </composite:interface>
 
-  <!-- IMPLEMENTATION -->
-   <composite:implementation>
-     <h:panelGroup rendered="#{cc.attrs.size eq 'large'}">
-       <h:graphicImage rendered="#{cc.attrs.user.largePhoto ne null}" value="../resources/userFiles/avatars/#{cc.attrs.user.largePhoto}"/>
-       <h:graphicImage rendered="#{cc.attrs.user.largePhoto eq null}" value="../resources/userFiles/avatars/defaultAvatarBig.jpg"/>
-     </h:panelGroup>
-       <h:panelGroup rendered="#{cc.attrs.size eq 'small'}">
-       <h:graphicImage rendered="#{cc.attrs.user.smallPhoto ne null}" value="../resources/userFiles/avatars/#{cc.attrs.user.smallPhoto}"/>
-       <h:graphicImage rendered="#{cc.attrs.user.smallPhoto eq null}" value="../resources/userFiles/avatars/defaultAvatarSmall.jpg"/>
-     </h:panelGroup>
-       <h:panelGroup rendered="#{cc.attrs.size eq 'medium'}">
-       <h:graphicImage rendered="#{cc.attrs.user.mediumPhoto ne null}" value="../resources/userFiles/avatars/#{cc.attrs.user.mediumPhoto}"/>
-       <h:graphicImage rendered="#{cc.attrs.user.mediumPhoto eq null}" value="../resources/userFiles/avatars/defaultAvatarMedium.jpg"/>
-     </h:panelGroup>
-   </composite:implementation>
+    <!-- IMPLEMENTATION -->
+    <composite:implementation>
+        <h:panelGroup rendered="#{cc.attrs.size eq 'large'}">
+            <div class="userPhoto">
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="userPhotoBorder">
+                            <h:graphicImage rendered="#{cc.attrs.user.largePhoto ne null}" value="../resources/userFiles/avatars/#{cc.attrs.user.largePhoto}"/>
+                            <h:graphicImage rendered="#{cc.attrs.user.largePhoto eq null}" value="../resources/userFiles/avatars/defaultAvatarBig.jpg"/>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </h:panelGroup>
+        <h:panelGroup rendered="#{cc.attrs.size eq 'small'}">
+            <h:graphicImage rendered="#{cc.attrs.user.smallPhoto ne null}" value="../resources/userFiles/avatars/#{cc.attrs.user.smallPhoto}"/>
+            <h:graphicImage rendered="#{cc.attrs.user.smallPhoto eq null}" value="../resources/userFiles/avatars/defaultAvatarSmall.jpg"/>
+        </h:panelGroup>
+        <h:panelGroup rendered="#{cc.attrs.size eq 'medium'}">
+            <h:graphicImage rendered="#{cc.attrs.user.mediumPhoto ne null}" value="../resources/userFiles/avatars/#{cc.attrs.user.mediumPhoto}"/>
+            <h:graphicImage rendered="#{cc.attrs.user.mediumPhoto eq null}" value="../resources/userFiles/avatars/defaultAvatarMedium.jpg"/>
+        </h:panelGroup>
+    </composite:implementation>
 </html>

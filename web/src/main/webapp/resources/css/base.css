@@ -479,6 +479,19 @@
 .mainStyle .navigationLinksRed a:active{color: #FF3F3F; text-decoration: none; font-weight: normal;}
 .mainStyle .navigationLinksRed a:hover{color: #FF3F3F; text-decoration: none; font-weight: normal;}
 
+.mainStyle .navigationLinksSmall,.mainStyle .navigationLinksSmall a{
+    font-size: 8pt;
+}
+.mainStyle .navigationLinksSmall a:link{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
+.mainStyle .navigationLinksSmall a:visited{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
+.mainStyle .navigationLinksSmall a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinksSmall a:hover{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+
+.mainStyle .navigationLinksRedSmall a:link{color: red; text-decoration: underline; font-weight: normal;}
+.mainStyle .navigationLinksRedSmall a:visited{color: red; text-decoration: underline; font-weight: normal;}
+.mainStyle .navigationLinksRedSmall a:active{color: #FF3F3F; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinksRedSmall a:hover{color: #FF3F3F; text-decoration: none; font-weight: normal;}
+
 .mainStyle .writeMessageInterfaceTheme{
     width: 100%;
 }
@@ -779,6 +792,7 @@
     background: #EFEFEF;
     padding: 7px 0px;
     color: gray;
+    padding: 3px 3px;
 }
 .mainStyle .studentStandatrTable .studentStandatrTableTd{
     text-align: center;
@@ -786,7 +800,7 @@
     border-left: 0px;
     border-top: 0px;
     font-size: 8pt;
-    padding: 3px 0px;
+    padding: 3px 3px;
 }
 .mainStyle .studentStandatrTable .studentStandatrTableTdLastTd{
     text-align: center;
@@ -795,6 +809,7 @@
     border-right: 0px;
     border-top: 0px;
     font-size: 8pt;
+    padding: 3px 3px;
 }
 .mainStyle .controlWorksDisciplineName{
     font-size: 10pt;
@@ -805,3 +820,7 @@
 .mainStyle .controlWorksDisciplineNameLink a:visited{color: #669999;}
 .mainStyle .controlWorksDisciplineNameLink a:active{color: #8DBEE0;}
 .mainStyle .controlWorksDisciplineNameLink a:hover{color: #8DBEE0;}
+
+.mainStyle .saveButton{
+    width: 100px !important;
+}

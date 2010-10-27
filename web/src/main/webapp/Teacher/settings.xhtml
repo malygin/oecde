@@ -1,25 +1,56 @@
 <ui:composition
     xmlns:ui="http://java.sun.com/jsf/facelets"
-         template="../resources/teacherTemplate.xhtml"
-     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
-     xmlns:set="http://java.sun.com/jsf/composite/components/settings"
-     xmlns:h="http://java.sun.com/jsf/html"
-     xmlns:f="http://java.sun.com/jsf/core">
-   
+    template="../resources/teacherTemplate.xhtml"
+    xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+    xmlns:set="http://java.sun.com/jsf/composite/components/settings"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
     <ui:define name="content">
-        <set:addAvatar bean="#{teacherSettingsBean}"/>
-        <h:form>
-            <h:inputText id="cellPhone" maxlength="10" size="10" value="#{teacherSettingsBean.teacher.cellPhone}"/>cellPhone<br/>
-            <h:inputText id="eMail" size="19" value="#{teacherSettingsBean.teacher.eMail}"/>eMail<br/>
-            <h:inputText id="officePhoneNumber" maxlength="10" size="10" value="#{teacherSettingsBean.teacher.officePhoneNumber}"/>officePhoneNumber<br/>
-            <h:commandButton value="ОКЭ">
-                <f:ajax execute="@form" render="@form mess saved error" listener="#{teacherSettingsBean.save}"/>
-            </h:commandButton><br/>
-            <h:outputText id="saved" rendered="#{teacherSettingsBean.saved}" value="saved"/>
-            <h:outputText id="error" rendered="#{teacherSettingsBean.error ne null}" value="#{teacherSettingsBean.error}"/>
-            <h:messages id="mess"/>
-        </h:form><br/><hr/>
-        <set:changePassword user="#{teacherSettingsBean.teacher}"/>
-        <hr/>
+        <div class="userFile">
+            <div style="float: right; width: 78%; text-align: left;">
+                <h:form>
+                    <div class="userData" style="float: none; width: 60%;">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td>
+                                    <p>Мобильный телефон:</p>
+                                </td>
+                                <td>
+                                    <h:inputText id="cellPhone" maxlength="10" size="10" value="#{teacherSettingsBean.teacher.cellPhone}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Адрес электронной почты:</p>
+                                </td>
+                                <td>
+                                    <h:inputText id="eMail" size="19" value="#{teacherSettingsBean.teacher.email}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Рабочий телефон:</p>
+                                </td>
+                                <td>
+                                    <h:inputText id="officePhoneNumber" maxlength="10" size="10" value="#{teacherSettingsBean.teacher.officePhoneNumber}"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="text-align: center;">
+                            <h:commandButton value="#{msgs.teacher_saveButton}" styleClass="saveButton">
+                                <f:ajax execute="@form" render="@form mess saved error" listener="#{teacherSettingsBean.save}"/>
+                            </h:commandButton>
+                        </div>
+                        <h:outputText id="saved" rendered="#{teacherSettingsBean.saved}" value="saved"/>
+                        <h:outputText id="error" rendered="#{teacherSettingsBean.error ne null}" value="#{teacherSettingsBean.error}"/>
+                        <h:messages id="mess"/>
+                    </div>
+                </h:form><br/>
+                <set:changePassword user="#{teacherSettingsBean.teacher}"/>
+            </div>
+            <set:addAvatar bean="#{teacherSettingsBean}"/>
+            <div class="floatDestroyer"></div>
+        </div>
     </ui:define>
 </ui:composition>

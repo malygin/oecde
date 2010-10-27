@@ -13,10 +13,14 @@
 
     <!-- IMPLEMENTATION -->
     <composite:implementation>
-        <h:form enctype="multipart/form-data">
-            <ut:showPhoto user="#{cc.attrs.bean.user}" size="large"/>
-            <input type="file" name="avatar" />
-            <h:commandButton action="#{cc.attrs.bean.uploadAvatar}" styleClass="loadPhotoButton" value="#{msgs.photoLoaderButton}"/>
-        </h:form><br/><hr/>
+        <div style="">
+            <h:form enctype="multipart/form-data">
+                <ut:showPhoto user="#{cc.attrs.bean.user}" size="large"/>
+                <div style=" clear: both; text-align: left; width: 21%; text-align: center;">
+                    <input type="file" style="font-size: 7pt;" name="avatar" /><br/>
+                    <h:commandButton action="#{cc.attrs.bean.uploadAvatar}" styleClass="loadPhotoButton" value="#{msgs.photoLoaderButton}"/>
+                </div>
+            </h:form>
+        </div>
     </composite:implementation>
 </html>

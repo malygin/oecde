@@ -4,10 +4,12 @@
          xmlns:h="http://java.sun.com/jsf/html"
          template="../resources/teacherTemplate.xhtml"
          xmlns:ipsil="http://java.sun.com/jsf/composite/components/util">
-        
-        <ui:define name="content"> 
-         #{teacherIndexBean.estimatedGroupsCount} гр из #{teacherIndexBean.groupsCount}<br/>
-         #{teacherIndexBean.readCwAttempsCount} из #{teacherIndexBean.cwAttempsCount}
+
+        <ui:define name="content">
+            <div class="interfaceContent">
+                 #{teacherIndexBean.estimatedGroupsCount} гр из #{teacherIndexBean.groupsCount}<br/>
+                 #{teacherIndexBean.readCwAttempsCount} из #{teacherIndexBean.cwAttempsCount}
+            </div>
         </ui:define>
       
     </ui:composition>
