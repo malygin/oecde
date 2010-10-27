@@ -6,7 +6,7 @@ import org.sgu.oecde.core.BasicItem;
 /**
  * @author Andrey Malygin (mailto: anmalygin@gmail.com)
  * created 25.10.2010
- * 
+ * комната для чата
  */
 public class ChatRoom extends BasicItem {
     private String name;
@@ -14,7 +14,7 @@ public class ChatRoom extends BasicItem {
     public ChatRoom() {
     }
 
-    
+
     public String getName() {
         return name;
     }

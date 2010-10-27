@@ -12,7 +12,7 @@ import org.sgu.oecde.core.util.DateConverter;
 
 public class AppTest extends BasicTest{
 
-   @Ignore
+    @Ignore
     @Test
     public void addMessage() {
         ChatRoom room=new ChatRoom();
@@ -31,7 +31,7 @@ public class AppTest extends BasicTest{
 
     }
 
-   @Ignore
+//   @Ignore
     @Test
     public void getList() {
       setDao("chatDao");

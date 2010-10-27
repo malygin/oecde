@@ -2,9 +2,7 @@
 package org.sgu.oecde.chat;
 
 import java.util.List;
-import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Property;
 import org.sgu.oecde.core.UpdateDao;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
@@ -13,7 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * @author Andrey Malygin (mailto: anmalygin@gmail.com)
  * created 25.10.2010
- * 
+ * дао для чата
+ *
  */
 @Repository("chatDao")
 public class ChatDao  extends UpdateDao<ChatMessage> implements IChatDao {

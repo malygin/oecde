@@ -35,8 +35,6 @@ public class ChatMessage extends BasicItem  {
         this.dateMessage = dateMessage;
     }
 
-
-
     public String getMessage() {
         return message;
     }
