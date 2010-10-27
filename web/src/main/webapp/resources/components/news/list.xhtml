@@ -4,7 +4,8 @@
       xmlns:composite="http://java.sun.com/jsf/composite"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:r="http://java.sun.com/jsp/jstl/core">
+      xmlns:r="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 
     <!-- INTERFACE -->
     <composite:interface>
@@ -13,14 +14,14 @@
 
     <!-- IMPLEMENTATION -->
     <composite:implementation>         
-        <r:forEach items="#{cc.attrs.list}" var="new">
+        <ui:repeat value="#{cc.attrs.list}" var="new">
             <div class="studentInterfaceStandartList">
                 <div>
                     <div style="float: left; font-size: 10pt;" class="controlWorksDisciplineNameLink"><a href="news_read.xhtml?id=#{new.id}">#{new.header}</a></div>
                     <span class="chatPostDate" >#{new.time}</span>
                     <div class="floatDestroyer"/>
                     <div class="newsListNewPreview">
-                        <img src="../resources/testImages/images.jpeg" alt="" style="width: 100px;"/>
+                        <img src="../resources/images/image_news.jpg" alt="" style="width: 100px;"/>
                         <div>
                             #{new.announcement}
                         </div>
@@ -34,6 +35,6 @@
                     </div>
                 </div>
             </div>
-        </r:forEach>
+      </ui:repeat>
     </composite:implementation>
 </html>

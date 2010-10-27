@@ -37,6 +37,7 @@ public class FileUploadUtil {
                                                     ,"application/vnd.ms-word.document.macroEnabled.12"
                                                     ,"application/vnd.ms-word.template.macroEnabled.12"
                                                     ,"application/vnd.ms-excel"
+                                                    ,"application/octet-stream"
                                                     ,"application/vnd.ms-powerpoint"};
 
     public static String Upload(UploadFile uf,MultipartRequestWrapper multi, String type, boolean checkMime) throws IOException{

@@ -43,7 +43,7 @@
                 </h:panelGroup>
                 <tr>
                     <td colspan="2" class="navigationLinks">
-                        <a href="messages_write.xhtml?id=${s.id}">#{msgs.student_studentListWriteMessage}</a> <a href="messages_dialog.xhtml?user=${s.id}">#{msgs.student_studentLestShowDialog}</a>
+                        <a href="messages_write.xhtml?user=${s.id}">#{msgs.student_studentListWriteMessage}</a> <a href="messages_dialog.xhtml?user=${s.id}">#{msgs.student_studentLestShowDialog}</a>
                     </td>
                     <sec:ifAnyGranted roles="ROLE_ADMIN">
                        <td colspan="2" class="navigationLinks">

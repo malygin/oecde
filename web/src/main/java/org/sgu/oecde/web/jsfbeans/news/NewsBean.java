@@ -22,8 +22,8 @@ import org.springframework.security.access.annotation.Secured;
 public class NewsBean {
      @ManagedProperty(value="#{newsDao}")
      private INewsDao newsDao;
-      @ManagedProperty(value="#{journalServise}")
-      private Journal journal;
+     @ManagedProperty(value="#{journalServise}")
+     private Journal journal;
 
      private List<NewsItem> news;
      private int countNews;
@@ -157,8 +157,6 @@ public class NewsBean {
     public void setHeader(String header) {
         this.header = header;
     }
-
-
 
     public boolean isRenderAddSuccess() {
         return renderAddSuccess;

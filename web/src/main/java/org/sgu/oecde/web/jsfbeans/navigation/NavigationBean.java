@@ -5,7 +5,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.component.UIComponent;
 
@@ -56,8 +55,8 @@ public class NavigationBean implements Serializable{
         this.numElements=Integer.parseInt(num);
         if ((pages==null)&&(numElements!=0)){
              pages=new ArrayList();
-              System.out.println("nE "+numElements);
-              System.out.println("el "+elementOnPage);
+            //  System.out.println("nE "+numElements);
+          //    System.out.println("el "+elementOnPage);
              int forsum=numElements / elementOnPage;
              if ((numElements%elementOnPage)!=0) forsum++;
 

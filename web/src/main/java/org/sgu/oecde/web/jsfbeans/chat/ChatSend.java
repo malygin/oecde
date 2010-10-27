@@ -24,13 +24,13 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 /**
  *
  * @author Malygin
+ * сервлет для отправки сообщения в чат
  */
 @WebServlet(value="/ChatSend", loadOnStartup=1)
 public class ChatSend extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
-     * @todo кодировка в хроме, проверить ие и в хроме ничего не работает)
      *
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -39,18 +39,15 @@ public class ChatSend extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
-            IChatDao myDao = (IChatDao) context.getBean("chatDao");
-             ChatRoom room=new ChatRoom();
-             room.setId(1L);
-             ChatMessage message=new ChatMessage();
-              message.setAuthor(SecurityContextHandler.getUser());
-              message.setDateMessage(DateConverter.convert(System.currentTimeMillis()));
-            //  message.setRoom(room);
-              message.setMessage(request.getParameter("message"));
-              myDao.save(message);
+              ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+              IChatDao myDao = (IChatDao) context.getBean("chatDao");
 
-          
+              ChatMessage message=new ChatMessage();
+              message.setAuthor(SecurityContextHandler.getUser());
+              message.setDateMessage(DateConverter.convert(System.currentTimeMillis()));            
+              message.setMessage(!request.getParameter("message").equals("")?request.getParameter("message"):" ");
+
+              myDao.save(message);
         } finally { 
             out.close();
         }

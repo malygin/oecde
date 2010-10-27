@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.sgu.oecde.chat.ChatMessage;
 import org.sgu.oecde.chat.IChatDao;
 import org.sgu.oecde.core.users.Admin;
@@ -26,7 +27,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 /**
  *
  * @author Malygin
- * получение листа сообщений в чат
+ * получение листа сообщений в чат, все это хозяйство можно заменить бином с видимостью приложение, но пока не хочется
  */
 @WebServlet(value="/ChatList", loadOnStartup=1)
 public class ChatList extends HttpServlet {
