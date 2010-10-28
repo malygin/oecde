@@ -778,9 +778,6 @@
     margin-top: 10px;
     width: 100%;
 }
-.mainStyle .studentStandatrTable th:nth-last-child(1){
-    border-right: 0px;
-}
 .mainStyle .studentStandatrTable th{
     font-weight: normal;
     font-size: 8pt;
@@ -800,7 +797,6 @@
     border-left: 0px;
     border-top: 0px;
     font-size: 8pt;
-    padding: 3px 3px;
 }
 .mainStyle .studentStandatrTable .studentStandatrTableTdLastTd{
     text-align: center;
@@ -809,7 +805,6 @@
     border-right: 0px;
     border-top: 0px;
     font-size: 8pt;
-    padding: 3px 3px;
 }
 .mainStyle .controlWorksDisciplineName{
     font-size: 10pt;
@@ -823,4 +818,49 @@
 
 .mainStyle .saveButton{
     width: 100px !important;
+}
+.mainStyle .studentTabInStandartTable{
+
+}
+.mainStyle .studentTabInStandartTable .studentTabInStandartTableTh{
+    border: 0px;
+    border-bottom: 1px solid silver;
+    background: none;
+    padding: 0px;
+
+}
+.mainStyle .studentTabInStandartTable .studentTabInStandartTableThContainer{
+    border-right: 1px solid silver;
+    height: 100%;
+    text-align: center;
+    padding: 3px;
+}
+.mainStyle .studentTabInStandartTable .studentTabInStandartTableLeftTd{
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+    padding: 3px 0px;
+}
+.mainStyle .studentTabInStandartTable .studentTabInStandartTableRightTd{
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+    padding: 3px 0px;
+}
+.mainStyle .studentStandatrTable .studentStandatrTableSubtableTd{
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-top: 0px;
+    border-bottom: 0px;
+    font-size: 8pt;
+}
+.mainStyle .studentStandatrTable th:nth-last-child(1),
+.mainStyle .studentStandatrTable tr:nth-last-child(1){
+    border-right: 0px !important;
 }
