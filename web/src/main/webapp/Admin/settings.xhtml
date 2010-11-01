@@ -6,7 +6,12 @@
     xmlns:f="http://java.sun.com/jsf/core">
     >
     <ui:define name="content">
-        <set:addAvatar bean="#{studentSettingsBean}"/>
-        <set:changePassword user="#{adminSessionBean.admin}"/>
+        <div class="userFile">
+            <div style="float: right; width: 78%; text-align: left;">
+                <set:changePassword user="#{adminSessionBean.admin}"/>
+            </div>
+            <set:addAvatar bean="#{studentSettingsBean}"/>
+            <div class="floatDestroyer"></div>
+        </div>
     </ui:define>
 </ui:composition>

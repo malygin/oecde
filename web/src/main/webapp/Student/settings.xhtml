@@ -7,18 +7,51 @@
     xmlns:set="http://java.sun.com/jsf/composite/components/settings">
     >
     <ui:define name="content">
-        <set:addAvatar bean="#{studentSettingsBean}"/>
-        <h:form>
-            <h:inputText id="cellPhone" maxlength="10" size="10" value="#{studentSettingsBean.student.cellPhone}"/>cellPhone<br/>
-            <h:inputText id="eMail" size="19" value="#{studentSettingsBean.student.email}"/>eMail<br/>
-            <h:inputText id="icq" maxlength="9" size="9" value="#{studentSettingsBean.student.icq}"/>icq<br/>
-            <h:commandButton value="ОКЭ">
-                <f:ajax execute="@form" render="@form mess saved error" listener="#{studentSettingsBean.save}"/>
-            </h:commandButton><br/>
-            <h:outputText id="saved" rendered="#{studentSettingsBean.saved}" value="saved"/>
-            <h:outputText id="error" rendered="#{studentSettingsBean.error ne null}" value="#{studentSettingsBean.error}"/>
-            <h:messages id="mess"/>
-        </h:form><br/><hr/>
-        <set:changePassword user="#{studentSessionBean.student}"/>
+        <div class="userFile">
+            <div style="float: right; width: 78%; text-align: left;">
+                <h:form>
+                    <div class="userData" style="float: none; width: 60%;">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td>
+                                    <p>Мобильный телефон:</p>
+                                </td>
+                                <td>
+                                    <h:inputText id="cellPhone" maxlength="10" size="10" value="#{studentSettingsBean.student.cellPhone}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Адрес электронной почты:</p>
+                                </td>
+                                <td>
+                                    <h:inputText id="eMail" size="19" value="#{studentSettingsBean.student.email}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>ICQ:</p>
+                                </td>
+                                <td>
+                                    <h:inputText id="icq" maxlength="9" size="9" value="#{studentSettingsBean.student.icq}"/>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div style="text-align: center;">
+                            <h:commandButton value="Сохранить" styleClass="saveButton">
+                                <f:ajax execute="@form" render="@form mess saved error" listener="#{studentSettingsBean.save}"/>
+                            </h:commandButton>
+                        </div>
+                        <h:outputText id="saved" rendered="#{studentSettingsBean.saved}" value="saved"/>
+                        <h:outputText id="error" rendered="#{studentSettingsBean.error ne null}" value="#{studentSettingsBean.error}"/>
+                        <h:messages id="mess"/>
+                    </div>
+                </h:form><br/>
+                <set:changePassword user="#{studentSessionBean.student}"/>
+            </div>
+            <set:addAvatar bean="#{studentSettingsBean}"/>
+            <div class="floatDestroyer"></div>
+        </div>
     </ui:define>
 </ui:composition>

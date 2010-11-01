@@ -864,3 +864,7 @@
 .mainStyle .studentStandatrTable tr:nth-last-child(1){
     border-right: 0px !important;
 }
+
+.mainStyle .userData input{
+    width: 100%;
+}
