@@ -26,7 +26,7 @@
     <module>chat</module>
   </modules>
    <repositories>
-<!--        <repository>
+        <repository>
             <id>org.springframework.security.taglibs.facelets</id>
             <url>http://spring-security-facelets-taglib.googlecode.com/svn/repo/</url>
         </repository>
@@ -72,7 +72,7 @@
             <id>glassfish-repository</id>
             <url>http://download.java.net/maven/glassfish</url>
             <name>Java.net Repository for Glassfish</name>
-        </repository>-->
+        </repository>
 
         </repositories>
 
@@ -140,6 +140,17 @@
              <groupId>org.hibernate</groupId>
              <artifactId>hibernate-validator</artifactId>
              <version>4.0.2.GA</version>
+         </dependency>
+
+        <dependency>
+             <groupId>org.hibernate</groupId>
+             <artifactId>hibernate-c3p0</artifactId>
+             <version>3.5.1-Final</version>
+         </dependency>
+        <dependency>
+             <groupId>c3p0</groupId>
+             <artifactId>c3p0</artifactId>
+             <version>0.9.1.2</version>
          </dependency>
 
         <dependency>
@@ -357,12 +368,6 @@
                  <groupId>net.sf.ehcache</groupId>
                  <version>2.1.1</version>
             </dependency>
-        <dependency>
-          <groupId>org.glassfish.extras</groupId>
-          <artifactId>glassfish-embedded-static-shell</artifactId>
-          <version>3.0.1</version>
-          <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
