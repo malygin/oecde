@@ -14,11 +14,10 @@
         <param name="enumClass">org.sgu.oecde.tabs.TabType</param>
       </type>
     </property>
-    <list batch-size="10" cascade="save-update,merge,delete" fetch="join" lazy="false" name="pages" table="tab_page">
+    <set batch-size="10" cascade="save-update,merge,delete" fetch="join" inverse="true" lazy="false" name="pages" table="tab_page">
       <cache usage="read-write"/>
       <key column="tab" foreign-key="fk_tab" not-null="true"/>
-      <list-index column="page_order"/>
       <one-to-many class="org.sgu.oecde.tabs.Page"/>
-    </list>
+    </set>
   </class>
 </hibernate-mapping>

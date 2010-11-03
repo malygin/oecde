@@ -1,6 +1,5 @@
 package org.sgu.oecde.web.jsfbeans.admin;
 
-import org.sgu.oecde.web.jsfbeans.teacher.*;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;

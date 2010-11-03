@@ -1,7 +1,5 @@
 package org.sgu.oecde.core.users;
 
-import org.springframework.util.Assert;
-
 /**
  * типы пользователей
  * @author ShihovMY

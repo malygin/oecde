@@ -31,6 +31,7 @@ public class GroupTestResults extends AbstractStudentsListBean{
 
     public List<NewEntry<Student,AdditionalSelfDependentWork>>  getGroupTestResults() {
         if(tests==null){
+            List<Student>passedStudents = new ArrayList<Student>();
             List<AdditionalSelfDependentWork> l = testAttemptService.getCurriculumAttempts(getCurriculum(),getStudentsList());
             Student st = null;
             NewEntry e = null;
@@ -39,8 +40,16 @@ public class GroupTestResults extends AbstractStudentsListBean{
                 if(!w.getStudent().equals(st)){
                     e = new NewEntry(w.getStudent(), w);
                     tests.add(e);
+                    passedStudents.add(st);
                 }
                 st = w.getStudent();
+            }
+            if(passedStudents.size()!=getStudentsList().size()){
+                List<Student>newStudents = new ArrayList<Student>(getStudentsList());
+                newStudents.removeAll(passedStudents);
+                for(Student s:newStudents){
+                    tests.add(new NewEntry(s, null));
+                }
             }
         }
         return tests;

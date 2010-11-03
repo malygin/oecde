@@ -5,9 +5,7 @@ package org.sgu.oecde.web;
 import java.awt.*;
 import java.io.IOException;
 import java.awt.image.*;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.util.logging.Level;
@@ -17,10 +15,10 @@ import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import org.sgu.oecde.core.IUpdateDao;
 import org.sgu.oecde.core.users.AbstractUser;
+import org.sgu.oecde.journal.EventType;
+import org.sgu.oecde.journal.JournalService;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.FacesUtil;
-import org.sgu.oecde.web.jsfbeans.util.fileUpload.FileUploadUtil;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.MultipartRequestWrapper;
-import org.sgu.oecde.web.jsfbeans.util.fileUpload.UploadFile;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -40,6 +38,8 @@ public class AvatarBuilder implements Serializable{
     private final String MEDIUM_IMAGE_POSTFIX = "_medium.jpg";
     @Resource
     private IUpdateDao<AbstractUser> userDao;
+    @Resource
+    private JournalService journalService;
 
     private static final long serialVersionUID = 179L;
 
@@ -57,6 +57,7 @@ public class AvatarBuilder implements Serializable{
                 Logger.getLogger(AvatarBuilder.class.getName()).log(Level.SEVERE, null, ex);
             }
             userDao.update(user);
+            journalService.save(EventType.PHOTO_ADDITION,user);
         }
     }
 

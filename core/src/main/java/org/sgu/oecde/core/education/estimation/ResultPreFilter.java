@@ -36,11 +36,13 @@ public class ResultPreFilter implements Serializable{
      */
     public List<Points> forEachResult(List<? extends AbstractResult> results, boolean sumEachIteration,List<IResultFilter> resultFilters, List<? extends AbstractStudent>students,List<? extends Curriculum>curriculums){
         Assert.state(!resultFilters.isEmpty(), "result filters Set can not be empty");
+        
         List<Points> pointsList = new ArrayList<Points>();
         if(curriculums==null||students==null||results == null)
             return pointsList;
-        List<? extends AbstractStudent>newStudents = new ArrayList<AbstractStudent>(students);
-        ArrayList<? extends Curriculum>newCurriculums = new ArrayList<Curriculum>(curriculums);
+
+        List<AbstractStudent>studentsForRemove = new ArrayList<AbstractStudent>();
+        List<Curriculum>curriculumsForRemove = new ArrayList<Curriculum>();
         Points points = null;
         Curriculum cur = null;
         AbstractStudent st = null;
@@ -58,8 +60,8 @@ public class ResultPreFilter implements Serializable{
                 if(breakPoint){
                     points = new Points();
                     points.setCurriculum(result.getCurriculum());
-                    newCurriculums.remove(result.getCurriculum());
-                    newStudents.remove(result.getStudent());
+                    curriculumsForRemove.add(result.getCurriculum());
+                    studentsForRemove.add(result.getStudent());
                     points.setStudent(result.getStudent());
                     pointsList.add(points);
                 }
@@ -73,13 +75,25 @@ public class ResultPreFilter implements Serializable{
             st = result.getStudent();
 
         }
-        for(Curriculum c:newCurriculums){
-            Points p = new Points();
-            p.setCurriculum(c);
-            for(AbstractStudent s:newStudents){
-                p.setStudent(s);
+        if(pointsList.size()!=students.size()||pointsList.size()!=curriculums.size()){
+            List<? extends AbstractStudent>newStudents = new ArrayList<AbstractStudent>(students);
+            List<? extends Curriculum>newCurriculums = new ArrayList<Curriculum>(curriculums);
+            newStudents.removeAll(studentsForRemove);
+            newCurriculums.removeAll(curriculumsForRemove);
+            for(Curriculum c:curriculums){
+                for(AbstractStudent s:students){
+                    boolean exist = false;
+                    points:
+                    for(Points p:pointsList){
+                        if(p.getStudent().equals(s)&&p.getCurriculum().equals(c)){
+                            exist = true;
+                            break points;
+                        }
+                    }
+                    if(!exist)
+                        pointsList.add(new Points(s, c));
+                }
             }
-            pointsList.add(p);
         }
         return pointsList;
     }

@@ -45,7 +45,7 @@
                     </tr>
                 </table>
                 файлы
-                <h:dataTable rendered="#{tabEditBean.pageId ne null}" id="files" value="#{tabEditBean.page.files}" var="f">
+                <h:dataTable rendered="#{tabEditBean.pageId ne null}" id="files" value="#{setToList.getList(tabEditBean.page.files)}" var="f">
                     <h:column>
                         <f:facet name="header">
                             имя файла
@@ -78,15 +78,18 @@
                     </h:column>
                 </h:dataTable>
 
-                <span class="navigationLinks">
+                <div style="text-align: right; padding-top: 5px;">
+                    <span class="navigationLinks">
                     <h:commandLink rendered="#{tabEditBean.pageId eq null}" action="#{tabEditBean.updateTab}" id="newBtn" value="Сохранить изменения"/>
-                </span>
-                <span class="navigationLinks">
                     <h:commandLink rendered="#{tabEditBean.pageId ne null}" id="updt" value="Сохранить изменения">
                         <f:ajax execute="@form" render="@form" event="click" listener="#{tabEditBean.updateTab}"/>
                     </h:commandLink>
                 </span>
+                </div>
             </h:form>
+            <br/>
+            <hr/>
+            <br/>
             <h:form rendered="#{tabEditBean.pageId ne null}" id="addFile" enctype="multipart/form-data">
                 <input type="file" name="file" />
                 <h:commandLink action="#{tabEditBean.addFile}" id="fileBtn" value="ОКЭ"/>

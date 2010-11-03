@@ -10,7 +10,8 @@ import org.sgu.oecde.core.education.estimation.EstimateNames;
 import org.sgu.oecde.core.education.work.Estimate;
 import org.sgu.oecde.core.education.work.PointToEstimate;
 import org.sgu.oecde.core.util.DateConverter;
-import org.sgu.oecde.journal.Journal;
+import org.sgu.oecde.journal.EventType;
+import org.sgu.oecde.journal.JournalService;
 import org.sgu.oecde.web.GradesService;
 import org.sgu.oecde.web.PointsFacade;
 
@@ -25,8 +26,8 @@ public class GroupPoints extends AbstractStudentsListBean{
     @ManagedProperty(value="#{gradesService}")
     private GradesService gradesService;
 
-    @ManagedProperty(value="#{journalServise}")
-    private Journal journalServise;
+    @ManagedProperty(value="#{journalService}")
+    private JournalService journalService;
 
     private List<PointsFacade>points;
 
@@ -56,7 +57,7 @@ public class GroupPoints extends AbstractStudentsListBean{
                 error=true;
             }
         }
-        journalServise.logGradesPutting(teacher, getGroup(), getCurriculum());
+        journalService.save(EventType.GRADING,teacher, getGroup(), getCurriculum());
         saved=true;
     }
 
@@ -97,7 +98,7 @@ public class GroupPoints extends AbstractStudentsListBean{
         this.saved = saved;
     }
 
-    public void setJournalServise(Journal journalServise) {
-        this.journalServise = journalServise;
+    public void setJournalService(JournalService journalService) {
+        this.journalService = journalService;
     }
 }

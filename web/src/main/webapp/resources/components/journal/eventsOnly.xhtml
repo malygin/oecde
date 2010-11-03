@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:util="http://java.sun.com/jsf/composite/components/util"
+      xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:sec="http://www.springframework.org/security/facelets/tags"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+ <!-- INTERFACE -->
+  <composite:interface>
+      <composite:attribute name="list" required="true" type="java.util.List" shortDescription="коллекция событий"/>
+  </composite:interface>
+
+  <!-- IMPLEMENTATION -->
+   <composite:implementation>
+       <h:dataTable id="events" value="#{cc.attrs.list}" var="e">
+            <h:column>
+                #{e.time}.
+                <sec:ifAnyGranted roles="ROLE_ADMIN">
+                    <ui:repeat value="#{e.bodyForAdmin}" var="b">
+                        <h:outputText rendered="#{b.type eq null}" value="#{b.text}"/>
+                        <h:outputLink rendered="#{b.type ne null}" value="#{b.type}?id=#{b.id}">#{b.text}</h:outputLink>&nbsp;
+                    </ui:repeat>
+                </sec:ifAnyGranted>
+                <sec:ifNotGranted roles="ROLE_ADMIN">
+                    <ui:repeat value="#{e.body}" var="b">
+                        <h:outputText rendered="#{b.type eq null}" value="#{b.text}"/>&nbsp;
+                        <h:outputLink rendered="#{b.type ne null}" value="#{b.type}?id=#{b.id}">#{b.text}</h:outputLink>&nbsp;
+                    </ui:repeat>
+                </sec:ifNotGranted>
+            </h:column>
+        </h:dataTable>
+   </composite:implementation>
+</html>

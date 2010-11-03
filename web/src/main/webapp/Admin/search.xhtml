@@ -21,14 +21,31 @@
             </td></tr></table>
         </h:form>
         <h:dataTable value="#{searchBean.items}" var="i" id="table">
-                <h:column>
-                    <h:panelGroup rendered="#{searchBean.type eq 'teacher' or searchBean.type eq 'student'}">
-                      <ut:userListItem type="#{searchBean.type}" u="#{i}"/>
-                    </h:panelGroup>
-                    <h:panelGroup rendered="#{searchBean.type eq 'umk'}">
+            <h:column>
+                <h:panelGroup rendered="#{searchBean.type eq 'teacher' or searchBean.type eq 'student'}">
+                  <ut:userListItem type="#{searchBean.type}" u="#{i}"/>
+                </h:panelGroup>
+                <h:panelGroup rendered="#{searchBean.type eq 'umk'}">
+                    <h:form>
                         <h:outputLink value="umk.xhtml?id=#{i.id}">#{i.name}</h:outputLink>
-                    </h:panelGroup>
-                </h:column>
-            </h:dataTable>
+                        <h:commandLink value="курс отредактирован">
+                            <f:attribute name="umk" value="#{i}"/>
+                            <f:attribute name="event" value="UMK_CREATE"/>
+                            <f:ajax execute="@this" listener="#{umkEventsBean.logEvent}"/>
+                        </h:commandLink>
+                        <h:commandLink value="курс удалён">
+                            <f:attribute name="umk" value="#{i}"/>
+                            <f:attribute name="event" value="UMK_DELETE"/>
+                            <f:ajax execute="@this" listener="#{umkEventsBean.logEvent}"/>
+                        </h:commandLink>
+                        <h:commandLink value="курс добавлен">
+                            <f:attribute name="umk" value="#{i}"/>
+                            <f:attribute name="event" value="UMK_EDIT"/>
+                            <f:ajax execute="@this" listener="#{umkEventsBean.logEvent}"/>
+                        </h:commandLink>
+                    </h:form>
+                </h:panelGroup>
+            </h:column>
+        </h:dataTable>
     </ui:define>
 </ui:composition>

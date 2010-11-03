@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -16,13 +15,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.sgu.oecde.web.authentication.CustomAuthenticationSuccessHandler;
 
-
 /**
  * @author Andrey Malygin (mailto: anmalygin@gmail.com)
  * created 24.06.2010
  *
  */
-
 @ManagedBean(name="loginBean")
 @ViewScoped
 public class LoginBean {
@@ -54,5 +51,4 @@ public class LoginBean {
     public void setRenderErrorEnter(boolean renderErrorEnter) {
         this.renderErrorEnter = renderErrorEnter;
     }
-
 }

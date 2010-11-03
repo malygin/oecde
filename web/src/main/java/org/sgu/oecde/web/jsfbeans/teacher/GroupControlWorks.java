@@ -13,7 +13,8 @@ import org.sgu.oecde.controlworks.ControlWorkProgress;
 import org.sgu.oecde.controlworks.ControlWorkService;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
-import org.sgu.oecde.journal.Journal;
+import org.sgu.oecde.journal.EventType;
+import org.sgu.oecde.journal.JournalService;
 import org.sgu.oecde.web.jsfbeans.util.NewEntry;
 
 /**
@@ -27,8 +28,8 @@ public class GroupControlWorks extends AbstractStudentsListBean{
     @ManagedProperty(value="#{controlWorkService}")
     private  ControlWorkService cwService;
 
-    @ManagedProperty(value="#{journalServise}")
-    private Journal journalServise;
+    @ManagedProperty(value="#{journalService}")
+    private JournalService journalService;
 
     private List<NewEntry<Student,ControlWork>>groupControlWorks;
 
@@ -85,13 +86,13 @@ public class GroupControlWorks extends AbstractStudentsListBean{
             e.fillInStackTrace();
             error = true;
         }
-        journalServise.logHandWrittenWorkGot(teacher, getCurriculum(), w.getStudent());
+        journalService.save(EventType.HAND_WRITTEN_CONTROL_WORK, teacher, w.getStudent(), getCurriculum());
     }
 
     public void logWorkDownload(AjaxBehaviorEvent event){
         ControlWorkAttempt a = (ControlWorkAttempt) event.getComponent().getAttributes().get("attempt");
         cwService.setWorkRead(a);
-        journalServise.logTaskHasBeenRead(teacher, getCurriculum(), a.getWork().getStudent());
+        journalService.save(EventType.TASK_HAS_BEEN_READ, teacher, a.getWork().getStudent(), getCurriculum().getDiscipline());
     }
 
     public ControlWorkProgress[] getValues(){
@@ -118,7 +119,7 @@ public class GroupControlWorks extends AbstractStudentsListBean{
         this.saved = saved;
     }
 
-    public void setJournalServise(Journal journalServise) {
-        this.journalServise = journalServise;
+    public void setJournalService(JournalService journalService) {
+        this.journalService = journalService;
     }
 }

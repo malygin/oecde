@@ -2,8 +2,7 @@ package org.sgu.oecde.journal;
 
 import org.sgu.oecde.core.BasicItem;
 import org.sgu.oecde.core.users.AbstractUser;
-import org.sgu.oecde.journal.util.EventParser;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.sgu.oecde.core.util.DateConverter;
 
 /**
  * событие
@@ -12,12 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class EventItem extends BasicItem{
     private static final long serialVersionUID = 85L;
     /**
-     * парсер события
-     */
-    @Autowired
-    EventParser eventParser;
-    /**
-     * тип события из таблички DO_JOURNAL_TYPES_EVENTS.
+     * тип события
      */
     private EventType eventType;
     /**
@@ -50,6 +44,13 @@ public class EventItem extends BasicItem{
         this.time = time;
         this.user = user;
         this.multiId = multiId;
+    }
+
+    public EventItem(AbstractUser user, Long multiId, String eventBody) {
+        this.user = user;
+        this.multiId = multiId;
+        this.eventBody = eventBody;
+        time = DateConverter.currentDate();
     }
 
     /**
@@ -134,10 +135,18 @@ public class EventItem extends BasicItem{
         this.time = time;
     }
 
+    public EventBodyElement[] getBody(){
+        return eventType!=null?eventType.parseEvent(this):new EventBodyElement[0];
+    }
+
+    public EventBodyElement[] getBodyForAdmin(){
+        return eventType!=null?eventType.parseEventForAdmin(this):new EventBodyElement[0];
+    }
+
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer(super.toString());
-        sb.append("событие: ").append(eventParser!=null?eventParser.parseEventBody(this):eventBody).append(";\n");
+        StringBuilder sb = new StringBuilder(super.toString());
+        sb.append("автор события: ").append(user).append(", дата: ").append(time).append(", тип: ").append(eventType.getRus());
         return sb.toString();
     }
 }

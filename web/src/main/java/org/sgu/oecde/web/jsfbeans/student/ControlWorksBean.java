@@ -23,7 +23,8 @@ import org.sgu.oecde.core.education.CalendarConstantName;
 import org.sgu.oecde.core.education.StringConstantsGetter;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.de.education.DeCurriculum;
-import org.sgu.oecde.journal.Journal;
+import org.sgu.oecde.journal.EventType;
+import org.sgu.oecde.journal.JournalService;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.FacesUtil;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.FileUploadUtil;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.MultipartRequestWrapper;
@@ -43,8 +44,8 @@ public class ControlWorksBean extends StudentCurriculumBean{
     @ManagedProperty(value="#{controlWorkDao}")
     private IControlWorkDao<ControlWork> controlWorkDao;
 
-    @ManagedProperty(value="#{journalServise}")
-    private Journal journalServise;
+    @ManagedProperty(value="#{journalService}")
+    private JournalService journalService;
 
     private List<Object[]>works;
 
@@ -130,7 +131,7 @@ public class ControlWorksBean extends StudentCurriculumBean{
                  if(name!=null){
                      a.setFilePath(name);
                      controlWorkDao.save(currentControlWorks);
-                     journalServise.logTaskHasBeenSent(student, currentDeCurriculum);
+                     journalService.save(EventType.TASK_HAS_BEEN_SEND_TO_PREP, student, currentDeCurriculum);
                 }else
                     return null;
             }
@@ -158,8 +159,8 @@ public class ControlWorksBean extends StudentCurriculumBean{
         this.currentDeCurriculum = currentDeCurriculum;
     }
 
-    public void setJournalServise(Journal journalServise) {
-        this.journalServise = journalServise;
+    public void setJournalService(JournalService journalService) {
+        this.journalService = journalService;
     }
 
     private class OrderByDisciplineName implements Comparator<Object[]>{

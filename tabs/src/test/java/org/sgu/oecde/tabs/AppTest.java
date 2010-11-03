@@ -1,7 +1,9 @@
 package org.sgu.oecde.tabs;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.Set;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.sgu.oecde.core.BasicTest;
@@ -14,7 +16,7 @@ import org.springframework.test.context.ContextConfiguration;
  */
 public class AppTest extends BasicTest{
 
-//    @Ignore
+    @Ignore
     @Test
     public void save(){
         setDao("tabsDao");
@@ -22,10 +24,10 @@ public class AppTest extends BasicTest{
         Page p = new Page();
         t.setName("12123qwedwe");
         t.setType(TabType.STUDENT_HELP);
-        List<Page>ps = new ArrayList<Page>();
+        Set<Page>ps = new HashSet<Page>();
         ps.add(p);
         t.setPages(ps);
-        List<PageFile>pfs = new ArrayList<PageFile>();
+        Set<PageFile>pfs = new HashSet<PageFile>();
         PageFile f = new PageFile();
         f.setName("12123");
         f.setVisible(true);
@@ -45,10 +47,10 @@ public class AppTest extends BasicTest{
         Page p = new Page();
         t.setName("555555555 5 5 5 55 ");
         t.setType(TabType.STUDENT_HELP);
-        List<Page>ps = t.getPages();
+        Set<Page>ps = t.getPages();
         ps.add(p);
         t.setPages(ps);
-        List<PageFile>pfs = new ArrayList<PageFile>();
+        Set<PageFile>pfs = new HashSet<PageFile>();
         PageFile f = new PageFile();
         f.setName("6 66 6 6 6 6 ");
         f.setVisible(true);

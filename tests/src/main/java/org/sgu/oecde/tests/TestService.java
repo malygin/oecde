@@ -90,7 +90,6 @@ public class TestService implements Serializable{
                        rPoints+=(t.getWeight()!=null&&t.getWeight()>0)?t.getWeight():TestsCountEnum.TESTS_MAXIMUM_POINTS.getDedault();
                    }
                }
-               i.remove();
             }
         }
         p.addNewWorkPoint(TestsCountEnum.CONCLUDING_TESTS_COUNT, ct);

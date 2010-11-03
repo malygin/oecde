@@ -46,7 +46,7 @@
                         попыток: #{work.estimateAttemptsUsedNumber} из #{test.estimateAttemptsNumber}<br/>
                         пробных: #{work.trialAttemptsUsedNumber} из #{test.trialNumber}<br/>
                         переэкзаменовка: #{work.reExameAttemptsUsedNumber}<br/>
-                        доступен с #{test.openDate} по #{test.closeDate}<br/>
+                        <h:outputText rendered="#{test.openDate ne null and test.closeDate ne null}" value="доступен с #{test.openDate} по #{test.closeDate}"/><br/>
                         количество вопросов: #{test.quantity}<br/>
                         предоставленное время: #{test.duration}<br/>
                         Результаты тестирования: #{work.pointsForWork}<br/>

@@ -7,7 +7,8 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.core.util.SecurityContextHandler;
-import org.sgu.oecde.journal.Journal;
+import org.sgu.oecde.journal.EventType;
+import org.sgu.oecde.journal.JournalService;
 import org.sgu.oecde.news.NewsItem;
 import org.sgu.oecde.news.dao.INewsDao;
 import org.springframework.security.access.annotation.Secured;
@@ -22,8 +23,9 @@ import org.springframework.security.access.annotation.Secured;
 public class NewsBean {
      @ManagedProperty(value="#{newsDao}")
      private INewsDao newsDao;
-     @ManagedProperty(value="#{journalServise}")
-     private Journal journal;
+
+    @ManagedProperty(value="#{journalService}")
+    private JournalService journalService;
 
      private List<NewsItem> news;
      private int countNews;
@@ -68,7 +70,7 @@ public class NewsBean {
          renderAddSuccess=true;
         Long id=newsDao.save(n);
         n.setId(id);
-        journal.logNewNews(n, SecurityContextHandler.getUser());
+        journalService.save(EventType.NEW_NEWS, SecurityContextHandler.getUser(), n);
       
     }
     
@@ -91,7 +93,7 @@ public class NewsBean {
               currentNewItem= newsDao.getById(new Long(this.currentNewId));            
               currentNewItem.setReviewNumber(currentNewItem.getReviewNumber()+1);
               newsDao.update(currentNewItem);
-              journal.logViewNews(currentNewItem, SecurityContextHandler.getUser());
+              journalService.save(EventType.NEW_NEWS, SecurityContextHandler.getUser(), currentNewItem);
         }
     }
 
@@ -174,10 +176,7 @@ public class NewsBean {
         this.currentNewItem = currentNewItem;
     }
 
-    public void setJournal(Journal journal) {
-        this.journal = journal;
+    public void setJournalService(JournalService journalService) {
+        this.journalService = journalService;
     }
-
-
-
 }

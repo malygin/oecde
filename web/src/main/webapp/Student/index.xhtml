@@ -4,6 +4,7 @@
      xmlns:f="http://java.sun.com/jsf/core"
      xmlns:h="http://java.sun.com/jsf/html"
      template="../resources/studentTemplate.xhtml"
+     xmlns:j="http://java.sun.com/jsf/composite/components/journal"
      xmlns:ut="http://java.sun.com/jsf/composite/components/util">
 
     <ui:define name="fio">
@@ -57,6 +58,8 @@
                  #{p.sum}
                </h:column>
             </h:dataTable>
+            <hr/>
+         <j:eventsOnly  list="#{journalBean.events('studentEvents',studentSessionBean.student)}"/>
         </div>
     </ui:define>
 

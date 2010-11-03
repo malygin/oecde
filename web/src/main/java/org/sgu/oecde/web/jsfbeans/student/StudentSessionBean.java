@@ -26,11 +26,11 @@ public class StudentSessionBean extends AbstractStudentBean{
             setSemester(semester);
             int correctSemester = student.getTransfered()!=null&&student.getTransfered()?0:1;
             Map<DeCurriculum,Teacher> l = curriculumDao.<DeCurriculum,Teacher>getTeachersByGroup(semesterGetter.getSemesterByStudentYear(student, semester-correctSemester).intValue(), semesterGetter.getCalendarYear(correctSemester), student.getGroup());
-            if(semester == 0)
+            if(semester == SemesterGetter.CURRENT_SEMESTER)
                 currentCurriculums=l;
             else
                 previousCurriculums=l;
         }
-        return semester == 0?currentCurriculums:previousCurriculums;
+        return semester == SemesterGetter.CURRENT_SEMESTER?currentCurriculums:previousCurriculums;
     }
 }

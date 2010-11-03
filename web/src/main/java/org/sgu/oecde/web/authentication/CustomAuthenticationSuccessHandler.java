@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.sgu.oecde.core.users.UserType;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.core.util.SwitchedUserCheker;
-import org.sgu.oecde.journal.Journal;
+import org.sgu.oecde.journal.EventType;
+import org.sgu.oecde.journal.JournalService;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
@@ -20,7 +21,7 @@ public class CustomAuthenticationSuccessHandler implements  AuthenticationSucces
 
 
     @Resource
-    Journal journal;
+    private JournalService journalService;
 
     protected CustomAuthenticationSuccessHandler() {
     }
@@ -29,7 +30,7 @@ public class CustomAuthenticationSuccessHandler implements  AuthenticationSucces
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         doRedirect(request,response,true);
         if(!SwitchedUserCheker.check(authentication.getAuthorities()))
-            journal.logSystemLogin(SecurityContextHandler.getUser(), request.getRemoteAddr());
+            journalService.save(EventType.SYSTEM_LOGIN,SecurityContextHandler.getUser(), request.getRemoteAddr());
     }
 
     public static void doRedirect(HttpServletRequest request, HttpServletResponse response, boolean returnToIndex)throws IOException, ServletException {

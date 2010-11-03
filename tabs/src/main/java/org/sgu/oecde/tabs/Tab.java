@@ -1,7 +1,8 @@
 package org.sgu.oecde.tabs;
 
-import java.util.List;
+import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
+import org.springframework.util.CollectionUtils;
 
 /**
  *
@@ -9,7 +10,7 @@ import org.sgu.oecde.core.BasicItem;
  */
 public class Tab extends BasicItem{
     private String name;
-    private List<Page>pages;
+    private Set<Page>pages;
     private TabType type;
     private static final long serialVersionUID = 158L;
 
@@ -28,11 +29,11 @@ public class Tab extends BasicItem{
         this.name = name;
     }
 
-    public List<Page> getPages() {
+    public Set<Page> getPages() {
         return pages;
     }
 
-    public void setPages(List<Page> pages) {
+    public void setPages(Set<Page> pages) {
         this.pages = pages;
     }
 
@@ -41,6 +42,8 @@ public class Tab extends BasicItem{
     }
 
     public void setType(TabType type) {
+        if(type!=null)
+            type.checkIntstantiation();
         this.type = type;
     }
 }

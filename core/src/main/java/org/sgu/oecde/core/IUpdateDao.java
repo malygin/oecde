@@ -13,7 +13,7 @@ public interface IUpdateDao<T extends BasicItem> extends IBasicDao<T>  {
 
     /**
      *
-     * @param item сущность, которая будет изменена в бд посредством {@code org.hibernate.Session.update}
+     * @param item сущность, которая будет изменена в бд посредством {@link org.hibernate.Session#update}
      * @throws DataAccessException
      */
     public void update(T item) throws DataAccessException;

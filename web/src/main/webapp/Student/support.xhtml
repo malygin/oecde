@@ -27,7 +27,7 @@
                                 <span class="controlWorksDisciplineName">
                                     <h:outputText value="#{t.name}"/>
                                 </span>
-                                <h:dataTable id="tabs" style="margin-left: 20px;" value="#{t.pages}" var="p">
+                                <h:dataTable id="tabs" style="margin-left: 20px;" value="#{setToList(t.pages)}" var="p">
                                     <h:column>
                                         <span class="navigationLinks">
                                             <img src="../resources/images/listMarker.png" alt=""/>
@@ -49,23 +49,25 @@
                     </div>
                     <div style="margin-left: 10px;">
                         <div class="controlWorksDisciplineName" style="margin-bottom: 5px;">
-                            <h:outputText id="title" value="#{tabsViewBean.currentPage.title}"/>
+                            <h:outputText id="title" value="#{setToList.getList(tabsViewBean.currentPage.title)}"/>
                         </div>
                         <div style="text-align: justify;">
                             <h:outputText escape="false" id="page" value="#{tabsViewBean.currentPage.text}"/>
+                        </div>
+                        <div style="text-align: justify;">
+                        <h:dataTable id="files" value="#{tabsViewBean.currentPage.files}" var="f">
+                            <h:column>
+                                <h:panelGroup rendered="#{f.visible}">
+                                    <h:graphicImage rendered="#{f.image}" value="../resources/userFiles/tabs/#{f.name}" alt="#{f.description}"/>
+                                    <h:outputLink rendered="#{!f.image}" value="../resources/userFiles/tabs/#{f.name}"><h:outputText value="#{f.description}"/></h:outputLink>
+                                </h:panelGroup>
+                            </h:column>
+                        </h:dataTable>
                         </div>
                     </div>
                 </td>
                 </tr>
             </table>
-            <h:dataTable id="files" value="#{tabsViewBean.currentPage.files}" var="f">
-                <h:column>
-                    <h:panelGroup rendered="#{f.visible}">
-                        <h:graphicImage rendered="#{f.image}" value="../resources/userFiles/tabs/#{f.name}" alt="#{f.description}"/>
-                        <h:outputLink rendered="#{!f.image}" value="../resources/userFiles/tabs/#{f.name}"><h:outputText value="#{f.description}"/></h:outputLink>
-                    </h:panelGroup>
-                </h:column>
-            </h:dataTable>
         </div>
     </ui:define>
 </ui:composition>

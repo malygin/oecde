@@ -3,7 +3,7 @@ package org.sgu.oecde.journal.dao;
 import java.util.List;
 import org.sgu.oecde.core.IBasicDao;
 import org.sgu.oecde.journal.EventItem;
-import org.sgu.oecde.journal.filter.BaseFilter;
+import org.sgu.oecde.journal.FilterType;
 import org.springframework.dao.DataAccessException;
 
 /**
@@ -18,7 +18,7 @@ public interface IJournalDao extends IBasicDao<EventItem>{
      * @return
      * @throws DataAccessException
      */
-    public int getCountOfEvents(BaseFilter filter) throws DataAccessException;
+    public int getCountOfEvents(FilterType filter) throws DataAccessException;
 
     /**
      * возвращает события
@@ -26,7 +26,7 @@ public interface IJournalDao extends IBasicDao<EventItem>{
      * @return
      * @throws DataAccessException
      */
-    public List<EventItem> getEvents(BaseFilter filter) throws DataAccessException;
+    public List<EventItem> getEvents(FilterType filter, int papeNumber) throws DataAccessException;
 
     /**
      * сохраняет полученное событие

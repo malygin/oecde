@@ -3,6 +3,8 @@ package org.sgu.oecde.web.jsfbeans.tabs;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -18,6 +20,7 @@ import org.sgu.oecde.web.jsfbeans.util.fileUpload.FileUploadUtil;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.MultipartRequestWrapper;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.UploadFile;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.util.CollectionUtils;
 
 /**
  *
@@ -108,8 +111,8 @@ public class TabEditBean implements Serializable{
         }
     }
 
-    public TabType[] getTypes(){
-        return TabType.values();
+    public List<TabType> getTypes(){
+        return TabType.getAllowedTypes();
     }
 
     public void setTab(Tab tab) {
@@ -119,7 +122,7 @@ public class TabEditBean implements Serializable{
     public Page getPage() {
         if(page == null){
             page = new Page();
-            page.setFiles(new ArrayList<PageFile>());        
+            page.setFiles(new HashSet<PageFile>());
         }
         return page;
     }

@@ -1,15 +1,10 @@
 package org.sgu.oecde.journal.dao;
 
 import java.util.List;
-import java.util.Set;
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Projections;
-import org.hibernate.criterion.Property;
+import org.hibernate.Query;
 import org.sgu.oecde.core.BasicDao;
 import org.sgu.oecde.journal.EventItem;
-import org.sgu.oecde.journal.EventType;
-import org.sgu.oecde.journal.filter.BaseFilter;
-import org.sgu.oecde.journal.filter.StudentFilter;
+import org.sgu.oecde.journal.FilterType;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,21 +27,18 @@ public class JournalDAO extends BasicDao<EventItem> implements IJournalDao {
     /**
      * {@inheritDoc }
      */
-    public int getCountOfEvents(BaseFilter filter) throws DataAccessException {
-        Criteria cr = getSession().createCriteria(type).setProjection(Projections.rowCount());
-        processFilter(filter, cr);
-        List<Long> list =  cr.setCacheable(true).list();
+    public int getCountOfEvents(FilterType filter) throws DataAccessException {
+        Query cr = getSession().createQuery(processFilter(filter).insert(0, "select count(*) ").toString());
+        List<Long> list =  cr.list();
         return !CollectionUtils.isEmpty(list)?Long.valueOf(list.get(0)).intValue():0;
     }
 
     /**
      * {@inheritDoc }
      */
-    public List<EventItem> getEvents(BaseFilter filter) throws DataAccessException {
-        int beginIndex = filter.getCapacity() * (filter.getPageNumber() - 1) + 1;
-        int endIndex = filter.getCapacity() * filter.getPageNumber();
-        Criteria cr = getSession().createCriteria(type).setCacheable(true).setFirstResult(beginIndex).setMaxResults(endIndex);
-        processFilter(filter, cr);
+    public List<EventItem> getEvents(FilterType filter,int pageNumber) throws DataAccessException {
+        int beginIndex = filter.getCapacity() * pageNumber ;
+        Query cr = getSession().createQuery(processFilter(filter).toString()).setFirstResult(beginIndex).setMaxResults(filter.getCapacity());
         return cr.list();
     }
 
@@ -58,15 +50,11 @@ public class JournalDAO extends BasicDao<EventItem> implements IJournalDao {
         getSession().save(evItem);
     }
 
-    private void processFilter(BaseFilter filter,Criteria cr) {
+    private StringBuilder processFilter(FilterType filter) {
         Assert.notNull(filter);
-        Assert.notNull(cr);
-        cr.add(Property.forName("time").between(filter.getBeginDate(), filter.getEndDate()));
-        Set<EventType> events = filter.getEvents();
-        if (events.size() == 0 && filter instanceof StudentFilter) {
-            filter.addEventType(EventType.OWN_MESSAGE);
-            filter.addEventType(EventType.NEW_NEWS);
-        }
-        cr.add(Property.forName("eventType").in(events));
+        StringBuilder sb = new StringBuilder("from EventItem e where e.time between '");
+        sb.append(filter.getBeginDate()).append("' and '").append(filter.getEndDate()).append("' ");
+        filter.addCondition(sb);
+        return sb;
     }
 }

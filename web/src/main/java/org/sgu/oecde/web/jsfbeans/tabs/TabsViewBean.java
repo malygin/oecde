@@ -67,7 +67,7 @@ public class TabsViewBean implements Serializable{
             tabs = tabsDao.getByExample(example);
             if(!CollectionUtils.isEmpty(tabs))
                 if(!CollectionUtils.isEmpty(tabs.get(0).getPages()))
-                    currentPage = tabs.get(0).getPages().get(0);
+                    currentPage = tabs.get(0).getPages().iterator().next();
         }
     }
 }

@@ -30,7 +30,7 @@ import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
-import org.sgu.oecde.journal.Journal;
+import org.sgu.oecde.journal.JournalService;
 import org.sgu.oecde.tests.Answer;
 import org.sgu.oecde.tests.AnsweredQuestion;
 import org.sgu.oecde.tests.GivenAnswer;
@@ -100,10 +100,8 @@ public class TestPassingBean implements Serializable {
     private ResourceService resourceService;
     @ManagedProperty(value="#{testAttemptService}")
     private TestAttemptService testAttemptService;
-    @ManagedProperty(value="#{journalServise}")
-    private Journal journal;
-    @Resource
-    private SemesterGetter semesterGetter;
+    @ManagedProperty(value="#{journalService}")
+    private JournalService journalService;
 
     public TestPassingBean() {
           currentUser = SecurityContextHandler.getUser();
@@ -287,7 +285,6 @@ public class TestPassingBean implements Serializable {
              attempt.setType(testAttemptType);
              attempt.setDate(DateConverter.currentDate());
              testAttemptDao.saveAttempt(attempt);
-             journal.logTestGrading(currentUser, testView.getId(), curriculum.getUmk().getId());
              attempt=null;}
     }
 
@@ -514,17 +511,7 @@ public class TestPassingBean implements Serializable {
         this.testAttemptService = testAttemptService;
     }
 
-    public void setJournal(Journal journal) {
-        this.journal = journal;
-    }
-
-    public void setSemesterGetter(SemesterGetter semesterGetter) {
-        this.semesterGetter = semesterGetter;
-    }
-
-
+    public void setJournalService(JournalService journalService) {
+        this.journalService = journalService;
+    }    
   }
-
-
-
-

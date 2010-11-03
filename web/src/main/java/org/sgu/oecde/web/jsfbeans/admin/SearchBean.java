@@ -17,8 +17,10 @@ import org.sgu.oecde.search.SearchType;
 @ManagedBean(name="searchBean")
 @ViewScoped
 public class SearchBean implements Serializable{
+    
     @ManagedProperty(value="#{searchEngine}")
     private SearchEngine searchEngine;
+
     private String keyWord;
     private List<BasicItem>items;
     private SearchType type = SearchType.student;

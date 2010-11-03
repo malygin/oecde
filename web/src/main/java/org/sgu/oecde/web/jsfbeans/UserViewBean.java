@@ -81,8 +81,14 @@ public class UserViewBean implements Serializable{
     }
 
     public void setId(Long id) {
-        Assert.notNull(type);
-        Assert.notNull(id);
+        this.id = id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
         UserType t = UserType.valueOf(type);
         switch(t){
             case ADMIN:
@@ -100,14 +106,6 @@ public class UserViewBean implements Serializable{
             default:
                 throw new IllegalAccessError();
         }
-        this.id = id;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
         this.type = type;
     }
 

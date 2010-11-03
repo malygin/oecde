@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:util="http://java.sun.com/jsf/composite/components/util"
+      xmlns:j="http://java.sun.com/jsf/composite/components/journal"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+ <!-- INTERFACE -->
+  <composite:interface>
+      <composite:attribute name="type" required="true" type="java.lang.String" shortDescription="тип фильтра"/>
+      <composite:attribute name="object" shortDescription="айди, либо пользователь"/>
+  </composite:interface>
+
+  <!-- IMPLEMENTATION -->
+   <composite:implementation>
+         <h:form>
+            <h:dataTable value="#{journalBean.getAvailableEvents(cc.attrs.type,cc.attrs.object)}" var="e">
+                <h:column>
+                    <h:selectBooleanCheckbox value="#{e.chosen}"/>#{e.eventType.rus}
+                </h:column>
+            </h:dataTable>
+
+            <util:date_picker value="#{journalBean.filter.beginDate}"/>beginDate
+            <util:date_picker value="#{journalBean.filter.endDate}"/>endDate
+
+            <h:commandButton value="ок">
+                <f:ajax execute="@form" render="@form" listener="#{journalBean.clearEvents}"/>
+            </h:commandButton>
+
+
+           <util:navigationList numElements="#{journalBean.eventsCount}" elementOnPage="#{journalBean.filter.capacity}"/>
+           <j:eventsOnly  list="#{journalBean.events}"/>
+           <util:navigationList numElements="#{journalBean.eventsCount}" elementOnPage="#{journalBean.filter.capacity}"/>
+        </h:form>
+   </composite:implementation>
+</html>

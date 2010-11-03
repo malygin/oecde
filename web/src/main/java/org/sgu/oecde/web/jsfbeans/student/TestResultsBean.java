@@ -1,4 +1,4 @@
-package org.sgu.oecde.web.jsfbeans.tests;
+package org.sgu.oecde.web.jsfbeans.student;
 
 import java.util.List;
 import javax.faces.bean.ManagedBean;
