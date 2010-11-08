@@ -127,10 +127,11 @@ public class TestPassingBean implements Serializable {
                             testView=work.getWork();
                             checkTestAttemptType(work);
                             questions=new ArrayList<Question>(testView.getQuestions());
-                            attempt.setWork(testView);
-                            makeQuestionList();
-                            beginDate= System.currentTimeMillis();
-                            renderNoAccess=false;
+                            if (!questions.isEmpty()){
+                                attempt.setWork(testView);
+                                makeQuestionList();
+                                beginDate= System.currentTimeMillis();
+                                renderNoAccess=false;}
                     }
            }
        }
@@ -284,7 +285,7 @@ public class TestPassingBean implements Serializable {
              attempt.setStudent((AbstractStudent) currentUser);
              attempt.setType(testAttemptType);
              attempt.setDate(DateConverter.currentDate());
-             testAttemptDao.saveAttempt(attempt);
+          //   testAttemptDao.saveAttempt(attempt);
              attempt=null;}
     }
 
