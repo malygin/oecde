@@ -8,6 +8,7 @@ package org.sgu.oecde.web.jsfbeans.chat;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Stack;
 import javax.faces.bean.ManagedProperty;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,6 +21,8 @@ import org.sgu.oecde.chat.IChatDao;
 import org.sgu.oecde.core.users.Admin;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.users.UserType;
+import org.sgu.oecde.core.util.DateConverter;
+import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.de.users.Student;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -32,8 +35,9 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 @WebServlet(value="/ChatList", loadOnStartup=1)
 public class ChatList extends HttpServlet {
     private static final int number=25;
-   
-    /** 
+    private List<ChatMessage> list;
+
+    /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
      * @param response servlet response
@@ -43,12 +47,28 @@ public class ChatList extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
-            IChatDao myDao = (IChatDao) context.getBean("chatDao");
+          //  System.out.println("!" +list);
+            if (list == null){
+              ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+              IChatDao myDao = (IChatDao) context.getBean("chatDao");
 
-            List<ChatMessage> list = myDao.getChatList(1L, number);
+              list= myDao.getChatList(1L, number);
+
+            }
+            if(request.getParameter("message")!=null){
+              ChatMessage message=new ChatMessage();
+              message.setAuthor(SecurityContextHandler.getUser());
+              message.setDateMessage(DateConverter.convert(System.currentTimeMillis()));
+              message.setMessage(!request.getParameter("message").equals("")?request.getParameter("message"):" ");
+              list.add(0, message);
+                  ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+                  IChatDao myDao = (IChatDao) context.getBean("chatDao");
+                  myDao.save(message);
+            }
+
             StringBuffer str=new StringBuffer();
             str.append("{\"Super\": [");
                     for(ChatMessage l:list ){
@@ -80,13 +100,13 @@ public class ChatList extends HttpServlet {
              str.append(" ]}");
              out.println(str);
 
-        } finally { 
+        } finally {
             out.close();
         }
-    } 
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /** 
+    /**
      * Handles the HTTP <code>GET</code> method.
      * @param request servlet request
      * @param response servlet response
@@ -97,9 +117,9 @@ public class ChatList extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         processRequest(request, response);
-    } 
+    }
 
-    /** 
+    /**
      * Handles the HTTP <code>POST</code> method.
      * @param request servlet request
      * @param response servlet response
@@ -112,7 +132,7 @@ public class ChatList extends HttpServlet {
         processRequest(request, response);
     }
 
-    /** 
+    /**
      * Returns a short description of the servlet.
      * @return a String containing servlet description
      */

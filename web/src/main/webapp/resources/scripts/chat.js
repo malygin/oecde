@@ -2,13 +2,25 @@
        $(document).ready(function(){
                  update();
                  $('#button').click(function(){
-                       $.post('/web/ChatSend',
+                       $.post('/web/ChatList',
                               { message: $('#message').val()},
                               function(data){
                                     update();
                                     $('#message').val('');
                                }
-                       );});
+                       );
+                       });
+                  $('#message').keypress(function(e) {
+                        if(e.which == 13) {
+                           $.post('/web/ChatList',
+                              { message: $('#message').val()},
+                              function(data){
+                                    update();
+                                    $('#message').val('');
+                              }
+                            );
+                        }
+                    });
         });
 
          function update(){
@@ -18,7 +30,7 @@
                             $.each(object.Super, function() {
                                      $('#chatShortHistory').prepend( '<div class="chatPost"><span><span class="'+this.type+'"><a href="#">'+this.fio+'</a></span><span class="chatPostDate">'+this.date+'</span><div class="floatDestroyer"/></span><span class="chatPostText">'+this.message+'</span><div class="floatDestroyer"/></div>');
                             });
-                            $('#chatShortHistory').scrollTop(1000);
+                            $('#chatShortHistory').scrollTop(2000);
              });
              setTimeout('update()', 11000);
          }

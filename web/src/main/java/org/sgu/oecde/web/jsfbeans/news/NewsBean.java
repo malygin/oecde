@@ -16,7 +16,7 @@ import org.springframework.security.access.annotation.Secured;
 /**
  * @author Andrey Malygin (mailto: anmalygin@gmail.com)
  * created 19.07.2010
- * 
+ *
  */
 @ManagedBean(name="NewsBean")
 @ViewScoped
@@ -71,9 +71,9 @@ public class NewsBean {
         Long id=newsDao.save(n);
         n.setId(id);
         journalService.save(EventType.NEW_NEWS, SecurityContextHandler.getUser(), n);
-      
+
     }
-    
+
     @Secured("ROLE_ADMIN")
     public void edit(){
          renderAddSuccess=true;
@@ -85,12 +85,12 @@ public class NewsBean {
     }
     public int getCountNews(){
         return newsDao.getNewsCount();
-    }   
+    }
 
     public void  setCurrentNewId(String id){
         if (!id.equals("0")){
               this.currentNewId=id;
-              currentNewItem= newsDao.getById(new Long(this.currentNewId));            
+              currentNewItem= newsDao.getById(new Long(this.currentNewId));
               currentNewItem.setReviewNumber(currentNewItem.getReviewNumber()+1);
               newsDao.update(currentNewItem);
               journalService.save(EventType.NEW_NEWS, SecurityContextHandler.getUser(), currentNewItem);
@@ -99,7 +99,7 @@ public class NewsBean {
 
     public String getCurrentNewId() {
         return currentNewId;
-    }  
+    }
 
     public void setNewsDao(INewsDao newsDao) {
         this.newsDao = newsDao;
