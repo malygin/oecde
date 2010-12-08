@@ -14,7 +14,9 @@
 
     <!-- IMPLEMENTATION -->
     <composite:implementation>
-
+         <h:panelGroup rendered="#{empty cc.attrs.list}">
+            сообщений нет!
+        </h:panelGroup>
         <r:forEach items="#{cc.attrs.list}" varStatus="i" var="message">
             <h:form id="formList${i.count}">
                 <div class="studentInterfaceStandartList">

@@ -13,7 +13,11 @@
     </composite:interface>
 
     <!-- IMPLEMENTATION -->
-    <composite:implementation>         
+    <composite:implementation>
+        <h:panelGroup rendered="#{empty cc.attrs.list}">
+            сообщений нет!
+        </h:panelGroup>
+   
         <r:forEach items="#{cc.attrs.list}" var="message" varStatus="i">
             <h:form id="formList${i.count}">
                 <div class="studentInterfaceStandartList">

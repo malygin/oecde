@@ -105,6 +105,15 @@ public class NewsBean {
         this.newsDao = newsDao;
     }
 
+    public JournalService getJournalService() {
+        return journalService;
+    }
+
+    public INewsDao getNewsDao() {
+        return newsDao;
+    }
+    
+
     public int getCurrentPage() {
         return currentPage;
     }

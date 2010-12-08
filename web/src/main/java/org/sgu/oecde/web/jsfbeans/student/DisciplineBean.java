@@ -51,6 +51,7 @@ public class DisciplineBean extends StudentCurriculumBean{
                 }
             }
         }
+        
         return tests;
     }
 
