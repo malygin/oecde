@@ -15,16 +15,9 @@
 	<script type="text/javascript" src="../resources/jquery/js/jquery-1.4.2.min.js"></script>
 	<script type="text/javascript" src="../resources/jquery/js/jquery-ui-1.8.4.custom.min.js"></script>
         <script type="text/javascript" src="../resources/jquery/js/jquery.jCountr.js"></script>
-
-     
-
-        <h:panelGroup rendered="#{testPassingBean.renderNoAccess}">
-          Нет доступа!
-        </h:panelGroup>
-
-        <h:panelGroup rendered="#{not testPassingBean.renderNoAccess}">
-        <script type="text/javascript">
-           $(function(){
+        <script type="text/javascript" src="../resources/scripts/test.js"></script>
+<script>
+      $(function(){
             $("#counter").counter({
                       min:'#{testPassingBean.timeTest}',
                       sec:'0',
@@ -32,28 +25,20 @@
                       finish_function: 'checkTime()' });
 
 	   });
+</script>
 
-           $(window).bind('beforeunload', function(){
-		return 'Ваша попытка не будет засчитана, вы уверены?';
-	   });
+        <h:panelGroup rendered="#{testPassingBean.renderNoAccess}">
+          Нет доступа!
+        </h:panelGroup>
 
-
-         function checkTime() {
-           document.getElementById('testForm:completeTest').click();
-
-        }
-         function removeCounter() {
-          $("#counter").remove();
-
-        }
-
-	</script>
+        <h:panelGroup rendered="#{not testPassingBean.renderNoAccess}">
+      
          <span id="counter"></span><br/>
          <h:form id="testForm">
    
                 
              <h:panelGroup id="mainPanel" rendered="#{not testPassingBean.renderCompleteTest}">
-                     <h:outputText escape="false" value="#{testPassingBean.questionTitle}"/><br/>
+                     <h:outputText escape="true" value="#{testPassingBean.questionTitle}"/><br/>
                      <h:panelGroup id="radioType" rendered="#{question.type=='radio'}">
                          <h:selectOneRadio converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}">
                           <f:selectItems     value="#{testPassingBean.answers}"/><br/>
@@ -75,10 +60,12 @@
                              <li> <h:outputText value="#{a.title}"/> --  <h:outputText value="#{a.title2}"/></li>
                           </ui:repeat>
                           </ol>
-
                           <ol>
                           <ui:repeat value="#{testPassingBean.answerComparisnView}"  var="a">
-                              <li><h:inputText value="#{a.answer}"/></li>
+                              <li><h:inputText styleClass="numberField" onkeyup="if(isNaN(parseInt(this.value))){this.value='';}"  value="#{a.answer}">
+                               
+                              </h:inputText>
+                              </li>
                           </ui:repeat>
                           </ol>
                      </h:panelGroup>

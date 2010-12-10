@@ -313,7 +313,7 @@ public class TestPassingBean implements Serializable {
         if ((type==QuestionType.radio)||(type==QuestionType.check)){       
             answers=new ArrayList<SelectItem>();
             for(Answer a:currentQustionView.getQuestion().getAnswers()){
-                answers.add(new SelectItem(a, checkForFormulaOrLink(a.getTitle())));
+                answers.add(new SelectItem(a, checkForFormulaOrLink(a.getTitle())+a.getRightAnswer()));
             }
         }
         if ((type==QuestionType.comparison)){       

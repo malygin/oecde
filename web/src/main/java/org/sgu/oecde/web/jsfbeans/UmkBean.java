@@ -21,6 +21,7 @@ import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.web.ResourceService;
 import org.sgu.oecde.web.jsfbeans.util.HTMLSanitiser;
+import org.springframework.util.ObjectUtils;
 
 /**
  * @author Andrey Malygin (mailto: anmalygin@gmail.com)
@@ -53,6 +54,11 @@ public class UmkBean implements Serializable {
 
     final private String mainUrl="http://baldr.sgu.ru/textbooks/";
     private String currentUrl="";
+    private final static String[] types = new String[]{"pdf"
+                                                      ,"doc"
+                                                      ,"docx"
+                                                      ,"ppt"};
+
  
    // private String
 
@@ -62,11 +68,16 @@ public class UmkBean implements Serializable {
     public String getTask() throws MalformedURLException, IOException {      
       String str="";
       URL url = new URL(currentUrl+"/"+currentTask.getUrl());
-      StringBuffer strbuf = new StringBuffer();
-      BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));    
-      while ((str = in.readLine()) != null) {strbuf.append(str);}    
-      str=strbuf.toString().replaceAll("src=\"", "src=\""+currentUrl+"/");
-      return HTMLSanitiser.encodeInvalidMarkup(str);
+
+      StringBuilder strbuf = new StringBuilder();
+      BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
+      String[] type= currentTask.getUrl().split("\\.");
+      if (!ObjectUtils.containsElement(types, type[1])){
+          while ((str = in.readLine()) != null) {strbuf.append(str);}
+          str=strbuf.toString().replaceAll("src=\"", "src=\""+currentUrl+"/");
+          return HTMLSanitiser.encodeInvalidMarkup(str);}
+      else return "Вы можете скачать этот файл! <br/>"
+              + "<a href=\""+url+"\"> скачать файл</a>";
     }
 
    
