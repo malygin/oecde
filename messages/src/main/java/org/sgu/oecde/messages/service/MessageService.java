@@ -30,19 +30,28 @@ public class MessageService {
 
     /**
      * Создание списка фасадов для вывода из списка сообщений
+     * @todo поставить веселое условие о том куда это список если на выход то проверка на чтение другая- просто прочел ли адрессат
      * @param user - тукущий пользователь
      * @param messages - список сообщений
      * @return - список фасадов
      */
-    private List<MessageImpl>  SetMessageListReaded(AbstractUser user, List <Message> messages){
+    private List<MessageImpl>  SetMessageListReaded(AbstractUser user, List <Message> messages, String type){
        List<MessageImpl> messageImpls= new ArrayList();
         for(Message l:messages){
            MessageImpl messageImpl = new MessageImpl();
            messageImpl.setMessage(l);
-           for(MessageRecipient r:l.getRecipients()){
-               if (r.getRecipient().getId().equals(user.getId())){
-                  messageImpl.setReaded(r.getReaded());
-               }
+           if(type.equals("out")){
+                 for(MessageRecipient r:l.getRecipients()){
+                  // if (r.getRecipient().g{
+                      messageImpl.setReaded(r.getReaded());
+                  // }
+                }
+           }else{
+               for(MessageRecipient r:l.getRecipients()){
+                   if (r.getRecipient().getId().equals(user.getId())){
+                      messageImpl.setReaded(r.getReaded());
+                   }
+                }
            }
            messageImpls.add(messageImpl);
        }
@@ -58,7 +67,7 @@ public class MessageService {
     */
     public List<MessageImpl> getListInAll(AbstractUser user, int messageOnPage, int numPage) throws DataAccessException{
       List <Message> messages=messageDao.getList(user,"in", messageOnPage, numPage);
-      return SetMessageListReaded(user, messages);
+      return SetMessageListReaded(user, messages,"in");
     }
 
     /**
@@ -71,7 +80,7 @@ public class MessageService {
 
     public List<MessageImpl> getListOutAll(AbstractUser user, int messageOnPage, int numPage) throws DataAccessException{
       List <Message> messages=messageDao.getList(user,"out", messageOnPage, numPage);
-      return SetMessageListReaded(user, messages);
+      return SetMessageListReaded(user, messages,"out");
     }
 
    /**
@@ -84,7 +93,7 @@ public class MessageService {
     @SuppressWarnings("unchecked")
     public List<MessageImpl> getListArchive(AbstractUser user, int messageOnPage, int numPage) throws DataAccessException{
       List <Message> messages=messageDao.getList(user,"arch", messageOnPage, numPage);
-      return SetMessageListReaded(user, messages);
+      return SetMessageListReaded(user, messages,"in");
     }
 
    /**
@@ -95,7 +104,7 @@ public class MessageService {
      */
     @SuppressWarnings("unchecked")
     public List<MessageImpl> getListDialog(AbstractUser current_user, Long user) throws DataAccessException{
-       return SetMessageListReaded(current_user, messageDao.getListDialog(current_user, user));
+       return SetMessageListReaded(current_user, messageDao.getListDialog(current_user, user),"in");
     }
 
     /**
