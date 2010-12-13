@@ -54,7 +54,7 @@ public class NewsDAO extends BasicDao<NewsItem> implements INewsDao{
     @Transactional
     @Override
     public void update(NewsItem item) throws DataAccessException {
-        getSession().saveOrUpdate(item);
+        getSession().merge(item);
     }
 
    

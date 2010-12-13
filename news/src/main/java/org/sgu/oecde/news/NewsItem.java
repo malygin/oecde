@@ -3,7 +3,8 @@ package org.sgu.oecde.news;
 import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
 import org.sgu.oecde.core.users.Admin;
-
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Size;
 /**
  *
  * @author ShihovMY
@@ -17,6 +18,7 @@ public class NewsItem extends BasicItem{
     /**
      * анонс
      */
+    @Size(max=250,message="слишком длинный анонс")
     private String announcement;
     /**
      * полная новость

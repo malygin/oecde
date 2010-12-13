@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.concurrent.TimeUnit;
@@ -28,6 +29,7 @@ import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.core.util.SemesterGetter;
+import org.sgu.oecde.core.util.SwitchedUserCheker;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.journal.JournalService;
@@ -44,6 +46,8 @@ import org.sgu.oecde.tests.TestService;
 import org.sgu.oecde.tests.dao.TestAttemptDao;
 import org.sgu.oecde.web.ResourceService;
 import org.sgu.oecde.web.jsfbeans.util.HTMLSanitiser;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
  * бин для прохождения теста
@@ -168,8 +172,7 @@ public class TestPassingBean implements Serializable {
      */
     public void answer() throws MalformedURLException, IOException{
        questionsView[iterQ].setAnswered(true);       
-       AnsweredQuestion answeredQuestion =new AnsweredQuestion();
-       //@todo проверить нормально ли что я кладу в вопрос еще не сформированную попытку
+       AnsweredQuestion answeredQuestion =new AnsweredQuestion();    
        answeredQuestion.setAttempt(attempt);
        HashSet givenAnswers=new HashSet();
        Boolean rightQuestion=false;
@@ -275,18 +278,21 @@ public class TestPassingBean implements Serializable {
        */
 
     public void completeTest(){
-        if (attempt!=null){
-             renderCompleteTest=true;
-             attempt.setPoints(points);
-             attempt.setRightAnswers(countRight);
-             attempt.setDuration(new Integer(Long.toString(TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis()-beginDate))));
-             attempt.setAnsweredQuestions(answeredQuestions);
-             attempt.setCurriculum(curriculum);
-             attempt.setStudent((AbstractStudent) currentUser);
-             attempt.setType(testAttemptType);
-             attempt.setDate(DateConverter.currentDate());
-          //   testAttemptDao.saveAttempt(attempt);
-             attempt=null;}
+        Collection<GrantedAuthority> authority = SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+        if(!SwitchedUserCheker.check(authority)){
+            if (attempt!=null){
+                 renderCompleteTest=true;
+                 attempt.setPoints(points);
+                 attempt.setRightAnswers(countRight);
+                 attempt.setDuration(new Integer(Long.toString(TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis()-beginDate))));
+                 attempt.setAnsweredQuestions(answeredQuestions);
+                 attempt.setCurriculum(curriculum);
+                 attempt.setStudent((AbstractStudent) currentUser);
+                 attempt.setType(testAttemptType);
+                 attempt.setDate(DateConverter.currentDate());
+              //   testAttemptDao.saveAttempt(attempt);
+                 attempt=null;}
+        }
     }
 
    

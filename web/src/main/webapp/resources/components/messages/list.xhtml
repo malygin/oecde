@@ -18,8 +18,9 @@
             сообщений нет!
         </h:panelGroup>
    
-        <r:forEach items="#{cc.attrs.list}" var="message" varStatus="i">
-            <h:form id="formList${i.count}">
+        <h:dataTable value="#{cc.attrs.list}" var="message" >
+          <h:column>
+            <h:form id="formList">
                 <div class="studentInterfaceStandartList">
                     <div>
                         <div style="float: left;">
@@ -31,7 +32,9 @@
                                         </span>
                                     </td>
                                     <td>
-                                        <div class="linkToStudentsProfile"><a href="#"><h:outputText value="#{message.fioAuthor}"/></a> (<h:outputText value="#{message.typeAuthor}"/>)</div>
+                                        <div class="linkToStudentsProfile"><a href="#"><h:outputText value="#{message.fioAuthor}"/></a> (<h:outputText value="#{message.typeAuthor}"/>)
+                                           <h:panelGroup rendered="#{not message.readed}"><font color="red">Новое</font></h:panelGroup>
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr>
@@ -83,6 +86,7 @@
                     </table>
                 </div>
             </h:form>
-        </r:forEach>
+          </h:column>
+        </h:dataTable>
     </composite:implementation>
 </html>

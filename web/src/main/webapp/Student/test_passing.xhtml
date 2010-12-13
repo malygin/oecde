@@ -38,7 +38,7 @@
    
                 
              <h:panelGroup id="mainPanel" rendered="#{not testPassingBean.renderCompleteTest}">
-                     <h:outputText escape="true" value="#{testPassingBean.questionTitle}"/><br/>
+                     <h:outputText escape="false" value="#{testPassingBean.questionTitle}"/><br/>
                      <h:panelGroup id="radioType" rendered="#{question.type=='radio'}">
                          <h:selectOneRadio converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}">
                           <f:selectItems     value="#{testPassingBean.answers}"/><br/>

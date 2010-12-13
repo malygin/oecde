@@ -35,20 +35,19 @@
             <li><a href="testResults.xhtml?s=1"> #{msgs.student_eduMenuWinterTestsResults}</a></li>
         </ol>
         <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_messMenuTitle}</p></div>
-        <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="messages_list.xhtml">#{msgs.student_messMenuIn} #{MessageCountNewBean.newMessages}) </a></div></div>
+        <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="messages_list.xhtml">#{msgs.student_messMenuIn}
+                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages>0}"><font color="red">#{MessageCountNewBean.newMessages}</font></h:panelGroup>
+                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages&lt;1}">#{MessageCountNewBean.newMessages}</h:panelGroup>
+                    )</a></div></div>
         <ol class="leftSideMenuLinks">
-            <li><a href="messages_write.xhtml">#{msgs.student_messMenuWrite}</a></li>
+<!--            <li><a href="messages_write.xhtml">#{msgs.student_messMenuWrite}</a></li>-->
             <li><a href="messages_out.xhtml">#{msgs.student_messMenuOut}</a></li>
 
         </ol>
         <div class="violMenuTitle"><p class="sideBarTitle">#{msgs.student_chatMenuTitle}</p></div>
         <div class="sideBarUnderTitleText"><div class="violUnderTitleLink"><a href="#">#{msgs.student_generalChatLink} </a></div></div>
-  
-        <div id="chatShortHistory" class="chatShortHistory">
-         
-     
+        <div id="chatShortHistory" class="chatShortHistory"> 
         </div>
-
         <div class="smallChatTools">
             <input id="message"/><button id="button"></button>
             <div style="height:18px;"></div>

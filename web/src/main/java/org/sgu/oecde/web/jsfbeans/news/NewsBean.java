@@ -5,6 +5,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.validation.constraints.Size;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.journal.EventType;
@@ -43,6 +44,8 @@ public class NewsBean {
 
      //поля для добавления новостей
      private String header;
+
+     @Size(max=250,message="слишком длинный анонс")
      private String anons;
      private String fulltext;
 
@@ -70,7 +73,7 @@ public class NewsBean {
          renderAddSuccess=true;
         Long id=newsDao.save(n);
         n.setId(id);
-        journalService.save(EventType.NEW_NEWS, SecurityContextHandler.getUser(), n);
+       // journalService.save(EventType.NEW_NEWS, SecurityContextHandler.getUser(), n);
 
     }
 
@@ -93,7 +96,7 @@ public class NewsBean {
               currentNewItem= newsDao.getById(new Long(this.currentNewId));
               currentNewItem.setReviewNumber(currentNewItem.getReviewNumber()+1);
               newsDao.update(currentNewItem);
-              journalService.save(EventType.NEW_NEWS, SecurityContextHandler.getUser(), currentNewItem);
+              journalService.save(EventType.NEWS_VIEW, SecurityContextHandler.getUser(), currentNewItem);
         }
     }
 

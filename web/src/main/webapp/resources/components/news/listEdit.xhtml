@@ -18,15 +18,17 @@
                          <h:outputText  rendered="#{NewsBean.renderDeleteSuccess}" value="Удалена новость"/>
                          <h:commandLink rendered="#{not NewsBean.renderDeleteSuccess}"  action="#{NewsBean.delete}" value="Удалить" >
                             <f:setPropertyActionListener target="#{NewsBean.newIdDelete}" value="#{new.id}" />
-                                         <f:ajax  execute="@this" render="@form" />
-                         </h:commandLink><br/>
+                            <f:ajax  execute="@this" render="@form" />
+                         </h:commandLink>
+                         <h:outputLink value="news_read.xhtml?id=#{new.id}" rendered="#{not NewsBean.renderDeleteSuccess}">
+                            редактировать
+                        </h:outputLink>
+                         <br/>
                     <b>#{new.time}</b>
                     #{new.header}<br/>
                     #{new.announcement}<br/>
-                       #{new.reviewNumber}<br/>
-                    <h:outputLink value="news_read.xhtml?id=#{new.id}" rendered="#{not NewsBean.renderDeleteSuccess}">
-                    редактировать
-                    </h:outputLink>
+                    Количество просмотров -#{new.reviewNumber}<br/><br/>
+                  
                  
                     </h:form>
                 </h:column>

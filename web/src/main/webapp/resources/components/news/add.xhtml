@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:composite="http://java.sun.com/jsf/composite"
     xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core">
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:util="http://java.sun.com/jsf/composite/components/util">
 
  <!-- INTERFACE -->
   <composite:interface>
@@ -13,14 +14,17 @@
   <!-- IMPLEMENTATION -->
   <composite:implementation>
       <h:form>
-          <h:outputText  rendered="#{NewsBean.renderAddSuccess}" value="Добавлена новость"/>
+          <h:outputText  rendered="#{NewsBean.renderAddSuccess}" value="Добавлена новость"/><br/>
 
-          <h:inputText value="#{NewsBean.header}"/><br/>
-          <h:inputTextarea value="#{NewsBean.anons}"/><br/>
-          <h:inputTextarea value="#{NewsBean.fulltext}"/><br/>
-          <h:commandButton action="#{NewsBean.save}" value="Добавить">
+          Заголовок  <h:inputText value="#{NewsBean.header}"/><br/>
+          Анонс <h:inputTextarea value="#{NewsBean.anons}"/><br/><br/><br/>
+
+          Если создаете короткую новость - не пишите полный текст, ок?<br/><br/>
+
+          Полный текст<util:editor value="#{NewsBean.fulltext}"/><br/>
+          <h:commandButton action="#{NewsBean.save}" value="Добавить"/>
               
-          </h:commandButton>
+          <h:messages infoStyle="color:red;"/>
       
       </h:form>
 
