@@ -1,6 +1,5 @@
 package org.sgu.oecde.tabs;
 
-import java.util.List;
 import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
 
@@ -13,6 +12,7 @@ public class Page extends BasicItem{
     private String text;
     private Boolean visible = true;
     private Set<PageFile>files;
+    private Tab tab;
     private static final long serialVersionUID = 157L;
 
     public Page() {
@@ -48,6 +48,14 @@ public class Page extends BasicItem{
 
     public void setFiles(Set<PageFile> files) {
         this.files = files;
+    }
+
+    public Tab getTab() {
+        return tab;
+    }
+
+    public void setTab(Tab tab) {
+        this.tab = tab;
     }
 
     public String toString() {

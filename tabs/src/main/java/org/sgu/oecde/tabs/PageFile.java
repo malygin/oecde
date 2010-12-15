@@ -10,6 +10,7 @@ public class PageFile extends BasicItem{
     private String name;
     private String description;
     private Boolean image;
+    private Page page;
     private Boolean visible = true;
     private static final long serialVersionUID = 159L;
 
@@ -46,5 +47,13 @@ public class PageFile extends BasicItem{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Page getPage() {
+        return page;
+    }
+
+    public void setPage(Page page) {
+        this.page = page;
     }
 }

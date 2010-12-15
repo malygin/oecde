@@ -10,11 +10,12 @@ import java.util.List;
  */
 public enum TabType implements Serializable{
     
-    STUDENT_INFORMATION("Информация для студентов",true),
+    STUDENT_INFORMATION("Информация для студентов"),
+    INDEX_PAGE("Главная страница"),
     STUDENT_HELP("Студенческая помощь",false);
 
     private String name;
-    private boolean singleton;
+    private boolean singleton = true;
     private boolean allow = true;
 
     private TabType(String name, boolean singleton) {
@@ -22,9 +23,22 @@ public enum TabType implements Serializable{
         this.singleton = singleton;
     }
 
+    private TabType(String name) {
+        this.name = name;
+    }
+
     protected void checkIntstantiation() {
         if(this.singleton)
             allow = false;
+    }
+
+    public void allow(){
+        if(this.singleton&&!allow)
+            allow = true;
+    }
+
+    public boolean isSingleton() {
+        return singleton;
     }
 
     public String getName() {

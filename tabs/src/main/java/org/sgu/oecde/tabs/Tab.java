@@ -2,7 +2,6 @@ package org.sgu.oecde.tabs;
 
 import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
-import org.springframework.util.CollectionUtils;
 
 /**
  *

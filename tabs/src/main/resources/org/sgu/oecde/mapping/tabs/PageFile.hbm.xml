@@ -8,6 +8,7 @@
         <param name="sequence">tab_page_file_seq</param>
       </generator>
     </id>
+    <many-to-one fetch="join" foreign-key="fk_tab_page" lazy="no-proxy" cascade="all" name="page" />
     <property name="image" not-null="true" scale="1" type="true_false"/>
     <property length="250" name="name" not-null="true" type="string"/>
     <property length="500" name="description" type="string"/>

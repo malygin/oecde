@@ -29,10 +29,12 @@ public class AppTest extends BasicTest{
         t.setPages(ps);
         Set<PageFile>pfs = new HashSet<PageFile>();
         PageFile f = new PageFile();
+        f.setPage(p);
         f.setName("12123");
         f.setVisible(true);
         f.setImage(true);
         pfs.add(f);
+        p.setTab(t);
         p.setFiles(pfs);
         p.setText("23423 234 23 4");
         p.setTitle("234234234");
@@ -62,7 +64,7 @@ public class AppTest extends BasicTest{
         this.<IUpdateDao>getDao().update(t);
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void get(){
         setDao("tabsDao");

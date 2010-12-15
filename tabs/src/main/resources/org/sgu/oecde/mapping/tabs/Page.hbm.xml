@@ -9,8 +9,9 @@
       </generator>
     </id>
     <property length="3000" name="text" not-null="true" type="string"/>
-    <property length="250" name="title" not-null="true" type="string"/>
+    <property length="250" name="title" type="string"/>
     <property name="visible" scale="1" type="true_false"/>
+    <many-to-one fetch="join" foreign-key="fk_tab" lazy="no-proxy" cascade="all" name="tab" />
     <set batch-size="10" cascade="save-update,merge,delete" fetch="join" inverse="true" lazy="false" name="files" table="tab_page_file">
       <cache usage="read-write"/>
       <key column="page" foreign-key="fk_tab_page" not-null="true"/>
