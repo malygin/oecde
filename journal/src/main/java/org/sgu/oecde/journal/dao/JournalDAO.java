@@ -37,8 +37,8 @@ public class JournalDAO extends BasicDao<EventItem> implements IJournalDao {
      * {@inheritDoc }
      */
     public List<EventItem> getEvents(FilterType filter,int pageNumber) throws DataAccessException {
-        int beginIndex = filter.getCapacity() * pageNumber ;
-        Query cr = getSession().createQuery(processFilter(filter).toString()).setFirstResult(beginIndex).setMaxResults(filter.getCapacity());
+        int beginIndex = filter.getCapacity() * (pageNumber-1) ;
+        Query cr = getSession().createQuery(processFilter(filter).append(" order by e.time desc").toString()).setFirstResult(beginIndex).setMaxResults(filter.getCapacity());
         return cr.list();
     }
 

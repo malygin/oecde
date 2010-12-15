@@ -45,24 +45,30 @@ public enum EventType {
     SYSTEM_LOGIN(false,"Вход в систему"){
 
         public EventItem fillEventItem(AbstractUser user, Object ... o){
-            if(checkSingleObjectArray(user, null, String.class, o))
+            if(checkObjectArrayAndUser(user, 2, this,String.class, o))
                 return null;
-
-            return generateEventItem(user, 0l, (String)o[0]);
+            String[] str = {(String)o[0],(String)o[1]};
+            return generateEventItem(user, 0l, str);
         }
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
 
-            EventBodyElement[] el = new EventBodyElement[3];
+            EventBodyElement[] el = new EventBodyElement[5];
             el[0] = new EventBodyElement(userType(item.getUser()));
 
-            el[1] = new EventBodyElement(item.getId(),fioFromUser(item.getUser()));
+            el[1] = new EventBodyElement(item.getUser().getId(),fioFromUser(item.getUser()));
             setPageTypeByUser(el[1],item.getUser());
 
-            el[2] = new EventBodyElement("вошёл в систему с удалённого адреса "+item.getEventBody());
+            String str[] = item.getEventBody().split(splitter);
+            if(checkSplittetArrayLength(str, 2, this))
+                return null;
+
+            el[2] = new EventBodyElement("вошёл в систему с удалённого адреса ");
+            el[3] = new EventBodyElement(str[0],str[0] , EventBodyElement.whoIs);
+            el[4] = new EventBodyElement("с браузера "+str[1]);
             return el;
         }
     },
@@ -76,7 +82,7 @@ public enum EventType {
     UMK_VIEW(false,"Просмотр УМК"){
 
         public EventItem fillEventItem(AbstractUser user, Object ... o){
-            if(checkObjectArrayAndUser(user, UserType.STUDENT, 2, o))
+            if(checkObjectArrayAndUser(user, UserType.STUDENT, this, 2, o))
                 return null;
 
             Umk u = null;
@@ -87,7 +93,7 @@ public enum EventType {
                 }else if (object instanceof Task){
                     t = (Task) object;
                 }else{
-                    logWrongObjectType(object);
+                    logWrongObjectType(object,this);
                     return null;
                 }
             }
@@ -98,14 +104,14 @@ public enum EventType {
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
 
             EventBodyElement[] el = new EventBodyElement[4];
             el[0] = new EventBodyElement(userType(item.getUser()));
 
             String str[] = item.getEventBody().split(splitter);
-            if(checkSplittetArrayLength(str, 3))
+            if(checkSplittetArrayLength(str, 3, this))
                 return null;
 
             AbstractStudent st = item.<AbstractStudent>getUser();
@@ -136,7 +142,7 @@ public enum EventType {
 
         @Override
         public EventItem fillEventItem(AbstractUser user, Object... o) {
-            if(checkObjectArrayAndUser(user,2, o))
+            if(checkObjectArrayAndUser(user,2, this, o))
                 return null;
 
             switch (UserType.toType(user)) {
@@ -154,7 +160,7 @@ public enum EventType {
                 }else if (object instanceof Discipline){
                     d = (Discipline) object;
                 }else{
-                    logWrongObjectType(object);
+                    logWrongObjectType(object,this);
                     return null;
                 }
             }
@@ -166,7 +172,7 @@ public enum EventType {
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
 
             EventBodyElement[] el = new EventBodyElement[5];
@@ -176,7 +182,7 @@ public enum EventType {
             setPageTypeByUser(el[1],item.getUser());
 
             String[] str = item.getEventBody().split(splitter);
-            if(checkSplittetArrayLength(str, length))
+            if(checkSplittetArrayLength(str, length, this))
                 return null;
 
             el[2] = new EventBodyElement("отметил, что получено задание, которое отправил студент");
@@ -205,7 +211,7 @@ public enum EventType {
         private final int length = 2;
 
         public EventItem fillEventItem(AbstractUser user, Object ... o){
-            if(checkObjectArrayAndUser(user, UserType.TEACHER, 2, o))
+            if(checkObjectArrayAndUser(user, UserType.TEACHER, this, 2, o))
                 return null;
 
             StudentGroup gr = null;
@@ -216,7 +222,7 @@ public enum EventType {
                 }else if (object instanceof Discipline){
                     d = (Discipline) object;
                 }else{
-                    logWrongObjectType(object);
+                    logWrongObjectType(object,this);
                     return null;
                 }
             }
@@ -228,13 +234,13 @@ public enum EventType {
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
             
             EventBodyElement[] el = new EventBodyElement[5];
 
             String[] str = item.getEventBody().split(splitter);
-            if(checkSplittetArrayLength(str, length))
+            if(checkSplittetArrayLength(str, length, this))
                 return null;
 
             el[0] = new EventBodyElement(UserType.TEACHER.toString());
@@ -271,7 +277,7 @@ public enum EventType {
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
 
             EventBodyElement[] el = new EventBodyElement[2];
@@ -299,7 +305,7 @@ public enum EventType {
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
 
             EventBodyElement[] el = new EventBodyElement[1];
@@ -312,21 +318,20 @@ public enum EventType {
      * Добавление личной фотографии.
      * аттрибутов нет. Пользователь любой
      */
-    PHOTO_ADDITION(true,"Добавление фотографии"){
+    PHOTO_ADDITION(false,"Добавление фотографии"){
 
         @Override
         public EventItem fillEventItem(AbstractUser user, Object... o) {
             if(user == null){
-                logger.debug("user is null");
+                logger.debug(this+": user is null");
                 return null;
             }
-            String[] str = {null};
-            return generateEventItem(user,0l, str);
+            return generateEventItem(user,0l, new String[]{});
         }
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
 
             EventBodyElement[] el = SYSTEM_LOGIN.parseEvent(item);
@@ -343,7 +348,7 @@ public enum EventType {
 
         public EventItem fillEventItem(AbstractUser user, Object ... o){
             if(user == null){
-                logger.debug("user is null");
+                logger.debug(this+": user is null");
                 return null;
             }
             switch (UserType.toType(user)) {
@@ -359,7 +364,7 @@ public enum EventType {
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
 
             EventBodyElement[] el = new EventBodyElement[4];
@@ -383,7 +388,7 @@ public enum EventType {
     SPAM_STREAM(true,"Рассылка потоку"){
 
         public EventItem fillEventItem(AbstractUser user, Object ... o){
-            if(checkObjectArrayAndUser(user, 2, o))
+            if(checkObjectArrayAndUser(user, 2, this, o))
                 return null;
 
             Speciality sp = null;
@@ -394,7 +399,7 @@ public enum EventType {
                 }else if (object instanceof Integer){
                     year = (Integer) object;
                 }else {
-                    logWrongObjectType(object);
+                    logWrongObjectType(object,this);
                     return null;
                 }
             }
@@ -403,7 +408,7 @@ public enum EventType {
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
 
             EventBodyElement[] el = SPAM_ALL.parseEvent(item);
@@ -428,7 +433,7 @@ public enum EventType {
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
 
             EventBodyElement[] el = SPAM_ALL.parseEvent(item);
@@ -454,7 +459,7 @@ public enum EventType {
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
 
             EventBodyElement[] el = SPAM_ALL.parseEvent(item);
@@ -475,7 +480,7 @@ public enum EventType {
 
         @Override
         public EventItem fillEventItem(AbstractUser user, Object... o) {
-            if(checkObjectArrayAndUser(user, UserType.TEACHER,2, o))
+            if(checkObjectArrayAndUser(user, UserType.TEACHER, this,2, o))
                 return null;
 
             Discipline d = null;
@@ -486,7 +491,7 @@ public enum EventType {
                 }else if(object instanceof AbstractStudent){
                     st = (AbstractStudent)object;
                 }else{
-                    logWrongObjectType(object);
+                    logWrongObjectType(object,this);
                     return null;
                 }
             }
@@ -498,7 +503,7 @@ public enum EventType {
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
 
             EventBodyElement[] el = new EventBodyElement[4];
@@ -506,7 +511,7 @@ public enum EventType {
             el[1] = new EventBodyElement(item.<Teacher>getUser().getId(), item.<Teacher>getUser().getInitials(), EventBodyElement.teacherPage);
             
             String[] str = item.getEventBody().split(splitter);
-            if(checkSplittetArrayLength(str, length))
+            if(checkSplittetArrayLength(str, length, this))
                 return null;
 
             el[2] = new EventBodyElement("прочитал(а) задание по дисциплине \""+str[0]+"\". Выполнивший студент(ка): ");
@@ -531,7 +536,7 @@ public enum EventType {
     TASK_HAS_BEEN_SEND_TO_PREP(true,"Отправка задания"){
 
         public EventItem fillEventItem(AbstractUser user, Object ... o){
-            if(checkSingleObjectArray(user, UserType.STUDENT, AdvancedCurriculum.class, o))
+            if(checkSingleObjectArray(user, UserType.STUDENT, AdvancedCurriculum.class, this, o))
                 return null;
 
             AdvancedCurriculum c = (AdvancedCurriculum) o[0];
@@ -540,7 +545,7 @@ public enum EventType {
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
 
             EventBodyElement[] el = new EventBodyElement[3];
@@ -560,7 +565,7 @@ public enum EventType {
     TEST_END(true,"Завершение прохождения теста"){
 
         public EventItem fillEventItem(AbstractUser user, Object ... o){
-            if(checkObjectArrayAndUser(user, 2, o))
+            if(checkObjectArrayAndUser(user, 2, this, o))
                 return null;
 
             TestEntity t = null;
@@ -571,7 +576,7 @@ public enum EventType {
                 }else if (object instanceof Umk){
                     u = (Umk) object;
                 }else {
-                    logWrongObjectType(object);
+                    logWrongObjectType(object,this);
                     return null;
                 }
             }
@@ -581,11 +586,11 @@ public enum EventType {
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
 
             String[] str = item.getEventBody().split(splitter);
-            if(checkSplittetArrayLength(str, 3))
+            if(checkSplittetArrayLength(str, 3, this))
                 return null;
 
             EventBodyElement[] el = new EventBodyElement[3];
@@ -597,7 +602,7 @@ public enum EventType {
 
         @Override
         public EventBodyElement[] parseEventForAdmin(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
 
             EventBodyElement[] el = new EventBodyElement[5];
@@ -605,7 +610,7 @@ public enum EventType {
             el[1] = new EventBodyElement(item.<AbstractStudent>getUser().getId(), item.<AbstractStudent>getUser().getInitials(), EventBodyElement.studentPage);
             
             String[] str = item.getEventBody().split(splitter);
-            if(checkSplittetArrayLength(str, 3))
+            if(checkSplittetArrayLength(str, 3, this))
                 return null;
 
             el[2] = new EventBodyElement(Long.valueOf(str[2]), str[1], EventBodyElement.testPage);
@@ -623,7 +628,7 @@ public enum EventType {
     UMK_CREATE(true,"Создание УМК"){
 
         public EventItem fillEventItem(AbstractUser user, Object ... o){
-            if(checkSingleObjectArray(user, UserType.ADMIN,  Umk.class, o))
+            if(checkSingleObjectArray(user, UserType.ADMIN,  Umk.class, this, o))
                 return null;
 
             Umk u = (Umk) o[0];
@@ -632,7 +637,7 @@ public enum EventType {
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
 
             EventBodyElement[] el = new EventBodyElement[2];
@@ -642,7 +647,7 @@ public enum EventType {
 
         @Override
         public EventBodyElement[] parseEventForAdmin(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
 
             EventBodyElement[] el = new EventBodyElement[2];
@@ -691,7 +696,7 @@ public enum EventType {
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
 
             EventBodyElement[] el = new EventBodyElement[1];
@@ -730,11 +735,11 @@ public enum EventType {
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
 
             String[] str = item.getEventBody().split(splitter);
-            if(checkSplittetArrayLength(str, length))
+            if(checkSplittetArrayLength(str, length, this))
                 return null;
 
             EventBodyElement[] el = new EventBodyElement[3];
@@ -760,13 +765,13 @@ public enum EventType {
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
 
             EventBodyElement[] el = new EventBodyElement[4];
 
             String[] str = item.getEventBody().split(splitter);
-            if(checkSplittetArrayLength(str, 3))
+            if(checkSplittetArrayLength(str, 3, this))
                 return null;
 
             el[0] = new EventBodyElement("К курсу");
@@ -809,7 +814,7 @@ public enum EventType {
 
         @Override
         public EventItem fillEventItem(AbstractUser user, Object... o) {
-            if(checkSingleObjectArray(user, UserType.ADMIN, Lesson.class, o))
+            if(checkSingleObjectArray(user, UserType.ADMIN, Lesson.class, this, o))
                 return null;
 
             Lesson l = (Lesson) o[0];
@@ -866,16 +871,16 @@ public enum EventType {
         }
 
         private String[] checkArray(EventItem item){
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
 
             String[] str = item.getEventBody().split(splitter);
             if(str == null){
-                logger.debug("string array is null");
+                logger.debug(this+": string array is null");
                 return null;
             }
             if(str.length<2){
-                logger.debug("string array length less than 2");
+                logger.debug(this+": string array length less than 2");
                 return null;
             }
             return str;
@@ -893,7 +898,7 @@ public enum EventType {
         @Override
         public EventItem fillEventItem(AbstractUser user, Object... o) {
             if(o == null){
-                logger.debug("o is null");
+                logger.debug(this+": o is null");
                 return null;
             }
             Node node = null;
@@ -903,18 +908,18 @@ public enum EventType {
                     return POST_ADD.fillEventItem(node.getParent().getUser(), o);
                 }
             }
-            logger.debug("node stil null");
+            logger.debug(this+": node stil null");
             return null;
         }
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
 
             EventBodyElement[] el = new EventBodyElement[3];
             String str[] = item.getEventBody().split(splitter);
-            if(checkSplittetArrayLength(str, 2))
+            if(checkSplittetArrayLength(str, 2, this))
                 return null;
 
             String subjectType = str[0];
@@ -951,7 +956,7 @@ public enum EventType {
 
         @Override
         public EventItem fillEventItem(AbstractUser user, Object... o) {
-            if(checkObjectArrayAndUser(user, 2, o))
+            if(checkObjectArrayAndUser(user, 2, this, o))
                 return null;
             
             NewsItem news = null;
@@ -965,7 +970,7 @@ public enum EventType {
                     }else if (object instanceof NewsItem){
                         news = (NewsItem) object;
                     }else {
-                        logWrongObjectType(object);
+                        logWrongObjectType(object,this);
                         return null;
                     }
                 }
@@ -985,13 +990,13 @@ public enum EventType {
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
 
             EventBodyElement[] el = new EventBodyElement[5];
 
             String str[] = item.getEventBody().split(splitter);
-            if(checkSplittetArrayLength(str, length))
+            if(checkSplittetArrayLength(str, length, this))
                 return null;
 
             el[0] = new EventBodyElement(userType(item.getUser()));
@@ -1027,7 +1032,7 @@ public enum EventType {
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
-            if(checkEventItem(item))
+            if(checkEventItem(item, this))
                 return null;
             
             EventBodyElement[] el = new EventBodyElement[4];
@@ -1035,7 +1040,34 @@ public enum EventType {
             el[1] = new EventBodyElement(item.getMultiId(), item.getEventBody(), EventBodyElement.newsPage);
             return el;
         }
-    };
+    },
+    /**
+     * Изменение своих учебных планов преподавателем
+     *
+     */
+    CURRICULUMS_CHANGING_BY_TEACHER(false,"Изменение своих учебных планов преподавателем"){
+
+        @Override
+        public EventItem fillEventItem(AbstractUser user, Object... o) {
+            if(checkObjectArrayAndUser(user, UserType.TEACHER, this))
+                return null;
+            String[] str = {};
+            return generateEventItem(user, null, str);
+        }
+
+        @Override
+        public EventBodyElement[] parseEvent(EventItem item) {
+            if(checkEventItem(item, this))
+                return null;
+
+            EventBodyElement[] el = new EventBodyElement[3];
+            el[0] = new EventBodyElement(UserType.TEACHER.toString()+" ");
+            el[1] = new EventBodyElement(item.getUser().getId(), fioFromUser(item.getUser()), EventBodyElement.teacherPage);
+            el[2] = new EventBodyElement(" изменил свои учебные планы.");
+            return el;
+        }
+    }
+    ;
 
     private static final long serialVersionUID = 86L;
     
@@ -1149,63 +1181,68 @@ public enum EventType {
         return u.toString();
     }
 
-    private static void logWrongObjectType(Object object){
+    private static void logWrongObjectType(Object object, EventType e){
         if(logger.isDebugEnabled()){
-            logger.debug("object is "+object!=null?object.getClass().getSimpleName():null);
+            logger.debug(e+": object is "+object!=null?object.getClass().getSimpleName():null);
         }
     }
 
-    private static boolean checkObjectArrayAndUser(AbstractUser user,int size,Object...o){
-        return checkObjectArrayAndUser(user, null, size, o);
+    private static boolean checkObjectArrayAndUser(AbstractUser user,int size, EventType e,Object...o){
+        return checkObjectArrayAndUser(user, null, e, size, o);
     }
 
-    private static boolean checkObjectArrayAndUser(AbstractUser user,UserType type,int size,Object...o){
-        boolean condition=o == null||o.length!=size||user==null;
+    private static boolean checkObjectArrayAndUser(AbstractUser user,UserType type, EventType e,int size,Object...o){
+        boolean condition = o == null||o.length!=size||user==null;
         if(condition){
-            if(logger.isDebugEnabled()){
-                logger.debug("o is null "+(o==null)+"; user is null "+(user == null)+"; o.length!="+size+" "+(o!=null?o.length!=size:0));
-                if(!condition&&type!=null&&!type.equals(UserType.toType(user))){
-                    logger.debug("user type is "+UserType.toType(user));
-                }
-            }
+            if(logger.isDebugEnabled())
+                logger.debug(e+": o is null "+(o==null)+"; user is null "+(user == null)+"; o.length!="+size+" "+(o!=null?o.length!=size:0));
+            return true;
+        }
+        return checkObjectArrayAndUser(user, type, e);
+    }
+
+    private static boolean checkObjectArrayAndUser(AbstractUser user,UserType type, EventType e){
+        if(user!=null&&type!=null&&!type.equals(UserType.toType(user))){
+            logger.debug(e+": user type is "+UserType.toType(user));
             return true;
         }
         return false;
     }
+
     private static boolean checkSingleObjectArray(AbstractUser user,Class type,Object...o){
-        return checkSingleObjectArray(user, null, type, o);
+        return checkSingleObjectArray(user, null, type, null, o);
     }
 
-    private static boolean checkSingleObjectArray(AbstractUser user,UserType userType,Class type,Object...o){
+    private static boolean checkSingleObjectArray(AbstractUser user,UserType userType,Class type, EventType e,Object...o){
         Assert.notNull(type);
-        boolean checked=checkObjectArrayAndUser(user,userType, 1, o);
+        boolean checked=checkObjectArrayAndUser(user,userType, e, 1, o);
         if(checked||!type.isInstance(o[0])){
             if(logger.isDebugEnabled()&&!checked){
-                logger.debug("o[0] is "+o[0]);
+                logger.debug(e+": o[0] is "+o[0]);
             }
             return true;
         }
         return false;
     }
 
-    private static boolean checkEventItem(EventItem item){
+    private static boolean checkEventItem(EventItem item, EventType e){
         if(item == null){
-            logger.debug("item is null "+(item == null));
+            logger.debug(e+": item is null "+(item == null));
             return true;
         }else if(item.getUser() == null||item.getEventBody()==null||item.getId() == null){
-            logger.debug("user is null"+(item.getUser() == null) + "; body is null "+(item.getEventBody()==null)
+            logger.debug(e+": user is null"+(item.getUser() == null) + "; body is null "+(item.getEventBody()==null)
                     +"; id is null "+(item.getId() == null));
             return true;
         }
         return false;
     }
 
-    private static boolean checkSplittetArrayLength(String[] arr,int length){
+    private static boolean checkSplittetArrayLength(String[] arr,int length, EventType e){
         if(arr == null){
-            logger.debug("array is null");
+            logger.debug(e+": array is null");
             return true;
         } else if (arr.length!=length){
-            logger.debug("array has wrong arr.length. Actual is "+arr.length+", expected is "+length);
+            logger.debug(e+": array has wrong arr.length. Actual is "+arr.length+", expected is "+length);
             return true;
         }
         return false;

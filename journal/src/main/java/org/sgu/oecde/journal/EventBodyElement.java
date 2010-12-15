@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @author ShihovMY
  */
 public class EventBodyElement implements Serializable{
-    private long id;
+    private String id;
     private String text;
     private String type;
 
@@ -23,6 +23,7 @@ public class EventBodyElement implements Serializable{
     public static String disciplinePage;
     public static String groupPage;
     public static String taskPage;
+    public static String whoIs;
     
     private static final long serialVersionUID = 187L;
 
@@ -32,21 +33,27 @@ public class EventBodyElement implements Serializable{
     }
 
     public EventBodyElement(long id, String text) {
-        this.id = id;
+        this.id = "?id="+Long.toString(id);
         this.text = text;
     }
 
     public EventBodyElement(long id, String text, String type) {
+        this.id = "?id="+Long.toString(id);
+        this.text = text;
+        this.type = type;
+    }
+
+    public EventBodyElement(String id, String text, String type) {
         this.id = id;
         this.text = text;
         this.type = type;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
