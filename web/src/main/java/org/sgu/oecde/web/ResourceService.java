@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
+import org.sgu.oecde.controlworks.ControlWork;
+import org.sgu.oecde.controlworks.ControlWorkProgress;
+import org.sgu.oecde.controlworks.ControlWorkService;
 import org.sgu.oecde.core.education.CalendarConstantName;
 import org.sgu.oecde.core.education.StringConstantsGetter;
 import org.sgu.oecde.core.education.dao.ICurriculumDao;
@@ -35,6 +38,9 @@ public class ResourceService implements Serializable{
 
     @Resource
     protected DeCurriculumBuilder curriculumBuilder;
+
+    @Resource
+    protected ControlWorkService controlWorkService;
 
     @Resource
     protected ICurriculumDao<DeCurriculum> curriculumDao;
@@ -87,18 +93,34 @@ public class ResourceService implements Serializable{
         return l.get(0);
     }
 
-    public Object[] getTestForStudent(AdditionalSelfDependentWork w, Student student){
+    public boolean isConcludingTestAvailable(Student student,DeCurriculum curriculum){
+        ControlWork cw = controlWorkService.getStudensControlWorks(student, ListUtil.<DeCurriculum>oneItemList(curriculum)).get(curriculum);
+        return cw!=null&&ControlWorkProgress.passed.equals(cw.getProgress());
+    }
+
+    public Object[] getTestForStudent(AdditionalSelfDependentWork w, Student student, boolean concludingAvailable){
         if(w==null||student==null)
             return null;
         boolean available = false;
         TestEntity e = w.<TestEntity>getWork();
         if(e==null)
             return null;
+
         Object[]data = new Object[5];
+        data[1]=w;
+        data[0]=available;
+
         String testBeginDate = reExameBeginDate;
         String testEndDate = reExameEndDate;
         String currentDate = DateConverter.currentDate();
-        if((currentDate.compareTo(testBeginDate)>=0)&&(currentDate.compareTo(testEndDate)<0)){
+
+        if(TestType.concluding.equals(e.getType())&&!concludingAvailable){
+            available = false;
+            data[2] = "Контрольная работа не зачтена";
+            return data;
+        }
+        if((currentDate.compareTo(testBeginDate)>=0)&&(currentDate.compareTo(testEndDate)<0)
+                &&w.getCurriculum().getSemester()!=semesterGetter.getCalendarYear(student, semesterGetter.getCurrentSemester())){
             if(w.getReExameAttemptsUsedNumber()>=Integer.parseInt(
                     (TestType.concluding.equals(e.getType())
                     ?getConcludingAttemtpsCount(semesterGetter.getCurrentSemester())
@@ -144,8 +166,6 @@ public class ResourceService implements Serializable{
             data[4] = "Тесты не доступны";
             available = false;
         }
-        data[1]=w;
-        data[0]=available;
         return data;
     }
 

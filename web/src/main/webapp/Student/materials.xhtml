@@ -15,7 +15,7 @@
             <f:metadata>
                 <f:viewParam name="s" value="#{materialsBean.semester}"/>
             </f:metadata>
-            <est:changeSemester bean="#{materialsBean}"/>
+            <est:changeSemester semester="#{materialsBean.semester}"/>
             <r:forEach items="#{materialsBean.studentsDisciplines}" var="m" varStatus="i">
                 <div class="studentInterfaceStandartList">
                     <span class="controlWorksDisciplineNameLink"><h:outputLink value="discipline.xhtml?c=#{m.curriculum.id}" >#{m.curriculum.umk.name}</h:outputLink><br/></span>

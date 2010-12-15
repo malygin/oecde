@@ -46,13 +46,6 @@ public class StudentCurriculumBean extends AbstractStudentBean{
         return curriculumAndTeacher;
     }
 
-    public Map<DeCurriculum, Teacher> getCurriculumAndTeacherByYear() {
-        if(curriculumAndTeacher == null){
-            curriculumAndTeacher = curriculumDao.<DeCurriculum,Teacher>getTeachersByGroup(semester, semesterGetter.getCalendarYear(student, semester).intValue(), student.getGroup());
-        }
-        return curriculumAndTeacher;
-    }
-
     public void setStudentSessionBean(StudentSessionBean studentSessionBean) {
         this.studentSessionBean = studentSessionBean;
     }

@@ -6,5 +6,6 @@
     <property length="20" name="email" type="string"/>
     <property name="cellPhone" scale="10" type="int"/>
     <property name="icq" scale="9" type="int"/>
+    <many-to-one class="org.sgu.oecde.de.education.City" fetch="join" foreign-key="fk_student_city" insert="false" name="city" not-null="true"/>
   </joined-subclass>
 </hibernate-mapping>

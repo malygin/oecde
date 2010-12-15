@@ -17,10 +17,10 @@ import org.sgu.oecde.tests.TestService;
 @ViewScoped
 public class TeacherCurriculumBean extends AbstractTeacherCurriculumBean{
 
-    List<TestEntity>tests;
+    private List<TestEntity>tests;
 
     @ManagedProperty(value="#{testService}")
-    protected TestService testService;
+    private TestService testService;
 
     public List<TestEntity> getTests() {
         if(tests == null){

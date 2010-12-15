@@ -92,12 +92,6 @@ public class TestPassingBean implements Serializable {
     private Long beginDate;
     private AbstractUser  currentUser;  
     
-    @ManagedProperty(value="#{resourceDao}")
-    private ResourceDao resourceDao;
-    @ManagedProperty(value="#{testService}")
-    private TestService testService;
-    @ManagedProperty(value="#{testAttemptDao}")
-    private TestAttemptDao testAttemptDao;
     @ManagedProperty(value="#{curriculumDao}")
     private CurriculumDao cDao;
     @ManagedProperty(value="#{resourceService}")
@@ -106,6 +100,8 @@ public class TestPassingBean implements Serializable {
     private TestAttemptService testAttemptService;
     @ManagedProperty(value="#{journalService}")
     private JournalService journalService;
+    @ManagedProperty(value="#{semesterGetter}")
+    protected SemesterGetter semesterGetter;
 
     public TestPassingBean() {
           currentUser = SecurityContextHandler.getUser();
@@ -125,7 +121,7 @@ public class TestPassingBean implements Serializable {
         if (c!=null){
            TestEntity t = resourceService.getResource(c,new TestEntity(testId),TestEntity.class);
            if(t!=null){
-                    Object[] test = resourceService.getTestForStudent(testAttemptService.getStudentSingleTestWithAttempts(t, (AbstractStudent) currentUser, c), (Student) currentUser);
+                    Object[] test = resourceService.getTestForStudent(testAttemptService.getStudentSingleTestWithAttempts(t, (AbstractStudent) currentUser, c), (Student) currentUser, true);
                     if(((Boolean) test[0])){
                             AdditionalSelfDependentWork work= (AdditionalSelfDependentWork) test[1];
                             testView=work.getWork();
@@ -145,9 +141,10 @@ public class TestPassingBean implements Serializable {
     /**
      * проверка типа попытки, если прошлый семестр - переэкзаменовка, если текущий - проверяем даты, если осталась попытка для пробного - пробный
      * @param w
+     * TODO брать семестр по кусру студента и сравнивать с учебным планом
      */
      private void checkTestAttemptType(AdditionalSelfDependentWork w){
-        if (curriculum.getSemester()!=SemesterGetter.CURRENT_SEMESTER){
+        if (curriculum.getSemester()!=semesterGetter.getCurrentSemester()){
              String currentDate = DateConverter.currentDate();
              if((currentDate.compareTo(resourceService.getReExameBeginDate())>=0)&&(currentDate.compareTo(resourceService.getReExameEndDate())<0))
                 testAttemptType=TestAttemptType.reTest;
@@ -493,21 +490,9 @@ public class TestPassingBean implements Serializable {
     }
 
 
-    //-----------------------
-    public void setTestService(TestService testService) {
-        this.testService = testService;
-    }
-
-    public void setTestAttemptDao(TestAttemptDao testAttemptDao) {
-        this.testAttemptDao = testAttemptDao;
-    }
 
     public void setcDao(CurriculumDao cDao) {
         this.cDao = cDao;
-    }
-
-    public void setResourceDao(ResourceDao resourceDao) {
-        this.resourceDao = resourceDao;
     }
 
     public void setResourceService(ResourceService resourceService) {
@@ -520,5 +505,9 @@ public class TestPassingBean implements Serializable {
 
     public void setJournalService(JournalService journalService) {
         this.journalService = journalService;
-    }    
+    }
+
+    public void setSemesterGetter(SemesterGetter semesterGetter) {
+        this.semesterGetter = semesterGetter;
+    }
   }

@@ -13,7 +13,7 @@
             <f:metadata>
                 <f:viewParam name="s" value="#{gradesBean.semester}"/>
             </f:metadata>
-            <est:changeSemester bean="#{gradesBean}"/>
+            <est:changeSemester semester="#{gradesBean.semester}"/>
             <h:dataTable  value="#{gradesBean.points}"
                          columnClasses="studentStandatrTableTd,
                          studentStandatrTableTd,

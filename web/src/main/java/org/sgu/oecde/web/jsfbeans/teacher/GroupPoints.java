@@ -32,7 +32,7 @@ public class GroupPoints extends AbstractStudentsListBean{
     private List<PointsFacade>points;
 
     @ManagedProperty(value="#{estimateDao}")
-    IEstimateDao estimateDao;
+    private IEstimateDao estimateDao;
 
     private boolean error = false;
     private boolean saved = false;

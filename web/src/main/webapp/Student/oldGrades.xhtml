@@ -15,7 +15,7 @@
          </f:metadata>
             <h:form id="form">
             <h:commandLink id="handle">
-                <f:ajax render="isWinter :years :years:year" listener="#{oldGradesBean.changeIsWinter}"/>
+                <f:ajax render="isWinter :years :years:year :table" listener="#{oldGradesBean.changeIsWinter}"/>
                 <f:attribute name="winter" value="#{!oldGradesBean.winter}"/>
                 <h:outputText id="isWinter" value="#{oldGradesBean.winter?('зима'):('лето')}"/>
             </h:commandLink>
@@ -29,7 +29,7 @@
                 </h:column>
             </h:dataTable>
 
-            <h:dataTable value="#{oldGradesBean.oldGrades}" var="p"
+            <h:dataTable id="table" value="#{oldGradesBean.oldGrades}" var="p"
                          style="width: 100%;"
                          columnClasses="studentStandatrTableTd,
                          studentStandatrTableTdLastTd" cellpadding="0" cellspacing="0" styleClass="studentStandatrTable">
@@ -37,14 +37,14 @@
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
                     </f:facet>
-                    <span class="controlWorksDisciplineName" style="font-size: 8pt;">#{p.points.curriculum.discipline.name}</span>
-                    (<span class="linkToTeachersProfile"><h:outputLink value="teacher.xhtml?id=${p.teacher.id}">#{p.teacher.initials}</h:outputLink></span>)
+                    <span class="controlWorksDisciplineName" style="font-size: 8pt;">#{p.key.key.discipline.name}</span>
+                    (<span class="linkToTeachersProfile"><h:outputLink value="teacher.xhtml?id=${p.key.value.id}">#{p.key.value.initials}</h:outputLink></span>)
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_gradesTableHeadFinal}" />
                     </f:facet>
-                    <h:outputText converter="enumConverter" value="#{p.grade}"/>
+                    <h:outputText converter="enumConverter" value="#{p.value.gradeCode}"/>
                 </h:column>
             </h:dataTable>
         </div>

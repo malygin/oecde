@@ -4,35 +4,26 @@ import java.util.ArrayList;
 import org.sgu.oecde.core.education.dao.IEstimateDao;
 import org.sgu.oecde.core.education.work.Estimate;
 import org.sgu.oecde.core.education.CalendarConstantName;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.sgu.oecde.core.BasicItem;
 import org.sgu.oecde.core.BasicTest;
 import org.sgu.oecde.core.education.Curriculum;
-import org.sgu.oecde.core.education.dao.ConstantsDao;
-import org.sgu.oecde.core.education.dao.CurriculumDao;
-import org.sgu.oecde.core.education.dao.IConstantsDao;
 import org.sgu.oecde.core.education.dao.ICurriculumDao;
 import org.sgu.oecde.core.education.resource.Author;
-import org.sgu.oecde.core.education.resource.Image;
 import org.sgu.oecde.core.education.work.AbstractResult;
 import org.sgu.oecde.core.education.work.PointToEstimate;
-import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.core.users.AbstractUser;
-import org.sgu.oecde.core.users.StudentGroup;
-import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.core.util.Semesters;
+import org.sgu.oecde.de.education.City;
 import org.sgu.oecde.de.education.DeCurriculum;
-import org.sgu.oecde.de.education.DeCurriculumBuilder;
+import org.sgu.oecde.de.education.dao.IGroupDao;
+import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.de.users.Student;
 import org.springframework.test.context.ContextConfiguration;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -54,14 +45,14 @@ public class getSimpleItem extends BasicTest{
         }
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void getSt(){
         this.setDao("userDao");
          System.out.println(this.<AbstractUser>getByExample(AbstractUser.getUserWithName("belousovyae")));
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void getResults(){
         this.setDao("resultDao");
@@ -79,7 +70,7 @@ public class getSimpleItem extends BasicTest{
         System.out.println(g.getCurrentSemester());
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void getCurr(){
         setDao("curriculumDao");
@@ -87,25 +78,25 @@ public class getSimpleItem extends BasicTest{
 //        List<DeCurriculum> l= this.<CurriculumDao>getDao().getCurriculumsByModSemester(new DeCurriculum(2008610834L), Semesters.summer());
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void getAuth(){
-        setDao("authorDao");
-        List<Author> l = this.<Author>getAllItems();
-        for(Author b:l){
-            System.out.println(b.getTeacher()+"   "+b.getSurname()+"   "+b.getId());
-        }
+        setDao("groupDao");
+        City c = new City();
+        c.setId(23L);
+        List<Group> d = this.<IGroupDao>getDao().getGroupsByCity(c);
+        System.out.println(d);
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void getCur(){
         this.setDao("userDao");
         Student st = getItem(324613L);
 
-        setDao("curriculumDao");
-        Map l = this.<ICurriculumDao>getDao().getTeachersByGroup(4,2009, st.getGroup());
-        System.out.println(l.keySet());
+        setDao("groupDao");
+        Group d = this.<IGroupDao>getDao().getTeachersAndCurriculumsByOldGroup(2, st);
+        System.out.println(d);
     }
 
     @Ignore

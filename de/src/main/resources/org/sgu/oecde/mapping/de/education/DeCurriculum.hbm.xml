@@ -5,10 +5,10 @@
     <join table="de_curriculum">
       <key column="id" foreign-key="fk_curriculum_curriculum" not-null="true" on-delete="cascade"/>
       <property column="control_works_paper_only" insert="false" name="controlWorksPaperOnly" scale="1" type="true_false"/>
-      <property column="lab_works_number" insert="false" update="false" name="labWorksNumber" scale="2" type="integer"/>
-      <property column="term_papers_number" insert="false" update="false" name="termPapersNumber" scale="1" type="integer"/>
-      <property insert="false" name="selected" scale="1" update="false" type="true_false"/>
-      <property insert="false" length="20" name="cycle" update="false" type="string"/>
+      <property column="lab_works_number" insert="false" name="labWorksNumber" scale="2" type="integer" update="false"/>
+      <property column="term_papers_number" insert="false" name="termPapersNumber" scale="1" type="integer" update="false"/>
+      <property insert="false" name="selected" scale="1" type="true_false" update="false"/>
+      <property insert="false" length="20" name="cycle" type="string" update="false"/>
     </join>
   </subclass>
 </hibernate-mapping>

@@ -20,7 +20,7 @@ import org.sgu.oecde.web.jsfbeans.util.NewEntry;
 public class GroupTestResults extends AbstractStudentsListBean{
 
     @ManagedProperty(value="#{testAttemptService}")
-    TestAttemptService testAttemptService;
+    private TestAttemptService testAttemptService;
 
     @ManagedProperty(value="#{resourceService}")
     private ResourceService resourceService;

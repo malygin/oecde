@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+
+ <!-- INTERFACE -->
+  <composite:interface>
+      <composite:attribute name="type" required="true" type="java.lang.String" shortDescription="тип вкладок"/>
+  </composite:interface>
+
+  <!-- IMPLEMENTATION -->
+   <composite:implementation>
+       <h:dataTable id="tabs" style="margin-left: 20px;" value="#{setToList.getList(tabsViewBean.getTab(cc.attrs.type).pages)}" var="p">
+            <h:column>
+                <span class="navigationLinks">
+                <div style="height: 30px;">
+                    <span style="line-height: 30px; color: silver;"></span>
+                </div>
+                <div style="margin-left: 10px;">
+                    <div class="controlWorksDisciplineName" style="margin-bottom: 5px;">
+                        <h:outputText id="title" value="#{p.title}"/>
+                    </div>
+                    <div style="text-align: justify;">
+                        <h:outputText escape="false" id="page" value="#{p.text}"/>
+                    </div>
+                    <div style="text-align: justify;">
+                    <h:dataTable id="files" value="#{setToList.getList(p.files)}" var="f">
+                        <h:column>
+                            <h:panelGroup rendered="#{f.visible}">
+                                <h:graphicImage rendered="#{f.image}" value="../resources/userFiles/tabs/#{f.name}" alt="#{f.description}"/>
+                                <h:outputLink rendered="#{!f.image}" value="../resources/userFiles/tabs/#{f.name}"><h:outputText value="#{f.description}"/></h:outputLink>
+                            </h:panelGroup>
+                        </h:column>
+                    </h:dataTable>
+                    </div>
+                </div>
+                </span>
+            </h:column>
+        </h:dataTable>
+   </composite:implementation>
+</html>

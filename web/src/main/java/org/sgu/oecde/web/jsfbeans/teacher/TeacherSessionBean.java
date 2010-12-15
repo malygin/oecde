@@ -3,6 +3,7 @@ package org.sgu.oecde.web.jsfbeans.teacher;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Group;
@@ -15,37 +16,46 @@ import org.sgu.oecde.de.users.Group;
 @SessionScoped
 public class TeacherSessionBean extends AbstractTeacherBean{
 
+    private List<DeCurriculum>summerCurriculums;
 
-    private List<DeCurriculum>currentCurriculums;
+    private List<DeCurriculum>winterCurriculums;
 
-    private List<DeCurriculum>previousCurriculums;
+    private List<Group>summerGroups;
 
-    private List<Group>currentGroups;
-
-    private List<Group>previousGroups;
+    private List<Group>winterGroups;
+    
     private static final long serialVersionUID = 110L;
 
     public List<DeCurriculum> getDisciplines(int semester){
-        if(((currentCurriculums==null&&semester==SemesterGetter.CURRENT_SEMESTER)||(previousCurriculums==null&&semester==SemesterGetter.PREVIOUS_SEMESTER))){
+        if(((summerCurriculums==null&&semester==SemesterGetter.SUMMER_SEMESTER)||(winterCurriculums==null&&semester==SemesterGetter.WINTER_SEMESTER))){
             setSemester(semester);
             List<DeCurriculum> l = curriculumDao.getBySemesterYearAndParameters(semesters(), year(),teacher);
-            if(semester == SemesterGetter.CURRENT_SEMESTER)
-                currentCurriculums=l;
+            if(semester == SemesterGetter.SUMMER_SEMESTER)
+                summerCurriculums=l;
             else
-                previousCurriculums=l;
+                winterCurriculums=l;
         }
-        return semester == SemesterGetter.CURRENT_SEMESTER?currentCurriculums:previousCurriculums;
+        return semester == SemesterGetter.SUMMER_SEMESTER?summerCurriculums:winterCurriculums;
     }
 
     public List<Group>getGroups(int semester){
-        if(((currentGroups==null&&semester==SemesterGetter.CURRENT_SEMESTER)||(previousGroups==null&&semester==SemesterGetter.PREVIOUS_SEMESTER))){
+        if(((summerGroups==null&&semester==SemesterGetter.SUMMER_SEMESTER)||(winterGroups==null&&semester==SemesterGetter.WINTER_SEMESTER))){
             setSemester(semester);
             List<Group>l = curriculumDao.<Group>getGroupsForTeacher(semesters(), year(),teacher);
-            if(semester == SemesterGetter.CURRENT_SEMESTER)
-                currentGroups=l;
+            if(semester == SemesterGetter.SUMMER_SEMESTER)
+                summerGroups=l;
             else
-                previousGroups=l;
+                winterGroups=l;
         }
-        return semester == SemesterGetter.CURRENT_SEMESTER?currentGroups:previousGroups;
+        return semester == SemesterGetter.SUMMER_SEMESTER?summerGroups:winterGroups;
+    }
+
+    @Override
+    public void setTeacher(Teacher teacher) {
+        summerCurriculums = null;
+        winterCurriculums = null;
+        summerGroups = null;
+        winterGroups = null;
+        super.setTeacher(teacher);
     }
 }

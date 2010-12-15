@@ -24,14 +24,35 @@ public class TabsViewBean implements Serializable{
     private ITabsDao tabsDao;
     
     private List<Tab>tabs;
+    private Tab tab;
     private Page currentPage;
-    private boolean information = false;
     
     private static final long serialVersionUID = 161L;
 
-    public List<Tab> getTabs(){
-        setList(information?TabType.STUDENT_INFORMATION:TabType.STUDENT_HELP);
+    public List<Tab> getTabs(String t){
+        if(tabs == null&&t!=null){
+            TabType type = TabType.valueOf(t.toUpperCase());
+            Tab example = new Tab(type);
+            tabs = tabsDao.getByExample(example);
+            if(!CollectionUtils.isEmpty(tabs))
+                if(!CollectionUtils.isEmpty(tabs.get(0).getPages()))
+                    currentPage = tabs.get(0).getPages().iterator().next();
+        }
         return tabs;
+    }
+
+    public Tab getTab(String t){
+        if(tab ==null){
+            TabType type = TabType.valueOf(t.toUpperCase());
+            if(type.isSingleton()){
+                Tab example = new Tab(type);
+                List<Tab>tabs = tabsDao.getByExample(example);
+                if(tabs.size()==1){
+                    tab = tabs.get(0);
+                }
+            }
+        }
+        return tab;
     }
 
     public List<Tab> getAll(){
@@ -51,23 +72,5 @@ public class TabsViewBean implements Serializable{
 
     public void setTabsDao(ITabsDao tabsDao) {
         this.tabsDao = tabsDao;
-    }
-
-    public boolean isInformation() {
-        return information;
-    }
-
-    public void setInformation(boolean information) {
-        this.information = information;
-    }
-
-    private void setList(TabType type){
-        if(tabs == null){
-            Tab example = new Tab(type);
-            tabs = tabsDao.getByExample(example);
-            if(!CollectionUtils.isEmpty(tabs))
-                if(!CollectionUtils.isEmpty(tabs.get(0).getPages()))
-                    currentPage = tabs.get(0).getPages().iterator().next();
-        }
     }
 }

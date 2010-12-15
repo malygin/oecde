@@ -11,13 +11,13 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
     <custom-filter position="LOGOUT_FILTER" ref="logoutFilter" />
     <custom-filter position="SWITCH_USER_FILTER " ref="switchUserProcessingFilter" />
     <custom-filter position="LAST" ref="eventListner" />
-    <intercept-url pattern="/index.xhtml" />
     <intercept-url pattern="/resources/" filters="none"/>
     <intercept-url pattern="/Admin/exit_user" access="ROLE_PREVIOUS_ADMINISTRATOR" />
     <intercept-url pattern="/Admin/**" access="ROLE_ADMIN" />
     <intercept-url pattern="/Student/**" access="ROLE_STUDENT" />
     <intercept-url pattern="/Teacher/**" access="ROLE_TEACHER" />
     <intercept-url pattern="/AdminLite/**" access="ROLE_SUPERVISOR" />
+    <intercept-url pattern="/index.xhtml" access="IS_AUTHENTICATED_FULLY,IS_AUTHENTICATED_ANONYMOUSLY" />
     <anonymous />
     <remember-me services-ref="rememberMeServices"/>
     <form-login login-page="/index.xhtml" authentication-success-handler-ref="CustomAuthenticationSuccessHandle" authentication-failure-url="/index.xhtml?error=true" />

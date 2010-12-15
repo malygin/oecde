@@ -6,20 +6,22 @@
     
     <!-- INTERFACE -->
     <composite:interface>
-        <composite:attribute name="bean" required="true" type="org.sgu.oecde.web.IBeanWithSemester" default="true" shortDescription="бин, содержащий данные о выбранном семестре"/>
+        <composite:attribute name="semester" required="true" type="int" default="true" shortDescription="семестр"/>
         <composite:attribute name="link" default="" type="java.lang.String" shortDescription="продолжение ссылки"/>
     </composite:interface>
 
     <!-- IMPLEMENTATION -->
     <composite:implementation>
     <div class="navigationLinks">
-        <h:outputText value="#{cc.attrs.bean.semester eq 0?'Текущий':'Предыдущий'}"/>
-        (<h:outputText value="#{cc.attrs.bean.currentSemester eq cc.attrs.bean.semester?'летний':'зимний'}"/>) cеместр.
+            <h:outputText value="#{changeSemesterBean.semesterName(cc.attrs.semester)}"/>
+            <h:outputText rendered="#{cc.attrs.semester eq semesterGetter.currentSemester}" value=" (текущий)"/>
+            cеместр.
         Показать
-        <h:outputText value="#{cc.attrs.bean.semester eq 1?'текущий':'предыдущий'}"/>
-        (<h:outputLink value="?s=#{(cc.attrs.bean.semester eq 1)?0:1}&amp;#{cc.attrs.link}">
-            <h:outputText value="#{cc.attrs.bean.currentSemester-cc.attrs.bean.semester ne 0?'летний':'зимний'}"/>
-        </h:outputLink>)
+        <h:outputLink value="?s=#{changeSemesterBean.inversedSemesterValue(cc.attrs.semester)}&amp;#{cc.attrs.link}">
+            <h:outputText value="#{changeSemesterBean.inversedSemesterName(cc.attrs.semester)}"/>
+        </h:outputLink>
+        <h:outputText rendered="#{cc.attrs.semester ne semesterGetter.currentSemester}" value=" (текущий)"/>
+        cеместр.
     </div>
     </composite:implementation>
 </html>

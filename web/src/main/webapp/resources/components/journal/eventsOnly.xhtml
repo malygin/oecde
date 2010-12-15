@@ -22,13 +22,13 @@
                 <sec:ifAnyGranted roles="ROLE_ADMIN">
                     <ui:repeat value="#{e.bodyForAdmin}" var="b">
                         <h:outputText rendered="#{b.type eq null}" value="#{b.text}"/>
-                        <h:outputLink rendered="#{b.type ne null}" value="#{b.type}?id=#{b.id}">#{b.text}</h:outputLink>&nbsp;
+                        <h:outputLink rendered="#{b.type ne null}" value="#{b.type}#{b.id}">#{b.text}</h:outputLink>&nbsp;
                     </ui:repeat>
                 </sec:ifAnyGranted>
                 <sec:ifNotGranted roles="ROLE_ADMIN">
                     <ui:repeat value="#{e.body}" var="b">
                         <h:outputText rendered="#{b.type eq null}" value="#{b.text}"/>&nbsp;
-                        <h:outputLink rendered="#{b.type ne null}" value="#{b.type}?id=#{b.id}">#{b.text}</h:outputLink>&nbsp;
+                        <h:outputLink rendered="#{b.type ne null}" value="#{b.type}#{b.id}">#{b.text}</h:outputLink>&nbsp;
                     </ui:repeat>
                 </sec:ifNotGranted>
             </h:column>

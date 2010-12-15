@@ -46,8 +46,9 @@ public class DisciplineBean extends StudentCurriculumBean{
             if(CollectionUtils.isEmpty(l))
                 return new LinkedList();
             else{
+                boolean available = resourceService.isConcludingTestAvailable(student, curriculum);
                 for(AdditionalSelfDependentWork w:l){
-                    tests.add(resourceService.getTestForStudent(w,student));
+                    tests.add(resourceService.getTestForStudent(w,student,available));
                 }
             }
         }

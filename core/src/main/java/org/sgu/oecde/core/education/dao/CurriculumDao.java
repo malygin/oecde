@@ -80,7 +80,7 @@ public class CurriculumDao<T extends Curriculum> extends UpdateDao<T> implements
          return makeQuery("distinct t.group"," t.teacher=:t",new String[]{"t.group.city","t.group.speciality"},null,semester,year)
                  .setParameter("t", teacher).setCacheable(false).list();
     }
-
+    
     /**
      * формирует общий запрос
      * @param prefix

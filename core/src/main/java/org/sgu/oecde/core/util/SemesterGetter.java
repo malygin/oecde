@@ -26,10 +26,6 @@ public class SemesterGetter extends StringConstantsGetter{
      */
     private int semester;
 
-    public static final int CURRENT_SEMESTER = 0;
-
-    public static final int PREVIOUS_SEMESTER = 1;
-
     public static final int WINTER_SEMESTER = 1;
 
     public static final int SUMMER_SEMESTER = 0;
@@ -42,12 +38,13 @@ public class SemesterGetter extends StringConstantsGetter{
     /**
      *
      * @param student - студент
-     * @param semester - семестр
+     * @param semester - семестр (текущий или предыдущий)
      * @return семестр по курсу обучения студента и параметру semester
      */
-    public Integer getSemesterByStudentYear(AbstractStudent student, int semester){
+    public int getSemesterByStudentYear(AbstractStudent student, int semester){
         Assert.notNull(student);
-        return student.getGroup().getYear()*2 - semester - getCurrentSemester();
+        validate(semester);
+        return student.getGroup().getYear()*2 - semester;
     }
 
     /**
@@ -134,6 +131,15 @@ public class SemesterGetter extends StringConstantsGetter{
      */
     public final int getCurrentYear() {
         return currentYear;
+    }
+
+    public final void validate(int semester){
+        Assert.isTrue(WINTER_SEMESTER == semester||SUMMER_SEMESTER==semester);
+    }
+
+    public String getSemesterName(int semester){
+        validate(semester);
+        return SemesterGetter.SUMMER_SEMESTER == semester?"летний":"зимний";
     }
 
     /**

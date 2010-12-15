@@ -7,10 +7,11 @@
         <ui:define name="content">
          <f:metadata>
              <f:viewParam name="c" value="#{testForTeacher.curriculumId}"/>
-             <f:viewParam name="id" value="#{testForTeacher.testId}"/>
+             <f:viewParam name="id" value="#{testForTeacher.id}"/>
+             <f:viewParam name="s" value="#{testForTeacher.semester}"/>
          </f:metadata>
            <h:outputText rendered="#{testForTeacher.accessDenied}" value="Не найден или не доступен" />
-           <h:outputLink value="discipline.xhtml?c=#{testForTeacher.curriculumId}" >назад</h:outputLink>
+           <h:outputLink value="discipline.xhtml?id=#{testForTeacher.curriculumId}&amp;#{testForTeacher.semester}" >назад</h:outputLink>
           <h:outputLink value="javascript:void(0)" >#{testForTeacher.test.title}</h:outputLink>
        </ui:define>
     </ui:composition>

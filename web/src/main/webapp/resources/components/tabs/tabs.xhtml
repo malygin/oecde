@@ -1,20 +1,23 @@
-<ui:composition
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:t="http://java.sun.com/jsf/composite/components/tabs"
-    template="../resources/studentTemplate.xhtml">
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
-    <ui:define name="contentHeader">
-        Помощь
-    </ui:define>
-    <ui:define name="content">
-        <div class="interfaceContent" style="padding-top: 10px;">
+
+ <!-- INTERFACE -->
+  <composite:interface>
+      <composite:attribute name="type" required="true" type="java.lang.String" shortDescription="тип вкладок"/>
+  </composite:interface>
+
+  <!-- IMPLEMENTATION -->
+   <composite:implementation>
         <table>
             <tr>
                 <td style="width: 245px; border-right: 1px solid silver;" valign="top">
             <h:form>
-                <h:dataTable title="разделы" id="tabs" value="#{tabsViewBean.getTabs('student_help')}" var="t" border="0" cellpadding="0" cellspacing="0">
+                <h:dataTable title="разделы" id="tabs" value="#{tabsViewBean.getTabs(cc.attrs.type)}" var="t" border="0" cellpadding="0" cellspacing="0">
                     <h:column>
                         <f:facet name="header">
                             <div style="line-height: 30px; font-weight: normal; color: silver;">
@@ -66,6 +69,5 @@
             </td>
             </tr>
         </table>
-        </div>
-    </ui:define>
-</ui:composition>
+   </composite:implementation>
+</html>

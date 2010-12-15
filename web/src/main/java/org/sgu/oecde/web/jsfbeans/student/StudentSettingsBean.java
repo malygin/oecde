@@ -29,6 +29,7 @@ public class StudentSettingsBean extends UserViewBean implements IBeanWithAvatar
 
     private static final long serialVersionUID = 156L;
 
+    @Override
     public void uploadAvatar(){
         avatarBuilder.addAvatar(studentSessionBean.getStudent());
     }

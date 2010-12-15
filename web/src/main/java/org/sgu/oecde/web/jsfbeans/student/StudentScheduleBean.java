@@ -3,7 +3,7 @@ package org.sgu.oecde.web.jsfbeans.student;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.core.util.ListUtil;
 import org.sgu.oecde.schedule.Lesson;
 import org.sgu.oecde.schedule.dao.ILessonDao;
@@ -12,13 +12,13 @@ import org.sgu.oecde.schedule.dao.ILessonDao;
  *
  * @author ShihovMY
  */
-@ManagedBean(name="scheduleBean")
-@SessionScoped
+@ManagedBean
+@ViewScoped
 public class StudentScheduleBean extends StudentCurriculumBean{
     @ManagedProperty(value="#{lessonDao}")
-    ILessonDao lessonDao;
+    private ILessonDao lessonDao;
 
-    List<Lesson>lessons;
+    private List<Lesson>lessons;
 
     private static final long serialVersionUID = 151L;
 

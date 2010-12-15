@@ -36,9 +36,11 @@
                     <h:outputLink value="test.xhtml?c=#{teacherCurriculumBean.curriculumId}&amp;id=#{test.id}&amp;s=#{teacherCurriculumBean.semester}" >
                         #{test.title}
                     </h:outputLink>
+                    <div align="center">
                     <h:outputLink value="testEdit.xhtml?c=#{teacherCurriculumBean.curriculumId}&amp;id=#{test.id}&amp;s=#{teacherCurriculumBean.semester}" >
                         (редактировать)
                     </h:outputLink>
+                        </div>
                 </div>
                 </div>
             </r:forEach>

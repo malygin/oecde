@@ -3,6 +3,7 @@ package org.sgu.oecde.de.users;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.hibernate.validator.constraints.Email;
 import javax.validation.constraints.Digits;
+import org.sgu.oecde.de.education.City;
 
 /**
  * студент дистанционного образования
@@ -25,6 +26,10 @@ public class Student extends AbstractStudent{
      */
     @Digits(integer=9,message="Содержит недопустимые символы",fraction=0)
     private Integer icq;
+    /**
+     * город
+     */
+    private City city;
     private static final long serialVersionUID = 51L;
 
     public Student() {
@@ -48,6 +53,23 @@ public class Student extends AbstractStudent{
      */
     public void setCellPhone(Integer cellPhone) {
         this.cellPhone = cellPhone;
+    }
+
+    /**
+     *
+     * @param <T> extends City
+     * @return город
+     */
+    public <T extends City> T getCity() {
+        return (T) city;
+    }
+
+    /**
+     * город
+     * @param city
+     */
+    public void setCity(City city) {
+        this.city = city;
     }
 
     /**

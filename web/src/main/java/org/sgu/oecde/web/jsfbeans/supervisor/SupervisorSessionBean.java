@@ -11,6 +11,7 @@ import org.sgu.oecde.core.IBasicDao;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.core.util.SemesterGetter;
+import org.sgu.oecde.de.education.dao.IGroupDao;
 import org.sgu.oecde.de.users.DeSupervisor;
 import org.sgu.oecde.de.users.Group;
 import org.springframework.util.Assert;
@@ -28,7 +29,7 @@ public class SupervisorSessionBean implements Serializable{
     private List<Group>groups;
 
     @ManagedProperty(value="#{groupDao}")
-    IBasicDao<Group>groupDao;
+    private IGroupDao groupDao;
 
     @ManagedProperty(value="#{semesterGetter}")
     private SemesterGetter semesterGetter;
@@ -43,8 +44,7 @@ public class SupervisorSessionBean implements Serializable{
 
     public List<Group> getGroups() {
         if(groups == null){
-            Group example = new Group(supervisor.getCity());
-            groups = groupDao.getByExample(example);
+            groups = groupDao.getGroupsByCity(supervisor.getCity());
             Collections.sort(groups);
         }
         return groups;
@@ -68,6 +68,10 @@ public class SupervisorSessionBean implements Serializable{
 
     public void setSemesterGetter(SemesterGetter semesterGetter) {
         this.semesterGetter = semesterGetter;
+    }
+
+    public void setGroupDao(IGroupDao groupDao) {
+        this.groupDao = groupDao;
     }
 
     @PostConstruct

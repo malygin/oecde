@@ -14,7 +14,7 @@
             <f:metadata>
                 <f:viewParam name="s" value="#{groupCwBean.semester}"/>
             </f:metadata>
-            <est:changeSemester bean="#{groupCwBean}"/>
+            <est:changeSemester semester="#{groupCwBean.semester}"/>
 
             <c:forEach items="${groupCwBean.controlWorkInfo4Group}" var="w">
                 <div class="studentInterfaceStandartList">

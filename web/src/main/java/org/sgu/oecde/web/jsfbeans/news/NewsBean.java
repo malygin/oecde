@@ -1,4 +1,3 @@
-
 package org.sgu.oecde.web.jsfbeans.news;
 
 import java.util.List;

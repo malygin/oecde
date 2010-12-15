@@ -1,6 +1,7 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
 import java.io.Serializable;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedProperty;
 import org.sgu.oecde.core.education.dao.ICurriculumDao;
 import org.sgu.oecde.core.users.AbstractUser;
@@ -9,13 +10,13 @@ import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.education.DeCurriculumBuilder;
 import org.sgu.oecde.de.users.Student;
-import org.sgu.oecde.web.IBeanWithSemester;
+import org.springframework.util.Assert;
 
 /**
  *
  * @author ShihovMY
  */
-abstract class AbstractStudentBean implements Serializable,IBeanWithSemester{
+abstract class AbstractStudentBean implements Serializable{
 
     protected int semester;
 
@@ -66,5 +67,11 @@ abstract class AbstractStudentBean implements Serializable,IBeanWithSemester{
 
     public Student getStudent() {
         return student;
+    }
+
+    @PostConstruct
+    public void afterPropertiesSet(){
+        Assert.notNull(semesterGetter);
+        semester = semesterGetter.getCurrentSemester();
     }
 }

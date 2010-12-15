@@ -1,0 +1,16 @@
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:t="http://java.sun.com/jsf/composite/components/tabs"
+    template="../resources/studentTemplate.xhtml">
+
+    <ui:define name="contentHeader">
+        Инфомрация
+    </ui:define>
+    <ui:define name="content">
+        <div class="interfaceContent">
+            <t:singleTab type="student_information"/>
+        </div>
+    </ui:define>
+</ui:composition>

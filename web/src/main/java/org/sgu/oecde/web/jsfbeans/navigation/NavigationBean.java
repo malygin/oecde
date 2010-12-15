@@ -46,7 +46,6 @@ public class NavigationBean implements Serializable{
     }
 
     public void setPage(String page) {
-        System.out.println("____________________");
         this.page = page;
     }
     //формирование списка страниц

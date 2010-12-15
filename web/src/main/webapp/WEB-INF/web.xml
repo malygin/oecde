@@ -18,7 +18,7 @@
     </listener>
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
-        <param-value>Extension</param-value>
+        <param-value>Development</param-value>
     </context-param>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
@@ -53,7 +53,7 @@
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
     <session-config>
-        <session-timeout>60</session-timeout>
+        <session-timeout>1</session-timeout>
     </session-config>
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>

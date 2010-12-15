@@ -66,14 +66,14 @@ public class ConstantsFormBean implements Serializable{
             applyChanges(cwDatesGetter,n);
         }
         int old = semesterGetter.getCurrentSemester();
-        if((semester ? 1 : 0)!=old){
+        if((semester ? SemesterGetter.WINTER_SEMESTER : SemesterGetter.SUMMER_SEMESTER)!=old){
             boolean update = (old == CalendarConstantName.semester.getDefault());
-                semesterGetter.save(CalendarConstantName.semester, semester?1:0,update);
+                semesterGetter.save(CalendarConstantName.semester, semester?1:0,!update);
         }
         old = semesterGetter.getCurrentYear();
         if(year!=old){
             boolean update = (old == CalendarConstantName.year.getDefault());
-                semesterGetter.save(CalendarConstantName.year, year,update);
+                semesterGetter.save(CalendarConstantName.year, year,!update);
         }
     }
 

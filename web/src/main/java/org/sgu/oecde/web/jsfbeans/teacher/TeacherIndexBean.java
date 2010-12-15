@@ -14,13 +14,13 @@ import org.sgu.oecde.core.education.dao.IEstimateDao;
 @ViewScoped
 public class TeacherIndexBean extends AbstractTeacherBean{
     @ManagedProperty(value="#{controlWorkAttemptDao}")
-    IControlWorkAttemptDao controlWorkAttemptDao;
+    private IControlWorkAttemptDao controlWorkAttemptDao;
 
     @ManagedProperty(value="#{teacherSessionBean}")
-    protected TeacherSessionBean teacherSessionBean;
+    private  TeacherSessionBean teacherSessionBean;
 
     @ManagedProperty(value="#{estimateDao}")
-    protected IEstimateDao estimateDao;
+    private  IEstimateDao estimateDao;
 
     public int getReadCwAttempsCount(){
         return controlWorkAttemptDao.getAttemptCountForTeacher(teacherSessionBean.getDisciplines(0), teacher, true);

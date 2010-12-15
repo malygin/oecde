@@ -2,7 +2,6 @@ package org.sgu.oecde.web.jsfbeans.tabs;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -20,7 +19,6 @@ import org.sgu.oecde.web.jsfbeans.util.fileUpload.FileUploadUtil;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.MultipartRequestWrapper;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.UploadFile;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.util.CollectionUtils;
 
 /**
  *
@@ -43,6 +41,7 @@ public class TabEditBean implements Serializable{
         String redirect = null;
         if(pageId == null&&page!=null){
             tab.getPages().add(page);
+            page.setTab(tab);
             redirect = "tabEdit.xhtml?faces-redirect=true&id="+tab.getId();
         } else
             redirect = "tabsView.xhtml?faces-redirect=true";
@@ -80,6 +79,7 @@ public class TabEditBean implements Serializable{
                   pageFile.setImage(false);
                   pageFile.setName(name);
                   page.getFiles().add(pageFile);
+                  pageFile.setPage(page);
                   tabsDao.update(tab);
               }
            }
@@ -91,7 +91,8 @@ public class TabEditBean implements Serializable{
     public void deleteFile(AjaxBehaviorEvent event){
         PageFile f = (PageFile) event.getComponent().getAttributes().get("file");
         page.getFiles().remove(f);
-        tabsDao.removeFile(f);
+        tabsDao.update(tab);
+//        tabsDao.removeFile(f);
     }
 
     public Tab getTab() {

@@ -1,7 +1,6 @@
 package org.sgu.oecde.web.jsfbeans.journal;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -51,6 +50,7 @@ public class JournalBean implements Serializable{
         EventBodyElement.teacherPage = "teacher.xhtml";
         EventBodyElement.testPage = "test.xhtml";
         EventBodyElement.umkPage = "exbook.xhtml";
+        EventBodyElement.whoIs = "http://whois.domaintools.com/";
     }
 
     public void clearEvents(AjaxBehaviorEvent event){

@@ -4,8 +4,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.AjaxBehaviorEvent;
+import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.de.users.Student;
-import org.sgu.oecde.web.IBeanWithSemester;
 import org.sgu.oecde.web.jsfbeans.UserViewBean;
 import org.sgu.oecde.web.jsfbeans.student.ControlWorksBean;
 import org.sgu.oecde.web.jsfbeans.student.PointsAndGradesBean;
@@ -18,25 +18,37 @@ import org.sgu.oecde.web.jsfbeans.student.TestResultsBean;
  */
 @ManagedBean(name="studentViewBean")
 @ViewScoped
-public class StudentViewBean extends UserViewBean implements IBeanWithSemester{
+public class StudentViewBean extends UserViewBean{
 
     @ManagedProperty(value="#{controlWorksBean}")
-    ControlWorksBean controlWorksBean;
+    private ControlWorksBean controlWorksBean;
 
     @ManagedProperty(value="#{gradesBean}")
-    PointsAndGradesBean gradesBean;
+    private PointsAndGradesBean gradesBean;
 
     @ManagedProperty(value="#{testResultsBean}")
-    TestResultsBean testResultsBean;
+    private TestResultsBean testResultsBean;
 
     @ManagedProperty(value="#{studentSessionBean}")
-    StudentSessionBean studentSessionBean;
-    int semester;
+    private StudentSessionBean studentSessionBean;
+    private  int semester;
 
     private static final long serialVersionUID = 171L;
 
     public StudentViewBean() {
         setType("STUDENT");
+    }
+
+    @Override
+    public AbstractUser getUser() {
+        if(user==null){
+            user = super.getUser();
+            controlWorksBean.setStudent((Student) user);
+            gradesBean.setStudent((Student) user);
+            testResultsBean.setStudent((Student) user);
+            studentSessionBean.setStudent((Student) user);
+        }
+        return user;
     }
 
     public int getCurrentSemester(){
@@ -46,16 +58,6 @@ public class StudentViewBean extends UserViewBean implements IBeanWithSemester{
     public void reExameSwitch(AjaxBehaviorEvent event){
         Boolean np = (Boolean) event.getComponent().getAttributes().get("reExame");
         testResultsBean.setReExame(np);
-    }
-
-    public void setId(Long id) {
-        if(id!=null){
-            super.setId(id);
-            controlWorksBean.setStudent((Student) user);
-            gradesBean.setStudent((Student) user);
-            testResultsBean.setStudent((Student) user);
-            studentSessionBean.setStudent((Student) user);
-        }
     }
 
     public int getSemester() {

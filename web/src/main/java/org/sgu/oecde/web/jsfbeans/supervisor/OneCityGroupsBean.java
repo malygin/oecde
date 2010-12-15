@@ -20,9 +20,9 @@ import org.springframework.security.access.annotation.Secured;
 public class OneCityGroupsBean implements Serializable{
 
     @ManagedProperty(value="#{supervisorSessionBean}")
-    SupervisorSessionBean supervisorSessionBean;
+    private SupervisorSessionBean supervisorSessionBean;
 
-    List<NewEntry<Speciality,List<Group>>>specialities;
+    private List<NewEntry<Speciality,List<Group>>>specialities;
 
     private static final long serialVersionUID = 184L;
 

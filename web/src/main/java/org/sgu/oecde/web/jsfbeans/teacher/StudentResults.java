@@ -31,13 +31,13 @@ public class StudentResults extends AbstractStudentsListBean{
     private List<AdditionalSelfDependentWork>tests;
 
     @ManagedProperty(value="#{studentDao}")
-    IBasicDao<Student>studentDao;
+    private IBasicDao<Student>studentDao;
 
     @ManagedProperty(value="#{testAttemptService}")
-    TestAttemptService testAttemptService;
+    private TestAttemptService testAttemptService;
 
     @ManagedProperty(value="#{controlWorkService}")
-    ControlWorkService controlWorkService;
+    private ControlWorkService controlWorkService;
 
     @ManagedProperty(value="#{resourceService}")
     private ResourceService resourceService;

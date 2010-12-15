@@ -17,13 +17,14 @@ import org.sgu.oecde.web.jsfbeans.teacher.TeacherSessionBean;
 public class TeacherViewBean extends UserViewBean{
 
     @ManagedProperty(value="#{teacherSessionBean}")
-    TeacherSessionBean teacherSessionBean;
+    private TeacherSessionBean teacherSessionBean;
     
     @ManagedProperty(value="#{teacherIndexBean}")
-    TeacherIndexBean teacherIndexBean;
+    private TeacherIndexBean teacherIndexBean;
 
     private static final long serialVersionUID = 172L;
 
+    @Override
     public void setId(Long id) {
         super.setId(id);
         teacherSessionBean.setTeacher((Teacher) user);

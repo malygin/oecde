@@ -35,7 +35,7 @@ public class TeacherSettingsBean extends UserViewBean implements IBeanWithAvatar
 
     public void save(){
         try {
-            save();
+            super.save();
         } catch (Exception e) {
             e.fillInStackTrace();
             error = "При сохранении возникла ошибка";

@@ -18,10 +18,10 @@ import org.sgu.oecde.schedule.dao.ILessonDao;
 public class SupervisorScheduleBean implements Serializable{
 
     @ManagedProperty(value="#{lessonDao}")
-    ILessonDao lessonDao;
+    private ILessonDao lessonDao;
 
     @ManagedProperty(value="#{supervisorSessionBean}")
-    SupervisorSessionBean supervisorSessionBean;
+    private SupervisorSessionBean supervisorSessionBean;
 
     @ManagedProperty(value="#{semesterGetter}")
     private SemesterGetter semesterGetter;

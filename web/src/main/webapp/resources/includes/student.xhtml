@@ -24,7 +24,7 @@
                     </tr>
                     <tr><td>
                         <h:commandLink value="удалить">
-                            <f:ajax execute="@form" render="@form" listener="#{userViewBean.deletePhoto}"/>
+                            <f:ajax execute="@form" render="@form" listener="#{studentViewBean.deletePhoto}"/>
                         </h:commandLink>
                     </td></tr>
                 </table>
@@ -52,7 +52,9 @@
                         <td><p>#{msgs.student_mainContentUserInfoCourse}</p></td><td><div>#{studentViewBean.user.group.year}</div></td>
                     </tr>
                     <tr>
-                        <td><p>#{msgs.student_mainContentUserInfoGroup}</p></td><td><div>#{studentViewBean.user.group.name}</div></td>
+                        <td><p>#{msgs.student_mainContentUserInfoGroup}</p></td><td><div>
+                                <h:outputLink value="group.xhtml?id=#{studentViewBean.user.group.id}">#{studentViewBean.user.group.name}</h:outputLink>
+                            </div></td>
                     </tr>
                     <sec:ifAnyGranted roles="ROLE_ADMIN">
                         <tr>
@@ -86,7 +88,7 @@
             </div>
             <div class="floatDestroyer"></div>
         </div>
-        <est:changeSemester bean="#{studentViewBean}" link="id=#{studentViewBean.id}"/>
+        <est:changeSemester semester="#{studentViewBean.semester}" link="id=#{studentViewBean.id}"/>
 
                 <hr/><br/><h4>Оценки:</h4><br/><hr/>
         <h:dataTable  value="#{gradesBean.points}"

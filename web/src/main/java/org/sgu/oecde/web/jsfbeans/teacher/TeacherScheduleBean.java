@@ -16,12 +16,12 @@ import org.sgu.oecde.schedule.dao.ILessonDao;
 public class TeacherScheduleBean extends AbstractTeacherBean{
 
     @ManagedProperty(value="#{lessonDao}")
-    ILessonDao lessonDao;
+    private ILessonDao lessonDao;
 
-    List<Lesson>lessons;
+    private List<Lesson>lessons;
 
     @ManagedProperty(value="#{teacherSessionBean}")
-    protected TeacherSessionBean teacherSessionBean;
+    private TeacherSessionBean teacherSessionBean;
 
     private static final long serialVersionUID = 151L;
 

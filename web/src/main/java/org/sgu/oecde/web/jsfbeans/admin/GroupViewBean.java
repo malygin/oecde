@@ -17,12 +17,12 @@ import org.sgu.oecde.de.users.Student;
 @ManagedBean(name="groupViewBean")
 @ViewScoped
 public class GroupViewBean implements Serializable{
-    Group group;
-    Long id;
-    List<Student>students;
+    private Group group;
+    private Long id;
+    private List<Student>students;
 
     @ManagedProperty(value="#{groupDao}")
-    IBasicDao<Group>groupDao;
+    private IBasicDao<Group>groupDao;
 
     private static final long serialVersionUID = 167L;
 

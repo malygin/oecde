@@ -90,7 +90,7 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
 
         Assert.isInstanceOf(type,item ,"item is not an instance of type "+type);
         Assert.notNull(item,"item cannot be null");
-        cr.add(Example.create(item).excludeZeroes()).addOrder(Order.asc("id")).setCacheable(true);
+        cr.add(Example.create(item).excludeZeroes()).addOrder(Order.asc("id")).setCacheable(false);
         if(item.getId()!=null&&item.getId()!=0)
             cr.add(Restrictions.idEq(item.getId()));
         final FastClass fc = FastClass.create(item.getClass());

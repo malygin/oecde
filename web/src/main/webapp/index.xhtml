@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-
+    xmlns:t="http://java.sun.com/jsf/composite/components/tabs"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
@@ -32,8 +32,8 @@
                             </td>
                         </tr>
                     </table>
-                    <h:form id="loginForm"  prependId="false">
-                        <table cellpadding="0" cellspacing="4">
+                    <form method="post" action="j_spring_security_check">
+                          <table cellpadding="0" cellspacing="4">
                             <tr>
                                 <td width="50">
                                     <p class="login_pageFormInputsLabels">#{msgs.login_login}:</p>
@@ -61,42 +61,19 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <h:commandButton styleClass="login_pageFormButtons" type="submit" id="login"  action="#{loginBean.doLogin}" value="#{msgs.login_EnterButton}"/>
+                                    <h:inputHidden id="faces-redirect" value="true"/>
+                                    <button class="login_pageFormButtons" type="submit">#{msgs.login_EnterButton}</button>
                                     <h:commandButton styleClass="login_pageFormButtons" type="reset" id="resetButton" value="#{msgs.login_CancelButton}"/>
                                     <h:commandButton styleClass="login_pageFormButtons" type="button" id="guestEnterButton" value="#{msgs.login_GuestEnterButton}"/>
                                     <h:commandButton styleClass="login_pageFormButtons" type="button" id="VideoConfButton" value="#{msgs.login_VideoConfButton}"/>
                                 </td>
                             </tr>
-                        </table>
-                        
-                        
-                        
-                    </h:form>
+                        </table></form>
                     <h:outputText rendered="#{loginBean.renderErrorEnter}" style="color: red;" value="#{msgs.login_Error}"/>
                 </div>
             </div>
             <div class="login_pageHelloText">
-                <br/>
-                <p class="login_pageHelloTextTitle" align="center">ВНИМАНИЕ!</p>
-<!--                <p class="grey_text_login">Для того, чтобы зайти в систему дистанционного образования с целью ознакомления, перейдите по этой <a class="guest_akk_enter" href="signOn.do?login=guest&pass=guest">ссылке</a>.</p>-->
-                <p class="login_pageHelloTextP">
-                    Для усилинения мер безопасности при работе с образовательным порталом http://oecdo.sgu.ru вводится система шифрования при передаче данных. Если у Вас возникли проблемы с заходом на портал - инструкции <a href="http://oec.sgu.ru/news/?news_id=119&amp;category=obsh" class="login_pageHelloTextLink">здесь</a>.
-                </p>
-                <p class="login_pageHelloTextP">
-                    В 2008 году Саратовский Государственный университет  начал реализовывать систему дистанционного обучения, которая делает возможным получение образования независимо от места проживания и удаленности от  вуза.
-                </p>
-                <p class="login_pageHelloTextP">
-                    Работа над проектом велась в течение двух лет в рамках Инновационной образовательной программы Саратовского Госуниверситета и не прекращается и сейчас. Мы  постоянно развиваемся, чтобы сделать ваше обучение более комфортным и качественным.
-                </p>
-                <p class="login_pageHelloTextP">
-                    Теперь вы можете обучаться так, как удобно вам, без отрыва от места жительства и работы, сводя к минимуму посещение головного вуза.
-                    Узнать больше можно на сайте  <a href="http://oec.sgu.ru" class="login_pageHelloTextLink">http://oec.sgu.ru</a>. Вы можете написать нам по адресу
-                    oecdo@mail.ru
-                </p>
-                <p class="login_pageHelloTextP">
-                    Для работы с этой системой рекомендуется использовать бесплатно распространяемый браузер  <img src="images/firefox-3.0.png" alt=""/> Mozilla Firefox.
-                    Вы можите скачать его по этой <a href="http://www.mozilla-russia.org/" class="login_pageHelloTextLink">ссылке</a>
-                </p>
+                <t:singleTab type="INDEX_PAGE"/>
             </div>
             <div class="login_pageBottomCorners">
                 <img src="resources/images/circul.png" alt="" class="login_pageLeftBottomCorner"/>
@@ -106,5 +83,4 @@
             </div>
         </div>
     </h:body>
-
 </html>

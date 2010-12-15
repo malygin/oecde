@@ -12,7 +12,6 @@ import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.users.UserType;
 import org.sgu.oecde.de.users.Student;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.util.Assert;
 
 /**
  *
@@ -22,16 +21,16 @@ import org.springframework.util.Assert;
 @ViewScoped
 public class UserViewBean implements Serializable{
     @ManagedProperty(value="#{adminDao}")
-    IUpdateDao<Admin>adminDao;
+    private IUpdateDao<Admin>adminDao;
 
     @ManagedProperty(value="#{teacherDao}")
-    IUpdateDao<Teacher>teacherDao;
+    private IUpdateDao<Teacher>teacherDao;
 
     @ManagedProperty(value="#{studentDao}")
-    IUpdateDao<Student>studentDao;
+    private IUpdateDao<Student>studentDao;
 
     @ManagedProperty(value="#{supervisorDao}")
-    IUpdateDao<Supervisor>supervisorDao;
+    private IUpdateDao<Supervisor>supervisorDao;
 
     private Long id;
     private String type;
@@ -40,6 +39,25 @@ public class UserViewBean implements Serializable{
     private static final long serialVersionUID = 163L;
 
     public AbstractUser getUser(){
+        if(user==null){
+            UserType t = UserType.valueOf(type);
+            switch(t){
+                case ADMIN:
+                    user = adminDao.getById(id);
+                    break;
+                case SUPERVISOR:
+                    user = supervisorDao.getById(id);
+                    break;
+                case TEACHER:
+                    user = teacherDao.getById(id);
+                    break;
+                case STUDENT:
+                    user = studentDao.getById(id);
+                    break;
+                default:
+                    throw new IllegalAccessError();
+            }
+        }
         return user;
     }
 
@@ -89,23 +107,6 @@ public class UserViewBean implements Serializable{
     }
 
     public void setType(String type) {
-        UserType t = UserType.valueOf(type);
-        switch(t){
-            case ADMIN:
-                user = adminDao.getById(id);
-                break;
-            case SUPERVISOR:
-                user = supervisorDao.getById(id);
-                break;
-            case TEACHER:
-                user = teacherDao.getById(id);
-                break;
-            case STUDENT:
-                user = studentDao.getById(id);
-                break;
-            default:
-                throw new IllegalAccessError();
-        }
         this.type = type;
     }
 
