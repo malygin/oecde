@@ -5,16 +5,15 @@
      xmlns:h="http://java.sun.com/jsf/html"
      template="../resources/studentTemplate.xhtml"
      xmlns:j="http://java.sun.com/jsf/composite/components/journal"
+    xmlns:news="http://java.sun.com/jsf/composite/components/news"
      xmlns:ut="http://java.sun.com/jsf/composite/components/util">
 
     <ui:define name="fio">
         <h:outputText value="#{studentSessionBean.student.fio}"/>
     </ui:define>
     <ui:define name="content">
-
         <div class="userFile">
-                            <ut:showPhoto user="#{studentSessionBean.student}" size="large"/>
-                        
+            <ut:showPhoto user="#{studentSessionBean.student}" size="large"/>
             <div class="userData">
                 <table cellspacing="8">
                     <tr>
@@ -41,26 +40,20 @@
                     <tr>
                         <td><p>#{msgs.student_mainContentUserInfoGroup}</p></td><td><div>#{studentSessionBean.student.group.name}</div></td>
                     </tr>
+                    <tr>
+                        <td><p>Ваш рейтинг:</p></td><td><div>#{studentRatingBean.studentRating.sum}</div></td>
+                    </tr>
                 </table>
             </div>
             <div class="floatDestroyer"></div>
-            <h:dataTable value="#{studentRatingBean.groupRating}" var="p">
-               <h:column>
-                <f:facet name="header">
-                 <h:outputText value="Студент" />
-                </f:facet>
-               #{p.student.fio}
-               </h:column>
-               <h:column>
-                <f:facet name="header">
-                 <h:outputText value="Рейтинг" />
-                </f:facet>
-                 #{p.sum}
-               </h:column>
+            <hr/>
+            <h:dataTable value="#{NewsBean.news}" var="new">
+                <h:column>
+                #{new.time}. #{new.announcement}
+                </h:column>
             </h:dataTable>
             <hr/>
          <j:eventsOnly  list="#{journalBean.events('studentEvents',studentSessionBean.student)}"/>
         </div>
     </ui:define>
-
 </ui:composition>

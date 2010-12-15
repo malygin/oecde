@@ -1,5 +1,6 @@
 package org.sgu.oecde.web.jsfbeans.news;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -20,7 +21,7 @@ import org.springframework.security.access.annotation.Secured;
  */
 @ManagedBean(name="NewsBean")
 @ViewScoped
-public class NewsBean {
+public class NewsBean implements Serializable{
      @ManagedProperty(value="#{newsDao}")
      private INewsDao newsDao;
 

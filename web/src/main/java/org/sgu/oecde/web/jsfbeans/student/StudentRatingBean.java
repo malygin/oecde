@@ -12,6 +12,7 @@ import org.sgu.oecde.core.education.estimation.IResultFilter;
 import org.sgu.oecde.core.education.estimation.Points;
 import org.sgu.oecde.core.education.estimation.ResultPreFilter;
 import org.sgu.oecde.core.education.work.AbstractResult;
+import org.sgu.oecde.core.util.ListUtil;
 import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.de.users.Student;
 
@@ -36,17 +37,39 @@ public class StudentRatingBean extends StudentCurriculumBean{
     private IResultDao<AbstractResult>resultDao;
 
     private List<Points>rating;
+
+    private Points points;
+
     public List<Points>  getGroupRating() {
         if(rating==null){
-            setSemester(0);
-            List<IResultFilter>filters = new ArrayList(2);
-            filters.add(controlWorkFilter);
-            filters.add(testFilter);
             List<Student>students = new ArrayList<Student>(student.<Group>getGroup().getPersons());
-            List<AbstractResult> l = resultDao.getByStudentsAndCurriculums(getCurriculums(), students, null);
-            rating = preFilter.forEachResult(l, false,filters,students,new ArrayList());
-            Collections.sort(rating, new ByRating());
+            rating = getStudentsRating(students);
         }
+        return rating;
+    }
+
+    public Points getStudentRating(){
+        if(points == null){
+            List<Student>students = ListUtil.<Student>oneItemList(student);
+            List<Points>rating = getStudentsRating(students);
+            if(rating.size()==1)
+                points = rating.get(0);
+            else
+                return new Points();
+        }
+        return points;
+    }
+
+    private List<Points> getStudentsRating(List<Student>students){
+        setSemester(0);
+        List<IResultFilter>filters = new ArrayList(2);
+        filters.add(controlWorkFilter);
+        filters.add(testFilter);
+        List<AbstractResult> l = resultDao.getByStudentsAndCurriculums(getCurriculums(), students, null);
+        List<Points>rating = preFilter.forEachResult(l, false,filters,students,new ArrayList());
+        if(rating == null)
+            return new ArrayList<Points>(0);
+        Collections.sort(rating, new ByRating());
         return rating;
     }
 
