@@ -129,14 +129,14 @@ public class MessageWriteBean  implements Serializable{
      * @throws IOException
      */
      public void removeRecipient() throws IOException {
-         System.out.println("_"+recipientIdRemove);
+        // System.out.println("_"+recipientIdRemove);
        if (recipients.size()==1){
            recipients= new ArrayList();
-           System.out.println("!"+recipients.size());
+         //  System.out.println("!"+recipients.size());
        }else{
 
        for(MessageRecipient m:recipients){
-               System.out.println("!!"+recipients.size());
+            //   System.out.println("!!"+recipients.size());
            if (m.getRecipient().getId().equals(new Long(recipientIdRemove))){
                recipients.remove(m);
            }
@@ -255,7 +255,7 @@ public class MessageWriteBean  implements Serializable{
     }
 
     public List<SelectItem> getAvailableRecipients() {
-        System.out.println("get!");
+      //  System.out.println("get!");
         SelectItem s=new  SelectItem("1", "Шихов");
         SelectItem s1=new SelectItem("2", "Шиховский");
         SelectItem s2=new SelectItem("3", "Коржов");
@@ -270,7 +270,7 @@ public class MessageWriteBean  implements Serializable{
     }
 
     public void setCurrentRecipient(SelectItem currentRecipient) {
-        System.out.println("set current!");
+    //    System.out.println("set current!");
         this.currentRecipient = currentRecipient;
     }
 
