@@ -28,8 +28,17 @@
             </div>
         </h:panelGroup>
         <h:panelGroup rendered="#{cc.attrs.size eq 'small'}">
+            <div class="userPhoto" style="width: 9%;">
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="userPhotoBorder">
             <h:graphicImage rendered="#{cc.attrs.user.smallPhoto ne null}" value="../resources/userFiles/avatars/#{cc.attrs.user.smallPhoto}"/>
             <h:graphicImage rendered="#{cc.attrs.user.smallPhoto eq null}" value="../resources/userFiles/avatars/defaultAvatarSmall.jpg"/>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </h:panelGroup>
         <h:panelGroup rendered="#{cc.attrs.size eq 'medium'}">
             <h:graphicImage rendered="#{cc.attrs.user.mediumPhoto ne null}" value="../resources/userFiles/avatars/#{cc.attrs.user.mediumPhoto}"/>

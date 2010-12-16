@@ -16,19 +16,7 @@
             <est:changeSemester semester="#{teachersListBean.semester}"/>
             <r:forEach items="#{teachersListBean.teachers}" var="t">
                 <div class="studentInterfaceStandartList">
-                    <div class="standartContainerForTeacherMediumAvatar" align="center">
-                        <table>
-                            <tr>
-                                <td>
-                                    Дисциплина:
-                                </td>
-                                <td>
-                                    ${t.key['discipline'].name}
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <ut:userListItem type="teacher" u="#{t.value}"/>
+                    <ut:userListItem className="Teacher" type="teacher" u="#{t.value}"/>
                     <div class="floatDestroyer"/>
                 </div>
             </r:forEach>

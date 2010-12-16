@@ -7,11 +7,16 @@
     xmlns:set="http://java.sun.com/jsf/composite/components/settings">
     >
     <ui:define name="content">
+        <style type="text/css">
+            .s tr td p{
+                color: #1D719F !important;
+}
+        </style>
         <div class="userFile">
             <div style="float: right; width: 78%; text-align: left;">
                 <h:form>
                     <div class="userData" style="float: none; width: 60%;">
-                        <table style="width: 100%;">
+                        <table style="width: 100%;" class="s">
                             <tr>
                                 <td>
                                     <p>Мобильный телефон:</p>
@@ -39,7 +44,7 @@
                         </table>
 
                         <div style="text-align: center;">
-                            <h:commandButton value="Сохранить" styleClass="saveButton">
+                            <h:commandButton value="Сохранить" styleClass="save" >
                                 <f:ajax execute="@form" render="@form mess saved error" listener="#{studentSettingsBean.save}"/>
                             </h:commandButton>
                         </div>

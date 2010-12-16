@@ -9,11 +9,25 @@
         #{msgs.student_grades}
     </ui:define>
     <ui:define name="content">
+        <style type="text/css">
+            .mainStyle div.interfaceContent{
+                padding: 0px;
+            }
+            .mainStyle .changeSemWithoutBorder div{
+                border-bottom: 0px !important;
+            }
+            .mainStyle .studentStandatrTableTd{
+                vertical-align: top;
+            }
+        </style>
         <div class="interfaceContent">
             <f:metadata>
                 <f:viewParam name="s" value="#{gradesBean.semester}"/>
             </f:metadata>
-            <est:changeSemester semester="#{gradesBean.semester}"/>
+            <div class="changeSemWithoutBorder">
+                <est:changeSemester semester="#{gradesBean.semester}"/>
+            </div>
+            <div>
             <h:dataTable  value="#{gradesBean.points}"
                          columnClasses="studentStandatrTableTd,
                          studentStandatrTableTd,
@@ -24,8 +38,8 @@
                          studentStandatrTableTd,
                          studentStandatrTableTd,
                          studentStandatrTableTd,
-                         studentStandatrTableTdLastTd" var="p" styleClass="studentStandatrTable" cellpadding="0" cellspacing="0">
-               
+                         studentStandatrTableTdLastTd" var="p" styleClass="studentStandatrTable" cellpadding="0" cellspacing="0" style="margin: 0px;">
+
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
@@ -36,7 +50,7 @@
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_gradesTableHeadTeacher}" />
                     </f:facet>
-                    <span class="linkToTeachersProfile"><h:outputLink value="teacher.xhtml?id=${p.teacher.id}">#{p.teacher.initials}</h:outputLink></span>
+                        <span class="linkToTeachersProfile"><h:outputLink value="teacher.xhtml?id=${p.teacher.id}">#{p.teacher.initials}</h:outputLink></span>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
@@ -94,6 +108,7 @@
                     <h:outputText converter="enumConverter" value="#{p.grade}"/>
                 </h:column>
             </h:dataTable>
+            </div>
         </div>
     </ui:define>
 </ui:composition>

@@ -9,6 +9,21 @@
         #{msgs.student_CWResults}
     </ui:define>
     <ui:define name="content">
+        <style type="text/css">
+            .mainStyle div.interfaceContent{
+                padding: 0px;
+            }
+            .mainStyle .passed{
+                background: #EFFFF1;
+            }
+            .mainStyle .failed{
+                background: #FFEFF0;
+            }
+            .mainStyle .available,
+            .mainStyle .notAvailable{
+                background: white;
+            }
+        </style>
 
         <div class="interfaceContent">
             <f:metadata>
@@ -17,9 +32,28 @@
             <est:changeSemester semester="#{groupCwBean.semester}"/>
 
             <c:forEach items="${groupCwBean.controlWorkInfo4Group}" var="w">
-                <div class="studentInterfaceStandartList">
-                    <span class="linkToStudentsProfile"><a href="student.xhtml/?id=#{w.key.id}">#{w.key.fio}</a></span> - <span class="controlWorksDisciplineName">#{w.value.curriculum.discipline.name} (</span><span class="groupControlWorksCWProgress"><h:outputText converter="enumConverter" value="#{w.value.progress}"/></span><span class="controlWorksDisciplineName">)</span><br/>
-                </div>
+                <table cellpadding="2" cellspacing="2" style="width: 100%; border-bottom: 1px solid silver;" class="#{w.value.progress}">
+                    <tr>
+                        <td valign="top" style="color: gray; width: 170px; padding-left: 10px; text-align: justify;">Название дисциплины: </td>
+                        <td valign="top" class="controlWorksDisciplineName">
+                            <h:outputText rendered="${w.value.curriculum.discipline.name ne ''}" value="#{w.value.curriculum.discipline.name}"/>
+                            <h:outputText rendered="${w.value.curriculum.discipline.name eq ''}" value="..."/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">Студент: </td>
+                        <td valign="top" style="padding-left: 10px;">
+                            <span class="linkToStudentsProfile">
+                                <a href="student.xhtml/?id=#{w.key.id}">#{w.key.fio}</a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">Оценка: </td>
+                        <td valign="top" style="padding-left: 10px; font-size: 10pt;"><h:outputText converter="enumConverter" value="#{w.value.progress}"/></td>
+                    </tr>
+                </table>
+               
             </c:forEach>
         </div>
     </ui:define>

@@ -12,16 +12,18 @@
 
     <!-- IMPLEMENTATION -->
     <composite:implementation>
-    <div class="navigationLinks">
-            <h:outputText value="#{changeSemesterBean.semesterName(cc.attrs.semester)}"/>
-            <h:outputText rendered="#{cc.attrs.semester eq semesterGetter.currentSemester}" value=" (текущий)"/>
-            cеместр.
-        Показать
-        <h:outputLink value="?s=#{changeSemesterBean.inversedSemesterValue(cc.attrs.semester)}&amp;#{cc.attrs.link}">
-            <h:outputText value="#{changeSemesterBean.inversedSemesterName(cc.attrs.semester)}"/>
-        </h:outputLink>
-        <h:outputText rendered="#{cc.attrs.semester ne semesterGetter.currentSemester}" value=" (текущий)"/>
-        cеместр.
-    </div>
+        <div style="padding: 0px 10px; border-bottom: 1px solid silver;">
+            <div style="background: #e2f3fc; color: #4593DF; padding: 2px 5px 3px 5px; border: 1px solid #5acffc; border-bottom: 0px; border-top: 0px;">
+                <div class="navigationLinks">
+                    <h:outputText value="#{cc.attrs.bean.semester eq 0?'Текущий':'Предыдущий'}"/>
+                    (<b style="color: rgb(41, 133, 223)"><h:outputText value="#{cc.attrs.bean.currentSemester eq cc.attrs.bean.semester?'летний':'зимний'}"/></b>) cеместр.
+                    Показать
+                    <h:outputText value="#{cc.attrs.bean.semester eq 1?'текущий':'предыдущий'}"/>
+                    (<h:outputLink value="?s=#{(cc.attrs.bean.semester eq 1)?0:1}&amp;#{cc.attrs.link}">
+                        <h:outputText value="#{cc.attrs.bean.currentSemester-cc.attrs.bean.semester ne 0?'летний':'зимний'}"/>
+                    </h:outputLink>)
+                </div>
+            </div>
+        </div>
     </composite:implementation>
 </html>

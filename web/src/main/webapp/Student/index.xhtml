@@ -1,41 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition
-     xmlns:ui="http://java.sun.com/jsf/facelets"
-     xmlns:f="http://java.sun.com/jsf/core"
-     xmlns:h="http://java.sun.com/jsf/html"
-     template="../resources/studentTemplate.xhtml"
-     xmlns:j="http://java.sun.com/jsf/composite/components/journal"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/studentTemplate.xhtml"
+    xmlns:j="http://java.sun.com/jsf/composite/components/journal"
     xmlns:news="http://java.sun.com/jsf/composite/components/news"
-     xmlns:ut="http://java.sun.com/jsf/composite/components/util">
+    xmlns:ut="http://java.sun.com/jsf/composite/components/util">
 
     <ui:define name="fio">
         <h:outputText value="#{studentSessionBean.student.fio}"/>
     </ui:define>
     <ui:define name="content">
+        <style>
+            .educ_umk_text {
+                margin-bottom: 2px;
+                margin-left: 28px;
+            }
+            .educ_content_title {
+                margin-bottom: 5px;
+                margin-left: 30px;
+                margin-top: 2px;
+            }
+            .my_educ_text ol {
+                margin-left: 0;
+            }
+            .my_educ_disc_reason{
+                list-style: none;
+            }
+            .my_educ_disc_reason li{
+                margin-left: 23px;
+            }
+            .mainStyle .navigationLinksTitle{
+                padding-left: 10px; color: gray; font-size: 12pt !important;
+            }
+            .mainStyle .navigationLinksTitle a:link{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+            .mainStyle .navigationLinksTitle a:visited{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+            .mainStyle .navigationLinksTitle a:active{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
+            .mainStyle .navigationLinksTitle a:hover{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
+        </style>
         <div class="userFile">
-            <ut:showPhoto user="#{studentSessionBean.student}" size="large"/>
-            <div class="userData">
-                <table cellspacing="8">
-                    <tr>
-                        <td><p>#{msgs.student_mainContentUserInfoSecondName}</p></td><td><div>#{studentSessionBean.student.surname}</div></td>
-                    </tr>
-                    <tr>
-                        <td><p>#{msgs.student_mainContentUserInfoFirstName}</p></td><td><div>#{studentSessionBean.student.name}</div></td>
-                    </tr>
-                    <tr>
-                        <td><p>#{msgs.student_mainContentUserInfoThirdName}</p></td><td><div>#{studentSessionBean.student.secondName}</div></td>
-                    </tr>
-                    <tr style="display: none;">
-                        <td><p>#{msgs.student_mainContentUserInfoBirthDay}</p></td><td><div>#{studentSessionBean.student}</div></td>
-                    </tr>
-                    <tr>
-                        <td><p>#{msgs.student_mainContentUserInfoFaculty}</p></td><td><div>#{studentSessionBean.student.group.faculty}</div></td>
-                    </tr>
+            <ut:showPhoto user="#{studentSessionBean.student}" size="small"/>
+            <div class="userData" style="width: 91%;">
+                <table style="float: left; margin-top: 10px;">
                     <tr>
                         <td><p>#{msgs.student_mainContentUserInfoSpec}</p></td><td><div>#{studentSessionBean.student.group.speciality.name}</div></td>
-                    </tr>
-                    <tr>
-                        <td><p>#{msgs.student_mainContentUserInfoCourse}</p></td><td><div>#{studentSessionBean.student.group.year}</div></td>
                     </tr>
                     <tr>
                         <td><p>#{msgs.student_mainContentUserInfoGroup}</p></td><td><div>#{studentSessionBean.student.group.name}</div></td>
@@ -44,16 +53,173 @@
                         <td><p>Ваш рейтинг:</p></td><td><div>#{studentRatingBean.studentRating.sum}</div></td>
                     </tr>
                 </table>
+                <table style="float: right; font-size: 13pt; position: relative; top: -10px; right: -10px;">
+                    <tr>
+                        <td style="padding-right: 10px;"><div>#{studentSessionBean.student.surname}</div></td>
+                        <td style="padding-right: 10px;"><div>#{studentSessionBean.student.name}</div></td>
+                        <td><div>#{studentSessionBean.student.secondName}</div></td>
+                    </tr>
+                </table>
+                <div class="floatDestroyer"></div>
+                <!--                <table cellspacing="8">
+                                    <tr>
+                                        <td><p>#{msgs.student_mainContentUserInfoSecondName}</p></td><td><div>#{studentSessionBean.student.surname}</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p>#{msgs.student_mainContentUserInfoFirstName}</p></td><td><div>#{studentSessionBean.student.name}</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p>#{msgs.student_mainContentUserInfoThirdName}</p></td><td><div>#{studentSessionBean.student.secondName}</div></td>
+                                    </tr>
+                                    <tr style="display: none;">
+                                        <td><p>#{msgs.student_mainContentUserInfoBirthDay}</p></td><td><div>#{studentSessionBean.student}</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p>#{msgs.student_mainContentUserInfoFaculty}</p></td><td><div>#{studentSessionBean.student.group.faculty}</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p>#{msgs.student_mainContentUserInfoSpec}</p></td><td><div>#{studentSessionBean.student.group.speciality.name}</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p>#{msgs.student_mainContentUserInfoCourse}</p></td><td><div>#{studentSessionBean.student.group.year}</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p>#{msgs.student_mainContentUserInfoGroup}</p></td><td><div>#{studentSessionBean.student.group.name}</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p>Ваш рейтинг:</p></td><td><div>#{studentRatingBean.studentRating.sum}</div></td>
+                                    </tr>
+                                </table>-->
             </div>
             <div class="floatDestroyer"></div>
-            <hr/>
-            <h:dataTable value="#{NewsBean.news}" var="new">
-                <h:column>
-                #{new.time}. #{new.announcement}
-                </h:column>
-            </h:dataTable>
-            <hr/>
-         <j:eventsOnly  list="#{journalBean.events('studentEvents',studentSessionBean.student)}"/>
+        </div>
+        <div style="padding: 5px;">
+            <table style="width: 100%;">
+                <tr>
+                <td style="width: 50%;border: 1px solid silver;" valign="top">
+                    <div style=" border-bottom: 1px solid silver; padding-top: 3px;">
+                        <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="news_list.xhtml">Новости</a></div>
+                        </div>
+                    <div style=" padding: 10px; ">
+                        <h:dataTable value="#{NewsBean.news}" var="new" style="width: 100%;">
+                    <h:column>
+                        <span style="float: left; background: url('../resources/images/newspaper.png') no-repeat left bottom; padding-left: 18px;">
+                            <span class="controlWorksDisciplineNameLink"><a href="1">Название новости</a></span>
+                        </span>
+                        <span class="chatPostDate">#{new.time}.</span>
+                        <div class="floatDestroyer"></div>
+                        #{new.announcement}
+                        
+                    </h:column>
+                </h:dataTable>
+                    </div>
+                </td>
+                <td style="width: 50%;border: 1px solid silver;" valign="top">
+                    <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
+                    <div class="navigationLinksTitle"><span style="font-size: 12pt;">Лента событий</span></div>
+                    </div>
+                    <div style=" padding: 10px; ">
+                        <j:eventsOnly  list="#{journalBean.events('studentEvents',studentSessionBean.student)}"/>
+                    </div>
+                </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%; border: 1px solid silver;" valign="top">
+                        <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
+                        <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="materials.xhtml">Дисциплины </a></div>
+                        </div>
+                    <div style=" padding: 10px; ">
+                        <div>
+                            <img src="../images/pic.jpg" class="pasp_img_test"/>
+                            <div class="controlWorksDisciplineNameLink">
+                                <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
+                                <a href="1">Английский язык</a>
+                                </span>
+                            </div>
+                            <div class="educ_content_title_activ">
+                                <ol class="my_educ_disc_reason">
+                                    <li>отсутствуют самостоятельные работы</li>
+                                    <li>низкая активность</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="../images/pic.jpg" class="pasp_img_test"/>
+                            <div class="controlWorksDisciplineNameLink">
+                                <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
+                                <a href="1">Аудиовизуальные технологии обучения</a>
+                                </span>
+                            </div>
+                            <div class="educ_content_title_activ">
+                                <ol class="my_educ_disc_reason">
+                                    <li>баллов нет</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="../images/pic.jpg" class="pasp_img_test"/>
+                            <div class="controlWorksDisciplineNameLink">
+                                <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
+                                <a href="1">Введение в психолого-педагогическую деятельность</a>
+                                </span>
+                            </div>
+                            <div class="educ_content_title_activ">
+                                <ol class="my_educ_disc_reason">
+                                    <li>баллов нет</li>
+                                </ol>
+                            </div>
+                        </div>
+                        </div>
+                    </td>
+                    <td style="width: 50%; border: 1px solid silver;" valign="top">
+                        <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
+                        <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="controlWorks.xhtml">Мои контрольные </a></div>
+                           </div>
+                    <div style=" padding: 10px; ">
+                        <div>
+                            <img src="../images/pic.jpg" class="pasp_img_test"/>
+                            <div class="controlWorksDisciplineNameLink">
+                                <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
+                                <a href="1">Английский язык</a>
+                                </span>
+                            </div>
+                            <div class="educ_content_title_activ">
+                                <ol class="my_educ_disc_reason">
+                                    <li>отсутствуют самостоятельные работы</li>
+                                    <li>низкая активность</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="../images/pic.jpg" class="pasp_img_test"/>
+                            <div class="controlWorksDisciplineNameLink">
+                                <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
+                                <a href="1">Аудиовизуальные технологии обучения</a>
+                                </span>
+                            </div>
+                            <div class="educ_content_title_activ">
+                                <ol class="my_educ_disc_reason">
+                                    <li>баллов нет</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="../images/pic.jpg" class="pasp_img_test"/>
+                            <div class="controlWorksDisciplineNameLink">
+                                <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
+                                <a href="1">Введение в психолого-педагогическую деятельность</a>
+                                </span>
+                            </div>
+                            <div class="educ_content_title_activ">
+                                <ol class="my_educ_disc_reason">
+                                    <li>баллов нет</li>
+                                </ol>
+                            </div>
+                        </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
     </ui:define>
 </ui:composition>

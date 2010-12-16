@@ -8,6 +8,11 @@
         #{msgs.student_controlMenuSchedule}
     </ui:define>
     <ui:define name="content">
+        <style type="text/css">
+            .mainStyle .studentStandatrTable *{
+                text-align: left !important;
+            }
+        </style>
         <div class="interfaceContent">
             <h:dataTable columnClasses="
                          studentStandatrTableTd,
@@ -25,13 +30,15 @@
                     <f:facet name="header">
                         <h:outputText value="преподаватель"/>
                     </f:facet>
-                    <span class="linkToTeachersProfile"><h:outputText value="#{s.teacher.initials}"/></span>
+                    <span class="linkToTeachersProfile"><a href="teacher.xhtml?id=#{s.teacher.id}"><h:outputText value="#{s.teacher.initials}"/></a></span>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="комната"/>
                     </f:facet>
+                    <div style="text-align: center !important;">
                     <h:outputText value="#{s.room}" style="color: #{s.color}"/>
+                    </div>
                 </h:column>
                 <h:column>
                     <f:facet name="header">

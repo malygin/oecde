@@ -375,13 +375,17 @@
     font-weight: bolder;
     XxXwidth: 70%;
     XxXfloat: left;
-    color: #00A4FF;
+    Xcolor: #00A4FF;
+    padding-left: 20px;
+    background: url("../resources/images/studentIcon.png") no-repeat left bottom;
 }
 .mainStyle .linkToTeachersProfile{
     XxXwidth: 70%;
     XxXfloat: left;
     font-weight: bolder;
     color: #64D359;
+    padding-left: 20px;
+    background: url("../resources/images/teacherIcon.png") no-repeat left bottom;
 }
 .mainStyle .linkToAdminsProfile{
     XxXwidth: 70%;
@@ -389,6 +393,16 @@
     font-weight: bolder;
     color: #EF596D;
 }
+
+.mainStyle .linkToStudentsProfile a:link{color: gray; text-decoration: none; font-weight: normal;}
+.mainStyle .linkToStudentsProfile a:visited{color: gray; text-decoration: none; font-weight: normal;}
+.mainStyle .linkToStudentsProfile a:active{color: gray; text-decoration: underline; font-weight: normal;}
+.mainStyle .linkToStudentsProfile a:hover{color: gray; text-decoration: underline; font-weight: normal;}
+
+.mainStyle .linkToTeachersProfile a:link{color: gray; text-decoration: none; font-weight: normal;}
+.mainStyle .linkToTeachersProfile a:visited{color: gray; text-decoration: none; font-weight: normal;}
+.mainStyle .linkToTeachersProfile a:active{color: gray; text-decoration: underline; font-weight: normal;}
+.mainStyle .linkToTeachersProfile a:hover{color: gray; text-decoration: underline; font-weight: normal;}/*
 .mainStyle .linkToStudentsProfile a:link {color: #00A4FF; text-decoration: underline; font-size: 100%; font-family: Tahoma;}
 .mainStyle .linkToStudentsProfile a:visited {color: #00A4FF; text-decoration: underline; font-size: 100%; font-family: Tahoma;}
 .mainStyle .linkToStudentsProfile a:active {color: #00A4FF; text-decoration: underline; font-size: 100%; font-family: Tahoma;}
@@ -398,7 +412,7 @@
 .mainStyle .linkToTeachersProfile a:visited {color: #64D359; text-decoration: underline; font-size: 100%; font-family: Tahoma;}
 .mainStyle .linkToTeachersProfile a:active {color: #64D359; text-decoration: underline; font-size: 100%; font-family: Tahoma;}
 .mainStyle .linkToTeachersProfile a:hover {color: #64D359; text-decoration: none; font-size: 100%; font-family: Tahoma; }
-
+*/
 .mainStyle .linkToAdminsProfile a:link {color: #EF596D; text-decoration: underline; font-size: 100%; font-family: Tahoma;}
 .mainStyle .linkToAdminsProfile a:visited {color: #EF596D; text-decoration: underline; font-size: 100%; font-family: Tahoma;}
 .mainStyle .linkToAdminsProfile a:active {color: #EF596D; text-decoration: underline; font-size: 100%; font-family: Tahoma;}
@@ -610,7 +624,7 @@
     min-height: 50px;
     margin: 5px;
     padding: 5px;
-    border: 1px solid #9FDDFF;
+    border: 1px solid silver;
     background: #EFF9FF;
 }
 .mainStyle .newsListNewPreview img{
@@ -809,10 +823,11 @@
 .mainStyle .controlWorksDisciplineName{
     font-size: 10pt;
     font-weight: bolder;
-    color: #669999;
+    color: #4593DF;
 }
-.mainStyle .controlWorksDisciplineNameLink a:link{color: #669999;}
-.mainStyle .controlWorksDisciplineNameLink a:visited{color: #669999;}
+/*подобрать цвета для ссылок*/
+.mainStyle .controlWorksDisciplineNameLink a:link{color: #4593DF;}
+.mainStyle .controlWorksDisciplineNameLink a:visited{color: #4593DF;}
 .mainStyle .controlWorksDisciplineNameLink a:active{color: #8DBEE0;}
 .mainStyle .controlWorksDisciplineNameLink a:hover{color: #8DBEE0;}
 
@@ -820,7 +835,7 @@
     width: 100px !important;
 }
 .mainStyle .studentTabInStandartTable{
-
+    width: 100%;
 }
 .mainStyle .studentTabInStandartTable .studentTabInStandartTableTh{
     border: 0px;
@@ -867,4 +882,28 @@
 
 .mainStyle .userData input{
     width: 100%;
+}
+
+
+.save{
+    background: url("../resources/images/buttonBlue.jpg") repeat-x scroll center transparent;
+    border: 1px solid #6CC2D9;
+    color: #016281;
+    font-size: 10pt;
+    height: 17px;
+    margin-right: 21px;
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 0;
+    vertical-align: top;
+    cursor: pointer;
+    width: 100px !important;
+}
+.save:hover,
+.save:active{
+    background: url("../resources/images/buttonBlue2.jpg") repeat-x bottom;
+    font-size: 10pt;
+    color: #016281;
+    border: 1px solid #6cc2d9;
+    outline: none;
 }

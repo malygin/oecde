@@ -3,6 +3,7 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/studentTemplate.xhtml"
+    xmlns:r="http://java.sun.com/jsp/jstl/core"
     xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
     >
     <ui:define name="contentHeader">
@@ -12,42 +13,52 @@
         <f:metadata>
             <f:viewParam name="s" value="#{controlWorksBean.semester}"/>
         </f:metadata>
+        <style type="text/css">
+            .mainStyle div.interfaceContent{
+                padding: 0px;
+            }
+            .mainStyle div.interfaceContent{
+                padding: 0px;
+            }
+            .mainStyle .passed{
+                background: #EFFFF1;
+            }
+            .mainStyle .failed{
+                background: #FFEFF0;
+            }
+            .mainStyle .available,
+            .mainStyle .notAvailable{
+                background: white;
+            }
+        </style>
         <div class="interfaceContent">
             <est:changeSemester semester="#{controlWorksBean.semester}"/>
-             <h:dataTable width="100%" value="#{controlWorksBean.controlWorks}" var="o">
-                 <h:column>
-                <div class="studentInterfaceStandartList">
-                    <div class="controlWorksControlTitle">
-                        <span class="controlWorksDisciplineName">${o[0].discipline.name}</span>
-                        <span class="linkToTeachersProfile" style="color:#669999;">(<h:outputLink value="teacher.xhtml?id=${o[3].id}">${o[3].initials}</h:outputLink>)</span>
-                        <span class="chatPostDate" style="color: #AFAFAF; font-size: 10pt; margin: 0px;">(${o[1].points} - <h:outputText converter="enumConverter" value="${o[1].progress}"/>)</span>
-                    </div>
-                    <br/>
-                    <ol style="padding-left: 25px; list-style: none;">
-                        <li>
-                            <ol style="padding-left: 25px; list-style: none;">
-                                <h:dataTable value="#{o[1].cwAttempt}" var="a">
-                                    <li class="downLoadFileLink"><h:outputText rendered="#{a.filePath eq 'empty'}" value="#{a.attemptDate}"/>
-                                    <h:outputLink rendered="#{a.filePath ne 'empty'}" value="#{a.filePath}" id="log">
-                                        <h:outputText value="#{a.attemptDate}"/>
-                                    </h:outputLink>
-                                    </li>
-                                </h:dataTable>
-                            </ol>
-                        </li>
-                    </ol>
-                    <br/>
-                    <h:form rendered="#{o[2]}"  enctype="multipart/form-data">
-                        <div class="controlWorksFileLoadButtons">
-                            <input type="file" name="CwFile"/>
-                            <h:commandButton  action="#{controlWorksBean.saveCw}" value="Загрузить">
-                                <f:setPropertyActionListener target="#{controlWorksBean.currentControlWorks}" value="#{o[1]}" />
-                                <f:setPropertyActionListener target="#{controlWorksBean.currentDeCurriculum}" value="#{o[0]}" />
-                            </h:commandButton>
-                        </div>
-                    </h:form>
-                </div>
-     </h:column>
+            <h:dataTable width="100%" value="#{controlWorksBean.controlWorks}" var="o" cellpadding="0" cellspacing="0">
+                <h:column>
+                        <table cellpadding="2" cellspacing="2" style="width: 100%; border-bottom: 1px solid silver;" class="${o[1].progress}">
+                            <tr>
+                                <td valign="top" style="color: gray; width: 170px; padding-left: 10px; text-align: justify;">Название дисциплины: </td>
+                                <td valign="top" class="controlWorksDisciplineName">${o[0].discipline.name}</td>
+                            </tr>
+                            <tr>
+                                <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">Преподаватель: </td>
+                                <td valign="top" style="padding-left: 10px;">
+                                    <span class="linkToTeachersProfile">
+                                        <h:outputLink value="teacher.xhtml?id=${o[3].id}">${o[3].initials}</h:outputLink>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">Оценка: </td>
+                                <td valign="top" style="padding-left: 10px; font-size: 10pt;">
+                                    <h:outputText converter="enumConverter" value="${o[1].progress}"/>
+                                    <span style="color: gray;">
+                                        (${o[1].points}  баллов)
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
+                </h:column>
             </h:dataTable>
         </div>
     </ui:define>
