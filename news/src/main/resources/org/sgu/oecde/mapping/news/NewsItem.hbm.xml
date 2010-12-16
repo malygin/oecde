@@ -9,7 +9,7 @@
       </generator>
     </id>
     <property length="1000" name="header" type="string"/>
-    <property length="1000" name="announcement" length="250" type="string"/>
+    <property name="announcement" length="250" type="string"/>
     <property column="full_text" length="4000" name="fullText" type="string"/>
     <property column="news_time" length="19" name="time" type="string"/>
     <property column="access_type" name="accessType" type="string"/>
