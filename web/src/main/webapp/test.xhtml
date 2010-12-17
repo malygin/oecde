@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:util="http://java.sun.com/jsf/composite/components/util">
+            <f:metadata>
+                <f:viewParam name="p" value="#{journalBean.pageNumber}"/>
+            </f:metadata>
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Центр Отрытого Образования</title>
+    </h:head>
+
+
+    <h:body styleClass="login_pageBackground">
+       <util:navigationList elementOnPage="#{journalBean.filter.capacity}" numElements="#{journalBean.getEventsCount('adminEvents')}" link="p=#{journalBean.pageNumber}"/>
+         <h:form>
+            <h:dataTable value="#{journalBean.availableEvents}" var="e">
+                <h:column>
+                    <h:selectBooleanCheckbox value="#{e.chosen}"/>#{e.rus}
+                </h:column>
+            </h:dataTable>
+            
+            <util:date_picker value="#{journalBean.filter.beginDate}"/>beginDate
+            <util:date_picker value="#{journalBean.filter.endDate}"/>endDate
+
+            <h:commandButton>
+                <f:ajax  execute="@form" render="@form"/>
+            </h:commandButton>
+        </h:form>
+         <h:dataTable value="#{journalBean.events}" var="e">
+            <h:column>
+                #{e}
+            </h:column>
+        </h:dataTable>
+    </h:body>
+
+</html>

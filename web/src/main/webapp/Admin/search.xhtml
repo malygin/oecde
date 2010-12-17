@@ -6,6 +6,7 @@
     template="../resources/adminTemplate.xhtml"
     >
     <ui:define name="content">
+        <div class="interfaceContent">
         <h:form>
             <table><tr><td>
                 <h:inputText value="#{searchBean.keyWord}">
@@ -23,7 +24,10 @@
         <h:dataTable value="#{searchBean.items}" var="i" id="table">
             <h:column>
                 <h:panelGroup rendered="#{searchBean.type eq 'teacher' or searchBean.type eq 'student'}">
-                  <ut:userListItem type="#{searchBean.type}" u="#{i}"/>
+                    <div class="studentInterfaceStandartList">
+                   <ut:userListItem type="#{searchBean.type}" u="#{i}"/>
+                     <div class="floatDestroyer"/>
+                   </div>
                 </h:panelGroup>
                 <h:panelGroup rendered="#{searchBean.type eq 'umk'}">
                     <h:form>
@@ -47,11 +51,11 @@
                 </h:panelGroup>
                 <h:panelGroup rendered="#{searchBean.type eq 'group'}">
                      <h:outputLink value="group.xhtml?id=#{i.id}">#{i.name}</h:outputLink><br/>
-                    (<h:outputText value="#{i.city.name}"/>,
-                    <h:outputText value="#{i.faculty}"/>,
+                    (<h:outputText value="#{i.faculty}"/>,
                     <h:outputText value="#{i.speciality.name}"/>)
                 </h:panelGroup>
             </h:column>
-        </h:dataTable>
+        </h:dataTable>        
+        </div>
     </ui:define>
 </ui:composition>

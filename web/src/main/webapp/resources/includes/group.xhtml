@@ -5,11 +5,8 @@
     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
     >
     <div class="interfaceContent">
-        <h:outputText value="#{groupViewBean.group.name}"/>
-        (<h:outputText value="#{groupViewBean.group.city.name}"/>,
-        <h:outputText value="#{groupViewBean.group.faculty}"/>,
+        (<h:outputText value="#{groupViewBean.group.faculty}"/>,
         <h:outputText value="#{groupViewBean.group.speciality.name}"/>)
-
         <h:dataTable value="#{groupViewBean.students}" var="s">
             <h:column>
             <div class="studentInterfaceStandartList">

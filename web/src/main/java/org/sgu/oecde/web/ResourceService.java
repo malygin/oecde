@@ -107,8 +107,6 @@ public class ResourceService implements Serializable{
             return null;
 
         Object[]data = new Object[5];
-        data[1]=w;
-        data[0]=available;
 
         String testBeginDate = reExameBeginDate;
         String testEndDate = reExameEndDate;
@@ -117,55 +115,57 @@ public class ResourceService implements Serializable{
         if(TestType.concluding.equals(e.getType())&&!concludingAvailable){
             available = false;
             data[2] = "Контрольная работа не зачтена";
-            return data;
-        }
-        if((currentDate.compareTo(testBeginDate)>=0)&&(currentDate.compareTo(testEndDate)<0)
-                &&w.getCurriculum().getSemester()!=semesterGetter.getCalendarYear(student, semesterGetter.getCurrentSemester())){
-            if(w.getReExameAttemptsUsedNumber()>=Integer.parseInt(
-                    (TestType.concluding.equals(e.getType())
-                    ?getConcludingAttemtpsCount(semesterGetter.getCurrentSemester())
-                    :getRegularAttemtpsCount(semesterGetter.getCurrentSemester())))){
-                data[4] = "Попытки переэкзаменовки исчерпаны";
-            }else
-                available = true;
         }else{
-            testBeginDate = e.getOpenDate();
-            testEndDate = e.getCloseDate();
-            if(!StringUtils.hasText(testBeginDate)||!StringUtils.hasText(testEndDate)){
-                switch(e.getType()){
-                    case concluding:
-                        testBeginDate = concludingTestBeginDate;
-                        testEndDate = concludingTestEndDate;
-                        break;
-                    case regular:
-                        if(student.getGroup().getYear()==1
-                                ||(student.getGroup().getYear()==2
-                                &&(!student.<Group>getGroup().getSpeciality().getName().contains("ускор")
-                                   ||!student.<Group>getGroup().getSpeciality().getName().contains("сокр"))))
-                            testEndDate = simpleSpecialitiesTestsClosing;
-                        else
-                            testEndDate = regularTestEndDate;
-                        testBeginDate = regularTestBeginDate;
-                        break;
+            if((currentDate.compareTo(testBeginDate)>=0)&&(currentDate.compareTo(testEndDate)<0)
+                    &&w.getCurriculum().getSemester()!=semesterGetter.getCalendarYear(student, semesterGetter.getCurrentSemester())){
+                if(w.getReExameAttemptsUsedNumber()>=Integer.parseInt(
+                        (TestType.concluding.equals(e.getType())
+                        ?getConcludingAttemtpsCount(semesterGetter.getCurrentSemester())
+                        :getRegularAttemtpsCount(semesterGetter.getCurrentSemester())))){
+                    data[4] = "Попытки переэкзаменовки исчерпаны";
+                }else
+                    available = true;
+            }else{
+                testBeginDate = e.getOpenDate();
+                testEndDate = e.getCloseDate();
+                if(!StringUtils.hasText(testBeginDate)||!StringUtils.hasText(testEndDate)){
+                    switch(e.getType()){
+                        case concluding:
+                            testBeginDate = concludingTestBeginDate;
+                            testEndDate = concludingTestEndDate;
+                            break;
+                        case regular:
+                            if(student.getGroup().getYear()==1
+                                    ||(student.getGroup().getYear()==2
+                                    &&(!student.<Group>getGroup().getSpeciality().getName().contains("ускор")
+                                       ||!student.<Group>getGroup().getSpeciality().getName().contains("сокр"))))
+                                testEndDate = simpleSpecialitiesTestsClosing;
+                            else
+                                testEndDate = regularTestEndDate;
+                            testBeginDate = regularTestBeginDate;
+                            break;
+                    }
+                }
+                if(StringUtils.hasText(testBeginDate)&&StringUtils.hasText(testEndDate)
+                        &&(currentDate.compareTo(testBeginDate)>=0)&&(currentDate.compareTo(testEndDate)<=0))
+                    available = true;
+                else{
+                    data[2] = "Тест не доступен";
                 }
             }
-            if(StringUtils.hasText(testBeginDate)&&StringUtils.hasText(testEndDate)
-                    &&(currentDate.compareTo(testBeginDate)>=0)&&(currentDate.compareTo(testEndDate)<=0))
-                available = true;
-            else{
-                data[2] = "Тест не доступен";
+            if(w.getTrialAttemptsUsedNumber()>=e.getTrialNumber())
+                data[3] = "Пробные попытки исчерпаны";
+            if(w.getEstimateAttemptsUsedNumber()>=e.getEstimateAttemptsNumber()){
+                data[2] = "Попытки исчерпаны";
+                available = data[4]==null?false:available;
+            }
+            if(!student.getFullAccess()){
+                data[4] = "Тесты не доступны";
+                available = false;
             }
         }
-        if(w.getTrialAttemptsUsedNumber()>=e.getTrialNumber())
-            data[3] = "Пробные попытки исчерпаны";
-        if(w.getEstimateAttemptsUsedNumber()>=e.getEstimateAttemptsNumber()){
-            data[2] = "Попытки исчерпаны";
-            available = data[4]==null?false:available;
-        }
-        if(!student.getFullAccess()){
-            data[4] = "Тесты не доступны";
-            available = false;
-        }
+        data[1]=w;
+        data[0]=available;
         return data;
     }
 

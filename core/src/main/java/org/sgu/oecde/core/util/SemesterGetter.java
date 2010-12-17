@@ -139,7 +139,7 @@ public class SemesterGetter extends StringConstantsGetter{
 
     public String getSemesterName(int semester){
         validate(semester);
-        return SemesterGetter.SUMMER_SEMESTER == semester?"летний":"зимний";
+        return SemesterGetter.SUMMER_SEMESTER == semester?"Летний":"Зимний";
     }
 
     /**

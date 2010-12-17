@@ -3,6 +3,7 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/studentTemplate.xhtml"
+    xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
     >
     <ui:define name="contentHeader">
         #{msgs.student_badPassedTestsHeader}
@@ -14,8 +15,8 @@
                 <f:viewParam name="c" value="#{badPassedTestsBean.concluding}"/>
             </f:metadata>
             <span class="navigationLinks">
-                <h:outputLink value="?c=#{!badPassedTestsBean.concluding}">#{msgs.student_otherType}</h:outputLink>
-                | <h:outputLink value="#{!badPassedTestsBean.concluding?'?':('?c=true&amp;')}s=#{badPassedTestsBean.semester==0?1:0}">#{msgs.student_otherSemestr}</h:outputLink>
+                <est:changeSemester link="с=#{badPassedTestsBean.concluding}" semester="#{badPassedTestsBean.semester}"/>
+                <h:outputLink value="?c=#{!badPassedTestsBean.concluding}&amp;s=#{badPassedTestsBean.semester}">#{msgs.student_otherType}</h:outputLink>
             </span>
             <h:dataTable cellpadding="0" cellspacing="0"
                          columnClasses="studentStandatrTableTd,

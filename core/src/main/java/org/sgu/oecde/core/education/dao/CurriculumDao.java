@@ -77,7 +77,7 @@ public class CurriculumDao<T extends Curriculum> extends UpdateDao<T> implements
     public <E extends StudentGroup> List<E> getGroupsForTeacher(Integer[] semester, int year, Teacher teacher) throws DataAccessException {
         if(teacher == null&& teacher.getId()==0)
             return new ArrayList(0);
-         return makeQuery("distinct t.group"," t.teacher=:t",new String[]{"t.group.city","t.group.speciality"},null,semester,year)
+         return makeQuery("distinct t.group"," t.teacher=:t",new String[]{"t.group.speciality"},null,semester,year)
                  .setParameter("t", teacher).setCacheable(false).list();
     }
     

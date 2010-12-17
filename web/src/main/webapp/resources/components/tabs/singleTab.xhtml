@@ -26,11 +26,15 @@
                         <h:outputText escape="false" id="page" value="#{p.text}"/>
                     </div>
                     <div style="text-align: justify;">
-                    <h:dataTable id="files" value="#{setToList.getList(p.files)}" var="f">
+                        <br/>
+                        <hr/>
+                        <br/>
+                        Файлы:
+                    <h:dataTable id="files" value="#{setToList.getList(tabsViewBean.currentPage.files)}" var="f">
                         <h:column>
                             <h:panelGroup rendered="#{f.visible}">
-                                <h:graphicImage rendered="#{f.image}" value="../resources/userFiles/tabs/#{f.name}" alt="#{f.description}"/>
-                                <h:outputLink rendered="#{!f.image}" value="../resources/userFiles/tabs/#{f.name}"><h:outputText value="#{f.description}"/></h:outputLink>
+                                <h:graphicImage rendered="#{f.image}" value="../resources/userFiles/tabs/#{f.name}" alt="#{(f.description eq null||f.description eq '')?f.name:f.description}"/>
+                                <h:outputLink rendered="#{!f.image}" value="../resources/userFiles/tabs/#{f.name}"><h:outputText value="#{(f.description eq null||f.description eq '')?f.name:f.description}"/></h:outputLink>
                             </h:panelGroup>
                         </h:column>
                     </h:dataTable>

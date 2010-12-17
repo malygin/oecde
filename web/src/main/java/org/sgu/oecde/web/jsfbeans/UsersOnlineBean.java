@@ -34,9 +34,9 @@ public class UsersOnlineBean implements Serializable{
     }
 
     public void setType(String type) {
+        UserType t = null;
         if(type!=null)
-            type = type.toUpperCase();
-        UserType t = UserType.valueOf(type);
+           t = UserType.valueOf(type.toUpperCase());
         switch(t){
             case ADMIN:
                 users = usersInCache.getAdmins();

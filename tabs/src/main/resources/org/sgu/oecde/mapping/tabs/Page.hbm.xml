@@ -14,7 +14,7 @@
     <many-to-one fetch="join" foreign-key="fk_tab" lazy="no-proxy" cascade="all" name="tab" />
     <set batch-size="10" cascade="save-update,merge,delete" fetch="join" inverse="true" lazy="false" name="files" table="tab_page_file">
       <cache usage="read-write"/>
-      <key column="page" foreign-key="fk_tab_page" not-null="true"/>
+      <key on-delete="cascade" column="page" foreign-key="fk_tab_page" not-null="true"/>
       <one-to-many class="org.sgu.oecde.tabs.PageFile"/>
     </set>
   </class>

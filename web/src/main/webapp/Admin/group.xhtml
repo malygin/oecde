@@ -6,7 +6,9 @@
     template="../resources/adminTemplate.xhtml"
     >
     <ui:define name="contentHeader">
-        #{msgs.student_studentListHeader}
+        Группа
+        <h:outputText value="#{groupViewBean.group.name}"/>
+
     </ui:define>
     <ui:define name="content">
         <f:metadata>

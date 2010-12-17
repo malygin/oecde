@@ -16,7 +16,7 @@
             <est:changeSemester semester="#{teachersListBean.semester}"/>
             <r:forEach items="#{teachersListBean.teachers}" var="t">
                 <div class="studentInterfaceStandartList">
-                    <ut:userListItem className="Teacher" type="teacher" u="#{t.value}"/>
+                    <ut:userListItem type="teacher" u="#{t.value}"/>
                     <div class="floatDestroyer"/>
                 </div>
             </r:forEach>

@@ -56,9 +56,7 @@ public class TabEditBean implements Serializable{
     @Secured("ROLE_ADMIN")
     public void deletePage(AjaxBehaviorEvent event){
         Page np = (Page) event.getComponent().getAttributes().get("page");
-        np.setTab(null);
-        tab.getPages().remove(np);
-        tabsDao.update(tab);
+        tabsDao.removePage(np);
     }
 
     @Secured("ROLE_ADMIN")
@@ -92,10 +90,7 @@ public class TabEditBean implements Serializable{
     @Secured("ROLE_ADMIN")
     public void deleteFile(AjaxBehaviorEvent event){
         PageFile f = (PageFile) event.getComponent().getAttributes().get("file");
-        f.setPage(null);
-        page.getFiles().remove(f);
-        tabsDao.update(tab);
-//        tabsDao.removeFile(f);
+        tabsDao.removeFile(f);
     }
 
     public Tab getTab() {

@@ -57,7 +57,9 @@ public class AppTest extends BasicTest{
         f.setName("6 66 6 6 6 6 ");
         f.setVisible(true);
         f.setImage(true);
+        f.setPage(p);
         pfs.add(f);
+        p.setTab(t);
         p.setFiles(pfs);
         p.setText("vnvcncvbncvn");
         p.setTitle("cvncvbncvbncvn");
@@ -65,6 +67,17 @@ public class AppTest extends BasicTest{
     }
 
 //    @Ignore
+    @Test
+    public void delete(){
+        setDao("tabsDao");
+        Tab t = getItem(20L);
+        Page p = t.getPages().iterator().next();
+        p.setTab(null);
+        t.getPages().remove(p);
+        this.<IUpdateDao>getDao().update(t);
+    }
+
+    @Ignore
     @Test
     public void get(){
         setDao("tabsDao");
@@ -75,7 +88,7 @@ public class AppTest extends BasicTest{
     
     @Ignore
     @Test
-    public void delete(){
+    public void delete2(){
         setDao("tabsDao");
         Tab t = getItem(16L);
         this.<ITabsDao>getDao().delete(t);

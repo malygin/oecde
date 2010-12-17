@@ -4,13 +4,13 @@
       xmlns:composite="http://java.sun.com/jsf/composite"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ut="http://java.sun.com/jsf/composite/components/util"
-      xmlns:sec="http://www.springframework.org/security/facelets/tags">
+      xmlns:sec="http://www.springframework.org/security/facelets/tags"
+      >
 
 
  <!-- INTERFACE -->
   <composite:interface>
       <composite:attribute name="type" required="true" type="java.lang.String" shortDescription="тип пользователя"/>
-      <composite:attribute name="className" required="true" type="java.lang.String" shortDescription="селектор для ссылки"/>
       <composite:attribute name="u" required="true" type="org.sgu.oecde.core.users.AbstractUser" shortDescription="пользователь"/>
   </composite:interface>
 
@@ -27,7 +27,7 @@
                 background: url("../resources/images/write_new.png") no-repeat left bottom;
             }
        </style>
-        <div class="standartContainerFor#{cc.attrs.className}MediumAvatar" align="center">
+       <div class="standartContainerFor_#{cc.attrs.type}MediumAvatar" align="center">
             <ut:showPhoto user="#{cc.attrs.u}" size="medium"/>
         </div>
         <div class="standartContainerForTeacherInfoInTeachersList">
@@ -50,14 +50,18 @@
                     <tr><td>Группа:</td><td>#{cc.attrs.u.group.name}</td></tr>
                     <tr><td>Курс:</td><td>#{cc.attrs.u.group.year}</td></tr>
                 </h:panelGroup>
+                <h:panelGroup rendered="#{cc.attrs.type eq 'admin'}">
+                    <tr><td>Должность:</td><td>#{cc.attrs.u.position}</td></tr>
+                    <tr><td>Описание:</td><td>#{cc.attrs.u.description}</td></tr>
+                </h:panelGroup>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'teacher'}">
-<!--                    <tr><td>Отдел:</td><td>#{cc.attrs.u.department.name}</td></tr>-->
+                    <tr><td>Отдел:</td><td>#{cc.attrs.u.department.name}</td></tr>
                     <tr>
                         <td>
                             Дисциплина:
                         </td>
                         <td>
-                            ${t.key['discipline'].name}
+                            #{t.key['discipline'].name}
                         </td>
                     </tr>
                 </h:panelGroup>
