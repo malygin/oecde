@@ -2,7 +2,7 @@
        $(document).ready(function(){
                  update();
                  $('#button').click(function(){
-                       $.post('/web/ChatList',
+                       $.post('ChatList',
                               { message: $('#message').val()},
                               function(data){
                                     update();
@@ -12,7 +12,7 @@
                        });
                   $('#message').keypress(function(e) {
                         if(e.which == 13) {
-                           $.post('/web/ChatList',
+                           $.post('ChatList',
                               { message: $('#message').val()},
                               function(data){
                                     update();
