@@ -12,8 +12,8 @@
 
     <!-- IMPLEMENTATION -->
     <composite:implementation>
-        <div style="padding: 0px 10px; border-bottom: 1px solid silver;">
-            <div style="background: #e2f3fc; color: #4593DF; padding: 2px 5px 3px 5px; border: 1px solid #5acffc; border-bottom: 0px; border-top: 0px;">
+        <div style="border-bottom: 1px solid silver;">
+            <div style="background: #e2f3fc; color: #4593DF; padding: 4px 5px 3px 5px;">
                 <div class="navigationLinks">
                     <h:outputText value="#{cc.attrs.bean.semester eq 0?'Текущий':'Предыдущий'}"/>
                     (<b style="color: rgb(41, 133, 223)"><h:outputText value="#{cc.attrs.bean.currentSemester eq cc.attrs.bean.semester?'летний':'зимний'}"/></b>) cеместр.
