@@ -19,14 +19,12 @@
                 <li><p>Пример неактивной ссылки</p></li>
             </ol>
             <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.admin_messMenuTitle}</p></div>
-            <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="message_list.xhtml">#{msgs.admin_messMenuIn} #{MessageCountNewBean.newMessages}) </a></div></div>
+             <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="messages_list.xhtml">#{msgs.admin_messMenuIn}
+                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages>0}"><font color="red">#{MessageCountNewBean.newMessages}</font></h:panelGroup>
+                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages&lt;1}">#{MessageCountNewBean.newMessages}</h:panelGroup>
+                    )</a></div></div>
             <ol class="leftSideMenuLinks">
-                <li><a href="index.xhtml">#{msgs.admin_messMenuWrite}</a></li>
-                <li><a href="index.xhtml">#{msgs.admin_messMenuByTeachers}</a></li>
-                <li><a href="index.xhtml">#{msgs.admin_messMenuByStudent}</a></li>
-                <li><a href="index.xhtml">#{msgs.admin_messMenuSystem}</a></li>
-                <li><a href="index.xhtml">#{msgs.admin_messMenuOut}</a></li>
-                <li><a href="index.xhtml">#{msgs.admin_messMenuArchive}</a></li>
+                <li><a href="messages_out.xhtml">#{msgs.admin_messMenuOut}</a></li>    
             </ol>
        <div class="violMenuTitle"><p class="sideBarTitle">#{msgs.student_chatMenuTitle}</p></div>
         <div class="sideBarUnderTitleText"><div class="violUnderTitleLink"><a href="#">#{msgs.student_generalChatLink} </a></div></div>
@@ -80,11 +78,11 @@
             </ol>
             <div class="violMenuTitle"><p class="sideBarTitle">#{msgs.admin_forumMenuTitle}</p></div>
             <ol class="leftSideMenuLinks">
-                <li><a href="index.xhtml">#{msgs.admin_forumMenuStTechForum}</a></li>
-                <li><a href="index.xhtml">#{msgs.admin_forumMenuStOrgForum}</a></li>
-                <li><a href="index.xhtml">#{msgs.admin_forumMenuTeachTechForum}</a></li>
-                <li><a href="index.xhtml">#{msgs.admin_forumMenuTeachOrgForum}</a></li>
-                <li><a href="index.xhtml">#{msgs.admin_forumMenuCityForums}</a></li>
+                <li><a href="student_forum_tech.xhtml">#{msgs.admin_forumMenuStTechForum}</a></li>
+                <li><a href="student_forum_org.xhtml">#{msgs.admin_forumMenuStOrgForum}</a></li>
+                <li><a href="teacher_forum_tech.xhtml">#{msgs.admin_forumMenuTeachTechForum}</a></li>
+                <li><a href="teacher_forum_tech.xhtml">#{msgs.admin_forumMenuTeachOrgForum}</a></li>
+<!--                <li><a href="index.xhtml">#{msgs.admin_forumMenuCityForums}</a></li>-->
             </ol>
         <ut:usersOnline/>
             <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.admin_adminsOnlineMenuTitle}</p></div>
