@@ -18,7 +18,7 @@
         <h:outputText  rendered="#{NewsBean.renderAddSuccess}" value=" успешно!"/><br/>
 
         <h:inputText value="#{NewsBean.currentNewItem.header}"/><br/>
-        <h:inputTextarea value="#{NewsBean.currentNewItem.announcement}"/><br/>    
+        <util:editor value="#{NewsBean.currentNewItem.announcement}"/><br/>
         <util:editor value="#{NewsBean.currentNewItem.fullText}"/><br/>
     
         <h:commandButton action="#{NewsBean.edit}" value="редактировать"/><br/>

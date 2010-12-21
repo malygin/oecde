@@ -9,6 +9,10 @@
             org.springframework.web.jsf.DelegatingVariableResolver
         </variable-resolver>
 
+        <locale-config>
+            <default-locale>ru</default-locale>
+            <supported-locale>en</supported-locale>
+        </locale-config>
 	 <resource-bundle>
             <base-name>org.sgu.oecde.web.messages.messages</base-name>
             <var>msgs</var>

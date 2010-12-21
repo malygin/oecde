@@ -17,7 +17,7 @@
           <h:outputText  rendered="#{NewsBean.renderAddSuccess}" value="Добавлена новость"/><br/>
 
           Заголовок  <h:inputText value="#{NewsBean.header}"/><br/>
-          Анонс <h:inputTextarea value="#{NewsBean.anons}"/><br/><br/><br/>
+          Анонс <util:editor value="#{NewsBean.anons}"/><br/><br/><br/>
 
           Если создаете короткую новость - не пишите полный текст, ок?<br/><br/>
 

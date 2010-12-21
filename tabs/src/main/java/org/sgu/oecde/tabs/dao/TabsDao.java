@@ -26,10 +26,12 @@ public class TabsDao extends UpdateDao<Tab> implements ITabsDao{
             for (Page p:tab.getPages()){
                 if(p.getFiles()!=null){
                     for(PageFile f:p.getFiles()){
+                        f.setPage(null);
                         getSession().delete(f);
                     }
                 }
                 p.setFiles(null);
+                p.setTab(null);
                 getSession().flush();
                 getSession().delete(p);
             }
