@@ -116,7 +116,7 @@
                 </td>
                 <td style="width: 50%;border: 1px solid silver;" valign="top">
                     <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
-                    <div class="navigationLinksTitle"><span style="font-size: 12pt;">Лента событий</span></div>
+                    <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="journal.xhtml">Лента событий</a></div>
                     </div>
                     <div style=" padding: 10px; ">
                         <j:eventsOnly  list="#{journalBean.events('studentEvents',studentSessionBean.student)}"/>
@@ -211,6 +211,51 @@
                             </div>
                         </div>
                         </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
+                        <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="schedule.xhtml">Расписание</a></div>
+                           </div>
+        <style type="text/css">
+            .mainStyle .studentStandatrTable *{
+                text-align: left !important;
+            }
+        </style>
+            <h:dataTable columnClasses="
+                         studentStandatrTableTd,
+                         studentStandatrTableTd,
+                         studentStandatrTableTd,
+                         studentStandatrTableTdLastTd"
+                         value="#{studentScheduleBean.schedule}" var="s" styleClass="studentStandatrTable" cellpadding="0" cellspacing="0">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="дисциплина"/>
+                    </f:facet>
+                    <span class="controlWorksDisciplineName" style="font-size: 8pt;"><h:outputText value="#{s.discipline.name}"/></span>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="преподаватель"/>
+                    </f:facet>
+                    <span class="linkToTeachersProfile"><a href="teacher.xhtml?id=#{s.teacher.id}"><h:outputText value="#{s.teacher.initials}"/></a></span>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="комната"/>
+                    </f:facet>
+                    <div style="text-align: center !important;">
+                    <h:outputText value="#{s.room}" style="color: #{s.color}"/>
+                    </div>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="дата"/>
+                    </f:facet>
+                    <span ><h:outputText value="#{s.lessonDate}"/></span>
+                </h:column>
+            </h:dataTable>
                     </td>
                 </tr>
             </table>
