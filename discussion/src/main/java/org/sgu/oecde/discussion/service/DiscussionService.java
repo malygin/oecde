@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import javax.annotation.Resource;
+import org.sgu.oecde.core.users.AbstractPerson;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.discussion.ForumTypes;
@@ -74,7 +75,7 @@ public class DiscussionService {
         Node node= new Node();
         if(idNode!=null) node.setId(idNode);
         node.setMessage(message);
-        node.setUser(user);
+        node.setUser((AbstractPerson) user);
         node.setOpen(true);
         node.setTime(DateConverter.convert(System.currentTimeMillis()));
         Root root = new Root(idObject,type);

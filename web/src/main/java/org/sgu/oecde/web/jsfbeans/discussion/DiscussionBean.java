@@ -51,7 +51,7 @@ public class DiscussionBean {
 
 
     //Нодов на странице
-    private int nodesOnPage=3;
+    private int nodesOnPage=11;
     private int currentPage=1;
     private int numOfNodes=-1;
 

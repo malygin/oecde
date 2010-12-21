@@ -4,6 +4,7 @@ package org.sgu.oecde.web.jsfbeans.messages;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.messages.service.MessageService;
 
@@ -14,13 +15,15 @@ import org.sgu.oecde.messages.service.MessageService;
  */
 
 @ManagedBean(name="MessageCountNewBean")
-@RequestScoped
+@ViewScoped
 public class MessageCountNewBean {
+    private int number=-1;
     @ManagedProperty(value="#{messageService}")
     private MessageService messageService;
 
       public int getNewMessages() {
-        return messageService.getCountNewMessage(SecurityContextHandler.getUser());
+         if(number==-1) number=messageService.getCountNewMessage(SecurityContextHandler.getUser());
+        return number;
     }
 
     public MessageService getMessageService() {

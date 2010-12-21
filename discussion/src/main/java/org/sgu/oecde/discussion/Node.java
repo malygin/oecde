@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import org.sgu.oecde.core.BasicItem;
+import org.sgu.oecde.core.users.AbstractPerson;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.discussion.util.NodeRevertComparator;
 
@@ -20,7 +21,7 @@ public class Node extends BasicItem implements Comparable {
    
     private String message; 
     private String time;
-    private AbstractUser user;
+    private AbstractPerson user;
     //открыт ли, пока не используется, возможно пригодится если решим не удалять ноды, а помечать как закрытые
     private Boolean open;
     // корень к которому относитя нод, если нод потомок нода - пустой
@@ -147,11 +148,11 @@ public class Node extends BasicItem implements Comparable {
         this.open = open;
     }
 
-    public AbstractUser getUser() {
+    public AbstractPerson getUser() {
         return user;
     }
 
-    public void setUser(AbstractUser user) {
+    public void setUser(AbstractPerson user) {
         this.user = user;
     }
 
