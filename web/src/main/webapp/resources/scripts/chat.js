@@ -2,7 +2,7 @@
        $(document).ready(function(){
                  update();
                  $('#button').click(function(){
-                       $.post('ChatList',
+                       $.post('../ChatList',
                               { message: $('#message').val()},
                               function(data){
                                     update();
@@ -12,7 +12,7 @@
                        });
                   $('#message').keypress(function(e) {
                         if(e.which == 13) {
-                           $.post('ChatList',
+                           $.post('../ChatList',
                               { message: $('#message').val()},
                               function(data){
                                     update();
@@ -24,7 +24,7 @@
         });
 
          function update(){
-            $.post("/web/ChatList", {}, function(data){
+            $.post("../ChatList", {}, function(data){
                            var object = $.parseJSON(data);
                             $('#chatShortHistory').empty();
                             $.each(object.Super, function() {
