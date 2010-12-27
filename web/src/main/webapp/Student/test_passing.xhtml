@@ -62,7 +62,12 @@
                           </ol>
                           <ol>
                           <ui:repeat value="#{testPassingBean.answerComparisnView}"  var="a">
-                              <li><h:inputText styleClass="numberField" onkeyup="if(isNaN(parseInt(this.value))){this.value='';}"  value="#{a.answer}">
+                              <li><h:inputText styleClass="numberField" onkeyup="
+                                  if(isNaN(parseInt(this.value))){this.value='';}
+                                  else{ if((this.value>#{testPassingBean.currentQustionView.countAnswers}) || (this.value&lt;1)) this.value=#{testPassingBean.currentQustionView.countAnswers};
+                                         else this.value=parseInt(this.value)}
+                                               "  value="#{a.answer}">
+                                  }
                                
                               </h:inputText>
                               </li>

@@ -46,6 +46,8 @@ public class QuestionImpl {
         this.question = question;
     }
 
-    
+    public int getCountAnswers(){
+        return this.question.getAnswers().size();
+    }
 
 }
