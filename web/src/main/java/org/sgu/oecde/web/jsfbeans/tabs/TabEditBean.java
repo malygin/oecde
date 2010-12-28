@@ -56,7 +56,8 @@ public class TabEditBean implements Serializable{
     @Secured("ROLE_ADMIN")
     public void deletePage(AjaxBehaviorEvent event){
         Page np = (Page) event.getComponent().getAttributes().get("page");
-        tabsDao.removePage(np);
+        tab.getPages().remove(np);
+        tabsDao.update(tab);
     }
 
     @Secured("ROLE_ADMIN")
