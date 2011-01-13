@@ -5,7 +5,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:util="http://java.sun.com/jsf/composite/components/util"
       xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:sec="http://www.springframework.org/security/facelets/tags"
+      xmlns:sec="http://www.springframework.org/security/facelets/tags"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
 
@@ -19,9 +19,12 @@
        <h:dataTable id="events" value="#{cc.attrs.list}" var="e">
             <h:column>
                 <div class="navigationLinks" style="margin-top: 5px;">
+                    
                     <span style="background: url('../resources/images/flag.gif') no-repeat left bottom; padding-left: 18px;">
                    #{e.time}.</span>
                     <div class="floatDestroyer"></div>
+<!--  картинки не переименованы, потому сча тут закоменчено
+<img src="../resources/images/evLineIco/event#{e.eventType}.png" alt=""/>-->
                     <sec:ifAnyGranted roles="ROLE_ADMIN">
                         <ui:repeat value="#{e.bodyForAdmin}" var="b">
                             <h:outputText rendered="#{b.type eq null}" value="#{b.text}"/>

@@ -6,7 +6,8 @@
     template="../resources/studentTemplate.xhtml"
     xmlns:j="http://java.sun.com/jsf/composite/components/journal"
     xmlns:news="http://java.sun.com/jsf/composite/components/news"
-    xmlns:ut="http://java.sun.com/jsf/composite/components/util">
+    xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+    xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 
     <ui:define name="fio">
         <h:outputText value="#{studentSessionBean.student.fio}"/>
@@ -38,9 +39,22 @@
             .mainStyle .navigationLinksTitle a:visited{color: #8BB5DF; text-decoration: none; font-weight: normal;}
             .mainStyle .navigationLinksTitle a:active{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
             .mainStyle .navigationLinksTitle a:hover{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
+
+            .mainStyle .controlWorksDisciplineNameLink a{font-size: 9pt !important;}
+
+            /*повтыкать везде для текста превьюшек*/.previewText{
+                font-size: 8pt;
+            }
+            .mainStyle .changeSemestrBlock div{
+                margin: 3px 0px;
+                border: 1px solid silver;
+                padding: 5px;
+            }
         </style>
         <div class="userFile">
-            <ut:showPhoto user="#{studentSessionBean.student}" size="small"/>
+            <div style="width: 9%">
+                <ut:showPhoto user="#{studentSessionBean.student}" size="small"/>
+            </div>
             <div class="userData" style="width: 91%;">
                 <table style="float: left; margin-top: 10px;">
                     <tr>
@@ -50,7 +64,7 @@
                         <td><p>#{msgs.student_mainContentUserInfoGroup}</p></td><td><div>#{studentSessionBean.student.group.name}</div></td>
                     </tr>
                     <tr>
-                        <td><p>Ваш рейтинг:</p></td><td><div>#{studentRatingBean.studentRating.sum}</div></td>
+                        <td><p>Ваш рейтинг:</p></td><td><div style="color: green; font-weight: bolder;">#{studentRatingBean.studentRating.sum}</div></td>
                     </tr>
                 </table>
                 <table style="float: right; font-size: 13pt; position: relative; top: -10px; right: -10px;">
@@ -96,166 +110,295 @@
         <div style="padding: 5px;">
             <table style="width: 100%;">
                 <tr>
-                <td style="width: 50%;border: 1px solid silver;" valign="top">
-                    <div style=" border-bottom: 1px solid silver; padding-top: 3px;">
-                        <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="news_list.xhtml">Новости</a></div>
-                        </div>
-                    <div style=" padding: 10px; ">
-                        <h:dataTable value="#{NewsBean.news}" var="new" style="width: 100%;">
-                    <h:column>
-                        <span style="float: left; background: url('../resources/images/newspaper.png') no-repeat left bottom; padding-left: 18px;">
-                            <span class="controlWorksDisciplineNameLink"><a href="news_list.xhtml?id=#{new.id}">#{new.header}</a></span>
-                        </span>
-                        <span class="chatPostDate">#{new.time}.</span>
-                        <div class="floatDestroyer"></div>
-                        #{new.announcement}
-                        
-                    </h:column>
-                </h:dataTable>
-                    </div>
-                </td>
-                <td style="width: 50%;border: 1px solid silver;" valign="top">
-                    <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
-                    <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="journal.xhtml">Лента событий</a></div>
-                    </div>
-                    <div style=" padding: 10px; ">
-                        <j:eventsOnly  list="#{journalBean.events('studentEvents',studentSessionBean.student)}"/>
-                    </div>
-                </td>
+                    <td colspan="2" style="padding: 3px 3px 10px 3px; border: 1px solid silver;">
+                        <table style="width: 100%;" class="studentStandatrTable" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <th>
+                                    Событие
+                                </th>
+                                <th>
+                                    Дата
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="studentStandatrTableTd">
+                                    Открытие теста
+                                </td>
+                                <td class="studentStandatrTableTdLastTd">
+                                    10.10.1245
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="studentStandatrTableTd">
+                                    Открытие контрольной
+                                </td>
+                                <td class="studentStandatrTableTdLastTd">
+                                    10.10.1245
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
                 </tr>
                 <tr>
-                    <td style="width: 50%; border: 1px solid silver;" valign="top">
-                        <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
-                        <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="materials.xhtml">Дисциплины </a></div>
+                    <td colspan="2" style="padding: 3px 3px 10px 3px; border: 1px solid silver;">
+                        <div style=" border-bottom: 1px solid silver;">
+                            <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="schedule.xhtml">Расписание</a></div>
                         </div>
-                    <div style=" padding: 10px; ">
-                        <div>
-                            <div class="controlWorksDisciplineNameLink">
-                                <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
-                                <a href="1">Английский язык</a>
-                                </span>
+                        <style type="text/css">
+                            .mainStyle .studentStandatrTable *{
+                                text-align: left !important;
+                            }
+                        </style>
+                        <h:dataTable columnClasses="
+                                     studentStandatrTableTd,
+                                     studentStandatrTableTd,
+                                     studentStandatrTableTd,
+                                     studentStandatrTableTdLastTd"
+                                     value="#{studentScheduleBean.schedule}" var="s" styleClass="studentStandatrTable" cellpadding="0" cellspacing="0">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="дисциплина"/>
+                                </f:facet>
+                                <span class="controlWorksDisciplineName" style="font-size: 8pt;"><h:outputText value="#{s.discipline.name}"/></span>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="преподаватель"/>
+                                </f:facet>
+                                <span class="linkToTeachersProfile"><a href="teacher.xhtml?id=#{s.teacher.id}"><h:outputText value="#{s.teacher.initials}"/></a></span>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="комната"/>
+                                </f:facet>
+                                <div style="text-align: center !important;">
+                                    <h:outputText value="#{s.room}" style="color: #{s.color}"/>
+                                </div>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="дата"/>
+                                </f:facet>
+                                <span ><h:outputText value="#{s.lessonDate}"/></span>
+                            </h:column>
+                        </h:dataTable>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="height: 1px;"></td>
+                </tr>
+                <tr>
+                    <td style=" border: 1px solid silver; " valign="top">
+                        <div style=" padding: 0px 5px;max-height: 300px; overflow-y: scroll;">
+                            <div style=" border-bottom: 1px solid silver; padding-top: 3px;">
+                                <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="news_list.xhtml">Новости</a></div>
                             </div>
-                            <div class="educ_content_title_activ">
-                                <ol class="my_educ_disc_reason">
-                                    <li>отсутствуют самостоятельные работы</li>
-                                    <li>низкая активность</li>
-                                </ol>
+                            <div style="padding: 5px;">
+                                <h:dataTable value="#{NewsBean.news}" var="new" style="width: 100%;">
+                                    <h:column>
+                                        <div style=" max-width: 60%; float: left; background: url('../resources/images/newspaper.png') no-repeat left center; padding-left: 18px;">
+                                            <span class="controlWorksDisciplineNameLink"><a style="font-size: 9pt;" href="news_list.xhtml?id=#{new.id}">#{new.header}</a></span>
+                                        </div>
+                                        <span class="chatPostDate"><h:outputText value="#{fn:substring(new.time,0,11)}"/></span>
+                                        <div class="floatDestroyer"></div>
+                                        <div class="previewText">#{new.announcement}</div>
+                                        <br/>
+                                    </h:column>
+                                </h:dataTable>
                             </div>
-                        </div>
-                        <div>
-                            <div class="controlWorksDisciplineNameLink">
-                                <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
-                                <a href="1">Аудиовизуальные технологии обучения</a>
-                                </span>
-                            </div>
-                            <div class="educ_content_title_activ">
-                                <ol class="my_educ_disc_reason">
-                                    <li>баллов нет</li>
-                                </ol>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="controlWorksDisciplineNameLink">
-                                <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
-                                <a href="1">Введение в психолого-педагогическую деятельность</a>
-                                </span>
-                            </div>
-                            <div class="educ_content_title_activ">
-                                <ol class="my_educ_disc_reason">
-                                    <li>баллов нет</li>
-                                </ol>
-                            </div>
-                        </div>
                         </div>
                     </td>
-                    <td style="width: 50%; border: 1px solid silver;" valign="top">
+                    <td style="width: 50%;border: 1px solid silver;" valign="top">
                         <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
-                        <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="controlWorks.xhtml">Мои контрольные </a></div>
-                           </div>
-                    <div style=" padding: 10px; ">
-                        <div>
-                            <div class="controlWorksDisciplineNameLink">
-                                <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
-                                <a href="1">Английский язык</a>
-                                </span>
-                            </div>
-                            <div class="educ_content_title_activ">
-                                <ol class="my_educ_disc_reason">
-                                    <li>отсутствуют самостоятельные работы</li>
-                                    <li>низкая активность</li>
-                                </ol>
-                            </div>
+                            <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="journal.xhtml">Лента событий</a></div>
                         </div>
-                        <div>
-                            <div class="controlWorksDisciplineNameLink">
-                                <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
-                                <a href="1">Аудиовизуальные технологии обучения</a>
-                                </span>
-                            </div>
-                            <div class="educ_content_title_activ">
-                                <ol class="my_educ_disc_reason">
-                                    <li>баллов нет</li>
-                                </ol>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="controlWorksDisciplineNameLink">
-                                <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
-                                <a href="1">Введение в психолого-педагогическую деятельность</a>
-                                </span>
-                            </div>
-                            <div class="educ_content_title_activ">
-                                <ol class="my_educ_disc_reason">
-                                    <li>баллов нет</li>
-                                </ol>
-                            </div>
-                        </div>
+                        <div style=" padding: 10px; ">
+                            <j:eventsOnly  list="#{journalBean.events('studentEvents',studentSessionBean.student)}"/>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2">
+                    <td colspan="2" class="changeSemestrBlock">
+                        <div>Летний (текущий) cеместр. Показать зимний cеместр. </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%; border: 1px solid silver;" valign="top">
                         <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
-                        <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="schedule.xhtml">Расписание</a></div>
-                           </div>
-        <style type="text/css">
-            .mainStyle .studentStandatrTable *{
-                text-align: left !important;
-            }
-        </style>
-            <h:dataTable columnClasses="
-                         studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTdLastTd"
-                         value="#{studentScheduleBean.schedule}" var="s" styleClass="studentStandatrTable" cellpadding="0" cellspacing="0">
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="дисциплина"/>
-                    </f:facet>
-                    <span class="controlWorksDisciplineName" style="font-size: 8pt;"><h:outputText value="#{s.discipline.name}"/></span>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="преподаватель"/>
-                    </f:facet>
-                    <span class="linkToTeachersProfile"><a href="teacher.xhtml?id=#{s.teacher.id}"><h:outputText value="#{s.teacher.initials}"/></a></span>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="комната"/>
-                    </f:facet>
-                    <div style="text-align: center !important;">
-                    <h:outputText value="#{s.room}" style="color: #{s.color}"/>
-                    </div>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="дата"/>
-                    </f:facet>
-                    <span ><h:outputText value="#{s.lessonDate}"/></span>
-                </h:column>
-            </h:dataTable>
+                            <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="materials.xhtml">Дисциплины </a></div>
+                        </div>
+                        <div style=" padding: 10px; ">
+                            <div>
+                                <div class="controlWorksDisciplineNameLink">
+                                    <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
+                                        <a href="1">Английский язык</a>
+                                    </span>
+                                </div>
+                                <div class="educ_content_title_activ">
+                                    <ol class="my_educ_disc_reason">
+                                        <li>отсутствуют самостоятельные работы</li>
+                                        <li>низкая активность</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="controlWorksDisciplineNameLink">
+                                    <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
+                                        <a href="1">Аудиовизуальные технологии обучения</a>
+                                    </span>
+                                </div>
+                                <div class="educ_content_title_activ">
+                                    <ol class="my_educ_disc_reason">
+                                        <li>баллов нет</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="controlWorksDisciplineNameLink">
+                                    <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
+                                        <a href="1">Введение в психолого-педагогическую деятельность</a>
+                                    </span>
+                                </div>
+                                <div class="educ_content_title_activ">
+                                    <ol class="my_educ_disc_reason">
+                                        <li>баллов нет</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td style="width: 50%; border: 1px solid silver;" valign="top">
+                        <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
+                            <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="controlWorks.xhtml">Мои контрольные </a></div>
+                        </div>
+                        <div style=" padding: 10px; ">
+                            <div>
+                                <div class="controlWorksDisciplineNameLink">
+                                    <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
+                                        <a href="1">Английский язык</a>
+                                    </span>
+                                </div>
+                                <div class="educ_content_title_activ">
+                                    <ol class="my_educ_disc_reason">
+                                        <li>отсутствуют самостоятельные работы</li>
+                                        <li>низкая активность</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="controlWorksDisciplineNameLink">
+                                    <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
+                                        <a href="1">Аудиовизуальные технологии обучения</a>
+                                    </span>
+                                </div>
+                                <div class="educ_content_title_activ">
+                                    <ol class="my_educ_disc_reason">
+                                        <li>баллов нет</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="controlWorksDisciplineNameLink">
+                                    <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
+                                        <a href="1">Введение в психолого-педагогическую деятельность</a>
+                                    </span>
+                                </div>
+                                <div class="educ_content_title_activ">
+                                    <ol class="my_educ_disc_reason">
+                                        <li>баллов нет</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr><tr>
+                    <td style="width: 50%; border: 1px solid silver;" valign="top">
+                        <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
+                            <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="materials.xhtml">Результаты тестов</a></div>
+                        </div>
+                        <div style=" padding: 10px; ">
+                            <div>
+                                <div class="controlWorksDisciplineNameLink">
+                                    <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
+                                        <a href="1">Английский язык</a>
+                                    </span>
+                                </div>
+                                <div class="educ_content_title_activ">
+                                    <ol class="my_educ_disc_reason">
+                                        <li>отсутствуют самостоятельные работы</li>
+                                        <li>низкая активность</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="controlWorksDisciplineNameLink">
+                                    <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
+                                        <a href="1">Аудиовизуальные технологии обучения</a>
+                                    </span>
+                                </div>
+                                <div class="educ_content_title_activ">
+                                    <ol class="my_educ_disc_reason">
+                                        <li>баллов нет</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="controlWorksDisciplineNameLink">
+                                    <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
+                                        <a href="1">Введение в психолого-педагогическую деятельность</a>
+                                    </span>
+                                </div>
+                                <div class="educ_content_title_activ">
+                                    <ol class="my_educ_disc_reason">
+                                        <li>баллов нет</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td style="width: 50%; border: 1px solid silver;" valign="top">
+                        <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
+                            <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="controlWorks.xhtml">Результаты итоговых тестов</a></div>
+                        </div>
+                        <div style=" padding: 10px; ">
+                            <div>
+                                <div class="controlWorksDisciplineNameLink">
+                                    <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
+                                        <a href="1">Английский язык</a>
+                                    </span>
+                                </div>
+                                <div class="educ_content_title_activ">
+                                    <ol class="my_educ_disc_reason">
+                                        <li>отсутствуют самостоятельные работы</li>
+                                        <li>низкая активность</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="controlWorksDisciplineNameLink">
+                                    <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
+                                        <a href="1">Аудиовизуальные технологии обучения</a>
+                                    </span>
+                                </div>
+                                <div class="educ_content_title_activ">
+                                    <ol class="my_educ_disc_reason">
+                                        <li>баллов нет</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="controlWorksDisciplineNameLink">
+                                    <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
+                                        <a href="1">Введение в психолого-педагогическую деятельность</a>
+                                    </span>
+                                </div>
+                                <div class="educ_content_title_activ">
+                                    <ol class="my_educ_disc_reason">
+                                        <li>баллов нет</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             </table>
