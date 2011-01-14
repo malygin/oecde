@@ -35,7 +35,7 @@
                    <util:showPhoto user="#{node.user}" size="small" styleClass="discussionCommentContentUserAvatar"/>
                     <div>
 
-                        <span class="linkTo#{node.user.classType}sProfile" style="margin-left: 15px;"><a href="#">#{node.user.initials}</a></span>
+                        <span class="linkTo#{node.user.classType}sProfile" style="margin-left: 15px;"><a href="#{node.user.classTypeLowerCase}.xhtml?id=#{node.user.id}">#{node.user.initials}</a></span>
                         <span class="discussionCommentDate"> #{node.time}</span>
                     </div>
                     <div class="discussionCommentContentText">

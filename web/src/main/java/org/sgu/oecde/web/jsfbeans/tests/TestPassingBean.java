@@ -275,8 +275,7 @@ public class TestPassingBean implements Serializable {
        */
 
     public void completeTest(){
-        Collection<GrantedAuthority> authority = SecurityContextHolder.getContext().getAuthentication().getAuthorities();
-        if(!SwitchedUserCheker.check(authority)){
+
             if (attempt!=null){
                  renderCompleteTest=true;
                  attempt.setPoints(points);
@@ -287,9 +286,12 @@ public class TestPassingBean implements Serializable {
                  attempt.setStudent((AbstractStudent) currentUser);
                  attempt.setType(testAttemptType);
                  attempt.setDate(DateConverter.currentDate());
+//        Collection<GrantedAuthority> authority = SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+//        if(!SwitchedUserCheker.check(authority)){     
               //   testAttemptDao.saveAttempt(attempt);
+ //        }                
                  attempt=null;}
-        }
+
     }
 
    
