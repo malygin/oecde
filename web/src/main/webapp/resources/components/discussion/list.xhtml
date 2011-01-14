@@ -4,6 +4,7 @@
       xmlns:composite="http://java.sun.com/jsf/composite"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
+
       xmlns:util="http://java.sun.com/jsf/composite/components/util">
 
     <!-- INTERFACE -->
@@ -48,8 +49,9 @@
                                         <f:ajax  execute="@this" render="@form" />
                                         <f:setPropertyActionListener target="#{DiscussionBean.currentNode}" value="#{node}" />
                              </h:commandLink>
-                         
-                            <h:panelGroup rendered="#{DiscussionBean.currentUser.id==node.user.id}">
+
+                            <h:panelGroup rendered="#{DiscussionBean.currentUser.id==node.user.id || sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.class.simpleName eq 'Admin'}">
+
                                 <h:commandLink style="margin-right: 10px;" action="#{DiscussionBean.showEdit}" value="Редактировать">
                                         <f:ajax  execute="@this" render="@form" />
                                         <f:setPropertyActionListener target="#{DiscussionBean.currentNode}" value="#{node}" />
