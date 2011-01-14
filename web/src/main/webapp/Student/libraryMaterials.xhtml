@@ -4,6 +4,9 @@
          xmlns:h="http://java.sun.com/jsf/html"
          template="../resources/studentTemplate.xhtml"
          >
+    <ui:define name="contentHeader">
+       Библиотека курсов
+    </ui:define>
         <ui:define name="content">
          <f:metadata>
              <f:viewParam name="s" value="#{studentCurriculumBean.semester}"/>

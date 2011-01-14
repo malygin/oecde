@@ -587,7 +587,7 @@
     border: 1px solid silver;
     background: #EFEFEF;
 }
-.mainStyle .standartContainerFor_teacherMediumAvatar{
+.mainStyle .standartContainerForTeacherMediumAvatar{
     border: 1px #64D359 solid;
     padding: 3px;
     background: white;
@@ -597,12 +597,12 @@
     overflow: hidden;
     text-align: center;
 }
-.mainStyle .standartContainerFor_teacherMediumAvatar img{
+.mainStyle .standartContainerForTeacherMediumAvatar img{
     margin: auto;
     padding: 0px;
     vertical-align: top;
 }
-.mainStyle .standartContainerFor_studentMediumAvatar{
+.mainStyle .standartContainerForStudentMediumAvatar{
     border: 1px #4DB7F1 solid;
     padding: 3px;
     background: white;
@@ -612,12 +612,12 @@
     overflow: hidden;
     text-align: center;
 }
-.mainStyle .standartContainerFor_studentMediumAvatar img{
+.mainStyle .standartContainerForStudentMediumAvatar img{
     margin: auto;
     padding: 0px;
     vertical-align: top;
 }
-.mainStyle .standartContainerFor_teacherInfoInTeachersList{
+.mainStyle .standartContainerForTeacherInfoInTeachersList{
     width: 100%;
 }
 .mainStyle .newsListNewPreview{
@@ -655,7 +655,7 @@
 .mainStyle .discussionCommentContentText{
     text-align: justify;
     margin-top: 5px;
-    margin-left: 71px;
+    margin-left: 81px;
 }
 .mainStyle .notLink:link,
 .mainStyle .notLink:hover,
@@ -906,4 +906,46 @@
     color: #016281;
     border: 1px solid #6cc2d9;
     outline: none;
+}
+.mainStyle .userPhoto{
+    float: left;
+    width: 22%;
+}
+.mainStyle .userPhotoBorderAdmin{
+    border: 1px #FF796F solid;
+    width: 96%;
+    padding: 3px;
+    background: white;
+}
+.mainStyle .userPhotoBorderTeacher{
+    border: 1px #74CF91 solid;
+    width: 96%;
+    padding: 3px;
+    background: white;
+}
+.mainStyle .userPhotoBorderStudent{
+    border: 1px #4DB7F1 solid;
+    width: 96%;
+    padding: 3px;
+    background: white;
+}
+.mainStyle .userPhotoBorder img{
+    margin: 0px;
+    padding: 0px;
+    vertical-align: top;
+    width: 100%;
+}
+
+/**
+используется на данный момент в userListItem.xhtml в components/util/, student.xtml в  Student/
+*/
+
+.s2,.s1{
+    padding-left: 18px;
+}
+.s2{
+    background: url("../resources/images/dialog.png") no-repeat left bottom;
+}
+.s1{
+    background: url("../resources/images/write_new.png") no-repeat left bottom;
 }

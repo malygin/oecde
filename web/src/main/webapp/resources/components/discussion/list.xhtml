@@ -15,7 +15,14 @@
     <!-- IMPLEMENTATION -->
 
     <composite:implementation>
-   
+        <style>
+            .mainStyle .discussionCommentContentUserAvatar {
+                margin: 0px;
+            }
+            .avatarStyle{
+                margin: 1px 1px 0 1px;
+            }
+        </style>
             <div style="text-align: center;">
                 <div style="width: 50%; margin: auto;">
                     <h:form>
@@ -33,7 +40,9 @@
             <h:column>
              <h:form>
                 <div class="discussionComment" style="margin-left: #{(node.level-2)*30}px;">
-                   <util:showPhoto user="#{node.user}" size="small" styleClass="discussionCommentContentUserAvatar"/>
+                    <div style="float: left;">
+                        <util:showPhoto user="#{node.user}" size="small" styleClass="avatarStyle"/>
+                    </div>
                     <div>
 
                         <span class="linkTo#{node.user.classType}sProfile" style="margin-left: 15px;"><a href="#{node.user.classTypeLowerCase}.xhtml?id=#{node.user.id}">#{node.user.initials}</a></span>
@@ -41,21 +50,23 @@
                     </div>
                     <div class="discussionCommentContentText">
                         <h:outputText value="#{node.message}" rendered="#{not DiscussionBean.renderEdit}"/>
-                        <h:inputTextarea value="#{DiscussionBean.nodeText}" rendered="#{DiscussionBean.renderEdit}"/>
-                        <h:commandLink rendered="#{DiscussionBean.renderEdit}" action="#{DiscussionBean.editNodes}" value="Изменить"/>
+                        <h:inputTextarea value="#{DiscussionBean.nodeText}" style="width: 90%; height: 50px;" rendered="#{DiscussionBean.renderEdit}"/>
+                        
                       
                         <div class="navigationLinks" style="margin: 5px 0px 0px 15px;">
-                            <h:commandLink style="margin-right: 10px;" action="#{DiscussionBean.showReply}" value="Ответить">
+                            <h:commandLink rendered="#{!DiscussionBean.renderEdit}" style="margin-right: 10px;" action="#{DiscussionBean.showReply}" value="Ответить">
                                         <f:ajax  execute="@this" render="@form" />
                                         <f:setPropertyActionListener target="#{DiscussionBean.currentNode}" value="#{node}" />
                              </h:commandLink>
 
                             <h:panelGroup rendered="#{DiscussionBean.currentUser.id==node.user.id || sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.class.simpleName eq 'Admin'}">
 
-                                <h:commandLink style="margin-right: 10px;" action="#{DiscussionBean.showEdit}" value="Редактировать">
+                                <h:commandLink rendered="#{!DiscussionBean.renderEdit}" style="margin-right: 10px;" action="#{DiscussionBean.showEdit}" value="Редактировать">
                                         <f:ajax  execute="@this" render="@form" />
                                         <f:setPropertyActionListener target="#{DiscussionBean.currentNode}" value="#{node}" />
                                </h:commandLink>
+
+                            <h:commandLink rendered="#{DiscussionBean.renderEdit}" action="#{DiscussionBean.editNodes}" value="Изменить"/>&nbsp;&nbsp;
                                 <span class="navigationLinksRed">
                                     <h:commandLink action="#{DiscussionBean.deleteNode}" value="Удалить">
                                         <f:setPropertyActionListener target="#{DiscussionBean.nodeId}" value="#{node.id}" />                                     
@@ -64,7 +75,7 @@
                             </h:panelGroup>
 
                             <h:panelGroup rendered="#{DiscussionBean.renderReply}">
-                                <div style="max-width: 50%; margin-top: 10px;" >
+                                <div style="max-width: 90%; margin-top: 10px;" >
                                     <h:inputTextarea cols="30" rows="5"  value="#{DiscussionBean.nodeTextReply}" style="width: 100%;" />
                                     <div class="navigationLinks" style="text-align: right;">
                                         <h:commandLink action="#{DiscussionBean.saveReply}" value="Отправить">
