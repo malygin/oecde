@@ -78,18 +78,24 @@ public class ChatList extends HttpServlet {
                                       Admin admin =(Admin)l.getAuthor();
                                               str.append(admin.getSurname()+" "+admin.getName()).
                                               append("\", \"date\": \"").append(l.getDateMessage().substring(11)).
+                                              append("\", \"id\": \"").append(l.getAuthor().getId()).
+                                              append("\", \"link\": \"").append("admin").
                                               append("\", \"type\": \"").append("linkToAdminsProfile");
                                       break;
                                   case STUDENT :
                                      Student student=(Student)l.getAuthor();
                                               str.append(student.getSurname()+" "+student.getName()).
                                               append("\", \"date\": \"").append(l.getDateMessage().substring(11)).
+                                              append("\", \"id\": \"").append(l.getAuthor().getId()).
+                                              append("\", \"link\": \"").append("student").
                                               append("\", \"type\": \"").append("linkToStudentsProfile");;
                                       break;
                                    case TEACHER :
                                      Teacher teacher=(Teacher)l.getAuthor();
                                               str.append(teacher.getSurname()+" "+teacher.getName()).
                                               append("\", \"date\": \"").append(l.getDateMessage().substring(11)).
+                                              append("\", \"id\": \"").append(l.getAuthor().getId()).
+                                              append("\", \"link\": \"").append("teacher").
                                               append("\", \"type\": \"").append("linkToTeachersProfile");
 
                                       break;
