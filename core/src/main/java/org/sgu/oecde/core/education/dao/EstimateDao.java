@@ -23,6 +23,8 @@ public class EstimateDao extends ResultDao<Estimate> implements IEstimateDao{
     private static final long serialVersionUID = 131L;
 
     public int getEstimatedGroupsCount(List<? extends Curriculum>curriculums,Teacher teacher)throws DataAccessException {
+        if(CollectionUtils.isEmpty(curriculums)||teacher == null)
+            return 0;
         List<Long>list = getSession()
                 .createQuery("select count(distinct gr) from Estimate e join e.curriculum cr join cr.teacherToGroups tg join tg.group gr join gr.persons p where cr in (:crs) and e.student in (p) and tg.teacher=:tch")
                 .setParameterList("crs", curriculums).setParameter("tch", teacher).list();
