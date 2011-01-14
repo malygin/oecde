@@ -24,7 +24,7 @@ public class SearchEngine {
      */
     public List<BasicItem>search(String keywords, SearchType type) {
         String [] words;
-        if (keywords == null || keywords.length() <= 3) {
+        if (keywords == null || keywords.length() < 3) {
             return null;
         }else{
             words = keywords.trim().split(" ");

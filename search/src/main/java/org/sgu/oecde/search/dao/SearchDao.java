@@ -1,7 +1,5 @@
 package org.sgu.oecde.search.dao;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
 import java.util.List;
 import org.sgu.oecde.search.SearchType;
 import org.springframework.dao.DataAccessException;

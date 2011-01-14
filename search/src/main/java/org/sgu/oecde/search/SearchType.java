@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import org.sgu.oecde.core.education.Umk;
 import org.sgu.oecde.core.users.AbstractPerson;
 import org.sgu.oecde.core.users.AbstractStudent;
+import org.sgu.oecde.core.users.StudentGroup;
 import org.sgu.oecde.core.users.Teacher;
 
 /**
@@ -11,18 +12,21 @@ import org.sgu.oecde.core.users.Teacher;
  * @author ShihovMY
  */
 public enum SearchType {
-    teacher,student,umk;
+    teacher(Teacher.class,"преподаватель"),
+    student(AbstractStudent.class,"студент"),
+    umk(Umk.class,"умк"),
+    group(StudentGroup.class,"группа");
+
+    private SearchType(Class className,String rusName) {
+        this.className = className;
+        this.rusName = rusName;
+    }
+
+    private Class className;
+    private String rusName;
+
     public String toClass(){
-        switch(this){
-            case student:
-                return AbstractStudent.class.getName();
-            case teacher:
-                return Teacher.class.getName();
-            case umk:
-                return Umk.class.getName();
-            default:
-                return null;
-        }
+        return className.getName();
     }
 
     public String[] getSearchableFields(){
@@ -36,9 +40,13 @@ public enum SearchType {
                 }
                 return str;
             case umk:
-                return new String[]{"name"};
             default:
-                return null;
+                return new String[]{"name"};
         }
+    }
+
+    @Override
+    public String toString() {
+        return rusName;
     }
 }
