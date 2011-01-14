@@ -4,8 +4,7 @@
       xmlns:composite="http://java.sun.com/jsf/composite"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:r="http://java.sun.com/jsp/jstl/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:util="http://java.sun.com/jsf/composite/components/util">
 
     <!-- INTERFACE -->
     <composite:interface>
@@ -33,10 +32,11 @@
             <h:column>
              <h:form>
                 <div class="discussionComment" style="margin-left: #{(node.level-2)*30}px;">
-                    <img class="discussionCommentContentUserAvatar" src="../resources/userFiles/avatars/defaultAvatarSmall.jpg" alt=""/>
+                   <util:showPhoto user="#{node.user}" size="small" styleClass="discussionCommentContentUserAvatar"/>
                     <div>
-                        <span class="linkToAdminsProfile" style="margin-left: 15px;"><a href="#">#{node.user.initials}</a></span>
-                        <span class="discussionCommentDate">#{node.time}</span>
+
+                        <span class="linkTo#{node.user.classType}sProfile" style="margin-left: 15px;"><a href="#">#{node.user.initials}</a></span>
+                        <span class="discussionCommentDate"> #{node.time}</span>
                     </div>
                     <div class="discussionCommentContentText">
                         <h:outputText value="#{node.message}" rendered="#{not DiscussionBean.renderEdit}"/>

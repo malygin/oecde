@@ -10,6 +10,7 @@
     <composite:interface>
         <composite:attribute name="size" required="true" type="java.lang.String" default="small" shortDescription="тип аватары (large,medium,small)"/>
         <composite:attribute name="user" required="true" type="org.sgu.oecde.core.users.AbstractUser" shortDescription="пользователей с аватарой"/>
+        <composite:attribute name="styleClass"  type="java.lang.String" default=""  shortDescription="цсс класс для вывода фотки"/>
     </composite:interface>
 
     <!-- IMPLEMENTATION -->
@@ -34,8 +35,8 @@
                 <table cellpadding="0" cellspacing="0">
                     <tr>
                         <td class="userPhotoBorder#{cc.attrs.user.class.simpleName}">
-                            <h:graphicImage rendered="#{cc.attrs.user.smallPhoto ne null}" value="../resources/userFiles/avatars/#{cc.attrs.user.smallPhoto}"/>
-                            <h:graphicImage rendered="#{cc.attrs.user.smallPhoto eq null}" value="../resources/userFiles/avatars/defaultAvatarSmall.jpg"/>
+                            <h:graphicImage styleClass="#{cc.attrs.styleClass}" rendered="#{cc.attrs.user.smallPhoto ne null}" value="../resources/userFiles/avatars/#{cc.attrs.user.smallPhoto}"/>
+                            <h:graphicImage styleClass="#{cc.attrs.styleClass}" rendered="#{cc.attrs.user.smallPhoto eq null}" value="../resources/userFiles/avatars/defaultAvatarSmall.jpg"/>
                         </td>
                     </tr>
                 </table>

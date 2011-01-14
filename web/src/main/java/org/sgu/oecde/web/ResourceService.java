@@ -112,10 +112,10 @@ public class ResourceService implements Serializable{
         String testEndDate = reExameEndDate;
         String currentDate = DateConverter.currentDate();
 
-        if(TestType.concluding.equals(e.getType())&&!concludingAvailable){
-            available = false;
-            data[2] = "Контрольная работа не зачтена";
-        }else{
+//        if(TestType.concluding.equals(e.getType())&&!concludingAvailable){
+//            available = false;
+//            data[2] = "Контрольная работа не зачтена";
+//        }else{
             if((currentDate.compareTo(testBeginDate)>=0)&&(currentDate.compareTo(testEndDate)<0)
                     &&w.getCurriculum().getSemester()!=semesterGetter.getCalendarYear(student, semesterGetter.getCurrentSemester())){
                 if(w.getReExameAttemptsUsedNumber()>=Integer.parseInt(
@@ -163,7 +163,7 @@ public class ResourceService implements Serializable{
                 data[4] = "Тесты не доступны";
                 available = false;
             }
-        }
+     //   }
         data[1]=w;
         data[0]=available;
         return data;

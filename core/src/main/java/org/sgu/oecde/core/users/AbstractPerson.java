@@ -97,6 +97,13 @@ public abstract class AbstractPerson extends AbstractUser implements Comparable<
             sb.append(getSecondName().charAt(0));
         return sb.toString();
     }
+    public String getClassType(){
+         if (this instanceof org.sgu.oecde.core.users.Admin)
+              return "Admin";
+         if (this instanceof org.sgu.oecde.core.users.Teacher)
+              return "Teacher";
+         else return "Student";
+    }
 
     /**
      *
@@ -119,4 +126,5 @@ public abstract class AbstractPerson extends AbstractUser implements Comparable<
         }
         return st;
     }
+
 }
