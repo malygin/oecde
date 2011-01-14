@@ -27,7 +27,7 @@
                 background: url("../resources/images/write_new.png") no-repeat left bottom;
             }
        </style>
-       <div class="standartContainerFor_#{cc.attrs.type}MediumAvatar" align="center">
+       <div class="standartContainerFor#{cc.attrs.u.class.simpleName}MediumAvatar" align="center">
             <ut:showPhoto user="#{cc.attrs.u}" size="medium"/>
         </div>
         <div class="standartContainerForTeacherInfoInTeachersList">
@@ -37,7 +37,7 @@
                         #{msgs.student_studentListFIO}
                     </td>
                     <td>
-                        <span class="linkTo#{cc.attrs.className}sProfile">
+                        <span class="linkTo#{cc.attrs.u.class.simpleName}sProfile">
                             <a href="#{cc.attrs.type}.xhtml?id=#{cc.attrs.u.id}">
                                 #{cc.attrs.u.fio}
                             </a>
