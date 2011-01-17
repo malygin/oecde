@@ -67,7 +67,7 @@ public class MessageRecipient extends BasicItem{
      AbstractPerson person=(AbstractPerson) recipient;
      switch(userType){
          case STUDENT:
-            fio=person.getName();
+            fio=person.getFio();
             break;
          case ADMIN:
              fio=person.getFio();

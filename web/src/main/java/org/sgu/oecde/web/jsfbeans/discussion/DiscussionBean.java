@@ -133,7 +133,13 @@ public class DiscussionBean {
             String url=request.getRequestURI().split("/")[3];
             FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId);
      }
-
+ /**
+     * редактирование нода
+     * @throws IOException
+     */
+     public void cancelNodes() throws IOException{
+         this.renderEdit=false;
+     }
      /**
       * сохранение ответа
       * @throws IOException

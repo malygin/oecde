@@ -1,0 +1,20 @@
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/studentTemplate.xhtml"
+    xmlns:mess="http://java.sun.com/jsf/composite/components/messages"
+    xmlns:util="http://java.sun.com/jsf/composite/components/util">
+    <div class="interfaceContent">
+        <f:metadata>
+            <f:viewParam name="user" value="#{MessageWriteBean.recipient_id}"/>
+        </f:metadata>
+
+        <ui:define name="content">
+            <mess:write actionMethod="#{MessageWriteBean.save}"/>
+        </ui:define>
+        <ui:define name="contentHeader">
+            #{msgs.message_interfaceTitleWriteMess}
+        </ui:define>
+    </div>
+</ui:composition>

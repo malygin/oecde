@@ -73,34 +73,38 @@ public class ChatList extends HttpServlet {
             str.append("{\"Super\": [");
                     for(ChatMessage l:list ){
                               str.append("{\"fio\": \"");
-                              switch(UserType.toType(l.getAuthor())){
-                                  case ADMIN :
-                                      Admin admin =(Admin)l.getAuthor();
-                                              str.append(admin.getSurname()+" "+admin.getName()).
-                                              append("\", \"date\": \"").append(l.getDateMessage().substring(11)).
-                                              append("\", \"id\": \"").append(l.getAuthor().getId()).
-                                              append("\", \"link\": \"").append("admin").
-                                              append("\", \"type\": \"").append("linkToAdminsProfile");
-                                      break;
-                                  case STUDENT :
-                                     Student student=(Student)l.getAuthor();
-                                              str.append(student.getSurname()+" "+student.getName()).
-                                              append("\", \"date\": \"").append(l.getDateMessage().substring(11)).
-                                              append("\", \"id\": \"").append(l.getAuthor().getId()).
-                                              append("\", \"link\": \"").append("student").
-                                              append("\", \"type\": \"").append("linkToStudentsProfile");;
-                                      break;
-                                   case TEACHER :
-                                     Teacher teacher=(Teacher)l.getAuthor();
-                                              str.append(teacher.getSurname()+" "+teacher.getName()).
-                                              append("\", \"date\": \"").append(l.getDateMessage().substring(11)).
-                                              append("\", \"id\": \"").append(l.getAuthor().getId()).
-                                              append("\", \"link\": \"").append("teacher").
-                                              append("\", \"type\": \"").append("linkToTeachersProfile");
 
-                                      break;
+                            //  System.out.println("! "+UserType.toType(l.getAuthor()));
+                              if (l.getAuthor()!=null){
+                                  switch(UserType.toType(l.getAuthor())){
+                                      case ADMIN :
+                                          Admin admin =(Admin)l.getAuthor();
+                                                  str.append(admin.getSurname()).append(" ").append(admin.getName()).
+                                                  append("\", \"date\": \"").append(l.getDateMessage().substring(11)).
+                                                  append("\", \"id\": \"").append(l.getAuthor().getId()).
+                                                  append("\", \"link\": \"").append("admin").
+                                                  append("\", \"type\": \"").append("linkToAdminsProfile");
+                                          break;
+                                      case STUDENT :
+                                         Student student=(Student)l.getAuthor();
+                                                  str.append(student.getSurname()).append(" ").append(student.getName()).
+                                                  append("\", \"date\": \"").append(l.getDateMessage().substring(11)).
+                                                  append("\", \"id\": \"").append(l.getAuthor().getId()).
+                                                  append("\", \"link\": \"").append("student").
+                                                  append("\", \"type\": \"").append("linkToStudentsProfile");;
+                                          break;
+                                       case TEACHER :
+                                         Teacher teacher=(Teacher)l.getAuthor();
+                                                  str.append(teacher.getSurname()).append(" ").append(teacher.getName()).
+                                                  append("\", \"date\": \"").append(l.getDateMessage().substring(11)).
+                                                  append("\", \"id\": \"").append(l.getAuthor().getId()).
+                                                  append("\", \"link\": \"").append("teacher").
+                                                  append("\", \"type\": \"").append("linkToTeachersProfile");
+
+                                          break;
+                                  }
+                                  str.append("\", \"message\": \"").append(l.getMessage()).append("\"},");
                               }
-                              str.append("\", \"message\": \"").append(l.getMessage()).append("\"},");
                         }
              str.deleteCharAt(str.length()-1);
              str.append(" ]}");

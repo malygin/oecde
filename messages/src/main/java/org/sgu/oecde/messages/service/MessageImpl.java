@@ -55,16 +55,14 @@ public class MessageImpl {
      AbstractPerson person=(AbstractPerson) message.getAuthor();
      switch(userType){
          case STUDENT:
-            fio=person.getName();
-            break;
+            return person.getFio();
          case ADMIN:
-             fio=person.getFio();
-             break;
+             return person.getFio();
          case TEACHER:
-             fio=person.getFio();
-             break;
+             return person.getFio();
+             
        }
-     return fio;
+    return fio;
    }
 
    /**

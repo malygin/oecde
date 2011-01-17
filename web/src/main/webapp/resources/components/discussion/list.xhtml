@@ -66,7 +66,10 @@
                                         <f:setPropertyActionListener target="#{DiscussionBean.currentNode}" value="#{node}" />
                                </h:commandLink>
 
-                            <h:commandLink rendered="#{DiscussionBean.renderEdit}" action="#{DiscussionBean.editNodes}" value="Изменить"/>&nbsp;&nbsp;
+
+                                <h:commandLink rendered="#{DiscussionBean.renderEdit}" action="#{DiscussionBean.editNodes}" value="Изменить"/>&nbsp;&nbsp;
+                                <h:commandLink rendered="#{DiscussionBean.renderEdit}" action="#{DiscussionBean.cancelNodes}" value="Отменить"/>&nbsp;&nbsp;
+
                                 <span class="navigationLinksRed">
                                     <h:commandLink action="#{DiscussionBean.deleteNode}" value="Удалить">
                                         <f:setPropertyActionListener target="#{DiscussionBean.nodeId}" value="#{node.id}" />                                     

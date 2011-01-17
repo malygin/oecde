@@ -32,7 +32,7 @@
                                         </span>
                                     </td>
                                     <td>
-                                        <div class="linkToStudentsProfile"><a href="#"><h:outputText value="#{message.fioAuthor}"/></a> (<h:outputText value="#{message.typeAuthor}"/>)
+                                        <div class="linkTo#{message.message.author.classType}sProfile"><a href="#"><h:outputText value="#{message.fioAuthor}"/></a> (<h:outputText value="#{message.typeAuthor}"/>)
                                            <h:panelGroup rendered="#{not message.readed}"><font color="red">Новое</font></h:panelGroup>
                                         </div>
                                     </td>
