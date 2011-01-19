@@ -10,11 +10,9 @@ import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.concurrent.TimeUnit;
-import javax.annotation.Resource;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -22,14 +20,12 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.model.SelectItem;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.dao.CurriculumDao;
-import org.sgu.oecde.core.education.dao.ResourceDao;
 import org.sgu.oecde.core.education.work.AdditionalSelfDependentWork;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.core.util.SemesterGetter;
-import org.sgu.oecde.core.util.SwitchedUserCheker;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.journal.JournalService;
@@ -42,12 +38,9 @@ import org.sgu.oecde.tests.TestAttempt;
 import org.sgu.oecde.tests.TestAttemptService;
 import org.sgu.oecde.tests.TestAttemptType;
 import org.sgu.oecde.tests.TestEntity;
-import org.sgu.oecde.tests.TestService;
 import org.sgu.oecde.tests.dao.TestAttemptDao;
 import org.sgu.oecde.web.ResourceService;
 import org.sgu.oecde.web.jsfbeans.util.HTMLSanitiser;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
  * бин для прохождения теста
@@ -94,6 +87,8 @@ public class TestPassingBean implements Serializable {
     
     @ManagedProperty(value="#{curriculumDao}")
     private CurriculumDao cDao;
+    @ManagedProperty(value="#{testAttemptDao}")
+    private TestAttemptDao testAttemptDao;
     @ManagedProperty(value="#{resourceService}")
     private ResourceService resourceService;
     @ManagedProperty(value="#{testAttemptService}")
@@ -284,11 +279,11 @@ public class TestPassingBean implements Serializable {
                  attempt.setAnsweredQuestions(answeredQuestions);
                  attempt.setCurriculum(curriculum);
                  attempt.setStudent((AbstractStudent) currentUser);
-                 attempt.setType(testAttemptType);
+                 attempt.setType(TestAttemptType.regular);
                  attempt.setDate(DateConverter.currentDate());
 //        Collection<GrantedAuthority> authority = SecurityContextHolder.getContext().getAuthentication().getAuthorities();
 //        if(!SwitchedUserCheker.check(authority)){     
-              //   testAttemptDao.saveAttempt(attempt);
+                testAttemptDao.saveAttempt(attempt);
  //        }                
                  attempt=null;}
 
@@ -495,6 +490,10 @@ public class TestPassingBean implements Serializable {
 
     public void setcDao(CurriculumDao cDao) {
         this.cDao = cDao;
+    }
+
+    public void setTestAttemptDao(TestAttemptDao testAttemptDao) {
+        this.testAttemptDao = testAttemptDao;
     }
 
     public void setResourceService(ResourceService resourceService) {

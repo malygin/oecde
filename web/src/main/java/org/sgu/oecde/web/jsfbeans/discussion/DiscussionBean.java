@@ -139,6 +139,7 @@ public class DiscussionBean {
      */
      public void cancelNodes() throws IOException{
          this.renderEdit=false;
+         this.nodeText="";
      }
      /**
       * сохранение ответа
