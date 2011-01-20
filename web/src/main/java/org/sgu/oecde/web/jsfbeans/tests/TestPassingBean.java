@@ -279,7 +279,7 @@ public class TestPassingBean implements Serializable {
                  attempt.setAnsweredQuestions(answeredQuestions);
                  attempt.setCurriculum(curriculum);
                  attempt.setStudent((AbstractStudent) currentUser);
-                 attempt.setType(TestAttemptType.regular);
+                 attempt.setType(testAttemptType);
                  attempt.setDate(DateConverter.currentDate());
 //        Collection<GrantedAuthority> authority = SecurityContextHolder.getContext().getAuthentication().getAuthorities();
 //        if(!SwitchedUserCheker.check(authority)){     

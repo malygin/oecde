@@ -97,7 +97,7 @@ public class MessageWriteBean  implements Serializable{
             MultipartRequestWrapper multi = (MultipartRequestWrapper)req;
             //MessageFile -  имя файла в форме
             UploadFile uf = multi.findFile("MessageFile");
-            if(uf != null){
+            if((uf != null)&&(!uf.getFileName().equals(""))){
              MessageFile mfile= new MessageFile();
              //messages -  в данном случае имя папки и имя префикса в именах файлов
              String name = FileUploadUtil.Upload(uf, multi, "messages",true);
