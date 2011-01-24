@@ -1,5 +1,6 @@
 package org.sgu.oecde.web;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -83,6 +84,8 @@ public class simpleTest{
 
     @Test
     public void asdasd(){
-        System.out.println("Hello World!");
+        Integer a = 344;
+        long b = 343l;
+        System.out.println(new Short((short)343) < a);
     }
 }

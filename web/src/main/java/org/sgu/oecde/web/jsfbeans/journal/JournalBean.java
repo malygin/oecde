@@ -53,10 +53,11 @@ public class JournalBean implements Serializable{
         EventBodyElement.whoIs = "http://whois.domaintools.com/";
     }
 
-    public void clearEvents(AjaxBehaviorEvent event){
+    public String clearEvents(){
         events = null;
         pageNumber = 0;
         eventsCount = null;
+        return "index.xhtml?faces-redirect=true";
     }
 
     public FilterType filter(String type, Object object){

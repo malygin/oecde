@@ -7,6 +7,7 @@
     xmlns:j="http://java.sun.com/jsf/composite/components/journal"
     xmlns:news="http://java.sun.com/jsf/composite/components/news"
     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+    xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
     xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 
     <ui:define name="fio">
@@ -75,70 +76,11 @@
                     </tr>
                 </table>
                 <div class="floatDestroyer"></div>
-                <!--                <table cellspacing="8">
-                                    <tr>
-                                        <td><p>#{msgs.student_mainContentUserInfoSecondName}</p></td><td><div>#{studentSessionBean.student.surname}</div></td>
-                                    </tr>
-                                    <tr>
-                                        <td><p>#{msgs.student_mainContentUserInfoFirstName}</p></td><td><div>#{studentSessionBean.student.name}</div></td>
-                                    </tr>
-                                    <tr>
-                                        <td><p>#{msgs.student_mainContentUserInfoThirdName}</p></td><td><div>#{studentSessionBean.student.secondName}</div></td>
-                                    </tr>
-                                    <tr style="display: none;">
-                                        <td><p>#{msgs.student_mainContentUserInfoBirthDay}</p></td><td><div>#{studentSessionBean.student}</div></td>
-                                    </tr>
-                                    <tr>
-                                        <td><p>#{msgs.student_mainContentUserInfoFaculty}</p></td><td><div>#{studentSessionBean.student.group.faculty}</div></td>
-                                    </tr>
-                                    <tr>
-                                        <td><p>#{msgs.student_mainContentUserInfoSpec}</p></td><td><div>#{studentSessionBean.student.group.speciality.name}</div></td>
-                                    </tr>
-                                    <tr>
-                                        <td><p>#{msgs.student_mainContentUserInfoCourse}</p></td><td><div>#{studentSessionBean.student.group.year}</div></td>
-                                    </tr>
-                                    <tr>
-                                        <td><p>#{msgs.student_mainContentUserInfoGroup}</p></td><td><div>#{studentSessionBean.student.group.name}</div></td>
-                                    </tr>
-                                    <tr>
-                                        <td><p>Ваш рейтинг:</p></td><td><div>#{studentRatingBean.studentRating.sum}</div></td>
-                                    </tr>
-                                </table>-->
             </div>
             <div class="floatDestroyer"></div>
         </div>
         <div style="padding: 5px;">
             <table style="width: 100%;">
-                <tr>
-                    <td colspan="2" style="padding: 3px 3px 10px 3px; border: 1px solid silver;">
-                        <table style="width: 100%;" class="studentStandatrTable" cellpadding="0" cellspacing="0">
-                            <tr>
-                                <th>
-                                    Событие
-                                </th>
-                                <th>
-                                    Дата
-                                </th>
-                            </tr>
-                            <tr>
-                                <td class="studentStandatrTableTd">
-                                    Открытие теста
-                                </td>
-                                <td class="studentStandatrTableTdLastTd">
-                                    10.10.1245
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="studentStandatrTableTd">
-                                    Открытие контрольной
-                                </td>
-                                <td class="studentStandatrTableTdLastTd">
-                                    10.10.1245
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
                 <tr>
                     <td colspan="2" style="padding: 3px 3px 10px 3px; border: 1px solid silver;">
                         <div style=" border-bottom: 1px solid silver;">
@@ -185,13 +127,91 @@
                     </td>
                 </tr>
                 <tr>
+                    <td colspan="2" style="padding: 3px 3px 10px 3px; border: 1px solid silver;">
+                        <table style="width: 100%;" class="studentStandatrTable" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <th>
+                                    Событие
+                                </th>
+                                <th>
+                                    Дата
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="studentStandatrTableTd">
+                                    Открытие тестов
+                                </td>
+                                <td class="studentStandatrTableTdLastTd">
+                                    #{resourceService.regularTestBeginDate}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="studentStandatrTableTd">
+                                    Закрытие тестов
+                                </td>
+                                <td class="studentStandatrTableTdLastTd">
+                                    #{studentIndexBean.testClosingDate}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="studentStandatrTableTd">
+                                    Открытие итоговых тестов
+                                </td>
+                                <td class="studentStandatrTableTdLastTd">
+                                    #{resourceService.concludingTestBeginDate}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="studentStandatrTableTd">
+                                    Закрытие итоговых тестов
+                                </td>
+                                <td class="studentStandatrTableTdLastTd">
+                                    #{resourceService.concludingTestEndDate}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="studentStandatrTableTd">
+                                    Открытие контрольных
+                                </td>
+                                <td class="studentStandatrTableTdLastTd">
+                                    #{studentIndexBean.getDate("controlWorksBeginDate")}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="studentStandatrTableTd">
+                                    Открытие контрольных
+                                </td>
+                                <td class="studentStandatrTableTdLastTd">
+                                    #{studentIndexBean.getDate("controlWorksEndDate")}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="studentStandatrTableTd">
+                                    Начало переэкзаменовки
+                                </td>
+                                <td class="studentStandatrTableTdLastTd">
+                                    #{resourceService.reExameBeginDate}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="studentStandatrTableTd">
+                                    Окончание переэкзаменовки
+                                </td>
+                                <td class="studentStandatrTableTdLastTd">
+                                    #{resourceService.reExameEndDate}
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
                     <td colspan="2" style="height: 1px;"></td>
                 </tr>
                 <tr>
                     <td style=" border: 1px solid silver; " valign="top">
                         <div style=" padding: 0px 5px;max-height: 300px; overflow-y: scroll;">
                             <div style=" border-bottom: 1px solid silver; padding-top: 3px;">
-                                <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="news_list.xhtml">Новости</a></div>
+                                <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="news_read.xhtml">Новости</a></div>
                             </div>
                             <div style="padding: 5px;">
                                 <h:dataTable value="#{NewsBean.news}" var="new" style="width: 100%;">
@@ -218,53 +238,36 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" class="changeSemestrBlock">
-                        <div>Летний (текущий) cеместр. Показать зимний cеместр. </div>
-                    </td>
+            <est:changeSemester semester="#{controlWorksBean.semester}"/>
                 </tr>
                 <tr>
                     <td style="width: 50%; border: 1px solid silver;" valign="top">
                         <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
-                            <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="materials.xhtml">Дисциплины </a></div>
+                            <div class="navigationLinksTitle">Дисциплины</div>
                         </div>
+                        
                         <div style=" padding: 10px; ">
+                        <h:dataTable width="100%" value="#{lowGradedDisciplinesBean.lowGradedDisciplines}" var="p" cellpadding="0" cellspacing="0">
+                        <h:column>
                             <div>
                                 <div class="controlWorksDisciplineNameLink">
                                     <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
-                                        <a href="1">Английский язык</a>
+                                        #{p.points.curriculum.discipline.name}
                                     </span>
+                                    <span class="linkToTeachersProfile"><h:outputLink value="teacher.xhtml?id=${p.teacher.id}">#{p.teacher.initials}</h:outputLink></span>
                                 </div>
                                 <div class="educ_content_title_activ">
                                     <ol class="my_educ_disc_reason">
-                                        <li>отсутствуют самостоятельные работы</li>
-                                        <li>низкая активность</li>
+                                        <li>итоговая оценка 
+                                        <h:outputText converter="enumConverter" value="#{p.grade}"/>
+                                        </li>
+                                        <li>сумма баллов #{p.points.sum}</li>
+
                                     </ol>
                                 </div>
                             </div>
-                            <div>
-                                <div class="controlWorksDisciplineNameLink">
-                                    <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
-                                        <a href="1">Аудиовизуальные технологии обучения</a>
-                                    </span>
-                                </div>
-                                <div class="educ_content_title_activ">
-                                    <ol class="my_educ_disc_reason">
-                                        <li>баллов нет</li>
-                                    </ol>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="controlWorksDisciplineNameLink">
-                                    <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
-                                        <a href="1">Введение в психолого-педагогическую деятельность</a>
-                                    </span>
-                                </div>
-                                <div class="educ_content_title_activ">
-                                    <ol class="my_educ_disc_reason">
-                                        <li>баллов нет</li>
-                                    </ol>
-                                </div>
-                            </div>
+                            </h:column>
+                        </h:dataTable>
                         </div>
                     </td>
                     <td style="width: 50%; border: 1px solid silver;" valign="top">
@@ -314,90 +317,56 @@
                 </tr><tr>
                     <td style="width: 50%; border: 1px solid silver;" valign="top">
                         <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
-                            <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="materials.xhtml">Результаты тестов</a></div>
+                            <div class="navigationLinksTitle">Результаты тестов</div>
                         </div>
                         <div style=" padding: 10px; ">
+                        <h:dataTable cellpadding="0" cellspacing="0"
+                                     columnClasses="studentStandatrTableTd,
+                                     studentStandatrTableTdLastTd" styleClass="studentStandatrTable"
+                                     style="width: 100%;"
+                                     value="#{badPassedTestsBean.badPassedTests}" var="r">
+                            <h:column>
                             <div>
                                 <div class="controlWorksDisciplineNameLink">
                                     <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
-                                        <a href="1">Английский язык</a>
+                                        #{r.work.title}
                                     </span>
                                 </div>
                                 <div class="educ_content_title_activ">
                                     <ol class="my_educ_disc_reason">
-                                        <li>отсутствуют самостоятельные работы</li>
-                                        <li>низкая активность</li>
+                                        <li>набрано баллов #{r.pointsForWork}</li>
                                     </ol>
                                 </div>
                             </div>
-                            <div>
-                                <div class="controlWorksDisciplineNameLink">
-                                    <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
-                                        <a href="1">Аудиовизуальные технологии обучения</a>
-                                    </span>
-                                </div>
-                                <div class="educ_content_title_activ">
-                                    <ol class="my_educ_disc_reason">
-                                        <li>баллов нет</li>
-                                    </ol>
-                                </div>
+                            </h:column>
+                        </h:dataTable>
                             </div>
-                            <div>
-                                <div class="controlWorksDisciplineNameLink">
-                                    <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
-                                        <a href="1">Введение в психолого-педагогическую деятельность</a>
-                                    </span>
-                                </div>
-                                <div class="educ_content_title_activ">
-                                    <ol class="my_educ_disc_reason">
-                                        <li>баллов нет</li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
                     </td>
                     <td style="width: 50%; border: 1px solid silver;" valign="top">
                         <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
-                            <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="controlWorks.xhtml">Результаты итоговых тестов</a></div>
+                            <div class="navigationLinksTitle">Результаты итоговых тестов</div>
                         </div>
                         <div style=" padding: 10px; ">
+                        <h:dataTable cellpadding="0" cellspacing="0"
+                                     columnClasses="studentStandatrTableTd,
+                                     studentStandatrTableTdLastTd" styleClass="studentStandatrTable"
+                                     style="width: 100%;"
+                                     value="#{badPassedTestsBean.badPassedTests}" var="r">
+                            <h:column>
                             <div>
                                 <div class="controlWorksDisciplineNameLink">
                                     <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
-                                        <a href="1">Английский язык</a>
+                                        #{r.work.title}
                                     </span>
                                 </div>
                                 <div class="educ_content_title_activ">
                                     <ol class="my_educ_disc_reason">
-                                        <li>отсутствуют самостоятельные работы</li>
-                                        <li>низкая активность</li>
+                                        <li>набрано баллов #{r.pointsForWork}</li>
                                     </ol>
                                 </div>
                             </div>
-                            <div>
-                                <div class="controlWorksDisciplineNameLink">
-                                    <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
-                                        <a href="1">Аудиовизуальные технологии обучения</a>
-                                    </span>
-                                </div>
-                                <div class="educ_content_title_activ">
-                                    <ol class="my_educ_disc_reason">
-                                        <li>баллов нет</li>
-                                    </ol>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="controlWorksDisciplineNameLink">
-                                    <span style="background: url('../resources/images/pic.jpg') no-repeat left bottom; padding-left: 18px;">
-                                        <a href="1">Введение в психолого-педагогическую деятельность</a>
-                                    </span>
-                                </div>
-                                <div class="educ_content_title_activ">
-                                    <ol class="my_educ_disc_reason">
-                                        <li>баллов нет</li>
-                                    </ol>
-                                </div>
-                            </div>
+                            </h:column>
+                        </h:dataTable>
                         </div>
                     </td>
                 </tr>

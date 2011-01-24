@@ -27,7 +27,7 @@ public class LoginBean implements Serializable{
     public LoginBean() throws IOException, ServletException {
         ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
         CustomAuthenticationSuccessHandler.doRedirect((HttpServletRequest)context.getRequest(), (HttpServletResponse)context.getResponse(),false);
-    }
+     }
 
     public boolean isRenderErrorEnter() { 
         return this.renderErrorEnter;

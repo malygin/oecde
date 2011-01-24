@@ -66,13 +66,12 @@ public class ControlWorksBean extends StudentCurriculumBean{
         if(works==null){
             List<DeCurriculum> c =  cwService.getCurriculumsWithControlWorks(curriculumBuilder.getInstanceByCurrentDate(student, semester));
             Map<DeCurriculum,ControlWork> m = cwService.<DeCurriculum,ControlWork>getStudensControlWorks(student, c);
-            Iterator cwI = m.entrySet().iterator();
+            Iterator<DeCurriculum>cI = c.iterator();
             String currentDate = DateConverter.currentDate();
             works = new LinkedList();
-            while(cwI.hasNext()){
-                Map.Entry<DeCurriculum,ControlWork> v = (Map.Entry)cwI.next();
-                ControlWork w = v.getValue();
-                DeCurriculum cr = v.getKey();
+            while(cI.hasNext()){
+                DeCurriculum cr = cI.next();
+                ControlWork w = m.get(cr);
                 boolean available=false;
                 Object[] data = new Object[5];
                 works.add(data);
@@ -82,7 +81,7 @@ public class ControlWorksBean extends StudentCurriculumBean{
                     &&currentDate.compareTo(controlWorksEndDate)<0)
                     ||(currentDate.compareTo(reExameBeginDate)>=0
                     &&currentDate.compareTo(reExameEndDate)<0)
-                    )&&!ControlWorkProgress.passed.equals(w.getProgress())
+                    )&&(w==null||!ControlWorkProgress.passed.equals(w.getProgress()))
                     &&!cr.getControlWorksPaperOnly()
                     &&student.getFullAccess()){
                     available = true;

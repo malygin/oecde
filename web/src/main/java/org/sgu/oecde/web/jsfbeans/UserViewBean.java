@@ -40,6 +40,8 @@ public class UserViewBean implements Serializable{
 
     public AbstractUser getUser(){
         if(user==null){
+            if(type!=null)
+                type = type.toUpperCase();
             UserType t = UserType.valueOf(type);
             switch(t){
                 case ADMIN:
@@ -67,6 +69,8 @@ public class UserViewBean implements Serializable{
 
     @Secured("ROLE_ADMIN")
     public void save(){
+        if(type!=null)
+            type = type.toUpperCase();
         UserType t = UserType.valueOf(type);
         switch(t){
             case ADMIN:

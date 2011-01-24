@@ -25,9 +25,7 @@
             <util:date_picker value="#{journalBean.filter.beginDate}"/>beginDate
             <util:date_picker value="#{journalBean.filter.endDate}"/>endDate
 
-            <h:commandButton value="ок">
-                <f:ajax execute="@form" render="@form" listener="#{journalBean.clearEvents}"/>
-            </h:commandButton>
+            <h:commandButton value="ок" action="#{journalBean.clearEvents}"/>
 
 
            <util:navigationList numElements="#{journalBean.eventsCount}" elementOnPage="#{journalBean.filter.capacity}"/>
