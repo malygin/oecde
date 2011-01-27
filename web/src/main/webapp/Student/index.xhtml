@@ -35,6 +35,7 @@
             }
             .mainStyle .navigationLinksTitle{
                 padding-left: 10px; color: gray; font-size: 12pt !important;
+                height: 20px;
             }
             .mainStyle .navigationLinksTitle a:link{color: #8BB5DF; text-decoration: none; font-weight: normal;}
             .mainStyle .navigationLinksTitle a:visited{color: #8BB5DF; text-decoration: none; font-weight: normal;}
@@ -51,7 +52,18 @@
                 border: 1px solid silver;
                 padding: 5px;
             }
+            .indexChangeSemestrPanel div{
+                border: 1px solid silver;
+            }
+            .indexChangeSemestrPanel div div{
+                background: none !important;
+                border: 0px;
+            }
+            .indexChangeSemestrPanel div div div{
+                color: black;
+            }
         </style>
+
         <div class="userFile">
             <div style="width: 9%">
                 <ut:showPhoto user="#{studentSessionBean.student}" size="small"/>
@@ -90,9 +102,12 @@
                             .mainStyle .studentStandatrTable *{
                                 text-align: left !important;
                             }
+                            .sas1{
+                                width: 50%;
+                            }
                         </style>
                         <h:dataTable columnClasses="
-                                     studentStandatrTableTd,
+                                     studentStandatrTableTd sas1,
                                      studentStandatrTableTd,
                                      studentStandatrTableTd,
                                      studentStandatrTableTdLastTd"
@@ -128,78 +143,101 @@
                 </tr>
                 <tr>
                     <td colspan="2" style="padding: 3px 3px 10px 3px; border: 1px solid silver;">
+                        <div style=" border-bottom: 1px solid silver;">
+                            <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="schedule.xhtml">Расписание</a></div>
+                        </div>
                         <table style="width: 100%;" class="studentStandatrTable" cellpadding="0" cellspacing="0">
                             <tr>
-                                <th>
+                                <th style="width: 25%;">
                                     Событие
                                 </th>
-                                <th>
+                                <th style="width: 25%;">
                                     Дата
+                                </th>
+                                <th style="width: 25%;">
+                                </th>
+                                <th style="width: 25%;">
                                 </th>
                             </tr>
                             <tr>
                                 <td class="studentStandatrTableTd">
                                     Открытие тестов
                                 </td>
-                                <td class="studentStandatrTableTdLastTd">
+                                <td class="studentStandatrTableTd">
                                     #{resourceService.regularTestBeginDate}
                                 </td>
+                                <td class="studentStandatrTableTd"></td>
+                                <td class="studentStandatrTableTdLastTd"></td>
                             </tr>
                             <tr>
                                 <td class="studentStandatrTableTd">
                                     Закрытие тестов
                                 </td>
-                                <td class="studentStandatrTableTdLastTd">
+                                <td class="studentStandatrTableTd">
                                     #{studentIndexBean.testClosingDate}
                                 </td>
+                                <td class="studentStandatrTableTd"></td>
+                                <td class="studentStandatrTableTdLastTd"></td>
                             </tr>
                             <tr>
                                 <td class="studentStandatrTableTd">
                                     Открытие итоговых тестов
                                 </td>
-                                <td class="studentStandatrTableTdLastTd">
+                                <td class="studentStandatrTableTd">
                                     #{resourceService.concludingTestBeginDate}
                                 </td>
+                                <td class="studentStandatrTableTd"></td>
+                                <td class="studentStandatrTableTdLastTd"></td>
                             </tr>
                             <tr>
                                 <td class="studentStandatrTableTd">
                                     Закрытие итоговых тестов
                                 </td>
-                                <td class="studentStandatrTableTdLastTd">
+                                <td class="studentStandatrTableTd">
                                     #{resourceService.concludingTestEndDate}
                                 </td>
+                                <td class="studentStandatrTableTd"></td>
+                                <td class="studentStandatrTableTdLastTd"></td>
                             </tr>
                             <tr>
                                 <td class="studentStandatrTableTd">
                                     Открытие контрольных
                                 </td>
-                                <td class="studentStandatrTableTdLastTd">
+                                <td class="studentStandatrTableTd">
                                     #{studentIndexBean.getDate("controlWorksBeginDate")}
                                 </td>
+                                <td class="studentStandatrTableTd"></td>
+                                <td class="studentStandatrTableTdLastTd"></td>
                             </tr>
                             <tr>
                                 <td class="studentStandatrTableTd">
                                     Открытие контрольных
                                 </td>
-                                <td class="studentStandatrTableTdLastTd">
+                                <td class="studentStandatrTableTd">
                                     #{studentIndexBean.getDate("controlWorksEndDate")}
                                 </td>
+                                <td class="studentStandatrTableTd"></td>
+                                <td class="studentStandatrTableTdLastTd"></td>
                             </tr>
                             <tr>
                                 <td class="studentStandatrTableTd">
                                     Начало переэкзаменовки
                                 </td>
-                                <td class="studentStandatrTableTdLastTd">
+                                <td class="studentStandatrTableTd">
                                     #{resourceService.reExameBeginDate}
                                 </td>
+                                <td class="studentStandatrTableTd"></td>
+                                <td class="studentStandatrTableTdLastTd"></td>
                             </tr>
                             <tr>
                                 <td class="studentStandatrTableTd">
                                     Окончание переэкзаменовки
                                 </td>
-                                <td class="studentStandatrTableTdLastTd">
+                                <td class="studentStandatrTableTd">
                                     #{resourceService.reExameEndDate}
                                 </td>
+                                <td class="studentStandatrTableTd"></td>
+                                <td class="studentStandatrTableTdLastTd"></td>
                             </tr>
                         </table>
                     </td>
@@ -208,9 +246,9 @@
                     <td colspan="2" style="height: 1px;"></td>
                 </tr>
                 <tr>
-                    <td style=" border: 1px solid silver; " valign="top">
+                    <td style=" border: 1px solid silver;" valign="top">
                         <div style=" padding: 0px 5px;max-height: 300px; overflow-y: scroll;">
-                            <div style=" border-bottom: 1px solid silver; padding-top: 3px;">
+                            <div style=" border-bottom: 1px solid silver; padding-top: 7px;">
                                 <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="news_read.xhtml">Новости</a></div>
                             </div>
                             <div style="padding: 5px;">
@@ -221,14 +259,14 @@
                                         </div>
                                         <span class="chatPostDate"><h:outputText value="#{fn:substring(new.time,0,11)}"/></span>
                                         <div class="floatDestroyer"></div>
-                                        <div class="previewText">#{new.announcement}</div>
+                                        <div class="previewText"><h:outputText escape="true" value="#{new.announcement}"/></div>
                                         <br/>
                                     </h:column>
                                 </h:dataTable>
                             </div>
                         </div>
                     </td>
-                    <td style="width: 50%;border: 1px solid silver;" valign="top">
+                    <td style="width: 50%;padding: 3px 3px 10px 3px;border: 1px solid silver;" valign="top">
                         <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
                             <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="journal.xhtml">Лента событий</a></div>
                         </div>
@@ -238,10 +276,12 @@
                     </td>
                 </tr>
                 <tr>
-            <est:changeSemester semester="#{controlWorksBean.semester}"/>
+                    <td colspan="2" class="indexChangeSemestrPanel">
+                        <est:changeSemester semester="#{controlWorksBean.semester}"/>
+                    </td>
                 </tr>
                 <tr>
-                    <td style="width: 50%; border: 1px solid silver;" valign="top">
+                    <td style="width: 50%; padding: 3px 3px 0px 3px; border: 1px solid silver;" valign="top">
                         <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
                             <div class="navigationLinksTitle">Дисциплины</div>
                         </div>
@@ -270,7 +310,7 @@
                         </h:dataTable>
                         </div>
                     </td>
-                    <td style="width: 50%; border: 1px solid silver;" valign="top">
+                    <td style="width: 50%; padding: 3px 3px 0px 3px; border: 1px solid silver;" valign="top">
                         <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
                             <div class="navigationLinksTitle"><a style="font-size: 12pt;" href="controlWorks.xhtml">Мои контрольные </a></div>
                         </div>
@@ -315,7 +355,7 @@
                         </div>
                     </td>
                 </tr><tr>
-                    <td style="width: 50%; border: 1px solid silver;" valign="top">
+                    <td style="width: 50%; padding: 3px 3px 0px 3px; border: 1px solid silver;" valign="top">
                         <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
                             <div class="navigationLinksTitle">Результаты тестов</div>
                         </div>
@@ -342,7 +382,7 @@
                         </h:dataTable>
                             </div>
                     </td>
-                    <td style="width: 50%; border: 1px solid silver;" valign="top">
+                    <td style="width: 50%; padding: 3px 3px 0px 3px; border: 1px solid silver;" valign="top">
                         <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
                             <div class="navigationLinksTitle">Результаты итоговых тестов</div>
                         </div>
