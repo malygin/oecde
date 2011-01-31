@@ -14,7 +14,79 @@
 /*
    base-disign styles
 */
+ .educ_umk_text {
+margin-bottom: 2px;
+margin-left: 28px;
+}
+.educ_content_title {
+margin-bottom: 5px;
+margin-left: 30px;
+margin-top: 2px;
+}
+.my_educ_text ol {
+margin-left: 0;
+}
+.my_educ_disc_reason{
+list-style: none;
+}
+.my_educ_disc_reason li{
+margin-left: 23px;
+}
+.mainStyle .controlWorksDisciplineNameLink a{font-size: 9pt !important;}
+.previewText{
+                font-size: 8pt;
+            }
+            .mainStyle .changeSemestrBlock div{
+                margin: 3px 0px;
+                border: 1px solid silver;
+                padding: 5px;
+            }
+            .indexChangeSemestrPanel div{
+                border: 1px solid silver;
+            }
+            .indexChangeSemestrPanel div div{
+                background: none !important;
+                border: 0px;
+            }
+            .indexChangeSemestrPanel div div div{
+               color: #686E6F;
+                font-weight: bolder;
+            }
+             .mainStyle .linkToTeachersProfileFromStudent {
+                 background:none !IMPORTANT;
+                padding-left: 3px !IMPORTANT;
 
+             }
+
+             .mainStyle .linkToTeachersProfileFromStudent a:link{
+                 vertical-align: top;
+              }
+            .linkToTeachersProfileFromStudent a{
+                color: #4FAF41 !important;
+            }
+ .indentionInNavigation{
+                padding-left: 10px; color: gray; font-size: 12pt !important;
+                height: 20px;
+
+}
+  .mainStyle .studentStandatrTableBorder{
+                                border-right: 1px solid #D1E0EF;
+}
+
+
+ .my_educ_disc_reason span{
+color: black;
+}
+ .studentStandatrTableBorder{
+    border-right: 1px solid #D1E0EF;
+}
+.StudentTimeTable{
+    padding: 3px 3px 10px 3px;
+    border: 1px solid silver;
+}
+.StudentSecondLineBlocks{
+    padding: 3px 3px 0px 3px; border: 1px solid silver;
+}
 .mainStyle .interfaceContent{
     padding: 0px 10px 0px 10px;
     text-align: left;
@@ -788,6 +860,10 @@
 .mainStyle .umkNavigationLinkContainer a:visited{color: #8BB5DF; text-decoration: none; font-weight: normal;}
 .mainStyle .umkNavigationLinkContainer a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
 
+.mainStyle .studentStandatrTable *{
+    text-align: left !important;
+
+}
 .mainStyle .studentStandatrTable{
     margin-top: 10px;
     width: 100%;
@@ -795,7 +871,7 @@
 .mainStyle .studentStandatrTable th{
     font-weight: normal;
     font-size: 8pt;
-    text-align: center;
+    text-align: center !important;
     border: 1px solid silver;
     border-left: 0px;
     border-bottom: 3px double silver;
@@ -805,6 +881,7 @@
     color: gray;
     padding: 3px 3px;
 }
+
 .mainStyle .studentStandatrTable .studentStandatrTableTd{
     text-align: center;
     border: 1px solid silver;
@@ -820,6 +897,31 @@
     border-top: 0px;
     font-size: 8pt;
 }
+.mainStyle .studentStandatrTable .studentStandatrTableTdWithBorder{
+ border: 1px solid #EFEFEF;
+ border-left: 0px;
+ border-top: 0px;
+
+}
+ .studentStandatrTableTdTests{
+     border: 1px solid #D1E0EF !important;
+     border-left: 0px !important;
+    border-right: 0px !important;
+    border-top: 0px !important;
+}
+  .studentStandatrWidth{
+    width: 50%;
+    text-indent: 10px;
+}
+
+.mainStyle .studentStandatrTable .studentStandatrTableTdLastTdwithBorder{
+    text-align: center !important;
+    border: 1px solid #EFEFEF;
+     border-left: 0px;
+     border-right: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+ }
 .mainStyle .controlWorksDisciplineName{
     font-size: 10pt;
     font-weight: bolder;
@@ -879,12 +981,29 @@
 .mainStyle .studentStandatrTable tr:nth-last-child(1){
     border-right: 0px !important;
 }
-
+ .studentStandatrTable tr td:nth-child(2){
+    text-align: center !important;
+}
 .mainStyle .userData input{
     width: 100%;
 }
 
+ .userData td{
+                  vertical-align: top !important;
+            }
+             .mainStyle .userData div {
+            color: white;
+            text-align: left;
 
+            }
+             .userData tr:nth-child(1) td:nth-child(3) div{
+                text-align: right !important;
+                font-size: 150%;
+                font-family: Arial;
+                position: relative;
+                top: -8px;
+                left: 10px;
+        }
 .save{
     background: url("../resources/images/buttonBlue.jpg") repeat-x scroll center transparent;
     border: 1px solid #6CC2D9;
