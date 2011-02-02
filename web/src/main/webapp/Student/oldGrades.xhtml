@@ -15,19 +15,16 @@
          </f:metadata>
             <h:form id="form">
             <h:commandLink id="handle">
-                <f:ajax render="isWinter :years :years:year :table" listener="#{oldGradesBean.changeIsWinter}"/>
+                <f:ajax render="form" listener="#{oldGradesBean.changeIsWinter}"/>
                 <f:attribute name="winter" value="#{!oldGradesBean.winter}"/>
-                <h:outputText id="isWinter" value="#{oldGradesBean.winter?('зима'):('лето')}"/>
-            </h:commandLink>
-            </h:form>
+                <h:outputText id="isWinter"  value="#{oldGradesBean.winter?('зима'):('лето')}"/>
+            </h:commandLink>           
                 <br/>
-            <h:dataTable id="years" value="#{oldGradesBean.years}" var="y">
-                <h:column rowHeader="true" >
-                    <h:outputLink disabled="#{oldGradesBean.semester eq y}" id="handle" value="?w=#{oldGradesBean.winter}&amp;s=#{y}">
-                    <h:outputText id="year" value="#{y}"/>
-                </h:outputLink>  |
-                </h:column>
-            </h:dataTable>
+                <ui:repeat  id="years" value="#{oldGradesBean.years}" var="y">             
+                    <h:outputLink id="year" disabled="#{oldGradesBean.semester eq y}"  value="?w=#{oldGradesBean.winter}&amp;s=#{y}">
+                        <h:outputText  value="#{y}"/>
+                    </h:outputLink>  |
+                </ui:repeat>
 
             <h:dataTable id="table" value="#{oldGradesBean.oldGrades}" var="p"
                          style="width: 100%;"
@@ -52,6 +49,7 @@
                     <h:outputText converter="enumConverter" value="#{p.value.gradeCode}"/>
                 </h:column>
             </h:dataTable>
+        </h:form>
         </div>
     </ui:define>
 </ui:composition>
