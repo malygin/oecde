@@ -12,7 +12,7 @@
         <f:metadata>
             <f:viewParam name="s" value="#{teachersListBean.semester}"/>
         </f:metadata>
-        <div class="interfaceContent">
+        <div class="interfaceContent" style="padding: 0;">
             <est:changeSemester semester="#{teachersListBean.semester}"/>
             <r:forEach items="#{teachersListBean.teachers}" var="t">
                 <div class="studentInterfaceStandartList">

@@ -53,7 +53,7 @@
                     <h:column>
                         #{file.name}
                         <span class="navigationLinks">
-                            <h:commandLink action="#{MessageWriteBean.removeFile}" value="#{msgs.message_delete}">
+                            <h:commandLink action="#{MessageWriteBean.removeFile}" value="#{msgs.message_delete}" >
                                 <f:ajax execute="@form" render="@form"/>
                                 <f:setPropertyActionListener target="#{MessageWriteBean.messageNameForDelete}" value="#{file.name}"/>
                             </h:commandLink>
@@ -61,10 +61,10 @@
                     </h:column>
                 </h:dataTable>
                 <div style="padding: 3px;">
-                    <input type="file" name="MessageFile" />
-                    <h:commandButton  action="#{MessageWriteBean.addFile}" value="#{msgs.message_addFile}"/>
-                    <div style="width: 100%; text-align: center; margin-top: 8px;">
-                        <h:commandButton style="margin-left: 3px;" action="#{MessageWriteBean.save}" value="#{msgs.message_sendMess}"/>
+                    <input type="file" name="MessageFile" style="background-color: #DFF1FE; font-size: 9pt; display: block; margin-left: 10px;"/>
+                    <h:commandButton  action="#{MessageWriteBean.addFile}" value="#{msgs.message_addFile}" styleClass="studentButton" style="margin-top: 7px; display: block;"/>
+                    <div style="width: 100%; text-align: center; margin-top: 8px; position: relative; top: -45px;">
+                        <h:commandButton action="#{MessageWriteBean.save}" value="#{msgs.message_sendMess}" styleClass="studentButton" style="margin-left: 3px;"/>
                     </div>
                 </div>
             </h:form>

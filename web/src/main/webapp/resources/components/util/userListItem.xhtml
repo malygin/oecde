@@ -18,13 +18,13 @@
    <composite:implementation>
        <style type="text/css">
        </style>
-       <div class="standartContainerFor#{cc.attrs.u.class.simpleName}MediumAvatar" align="center">
-            <ut:showPhoto user="#{cc.attrs.u}" size="medium"/>
-        </div>
+       <div style="float: left; margin-right: 20px;">
+           <ut:showPhoto user="#{cc.attrs.u}" styleClass="#{cc.attrs.u.classType}" size="medium"/>
+       </div>
         <div class="standartContainerForTeacherInfoInTeachersList">
-            <table>
+            <table style="height:100%">
                 <tr>
-                    <td>
+                    <td style="color:#808080;">
                         #{msgs.student_studentListFIO}
                     </td>
                     <td>
@@ -36,19 +36,19 @@
                     </td>
                 </tr>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'student'}">
-                    <tr><td>Город:</td><td>#{cc.attrs.u.city.name}</td></tr>
-                    <tr><td>Специальность:</td><td>#{cc.attrs.u.group.speciality.name}</td></tr>
-                    <tr><td>Группа:</td><td>#{cc.attrs.u.group.name}</td></tr>
-                    <tr><td>Курс:</td><td>#{cc.attrs.u.group.year}</td></tr>
+                    <tr><td style="color:#808080;">Город:</td><td>#{cc.attrs.u.city.name}</td></tr>
+                    <tr><td style="color:#808080;">Специальность:</td><td>#{cc.attrs.u.group.speciality.name}</td></tr>
+                    <tr><td style="color:#808080;">Группа:</td><td>#{cc.attrs.u.group.name}</td></tr>
+                    <tr><td style="color:#808080;">Курс:</td><td>#{cc.attrs.u.group.year}</td></tr>
                 </h:panelGroup>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'admin'}">
-                    <tr><td>Должность:</td><td>#{cc.attrs.u.position}</td></tr>
-                    <tr><td>Описание:</td><td>#{cc.attrs.u.description}</td></tr>
+                    <tr><td style="color:#808080;">Должность:</td><td>#{cc.attrs.u.position}</td></tr>
+                    <tr><td style="color:#808080;">Описание:</td><td>#{cc.attrs.u.description}</td></tr>
                 </h:panelGroup>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'teacher'}">
-                    <tr><td>Отдел:</td><td>#{cc.attrs.u.department.name}</td></tr>
+                    <tr><td style="color:#808080;">Отдел:</td><td>#{cc.attrs.u.department.name}</td></tr>
                     <tr>
-                        <td>
+                        <td style="color:#808080;">
                             Дисциплина:
                         </td>
                         <td>
@@ -57,7 +57,7 @@
                     </tr>
                 </h:panelGroup>
                 <tr>
-                    <td colspan="2" class="navigationLinks">
+                    <td colspan="2" class="navigationLinks" style="height: 50px; vertical-align: bottom;">
                         <span class="s1"><a href="messages_write.xhtml?user=${cc.attrs.u.id}">#{msgs.student_studentListWriteMessage}</a></span> <span class="s2"><a href="messages_dialog.xhtml?user=${cc.attrs.u.id}">#{msgs.student_studentLestShowDialog}</a></span>
                     </td>
                     <sec:ifAnyGranted roles="ROLE_ADMIN">
@@ -68,5 +68,6 @@
                 </tr>
             </table>
         </div>
+       <div class="floatDestroyer"></div>
    </composite:implementation>
 </html>

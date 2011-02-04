@@ -12,24 +12,26 @@
         #{msgs.student_curriculumHeader}
     </ui:define>
     <ui:define name="content">
-        <div class="interfaceContent">
+        <div class="interfaceContent" style="padding: 0;">
             <est:changeSemester semester="#{studentCurriculumBean.semester}"/>
             <h:dataTable style="width: 100%"
                      columnClasses="studentStandatrTableTd,
                      studentStandatrTableTd,
-                     studentStandatrTableTd,
-                     studentStandatrTableTdLastTd"  value="#{studentCurriculumBean.curriculums}" var="m" styleClass="studentStandatrTable" cellpadding="0" cellspacing="0">
+                     studentStandatrTableTd studentStandatrTableExamin,
+                     studentStandatrTableTdLastTd studentStandatrTableExamin"  value="#{studentCurriculumBean.curriculums}" var="m" styleClass="studentStandatrTable StudentTablePadding " cellpadding="0" cellspacing="0">
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="#{maga.student_gradesTableHeadDisc}" />
                     </f:facet>
-                    <span class="controlWorksDisciplineName" style="font-size: 8pt;">#{m.discipline.name}</span>
+                    <span class="controlWorksDisciplineName" style="  display: block; font-size: 8pt;font-weight: normal;padding-left: 8px;">#{m.discipline.name}</span>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Контрольные работы" />
                     </f:facet>
-                    <h:outputText rendered="#{m.gotControlWork}" value="есть" />
+                    <h:panelGroup rendered="#{m.gotControlWork}">
+                    <img src="../resources/images/discipline_summ.gif"/>
+                    </h:panelGroup>
                 </h:column>
                 <h:column>
                     <f:facet name="header">

@@ -43,8 +43,8 @@
                             </tr>
                         </table>
 
-                        <div style="text-align: center;">
-                            <h:commandButton value="Сохранить" styleClass="save" >
+                        <div style="text-align: right;">
+                            <h:commandButton value="Сохранить" styleClass="save" style="margin-right: 0; margin-top: 10px;">
                                 <f:ajax execute="@form" render="@form mess saved error" listener="#{studentSettingsBean.save}"/>
                             </h:commandButton>
                         </div>

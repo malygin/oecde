@@ -16,9 +16,20 @@
             .mainStyle .changeSemWithoutBorder div{
                 border-bottom: 0px !important;
             }
-            .mainStyle .studentStandatrTableTd{
+           
+
+            /*.mainStyle .studentStandatrTableTd{
                 vertical-align: top;
-            }
+            }*/
+           .mainStyle .studentStandatrTableCenter{
+                text-align: center !important;
+                vertical-align:middle;
+                font-size: 8pt;
+                font-weight: normal;
+}
+.mainStyle .studentStandatrTableTdWithBorder1{
+    color: #DFDFDF !important;
+}
         </style>
         <div class="interfaceContent">
             <f:metadata>
@@ -29,34 +40,34 @@
             </div>
             <div>
             <h:dataTable  value="#{gradesBean.points}"
-                         columnClasses="studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTdLastTd" var="p" styleClass="studentStandatrTable" cellpadding="0" cellspacing="0" style="margin: 0px;">
+                         columnClasses="studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter,
+                         studentStandatrTableTd studentStandatrTableTdWithBorderBrighter linkToTeachersProfileFromStudent studentStandatrTableCenter,
+                         studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter,
+                         studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter,
+                         studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter,
+                         studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter,
+                         studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter,
+                         studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter,
+                         studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter,
+                         studentStandatrTableTdLastTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter" var="p" styleClass=" StudentTablePadding studentStandatrTable " cellpadding="0" cellspacing="0" style="margin: 0px;">
 
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
                     </f:facet>
-                    <span class="controlWorksDisciplineName" style="font-size: 8pt;">#{p.points.curriculum.discipline.name}</span>
+                    <span class="controlWorksDisciplineName studentStandatrTableCenter">#{p.points.curriculum.discipline.name}</span>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_gradesTableHeadTeacher}" />
                     </f:facet>
-                        <span class="linkToTeachersProfile"><h:outputLink value="teacher.xhtml?id=${p.teacher.id}">#{p.teacher.initials}</h:outputLink></span>
+                        <span class="linkToTeachersProfile studentStandatrTableCenter" style="background: none; padding: 0;"><h:outputLink value="teacher.xhtml?id=${p.teacher.id}">#{p.teacher.initials}</h:outputLink></span>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_gradesTableHeadTests}" />
                     </f:facet>
-                    #{p.test} (#{p.testsMaxPoints})
+                    #{p.test} <span style="color:#808080;">(#{p.testsMaxPoints})</span>
                 </h:column>
 
                 <h:column>
@@ -70,7 +81,7 @@
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_gradesTableHeadFinTests}" />
                     </f:facet>
-                   #{p.concludingTest} (#{p.concludingTestsMaxPoints})
+                   #{p.concludingTest} <span style="color:#808080;">(#{p.concludingTestsMaxPoints})</span>
                 </h:column>
 
                 <h:column>

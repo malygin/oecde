@@ -10,9 +10,9 @@
         Администраторы
     </ui:define>
     <ui:define name="content">
-        <div class="interfaceContent">
+        <div class="interfaceContent" style="padding: 0;">
 
-            Администраторы:
+           
             <h:dataTable value="#{studentAdminsBean.admins}" style="width: 100%;" var="a">
                 <h:column>
                 <div class="studentInterfaceStandartList">
@@ -21,7 +21,7 @@
                 </h:column>
             </h:dataTable>
 
-            Представительство:
+           Представительство:
             <h:dataTable value="#{studentAdminsBean.supervisors}" style="width: 100%;" var="s">
                 <h:column>
                 <div class="standartContainerForStudentMediumAvatar" align="center">

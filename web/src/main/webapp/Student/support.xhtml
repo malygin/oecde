@@ -22,14 +22,14 @@
                             </div>
                         </f:facet>
                         <div style="margin-left: 10px;">
-                            <span class="controlWorksDisciplineName">
+                            <span class="controlWorksDisciplineName DisciplineText">
                                 <h:outputText value="#{t.name}"/>
                             </span>
                             <h:dataTable id="tabs" style="margin-left: 20px;" value="#{setToList.getList(t.pages)}" var="p">
                                 <h:column>
-                                    <span class="navigationLinks">
-                                        <img src="../resources/images/listMarker.png" alt=""/>
-                                        <h:commandLink id="link" rendered="#{p.visible}" value="#{p.title}">
+                                    <span class="navigationLinks" >
+<!--                                        <img src="../resources/images/listMarker.png" alt=""/>-->
+                                        <h:commandLink id="link" rendered="#{p.visible}" value="#{p.title}" style="color: #8BB5DF;">
                                             <f:attribute name="page" value="#{p}"/>
                                             <f:ajax render=":page :files :title" listener="#{tabsViewBean.setCurrentPage}"/>
                                         </h:commandLink>
@@ -46,7 +46,7 @@
                     <span style="line-height: 30px; color: silver;"></span>
                 </div>
                 <div style="margin-left: 10px;">
-                    <div class="controlWorksDisciplineName" style="margin-bottom: 5px;">
+                    <div class="controlWorksDisciplineName DisciplineText" style="margin-bottom: 5px;">
                         <h:outputText id="title" value="#{tabsViewBean.currentPage.title}"/>
                     </div>
                     <div style="text-align: justify;">

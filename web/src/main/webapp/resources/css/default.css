@@ -4,6 +4,7 @@
 }
 img{
     border: 0px;
+    display: block;
 }
 body {
     background-color: #ffffff;

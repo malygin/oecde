@@ -9,25 +9,30 @@
         #{msgs.student_badPassedTestsHeader}
     </ui:define>
     <ui:define name="content">
-        <div class="interfaceContent">
+        <div class="interfaceContent" style="padding: 0;">
             <f:metadata>
                 <f:viewParam name="s" value="#{badPassedTestsBean.semester}"/>
                 <f:viewParam name="c" value="#{badPassedTestsBean.concluding}"/>
             </f:metadata>
             <span class="navigationLinks">
                 <est:changeSemester link="с=#{badPassedTestsBean.concluding}" semester="#{badPassedTestsBean.semester}"/>
-                <h:outputLink value="?c=#{!badPassedTestsBean.concluding}&amp;s=#{badPassedTestsBean.semester}">#{msgs.student_otherType}</h:outputLink>
+                <h:panelGroup rendered="#{badPassedTestsBean.concluding != 'concluding'}" styleClass="StudentTestsPadding">
+                    <h:outputLink value="?c=#{!badPassedTestsBean.concluding}&amp;s=#{badPassedTestsBean.semester}"><span style="  font-family: Arial;  color: #8BB5DF;font-size: 13pt;font-style: italic;font-weight: bold; padding-top: 10px;">Модульные тесты</span></h:outputLink>
+               </h:panelGroup>
+                 <h:panelGroup rendered="#{badPassedTestsBean.concluding=='concluding'}" styleClass="StudentTestsPadding">
+                <h:outputLink value="?c=#{!badPassedTestsBean.concluding}&amp;s=#{badPassedTestsBean.semester}"><span style="  font-family: Arial;  color: #8BB5DF;font-size: 13pt;font-style: italic;font-weight: bold;  padding-top: 10px;">Итоговые тесты</span></h:outputLink>
+               </h:panelGroup>
             </span>
             <h:dataTable cellpadding="0" cellspacing="0"
                          columnClasses="studentStandatrTableTd,
-                         studentStandatrTableTdLastTd" styleClass="studentStandatrTable"
+                         studentStandatrTableTdLastTd" styleClass="studentStandatrTable StudentTablePadding"
                          style="width: 100%;"
                          value="#{badPassedTestsBean.badPassedTests}" var="r">
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_testResultName}" />
                     </f:facet>
-                    <span class="controlWorksDisciplineName" style="font-size: 8pt;">#{r.work.title}</span>
+                    <span class="controlWorksDisciplineName" style="display: block;font-size: 8pt;font-weight: normal;padding-left: 8px;">#{r.work.title}</span>
                 </h:column>
                 <h:column>
                     <f:facet name="header">

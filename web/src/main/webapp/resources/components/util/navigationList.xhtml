@@ -18,11 +18,11 @@
  
         <div class="navigationLinks" style="margin-top: 5px;">
             <ui:repeat value="#{NavigationBean.getPages(cc.attrs.elementOnPage, cc.attrs.numElements)}" var="page">    
-                  <h:outputText rendered="#{page==NavigationBean.page}" value="#{page}"/>&nbsp;
+                  <h:outputText rendered="#{page==NavigationBean.page}" value="#{page}" style=" color: #8BB5DF; font-weight: bold;"/>&nbsp;
                   <h:panelGroup rendered="#{page!=NavigationBean.page}">
-                      <h:outputLink rendered="#{cc.attrs.link!=null}" value="?page=#{page}&amp;#{cc.attrs.link}"><h:outputText value="#{page}"/></h:outputLink>
-                      <h:outputLink rendered="#{cc.attrs.link==null}" value="?page=#{page}"><h:outputText value="#{page}"/></h:outputLink>
-                  </h:panelGroup>                 
+                      <h:outputLink rendered="#{cc.attrs.link!=null}" value="?page=#{page}&amp;#{cc.attrs.link}"><h:outputText value="#{page}" style=" color: #8BB5DF;  font-weight: bold;"/></h:outputLink>
+                      <h:outputLink rendered="#{cc.attrs.link==null}" value="?page=#{page}"><h:outputText value="#{page}" style=" color: #8BB5DF;  font-weight: bold;"/></h:outputLink>
+                  &nbsp;</h:panelGroup>
             </ui:repeat>
         </div>
         

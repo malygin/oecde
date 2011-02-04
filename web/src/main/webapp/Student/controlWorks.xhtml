@@ -20,30 +20,37 @@
             .mainStyle div.interfaceContent{
                 padding: 0px;
             }
-            .mainStyle .passed{
-                background: #EFFFF1;
-            }
-            .mainStyle .failed{
-                background: #FFEFF0;
-            }
+            .mainStyle .passed,
+            .mainStyle .failed,
             .mainStyle .available,
             .mainStyle .notAvailable{
                 background: white;
             }
+             
+             .StudentTestMark{
+                 color: #1D1F1F;
+                
+                }
+                .controlWorksBorders{
+                    border-bottom: 1px solid #D1E0EF;
+                     padding-bottom: 10px;
+                    padding-top: 10px;
+                    background-color: white;
+                }
         </style>
         <div class="interfaceContent">
             <est:changeSemester semester="#{controlWorksBean.semester}"/>
             <h:dataTable width="100%" value="#{controlWorksBean.controlWorks}" var="o" cellpadding="0" cellspacing="0">
                 <h:column>
-                        <table cellpadding="2" cellspacing="2" style="width: 100%; border-bottom: 1px solid silver;" class="${o[1].progress}">
+                        <table cellpadding="2" cellspacing="2" style="width: 100%;" class="${o[1].progress} controlWorksBorders">
                             <tr>
                                 <td valign="top" style="color: gray; width: 170px; padding-left: 10px; text-align: justify;">Название дисциплины: </td>
-                                <td valign="top" class="controlWorksDisciplineName">${o[0].discipline.name}</td>
+                                <td valign="top" class="controlWorksDisciplineName DisciplineText">${o[0].discipline.name}</td>
                             </tr>
                             <tr>
                                 <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">Преподаватель: </td>
                                 <td valign="top" style="padding-left: 10px;">
-                                    <span class="linkToTeachersProfile">
+                                    <span class="linkToTeachersProfile linkToTeachersProfileFromStudent">
                                         <h:outputLink value="teacher.xhtml?id=${o[3].id}">${o[3].initials}</h:outputLink>
                                     </span>
                                 </td>
@@ -51,8 +58,17 @@
                             <tr>
                                 <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">Оценка: </td>
                                 <td valign="top" style="padding-left: 10px; font-size: 10pt;">
-                                    <span style="color: forestgreen;"><h:outputText converter="enumConverter" value="${o[1].progress}"/></span>
-                                    <span style="color: gray;">
+                                   <h:panelGroup rendered="${o[1].progress=='passed'}" style="color:#0F3F00; padding-left: 17px;  background: url('../resources/images/discipline_summ.gif') no-repeat 0 0;">
+                                   <h:outputText converter="enumConverter" value="${o[1].progress}"/>
+                                   </h:panelGroup>
+                                    <h:panelGroup rendered="${o[1].progress=='failed'}" style="color:#0F3F00; padding-left: 17px;  background: url('../resources/images/cross-circle.gif') no-repeat 0 0;">
+                                   <h:outputText converter="enumConverter" value="${o[1].progress}"/>
+                                   </h:panelGroup>
+                                    <h:panelGroup rendered="${o[1].progress == 'notAvailable' or o[1].progress == 'available'}" style="color:#0F3F00; padding-left: 17px;  background: none;">
+                                   <h:outputText converter="enumConverter" value="${o[1].progress}"/>
+                                   </h:panelGroup>
+                                    
+                                    <span class="StudentTestMark">
                                         (${o[1].points}  баллов)
                                     </span>
                                 </td>

@@ -38,15 +38,15 @@
 
             <h:dataTable width="100%" value="#{lowGradedDisciplinesBean.lowGradedDisciplines}" var="p" cellpadding="0" cellspacing="0">
                 <h:column>
-                    <table cellpadding="2" cellspacing="2" style="width: 100%; border-bottom: 1px solid silver;">
+                    <table cellpadding="2" cellspacing="2" class="controlWorksBorders " style="width: 100%;">
                         <tr>
                             <td valign="top" style="color: gray; width: 170px; padding-left: 10px; text-align: justify;">Название дисциплины: </td>
-                            <td valign="top" class="controlWorksDisciplineName"><span class="controlWorksDisciplineName"><h:outputText value="#{p.points.curriculum.discipline.name}"/></span></td>
+                            <td valign="top" class="controlWorksDisciplineName"><span class="controlWorksDisciplineName DisciplineText"><h:outputText value="#{p.points.curriculum.discipline.name}"/></span></td>
                         </tr>
                         <tr>
                             <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">Преподаватель: </td>
                             <td valign="top" style="padding-left: 10px;">
-                                <span class="linkToTeachersProfile"><h:outputLink value="teacher.xhtml?id=${p.teacher.id}">#{p.teacher.initials}</h:outputLink></span>
+                                <span class="linkToTeachersProfile linkToTeachersProfileFromStudent"><h:outputLink value="teacher.xhtml?id=${p.teacher.id}">#{p.teacher.initials}</h:outputLink></span>
                             </td>
                         </tr>
                     </table>

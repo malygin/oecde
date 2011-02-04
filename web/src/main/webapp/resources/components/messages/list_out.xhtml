@@ -5,7 +5,8 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:r="http://java.sun.com/jsp/jstl/core"
-      xmlns:cm="http://java.sun.com/jsf/composite/components/messages">
+      xmlns:cm="http://java.sun.com/jsf/composite/components/messages"
+      xmlns:ut="http://java.sun.com/jsf/composite/components/util">
 
     <!-- INTERFACE -->
     <composite:interface>
@@ -14,15 +15,18 @@
 
     <!-- IMPLEMENTATION -->
     <composite:implementation>
-         <h:panelGroup rendered="#{empty cc.attrs.list}">
-            сообщений нет!
+         <h:panelGroup rendered="#{empty cc.attrs.list}" class="DisciplineText">
+          <span style="display: block;height: 30px;margin-left:20px;padding-left: 40px;padding-top: 10px; font-style: italic; font-size: 12pt;font-weight: bolder; background: url('../resources/images/message-delete.gif') no-repeat 0 0;">Сообщений нет!</span>
         </h:panelGroup>
-        <h:dataTable value="#{cc.attrs.list}"  var="message">
+        <h:dataTable value="#{cc.attrs.list}"  var="message"  style="width: 90%;">
             <h:column>
             <h:form id="formList">
-                <div class="studentInterfaceStandartList">
-                    <div>
-                        <div style="float: left;">
+                <div class="studentInterfaceStandartList" style="width: 100%;">
+                    <div style="float:left; margin-right: 20px;">
+                        <ut:showPhoto user="#{cc.attrs.u}" size="medium"/>
+                    </div>
+                    <div style="height: 50px;">
+                        <div>
                             <table>
                                 <tr>
                                     <td valign="top">
@@ -33,7 +37,9 @@
                                     <td>
                                         <h:dataTable value="#{message.message.recipients}" var="rec">
                                             <h:column>
-                                            <div>#{rec.fioAuthor} <h:panelGroup rendered="#{message.readed}"><font color="red">Прочитано</font></h:panelGroup></div>
+                                           
+                                               <div class="linkTo#{message.message.author.classType}sProfile"><a href="#"><h:outputText value="#{rec.fioAuthor}"/></a> <h:panelGroup rendered="#{message.readed}"><span style="color: red; font-weight: bolder; padding-left: 20px;">Прочитано</span></h:panelGroup></div>
+                                            
                                             </h:column>
                                         </h:dataTable>
                                     </td>
@@ -51,12 +57,12 @@
                             </table>
 
                         </div>
-                        <div class="chatPostDate" style="font-size: 8pt;">
+                        <div class="chatPostDate" style="font-size: 8pt;position: relative;top: -40px;">
                             <h:outputText value="#{message.message.dateMessage}"/>
                         </div>
                         <div class="floatDestroyer"/>
                     </div>
-                    <div style="" class="listMessagesShortMessage">
+                    <div class="listMessagesShortMessage" style="width:70%; float: left; position: relative; top: -5px;">
                         <div style="float: left; width: 95%;"><h:outputText value="#{message.shortText}"/></div>
                         <div class="listMessagesAttachmentsIco"><r:if test="#{message.filesExist eq true}"><img title="#{msgs.message_iconFilesExistTitle}" src="../resources/images/isAttachment.png" alt=""/></r:if><r:if test="#{message.filesExist ne true}"><img title="#{msgs.message_iconFilesNotExistTitle}" src="../resources/images/isNotAttachment.png" alt=""/></r:if></div>
                         <div class="floatDestroyer"/>
@@ -72,7 +78,7 @@
                 </div>
             </h:form>
            </h:column>
-        </h:dataTable>>
+        </h:dataTable>
 
     </composite:implementation>
 </html>
