@@ -1117,3 +1117,4 @@ color: black;
 .s1{
     background: url("../resources/images/write_new.png") no-repeat left bottom;
 }
+.mainStyle a.reitingLink:hover{text-decoration: underline;}
