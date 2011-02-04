@@ -6,6 +6,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:r="http://java.sun.com/jsp/jstl/core"
       xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
       >
 
     <!-- INTERFACE -->
@@ -19,7 +20,7 @@
             <span style="display: block;height: 30px;margin-left:20px;padding-left: 40px;padding-top: 10px; font-style: italic; font-size: 12pt;font-weight: bolder; background: url('../resources/images/message-delete.gif') no-repeat 0 0;">Сообщений нет!</span>
         </h:panelGroup>
    
-       <h:dataTable value="#{cc.attrs.list}" var="message" style="width: 90%;">
+       <h:dataTable value="#{cc.attrs.list}" var="message" style="width: 98%;">
           <h:column>
             <h:form id="formList">
                 <div class="studentInterfaceStandartList"  style="width: 100%;">
@@ -36,7 +37,7 @@
                                         </span>
                                     </td>
                                     <td>
-                                        <div class="linkTo#{message.message.author.classType}sProfile"><a href="#"><h:outputText value="#{message.fioAuthor}"/></a> 
+                                        <div class="linkTo#{message.message.author.classType}sProfile"><a href="#{fn:toLowerCase(message.message.author.classType)}.xhtml?id=#{message.message.author.id}"><h:outputText value="#{message.fioAuthor}"/></a>
                                            <h:panelGroup rendered="#{not message.readed}"><span style="color: red; padding-left: 20px;">Новое</span></h:panelGroup>
                                         </div>
                                     </td>
