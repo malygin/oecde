@@ -181,7 +181,7 @@ public class TestPassingBean implements Serializable {
                           if (a.getRightAnswer().equals("1")){
                               rightQuestion=true;
                               countRight++;
-                              points+=10;
+                            //  points+=10;
                           }
                       }else{
                           ga.setGivenAnswer("0");
@@ -214,7 +214,7 @@ public class TestPassingBean implements Serializable {
                   }
                 if (rightQuestion){
                    countRight++;
-                   points+=10;
+                 //  points+=10;
                 }
                   break;
               case text:
@@ -226,7 +226,7 @@ public class TestPassingBean implements Serializable {
                   if(answer.getRightAnswer().toLowerCase().equals(selectedAnswerText.toLowerCase())){
                       rightQuestion=true;
                       countRight++;
-                      points+=10;
+                    //  points+=10;
                   }
                   break;
               case comparison:
@@ -248,7 +248,7 @@ public class TestPassingBean implements Serializable {
                    }
                    if(rightQuestion){
                        countRight++;
-                       points+=10;
+                     //  points+=10;
                    }
                   break;  
           }
@@ -273,7 +273,7 @@ public class TestPassingBean implements Serializable {
 
             if (attempt!=null){
                  renderCompleteTest=true;
-                 attempt.setPoints(points);
+                 attempt.setPoints((100*countRight)/questions.size());
                  attempt.setRightAnswers(countRight);
                  attempt.setDuration(new Integer(Long.toString(TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis()-beginDate))));
                  attempt.setAnsweredQuestions(answeredQuestions);

@@ -22,7 +22,7 @@
             <h:panelGroup rendered="#{not MessageReadBean.noAccess}">
                 <h:form  id ="formSend">
                     <div style="float:left; margin-right: 20px;">
-                    <ut:showPhoto user="#{cc.attrs.mess.message.author.mediumPhoto}" size="medium" styleClass="#{cc.attrs.mess.message.author.classType}"/>
+                    <ut:showPhoto user="#{cc.attrs.mess.message.author}" size="medium" styleClass="#{cc.attrs.mess.message.author.classType}"/>
                     </div>
                     <div style="float: left;">
                         <table cellpadding="3" cellspacing="6">

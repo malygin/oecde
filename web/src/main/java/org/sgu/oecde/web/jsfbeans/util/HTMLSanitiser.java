@@ -98,7 +98,7 @@ public class HTMLSanitiser {
 	 * @return a sanitised version of the specified HTML, encoding any unwanted tags.
 	 */
 	public static String encodeInvalidMarkup(String pseudoHTML, boolean formatWhiteSpace) {
-		return sanitise(pseudoHTML,formatWhiteSpace,true);
+		return sanitise(pseudoHTML,false,false);
 	}
 
 	/**
@@ -169,7 +169,7 @@ public class HTMLSanitiser {
 
 	private static String sanitise(String pseudoHTML, boolean formatWhiteSpace, boolean stripInvalidElements) {
 		Source source=new Source(pseudoHTML);
-               // System.out.println("encdod "+source.getEncoding());;
+                System.out.println("encdod "+source.getEncoding());;
 		source.fullSequentialParse();
 		OutputDocument outputDocument=new OutputDocument(source);
 		List<Tag> tags=source.getAllTags();
@@ -222,7 +222,7 @@ public class HTMLSanitiser {
 	  Segment textSegment=new Segment(source,begin,end);
 		String decodedText=CharacterReference.decode(textSegment);
 		//String encodedText=formatWhiteSpace ? CharacterReference.encodeWithWhiteSpaceFormatting(decodedText) : CharacterReference.encode(decodedText);
-    outputDocument.replace(textSegment,decodedText);
+                outputDocument.replace(textSegment,decodedText);
 	}
 
 	private static CharSequence getStartTagHTML(StartTag startTag) {

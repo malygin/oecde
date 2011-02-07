@@ -64,7 +64,11 @@ public class UmkBean implements Serializable {
 
     public UmkBean() {
     }
-    
+
+
+    public String getUrl() throws MalformedURLException{  
+          return curriculum.getUmk().getFolder()+"/"+currentTask.getUrl();
+    }
     public String getTask() throws MalformedURLException, IOException {      
       String str="";
       URL url = new URL(currentUrl+"/"+currentTask.getUrl());
@@ -75,7 +79,11 @@ public class UmkBean implements Serializable {
       if (!ObjectUtils.containsElement(types, type[1])){
           while ((str = in.readLine()) != null) {strbuf.append(str);}
           str=strbuf.toString().replaceAll("src=\"", "src=\""+currentUrl+"/");
-          return HTMLSanitiser.encodeInvalidMarkup(str);}
+        String str2= HTMLSanitiser.encodeInvalidMarkup(str);
+          return str2;
+       //   return str;
+
+      }
       else return "Вы можете скачать этот файл! <br/>"
               + "<a href=\""+url+"\"> скачать файл</a>";
     }
