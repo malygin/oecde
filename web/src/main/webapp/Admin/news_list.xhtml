@@ -13,9 +13,10 @@
          </f:metadata>
 
         <ui:define name="content">
-            <a href="news_add.xhtml">  + добавить новость</a><br/>
+            
             <util:navigationList elementOnPage="#{NewsBean.newsOnPage}"
                                  numElements="#{NewsBean.countNews}"/>
+            <a href="news_add.xhtml">Добавить новость</a><br/>
             <news:listEdit list="#{NewsBean.news}"/>
          </ui:define>
     </ui:composition>

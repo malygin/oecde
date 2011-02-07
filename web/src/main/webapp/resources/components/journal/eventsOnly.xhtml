@@ -14,27 +14,38 @@
       <composite:attribute name="list" required="true" type="java.util.List" shortDescription="коллекция событий"/>
   </composite:interface>
 
+<style type="text/css">
+            .mainStyle .navigationLinks a:link{
+                 color: #4593DF !important; text-decoration: none;}
+            .mainStyle .navigationLinks a:hover{
+                   color: #8DBEE0; text-decoration: none;}
+             .mainStyle.navigationLinks a:active{
+                 color: #8DBEE0;text-decoration: none;}
+              .mainStyle .navigationLinks a:visited{
+                             color: #8DBEE0; text-decoration: none;}
+</style>
+
   <!-- IMPLEMENTATION -->
    <composite:implementation>
        <h:dataTable id="events" value="#{cc.attrs.list}" var="e">
             <h:column>
                 <div class="navigationLinks" style="margin-top: 5px;">
                     
-                    <span style="background: url('../resources/images/flag.gif') no-repeat left bottom; padding-left: 18px;">
+                    <span style="background: url('../resources/images/star.gif') no-repeat left bottom; padding-left: 18px; font-family: tahoma; color: gray;">
                    #{e.time}.</span>
                     <div class="floatDestroyer"></div>
 <!--  картинки не переименованы, потому сча тут закоменчено
 <img src="../resources/images/evLineIco/event#{e.eventType}.png" alt=""/>-->
                     <sec:ifAnyGranted roles="ROLE_ADMIN">
                         <ui:repeat value="#{e.bodyForAdmin}" var="b">
-                            <h:outputText rendered="#{b.type eq null}" value="#{b.text}"/>
-                            <h:outputLink rendered="#{b.type ne null}" value="#{b.type}#{b.id}">#{b.text}</h:outputLink>&nbsp;
+                            <h:outputText  rendered="#{b.type eq null}" value="#{b.text}" style="font-family: tahoma;  margin-left: 20px;"/>
+                            <h:outputLink styleClass="navigationLinks" rendered="#{b.type ne null}" value="#{b.type}#{b.id}">#{b.text}</h:outputLink>&nbsp;
                         </ui:repeat>
                     </sec:ifAnyGranted>
                     <sec:ifNotGranted roles="ROLE_ADMIN">
                         <ui:repeat value="#{e.body}" var="b">
-                            <h:outputText rendered="#{b.type eq null}" value="#{b.text}"/>&nbsp;
-                            <h:outputLink rendered="#{b.type ne null}" value="#{b.type}#{b.id}">#{b.text}</h:outputLink>&nbsp;
+                            <h:outputText rendered="#{b.type eq null}" value="#{b.text}" style="font-family: tahoma;"/>&nbsp;
+                            <h:outputLink styleClass="navigationLinks" rendered="#{b.type ne null}" value="#{b.type}#{b.id}">#{b.text}</h:outputLink>&nbsp;
                         </ui:repeat>
                     </sec:ifNotGranted>
                 </div>

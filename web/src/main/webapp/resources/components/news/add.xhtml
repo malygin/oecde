@@ -16,13 +16,17 @@
       <h:form>
           <h:outputText  rendered="#{NewsBean.renderAddSuccess}" value="Добавлена новость"/><br/>
 
-          Заголовок  <h:inputText value="#{NewsBean.header}"/><br/>
-          Анонс <util:editor value="#{NewsBean.anons}"/><br/><br/><br/>
+          <div style="margin-bottom: 15px;"> <span style="color: #6F6F6F">Заголовок: </span>  <h:inputText value="#{NewsBean.header}"/></div>
+          <span style="color: #6F6F6F">Анонс: </span>
+          <div style="margin-bottom: 15px; margin-left: 80px;">
+          <util:editor value="#{NewsBean.anons}"/>
+          </div>
 
-          Если создаете короткую новость - не пишите полный текст, ок?<br/><br/>
-
-          Полный текст<util:editor value="#{NewsBean.fulltext}"/><br/>
-          <h:commandButton action="#{NewsBean.save}" value="Добавить"/>
+          <span style="color: #6F6F6F">Если создаете короткую новость - не пишите полный текст, ок?</span><br/><br/>
+          <span style="color: #6F6F6F">Полный текст: </span>
+          <div style="margin-left: 80px;"><util:editor value="#{NewsBean.fulltext}"/>
+          </div>
+          <h:commandButton styleClass="studentButton" action="#{NewsBean.save}" value="Добавить"/>
               
           <h:messages infoStyle="color:red;"/>
       

@@ -17,11 +17,12 @@
       #{cc.attrs.new.time}<br/>
         <h:outputText  rendered="#{NewsBean.renderAddSuccess}" value=" успешно!"/><br/>
 
-        <h:inputText value="#{NewsBean.currentNewItem.header}"/><br/>
-        <util:editor value="#{NewsBean.currentNewItem.announcement}"/><br/>
-        <util:editor value="#{NewsBean.currentNewItem.fullText}"/><br/>
+        <div style="margin-bottom: 15px;"><h:inputText value="#{NewsBean.currentNewItem.header}"/></div>
+        <div style="margin-left: 80px;"><util:editor value="#{NewsBean.currentNewItem.announcement}"/></div>
+        <div style="margin-left: 80px;"><util:editor value="#{NewsBean.currentNewItem.fullText}"/></div>
     
-        <h:commandButton action="#{NewsBean.edit}" value="редактировать"/><br/>
+        <h:commandButton styleClass="studentButton" action="#{NewsBean.edit}" value="редактировать">
+        </h:commandButton>
       </h:form>
 
     </composite:implementation>

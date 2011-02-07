@@ -18,19 +18,19 @@
          <h:form>
             <h:dataTable value="#{journalBean.getAvailableEvents(cc.attrs.type,cc.attrs.object)}" var="e">
                 <h:column>
-                    <h:selectBooleanCheckbox value="#{e.chosen}"/>#{e.eventType.rus}
+                    <h:selectBooleanCheckbox value="#{e.chosen}"/><span   style="margin-left: 3px;">#{e.eventType.rus}</span>
                 </h:column>
             </h:dataTable>
-
-            <util:date_picker value="#{journalBean.filter.beginDate}"/>beginDate
-            <util:date_picker value="#{journalBean.filter.endDate}"/>endDate
-
-            <h:commandButton value="ок" action="#{journalBean.clearEvents}"/>
+            <div style="margin-top: 15px;">
+             <span style="color: gray;">начало события:</span> <util:date_picker value="#{journalBean.filter.beginDate}"/>
+             <span style="color: gray;">конец события:</span><util:date_picker value="#{journalBean.filter.endDate}"/>
+            </div>
+            <h:commandButton value="OK" action="#{journalBean.clearEvents}" styleClass="studentButton" style="margin-left: 10px;width: 70px; display: block; position: relative; left: 45%;"/>
 
 
            <util:navigationList numElements="#{journalBean.eventsCount}" elementOnPage="#{journalBean.filter.capacity}"/>
            <j:eventsOnly  list="#{journalBean.events}"/>
-           <util:navigationList numElements="#{journalBean.eventsCount}" elementOnPage="#{journalBean.filter.capacity}"/>
+<!--           <util:navigationList numElements="#{journalBean.eventsCount}" elementOnPage="#{journalBean.filter.capacity}"/>-->
         </h:form>
    </composite:implementation>
 </html>
