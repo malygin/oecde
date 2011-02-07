@@ -6,6 +6,16 @@
          template="../resources/studentTemplate.xhtml"
          >
         <ui:define name="content">
+            <style type="text/css">
+                .mainStyle .studentButton {
+    background-color: #EFF9FF;
+    border: 1px solid #7F9DB9;
+    color: #27587F;
+    cursor: pointer;
+    font-size: 10pt;
+    margin-top: 10px;
+                }
+            </style>
          <f:metadata>
              <f:viewParam name="id" value="#{testPassingBean.testId}"/>
              <f:viewParam name="c" value="#{testPassingBean.curriculumId}"/>
@@ -37,7 +47,7 @@
          <h:form id="testForm">
    
                 
-             <h:panelGroup id="mainPanel" rendered="#{not testPassingBean.renderCompleteTest}">
+             <h:panelGroup id="mainPanel" rendered="#{not testPassingBean.renderCompleteTest}" >
                      <h:outputText escape="false" value="#{testPassingBean.questionTitle}"/><br/>
                      <h:panelGroup id="radioType" rendered="#{question.type=='radio'}">
                          <h:selectOneRadio converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}">
@@ -52,15 +62,18 @@
                      </h:panelGroup>
 
                       <h:panelGroup id="textType" rendered="#{question.type=='text'}">                          
-                         <br/> <h:inputText value="#{testPassingBean.selectedAnswerText}"/>
+                         <br/> <h:inputText value="#{testPassingBean.selectedAnswerText}" />
                      </h:panelGroup>
-                      <h:panelGroup id="comparisonType" rendered="#{question.type=='comparison'}">
-                          <ol>
+                      <h:panelGroup id="comparisonType" rendered="#{question.type=='comparison'}" style="position: relative; left: 40%;">
+                          <div style="margin-top: 30px; margin-bottom: 30px;">
+                          <ol style="text-align: left;">
                           <ui:repeat value="#{testPassingBean.answerComparisnView}"  var="a">
                              <li> <h:outputText value="#{a.title}"/> --  <h:outputText value="#{a.title2}"/></li>
                           </ui:repeat>
                           </ol>
-                          <ol>
+                          </div>
+                          <div style="margin-top: 30px; margin-bottom: 30px;">
+                          <ol  style="text-align: left;">
                           <ui:repeat value="#{testPassingBean.answerComparisnView}"  var="a">
                               <li><h:inputText styleClass="numberField" onkeyup="
                                   if(isNaN(parseInt(this.value))){this.value='';}
@@ -72,17 +85,18 @@
                               </li>
                           </ui:repeat>
                           </ol>
+                              </div>
                      </h:panelGroup>
 
-                     <h:commandButton value="следующий" action="#{testPassingBean.next}">
+                     <h:commandButton value="следующий" action="#{testPassingBean.next}" styleClass="studentButton" style="margin: 8px;">
                          <f:ajax render="@form"/>
                      </h:commandButton>
 
-                      <h:commandButton value="ответить" action="#{testPassingBean.answer}">
+                      <h:commandButton value="ответить" action="#{testPassingBean.answer}" styleClass="studentButton"  style="margin: 8px;">
                           <f:ajax execute="@form" render="@form"/>
                      </h:commandButton>
 
-                     <h:commandButton id="completeTest" onclick="removeCounter();" value="завершить тест" action="#{testPassingBean.completeTest}">
+                     <h:commandButton id="completeTest" onclick="removeCounter();" value="завершить тест" action="#{testPassingBean.completeTest}" styleClass="studentButton"  style="margin: 8px;">
                          <f:ajax render="@form"/>
                      </h:commandButton>
 

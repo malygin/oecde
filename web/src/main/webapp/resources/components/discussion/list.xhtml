@@ -39,7 +39,7 @@
         <h:dataTable value="#{cc.attrs.list}" var="node" style="width: 100%;">
             <h:column>
              <h:form>
-                <div class="discussionComment" style="margin-left: #{(node.level-2)}px;">
+                <div class="discussionComment" style="margin-left: #{(node.level-2)*30}px;">
                     <div style="float: left;">
                         <util:showPhoto user="#{node.user}" size="small" styleClass="#{node.user.classType}"/>
                     </div>

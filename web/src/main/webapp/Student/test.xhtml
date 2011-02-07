@@ -6,33 +6,106 @@
          template="../resources/studentTemplate.xhtml"
          >
         <ui:define name="content">
+              <style type="text/css">
+            .mainStyle .navigationLinks a:link{
+                 color: #4593DF !important;}
+            .mainStyle .navigationLinks a:hover{
+                   color: #8DBEE0 !important;}
+             .mainStyle .navigationLinks a:active{
+                 color: #8DBEE0 !important;}
+              .mainStyle .navigationLinks a:visited{
+                             color: #8DBEE0 !important;}
+              .mainStyle div span{
+                  color: #373E3F;
+                    font-weight: bolder;
+}
+               
+                table td:nth-child(1){
+                     color: gray;
+                }
+
+                table td:nth-child(2){
+                     color: #373E3F;
+                    font-weight: bolder;
+                    text-indent: 3px;
+                }
+               
+         </style>
          <f:metadata>
              <f:viewParam name="c" value="#{testBean.curriculumId}"/>
              <f:viewParam name="id" value="#{testBean.testId}"/>
          </f:metadata>
            <h:outputText rendered="#{testBean.accessDenied}" value="Не найден или не доступен" />
-           <h:outputLink value="discipline.xhtml?c=#{testBean.curriculumId}" >назад</h:outputLink>
+           <h:outputLink value="discipline.xhtml?c=#{testBean.curriculumId}" styleClass="navigationLinks" style="display: block; margin-top: 5px;">назад</h:outputLink>
            <r:set var="t" value="#{testBean.test}"/>
            <r:set var="work" value="#{t[1]}"/>
            <r:set var="test" value="#{work.work}"/><br/>
            <r:choose>
                <r:when test="#{t[0]=='true'}">
-                 <h:outputLink value="javascript:void(0)" >#{test.title}</h:outputLink>
+                 <h:outputLink value="javascript:void(0)" styleClass="navigationLinks">#{test.title}</h:outputLink>
                </r:when>
                <r:otherwise>
-                 <h:outputText value="#{test.title}"/>
+                 <h:outputText  value="#{test.title}"/>
                </r:otherwise>
            </r:choose><br/>
 
-           <h:outputText style="color: red" value="#{t[2]}  ||  #{t[3]}  ||  #{t[4]}"/><br/>
-           попыток: #{work.estimateAttemptsUsedNumber} из #{test.estimateAttemptsNumber}<br/>
-           пробных: #{work.trialAttemptsUsedNumber} из #{test.trialNumber}<br/>
-           переэкзаменовка: #{work.reExameAttemptsUsedNumber}<br/>
-           доступен с #{test.openDate} по #{test.closeDate}<br/>
-           количество вопросов: #{test.quantity}<br/>
-           предоставленное время: #{test.duration}<br/>
-           Результаты тестирования: #{work.pointsForWork}<br/>
+           <h:outputText rendered="#{(t[2]!=null)&amp;&amp;(t[3]!=null)&amp;&amp;(t[4]!=null)}" style="color: red" value="#{t[2]}  ||  #{t[3]}  ||  #{t[4]}"/>
+           <div style="text-align: left; width: 50%;position: relative; left: 35%;  margin-top: 10px; margin-bottom: 10px;">
+               <table>
+                   <tr>
+                       <td>
+                        попыток:
+                       </td>
+                       <td>
+                           #{work.estimateAttemptsUsedNumber} из #{test.estimateAttemptsNumber}
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                        пробных:
+                       </td>
+                        <td> #{work.trialAttemptsUsedNumber} из #{test.trialNumber}
+                        </td>
+                   </tr>
+                   <tr>
+                       <td>
+                        переэкзаменовка:
+                       </td>
+                        <td> #{work.reExameAttemptsUsedNumber}
+                        </td>
+                   </tr>
+                   <tr>
+                       <td>
+                        доступен
+                       </td>
+                       <td>с #{test.openDate} по #{test.closeDate}
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                        количество вопросов:
+                       </td>
+                        <td> #{test.quantity}
+                        </td>
+                   </tr>
+                   <tr>
+                       <td>
+                        предоставленное время:
+                        </td>
+                            <td>#{test.duration}
+                            </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           Результаты тестирования:
+                       </td>
+                        <td> #{work.pointsForWork}
+                        </td>
+                   </tr>
+                </table>
+           </div>
 
-           <a href="test_passing.xhtml?id=#{testBean.testId}&amp;c=#{testBean.curriculumId}">Начать тест!</a>
+
+           <a class="navigationLinks" href="test_passing.xhtml?id=#{testBean.testId}&amp;c=#{testBean.curriculumId}">Начать тест!</a>
         </ui:define>
     </ui:composition>

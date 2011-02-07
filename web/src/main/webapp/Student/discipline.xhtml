@@ -9,6 +9,20 @@
         #{disciplineBean.discipline.umk.name}
     </ui:define>
     <ui:define name="content">
+         <style type="text/css">
+            .mainStyle div.navigationLinks a:link{
+                 color: #4593DF;}
+            .mainStyle div.navigationLinks a:hover{
+                   color: #8DBEE0;}
+             .mainStyle div.navigationLinks a:active{
+                 color: #8DBEE0;}
+              .mainStyle div.navigationLinks a:visited{
+                             color: #8DBEE0;}
+              .mainStyle div span{
+                  color: #373E3F;
+                    font-weight: bolder;
+}
+         </style>
         <div class="interfaceContent">
             <f:metadata>
                 <f:viewParam name="c" value="#{disciplineBean.curriculumId}"/>
@@ -19,13 +33,13 @@
                     <div class="controlWorksDisciplineName">${m.name}</div>
                     <r:forEach items="${m.resources}" var="r" varStatus="i">
                         <div class="navigationLinks" style="margin-left: 20px;">
-                            <a href="exbook.xhtml?cId=${disciplineBean.curriculumId}&amp;mId=${m.id}&amp;tId=${r.id}">${r.title}</a>
+                            <a href="exbook.xhtml?cId=${disciplineBean.curriculumId}&amp;mId=${m.id}&amp;tId=${r.id}" style="text-decoration: none;">${r.title}</a>
                         </div>
                     </r:forEach>
                 </div>
             </r:forEach>
             <br/>
-            <div>
+            <div style="color: #27587F;font-family: Arial;font-size:12pt;margin-left: 10px;font-weight: bolder;">
                 Тесты:
             </div>
             <r:forEach items="#{disciplineBean.tests}" var="t">
@@ -42,14 +56,19 @@
                         </r:otherwise>
                     </r:choose>
                     <div style="margin-left: 20px; margin-top: 5px;">
-                        <h:outputText style="color: red" value="#{t[2]}  ||  #{t[3]}  ||  #{t[4]}"/><br/>
-                        попыток: #{work.estimateAttemptsUsedNumber} из #{test.estimateAttemptsNumber}<br/>
-                        пробных: #{work.trialAttemptsUsedNumber} из #{test.trialNumber}<br/>
-                        переэкзаменовка: #{work.reExameAttemptsUsedNumber}<br/>
+                        <h:outputText rendered="#{t[2]!=null}" style="color: red; display: block;" value="#{t[2]}"/>
+                        <h:outputText rendered="#{t[3]!=null}" style="color: red; display: block;" value="#{t[3]}"/>
+                        <h:outputText rendered="#{t[4]!=null}" style="color: red; display: block;" value="#{t[4]}"/>
+<!--                         <h:outputText rendered="#{t[2]==null}" style="margin-top: -40px; display: block;"/>-->
+<!--                          <h:outputText rendered="#{t[3]==null}" style="margin-top: -40px; display: block;"/>-->
+<!--                        <h:outputText rendered="#{t[4]==null}" style="margin-top: -40px; display: block;"/><br/>-->
+                        попыток: <span>#{work.estimateAttemptsUsedNumber} из #{test.estimateAttemptsNumber}</span><br/>
+                        пробных: <span>#{work.trialAttemptsUsedNumber} из #{test.trialNumber}</span><br/>
+                        переэкзаменовка: <span>#{work.reExameAttemptsUsedNumber}</span><br/>
                         <h:outputText rendered="#{test.openDate ne null and test.closeDate ne null}" value="доступен с #{test.openDate} по #{test.closeDate}"/><br/>
-                        количество вопросов: #{test.quantity}<br/>
-                        предоставленное время: #{test.duration}<br/>
-                        Результаты тестирования: #{work.pointsForWork}<br/>
+                        количество вопросов:  <span>#{test.quantity}</span><br/>
+                        предоставленное время:  <span>#{test.duration}</span><br/>
+                        Результаты тестирования: <span>#{work.pointsForWork}</span><br/>
                     </div>
                 </div>
             </r:forEach>
