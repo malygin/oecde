@@ -111,7 +111,7 @@
                                     Открытие тестов
                                 </td>
                                 <td class="studentStandatrTableTd cent studentStandatrTableTdWithBorder">
-                                    #{resourceService.regularTestBeginDate}
+                                   <h:outputText converter="dateConverter" value="#{resourceService.regularTestBeginDate}"/>
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder"></td>
                                 <td class=" studentStandatrTableTdLastTdwithBorder"></td>
@@ -121,7 +121,7 @@
                                     Закрытие тестов
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
-                                    #{studentIndexBean.testClosingDate}
+                                   <h:outputText converter="dateConverter" value="#{studentIndexBean.testClosingDate}"/>
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder"></td>
                                 <td class=" studentStandatrTableTdLastTdwithBorder"></td>
