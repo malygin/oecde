@@ -26,16 +26,16 @@
 	<script type="text/javascript" src="../resources/jquery/js/jquery-ui-1.8.4.custom.min.js"></script>
         <script type="text/javascript" src="../resources/jquery/js/jquery.jCountr.js"></script>
         <script type="text/javascript" src="../resources/scripts/test.js"></script>
-<script>
-      $(function(){
-            $("#counter").counter({
-                      min:'#{testPassingBean.timeTest}',
-                      sec:'0',
-                      message: 'Время вышло!',
-                      finish_function: 'checkTime()' });
+        <script>
+              $(function(){
+                    $("#counter").counter({
+                              min:'#{testPassingBean.timeTest}',
+                              sec:'0',
+                              message: 'Время вышло!',
+                              finish_function: 'checkTime()' });
 
-	   });
-</script>
+                   });
+        </script>
 
         <h:panelGroup rendered="#{testPassingBean.renderNoAccess}">
           Нет доступа!

@@ -8,8 +8,6 @@ package org.sgu.oecde.web.jsfbeans.chat;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
-import java.util.Stack;
-import javax.faces.bean.ManagedProperty;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -71,11 +69,10 @@ public class ChatList extends HttpServlet {
 
             StringBuffer str=new StringBuffer();
             str.append("{\"Super\": [");
-                    for(ChatMessage l:list ){
-                              str.append("{\"fio\": \"");
-
-                            //  System.out.println("! "+UserType.toType(l.getAuthor()));
+                    for(ChatMessage l:list ){                           
+           
                               if (l.getAuthor()!=null){
+                                     str.append("{\"fio\": \"");
                                   switch(UserType.toType(l.getAuthor())){
                                       case ADMIN :
                                           Admin admin =(Admin)l.getAuthor();
@@ -108,6 +105,7 @@ public class ChatList extends HttpServlet {
                         }
              str.deleteCharAt(str.length()-1);
              str.append(" ]}");
+             System.out.println(""+str);
              out.println(str);
 
         } finally {

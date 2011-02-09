@@ -1,5 +1,8 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
+import java.io.IOException;
+import java.io.Serializable;
+import java.net.MalformedURLException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -7,14 +10,16 @@ import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.tests.TestAttemptService;
 import org.sgu.oecde.tests.TestEntity;
 import org.sgu.oecde.web.ResourceService;
+import org.sgu.oecde.web.jsfbeans.tests.TestPassingBean;
 
 /**
  *
  * @author ShihovMY
+ * 
  */
 @ManagedBean(name="testBean")
 @ViewScoped
-public class TestBean extends StudentCurriculumBean{
+public class TestBean extends StudentCurriculumBean {
 
     private Object[] test;
 
@@ -23,6 +28,7 @@ public class TestBean extends StudentCurriculumBean{
     private Long testId;
 
     private boolean accessDenied = true;
+    private boolean renderTestPassing=false;
 
     @ManagedProperty(value="#{resourceService}")
     private ResourceService resourceService;
@@ -30,7 +36,14 @@ public class TestBean extends StudentCurriculumBean{
     @ManagedProperty(value="#{testAttemptService}")
     private TestAttemptService testAttemptService;
 
+    @ManagedProperty(value="#{testPassingBean}")
+    private TestPassingBean testPassingBean;
+
     private static final long serialVersionUID = 103L;
+
+    public TestBean() {
+
+    }
 
     public Object[] getTest(){
         return test;
@@ -49,15 +62,20 @@ public class TestBean extends StudentCurriculumBean{
         this.testAttemptService = testAttemptService;
     }
 
-    public void setTestId(Long testId) {
+    public void setTestId(Long testId) throws MalformedURLException, IOException {
         this.testId = testId;
         DeCurriculum c = resourceService.getDisciplineForStudent(student, curriculumId);
         TestEntity t = resourceService.getResource(c,new TestEntity(testId),TestEntity.class);
         boolean available = resourceService.isConcludingTestAvailable(student, c);
         test = resourceService.getTestForStudent(testAttemptService.getStudentSingleTestWithAttempts(t, student,c),student,available);
         accessDenied = test==null;
+        this.testPassingBean.startTest(test, c);
     }
 
+    public void startTest(){
+           renderTestPassing=true;
+     }
+    
     public Long getCurriculumId() {
         return curriculumId;
     }
@@ -73,4 +91,21 @@ public class TestBean extends StudentCurriculumBean{
     public void setAccessDenied(boolean accessDenied) {
         this.accessDenied = accessDenied;
     }
+
+    public boolean isRenderTestPassing() {
+        return renderTestPassing;
+    }
+
+    public void setRenderTestPassing(boolean renderTestPassing) {
+        this.renderTestPassing = renderTestPassing;
+    }
+
+    public TestPassingBean getTestPassingBean() {
+        return testPassingBean;
+    }
+    
+    public void setTestPassingBean(TestPassingBean testPassingBean) {
+        this.testPassingBean = testPassingBean;
+    }
+
 }

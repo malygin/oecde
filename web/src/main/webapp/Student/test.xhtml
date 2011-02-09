@@ -17,8 +17,7 @@
                              color: #8DBEE0 !important;}
               .mainStyle div span{
                   color: #373E3F;
-                    font-weight: bolder;
-}
+                    font-weight: bolder;}
                
                 table td:nth-child(1){
                      color: gray;
@@ -35,6 +34,9 @@
              <f:viewParam name="c" value="#{testBean.curriculumId}"/>
              <f:viewParam name="id" value="#{testBean.testId}"/>
          </f:metadata>
+       <span id="counter"></span><br/>
+       <h:form>
+          <h:panelGroup id="TestEnter" rendered="#{not testBean.renderTestPassing}">
            <h:outputText rendered="#{testBean.accessDenied}" value="Не найден или не доступен" />
            <h:outputLink value="discipline.xhtml?c=#{testBean.curriculumId}" styleClass="navigationLinks" style="display: block; margin-top: 5px;">назад</h:outputLink>
            <r:set var="t" value="#{testBean.test}"/>
@@ -105,7 +107,101 @@
                 </table>
            </div>
 
+       
+              <h:commandLink action="#{testBean.startTest}" rendered="#{not testBean.accessDenied}">Начать тест!
+                  <f:ajax render="@form" />
+              </h:commandLink>
+          
+         </h:panelGroup>
+         
+        <h:panelGroup id="TestPassing" rendered="#{testBean.renderTestPassing}">              
+                <script type="text/javascript" src="../resources/jquery/js/jquery-1.4.2.min.js"></script>
+                <script type="text/javascript" src="../resources/jquery/js/jquery.jCountr.js"></script>
+                <script type="text/javascript" src="../resources/scripts/test.js"></script>
+                <script>
+                      $(function(){
+                            $("#counter").counter({
+                                      min:'#{testPassingBean.timeTest}',
+                                      sec:'0',
+                                      message: 'Время вышло!',
+                                      finish_function: 'checkTime()' });
 
-           <a class="navigationLinks" href="test_passing.xhtml?id=#{testBean.testId}&amp;c=#{testBean.curriculumId}">Начать тест!</a>
+                           });
+                </script>
+              
+                    <r:set var="question" value="#{testPassingBean.currentQustionView.question}"/>
+                 <h:form id="testForm">
+                  <h:panelGroup id="mainPanel" rendered="#{not testPassingBean.renderCompleteTest}" >
+                         <h:outputText escape="false" value="#{testPassingBean.questionTitle}"/><br/>
+                         <h:panelGroup id="radioType" rendered="#{question.type=='radio'}">
+                             <h:selectOneRadio converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}">
+                              <f:selectItems     value="#{testPassingBean.answers}"/><br/>
+                            </h:selectOneRadio>
+                         </h:panelGroup>
+
+                          <h:panelGroup id="checkType" rendered="#{question.type=='check'}">
+                              <h:selectManyCheckbox converter="testConverter"  layout="pageDirection"  value="#{testPassingBean.selectedAnswers}" >
+                                <f:selectItems   value="#{testPassingBean.answers}" /><br/>
+                            </h:selectManyCheckbox >
+                         </h:panelGroup>
+
+                          <h:panelGroup id="textType" rendered="#{question.type=='text'}">
+                             <br/> <h:inputText value="#{testPassingBean.selectedAnswerText}" />
+                         </h:panelGroup>
+                          <h:panelGroup id="comparisonType" rendered="#{question.type=='comparison'}" style="position: relative; left: 40%;">
+                              <div style="margin-top: 30px; margin-bottom: 30px;">
+                              <ol style="text-align: left;">
+                              <ui:repeat value="#{testPassingBean.answerComparisnView}"  var="a">
+                                 <li> <h:outputText value="#{a.title}"/> --  <h:outputText value="#{a.title2}"/></li>
+                              </ui:repeat>
+                              </ol>
+                              </div>
+                              <div style="margin-top: 30px; margin-bottom: 30px;">
+                              <ol  style="text-align: left;">
+                              <ui:repeat value="#{testPassingBean.answerComparisnView}"  var="a">
+                                  <li><h:inputText styleClass="numberField" onkeyup="
+                                      if(isNaN(parseInt(this.value))){this.value='';}
+                                      else{ if((this.value>#{testPassingBean.currentQustionView.countAnswers}) || (this.value&lt;1)) this.value=#{testPassingBean.currentQustionView.countAnswers};
+                                             else this.value=parseInt(this.value)}
+                                                   "  value="#{a.answer}">
+                                      }
+                                  </h:inputText>
+                                  </li>
+                              </ui:repeat>
+                              </ol>
+                                  </div>
+                         </h:panelGroup>
+
+                         <h:commandButton value="следующий" action="#{testPassingBean.next}" styleClass="studentButton" style="margin: 8px;">
+                             <f:ajax render="@form"/>
+                         </h:commandButton>
+
+                          <h:commandButton value="ответить" action="#{testPassingBean.answer}" styleClass="studentButton"  style="margin: 8px;">
+                              <f:ajax execute="@form" render="@form"/>
+                         </h:commandButton>
+
+                         <h:commandButton id="completeTest" onclick="removeCounter();" value="завершить тест" action="#{testPassingBean.completeTest}" styleClass="studentButton"  style="margin: 8px;">
+                             <f:ajax render="@form"/>
+                         </h:commandButton>
+
+                 </h:panelGroup>
+
+                 <h:panelGroup   rendered="#{testPassingBean.renderCompleteTest}">
+                         <script type="text/javascript">
+                               $(function(){
+                                   $("#counter").remove();
+                                   $(window).unbind('beforeunload');
+                               });
+                        </script>
+                    тест успешно завершен!!
+                    Баллов  #{testPassingBean.points} <br/>
+                    Правильно ответил на  #{testPassingBean.countRight}
+                 </h:panelGroup>
+                 <h:messages/>
+                 
+            </h:form>
+         </h:panelGroup>
+
+     </h:form>
         </ui:define>
     </ui:composition>

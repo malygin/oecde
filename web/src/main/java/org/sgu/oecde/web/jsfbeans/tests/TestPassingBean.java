@@ -109,28 +109,18 @@ public class TestPassingBean implements Serializable {
     /**
      * сеттер для айди плана и проверка на доступ к тесту
      */
-    public void setCurriculumId(Long curriculumId) throws MalformedURLException, IOException {
-        this.curriculumId = curriculumId==null?0:curriculumId;
-        curriculum=(Curriculum) cDao.getById(curriculumId);
-        DeCurriculum c = resourceService.getDisciplineForStudent((Student) currentUser,curriculumId);
-        if (c!=null){
-           TestEntity t = resourceService.getResource(c,new TestEntity(testId),TestEntity.class);
-           if(t!=null){
-                    Object[] test = resourceService.getTestForStudent(testAttemptService.getStudentSingleTestWithAttempts(t, (AbstractStudent) currentUser, c), (Student) currentUser, true);
-                    if(((Boolean) test[0])){
-                            AdditionalSelfDependentWork work= (AdditionalSelfDependentWork) test[1];
-                            testView=work.getWork();
-                            checkTestAttemptType(work);
-                            questions=new ArrayList<Question>(testView.getQuestions());
-                            if (!questions.isEmpty()){
-                                attempt.setWork(testView);
-                                makeQuestionList();
-                                beginDate= System.currentTimeMillis();
-                                renderNoAccess=false;}
-                    }
-           }
+    public void startTest(Object[] test, Curriculum c) throws MalformedURLException, IOException {
+        curriculum=c;
+      // DeCurriculum c = resourceService.getDisciplineForStudent((Student) currentUser,curriculumId);
+       AdditionalSelfDependentWork work= (AdditionalSelfDependentWork) test[1];
+       testView=work.getWork();
+       checkTestAttemptType(work);
+        questions=new ArrayList<Question>(testView.getQuestions());
+        if (!questions.isEmpty()){
+            attempt.setWork(testView);
+            makeQuestionList();
+            beginDate= System.currentTimeMillis();       
        }
-
     }
 
     /**
@@ -270,10 +260,10 @@ public class TestPassingBean implements Serializable {
        */
 
     public void completeTest(){
-
             if (attempt!=null){
                  renderCompleteTest=true;
-                 attempt.setPoints((100*countRight)/questions.size());
+                 points=(100*countRight)/questions.size();
+                 attempt.setPoints(points);
                  attempt.setRightAnswers(countRight);
                  attempt.setDuration(new Integer(Long.toString(TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis()-beginDate))));
                  attempt.setAnsweredQuestions(answeredQuestions);
