@@ -48,7 +48,7 @@ import org.sgu.oecde.web.jsfbeans.util.HTMLSanitiser;
  * created 27.09.2010
  * @todo 
  */
-@ManagedBean
+@ManagedBean(name="testPassingBean")
 @ViewScoped
 public class TestPassingBean implements Serializable {
 
@@ -58,7 +58,10 @@ public class TestPassingBean implements Serializable {
     private Long curriculumId;
     
     private Curriculum curriculum;
-    private TestEntity testView; 
+    private TestEntity testView;
+
+    private int countQuestions=0;
+    private int countAnsweredquestion=0;
     
     private List<Question> questions;
     private QuestionImpl[] questionsView;
@@ -159,6 +162,7 @@ public class TestPassingBean implements Serializable {
        HashSet givenAnswers=new HashSet();
        Boolean rightQuestion=false;
        Boolean checkFlag=false;
+       countAnsweredquestion++;
 
           switch(currentQustionView.getQuestion().getType()){
               case radio:              
@@ -285,6 +289,7 @@ public class TestPassingBean implements Serializable {
       * формируем списек вопросов
       */
      private void makeQuestionList() throws MalformedURLException, IOException {
+        countQuestions=questions.size();
         questionsView = new QuestionImpl[questions.size()];
         int i=0;
         for(Question q:questions){
@@ -474,6 +479,14 @@ public class TestPassingBean implements Serializable {
 
     public String getTimeTest(){
           return testView.getDuration().toString();
+    }
+
+    public int getCountAnsweredquestion() {
+        return countAnsweredquestion;
+    }
+
+    public int getCountQuestions() {
+        return countQuestions;
     }
 
 

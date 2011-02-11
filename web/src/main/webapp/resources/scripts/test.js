@@ -3,7 +3,8 @@
 	   });
 
          function checkTime() {
-           document.getElementById('testForm:completeTest').click();
+           document.getElementById('mainForm:completeTest').click();
+           console.log("dsdsd");
 
         }
          function removeCounter() {

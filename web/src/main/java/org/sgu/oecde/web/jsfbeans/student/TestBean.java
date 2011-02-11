@@ -75,6 +75,10 @@ public class TestBean extends StudentCurriculumBean {
     public void startTest(){
            renderTestPassing=true;
      }
+
+    public void action(){
+        System.out.println("action!");
+    }
     
     public Long getCurriculumId() {
         return curriculumId;
@@ -103,9 +107,9 @@ public class TestBean extends StudentCurriculumBean {
     public TestPassingBean getTestPassingBean() {
         return testPassingBean;
     }
-    
+
     public void setTestPassingBean(TestPassingBean testPassingBean) {
         this.testPassingBean = testPassingBean;
-    }
+}
 
 }

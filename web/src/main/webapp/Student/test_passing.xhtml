@@ -89,15 +89,15 @@
                      </h:panelGroup>
 
                      <h:commandButton value="следующий" action="#{testPassingBean.next}" styleClass="studentButton" style="margin: 8px;">
-                         <f:ajax render="@form"/>
+                         <f:ajax render="@this"/>
                      </h:commandButton>
 
                       <h:commandButton value="ответить" action="#{testPassingBean.answer}" styleClass="studentButton"  style="margin: 8px;">
-                          <f:ajax execute="@form" render="@form"/>
+                          <f:ajax execute="@this" render="@this"/>
                      </h:commandButton>
 
                      <h:commandButton id="completeTest" onclick="removeCounter();" value="завершить тест" action="#{testPassingBean.completeTest}" styleClass="studentButton"  style="margin: 8px;">
-                         <f:ajax render="@form"/>
+                         <f:ajax render="@this"/>
                      </h:commandButton>
 
              </h:panelGroup>

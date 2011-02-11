@@ -16,15 +16,13 @@
               .mainStyle .navigationLinks a:visited{
                              color: #8DBEE0 !important;}
               .mainStyle div span{
-                  color: #373E3F;
-                    font-weight: bolder;}
-               
+                    color: #373E3F;
+                    font-weight: bolder;}               
                 table td:nth-child(1){
                      color: gray;
                 }
-
                 table td:nth-child(2){
-                     color: #373E3F;
+                    color: #373E3F;
                     font-weight: bolder;
                     text-indent: 3px;
                 }
@@ -35,8 +33,9 @@
              <f:viewParam name="id" value="#{testBean.testId}"/>
          </f:metadata>
        <span id="counter"></span><br/>
-       <h:form>
-          <h:panelGroup id="TestEnter" rendered="#{not testBean.renderTestPassing}">
+
+       <h:form id="mainForm">
+         <h:panelGroup rendered="#{not testBean.renderTestPassing}">
            <h:outputText rendered="#{testBean.accessDenied}" value="Не найден или не доступен" />
            <h:outputLink value="discipline.xhtml?c=#{testBean.curriculumId}" styleClass="navigationLinks" style="display: block; margin-top: 5px;">назад</h:outputLink>
            <r:set var="t" value="#{testBean.test}"/>
@@ -105,15 +104,12 @@
                         </td>
                    </tr>
                 </table>
-           </div>
-
-       
+           </div>       
               <h:commandLink action="#{testBean.startTest}" rendered="#{not testBean.accessDenied}">Начать тест!
                   <f:ajax render="@form" />
-              </h:commandLink>
-          
-         </h:panelGroup>
-         
+              </h:commandLink>  
+           </h:panelGroup>
+
         <h:panelGroup id="TestPassing" rendered="#{testBean.renderTestPassing}">              
                 <script type="text/javascript" src="../resources/jquery/js/jquery-1.4.2.min.js"></script>
                 <script type="text/javascript" src="../resources/jquery/js/jquery.jCountr.js"></script>
@@ -125,13 +121,12 @@
                                       sec:'0',
                                       message: 'Время вышло!',
                                       finish_function: 'checkTime()' });
-
                            });
                 </script>
-              
-                    <r:set var="question" value="#{testPassingBean.currentQustionView.question}"/>
-                 <h:form id="testForm">
+              <r:set var="question" value="#{testPassingBean.currentQustionView.question}"/>
+             
                   <h:panelGroup id="mainPanel" rendered="#{not testPassingBean.renderCompleteTest}" >
+                      отвечено на #{testPassingBean.countAnsweredquestion} из #{testPassingBean.countQuestions}<br/>
                          <h:outputText escape="false" value="#{testPassingBean.questionTitle}"/><br/>
                          <h:panelGroup id="radioType" rendered="#{question.type=='radio'}">
                              <h:selectOneRadio converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}">
@@ -176,7 +171,7 @@
                              <f:ajax render="@form"/>
                          </h:commandButton>
 
-                          <h:commandButton value="ответить" action="#{testPassingBean.answer}" styleClass="studentButton"  style="margin: 8px;">
+                         <h:commandButton value="ответить" action="#{testPassingBean.answer}" styleClass="studentButton"  style="margin: 8px;">
                               <f:ajax execute="@form" render="@form"/>
                          </h:commandButton>
 
@@ -198,10 +193,10 @@
                     Правильно ответил на  #{testPassingBean.countRight}
                  </h:panelGroup>
                  <h:messages/>
-                 
+                 </h:panelGroup>
             </h:form>
-         </h:panelGroup>
+   
 
-     </h:form>
+  
         </ui:define>
     </ui:composition>
