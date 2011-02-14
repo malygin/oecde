@@ -5,29 +5,92 @@
     xmlns:util="http://java.sun.com/jsf/composite/components/util"
     template="../resources/adminTemplate.xhtml"
     >
+     <ui:define name="contentHeader">
+        Настройки портала
+    </ui:define>
     <ui:define name="content">
         <h:form>
-            <table>
-            <tr><td><util:date_picker value="#{calendarConstantsBean.controlWorksBeginDate}"/></td><td>открытие кр</td></tr>
-            <tr><td><util:date_picker value="#{calendarConstantsBean.controlWorksEndDate}"/></td><td>заркытие кр</td></tr>
-            <tr><td><util:date_picker value="#{calendarConstantsBean.regularTestBeginDate}"/></td><td>начало тестов</td></tr>
-            <tr><td><util:date_picker value="#{calendarConstantsBean.regularTestEndDate}"/></td><td>окончание тестов</td></tr>
-            <tr><td><util:date_picker value="#{calendarConstantsBean.simpleSpecialitiesTestsClosing}"/></td><td>закрытие тестов для не ускор и сокр</td></tr>
-            <tr><td><util:date_picker value="#{calendarConstantsBean.concludingTestBeginDate}"/></td><td>начало итоговых тестов</td></tr>
-            <tr><td><util:date_picker value="#{calendarConstantsBean.concludingTestEndDate}"/></td><td>окончание итоговых тестов</td></tr>
-            <tr><td><util:date_picker value="#{calendarConstantsBean.reExameBeginDate}"/></td><td>начало переэкзаменовки</td></tr>
-            <tr><td><util:date_picker value="#{calendarConstantsBean.reExameEndDate}"/></td><td>конец переэкзаменовки</td></tr>
-            <tr><td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.summerRegularTestReExameAttemtpsCount}"/></td><td>количество попыток на переэкзаменовку летом</td></tr>
-            <tr><td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.summerConcludingTestReExameAttemtpsCount}"/></td><td>количество попыток на переэкзаменовку летом для итоговых</td></tr>
-            <tr><td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.winterRegularTestReExameAttemtpsCount}"/></td><td>количество попыток на переэкзаменовку зимой</td></tr>
-            <tr><td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.winterConcludingTestReExameAttemtpsCount}"/></td><td>количество попыток на переэкзаменовку зимой для итоговых</td></tr>
-            <tr><td><h:inputText maxlength="4" size="4" value="#{calendarConstantsBean.year}"/></td><td>год</td></tr>
-            <tr><td><h:selectBooleanCheckbox  value="#{calendarConstantsBean.semester}"/></td><td>зимний семестр</td></tr>
-            <tr><td><h:commandButton value="ОКЭ">
-                <f:ajax execute="@form" render="@form error saved" listener="#{calendarConstantsBean.save}"/>
-            </h:commandButton></td>
-            <td><h:outputText id="error" rendered="#{calendarConstantsBean.error}" value="ERROR"/>
-            <h:outputText id="saved" rendered="#{calendarConstantsBean.saved}" value="saved"/></td></tr>
+            <table class="DataTests">
+                <tr>
+                    
+                    <td><util:date_picker value="#{calendarConstantsBean.controlWorksBeginDate}"/></td>
+                    <td>дата открытия отправки контрольных работ</td>
+                </tr>
+                <tr style="display: block; margin-bottom: 20px;">
+                    
+                    <td><util:date_picker value="#{calendarConstantsBean.controlWorksEndDate}"/></td>
+                    <td>дата закрытия отправки контрольных работ</td>
+                 </tr>
+                <tr>
+                    
+                    <td><util:date_picker value="#{calendarConstantsBean.regularTestBeginDate}"/></td>
+                    <td>дата начала тестов</td>
+                </tr>
+                <tr>
+                    
+                    <td><util:date_picker value="#{calendarConstantsBean.regularTestEndDate}"/></td>
+                    <td>дата окончания тестов</td>
+               </tr>
+                <tr style="display: block; margin-bottom: 20px;">
+                    
+                    <td><util:date_picker value="#{calendarConstantsBean.simpleSpecialitiesTestsClosing}"/></td>
+                    <td>дата закрытия тестов для специальностей обычной (не сокращённой и ускоренной) формы обучения</td>
+               </tr>
+                <tr>
+                     
+                    <td><util:date_picker value="#{calendarConstantsBean.concludingTestBeginDate}"/></td>
+                    <td>дата начала итоговых тестов</td>
+               </tr>
+                <tr  style="display: block; margin-bottom: 20px;">
+                    
+                    <td><util:date_picker value="#{calendarConstantsBean.concludingTestEndDate}"/></td>
+                    <td>дата окончания итоговых тестов</td>
+              </tr>
+                <tr>
+                    
+                    <td><util:date_picker value="#{calendarConstantsBean.reExameBeginDate}"/></td>
+                     <td>дата начала переэкзаменовки</td>
+              </tr>
+                <tr  style="display: block; margin-bottom: 20px;">
+                    
+                    <td><util:date_picker value="#{calendarConstantsBean.reExameEndDate}"/></td>
+                    <td>дата окончания переэкзаменовки</td>
+             </tr>
+                <tr>
+                     
+                    <td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.summerRegularTestReExameAttemtpsCount}"/></td>
+                    <td>количество переэкзаменовок для летних тестов</td>
+                </tr>
+                <tr>
+                     
+                    <td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.summerConcludingTestReExameAttemtpsCount}"/></td>
+                    <td>количество переэкзаменовок для летних итоговых тестов</td>
+                </tr>
+                <tr>
+                    
+                    <td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.winterRegularTestReExameAttemtpsCount}"/></td>
+                    <td>количество переэкзаменовок для зимних тестов</td>
+                </tr>
+                <tr  style="display: block; margin-bottom: 20px;">
+                      
+                    <td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.winterConcludingTestReExameAttemtpsCount}"/></td>
+                     <td>количество переэкзаменовок для зимних итоговых тестов</td>
+                </tr>
+                <tr  style="display: block; margin-bottom: 20px;">
+                     
+                    <td><h:inputText maxlength="4" size="4" value="#{calendarConstantsBean.year}"/></td>
+                    <td>год</td>
+                </tr>
+                <tr>
+                    
+                    <td><h:selectBooleanCheckbox  value="#{calendarConstantsBean.semester}"/></td>
+                    <td>зимний семестр</td>
+                </tr>
+                <tr><td><h:commandButton value="ОК" styleClass="studentButton" style="width: 70px;">
+                    <f:ajax execute="@form" render="@form error saved" listener="#{calendarConstantsBean.save}"/>
+                </h:commandButton></td>
+                <td><h:outputText id="error" rendered="#{calendarConstantsBean.error}" value="ERROR"/>
+                <h:outputText id="saved" rendered="#{calendarConstantsBean.saved}" value="saved"/></td></tr>
             </table>
         </h:form>
     </ui:define>

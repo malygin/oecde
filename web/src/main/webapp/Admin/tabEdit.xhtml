@@ -11,21 +11,30 @@
             </f:metadata>
             <h:form id="edit">
                 <br/>
-                Имя вкладки
+                <div  style="float: left; margin-right: 10px;">
+                <span  class="AdminTextGrey">
+                Имя вкладки:
+                </span>
                 <h:inputText id="tabName" value="#{tabEditBean.tab.name}"/>
-                Тип вкладки
+                </div>
+                <div>
+                <span  class="AdminTextGrey">
+                Тип вкладки:
+                </span>
                 <h:selectOneMenu id="tabType" value="#{tabEditBean.tab.type}">
                     <f:selectItems value="#{tabEditBean.types}" />
                 </h:selectOneMenu>
-                | <span class="navigationLinks"><h:outputLink value="tabsView.xhtml">к списку</h:outputLink></span>
-                | <span class="navigationLinks"><h:commandLink action="#{tabEditBean.deleteTab}" id="del" value="удалить вкладку"/></span>
-                
-                <h:dataTable styleClass="studentStandatrTable" columnClasses="studentStandatrTableTd,studentStandatrTableTd,studentStandatrTableTd,studentStandatrTableTdLastTd" cellpadding="0" cellspacing="0"  id="pages" value="#{setToList.getList(tabEditBean.tab.pages)}" var="p">
+                </div>
+                <div style="margin-top: 10px;">
+                 <div class="AdminNavigationLinksBold" style="float:left; margin-right: 20px;"><span style="  background: url('../resources/images/return_to_list.gif') no-repeat 0 0;"><h:outputLink value="tabsView.xhtml" style="margin-left: 17px;">к списку</h:outputLink></span></div>
+                 <div class="AdminNavigationLinksBold"><span style="  background: url('../resources/images/news_delete.gif') no-repeat 0 0;"><h:commandLink action="#{tabEditBean.deleteTab}" id="del" value="удалить вкладку" style="margin-left: 17px;"/></span></div>
+                </div>
+                <h:dataTable styleClass="studentStandatrTable" columnClasses="studentStandatrTableTd,studentStandatrTableTd,studentStandatrTableTd studentStandatrTableExamin,studentStandatrTableTdLastTd studentStandatrTableExamin" cellpadding="0" cellspacing="0"  id="pages" value="#{setToList.getList(tabEditBean.tab.pages)}" var="p">
                     <h:column>
                         <f:facet name="header">
-                            Заголовок страницы
+                           Заголовок страницы
                         </f:facet>
-                        <h:outputText id="pName" value="#{p.title}"/>
+                        <h:outputText id="pName" value="#{p.title}" styleClass="AdminInfo" style="margin-left: 10px;"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
@@ -34,12 +43,12 @@
                         <h:outputText id="visibility" rendered="#{p.visible}" value="да"/>
                     </h:column>
                     <h:column>
-                        <span class="navigationLinks">
+                        <span class="AdminNavigationLinks"  style="text-align: center;">
                             <h:outputLink value="pageEdit.xhtml?id=#{tabEditBean.tab.id}&amp;p=#{p.id}">Редактировать</h:outputLink>
                         </span>
                     </h:column>
                     <h:column>
-                        <span class="navigationLinksRed">
+                        <span class="navigationLinksRed" style="text-align: center;">
                             <h:commandLink id="delete" value="Удалить">
                                 <f:attribute name="page" value="#{p}"/>
                                 <f:ajax render=":edit" listener="#{tabEditBean.deletePage}"/>
@@ -48,8 +57,8 @@
                     </h:column>
                 </h:dataTable>
                 <div style="text-align: center; padding-top: 5px;">
-                <span class="navigationLinks">
-                    <h:commandLink id="updt" value="Сохранить">
+                <span class="AdminNavigationLinksBold" style="  background: url('../resources/images/save.gif') no-repeat 0 0;">
+                    <h:commandLink id="updt" value="Сохранить" style="margin-left: 17px;">
                         <f:ajax execute="@form" render="@form" event="click" listener="#{tabEditBean.updateTab}"/>
                     </h:commandLink>
                 </span>
@@ -58,8 +67,8 @@
             <br/>
             <hr/>
             <br/>
-            <span class="navigationLinks">
-                <h:outputLink value="pageEdit.xhtml?id=#{tabEditBean.tab.id}">Добавить страницу</h:outputLink>
+            <span class="AdminNavigationLinksBold" style="  background: url('../resources/images/add_page.gif') no-repeat 0 0;">
+                <h:outputLink value="pageEdit.xhtml?id=#{tabEditBean.tab.id}" style="margin-left: 17px;">Добавить страницу</h:outputLink>
             </span>
         </div>
     </ui:define>

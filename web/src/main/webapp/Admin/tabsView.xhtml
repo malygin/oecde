@@ -10,28 +10,29 @@
     </ui:define>
     <ui:define name="content">
         <div class="interfaceContent">
-            <div style="line-height: 30px; font-weight: normal; color: silver;">
+            <div class="AdminTextGrey">
                 Существующие вкладки:
             </div>
-            <h:dataTable styleClass="studentStandatrTable" columnClasses="studentStandatrTableTd,studentStandatrTableTdLastTd" cellpadding="0" cellspacing="0" id="tabs" style="width: 100%;" value="#{tabsViewBean.all}" var="t">
+            <h:dataTable styleClass="studentStandatrTable" columnClasses="studentStandatrTableTd AdminInfo,
+                                                                            studentStandatrTableTdLastTd" cellpadding="0" cellspacing="0" id="tabs" style="width: 100%;" value="#{tabsViewBean.all}" var="t">
                 <h:column>
                     <f:facet name="header">
                         Заголовок вкладки
                     </f:facet>
-                    <h:outputText value="#{t.name}"/>
+                    <h:outputText value="#{t.name}" style="color: #27587F;"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         Тип
                     </f:facet>
-                    <h:outputText converter="enumConverter" value="#{t.type}"/>
-                    <span class="navigationLinks">
+                    <h:outputText converter="enumConverter" value="#{t.type}" style="padding-left: 100px;padding-right: 10px;"/>
+                    <span class="AdminNavigationLinks">
                         <h:outputLink value="tabEdit.xhtml?id=#{t.id}">Редактировать</h:outputLink>
                     </span>
                 </h:column>
             </h:dataTable>
             <br/>
-            <div style="line-height: 30px; font-weight: normal; color: silver;">
+            <div class="AdminTextGrey">
                 Добавление новой вкладки:
             </div>
             <h:form id="edit">
@@ -46,13 +47,15 @@
                     </tr>
                     <tr>
                         <td class="studentStandatrTableTd">
-                            <h:inputText style="width: 90%;" id="tabName" value="#{tabEditBean.tab.name}"/>
+                            <div style="text-align: center !important;">
+                            <h:inputText style="width: 90%;" id="tabName" value="#{tabEditBean.tab.name}" />
+                            </div>
                         </td>
                         <td class="studentStandatrTableTdLastTd">
                             <h:selectOneMenu style="width: 50%;" id="tabType" value="#{tabEditBean.tab.type}">
                                 <f:selectItems value="#{tabEditBean.types}" />
                             </h:selectOneMenu>
-                            <span class="navigationLinks" >
+                            <span class="AdminNavigationLinks" >
                                 <h:commandLink action="#{tabEditBean.updateTab}" value="Добавить"/>
                             </span>
                         </td>

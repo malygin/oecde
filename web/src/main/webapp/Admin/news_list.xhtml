@@ -16,7 +16,9 @@
             
             <util:navigationList elementOnPage="#{NewsBean.newsOnPage}"
                                  numElements="#{NewsBean.countNews}"/>
+            <span  class="AdminNavigationLinks studentButton" style=" position: relative;width: 130px;left: 42%; display: block;">
             <a href="news_add.xhtml">Добавить новость</a><br/>
+            </span>
             <news:listEdit list="#{NewsBean.news}"/>
          </ui:define>
     </ui:composition>

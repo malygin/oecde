@@ -8,7 +8,7 @@
     <ui:define name="content">
         <div class="interfaceContent">
             <div style="text-align: right; padding-top: 5px;">
-                <span class="navigationLinks">
+                <span class="AdminNavigationLinksBold">
                     <h:outputLink value="tabEdit.xhtml?id=#{tabEditBean.tab.id}">Hазад</h:outputLink>
                 </span>
             </div>
@@ -16,42 +16,47 @@
                 <f:viewParam name="id" value="#{tabEditBean.id}"/>
                 <f:viewParam name="p" value="#{tabEditBean.pageId}"/>
             </f:metadata>
-            Название раздела:
-            "<span class="controlWorksDisciplineName"><h:outputText id="tabName" value="#{tabEditBean.tab.name}"/></span>"<br/><br/>
+            <span class="AdminTextGrey" style="margin-right: 20px;"> Название раздела:</span><span class="AdminTextGrey">"</span>
+            <span class="controlWorksDisciplineName"><h:outputText id="tabName" value="#{tabEditBean.tab.name}"/></span> 
+            <span class="AdminTextGrey">"</span><br/><br/>
             <h:form id="form">
                 <table  class="studentStandatrTable">
                     <tr>
-                        <td style="width: 200px;">
-                            Заголовок страницы
+                        <td style="width: 200px;" class="AdminTextGrey">
+                            Заголовок страницы:
                         </td>
                         <td>
-                    <h:inputText style="width: 100%;" id="pName" value="#{tabEditBean.page.title}"/>
+                    <h:inputText style="width: 99.5%;" id="pName" value="#{tabEditBean.page.title}"/>
                         </td>
                     </tr>
                     <tr>
-                        <td valign="top">
-                            Содержимое страницы
+                        <td valign="top" class="AdminTextGrey">
+                            Содержимое страницы:
                         </td>
                         <td>
                             <util:editor value="#{tabEditBean.page.text}"/>
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            Видима ли страница
+                        <td class="AdminTextGrey">
+                            Видима ли страница:
                         </td>
-                        <td>
+                        <td class="AdminIndent">
                             <h:selectBooleanCheckbox id="visibility" value="#{tabEditBean.page.visible}"/>
                         </td>
                     </tr>
                 </table>
-                файлы
-                <h:dataTable rendered="#{tabEditBean.pageId ne null}" id="files" value="#{setToList.getList(tabEditBean.page.files)}" var="f">
+                <span class="AdminTextGrey">
+                файлы:
+                </span>
+                <h:dataTable rendered="#{tabEditBean.pageId ne null}" id="files" value="#{setToList.getList(tabEditBean.page.files)}" var="f" styleClass="pageEditTable">
                     <h:column>
                         <f:facet name="header">
                             имя файла
                         </f:facet>
-                        <h:outputLink id="fLink" value="../resources/userFiles/tabs/#{f.name}">#{f.name}</h:outputLink>
+                        <span class="AdminNavigationLinksBold">
+                        <h:outputLink id="fLink" value="../resources/userFiles/tabs/#{f.name}" >#{f.name}</h:outputLink>
+                    </span>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
@@ -60,31 +65,34 @@
                         <h:inputText id="desc" value="#{f.description}"/><br/>
                     </h:column>
                     <h:column>
-                        <f:facet name="header">
+                         <f:facet name="header">
                             видим ли файл
                         </f:facet>
                         <h:selectBooleanCheckbox id="fVisibility" value="#{f.visible}"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            изображение ли
+                           видимо ли изображение
                         </f:facet>
                         <h:selectBooleanCheckbox id="image" value="#{f.image}"/>
                     </h:column>
                     <h:column>
-                        <h:commandLink id="delF" value="удалить">
+                        <span class="AdminNavigationLinksBold" style="background: url('../resources/images/news_delete.gif') no-repeat 0 0;">
+                        <h:commandLink id="delF" value="удалить" style="margin-left: 17px;">
                             <f:attribute name="file" value="#{f}"/>
                             <f:ajax render="@form"  listener="#{tabEditBean.deleteFile}"/>
                         </h:commandLink>
+                        </span>
                     </h:column>
                 </h:dataTable>
 
                 <div style="text-align: right; padding-top: 5px;">
-                    <span class="navigationLinks">
+                    <span class="AdminNavigationLinksBold">
                     <h:commandLink rendered="#{tabEditBean.pageId eq null}" action="#{tabEditBean.updateTab}" id="newBtn" value="Сохранить изменения"/>
-                    <h:commandLink rendered="#{tabEditBean.pageId ne null}" id="updt" value="Сохранить изменения">
+                    <span style=" background: url('../resources/images/save.gif') no-repeat 0 0;"><h:commandLink rendered="#{tabEditBean.pageId ne null}" id="updt" value="Сохранить изменения" style="padding-left: 17px;">
                         <f:ajax execute="@form" render="@form" event="click" listener="#{tabEditBean.updateTab}"/>
-                    </h:commandLink>
+                        </h:commandLink>
+                    </span>
                 </span>
                 </div>
             </h:form>
@@ -93,7 +101,9 @@
             <br/>
             <h:form rendered="#{tabEditBean.pageId ne null}" id="addFile" enctype="multipart/form-data">
                 <input type="file" name="file" />
-                <h:commandLink action="#{tabEditBean.addFile}" id="fileBtn" value="ОКЭ"/>
+                <span class="AdminNavigationLinksBold">
+                <h:commandLink action="#{tabEditBean.addFile}" id="fileBtn" value="ОК"/>
+                </span>
             </h:form>
         </div>
     </ui:define>

@@ -8,7 +8,7 @@
     <ui:define name="content">
         <div class="interfaceContent">
         <h:form>
-            <table><tr><td>
+            <table><tr style="display: block; margin-top: 10px;"><td>
                 <h:inputText value="#{searchBean.keyWord}">
                     <f:ajax execute="@form" event="keypress" render=":table" listener="#{searchBean.doSearch}"/>
                 </h:inputText></td>
@@ -16,7 +16,7 @@
                      <f:ajax execute="@form" render=":table" listener="#{searchBean.doSearch}"/>
                      <f:selectItems value="#{searchBean.types}" />
                  </h:selectOneMenu></td><td>
-                 <h:commandButton value="ОКЭ">
+                 <h:commandButton value="ОК" styleClass="studentButton" style="width: 70px; margin-top: 0;margin-left: 10px; text-align: center !important;">
                      <f:ajax execute="@form" render=":table" listener="#{searchBean.doSearch}"/>
                  </h:commandButton>
             </td></tr></table>
