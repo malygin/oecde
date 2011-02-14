@@ -50,7 +50,7 @@
                 <tr>
                     <td colspan="2" class="StudentTimeTable">
                         <div style=" border-bottom: 1px solid silver;">
-                            <div class="navigationLinks indentionInNavigation"><a style="font-size: 12pt;" href="schedule.xhtml">Расписание</a></div>
+                            <div class="navigationLinks indentionInNavigation"><a style="font-size: 12pt;" href="schedule.xhtml">Расписание видеоконференций</a></div>
                         </div>
                         
                         <h:dataTable columnClasses="
@@ -63,7 +63,9 @@
                                 <f:facet name="header">
                                     <h:outputText value="#{msgs.student_Dicipline}"/>
                                 </f:facet>
-                                <span class="controlWorksDisciplineName" style="font-size: 8pt; font-weight: normal;"><h:outputText value="#{s.discipline.name}"/></span>
+                                <span class="controlWorksDisciplineNameLink" style="font-size: 8pt; font-weight: normal !important;"><h:outputLink value="discipline.xhtml?c=#{s.discipline.id}"><span style=" font-weight: normal !important;">#{s.discipline.name}</span></h:outputLink>
+<!--                                    <h:outputText value="#{s.discipline.name}"/>-->
+</span>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
@@ -83,7 +85,7 @@
                                 <f:facet name="header">
                                     <h:outputText value="#{msgs.student_Data}"/>
                                 </f:facet>
-                                <span ><h:outputText value="#{s.lessonDate}"/></span>
+                                <span ><h:outputText converter="dateConverter" value="#{s.lessonDate}"/></span>
                             </h:column>
                         </h:dataTable>
                     </td>
@@ -91,7 +93,7 @@
                 <tr>
                     <td colspan="2" class="StudentTimeTable">
                         <div style=" border-bottom: 1px solid silver;">
-                            <div class="navigationLinks indentionInNavigation"><a style="font-size: 12pt;" href="schedule.xhtml">Расписание</a></div>
+                            <div class="navigationLinks indentionInNavigation"><a style="font-size: 12pt;" href="schedule.xhtml"></a></div>
                         </div>
                         <table style="width: 100%;" class="studentStandatrTable studentStandatrWidth studentStandatrTableTdWithBorder " cellpadding="0" cellspacing="0">
                             <tr>
@@ -131,7 +133,7 @@
                                     Открытие итоговых тестов
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
-                                    #{resourceService.concludingTestBeginDate}
+                                    <h:outputText converter="dateConverter" value="#{resourceService.concludingTestBeginDate}"/>
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder"></td>
                                 <td class=" studentStandatrTableTdLastTdwithBorder"></td>
@@ -141,7 +143,7 @@
                                     Закрытие итоговых тестов
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
-                                    #{resourceService.concludingTestEndDate}
+                                     <h:outputText converter="dateConverter" value="#{resourceService.concludingTestEndDate}"/>
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder"></td>
                                 <td class=" studentStandatrTableTdLastTdwithBorder"></td>
@@ -151,17 +153,17 @@
                                     Открытие контрольных
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
-                                    #{studentIndexBean.getDate("controlWorksBeginDate")}
+                                    <h:outputText converter="dateConverter" value="#{studentIndexBean.getDate('controlWorksBeginDate')}"/>
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder"></td>
                                 <td class=" studentStandatrTableTdLastTdwithBorder"></td>
                             </tr>
                             <tr>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
-                                    Открытие контрольных
+                                    Закрытие контрольных
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
-                                    #{studentIndexBean.getDate("controlWorksEndDate")}
+                                    <h:outputText converter="dateConverter" value="#{studentIndexBean.getDate('controlWorksEndDate')}" />
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder"></td>
                                 <td class=" studentStandatrTableTdLastTdwithBorder"></td>
@@ -171,7 +173,7 @@
                                     Начало переэкзаменовки
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
-                                    #{resourceService.reExameBeginDate}
+                                    <h:outputText converter="dateConverter" value="#{resourceService.reExameBeginDate}"/>
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder"></td>
                                 <td class=" studentStandatrTableTdLastTdwithBorder"></td>
@@ -181,7 +183,7 @@
                                     Окончание переэкзаменовки
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
-                                    #{resourceService.reExameEndDate}
+                                    <h:outputText converter="dateConverter" value="#{resourceService.reExameEndDate}"/>
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder"></td>
                                 <td class=" studentStandatrTableTdLastTdwithBorder"></td>
@@ -196,15 +198,15 @@
                     <td style=" border: 1px solid silver;" valign="top">
                         <div style=" padding: 0px 5px;max-height: 300px; overflow-y: scroll;">
                             <div style=" border-bottom: 1px solid silver; padding-top: 7px;">
-                                <div class="navigationLinks indentionInNavigation"><a style="font-size: 12pt; padding-left: 24px; background:url('../resources/images/news_icon.gif') no-repeat ; " href="news_read.xhtml">Новости</a></div>
+                                <div class="navigationLinks indentionInNavigation"><a style="font-size: 12pt; padding-left: 24px; background:url('../resources/images/news_icon.gif') no-repeat ; " href="news_list.xhtml">Новости</a></div>
                             </div>
                             <div style="padding: 5px;">
                                 <h:dataTable value="#{NewsBean.news}" var="new" style="width: 100%;">
                                     <h:column>
                                         <div style=" max-width: 60%; float: left;">
-                                            <span class="controlWorksDisciplineNameLink"><a style="font-size: 9pt;" href="news_list.xhtml?id=#{new.id}">#{new.header}</a></span>
+                                            <span class="controlWorksDisciplineNameLink"><a style="font-size: 9pt;" href="news_read.xhtml?id=#{new.id}">#{new.header}</a></span>
                                         </div>
-                                        <span class="chatPostDate"><h:outputText value="#{fn:substring(new.time,0,11)}"/></span>
+                                        <span class="chatPostDate"><h:outputText converter="dateConverter" value="#{fn:substring(new.time,0,11)}"/></span>
                                         <div class="floatDestroyer"></div>
                                         <div class="previewText"><h:outputText escape="false" value="#{new.announcement}"/></div>
                                         <br/>
@@ -241,7 +243,8 @@
                                     
                                        
                                             <span>
-                                        #{p.points.curriculum.discipline.name} <span class="linkToTeachersProfile linkToTeachersProfileFromStudent"><h:outputLink value="teacher.xhtml?id=${p.teacher.id}">#{p.teacher.initials}</h:outputLink></span>
+                                                <h:outputLink value="discipline.xhtml?c=#{p.points.curriculum.id}" >#{p.points.curriculum.discipline.name} </h:outputLink> <span class="linkToTeachersProfile linkToTeachersProfileFromStudent"><h:outputLink value="teacher.xhtml?id=${p.teacher.id}">#{p.teacher.initials}</h:outputLink></span>
+
                                             </span>
                                   
                                    
@@ -250,9 +253,11 @@
                                 <div class="educ_content_title_activ" style="padding-bottom: 10px; border-bottom: 1px solid #D1E0EF;">
                                     <ol class="my_educ_disc_reason">
                                         <li style=" background:url('../resources/images/star.gif') no-repeat 0px 0px; padding-left: 17px;" >итоговая оценка
-                                        <h:outputText converter="enumConverter" value="#{p.grade}"/>
+                                        <h:outputText converter="enumConverter" value="#{p.grade}" style="color: #373E3F;font-weight: bolder;"/>
+                                      
                                         </li>
-                                        <li style=" background:url('../resources/images/discipline_summ.gif') no-repeat 0 0px; padding-left: 17px;">сумма баллов <span style=" color: #373E3F;font-weight: bolder;">#{p.points.sum}</span></li>
+                                        <li style=" background:url('../resources/images/discipline_summ.gif') no-repeat 0 0px; padding-left: 17px;">сумма баллов <h:outputText rendered="#{p.points.sum!=0}" style=" color: #373E3F;font-weight: bolder;" value="#{p.points.sum}"></h:outputText>
+                                        <h:outputText rendered="#{p.points.sum==0}" style=" color: red;font-weight: bolder;" value="#{p.points.sum}"></h:outputText></li>
 
                                     </ol>
                                 </div>
@@ -325,7 +330,8 @@
                                 </div>
                                 <div class="educ_content_title_activ">
                                     <ol class="my_educ_disc_reason">
-                                        <li style="background:url('../resources/images/discipline_summ.gif') no-repeat 0 0px; padding-left: 17px; padding-bottom: 3px;">набрано баллов <span style="color:#373E3F; font-weight: bolder;">#{r.pointsForWork}</span></li>
+                                        <li style="background:url('../resources/images/discipline_summ.gif') no-repeat 0 0px; padding-left: 17px; padding-bottom: 3px;">набрано баллов <h:outputText rendered="#{r.pointsForWork!=0}" style="color:#373E3F; font-weight: bolder;" value="#{r.pointsForWork}"></h:outputText>
+                                    <h:outputText rendered="#{r.pointsForWork==0}" style="color:red; font-weight: bolder;" value="#{r.pointsForWork}"></h:outputText></li>
                                     </ol>
                                 </div>
                             </div>
@@ -352,7 +358,8 @@
                                 </div>
                                 <div class="educ_content_title_activ">
                                     <ol class="my_educ_disc_reason">
-                                        <li  style="background:url('../resources/images/discipline_summ.gif') no-repeat 0 0px; padding-left: 17px; padding-bottom: 3px;">набрано баллов<span  style="color:#373E3F; font-weight: bolder;"> #{r.pointsForWork}</span></li>
+                                        <li  style="background:url('../resources/images/discipline_summ.gif') no-repeat 0 0px; padding-left: 17px; padding-bottom: 3px;">набрано баллов<h:outputText rendered="#{r.pointsForWork!=0}" style="color:#373E3F; font-weight: bolder; margin-left: 3px;" value="#{r.pointsForWork}"></h:outputText>
+                                    <h:outputText rendered="#{r.pointsForWork==0}" style="color:red; font-weight: bolder;margin-left: 3px;" value="#{r.pointsForWork}"></h:outputText></li>
                                     </ol>
                                 </div>
                             </div>

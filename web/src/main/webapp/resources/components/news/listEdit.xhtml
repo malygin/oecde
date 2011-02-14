@@ -23,17 +23,23 @@
                 <h:column>
                     <h:form id="formList">
                          <h:outputText  rendered="#{NewsBean.renderDeleteSuccess}" value="Удалена новость"/>
-                         <h:commandLink rendered="#{not NewsBean.renderDeleteSuccess}"  action="#{NewsBean.delete}" value="Удалить" >
+                         <span class="AdminNavigationLinks" style="background: url('../resources/images/news_delete.gif') no-repeat 0 0; margin-right: 20px;">
+                         <h:commandLink rendered="#{not NewsBean.renderDeleteSuccess}"  action="#{NewsBean.delete}" value="Удалить" style="margin-left: 16px;">
                             <f:setPropertyActionListener target="#{NewsBean.newIdDelete}" value="#{new.id}" />
                             <f:ajax  execute="@this" render="@form" />
                          </h:commandLink>
-                         <h:outputLink value="news_read.xhtml?id=#{new.id}" rendered="#{not NewsBean.renderDeleteSuccess}">
+                          </span>
+                         <span class="AdminNavigationLinks" style="background: url('../resources/images/news_edit.gif') no-repeat 0 0;">
+                         <h:outputLink value="news_read.xhtml?id=#{new.id}" rendered="#{not NewsBean.renderDeleteSuccess}" styleClass="AdminNavigationLinks" style="margin-left: 16px;">
                             Редактировать
                         </h:outputLink>
+                         </span>
                          <br/>
                          <div style="margin-top: 8px; margin-bottom: 8px;">
                          <span style="color: grey; font-family:tahoma;">#{new.time}</span>
-                        <span style="color:#4593DF; font-weight: bolder; margin-left: 10px;"> #{new.header}</span>
+                         <span>
+                        <span style="color:#077F5B; font-weight: bolder;"> #{new.header}</span>
+                         </span>
                          </div>
                          <div style="margin-bottom: 8px;">
                          <h:outputText escape="false" value="#{new.announcement}" />

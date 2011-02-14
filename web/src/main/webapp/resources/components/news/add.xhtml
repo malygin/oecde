@@ -15,14 +15,15 @@
   <composite:implementation>
       <h:form>
           <h:outputText  rendered="#{NewsBean.renderAddSuccess}" value="Добавлена новость"/><br/>
-
+ 
           <div style="margin-bottom: 15px;"> <span style="color: #6F6F6F">Заголовок: </span>  <h:inputText value="#{NewsBean.header}"/></div>
+          <span style="color: #6F6F6F">При создании короткой новости не нужно писать ее полный текст.</span><br/><br/>
           <span style="color: #6F6F6F">Анонс: </span>
           <div style="margin-bottom: 15px; margin-left: 80px;">
           <util:editor value="#{NewsBean.anons}"/>
           </div>
 
-          <span style="color: #6F6F6F">Если создаете короткую новость - не пишите полный текст, ок?</span><br/><br/>
+         
           <span style="color: #6F6F6F">Полный текст: </span>
           <div style="margin-left: 80px;"><util:editor value="#{NewsBean.fulltext}"/>
           </div>

@@ -51,8 +51,10 @@
                         <td style="color:#808080;">
                             Дисциплина:
                         </td>
-                        <td>
+                        <td class="controlWorksDisciplineNameLink" style="font-size: 8pt; font-weight: normal !important;">
+                            <h:outputLink value="discipline.xhtml?c=#{t.key['discipline'].id}">
                             #{t.key['discipline'].name}
+                            </h:outputLink>
                         </td>
                     </tr>
                 </h:panelGroup>

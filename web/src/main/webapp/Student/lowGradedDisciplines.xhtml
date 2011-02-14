@@ -41,7 +41,7 @@
                     <table cellpadding="2" cellspacing="2" class="controlWorksBorders " style="width: 100%;">
                         <tr>
                             <td valign="top" style="color: gray; width: 170px; padding-left: 10px; text-align: justify;">Название дисциплины: </td>
-                            <td valign="top" class="controlWorksDisciplineName"><span class="controlWorksDisciplineName DisciplineText"><h:outputText value="#{p.points.curriculum.discipline.name}"/></span></td>
+                            <td valign="top" class="controlWorksDisciplineName"><span class="controlWorksDisciplineNameLink" style="padding-left: 10px;"><h:outputLink value="discipline.xhtml?c=#{p.points.curriculum.discipline.id}">#{p.points.curriculum.discipline.name}</h:outputLink></span></td>
                         </tr>
                         <tr>
                             <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">Преподаватель: </td>

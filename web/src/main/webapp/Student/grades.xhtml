@@ -55,7 +55,7 @@
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
                     </f:facet>
-                    <span class="controlWorksDisciplineName studentStandatrTableCenter">#{p.points.curriculum.discipline.name}</span>
+                    <span class="controlWorksDisciplineName studentStandatrTableCenter"><h:outputLink value="discipline.xhtml?c=#{p.points.curriculum.discipline.id} ">#{p.points.curriculum.discipline.name}</h:outputLink></span>
                 </h:column>
                 <h:column>
                     <f:facet name="header">

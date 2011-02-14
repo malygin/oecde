@@ -34,6 +34,10 @@
 .StudentTestsPadding{
     padding-left: 10px;
 }
+.educ_umk_text_block{
+   margin-left: 10px;
+   display: block;
+}
  .educ_umk_text {
 margin-bottom: 2px;
 margin-left: 28px;
@@ -584,8 +588,8 @@ color: black;
 .mainStyle .navigationLinks a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
 .mainStyle .navigationLinks a:hover{color: #8BB5DF; text-decoration: none; font-weight: normal;}
 
-.mainStyle .navigationLinksRed a:link{color: red; text-decoration: underline; font-weight: normal;}
-.mainStyle .navigationLinksRed a:visited{color: red; text-decoration: underline; font-weight: normal;}
+.mainStyle .navigationLinksRed a:link{color: red; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinksRed a:visited{color: red; text-decoration: none; font-weight: normal;}
 .mainStyle .navigationLinksRed a:active{color: #FF3F3F; text-decoration: none; font-weight: normal;}
 .mainStyle .navigationLinksRed a:hover{color: #FF3F3F; text-decoration: none; font-weight: normal;}
 
@@ -1067,6 +1071,20 @@ color: black;
     cursor: pointer;
     width: 100px !important;
 }
+.saveAdmin{
+    background:url("../resources/images/buttonRed.gif") repeat-x scroll center transparent;;
+    border: 1px solid #6CC2D9;
+    color: #016281;
+    font-size: 10pt;
+    height: 17px;
+    margin-right: 21px;
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 0;
+    vertical-align: top;
+    cursor: pointer;
+    width: 100px !important;
+}
 .save:hover,
 .save:active{
     background: url("../resources/images/buttonBlue2.jpg") repeat-x bottom;
@@ -1118,3 +1136,183 @@ color: black;
     background: url("../resources/images/write_new.png") no-repeat left bottom;
 }
 .mainStyle a.reitingLink:hover{text-decoration: underline;}
+
+.mainStyle .AdminInfo {
+    color: #4593DF;
+    font-size: 8pt;
+    font-weight: normal;
+    text-indent: 10px;
+}
+.mainStyle .AdminNavigationLinks a:link{
+    color: #4593DF;
+    font-family: Arial;
+    font-size: 10pt;
+    font-weight: normal;
+    margin: 0;
+    text-decoration: none;
+}
+.mainStyle .AdminNavigationLinks a:visited{
+     color: #4593DF;
+    font-family: Arial;
+    font-size: 10pt;
+   font-weight: normal;
+    margin: 0;
+    text-decoration: none;
+}
+.mainStyle .AdminNavigationLinks a:hover{
+    color: #8DBEE0;
+    font-family: Arial;
+    font-size: 10pt;
+   font-weight: normal;
+    margin: 0;
+    text-decoration: none;
+}
+.mainStyle .AdminNavigationLinks a:active{
+    color: #8DBEE0;
+    font-family: Arial;
+    font-size: 10pt;
+    font-weight: normal;
+    margin: 0;
+    text-decoration: none;
+
+}
+
+.mainStyle .StudentTestStartPages td:nth-child(1){
+    color: gray !important;
+}
+.mainStyle .StudentTestStartPages td:nth-child(2){
+     color: #373E3F !important;
+    font-weight: bolder !important;
+    text-indent: 3px;
+}
+.mainStyle .AdminTextGrey{
+    line-height: 30px;
+    font-weight: normal;
+    color: #6F6F6F;
+}
+.mainStyle .AdminNavigationLinksBold a:link{
+    color: #4593DF;
+    font-family: Arial;
+    font-size: 10pt;
+    font-weight:bold;
+    margin: 0;
+    text-decoration: none;
+}
+    .mainStyle .AdminNavigationLinksBold a:visited{
+    color: #4593DF;
+    font-family: Arial;
+    font-size: 10pt;
+   font-weight:bold;
+    margin: 0;
+    text-decoration: none;
+}
+.mainStyle .AdminNavigationLinksBold a:hover{
+    color: #8DBEE0;
+    font-family: Arial;
+    font-size: 10pt;
+    font-weight:bold;
+    margin: 0;
+    text-decoration: none;
+}
+.mainStyle .AdminNavigationLinksBold a:active{
+    color: #8DBEE0;
+    font-family: Arial;
+    font-size: 10pt;
+    font-weight:bold;
+    margin: 0;
+    text-decoration: none;
+}
+.mainStyle .studentStandatrTable tr .AdminIndent{
+    text-align: left !important;
+}
+.mainStyle .pageEditTable{
+    width: 70%;
+     left: 3%;
+    position: relative;
+}
+.mainStyle .pageEditTable th{
+    text-align: center !important;
+    font-weight: normal;
+    color:#373E3F;
+}
+.mainStyle .pageEditTable td{
+    text-align: center !important;
+}
+
+.DataTests td:nth-child(2){
+      color: #6F6F6F;
+    display: block;
+    margin-left: 10px;
+   
+
+}
+.DataTests td:nth-child(1){
+
+    display: block;
+    float: left;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+.DataTests input{
+    width: 35px;
+    text-align: center !important;
+}
+.mainStyle .AdminBackground{
+ background:url("../resources/images/buttonRed.png") repeat-x scroll center transparent;;
+    border: 1px solid #DF9E99;
+    color: #9F3027;
+    font-size: 10pt;
+    height: 17px;
+    margin-right: 21px;
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 0;
+    vertical-align: top;
+    cursor: pointer;
+    width: 100px !important;
+}
+.mainStyle .AdminBackground:hover,.mainStyle .AdminBackground:active {
+ background:url("../resources/images/buttonRed2.png") repeat-x scroll center transparent;;
+    border: 1px solid #DF9E99;
+    color: #9F3027;
+    font-size: 10pt;
+    height: 17px;
+    margin-right: 21px;
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 0;
+    vertical-align: top;
+    cursor: pointer;
+    width: 100px !important;
+}
+.mainStyle .StudentBackground{
+background:url("../resources/images/buttonBlue.jpg") repeat-x scroll center transparent;;
+    border: 1px solid #6CC2D9;
+    color: #016281;
+    font-size: 10pt;
+    height: 17px;
+    margin-right: 21px;
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 0;
+    vertical-align: top;
+    cursor: pointer;
+    width: 100px !important;
+}
+.mainStyle .StudentBackground:hover, .mainStyle .StudentBackground:active{
+background:url("../resources/images/buttonBlue2.jpg") repeat-x scroll center transparent;;
+    border: 1px solid #6CC2D9;
+    color: #016281;
+    font-size: 10pt;
+    height: 17px;
+    margin-right: 21px;
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 0;
+    vertical-align: top;
+    cursor: pointer;
+    width: 100px !important;
+}
+.mainStyle .TeacherBackground{
+    
+}

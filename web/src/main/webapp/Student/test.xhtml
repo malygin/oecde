@@ -6,28 +6,6 @@
          template="../resources/studentTemplate.xhtml"
          >
         <ui:define name="content">
-              <style type="text/css">
-            .mainStyle .navigationLinks a:link{
-                 color: #4593DF !important;}
-            .mainStyle .navigationLinks a:hover{
-                   color: #8DBEE0 !important;}
-             .mainStyle .navigationLinks a:active{
-                 color: #8DBEE0 !important;}
-              .mainStyle .navigationLinks a:visited{
-                             color: #8DBEE0 !important;}
-              .mainStyle div span{
-                    color: #373E3F;
-                    font-weight: bolder;}               
-                table td:nth-child(1){
-                     color: gray;
-                }
-                table td:nth-child(2){
-                    color: #373E3F;
-                    font-weight: bolder;
-                    text-indent: 3px;
-                }
-               
-         </style>
          <f:metadata>
              <f:viewParam name="c" value="#{testBean.curriculumId}"/>
              <f:viewParam name="id" value="#{testBean.testId}"/>
@@ -52,7 +30,7 @@
 
            <h:outputText rendered="#{(t[2]!=null)&amp;&amp;(t[3]!=null)&amp;&amp;(t[4]!=null)}" style="color: red" value="#{t[2]}  ||  #{t[3]}  ||  #{t[4]}"/>
            <div style="text-align: left; width: 50%;position: relative; left: 35%;  margin-top: 10px; margin-bottom: 10px;">
-               <table>
+               <table class="StudentTestStartPages">
                    <tr>
                        <td>
                         попыток:
@@ -126,21 +104,21 @@
               <r:set var="question" value="#{testPassingBean.currentQustionView.question}"/>
              
                   <h:panelGroup id="mainPanel" rendered="#{not testPassingBean.renderCompleteTest}" >
-                      отвечено на #{testPassingBean.countAnsweredquestion} из #{testPassingBean.countQuestions}<br/>
-                         <h:outputText escape="false" value="#{testPassingBean.questionTitle}"/><br/>
-                         <h:panelGroup id="radioType" rendered="#{question.type=='radio'}">
+                      отвечено на <span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countAnsweredquestion}</span> из <span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countQuestions}</span><br/>
+                         <h:outputText escape="false" value="#{testPassingBean.questionTitle}" style="display: block; padding-top: 10px; margin: 0;"/><br/>
+                         <h:panelGroup id="radioType" rendered="#{question.type=='radio'}" styleClass="educ_umk_text_block">
                              <h:selectOneRadio converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}">
                               <f:selectItems     value="#{testPassingBean.answers}"/><br/>
                             </h:selectOneRadio>
                          </h:panelGroup>
 
-                          <h:panelGroup id="checkType" rendered="#{question.type=='check'}">
+                          <h:panelGroup id="checkType" rendered="#{question.type=='check'}" styleClass="educ_umk_text_block">
                               <h:selectManyCheckbox converter="testConverter"  layout="pageDirection"  value="#{testPassingBean.selectedAnswers}" >
                                 <f:selectItems   value="#{testPassingBean.answers}" /><br/>
                             </h:selectManyCheckbox >
                          </h:panelGroup>
 
-                          <h:panelGroup id="textType" rendered="#{question.type=='text'}">
+                          <h:panelGroup id="textType" rendered="#{question.type=='text'}" styleClass="educ_umk_text_block">
                              <br/> <h:inputText value="#{testPassingBean.selectedAnswerText}" />
                          </h:panelGroup>
                           <h:panelGroup id="comparisonType" rendered="#{question.type=='comparison'}" style="position: relative; left: 40%;">
