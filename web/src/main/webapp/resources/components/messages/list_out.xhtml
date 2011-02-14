@@ -59,7 +59,7 @@
 
                         </div>
                         <div class="chatPostDate" style="font-size: 8pt;position: relative;top: -40px;">
-                            <h:outputText value="#{message.message.dateMessage}"/>
+                            <h:outputText converter="dateConverter" value="#{message.message.dateMessage}"/>
                         </div>
                         <div class="floatDestroyer"/>
                     </div>

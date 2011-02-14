@@ -52,13 +52,17 @@
                             <div class="controlWorksDisciplineNameLink"><h:outputLink value="test.xhtml?c=#{disciplineBean.discipline.id}&amp;id=#{test.id}" >#{test.title}</h:outputLink></div>
                         </r:when>
                         <r:otherwise>
-                            <div class="controlWorksDisciplineName"><h:outputText value="#{test.title}"/></div>
+                            <div class="controlWorksDisciplineName">
+<!--                                <h:outputText rendered="#{t[2]==null}" style="color: grey;" value="#{test.title}"/>-->
+                                 <h:outputText rendered="#{t[3]==null}" style="color: grey;" value="#{test.title}"/>
+                                  <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="#{test.title}"/>
+                            </div>
                         </r:otherwise>
                     </r:choose>
                     <div style="margin-left: 20px; margin-top: 5px;">
-                        <h:outputText rendered="#{t[2]!=null}" style="color: red; display: block;" value="#{t[2]}"/>
-                        <h:outputText rendered="#{t[3]!=null}" style="color: red; display: block;" value="#{t[3]}"/>
-                        <h:outputText rendered="#{t[4]!=null}" style="color: red; display: block;" value="#{t[4]}"/>
+                        <h:outputText rendered="#{t[2]!=null}" style="color: #EF596D; display: block;" value="#{t[2]}"/>
+                        <h:outputText rendered="#{t[3]!=null}" style="color: #EF596D; display: block;" value="#{t[3]}"/>
+                        <h:outputText rendered="#{t[4]!=null}" style="color: #EF596D; display: block;" value="#{t[4]}"/>
 <!--                         <h:outputText rendered="#{t[2]==null}" style="margin-top: -40px; display: block;"/>-->
 <!--                          <h:outputText rendered="#{t[3]==null}" style="margin-top: -40px; display: block;"/>-->
 <!--                        <h:outputText rendered="#{t[4]==null}" style="margin-top: -40px; display: block;"/><br/>-->

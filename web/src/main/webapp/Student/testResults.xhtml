@@ -59,7 +59,7 @@
                                     <h:outputText value="#{msgs.student_testResultDate}" />
                                 </div>
                             </f:facet>
-                            #{a.date}
+                            <h:outputText converter="dateConverter" value="#{a.date}"/>
                         </h:column>
                     </h:dataTable>
                 </h:column>

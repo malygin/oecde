@@ -44,7 +44,7 @@
                     <f:facet name="header">
                         <h:outputText value="дата"/>
                     </f:facet>
-                    <span ><h:outputText value="#{s.lessonDate}"/></span>
+                    <span ><h:outputText converter="dateConverter" value="#{s.lessonDate}"/></span>
                 </h:column>
             </h:dataTable>
         </div>

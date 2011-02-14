@@ -10,8 +10,9 @@
              <f:viewParam name="c" value="#{testBean.curriculumId}"/>
              <f:viewParam name="id" value="#{testBean.testId}"/>
          </f:metadata>
+            <div style="width: 100%; text-align: left;">
        <span id="counter"></span><br/>
-
+            </div>
        <h:form id="mainForm">
          <h:panelGroup rendered="#{not testBean.renderTestPassing}">
            <h:outputText rendered="#{testBean.accessDenied}" value="Не найден или не доступен" />
@@ -83,7 +84,7 @@
                    </tr>
                 </table>
            </div>       
-              <h:commandLink action="#{testBean.startTest}" rendered="#{not testBean.accessDenied}">Начать тест!
+              <h:commandLink action="#{testBean.startTest}" rendered="#{not testBean.accessDenied}" styleClass="studentButton" style="display: block; width: 150px; position: relative; left: 40%;">Начать тест!
                   <f:ajax render="@form" />
               </h:commandLink>  
            </h:panelGroup>
@@ -104,7 +105,7 @@
               <r:set var="question" value="#{testPassingBean.currentQustionView.question}"/>
              
                   <h:panelGroup id="mainPanel" rendered="#{not testPassingBean.renderCompleteTest}" >
-                      отвечено на <span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countAnsweredquestion}</span> из <span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countQuestions}</span><br/>
+                      <div style="margin-top: 10px;"><span class="DisciplineText">отвечено на </span><span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countAnsweredquestion}</span><span class="DisciplineText" style="padding:0;"> из </span><span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countQuestions}</span></div>
                          <h:outputText escape="false" value="#{testPassingBean.questionTitle}" style="display: block; padding-top: 10px; margin: 0;"/><br/>
                          <h:panelGroup id="radioType" rendered="#{question.type=='radio'}" styleClass="educ_umk_text_block">
                              <h:selectOneRadio converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}">
@@ -145,15 +146,15 @@
                                   </div>
                          </h:panelGroup>
 
-                         <h:commandButton value="следующий" action="#{testPassingBean.next}" styleClass="studentButton" style="margin: 8px;">
+                         <h:commandButton value="следующий" action="#{testPassingBean.next}" styleClass="studentButton" style="margin: 8px; width: 150px;">
                              <f:ajax render="@form"/>
                          </h:commandButton>
 
-                         <h:commandButton value="ответить" action="#{testPassingBean.answer}" styleClass="studentButton"  style="margin: 8px;">
+                         <h:commandButton value="ответить" action="#{testPassingBean.answer}" styleClass="studentButton"  style="margin: 8px; width: 150px;">
                               <f:ajax execute="@form" render="@form"/>
                          </h:commandButton>
 
-                         <h:commandButton id="completeTest" onclick="removeCounter();" value="завершить тест" action="#{testPassingBean.completeTest}" styleClass="studentButton"  style="margin: 8px;">
+                         <h:commandButton id="completeTest" onclick="removeCounter();" value="завершить тест" action="#{testPassingBean.completeTest}" styleClass="studentButtonRed"  style="margin: 8px; width: 150px;">
                              <f:ajax render="@form"/>
                          </h:commandButton>
 
@@ -166,9 +167,29 @@
                                    $(window).unbind('beforeunload');
                                });
                         </script>
-                    тест успешно завершен!!
-                    Баллов  #{testPassingBean.points} <br/>
-                    Правильно ответил на  #{testPassingBean.countRight}
+                     <div class="DisciplineText" style="font-size: 14pt;">Тест успешно завершен!</div>
+                     <div style="position: relative; left: 40%;">
+                     <table style="margin-top: 20px;">
+                         <tr>
+                             <td>
+                         <span style="color: grey;">Баллов</span>
+                             </td>
+                             <td>
+                             <h:outputText rendered="#{testPassingBean.points!=0}" style=" color: #373E3F;font-weight: bolder;" value="#{testPassingBean.points}"/>
+                            <h:outputText rendered="#{testPassingBean.points==0}" style=" color: red;font-weight: bolder;" value="#{testPassingBean.points}"/>
+                            </td>
+                         </tr>
+                    <tr>
+                        <td>
+                     <span style="color: grey;">Правильно ответил на </span>
+                        </td>
+                        <td>
+                         <h:outputText rendered="#{testPassingBean.countRight!=0}" style=" color: #373E3F;font-weight: bolder;" value="#{testPassingBean.countRight}"/>
+                         <h:outputText rendered="#{testPassingBean.countRight==0}" style=" color: red;font-weight: bolder;" value="#{testPassingBean.countRight}"/>
+                         </td>
+                     </tr>
+                     </table>
+                     </div>
                  </h:panelGroup>
                  <h:messages/>
                  </h:panelGroup>

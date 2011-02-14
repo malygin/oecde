@@ -27,6 +27,40 @@
 
 
 }
+.mainStyle .studentButtonRed{
+    color: #6F1B1B;
+    cursor: pointer;
+    font-size: 10pt;
+    background-color: #FFEFEF;
+    border: 1px solid #B97F7F;
+    margin-top: 10px;
+
+}
+/*.mainStyle .StudentBorderInfo{
+     border: 1px solid #C0C0C0;
+}
+
+.mainStyle .StudentBorderInfo th{
+    border-bottom: 1px solid #C0C0C0;
+}
+.mainStyle .StudentBorderInfo th:nth-child(1){
+    border-right: 1px solid #C0C0C0;
+}
+.mainStyle .StudentBorderInfo td:nth-child(1){
+     border-bottom: 1px solid #C0C0C0;
+     border-right: 1px solid #C0C0C0;
+}
+.mainStyle .StudentBorderInfo td:nth-child(2){
+     border-bottom: 1px solid #C0C0C0;
+}
+.mainStyle .StudentBorderInfoTableGroup{
+    border-right: 1px solid #C0C0C0;
+    border-bottom: 0px !important;
+}*/
+.mainStyle .StudentBorderInfoTableNumberGroup td{
+     border: 1px solid #C0C0C0;
+     width: 100%;
+}
  .mainStyle .StudentTablePadding{
                 padding: 10px;
                 margin: 0 !important;

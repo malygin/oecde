@@ -5,24 +5,24 @@
          template="../resources/adminTemplate.xhtml">
         <ui:define name="content">
             <div class="interfaceContent">
-                <h:dataTable id="table" value="#{citiesAndGroups.cities}" var="w">
+                <h:dataTable id="table" value="#{citiesAndGroups.cities}" var="w" styleClass="StudentBorderInfo" cellspacing="0" cellpadding="0" style="width: 100%;">
                 <h:column>
                     <f:facet name="header">
-                     <h:outputText value="Город" />
+                     <h:outputText value="Город" styleClass="DisciplineText" style="display: block;width: 100%;text-align: center !important;"/>
                     </f:facet>
-                    <h:outputText value="#{w.key.name}"/>
+                    <h:outputText value="#{w.key.name}" style="text-align:center; color: grey;"/>
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="группы" />
+                        <h:outputText value="Группы" styleClass="DisciplineText" style="display: block; width: 100%; text-align: center !important;"/>
                     </f:facet>
-                    <h:dataTable value="#{w.value}" var="s" cellspacing="0" cellpadding="0" border="1">
+                    <h:dataTable value="#{w.value}" var="s" cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
                         <h:column>
                             <h:outputText value="#{s.key.name}"/>
                         </h:column>
                         <h:column>
-                            <h:dataTable  value="#{s.value}" var="g">
+                            <h:dataTable  value="#{s.value}" var="g" cellspacing="0" cellpadding="0" styleClass="StudentBorderInfoTableNumberGroup" style="width: 100%;">
                                 <h:column>
                                     <h:outputLink value="group.xhtml?id=#{g.id}">#{g.name}</h:outputLink>
                                 </h:column>
