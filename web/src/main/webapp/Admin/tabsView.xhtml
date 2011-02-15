@@ -36,28 +36,30 @@
                 Добавление новой вкладки:
             </div>
             <h:form id="edit">
-                <table Class="studentStandatrTable" cellpadding="0" cellspacing="0">
+                <table Class="studentStandatrTable" cellpadding="0" cellspacing="0" style="width: 100%;">
                     <tr>
-                        <th>
+                        <th class="studentStandatrTableForChrome">
                             Имя вкладки
                         </th>
-                        <th>
+                        <th class="studentStandatrTableForChrome">
                             Тип вкладки
                         </th>
                     </tr>
                     <tr>
-                        <td class="studentStandatrTableTd">
+                        <td class="studentStandatrTableTd studentStandatrTableTdForChrome">
                             <div style="text-align: center !important;">
                             <h:inputText style="width: 90%;" id="tabName" value="#{tabEditBean.tab.name}" />
                             </div>
                         </td>
-                        <td class="studentStandatrTableTdLastTd">
+                        <td class="studentStandatrTableTdLastTd studentStandatrTableTdLastTdForChrome">
+                             <div style="text-align: center !important;">
                             <h:selectOneMenu style="width: 50%;" id="tabType" value="#{tabEditBean.tab.type}">
                                 <f:selectItems value="#{tabEditBean.types}" />
                             </h:selectOneMenu>
                             <span class="AdminNavigationLinks" >
                                 <h:commandLink action="#{tabEditBean.updateTab}" value="Добавить"/>
                             </span>
+                             </div>
                         </td>
                     </tr>
                 </table>

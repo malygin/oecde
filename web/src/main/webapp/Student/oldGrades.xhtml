@@ -33,7 +33,7 @@
                 <f:facet name="header">
                     <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
                 </f:facet>
-                <span class="controlWorksDisciplineName" style="display: block;font-size: 8pt;font-weight: normal;padding-left: 8px;">#{p.key.key.discipline.name}</span>
+                <span class="controlWorksDisciplineName controlWorksDisciplineNameLink" style="display: block;font-size: 8pt;font-weight: normal;padding-left: 8px;"><h:outputLink value="discipline.xhtml?c=#{p.key.key.id}">#{p.key.key.discipline.name}</h:outputLink></span>
             </h:column>
             <h:column>
                 <f:facet name="header">

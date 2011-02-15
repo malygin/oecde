@@ -9,14 +9,14 @@
         <div class="interfaceContent">
         <h:form>
             <table><tr style="display: block; margin-top: 10px;"><td>
-                <h:inputText value="#{searchBean.keyWord}">
+                <h:inputText value="#{searchBean.keyWord}" style="width: 250px;">
                     <f:ajax execute="@form" event="keypress" render=":table" listener="#{searchBean.doSearch}"/>
                 </h:inputText></td>
-            <td><h:selectOneMenu id="type" value="#{searchBean.type}">
+            <td><h:selectOneMenu id="type" value="#{searchBean.type}" style="height: 20px;">
                      <f:ajax execute="@form" render=":table" listener="#{searchBean.doSearch}"/>
                      <f:selectItems value="#{searchBean.types}" />
                  </h:selectOneMenu></td><td>
-                 <h:commandButton value="ОК" styleClass="studentButton" style="width: 70px; margin-top: 0;margin-left: 10px; text-align: center !important;">
+                 <h:commandButton value="ОК" styleClass="studentButton" style="width: 70px;height: 20px; margin-top: 0;margin-left: 10px; text-align: center !important;">
                      <f:ajax execute="@form" render=":table" listener="#{searchBean.doSearch}"/>
                  </h:commandButton>
             </td></tr></table>

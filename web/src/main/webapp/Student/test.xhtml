@@ -10,8 +10,9 @@
              <f:viewParam name="c" value="#{testBean.curriculumId}"/>
              <f:viewParam name="id" value="#{testBean.testId}"/>
          </f:metadata>
-            <div style="width: 100%; text-align: left;">
-       <span id="counter"></span><br/>
+            <div class="TestCounter">
+       <span id="counter"></span>
+            </div>
        <script type="text/javascript" src="../resources/jquery/js/jquery.jCountr.js"></script>
        <script type="text/javascript" src="../resources/scripts/test.js"></script>
 
@@ -199,8 +200,5 @@
                  <h:messages/>
                  </h:panelGroup>
             </h:form>
-   
-            </div>
-  
         </ui:define>
     </ui:composition>
