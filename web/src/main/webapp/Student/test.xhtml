@@ -12,7 +12,14 @@
          </f:metadata>
             <div style="width: 100%; text-align: left;">
        <span id="counter"></span><br/>
-            </div>
+       <script type="text/javascript" src="../resources/jquery/js/jquery.jCountr.js"></script>
+       <script type="text/javascript" src="../resources/scripts/test.js"></script>
+
+       <script>
+           //блокатор на повторное создание счетчика
+           var flag=true;
+       </script>
+
        <h:form id="mainForm">
          <h:panelGroup rendered="#{not testBean.renderTestPassing}">
            <h:outputText rendered="#{testBean.accessDenied}" value="Не найден или не доступен" />
@@ -20,16 +27,10 @@
            <r:set var="t" value="#{testBean.test}"/>
            <r:set var="work" value="#{t[1]}"/>
            <r:set var="test" value="#{work.work}"/><br/>
-           <r:choose>
-               <r:when test="#{t[0]=='true'}">
-                 <h:outputLink value="javascript:void(0)" styleClass="navigationLinks">#{test.title}</h:outputLink>
-               </r:when>
-               <r:otherwise>
-                 <h:outputText  value="#{test.title}"/>
-               </r:otherwise>
-           </r:choose><br/>
+         
 
            <h:outputText rendered="#{(t[2]!=null)&amp;&amp;(t[3]!=null)&amp;&amp;(t[4]!=null)}" style="color: red" value="#{t[2]}  ||  #{t[3]}  ||  #{t[4]}"/>
+         
            <div style="text-align: left; width: 50%;position: relative; left: 35%;  margin-top: 10px; margin-bottom: 10px;">
                <table class="StudentTestStartPages">
                    <tr>
@@ -90,16 +91,17 @@
            </h:panelGroup>
 
         <h:panelGroup id="TestPassing" rendered="#{testBean.renderTestPassing}">              
-                <script type="text/javascript" src="../resources/jquery/js/jquery-1.4.2.min.js"></script>
-                <script type="text/javascript" src="../resources/jquery/js/jquery.jCountr.js"></script>
-                <script type="text/javascript" src="../resources/scripts/test.js"></script>
                 <script>
                       $(function(){
+                          console.log(flag);
+                     if (flag){
+                              console.log('in');
                             $("#counter").counter({
                                       min:'#{testPassingBean.timeTest}',
                                       sec:'0',
                                       message: 'Время вышло!',
                                       finish_function: 'checkTime()' });
+                            flag=false;}
                            });
                 </script>
               <r:set var="question" value="#{testPassingBean.currentQustionView.question}"/>
@@ -195,7 +197,7 @@
                  </h:panelGroup>
             </h:form>
    
-
+            </div>
   
         </ui:define>
     </ui:composition>

@@ -105,7 +105,7 @@ public class ChatList extends HttpServlet {
                         }
              str.deleteCharAt(str.length()-1);
              str.append(" ]}");
-             System.out.println(""+str);
+          //   System.out.println(""+str);
              out.println(str);
 
         } finally {

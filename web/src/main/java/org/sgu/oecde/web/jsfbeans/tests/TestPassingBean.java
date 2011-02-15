@@ -148,7 +148,10 @@ public class TestPassingBean implements Serializable {
      */
     public void next() throws MalformedURLException, IOException{
         currentQustionView=questionsView[NumberNextQustion()];
-        questionTitle=checkForFormulaOrLink(currentQustionView.getQuestion().getTitle());
+         questionTitle=checkForFormulaOrLink(currentQustionView.getQuestion().getTitle());
+      //  System.out.println("pre "+currentQustionView.getQuestion().getTitle());
+      //  System.out.println("past "+questionTitle);
+
         makeAnswersList();        
     }
 
@@ -309,6 +312,15 @@ public class TestPassingBean implements Serializable {
             answers=new ArrayList<SelectItem>();
             for(Answer a:currentQustionView.getQuestion().getAnswers()){
                 answers.add(new SelectItem(a, checkForFormulaOrLink(a.getTitle())));
+                //answers.add(new SelectItem(a,a.getTitle()));
+//                System.out.println(" pre ");
+//                String res=a.getTitle().replace("\\", "\\\\");
+//                for(char c:res.toCharArray()){
+//                    System.out.print(" "+c);
+//                }
+              //  System.out.println("id "+a.getId());
+              //  System.out.println(" past "+checkForFormulaOrLink(a.getTitle()));
+
             }
         }
         if ((type==QuestionType.comparison)){       
