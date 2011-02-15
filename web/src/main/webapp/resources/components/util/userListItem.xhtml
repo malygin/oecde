@@ -63,7 +63,7 @@
                         <span class="s1"><a href="messages_write.xhtml?user=${cc.attrs.u.id}">#{msgs.student_studentListWriteMessage}</a></span> <span class="s2"><a href="messages_dialog.xhtml?user=${cc.attrs.u.id}">#{msgs.student_studentLestShowDialog}</a></span>
                     </td>
                     <sec:ifAnyGranted roles="ROLE_ADMIN">
-                       <td colspan="2" class="navigationLinks">
+                       <td colspan="2" class="navigationLinks" style="height: 50px; vertical-align: bottom;">
                           <h:outputLink value="switch_user?j_username=#{cc.attrs.u.username}" >Зайти</h:outputLink>
                        </td>
                     </sec:ifAnyGranted>

@@ -36,14 +36,27 @@
     margin-top: 10px;
 
 }
-/*.mainStyle .StudentBorderInfo{
-     border: 1px solid #C0C0C0;
+.mainStyle .StudentBorderInfo{
+     border: 1px solid #CFCFCF;
+}
+.mainStyle .StudentBorderInfo tr td:nth-child(1){
+      border-bottom: 1px solid #CFCFCF;
 }
 
 .mainStyle .StudentBorderInfo th{
-    border-bottom: 1px solid #C0C0C0;
+    border-bottom: 1px solid #CFCFCF;
 }
 .mainStyle .StudentBorderInfo th:nth-child(1){
+     height: 30px;
+}
+.mainStyle .StudentBorderInfo th:nth-child(2){
+     border-bottom: 1px solid #CFCFCF;
+     border-left: 1px solid #CFCFCF;
+}
+.mainStyle .StudentBorderInfoTd{
+    text-align: center !important;
+}
+/*.mainStyle .StudentBorderInfo th:nth-child(1){
     border-right: 1px solid #C0C0C0;
 }
 .mainStyle .StudentBorderInfo td:nth-child(1){
@@ -57,9 +70,28 @@
     border-right: 1px solid #C0C0C0;
     border-bottom: 0px !important;
 }*/
-.mainStyle .StudentBorderInfoTableNumberGroup td{
-     border: 1px solid #C0C0C0;
+
+.mainStyle .StudentBorderInfo .StudentBorderInfoTableCity{
+  border-bottom: 1px solid #CFCFCF;
+  text-indent: 5px;
+}
+.mainStyle .StudentBorderInfo .StudentBorderInfoTableCity tr:last-child td{
+     border-bottom: 0 !important;
+}
+.mainStyle .StudentBorderInfo .StudentBorderInfoTableCity td{
+      border-left: 1px solid #CFCFCF;
+       border-right: 1px solid #CFCFCF;
+       border-bottom: 1px solid #CFCFCF;
      width: 100%;
+     color: #1F1D1D;
+}
+.mainStyle .StudentBorderInfo .StudentBorderInfoTableCity td:nth-child(2){
+    width: 50px;
+}
+.mainStyle .StudentBorderInfo .StudentBorderInfoTableCity .StudentBorderInfoTableNumberGroup td{
+     border: 0 !important;
+     width: 100%;
+     text-align: center;
 }
  .mainStyle .StudentTablePadding{
                 padding: 10px;
