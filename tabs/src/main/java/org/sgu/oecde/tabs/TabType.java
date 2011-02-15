@@ -11,8 +11,10 @@ import java.util.List;
 public enum TabType implements Serializable{
     
     STUDENT_INFORMATION("Информация для студентов"),
+    STUDENT_HELP("Студенческая помощь",false),
     INDEX_PAGE("Главная страница"),
-    STUDENT_HELP("Студенческая помощь",false);
+    TEACHER_INFORMATION("Информация для преподавателей"),
+    TEACHER_HELP("Преподавательская помощь",false);
 
     private String name;
     private boolean singleton = true;

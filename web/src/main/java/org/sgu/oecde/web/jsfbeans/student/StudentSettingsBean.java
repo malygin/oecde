@@ -1,13 +1,13 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import org.sgu.oecde.core.IUpdateDao;
+import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.web.AvatarBuilder;
 import org.sgu.oecde.web.IBeanWithAvatarAdding;
-import org.sgu.oecde.web.jsfbeans.UserViewBean;
 
 /**
  *
@@ -15,13 +15,16 @@ import org.sgu.oecde.web.jsfbeans.UserViewBean;
  */
 @ManagedBean(name="studentSettingsBean")
 @ViewScoped
-public class StudentSettingsBean extends UserViewBean implements IBeanWithAvatarAdding{
+public class StudentSettingsBean implements IBeanWithAvatarAdding{
 
     @ManagedProperty(value="#{studentSessionBean}")
     private StudentSessionBean studentSessionBean;
 
     @ManagedProperty(value="#{avatarBuilder}")
     private AvatarBuilder avatarBuilder;
+
+    @ManagedProperty(value="#{studentDao}")
+    private IUpdateDao<Student>studentDao;
 
     private boolean saved;
 
@@ -35,17 +38,21 @@ public class StudentSettingsBean extends UserViewBean implements IBeanWithAvatar
     }
 
     public Student getStudent(){
-        return (Student) getUser();
+        return studentSessionBean.getStudent();
     }
 
     public void save(){
         try {
-            save();
+            studentDao.update(studentSessionBean.getStudent());
         } catch (Exception e) {
             e.fillInStackTrace();
             error = "При сохранении возникла ошибка";
         }
         saved = true;
+    }
+
+    public AbstractUser getUser() {
+        return getStudent();
     }
 
     public void setStudentSessionBean(StudentSessionBean studentSessionBean) {
@@ -72,8 +79,7 @@ public class StudentSettingsBean extends UserViewBean implements IBeanWithAvatar
         this.error = error;
     }
 
-    @PostConstruct
-    public void postConstract(){
-        setUser(studentSessionBean.getStudent());
+    public void setStudentDao(IUpdateDao<Student> studentDao) {
+        this.studentDao = studentDao;
     }
 }

@@ -13,5 +13,4 @@ import org.springframework.dao.DataAccessException;
 public interface ITabsDao extends IUpdateDao<Tab>{
     public void delete(Tab tab)throws DataAccessException;
     public void removeFile(PageFile pageFile)throws DataAccessException;
-    public void removePage(Page page)throws DataAccessException;
 }

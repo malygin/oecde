@@ -22,7 +22,7 @@
                                     <p>Мобильный телефон:</p>
                                 </td>
                                 <td>
-                                    <h:inputText id="cellPhone" maxlength="10" size="10" value="#{studentSettingsBean.student.cellPhone}"/>
+                                    +7<h:inputText id="cellPhone" maxlength="10" size="10" value="#{studentSettingsBean.student.cellPhone}"/>
                                 </td>
                             </tr>
                             <tr>
@@ -48,7 +48,7 @@
                                 <f:ajax execute="@form" render="@form mess saved error" listener="#{studentSettingsBean.save}"/>
                             </h:commandButton>
                         </div>
-                        <h:outputText id="saved" rendered="#{studentSettingsBean.saved}" value="saved"/>
+                        <h:outputText id="saved" rendered="#{studentSettingsBean.saved}" value="Сохранено"/>
                         <h:outputText id="error" rendered="#{studentSettingsBean.error ne null}" value="#{studentSettingsBean.error}"/>
                         <h:messages id="mess"/>
                     </div>

@@ -3,7 +3,7 @@
 <hibernate-mapping schema="oecdo_test">
   <class dynamic-insert="true" dynamic-update="true" name="org.sgu.oecde.tabs.Page" select-before-update="false" table="tab_page">
     <cache usage="read-write"/>
-    <id name="id" type="long" unsaved-value="0">
+   <id name="id" type="long" unsaved-value="0">
       <generator class="native">
         <param name="sequence">tab_page_seq</param>
       </generator>
@@ -11,10 +11,10 @@
     <property length="3000" name="text" not-null="true" type="string"/>
     <property length="250" name="title" type="string"/>
     <property name="visible" scale="1" type="true_false"/>
-    <many-to-one fetch="join" foreign-key="fk_tab" lazy="no-proxy" cascade="all" name="tab" />
-    <set batch-size="10" cascade="save-update,merge,delete" fetch="join" inverse="true" lazy="false" name="files" table="tab_page_file">
+    <many-to-one fetch="join" foreign-key="fk_tab" lazy="no-proxy" name="tab" />
+    <set batch-size="10" fetch="join" cascade="delete-orphan" inverse="true" lazy="false" name="files" table="tab_page_file">
       <cache usage="read-write"/>
-      <key on-delete="cascade" column="page" foreign-key="fk_tab_page" not-null="true"/>
+      <key  column="page" foreign-key="fk_tab_page" not-null="true"/>
       <one-to-many class="org.sgu.oecde.tabs.PageFile"/>
     </set>
   </class>

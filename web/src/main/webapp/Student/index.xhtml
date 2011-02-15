@@ -14,7 +14,12 @@
         <h:outputText value="#{studentSessionBean.student.fio}"/>
     </ui:define>
     <ui:define name="content">
-      
+
+            <f:metadata>
+                <f:viewParam name="s" value="#{badPassedTestsBean.semester}"/>
+                <f:viewParam name="s" value="#{lowGradedDisciplinesBean.semester}"/>
+                <f:viewParam name="s" value="#{lowGradedCwBean.semester}"/>
+            </f:metadata>
 
         <div class="userFile">
             <div style="width: 9%">
@@ -92,9 +97,6 @@
                 </tr>
                 <tr>
                     <td colspan="2" class="StudentTimeTable">
-                        <div style=" border-bottom: 1px solid silver;">
-                            <div class="navigationLinks indentionInNavigation"><a style="font-size: 12pt;" href="schedule.xhtml"></a></div>
-                        </div>
                         <table style="width: 100%;" class="studentStandatrTable studentStandatrWidth studentStandatrTableTdWithBorder " cellpadding="0" cellspacing="0">
                             <tr>
                                 <th style="width: 25%;">
@@ -104,8 +106,10 @@
                                     Дата
                                 </th>
                                 <th style="width: 25%;">
+                                    Событие
                                 </th>
                                 <th style="width: 25%;">
+                                    Дата
                                 </th>
                             </tr>
                             <tr>
@@ -115,78 +119,54 @@
                                 <td class="studentStandatrTableTd cent studentStandatrTableTdWithBorder">
                                    <h:outputText converter="dateConverter" value="#{resourceService.regularTestBeginDate}"/>
                                 </td>
-                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder"></td>
-                                <td class=" studentStandatrTableTdLastTdwithBorder"></td>
+                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
+                                    Открытие контрольных
+                                </td>
+                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
+                                   <h:outputText converter="dateConverter" value="#{studentIndexBean.testClosingDate}"/>
+                                </td>
                             </tr>
                             <tr>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
                                     Закрытие тестов
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
-                                   <h:outputText converter="dateConverter" value="#{studentIndexBean.testClosingDate}"/>
+                                    #{studentIndexBean.testClosingDate}
                                 </td>
-                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder"></td>
-                                <td class=" studentStandatrTableTdLastTdwithBorder"></td>
+                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
+                                    Открытие контрольных
+                                </td>
+                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
+                                    #{studentIndexBean.getDate("controlWorksEndDate")}
+                                </td>
                             </tr>
                             <tr>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
                                     Открытие итоговых тестов
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
-                                    <h:outputText converter="dateConverter" value="#{resourceService.concludingTestBeginDate}"/>
+                                    #{resourceService.concludingTestBeginDate}
                                 </td>
-                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder"></td>
-                                <td class=" studentStandatrTableTdLastTdwithBorder"></td>
+                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
+                                    Начало переэкзаменовки
+                                </td>
+                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
+                                    #{resourceService.reExameBeginDate}
+                                </td>
                             </tr>
                             <tr>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
                                     Закрытие итоговых тестов
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
-                                     <h:outputText converter="dateConverter" value="#{resourceService.concludingTestEndDate}"/>
+                                    #{resourceService.concludingTestEndDate}
                                 </td>
-                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder"></td>
-                                <td class=" studentStandatrTableTdLastTdwithBorder"></td>
-                            </tr>
-                            <tr>
-                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
-                                    Открытие контрольных
-                                </td>
-                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
-                                    <h:outputText converter="dateConverter" value="#{studentIndexBean.getDate('controlWorksBeginDate')}"/>
-                                </td>
-                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder"></td>
-                                <td class=" studentStandatrTableTdLastTdwithBorder"></td>
-                            </tr>
-                            <tr>
-                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
-                                    Закрытие контрольных
-                                </td>
-                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
-                                    <h:outputText converter="dateConverter" value="#{studentIndexBean.getDate('controlWorksEndDate')}" />
-                                </td>
-                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder"></td>
-                                <td class=" studentStandatrTableTdLastTdwithBorder"></td>
-                            </tr>
-                            <tr>
-                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
-                                    Начало переэкзаменовки
-                                </td>
-                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
-                                    <h:outputText converter="dateConverter" value="#{resourceService.reExameBeginDate}"/>
-                                </td>
-                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder"></td>
-                                <td class=" studentStandatrTableTdLastTdwithBorder"></td>
-                            </tr>
-                            <tr>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
                                     Окончание переэкзаменовки
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
                                     <h:outputText converter="dateConverter" value="#{resourceService.reExameEndDate}"/>
                                 </td>
-                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder"></td>
-                                <td class=" studentStandatrTableTdLastTdwithBorder"></td>
                             </tr>
                         </table>
                     </td>
@@ -226,38 +206,35 @@
                 </tr>
                 <tr>
                     <td colspan="2" class="indexChangeSemestrPanel">
-                        <est:changeSemester semester="#{controlWorksBean.semester}"/>
+                        <est:changeSemester semester="#{lowGradedDisciplinesBean.semester}"/>
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 50%;" class="StudentSecondLineBlocks" valign="top">
                         <div style=" border-bottom: 1px solid silver; padding-top: 4px; padding-left: 10px;">
                             <div class="navigationLinks indentionInNavigation" style="font-family: Arial; color: #27587F; background:url('../resources/images/discipline.gif') no-repeat;  padding-left: 24px;">Дисциплины</div>
-                        </div>
-                        
-                        <div style=" padding: 10px; ">
-                        <h:dataTable width="100%" value="#{lowGradedDisciplinesBean.lowGradedDisciplines}" var="p" cellpadding="0" cellspacing="0">
+                        </div>                        
+                        <div style=" padding-left: 10px; ">
+                        <h:dataTable columnClasses="studentStandatrTableTd studentStandatrTableTdTests,
+                                      studentStandatrTableTdLastTdwithBorder " styleClass="studentStandatrTable studentStandatrTableBorder"
+                                     style="width: 100%;"
+                                     value="#{lowGradedDisciplinesBean.lowGradedDisciplines}" var="p" cellpadding="0" cellspacing="0">
                         <h:column>
                             <div>
                                 <div class="controlWorksDisciplineNameLink">
-                                    
-                                       
-                                            <span>
+                                            <div>
                                                 <h:outputLink value="discipline.xhtml?c=#{p.points.curriculum.id}" >#{p.points.curriculum.discipline.name} </h:outputLink> <span class="linkToTeachersProfile linkToTeachersProfileFromStudent"><h:outputLink value="teacher.xhtml?id=${p.teacher.id}">#{p.teacher.initials}</h:outputLink></span>
 
-                                            </span>
-                                  
-                                   
+                                            </div>
                                 </div>
-
-                                <div class="educ_content_title_activ" style="padding-bottom: 10px; border-bottom: 1px solid #D1E0EF;">
+                                <div class="educ_content_title_activ" >
                                     <ol class="my_educ_disc_reason">
-                                        <li style=" background:url('../resources/images/star.gif') no-repeat 0px 0px; padding-left: 17px;" >итоговая оценка
-                                        <h:outputText converter="enumConverter" value="#{p.grade}" style="color: #373E3F;font-weight: bolder;"/>
-                                      
+                                        <h:panelGroup rendered="#{p.grade!=null}">
+                                            <li style=" background:url('../resources/images/star.gif') no-repeat 0px 0px; padding-left: 17px; padding-bottom: 3px;" >итоговая оценка
+                                            <h:outputText converter="enumConverter" value="#{p.grade}"/>
                                         </li>
-                                        <li style=" background:url('../resources/images/discipline_summ.gif') no-repeat 0 0px; padding-left: 17px;">сумма баллов <h:outputText rendered="#{p.points.sum!=0}" style=" color: #373E3F;font-weight: bolder;" value="#{p.points.sum}"></h:outputText>
-                                        <h:outputText rendered="#{p.points.sum==0}" style=" color: red;font-weight: bolder;" value="#{p.points.sum}"></h:outputText></li>
+                                        </h:panelGroup>
+                                        <li style=" background:url('../resources/images/discipline_summ.gif') no-repeat 0 0px; padding-left: 17px; padding-bottom: 3px;">сумма баллов <span style=" color: #373E3F;font-weight: bolder;">#{p.points.sum}</span></li>
 
                                     </ol>
                                 </div>
@@ -267,60 +244,15 @@
                         </div>
                     </td>
                     <td style="width: 50%; padding: 3px 3px 0px 3px; border: 1px solid silver;" valign="top">
-                        <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
-                            <div class="navigationLinks indentionInNavigation"><a style="font-size: 12pt;  background:url('../resources/images/control_works.gif') no-repeat;  padding-left: 24px;" href="controlWorks.xhtml">Мои контрольные </a></div>
-                        </div>
-                        <div style=" padding: 10px; ">
-                            <div>
-                                <div class="controlWorksDisciplineNameLink">
-                                    <span>
-                                        <a href="1" style="text-decoration:none;">Английский язык</a>
-                                    </span>
-                                </div>
-                                <div class="educ_content_title_activ">
-                                    <ol class="my_educ_disc_reason" style="padding-bottom:10px; border-bottom: 1px solid #D1E0EF;">
-                                        <li>отсутствуют самостоятельные работы</li>
-                                        <li>низкая активность</li>
-                                    </ol>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="controlWorksDisciplineNameLink" >
-                                    <span>
-                                        <a href="1"  style="text-decoration:none;">Аудиовизуальные технологии обучения</a>
-                                    </span>
-                                </div>
-                                <div class="educ_content_title_activ">
-                                    <ol class="my_educ_disc_reason" style="padding-bottom:10px; border-bottom: 1px solid #D1E0EF;">
-                                        <li>баллов нет</li>
-                                    </ol>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="controlWorksDisciplineNameLink">
-                                    <span>
-                                        <a href="1"  style="text-decoration:none;">Введение в психолого-педагогическую деятельность</a>
-                                    </span>
-                                </div>
-                                <div class="educ_content_title_activ" >
-                                    <ol class="my_educ_disc_reason" style=" padding-bottom:10px; border-bottom: 1px solid #D1E0EF;">
-                                        <li>баллов нет</li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr><tr>
-                    <td style="width: 50%; padding: 3px 3px 0px 3px; border: 1px solid silver;" valign="top">
                         <div style=" border-bottom: 1px solid silver; padding-top: 4px; padding-left: 10px;">
                             <div class="navigationLinks indentionInNavigation" style="font-family: Arial; color: #27587F;   background:url('../resources/images/test_results.gif') no-repeat;  padding-left: 24px;">Результаты тестов</div>
                         </div>
-                        <div style=" padding: 10px; ">
+                        <div style=" padding-left: 10px; ">
                         <h:dataTable cellpadding="0" cellspacing="0"
                                      columnClasses="studentStandatrTableTd studentStandatrTableTdTests,
                                       studentStandatrTableTdLastTdwithBorder " styleClass="studentStandatrTable studentStandatrTableBorder"
                                      style="width: 100%;"
-                                     value="#{badPassedTestsBean.badPassedTests}" var="r">
+                                     value="#{badPassedTestsBean.badPassedTests(false)}" var="r">
                             <h:column>
                             <div>
                                 <div class="controlWorksDisciplineNameLink">
@@ -339,16 +271,17 @@
                         </h:dataTable>
                             </div>
                     </td>
+                </tr><tr>
                     <td style="width: 50%; padding: 3px 3px 0px 3px; border: 1px solid silver;" valign="top">
                         <div style=" border-bottom: 1px solid silver; padding-top: 4px; padding-left: 10px;">
                             <div class="navigationLinks indentionInNavigation" style="font-family: Arial; color: #27587F;   background:url('../resources/images/test_result.gif') no-repeat;  padding-left: 24px;">Результаты итоговых тестов</div>
                         </div>
-                        <div style=" padding: 10px; ">
+                        <div style=" padding-left: 10px; ">
                         <h:dataTable cellpadding="0" cellspacing="0"
                                      columnClasses="studentStandatrTableTd studentStandatrTableTdTests,
                                       studentStandatrTableTdLastTdwithBorder" styleClass="studentStandatrTable studentStandatrTableBorder"
                                      style="width: 100%;"
-                                     value="#{badPassedTestsBean.badPassedTests}" var="r">
+                                     value="#{badPassedTestsBean.badPassedTests(true)}" var="r">
                             <h:column>
                             <div>
                                 <div class="controlWorksDisciplineNameLink">
@@ -360,6 +293,41 @@
                                     <ol class="my_educ_disc_reason">
                                         <li  style="background:url('../resources/images/discipline_summ.gif') no-repeat 0 0px; padding-left: 17px; padding-bottom: 3px;">набрано баллов<h:outputText rendered="#{r.pointsForWork!=0}" style="color:#373E3F; font-weight: bolder; margin-left: 3px;" value="#{r.pointsForWork}"></h:outputText>
                                     <h:outputText rendered="#{r.pointsForWork==0}" style="color:red; font-weight: bolder;margin-left: 3px;" value="#{r.pointsForWork}"></h:outputText></li>
+                                    </ol>
+                                </div>
+                            </div>
+                            </h:column>
+                        </h:dataTable>
+                        </div>
+                    </td>
+
+                    <td style="width: 50%; padding: 3px 3px 0px 3px; border: 1px solid silver;" valign="top">
+                        <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
+                            <div class="navigationLinks indentionInNavigation"><a style="font-size: 12pt;  background:url('../resources/images/control_works.gif') no-repeat;  padding-left: 24px;" href="controlWorks.xhtml">Мои контрольные </a></div>
+                        </div>
+                        <div style=" padding-left: 10px; ">
+                        <h:dataTable columnClasses="studentStandatrTableTd studentStandatrTableTdTests,
+                                      studentStandatrTableTdLastTdwithBorder " styleClass="studentStandatrTable studentStandatrTableBorder"
+                                     style="width: 100%;"
+                                     value="#{lowGradedCwBean.works}" var="w" cellpadding="0" cellspacing="0">
+                        <h:column>
+                            <div>
+                                <div class="controlWorksDisciplineNameLink">
+                                            <div>
+                                        #{w.key.discipline.name}
+                                            </div>
+                                </div>
+                                <div class="educ_content_title_activ" >
+                                    <ol class="my_educ_disc_reason">
+                                        <h:panelGroup rendered="#{w.value ne null}">
+                                            <li style=" background:url('../resources/images/star.gif') no-repeat 0px 0px; padding-left: 17px; padding-bottom: 3px;" >Контрольная
+                                            <h:outputText converter="enumConverter" value="#{w.value.progress}"/>
+                                            </li>
+                                            <li style=" background:url('../resources/images/discipline_summ.gif') no-repeat 0 0px; padding-left: 17px; padding-bottom: 3px;">Получено баллов <span style=" color: #373E3F;font-weight: bolder;">#{w.value.points}</span></li>
+                                        </h:panelGroup>
+                                        <h:panelGroup rendered="#{empty w.value}" >
+                                            <li style=" background:url('../resources/images/discipline_summ.gif') no-repeat 0 0px; padding-left: 17px; padding-bottom: 3px;">Контрольная работа не выполнена</li>
+                                        </h:panelGroup>
                                     </ol>
                                 </div>
                             </div>

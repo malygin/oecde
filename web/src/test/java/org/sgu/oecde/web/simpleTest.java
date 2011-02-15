@@ -1,11 +1,31 @@
 package org.sgu.oecde.web;
 
+import java.io.ByteArrayInputStream;
+import java.io.Externalizable;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Date;
+import java.util.Formatter;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
+import java.util.PriorityQueue;
+import java.util.Scanner;
 import java.util.Set;
+import java.util.TreeSet;
+import java.util.regex.Pattern;
 import javax.activation.MimetypesFileTypeMap;
+import org.apache.xmlbeans.impl.piccolo.util.RecursionException;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.sgu.oecde.journal.EventType;
@@ -84,8 +104,7 @@ public class simpleTest{
 
     @Test
     public void asdasd(){
-        Integer a = 344;
-        long b = 343l;
-        System.out.println(new Short((short)343) < a);
+        Formatter f = new Formatter();
+        f.format("%S", "hello123");
     }
 }

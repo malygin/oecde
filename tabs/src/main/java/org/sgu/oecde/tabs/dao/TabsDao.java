@@ -46,9 +46,4 @@ public class TabsDao extends UpdateDao<Tab> implements ITabsDao{
     public void removeFile(PageFile pageFile)throws DataAccessException {
         getSession().delete(pageFile);
     }
-
-    @Transactional
-    public void removePage(Page page)throws DataAccessException {
-        getSession().delete(page);
-    }
 }

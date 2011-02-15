@@ -1,6 +1,7 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +19,7 @@ import org.sgu.oecde.de.education.dao.IGroupDao;
 import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.web.jsfbeans.util.NewEntry;
+import org.springframework.util.Assert;
 
 /**
  *
@@ -25,13 +27,16 @@ import org.sgu.oecde.web.jsfbeans.util.NewEntry;
  */
 @ManagedBean(name="oldGradesBean")
 @ViewScoped
-public class OldGrades extends StudentCurriculumBean{
+public class OldGrades extends AbstractStudentBean{
 
     @ManagedProperty(value="#{estimateDao}")
     private IResultDao<Estimate>estimateDao;
 
     @ManagedProperty(value="#{groupDao}")
     private IGroupDao groupDao;
+
+    @ManagedProperty(value="#{studentSessionBean}")
+    private StudentSessionBean studentSessionBean;
     
     private List<NewEntry<NewEntry<DeCurriculum,Teacher>,Estimate>>points;
 
@@ -45,15 +50,26 @@ public class OldGrades extends StudentCurriculumBean{
         if(points==null){
             List<Student>stl = ListUtil.<Student>oneItemList(student);
             Map<DeCurriculum,Teacher>map = null;
-            if(group!=student.getGroup())
-                map = curriculumDao.<DeCurriculum,Teacher>getTeachersByGroup(semester, (semesterGetter.getCurrentYear()-(student.getGroup().getYear()-group.getYear())), group);
+            points = new ArrayList<NewEntry<NewEntry<DeCurriculum,Teacher>,Estimate>>();
+
+            if(semester != semesterGetter.getCurrentSemester()){
+                int year = student.getGroup().getYear()-group.getYear();
+                map = curriculumDao.<DeCurriculum,Teacher>getTeachersByGroup(semester, semesterGetter.getCurrentYear()-year, group);
+            }else
+                map = studentSessionBean.getCurriculumAndTeacher(semester%2);
+
+            if(map == null)
+                return points;
             else
-                map = getCurriculumAndTeacher();
+                map = new HashMap<DeCurriculum, Teacher>(map);
+
             List<Estimate> l = estimateDao.getByStudentsAndCurriculums(new ArrayList(map.keySet()), stl, null);
+
             if(l==null)
                 return points;
-            points = new ArrayList<NewEntry<NewEntry<DeCurriculum,Teacher>,Estimate>>();
+
             Iterator<Map.Entry<DeCurriculum,Teacher>>setI = map.entrySet().iterator();
+
             while(setI.hasNext()){
                 Map.Entry<DeCurriculum,Teacher> entry = setI.next();
                 Iterator<Estimate>i = l.iterator();
@@ -77,41 +93,35 @@ public class OldGrades extends StudentCurriculumBean{
         return points;
     }
 
-    public Integer[] getYears(){
+    public int[][] getYears(){
         int end = 6;
         if(group.getSpeciality().getName().contains("ускор")
                                    ||group.getSpeciality().getName().contains("сокр")){
             end = 4;
         }
-        Integer[] l = new Integer[end];
+        int[][] l = new int[end][2];
         for(int k=1;k<=end;k++){
-            l[k-1] = k*2-(winter?1:0);
+            l[k-1] = new int[]{k,k*2-(winter?1:0)};
         }
         return l;
     }
 
-    public void changeIsWinter(AjaxBehaviorEvent event){
-        Boolean w = (Boolean) event.getComponent().getAttributes().get("winter");
-        winter = w;
-        points = null;
-    }
-
     @Override
     public void setSemester(int semester) {
-        if(semester == 0)
-            semester = student.<Group>getGroup().getYear()*2-semesterGetter.getCurrentSemester();
+        group = groupDao.getTeachersAndCurriculumsByOldGroup(semester/2, student);
+        if(group == null)
+            group = student.getGroup();
         super.setSemester(semester);
     }
 
     @PostConstruct
     public void afterPropertiesSet() {
-        group = groupDao.getTeachersAndCurriculumsByOldGroup(semester/2, student);
-        if(group == null)
-            group = student.getGroup();
+        Assert.notNull(student);
+        group = student.getGroup();
+        semester = student.<Group>getGroup().getYear()*2-semesterGetter.getCurrentSemester();
         winter=(semesterGetter.getCurrentSemester()==1);
-        setSemester(0);
     }
-
+    
     public void setEstimateDao(IResultDao<Estimate> estimateDao) {
         this.estimateDao = estimateDao;
     }
@@ -126,5 +136,9 @@ public class OldGrades extends StudentCurriculumBean{
 
     public void setWinter(boolean winter) {
         this.winter = winter;
+    }
+
+    public void setStudentSessionBean(StudentSessionBean studentSessionBean) {
+        this.studentSessionBean = studentSessionBean;
     }
 }

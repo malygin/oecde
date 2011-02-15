@@ -18,7 +18,7 @@ import org.sgu.oecde.web.authentication.CustomAuthenticationSuccessHandler;
  */
 @ManagedBean(name="loginBean")
 @ViewScoped
-public class LoginBean implements Serializable{
+public class LoginBean extends Thread implements Serializable{
     
     private boolean renderErrorEnter=false;
 

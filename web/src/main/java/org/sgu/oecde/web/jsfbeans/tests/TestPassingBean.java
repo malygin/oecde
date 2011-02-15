@@ -214,7 +214,7 @@ public class TestPassingBean implements Serializable {
               case text:
                    GivenAnswer ga=new GivenAnswer();
                    ga.setAnsweredQuestion(answeredQuestion);
-                   Answer answer=(Answer) currentQustionView.getQuestion().getAnswers().toArray()[0];
+                   Answer answer=  currentQustionView.getQuestion().getAnswers().iterator().next();
                    ga.setRightAnswer(answer);
                    ga.setGivenAnswer(selectedAnswerText);
                   if(answer.getRightAnswer().toLowerCase().equals(selectedAnswerText.toLowerCase())){

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping schema="oecdo_test">
-  <joined-subclass dynamic-update="true" extends="org.sgu.oecde.core.users.AbstractGroup" name="org.sgu.oecde.core.users.StudentGroup" table="student_group">
+<hibernate-mapping >
+  <joined-subclass dynamic-update="true" schema="oecdo_test" extends="org.sgu.oecde.core.users.AbstractGroup" name="org.sgu.oecde.core.users.StudentGroup" table="student_group">
     <key column="id" foreign-key="fk_st_group_group" not-null="true" on-delete="cascade"/>
     <property name="year" column="education_year" scale="1" type="integer"/>
-    <set cascade="none" fetch="select" lazy="true" mutable="false" name="teacherToGroups" table="teacher_to_group">
+    <set cascade="none" fetch="select" lazy="true" schema="d_education" mutable="false" name="teacherToGroups" table="teacher_to_group">
       <cache usage="read-only"/>
       <key column="student_group" foreign-key="fk_teacher_2_group_group"/>
       <composite-element class="org.sgu.oecde.core.education.TeacherToGroup">

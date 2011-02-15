@@ -25,12 +25,10 @@ public class BadPassedTests extends StudentCurriculumBean{
     private List<AdditionalSelfDependentWork>tests;
 
     private List<AdditionalSelfDependentWork>concludingTests;
-            
-    private Boolean concluding=false;
 
     private static final long serialVersionUID = 101L;
 
-    public List<AdditionalSelfDependentWork> getBadPassedTests(){
+    public List<AdditionalSelfDependentWork> badPassedTests(boolean concluding){
         if(tests==null){
             tests = testAttemptService.getStudentTestsWithAttempts(getCurriculums(), student);
             concludingTests = new LinkedList();
@@ -44,14 +42,6 @@ public class BadPassedTests extends StudentCurriculumBean{
             }
         }
         return concluding?concludingTests:tests;
-    }
-
-    public void setConcluding(Boolean concluding) {
-        this.concluding = concluding;
-    }
-
-    public Boolean getConcluding() {
-        return concluding;
     }
 
     public void setTestAttemptService(TestAttemptService testAttemptService) {

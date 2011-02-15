@@ -32,7 +32,7 @@ import org.springframework.test.context.ContextConfiguration;
 @ContextConfiguration(locations={"../applicationContext.xml","../spring/deBeans.xml"})
 public class getSimpleItem extends BasicTest{
 
-    @Ignore
+//    @Ignore
     @Test
     public void makeDepartment(){
         this.<DeCurriculum>setDao("curriculumDao");

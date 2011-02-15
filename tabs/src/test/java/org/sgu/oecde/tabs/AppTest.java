@@ -66,15 +66,13 @@ public class AppTest extends BasicTest{
         this.<IUpdateDao>getDao().update(t);
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void delete(){
         setDao("tabsDao");
         Tab t = getItem(20L);
         Page p = t.getPages().iterator().next();
-        p.setTab(null);
-        t.getPages().remove(p);
-        this.<IUpdateDao>getDao().update(t);
+        this.<ITabsDao>getDao().update(t);
     }
 
     @Ignore
@@ -86,7 +84,7 @@ public class AppTest extends BasicTest{
         System.out.println(l);
     }
     
-    @Ignore
+//    @Ignore
     @Test
     public void delete2(){
         setDao("tabsDao");

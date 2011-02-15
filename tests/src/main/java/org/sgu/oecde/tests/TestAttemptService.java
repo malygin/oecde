@@ -112,6 +112,8 @@ public class TestAttemptService implements Serializable{
      */
     public List<AdditionalSelfDependentWork>getTestsWithAttempts(List<? extends Curriculum> curriculums,String testingDate,List<? extends AbstractStudent>students){
         Map<Curriculum,List<TestEntity>>m = resourceDao.<Curriculum,TestEntity>getResourceByCurriculums(curriculums,null, TestEntity.class);
+        if(m == null)
+            return new ArrayList<AdditionalSelfDependentWork>(0);
         TestAttempt tmpAttempt = new TestAttempt(testingDate);
         List<TestAttempt>attempts = testAttemptDao.getByStudentsAndCurriculums(curriculums, students, tmpAttempt);
         

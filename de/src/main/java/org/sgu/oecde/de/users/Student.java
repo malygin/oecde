@@ -19,7 +19,7 @@ public class Student extends AbstractStudent{
     /**
      * мобильный
      */
-    @Digits(integer=10,message="Содержит недопустимые символы",fraction=0)
+    @Digits(integer=11,message="Содержит недопустимые символы",fraction=0)
     private Integer cellPhone;
     /**
      * icq
