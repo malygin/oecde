@@ -93,31 +93,34 @@
         <h:panelGroup id="TestPassing" rendered="#{testBean.renderTestPassing}">              
                 <script>
                       $(function(){
-                          console.log(flag);
-                     if (flag){
-                              console.log('in');
-                            $("#counter").counter({
-                                      min:'#{testPassingBean.timeTest}',
-                                      sec:'0',
-                                      message: 'Время вышло!',
-                                      finish_function: 'checkTime()' });
-                            flag=false;}
-                           });
+                          //сделали костыльный эскейп для формул и хтмок всех
+                        jQuery("label").each(function(i){$(this).html($(this).text());});
+                         if (flag){
+                                  console.log('in');
+                                $("#counter").counter({
+                                          min:'#{testPassingBean.timeTest}',
+                                          sec:'0',
+                                          message: 'Время вышло!',
+                                          finish_function: 'checkTime()' });
+                                flag=false;}
+                               });
                 </script>
               <r:set var="question" value="#{testPassingBean.currentQustionView.question}"/>
              
                   <h:panelGroup id="mainPanel" rendered="#{not testPassingBean.renderCompleteTest}" >
                       <div style="margin-top: 10px;"><span class="DisciplineText">отвечено на </span><span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countAnsweredquestion}</span><span class="DisciplineText" style="padding:0;"> из </span><span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countQuestions}</span></div>
                          <h:outputText escape="false" value="#{testPassingBean.questionTitle}" style="display: block; padding-top: 10px; margin: 0;"/><br/>
-                         <h:panelGroup id="radioType" rendered="#{question.type=='radio'}" styleClass="educ_umk_text_block">
-                             <h:selectOneRadio converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}">
-                              <f:selectItems     value="#{testPassingBean.answers}"/><br/>
+                         <h:panelGroup  id="radioType" rendered="#{question.type=='radio'}" styleClass="educ_umk_text_block">
+                             <h:selectOneRadio   converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}">
+                                 <f:selectItems   itemLabelEscaped="false" var="item" itemValue="23423"  itemLabel="234234" value="#{testPassingBean.answers}">
+                                  
+                              </f:selectItems>  <br/>
                             </h:selectOneRadio>
                          </h:panelGroup>
 
                           <h:panelGroup id="checkType" rendered="#{question.type=='check'}" styleClass="educ_umk_text_block">
-                              <h:selectManyCheckbox converter="testConverter"  layout="pageDirection"  value="#{testPassingBean.selectedAnswers}" >
-                                <f:selectItems   value="#{testPassingBean.answers}" /><br/>
+                              <h:selectManyCheckbox  converter="testConverter"  layout="pageDirection"  value="#{testPassingBean.selectedAnswers}" >
+                                  <f:selectItems itemLabelEscaped="false" itemLabel="dfgdfg"    value="#{testPassingBean.answers}" /><br/>
                             </h:selectManyCheckbox >
                          </h:panelGroup>
 

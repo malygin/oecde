@@ -1,5 +1,5 @@
 
-package org.sgu.oecde.web.jsfbeans.util;
+package org.sgu.oecde.web.jsfbeans.tests;
 
 import java.io.Serializable;
 import javax.faces.component.UIComponent;
@@ -27,6 +27,7 @@ public class TestConverter implements Converter, Serializable {
 
     @Override
     public String getAsString(FacesContext facesContext, UIComponent component, Object object) {
+        System.out.println(((Answer) object).getId().toString());
         return ((Answer) object).getId().toString();
     }
 
