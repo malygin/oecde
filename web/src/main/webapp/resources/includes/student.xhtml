@@ -11,14 +11,14 @@
                 <h:form>
                 <table cellpadding="0" cellspacing="0">
                     <tr>
-                        <td class="userPhotoBorder">
-                            <ut:showPhoto user="#{studentViewBean.user}" size="large"/>
+                        <td class="userPhotoBorderfromAdmin">
+                            <ut:showPhoto user="#{studentViewBean.user}" styleClass="#{studentViewBean.user.classType}" size="medium"/>
                         </td>
                     </tr>
                     <tr>
                         <td>
                         <sec:ifAnyGranted roles="ROLE_ADMIN">
-                            <h:outputLink value="switch_user?j_username=#{studentViewBean.user.username}" >Зайти</h:outputLink>
+                            <h:outputLink value="switch_user?j_username=#{studentViewBean.user.username}" styleClass="controlWorksDisciplineNameLink">Зайти</h:outputLink>
                         </sec:ifAnyGranted>
                         </td>
                     </tr>

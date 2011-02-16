@@ -29,10 +29,10 @@
    <composite:implementation>
        <h:dataTable id="events" value="#{cc.attrs.list}" var="e">
             <h:column>
-                <div class="navigationLinks" style="margin-top: 5px;">
+                <div class="navigationLinks" style="margin-top: 5px; margin-left: 30px;padding-bottom: 5px; border-bottom: 1px solid #EFEFEF;">
                     
                     <span style="background: url('../resources/images/star.gif') no-repeat left bottom; padding-left: 18px; font-family: tahoma; color: gray;">
-                   #{e.time}.</span>
+                   <h:outputText converter="dateConverter" value="#{e.time}."/></span>
                     <div class="floatDestroyer"></div>
 <!--  картинки не переименованы, потому сча тут закоменчено
 <img src="../resources/images/evLineIco/event#{e.eventType}.png" alt=""/>-->
