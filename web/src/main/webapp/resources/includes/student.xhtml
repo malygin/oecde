@@ -15,18 +15,28 @@
                             <ut:showPhoto user="#{studentViewBean.user}" styleClass="#{studentViewBean.user.classType}" size="medium"/>
                         </td>
                     </tr>
+                     
                     <tr>
-                        <td>
+                        <td style="padding-bottom: 10px; padding-top: 10px;">
+             
                         <sec:ifAnyGranted roles="ROLE_ADMIN">
-                            <h:outputLink value="switch_user?j_username=#{studentViewBean.user.username}" styleClass="controlWorksDisciplineNameLink">Зайти</h:outputLink>
+                            <span class="controlWorksDisciplineNameLink">
+                            <h:outputLink value="switch_user?j_username=#{studentViewBean.user.username}">Зайти</h:outputLink>
+                            </span>
                         </sec:ifAnyGranted>
+                            
                         </td>
                     </tr>
-                    <tr><td>
-                        <h:commandLink value="удалить">
+                     
+                    <tr>
+                        <td>
+                         <span class="controlWorksDisciplineNameLink">
+                        <h:commandLink value="Удалить">
                             <f:ajax execute="@form" render="@form" listener="#{studentViewBean.deletePhoto}"/>
                         </h:commandLink>
+                         </span>
                     </td></tr>
+                          
                 </table>
                 </h:form>
             </div>
@@ -52,32 +62,35 @@
                         <td><p>#{msgs.student_mainContentUserInfoCourse}</p></td><td><div>#{studentViewBean.user.group.year}</div></td>
                     </tr>
                     <tr>
-                        <td><p>#{msgs.student_mainContentUserInfoGroup}</p></td><td><div>
+                        <td><p>#{msgs.student_mainContentUserInfoGroup}</p></td>
+                        <td>
+                            <div class="controlWorksDisciplineNameLink">
                                 <h:outputLink value="group.xhtml?id=#{studentViewBean.user.group.id}">#{studentViewBean.user.group.name}</h:outputLink>
-                            </div></td>
+                            </div>
+                        </td>
                     </tr>
                     <sec:ifAnyGranted roles="ROLE_ADMIN">
                         <tr>
-                            <td><p>полный ли доступ</p></td><td><div><h:selectBooleanCheckbox  value="#{studentViewBean.user.fullAccess}"/></div></td>
+                            <td><p>Полный ли доступ:</p></td><td><div><h:selectBooleanCheckbox  value="#{studentViewBean.user.fullAccess}" style="width:0%;"/></div></td>
                         </tr>
                         <tr>
-                            <td><p>переведён ли на след. курс</p></td><td><div><h:selectBooleanCheckbox  value="#{studentViewBean.user.transfered}"/></div></td>
+                            <td><p>Переведён ли на след. курс:</p></td><td><div><h:selectBooleanCheckbox  value="#{studentViewBean.user.transfered}" style="width:0%;"/></div></td>
                         </tr>
                         <tr>
-                            <td><p>есть ли доступ на портал</p></td><td><div><h:selectBooleanCheckbox  value="#{studentViewBean.user.enabled}"/></div></td>
+                            <td><p>Есть ли доступ на портал:</p></td><td><div><h:selectBooleanCheckbox  value="#{studentViewBean.user.enabled}" style="width:0%;"/></div></td>
                         </tr>
                         <tr>
-                            <td><p>логин</p></td><td><div>#{studentViewBean.user.username}</div></td>
+                            <td><p>Логин:</p></td><td><div>#{studentViewBean.user.username}</div></td>
                         </tr>
                         <tr>
-                            <td><p>пароль</p></td><td><div><h:inputText value="#{studentViewBean.user.password}"/></div></td>
+                            <td><p>Пароль:</p></td><td><div><h:inputText value="#{studentViewBean.user.password}" style="width:45%;"/></div></td>
                         </tr>
                         <tr>
-                            <td><p>изначальный айди</p></td><td><div>#{studentViewBean.user.originalId}</div></td>
+                            <td><p>Изначальный айди:</p></td><td><div>#{studentViewBean.user.originalId}</div></td>
                         </tr>
                         <tr>
                             <td><div>
-                            <h:commandButton value="ОКЭ">
+                            <h:commandButton value="ОК" styleClass="studentButton" style="width:45%; text-align: center;">
                                 <f:ajax execute="@form" render="@form" listener="#{studentViewBean.save}"/>
                             </h:commandButton>
                             </div></td>
@@ -90,24 +103,24 @@
         </div>
         <est:changeSemester semester="#{studentViewBean.semester}" link="id=#{studentViewBean.id}"/>
 
-                <hr/><br/><h4>Оценки:</h4><br/><hr/>
+                <hr/><br/><h4 class="DisciplineText">Оценки:</h4><br/><hr/>
         <h:dataTable  value="#{gradesBean.points}"
                      columnClasses="studentStandatrTableTd,
                      studentStandatrTableTd,
-                     studentStandatrTableTd,
-                     studentStandatrTableTd,
-                     studentStandatrTableTd,
-                     studentStandatrTableTd,
-                     studentStandatrTableTd,
-                     studentStandatrTableTd,
-                     studentStandatrTableTd,
+                     studentStandatrTableTd StudentBorderInfoTd,
+                     studentStandatrTableTd StudentBorderInfoTd,
+                     studentStandatrTableTd StudentBorderInfoTd,
+                     studentStandatrTableTd StudentBorderInfoTd,
+                     studentStandatrTableTd StudentBorderInfoTd,
+                     studentStandatrTableTd StudentBorderInfoTd,
+                     studentStandatrTableTd StudentBorderInfoTd,
                      studentStandatrTableTdLastTd" var="p" styleClass="studentStandatrTable" cellpadding="0" cellspacing="0">
 
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
                 </f:facet>
-                <span class="controlWorksDisciplineName" style="font-size: 8pt;">#{p.points.curriculum.discipline.name}</span>
+                <span  class="controlWorksDisciplineNameLink" > <h:outputLink value="discipline.xhtml?c=#{p.points.curriculum.id}" style="display:block; margin-left: 2px; font-size: 8pt;">#{p.points.curriculum.discipline.name}</h:outputLink></span>
             </h:column>
             <h:column>
                 <f:facet name="header">
@@ -119,7 +132,7 @@
                 <f:facet name="header">
                     <h:outputText value="#{msgs.student_gradesTableHeadTests}" />
                 </f:facet>
-                #{p.test} (#{p.testsMaxPoints})
+                #{p.test} <span class="AdminTextGrey">(#{p.testsMaxPoints})</span>
             </h:column>
 
             <h:column>
@@ -128,12 +141,11 @@
                 </f:facet>
                 #{p.reTest}
             </h:column>
-
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="#{msgs.student_gradesTableHeadFinTests}" />
                 </f:facet>
-               #{p.concludingTest} (#{p.concludingTestsMaxPoints})
+               #{p.concludingTest} <span class="AdminTextGrey">(#{p.concludingTestsMaxPoints})</span>
             </h:column>
 
             <h:column>
@@ -173,13 +185,13 @@
         </h:dataTable>
 
 
-        <hr/><br/><h4>Контрольные:</h4><br/><hr/>
+        <hr/><br/><h4 class="DisciplineText">Контрольные:</h4><br/><hr/>
         
         <h:dataTable width="100%" value="#{controlWorksBean.controlWorks}" var="o">
             <h:column>
                 <div class="studentInterfaceStandartList">
-                    <div class="controlWorksControlTitle">
-                        <span class="controlWorksDisciplineName">${o[0].discipline.name}</span>
+                    <div class="controlWorksControlTitle" style="margin-left: 5px;">
+                        <span class="controlWorksDisciplineNameLink"><h:outputLink value="discipline.xhtml?c=${o[0].id}"> ${o[0].discipline.name}</h:outputLink></span>
                         <span class="linkToTeachersProfile" style="color:#669999;">(<h:outputLink value="teacher.xhtml?id=${o[3].id}">${o[3].initials}</h:outputLink>)</span>
                         <span class="chatPostDate" style="color: #AFAFAF; font-size: 10pt; margin: 0px;">(${o[1].points} - <h:outputText converter="enumConverter" value="${o[1].progress}"/>)</span>
                     </div>
@@ -202,12 +214,12 @@
                 </h:column>
             </h:dataTable>
 
-        <hr/><br/><h4>Тесты:<h:outputText rendered="#{testResultsBean.reExame}" value=" (переэкзаменовка)"/></h4><br/><hr/>
+        <hr/><br/><h4 class="DisciplineText">Тесты:<h:outputText rendered="#{testResultsBean.reExame}" value=" (переэкзаменовка)"/></h4><br/><hr/>
         <h:form id="form">
-<h:commandLink value="#{msgs.student_eduMenuReexamination}">
+<span class="controlWorksDisciplineNameLink"><h:commandLink value="#{msgs.student_eduMenuReexamination}">
     <f:attribute name="reExame" value="#{!testResultsBean.reExame}"/>
     <f:ajax render="form" listener="#{studentViewBean.reExameSwitch}"/>
-</h:commandLink><br/>
+</h:commandLink></span><br/>
 
 <h:dataTable style="width: 100%;" value="#{testResultsBean.attempts}" cellpadding="0" cellspacing="0"
              columnClasses="studentStandatrTableTd,
