@@ -24,6 +24,7 @@ public class ProperCase {
        if(StringUtils.hasText(word)){
            String[] wordAr = word.split("-");
            for(String s:wordAr){
+               s = s.trim();
                finalWord.append(s.substring(0,1).toUpperCase()).append(s.substring(1).toLowerCase());
                if(wordAr.length>1&&!word.endsWith(s))
                    finalWord.append("-");

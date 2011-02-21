@@ -30,7 +30,7 @@ public abstract class AbstractPerson extends AbstractUser implements Comparable<
      * @return имя
      */
     public String getName() {
-        return name;
+        return bringTo(name);
     }
 
     /**
@@ -38,7 +38,7 @@ public abstract class AbstractPerson extends AbstractUser implements Comparable<
      * @param name
      */
     public void setName(String name) {
-        this.name = bringTo(name);
+        this.name = name;
     }
 
     /**
@@ -120,9 +120,9 @@ public abstract class AbstractPerson extends AbstractUser implements Comparable<
     @Override
     public String toString(){
         StringBuffer sb = new StringBuffer(super.toString());
-        sb.append("Surname: ").append(this.surname).append(";\n");
-        sb.append("Name: ").append(this.name).append(";\n");
-        sb.append("Second name: ").append(this.secondName).append(";\n");
+        sb.append("Surname: ").append(getSurname()).append(";\n");
+        sb.append("Name: ").append(getName()).append(";\n");
+        sb.append("Second name: ").append(getSecondName()).append(";\n");
         return sb.toString();
     }
 
