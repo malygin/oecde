@@ -20,7 +20,7 @@ public class Student extends AbstractStudent{
      * мобильный
      */
     @Digits(integer=11,message="Содержит недопустимые символы",fraction=0)
-    private Integer cellPhone;
+    private Long cellPhone;
     /**
      * icq
      */
@@ -43,7 +43,7 @@ public class Student extends AbstractStudent{
      *
      * @return сотовый
      */
-    public Integer getCellPhone() {
+    public Long getCellPhone() {
         return cellPhone;
     }
 
@@ -51,7 +51,7 @@ public class Student extends AbstractStudent{
      * сотовый
      * @param cellPhone
      */
-    public void setCellPhone(Integer cellPhone) {
+    public void setCellPhone(Long cellPhone) {
         this.cellPhone = cellPhone;
     }
 

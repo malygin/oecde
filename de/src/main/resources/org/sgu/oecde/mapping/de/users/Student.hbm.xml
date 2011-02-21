@@ -4,7 +4,7 @@
   <joined-subclass dynamic-update="true" extends="org.sgu.oecde.core.users.AbstractStudent" name="org.sgu.oecde.de.users.Student" table="de_student">
     <key column="id" foreign-key="fk_student_abstract_student" not-null="true" on-delete="cascade"/>
     <property length="20" name="email" type="string"/>
-    <property name="cellPhone" scale="11" type="int"/>
+    <property name="cellPhone" scale="11" type="long"/>
     <property name="icq" scale="9" type="int"/>
     <many-to-one class="org.sgu.oecde.de.education.City" fetch="join" foreign-key="fk_student_city" insert="false" name="city" not-null="true"/>
   </joined-subclass>
