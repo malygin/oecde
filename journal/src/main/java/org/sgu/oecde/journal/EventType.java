@@ -326,7 +326,7 @@ public enum EventType {
                 logger.debug(this+": user is null");
                 return null;
             }
-            return generateEventItem(user,0l, new String[]{});
+            return generateEventItem(user,0l, new String[]{user.getMediumPhoto()});
         }
 
         @Override

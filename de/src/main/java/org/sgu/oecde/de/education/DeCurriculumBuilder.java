@@ -39,7 +39,7 @@ public class DeCurriculumBuilder extends CurriculumBuilder<DeCurriculum>{
      * @return DeCurriculum по конкретной дате и курсу обучения студента
      */
     public DeCurriculum getInstanceByCurrentDate(Student student,int booleanSemester){
-        DeCurriculum c =  getInstance(getter.getCalendarYear(booleanSemester),booleanSemester,student);
+        DeCurriculum c =  getInstance(getter.getCurrentYear(),booleanSemester,student);
         setGroup(student, c);
         return c;
     }
