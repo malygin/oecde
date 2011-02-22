@@ -52,7 +52,7 @@ public class UmkBean implements Serializable {
     private List<Task> tasks =new ArrayList<Task>();
     private List<SelectItem> modules ;
 
-    final private String mainUrl="http://baldr.sgu.ru/textbooks/";
+    final private String mainUrl="http://oecdo.sgu.ru/textbooks/";
     private String currentUrl="";
     private final static String[] types = new String[]{"pdf"
                                                       ,"doc"
