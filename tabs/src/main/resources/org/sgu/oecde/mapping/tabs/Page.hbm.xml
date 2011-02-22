@@ -8,7 +8,7 @@
         <param name="sequence">tab_page_seq</param>
       </generator>
     </id>
-    <property length="3000" name="text" not-null="true" type="string"/>
+    <property length="4000" name="text" not-null="true" type="string"/>
     <property length="250" name="title" type="string"/>
     <property name="visible" scale="1" type="true_false"/>
     <many-to-one fetch="join" foreign-key="fk_tab" lazy="no-proxy" name="tab" />
