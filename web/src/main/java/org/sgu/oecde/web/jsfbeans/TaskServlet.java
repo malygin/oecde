@@ -25,10 +25,12 @@ import org.springframework.util.ObjectUtils;
 @WebServlet(value="/TaskServlet")
 public class TaskServlet extends HttpServlet {
     private final static String[] types = new String[]{"pdf"
+                                                      ,"zip"
+                                                      ,"xls"
                                                       ,"doc"
                                                       ,"docx"
                                                       ,"ppt"};
-    private final String urlServer="http://baldr.sgu.ru/textbooks/";
+    private static final String urlServer="http://oecdo.sgu.ru/textbooks/";
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
