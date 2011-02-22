@@ -8,7 +8,6 @@
       <property column="lab_works_number" insert="false" name="labWorksNumber" scale="2" type="integer" update="false"/>
       <property column="term_papers_number" insert="false" name="termPapersNumber" scale="1" type="integer" update="false"/>
       <property insert="false" name="selected" scale="1" type="true_false" update="false"/>
-      <property insert="false" length="20" name="cycle" type="string" update="false"/>
     </join>
   </subclass>
 </hibernate-mapping>

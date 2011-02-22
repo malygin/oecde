@@ -93,6 +93,8 @@ public class ResultPreFilter implements Serializable{
                     if(!exist)
                         pointsList.add(new Points(s, c));
                 }
+                if(!sumEachIteration)
+                    break;
             }
         }
         return pointsList;

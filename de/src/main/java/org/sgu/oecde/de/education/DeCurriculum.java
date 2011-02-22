@@ -17,10 +17,6 @@ public class DeCurriculum extends AdvancedCurriculum{
      */
     private Integer labWorksNumber;
     /**
-     * цикл
-     */
-     private String cycle;
-    /**
      * количество курсовых
      */
     private Integer termPapersNumber;
@@ -101,22 +97,6 @@ public class DeCurriculum extends AdvancedCurriculum{
      */
     public void setTermPapersNumber(Integer termPapersNumber) {
         this.termPapersNumber = termPapersNumber;
-    }
-
-    /**
-     * 
-     * @return цикл
-     */
-    public String getCycle() {
-        return cycle;
-    }
-
-    /**
-     * цикл
-     * @param cicle
-     */
-    public void setCycle(String cycle) {
-        this.cycle = cycle;
     }
     
 }
