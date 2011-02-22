@@ -2,13 +2,10 @@ package org.sgu.oecde.web.jsfbeans.admin;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
-import org.sgu.oecde.core.IBasicDao;
 import org.sgu.oecde.core.education.Speciality;
 import org.sgu.oecde.de.education.City;
 import org.sgu.oecde.de.education.dao.IGroupDao;
@@ -51,9 +48,9 @@ public class CitiesAndGroupsBean implements Serializable{
                     cities.add(cityEntry);
                 }
                 if(g.getSpeciality()!=s){
+                    groupList = new ArrayList<Group>();
                     specialityEntry = new NewEntry<Speciality, List<Group>>(g.getSpeciality(), groupList);
                     specList.add(specialityEntry);
-                    groupList = new ArrayList<Group>();
                 }
                 groupList.add(g);
                 c = city;

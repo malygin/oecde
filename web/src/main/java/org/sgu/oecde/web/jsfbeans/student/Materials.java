@@ -72,10 +72,12 @@ public class Materials extends StudentCurriculumBean{
             while(pI.hasNext()){
                 Points ps = pI.next();
                 AdditionalCurriculum c = new AdditionalCurriculum(ps.getCurriculum());
-                Integer r = ps.<Integer>getWorkPoints(TestsCountEnum.TESTS_COUNT);
-                Integer ct = ps.<Integer>getWorkPoints(TestsCountEnum.CONCLUDING_TESTS_COUNT);
-                c.setTestsCount((r!=null?r:0)+(ct!=null?ct:0));
-                advCurriculums.add(c);
+                if(c.getCurriculum().getUmk()!=null){
+                    Integer r = ps.<Integer>getWorkPoints(TestsCountEnum.TESTS_COUNT);
+                    Integer ct = ps.<Integer>getWorkPoints(TestsCountEnum.CONCLUDING_TESTS_COUNT);
+                    c.setTestsCount((r!=null?r:0)+(ct!=null?ct:0));
+                    advCurriculums.add(c);
+                }
             }
             Collections.sort(advCurriculums, new OrderByDisciplineName());
         }

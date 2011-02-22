@@ -15,7 +15,7 @@
                    <table cellpadding="2" cellspacing="2" class="controlWorksBorders " style="width: 100%;">
                         <tr>
                             <td valign="top" style="color: gray; width: 80px; padding-left: 10px; text-align: justify;">Студент:</td>
-                <td valign="top" class="controlWorksDisciplineName"><span class="linkToStudentsProfile" style="color:#1B8CDF; font-weight: normal; font-size: 10pt;"><h:outputText value=" #{p.student.fio}"/></span></td>
+                <td valign="top" class="controlWorksDisciplineName"><span class="linkToStudentsProfile" style="color:#1B8CDF; font-weight: normal; font-size: 10pt;"><a href="student.xhtml?id=#{p.student.id}"><h:outputText value=" #{p.student.fio}"/></a></span></td>
                </tr>
                         <tr>
                             <td valign="top" style="color: gray; width: 80px; padding-left: 10px;">Рейтинг:</td>

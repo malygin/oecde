@@ -38,7 +38,7 @@
                 <h:panelGroup rendered="#{cc.attrs.type eq 'student'}">
                     <tr><td style="color:#808080;">Город:</td><td>#{cc.attrs.u.city.name}</td></tr>
                     <tr><td style="color:#808080;">Специальность:</td><td>#{cc.attrs.u.group.speciality.name}</td></tr>
-                    <tr><td style="color:#808080;">Группа:</td><td>#{cc.attrs.u.group.name}</td></tr>
+                    <tr><td style="color:#808080;">Группа:</td><td><h:outputLink value="group.xhtml?id=#{cc.attrs.u.group.id}">#{cc.attrs.u.group.name}</h:outputLink></td></tr>
                     <tr><td style="color:#808080;">Курс:</td><td>#{cc.attrs.u.group.year}</td></tr>
                 </h:panelGroup>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'admin'}">

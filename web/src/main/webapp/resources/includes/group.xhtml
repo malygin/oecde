@@ -7,7 +7,7 @@
     <div class="interfaceContent">
         <div class="DisciplineText" style="margin-bottom: 10px;margin-top: 10px;">
         (<h:outputText value="#{groupViewBean.group.faculty}"/>
-        <h:outputText  rendered="#{groupViewBean.group.faculty}!=null" value=","/>
+        <h:outputText  rendered="#{groupViewBean.group.faculty!=null}" value=", "/>
         <h:outputText value="#{groupViewBean.group.speciality.name}"/>)
         </div>
         <h:dataTable value="#{groupViewBean.students}" var="s" style="width: 100%;">

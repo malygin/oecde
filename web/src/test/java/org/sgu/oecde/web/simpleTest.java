@@ -106,5 +106,6 @@ public class simpleTest{
     public void asdasd(){
         Formatter f = new Formatter();
         f.format("%S", "hello123");
+        System.out.printf("asd %f asdasd %b",Math.PI,Math.E);
     }
 }

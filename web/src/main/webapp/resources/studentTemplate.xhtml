@@ -1,7 +1,6 @@
 <ui:composition
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:r="http://java.sun.com/jsp/jstl/core"
     xmlns:sec="http://www.springframework.org/security/facelets/tags"
     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
     template="baseTemplate.xhtml">
@@ -13,22 +12,14 @@
         <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.student_eduMenuTitle}</p></div>
         <ol class="leftSideMenuLinks">
             <li><a href="controlWorks.xhtml"> #{msgs.student_eduMenuControlWorks}</a></li>
-            <li><a href="groupControlWorks.xhtml">#{msgs.student_eduMenuControlWorksResult}</a></li>
+            <!--<li><a href="groupControlWorks.xhtml">#{msgs.student_eduMenuControlWorksResult}</a></li>-->
+            <p>#{msgs.student_eduMenuControlWorksResult}</p>
             <li>
-            <r:choose>
-                <r:when test="#{termPaper.gotTermPaper}">
-                    <h:outputLink value="index.xhtml">#{msgs.student_eduMenuCoursework}</h:outputLink>
-                </r:when>
-                <r:otherwise>
-                    <p>#{msgs.student_eduMenuCoursework}</p>
-                </r:otherwise>
-            </r:choose>
+            <h:outputLink rendered="#{termPaperBean.gotTermPaper}" value="http://oecdo.sgu.ru/files/KR/#{termPaperBean.path}">#{msgs.student_eduMenuCoursework}</h:outputLink>
+            <h:panelGroup rendered="#{!termPaperBean.gotTermPaper}" ><p>#{msgs.student_eduMenuCoursework}</p></h:panelGroup>
             </li>
-            <li><p>#{msgs.student_eduMenuEvents}</p></li>
             <li><a href="materials.xhtml">#{msgs.student_eduMenuLearningCourses}</a></li>
             <li><a href="grades.xhtml">  #{msgs.student_eduMenuMarks}</a></li>
-            <li><p> #{msgs.student_eduMenuScheduleMonth}</p></li>
-            <li><p> #{msgs.student_eduMenuScheduleSession}</p></li>
             <li><a href="testResults.xhtml?r=true"> #{msgs.student_eduMenuReexamination}</a></li>
             <li><a href="testResults.xhtml">  #{msgs.student_eduMenuTestsResults}</a></li>
             <li><a href="testResults.xhtml?r=true&amp;s=1"> #{msgs.student_eduMenuWinterReexamination}</a></li>
@@ -40,7 +31,6 @@
                     <h:panelGroup rendered="#{MessageCountNewBean.newMessages&lt;1}">#{MessageCountNewBean.newMessages}</h:panelGroup>
                     )</a></div></div>
         <ol class="leftSideMenuLinks">
-<!--            <li><a href="messages_write.xhtml">#{msgs.student_messMenuWrite}</a></li>-->
             <li><a href="messages_out.xhtml">#{msgs.student_messMenuOut}</a></li>
 
         </ol>
@@ -93,7 +83,7 @@
         <ol class="leftSideMenuLinks">
             <li><a href="curriculum.xhtml">#{msgs.student_controlMenuCurriculum}</a></li>
             <li><a href="schedule.xhtml">#{msgs.student_controlMenuSchedule}</a></li>
-            <li><a href="libraryMaterials.xhtml">#{msgs.student_controlMenuLibrary}</a></li>
+            <!--<li><a href="libraryMaterials.xhtml">#{msgs.student_controlMenuLibrary}</a></li>-->
             <li><a href="oldGrades.xhtml">#{msgs.student_controlMenuRecordBook}</a></li>
             <li><a href="groupRating.xhtml">Рейтинг группы</a></li>
         </ol>

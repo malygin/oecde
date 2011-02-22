@@ -5,6 +5,9 @@
     template="../resources/studentTemplate.xhtml"
     xmlns:j="http://java.sun.com/jsf/composite/components/journal">
     >
+    <ui:define name="contentHeader">
+        События
+    </ui:define>
     <ui:define name="content">
         <f:metadata>
             <f:viewParam name="p" value="#{journalBean.pageNumber}"/>

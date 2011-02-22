@@ -6,7 +6,10 @@
     >
 
     <ui:define name="contentHeader">
-        #{msgs.student_resits}
+        <h:outputText rendered="#{testResultsBean.semester == 0 and !testResultsBean.reExame}" value="#{msgs.student_eduMenuTestsResults}"/>
+        <h:outputText rendered="#{testResultsBean.semester == 0 and testResultsBean.reExame}" value="#{msgs.student_eduMenuReexamination}"/>
+        <h:outputText rendered="#{testResultsBean.semester == 1 and !testResultsBean.reExame}" value="#{msgs.student_eduMenuWinterTestsResults}"/>
+        <h:outputText rendered="#{testResultsBean.semester == 1 and testResultsBean.reExame}" value="#{msgs.student_eduMenuWinterReexamination}"/>
     </ui:define>
     
     <ui:define name="content">

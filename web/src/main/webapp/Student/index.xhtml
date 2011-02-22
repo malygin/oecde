@@ -68,7 +68,8 @@
                                 <f:facet name="header">
                                     <h:outputText value="#{msgs.student_Dicipline}"/>
                                 </f:facet>
-                                <span class="controlWorksDisciplineNameLink" style="font-size: 8pt; font-weight: normal !important;"><h:outputLink value="discipline.xhtml?c=#{s.id}">#{s.discipline.name}</h:outputLink></span>
+                                <span class="controlWorksDisciplineNameLink" style="font-size: 8pt; font-weight: normal !important;"><h:outputLink value="discipline.xhtml?c=#{s.discipline.id}"><span style=" font-weight: normal !important;">#{s.discipline.name}</span></h:outputLink>
+                                </span>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
@@ -118,7 +119,7 @@
                                    <h:outputText converter="dateConverter" value="#{resourceService.regularTestBeginDate}"/>
                                 </td>
                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder" >
-                                    Открытие контрольных
+                                    Закрытие тестов
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder" style="text-align:center !important;">
                                     <h:outputText converter="dateConverter" value='#{studentIndexBean.getDate("controlWorksEndDate")}'/>
@@ -126,16 +127,16 @@
                             </tr>
                             <tr>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
-                                    Закрытие тестов
+                                    Открытие контрольных
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
-                                   <h:outputText converter="dateConverter" value="#{studentIndexBean.testClosingDate}"/>
+                                    <h:outputText converter="dateConverter" value="#{studentIndexBean.getDate('controlWorksBeginDate')}"/>
                                 </td>
-                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
+                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
                                     Закрытие контрольных
                                 </td>
-                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder" style="text-align:center !important;">
-                                   <h:outputText converter="dateConverter" value="#{studentIndexBean.testClosingDate}"/>
+                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
+                                    <h:outputText converter="dateConverter" value="#{studentIndexBean.getDate('controlWorksEndDate')}"/>
                                 </td>
                
                             </tr>
@@ -147,18 +148,18 @@
                                     <h:outputText converter="dateConverter" value="#{resourceService.concludingTestBeginDate}"/>
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder" >
-                                    Начало переэкзаменовки
-                                </td>
-                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder" style="text-align:center !important;">
-                                    <h:outputText converter="dateConverter" value="#{resourceService.reExameBeginDate}"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
                                     Закрытие итоговых тестов
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
                                     <h:outputText converter="dateConverter" value="#{resourceService.concludingTestEndDate}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
+                                    Начало переэкзаменовки
+                                </td>
+                                <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
+                                    <h:outputText converter="dateConverter" value="#{resourceService.reExameBeginDate}"/>
                                 </td>
                                 <td class="studentStandatrTableTd studentStandatrTableTdWithBorder">
                                     Окончание переэкзаменовки

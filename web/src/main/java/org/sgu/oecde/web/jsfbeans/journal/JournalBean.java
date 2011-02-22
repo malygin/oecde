@@ -5,7 +5,6 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-import javax.faces.event.AjaxBehaviorEvent;
 import org.sgu.oecde.journal.EventBodyElement;
 import org.sgu.oecde.journal.EventItem;
 import org.sgu.oecde.journal.dao.IJournalDao;
@@ -23,7 +22,7 @@ public class JournalBean implements Serializable{
 
     private List<EventItem>events;
 
-    private int pageNumber;
+    private int pageNumber = 1;
 
     private FilterType filter;
 
@@ -55,7 +54,7 @@ public class JournalBean implements Serializable{
 
     public String clearEvents(){
         events = null;
-        pageNumber = 0;
+        pageNumber = 1;
         eventsCount = null;
         return "index.xhtml?faces-redirect=true";
     }

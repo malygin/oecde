@@ -66,7 +66,7 @@ public class StudentRatingBean extends StudentCurriculumBean{
         filters.add(controlWorkFilter);
         filters.add(testFilter);
         List<AbstractResult> l = resultDao.getByStudentsAndCurriculums(getCurriculums(), students, null);
-        List<Points>rating = preFilter.forEachResult(l, false,filters,students,new ArrayList());
+        List<Points>rating = preFilter.forEachResult(l, false,filters,students,getCurriculums());
         if(rating == null)
             return new ArrayList<Points>(0);
         Collections.sort(rating, new ByRating());

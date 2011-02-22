@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
+import org.sgu.oecde.controlworks.ControlWork;
+import org.sgu.oecde.controlworks.ControlWorkProgress;
 import org.sgu.oecde.controlworks.ControlWorkService;
 import org.sgu.oecde.core.education.CalendarConstantName;
 import org.sgu.oecde.core.education.StringConstantsGetter;
@@ -92,11 +94,10 @@ public class ResourceService implements Serializable{
     }
 
     public boolean isConcludingTestAvailable(Student student,DeCurriculum curriculum){
-        return true;
-//        if(!curriculum.getGotControlWork()||curriculum.getControlWorksPaperOnly())
-//            return true;
-//        ControlWork cw = controlWorkService.getStudensControlWorks(student, ListUtil.<DeCurriculum>oneItemList(curriculum)).get(curriculum);
-//        return cw!=null&&ControlWorkProgress.passed.equals(cw.getProgress());
+        if(!curriculum.getGotControlWork()||curriculum.getControlWorksPaperOnly())
+            return true;
+        ControlWork cw = controlWorkService.getStudensControlWorks(student, ListUtil.<DeCurriculum>oneItemList(curriculum)).get(curriculum);
+        return cw!=null&&ControlWorkProgress.passed.equals(cw.getProgress());
     }
 
     public Object[] getTestForStudent(AdditionalSelfDependentWork w, Student student, boolean concludingAvailable){
