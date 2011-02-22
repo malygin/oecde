@@ -9,38 +9,6 @@
         #{msgs.student_CWResults}
     </ui:define>
     <ui:define name="content">
-        <style type="text/css">
-            .mainStyle div.interfaceContent{
-                padding: 0px;
-            }
-          
-             .mainStyle .passed,
-             .mainStyle .failed,
-            .mainStyle .available,
-            .mainStyle .notAvailable{
-              background-color:  white;
-            }
-            .mainStyle .DisciplineText{
-                  font-size: 11pt;
-                font-weight: normal;
-                color: #27587F;
-                font-family: Arial;
-                padding-left: 12px;
-
-             }
-            .mainStyle .linkToStudentsProfile a:link{color: #1B8CDF; text-decoration: none; font-weight: normal;}
-            .mainStyle .linkToStudentsProfile a:visited{color:#1B8CDF; text-decoration: none; font-weight: normal;}
-            .mainStyle .linkToStudentsProfile a:active{color: #1B8CDF; text-decoration: underline; font-weight: normal;}
-            .mainStyle .linkToStudentsProfile a:hover{color:#1B8CDF; text-decoration: underline; font-weight: normal;}
-
-            .controlWorksBorders{
-                    border-bottom: 1px solid #D1E0EF;
-                    padding-bottom: 10px;
-                    padding-top: 10px;
-                    background-color: white;
-                }
-        </style>
-
         <div class="interfaceContent">
             <f:metadata>
                 <f:viewParam name="s" value="#{groupCwBean.semester}"/>

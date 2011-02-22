@@ -9,7 +9,20 @@
         #{disciplineBean.discipline.umk.name}
     </ui:define>
     <ui:define name="content">
-        
+         <style type="text/css">
+            .mainStyle div.navigationLinks a:link{
+                 color: #4593DF;}
+            .mainStyle div.navigationLinks a:hover{
+                   color: #8DBEE0;}
+             .mainStyle div.navigationLinks a:active{
+                 color: #8DBEE0;}
+              .mainStyle div.navigationLinks a:visited{
+                             color: #8DBEE0;}
+              .mainStyle div span{
+                  color: #373E3F;
+                    font-weight: bolder;
+}
+         </style>
         <div class="interfaceContent">
             <f:metadata>
                 <f:viewParam name="c" value="#{disciplineBean.curriculumId}"/>
@@ -33,7 +46,7 @@
                 <div class="studentInterfaceStandartList">
                     <r:set var="work" value="#{t[1]}"/>
                     <r:set var="test" value="#{work.work}"/>
-                    
+
                     <r:choose>
                         <r:when test="#{t[0]=='true'}">
                             <div class="controlWorksDisciplineNameLink"><h:outputLink value="test.xhtml?c=#{disciplineBean.discipline.id}&amp;id=#{test.id}" >#{test.title}</h:outputLink></div>
@@ -41,7 +54,7 @@
                         <r:otherwise>
                             <div class="controlWorksDisciplineName">
 <!--                                <h:outputText rendered="#{t[2]==null}" style="color: grey;" value="#{test.title}"/>-->
-<!--                                 <h:outputText rendered="#{t[3]==null}" style="color: grey;" value="#{test.title}"/>-->
+                                 <h:outputText rendered="#{t[3]==null}" style="color: grey;" value="#{test.title}"/>
                                   <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="#{test.title}"/>
                             </div>
                         </r:otherwise>

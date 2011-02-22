@@ -53,8 +53,9 @@
      border-bottom: 1px solid #CFCFCF;
      border-left: 1px solid #CFCFCF;
 }
-.mainStyle .StudentBorderInfoTd{
+.mainStyle .StudentBorderInfoTd span{
     text-align: center !important;
+    display: block;
 }
 /*.mainStyle .StudentBorderInfo th:nth-child(1){
     border-right: 1px solid #C0C0C0;
@@ -1428,4 +1429,47 @@ background:url("../resources/images/buttonBlue2.jpg") repeat-x scroll center tra
 }
 .mainStyle .TeacherBackground{
     
+}
+  .mainStyle .passed,
+ .mainStyle .failed,
+.mainStyle .available,
+.mainStyle .notAvailable{
+  background-color:  white;
+}
+ .mainStyle div.interfaceContent{
+    padding: 0px;
+}
+  .StudentTestMark{
+ color: #1D1F1F;
+
+}
+ .materialInfo p{
+    padding-bottom: 5px;
+    padding-left: 17px;
+}
+.materialInfo span{
+       color: #1D1F1F;
+       /*font-weight: bolder;*/
+}
+.materialInfo p:nth-child(1){
+   background:  url("../resources/images/control_works_little.gif") no-repeat ;
+}
+.materialInfo p:nth-child(2){
+   background:  url("../resources/images/test_results_little.gif") no-repeat;
+   background-position: -2px 0;
+}
+.materialInfo p:nth-child(3){
+     background:  url("../resources/images/test_result_little.gif") no-repeat;
+}
+ .mainStyle div.navigationLinks a:link{
+     color: #4593DF;}
+.mainStyle div.navigationLinks a:hover{
+       color: #8DBEE0;}
+ .mainStyle div.navigationLinks a:active{
+     color: #8DBEE0;}
+  .mainStyle div.navigationLinks a:visited{
+                 color: #8DBEE0;}
+  .mainStyle div span{
+      color: #373E3F;
+        font-weight: bolder;
 }

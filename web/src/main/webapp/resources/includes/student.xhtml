@@ -132,34 +132,34 @@
                 <f:facet name="header">
                     <h:outputText value="#{msgs.student_gradesTableHeadTests}" />
                 </f:facet>
-                #{p.test} <span class="AdminTextGrey">(#{p.testsMaxPoints})</span>
+               <span> #{p.test}</span> <span class="AdminTextGrey">(#{p.testsMaxPoints})</span>
             </h:column>
 
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="#{msgs.student_gradesTableHeadResit}" />
                 </f:facet>
-                #{p.reTest}
+                <span>#{p.reTest}</span>
             </h:column>
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="#{msgs.student_gradesTableHeadFinTests}" />
                 </f:facet>
-               #{p.concludingTest} <span class="AdminTextGrey">(#{p.concludingTestsMaxPoints})</span>
+                <span>#{p.concludingTest} </span> <span class="AdminTextGrey">(#{p.concludingTestsMaxPoints})</span>
             </h:column>
 
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="#{msgs.student_gradesTableHeadFinTestsResit}" />
                 </f:facet>
-                #{p.concludingReTest}
+                 <span>#{p.concludingReTest} </span>
             </h:column>
 
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="#{msgs.student_gradesTableHeadCWPoints}" />
                 </f:facet>
-                #{p.controlWorkPoints}
+                 <span>#{p.controlWorkPoints} </span>
             </h:column>
 
             <h:column>
@@ -173,7 +173,7 @@
                 <f:facet name="header">
                     <h:outputText value="#{msgs.student_gradesTableHeadSumm}" />
                 </f:facet>
-                #{p.points.sum}
+                 <span>#{p.points.sum} </span>
             </h:column>
 
             <h:column>

@@ -11,36 +11,6 @@
         #{msgs.student_myMaterials}
     </ui:define>
     <ui:define name="content">
-        <style type="text/css">
-            .mainStyle div.interfaceContent{
-                padding: 0px;
-            }
-
-             .controlWorksBorders{
-                    border-bottom: 1px solid #D1E0EF;
-                     padding-bottom: 10px;
-                    padding-top: 10px;
-                }
-                .materialInfo p{
-                    padding-bottom: 5px;
-                    padding-left: 17px;
-}
-                .materialInfo span{
-                       color: #1D1F1F;
-                       /*font-weight: bolder;*/
-                }
-                .materialInfo p:nth-child(1){
-                   background:  url("../resources/images/control_works_little.gif") no-repeat ;
-                }
-                .materialInfo p:nth-child(2){
-                   background:  url("../resources/images/test_results_little.gif") no-repeat;
-                   background-position: -2px 0;
-                }
-                .materialInfo p:nth-child(3){
-                     background:  url("../resources/images/test_result_little.gif") no-repeat;
-                }
-               
-        </style>
         <div class="interfaceContent">
             <f:metadata>
                 <f:viewParam name="s" value="#{materialsBean.semester}"/>

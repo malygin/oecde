@@ -13,31 +13,6 @@
         <f:metadata>
             <f:viewParam name="s" value="#{controlWorksBean.semester}"/>
         </f:metadata>
-        <style type="text/css">
-            .mainStyle div.interfaceContent{
-                padding: 0px;
-            }
-            .mainStyle div.interfaceContent{
-                padding: 0px;
-            }
-            .mainStyle .passed,
-            .mainStyle .failed,
-            .mainStyle .available,
-            .mainStyle .notAvailable{
-                background: white;
-            }
-             
-             .StudentTestMark{
-                 color: #1D1F1F;
-                
-                }
-                .controlWorksBorders{
-                    border-bottom: 1px solid #D1E0EF;
-                     padding-bottom: 10px;
-                    padding-top: 10px;
-                    background-color: white;
-                }
-        </style>
         <div class="interfaceContent">
             <est:changeSemester semester="#{controlWorksBean.semester}"/>
             <h:dataTable width="100%" value="#{controlWorksBean.controlWorks}" var="o" cellpadding="0" cellspacing="0">
@@ -45,7 +20,8 @@
                         <table cellpadding="2" cellspacing="2" style="width: 100%;" class="${o[1].progress} controlWorksBorders">
                             <tr>
                                 <td valign="top" style="color: gray; width: 170px; padding-left: 10px; text-align: justify;">Название дисциплины: </td>
-                                <td valign="top" class="controlWorksDisciplineName DisciplineText">${o[0].discipline.name}</td>
+                                <td valign="top" class="controlWorksDisciplineNameLink" style="padding-left:10px;">
+                                    <h:outputLink value="discipline.xhtml?c=${o[0].id}">${o[0].discipline.name}</h:outputLink></td>
                             </tr>
                             <tr>
                                 <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">Преподаватель: </td>

@@ -95,7 +95,7 @@
                                 <a href="admin.xhtml?id=#{st.id}">
                                     <div class="userOnlineImgContainer">
                                         <span class="userOnlineImgContainerHeightController"></span>
-                                    <ut:showPhoto user="#{st}" size="small"/>
+                                    <ut:showPhoto user="#{st}" size="small"/>#{cc.attrs.styleClass}"
                                     </div>
                                     <span style=" text-align: center; font-size: 75%;">
                                         <h:outputLink value="admin.xhtml?id=#{st.id}"><h:outputText value="#{st.initials}"/></h:outputLink>
