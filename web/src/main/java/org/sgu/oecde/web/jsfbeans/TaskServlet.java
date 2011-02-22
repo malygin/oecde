@@ -6,15 +6,18 @@
 package org.sgu.oecde.web.jsfbeans;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.URL;
+import javax.activation.MimetypesFileTypeMap;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.sgu.oecde.web.jsfbeans.util.fileUpload.FileUploadUtil;
 import org.springframework.util.ObjectUtils;
 
 /**
@@ -24,12 +27,6 @@ import org.springframework.util.ObjectUtils;
  */
 @WebServlet(value="/TaskServlet")
 public class TaskServlet extends HttpServlet {
-    private final static String[] types = new String[]{"pdf"
-                                                      ,"zip"
-                                                      ,"xls"
-                                                      ,"doc"
-                                                      ,"docx"
-                                                      ,"ppt"};
     private static final String urlServer="http://oecdo.sgu.ru/textbooks/";
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -48,12 +45,12 @@ public class TaskServlet extends HttpServlet {
           URL url = new URL(urlServer+request.getParameter("task"));
           StringBuilder strbuf = new StringBuilder();
           BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
-          String[] type= request.getParameter("task").split("\\.");
-          if (!ObjectUtils.containsElement(types, type[1])){
+          String mime = new MimetypesFileTypeMap().getContentType(new File(request.getParameter("task")));
+          if(!ObjectUtils.containsElement(FileUploadUtil.mimetypes, mime)){
               while ((str = in.readLine()) != null) {strbuf.append(str);}
               str=strbuf.toString().replaceAll("src=\"", "src=\""+urlServer+urlTask[0]+"/");
               out.print("<link href=\"../resources/css/default.css\" rel=\"stylesheet\" type=\"text/css\" /> "+str);}
-           else out.print("Вы можете скачать этот файл! <br/>"
+          else out.print("Вы можете скачать этот файл! <br/>"
               + "<a href=\""+url+"\"> скачать файл</a>"); 
         } finally { 
             out.close();

@@ -54,10 +54,7 @@ public class UmkBean implements Serializable {
 
     final private String mainUrl="";
     private String currentUrl="";
-    private final static String[] types = new String[]{"pdf"
-                                                      ,"doc"
-                                                      ,"docx"
-                                                      ,"ppt"};
+ 
 
  
    // private String
@@ -69,26 +66,6 @@ public class UmkBean implements Serializable {
     public String getUrl() throws MalformedURLException{  
           return curriculum.getUmk().getFolder()+"/"+currentTask.getUrl();
     }
-    public String getTask() throws MalformedURLException, IOException {      
-      String str="";
-      URL url = new URL(currentUrl+"/"+currentTask.getUrl());
-
-      StringBuilder strbuf = new StringBuilder();
-      BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
-      String[] type= currentTask.getUrl().split("\\.");
-      if (!ObjectUtils.containsElement(types, type[1])){
-          while ((str = in.readLine()) != null) {strbuf.append(str);}
-          str=strbuf.toString().replaceAll("src=\"", "src=\""+currentUrl+"/");
-        String str2= HTMLSanitiser.encodeInvalidMarkup(str);
-          return str2;
-       //   return str;
-
-      }
-      else return "Вы можете скачать этот файл! <br/>"
-              + "<a href=\""+url+"\"> скачать файл</a>";
-    }
-
-   
 
     public String getcId() {
         return cId;

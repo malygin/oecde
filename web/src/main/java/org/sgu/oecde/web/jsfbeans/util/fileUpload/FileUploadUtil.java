@@ -15,7 +15,7 @@ import org.springframework.util.ObjectUtils;
  */
 public class FileUploadUtil {
 
-    private final static String[]mimetypes = new String[]{"application/pdf"
+    public final static String[]mimetypes = new String[]{"application/pdf"
                                                     ,"application/vnd.ms-powerpoint"
                                                     ,"text/rtf"
                                                     ,"text/plain"
