@@ -109,7 +109,8 @@ public class UmkBean implements Serializable {
 
           // вычисляем текущий таск, также следующий и последующие, кроме того - формируем список тасков
           for(Module m:curriculum.getUmk().getModules()){
-
+            if (m == null)
+                continue;
               //вытаскиваем первый таск следующего модуля, если мы смотрим последний таск текущего модуля
              if((currentModule!=null)&&(nextTask.getId().equals(0L))){
                  nextModule=m;
