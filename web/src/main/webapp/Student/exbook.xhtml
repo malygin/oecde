@@ -12,10 +12,6 @@
     </f:metadata>
 
     <ui:define name="umkNavigation">
-          <style type="text/css">
-   html, body{ margin:0; padding:0; height:100%; }
-
-  </style>
         <!--        <b> умк</b> -  #{umkBean.curriculum.umk.name}
                 
                 <b> занятие</b> -#{umkBean.currentTask.title}<br/>-->
@@ -58,7 +54,7 @@
     <ui:define name="content">
    
 
-        <iframe style="margin-top: 100px;" src="../TaskServlet?task=#{umkBean.url}" height="80%"  scrolling="auto"    width="100%"  frameborder="0" id="taskFrame">
+        <iframe class="exbook" style="margin-top: 100px;" src="../TaskServlet?task=#{umkBean.url}" height="80%"  scrolling="auto"    width="100%"  frameborder="0" id="taskFrame">
          </iframe>
     
     </ui:define>
