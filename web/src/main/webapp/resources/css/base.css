@@ -190,7 +190,7 @@ color: black;
     padding: 3px 3px 0px 3px; border: 1px solid silver;
 }
 .mainStyle .interfaceContent{
-    padding: 0px 10px 0px 10px;
+    padding: 0px 10px 0px 10px !important;
     text-align: left;
 }
 .mainStyle .firstBorder{
@@ -1471,5 +1471,12 @@ background:url("../resources/images/buttonBlue2.jpg") repeat-x scroll center tra
                  color: #8DBEE0;}
   .mainStyle div span{
       color: #373E3F;
-        font-weight: bolder;
+/*        font-weight: bolder;*/
 }
+.mainStyleUMKTemplate{
+    margin:0; padding:0; height:100%;
+}
+iframe:first-child{
+    margin:0; padding:0; height:100%; 
+}
+html, body{ margin:0; padding:0; height:100%;}
