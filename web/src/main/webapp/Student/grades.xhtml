@@ -9,39 +9,21 @@
         #{msgs.student_grades}
     </ui:define>
     <ui:define name="content">
-        <style type="text/css">
-            .mainStyle div.interfaceContent{
-                padding: 0px;
-            }
-            .mainStyle .changeSemWithoutBorder div{
-                border-bottom: 0px !important;
-            }
-           
-
-            /*.mainStyle .studentStandatrTableTd{
-                vertical-align: top;
-            }*/
-           .mainStyle .studentStandatrTableCenter{
-                text-align: center !important;
-                vertical-align:middle;
-                font-size: 8pt;
-                font-weight: normal;
-}
-.mainStyle .studentStandatrTableTdWithBorder1{
-    color: #DFDFDF !important;
-}
-        </style>
         <div class="interfaceContent">
+            
             <f:metadata>
                 <f:viewParam name="s" value="#{gradesBean.semester}"/>
             </f:metadata>
             <div class="changeSemWithoutBorder">
                 <est:changeSemester semester="#{gradesBean.semester}"/>
             </div>
+            <div  class="controlWorksDisciplineNameLink" style="text-align: right;padding-right: 15px; padding-top: 5px;">
+            <a href="#help" class="help_part_href">Подсказка</a>
+            </div>
             <div>
             <h:dataTable  value="#{gradesBean.points}"
-                         columnClasses="studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter,
-                         studentStandatrTableTd studentStandatrTableTdWithBorderBrighter linkToTeachersProfileFromStudent studentStandatrTableCenter,
+                         columnClasses="studentStandatrTableTd studentStandatrTableTdWithBorderBrighter,
+                         studentStandatrTableTd studentStandatrTableTdWithBorderBrighter linkToTeachersProfileFromStudent studentStandatrTableCenter student_gradesTableHeadTeacherWidth,
                          studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter,
                          studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter,
                          studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter,
@@ -72,7 +54,7 @@
 
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="#{msgs.student_gradesTableHeadResit}" />
+                        <h:outputText value="Пере- экзаменовка" />
                     </f:facet>
                     #{p.reTest}
                 </h:column>
@@ -120,6 +102,27 @@
                 </h:column>
             </h:dataTable>
             </div>
-        </div>
+            <div class="prosto_tekst">
+                <a name="help"></a>
+                <p class="help_part">Подсказки</p>
+                        <p class="comment">
+
+                    Перед вами итоги  сессии по соответствующим дисциплинам.<br/>
+                В графе Итоговая оценка проставлены либо оценка, в случае если отчётность - экзамен,
+                либо зачёт (незачёт) в случае отчётности - зачёт, по соответствующему предмету.<br/>
+                Если в графе Итоговая оценка пусто, то это означает, что преподаватель ещё не выставил результаты.<br/>
+                В графе Тесты стоят результаты прохождения тестов. Слева от "|" баллы за
+                .
+                Форма постоянно обновляется.<br/><br/>
+                <b>Примечание.</b> уточнить отчётность по дисциплине можно во вкладке "Учебный план на семестр".<br/><br/>
+
+                <b>Тесты</b> - максимальный суммарный балл по тестам по данной дисциплине<br/>
+                <b>Контрольная работа</b> - контрольные работы соответственно учебному плану<br/>
+                <b>Самостоятельная работа</b> - любой другой вид работ, данный преподавателем (рефераты, лабораторные и т.д.)<br/>
+                <b>Активность</b> - оценивание студентов во время консультаций<br/>
+                <b>Итоговая оценка</b> - результирующая оценка по данной дисциплине<br/>
+                </p>
+            </div>
+            </div>
     </ui:define>
 </ui:composition>
