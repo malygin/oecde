@@ -9,7 +9,9 @@
         #{disciplineBean.discipline.umk.name}
     </ui:define>
     <ui:define name="content">
-        
+         <div style="padding: 15px; text-align: right;" class="controlWorksDisciplineNameLink">
+            <a href="materials.xhtml" style="font-size: 10pt !important;">Назад</a>
+        </div>
         <div class="interfaceContent">
             <f:metadata>
                 <f:viewParam name="c" value="#{disciplineBean.curriculumId}"/>
@@ -17,7 +19,7 @@
             <h:outputText rendered="#{disciplineBean.accessDenied}" value="Не найден или не доступен" />
             <r:forEach items="#{disciplineBean.discipline.umk.modules}" var="m">
                 <div class="studentInterfaceStandartList">
-                    <div class="controlWorksDisciplineName">${m.name}</div>
+                    <div class="controlWorksDisciplineName" style="background: url('../resources/images/moduls.gif') no-repeat; padding-left: 20px;">${m.name}</div>
                     <r:forEach items="${m.resources}" var="r" varStatus="i">
                         <div class="navigationLinks" style="margin-left: 20px;">
                             <a href="exbook.xhtml?cId=${disciplineBean.curriculumId}&amp;mId=${m.id}&amp;tId=${r.id}" style="text-decoration: none;">${r.title}</a>
@@ -40,7 +42,9 @@
                         </r:when>
                         <r:otherwise>
                             <div class="controlWorksDisciplineName">
-                                 <h:outputText rendered="#{t[3]==null||t[4]==null}" style="color: grey;" value="#{test.title}"/>
+<!--                                <h:outputText rendered="#{t[2]==null}" style="color: grey;" value="#{test.title}"/>-->
+<!--                                 <h:outputText rendered="#{t[3]==null}" style="color: grey;" value="#{test.title}"/>-->
+                                  <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="#{test.title}"/>
                             </div>
                         </r:otherwise>
                     </r:choose>
@@ -48,16 +52,26 @@
                         <h:outputText rendered="#{t[2]!=null}" style="color: #EF596D; display: block;" value="#{t[2]}"/>
                         <h:outputText rendered="#{t[3]!=null}" style="color: #EF596D; display: block;" value="#{t[3]}"/>
                         <h:outputText rendered="#{t[4]!=null}" style="color: #EF596D; display: block;" value="#{t[4]}"/>
-                        попыток: <span>#{work.estimateAttemptsUsedNumber} из #{test.estimateAttemptsNumber}</span><br/>
-                        пробных: <span>#{work.trialAttemptsUsedNumber} из #{test.trialNumber}</span><br/>
-                        переэкзаменовка: <span>#{work.reExameAttemptsUsedNumber}</span><br/>
+<!--                         <h:outputText rendered="#{t[2]==null}" style="margin-top: -40px; display: block;"/>-->
+<!--                          <h:outputText rendered="#{t[3]==null}" style="margin-top: -40px; display: block;"/>-->
+<!--                        <h:outputText rendered="#{t[4]==null}" style="margin-top: -40px; display: block;"/><br/>-->
+                        <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="попыток: #{work.estimateAttemptsUsedNumber} из #{test.estimateAttemptsNumber}"/>
+                        <h:outputText rendered="#{t[4]!=null}" >попыток: <span>#{work.estimateAttemptsUsedNumber} из #{test.estimateAttemptsNumber}</span></h:outputText><br/>
+                        <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="пробных:#{work.trialAttemptsUsedNumber} из #{test.trialNumber}"/>
+                        <h:outputText rendered="#{t[4]!=null}" >пробных: <span>#{work.trialAttemptsUsedNumber} из #{test.trialNumber}</span></h:outputText><br/>
+                       <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="переэкзаменовка: #{work.reExameAttemptsUsedNumber}"/>
+                        <h:outputText rendered="#{t[4]!=null}" >переэкзаменовка: <span>#{work.reExameAttemptsUsedNumber}</span></h:outputText><br/>
                         <h:outputText rendered="#{test.openDate ne null and test.closeDate ne null}" value="доступен с #{test.openDate} по #{test.closeDate}"/><br/>
-                        количество вопросов:  <span>#{test.quantity}</span><br/>
-                        предоставленное время:  <span>#{test.duration}</span><br/>
-                        Результаты тестирования: <span>#{work.pointsForWork}</span><br/>
+                        <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="количество вопросов: #{test.quantity}"/>
+                        <h:outputText rendered="#{t[4]!=null}" >количество вопросов:  <span>#{test.quantity}</span></h:outputText><br/>
+                        <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="предоставленное время: #{test.duration}"/>
+                        <h:outputText rendered="#{t[4]!=null}" >предоставленное время:  <span>#{test.duration}</span></h:outputText><br/>
+                        <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="результаты тестирования: #{work.pointsForWork}"/>
+                        <h:outputText rendered="#{t[4]!=null}" >результаты тестирования: <span>#{work.pointsForWork}</span></h:outputText><br/>
                     </div>
                 </div>
             </r:forEach>
         </div>
+       
     </ui:define>
 </ui:composition>
