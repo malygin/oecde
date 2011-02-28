@@ -1,10 +1,14 @@
 package org.sgu.oecde.web;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
+import java.io.Console;
 import java.io.Externalizable;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -19,6 +23,7 @@ import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 import java.util.Set;
@@ -71,7 +76,7 @@ public class simpleTest{
         System.out.println(b.a+"   "+((b)b).a);
         System.out.println(b.getB()+"   "+((b)b).getB());
     }
-
+    
     @Ignore
     @Test
     public void test(){
@@ -105,7 +110,7 @@ public class simpleTest{
     @Test
     public void asdasd(){
         Formatter f = new Formatter();
+        File s;
         f.format("%S", "hello123");
-        System.out.printf("asd %f asdasd %b",Math.PI,Math.E);
     }
 }

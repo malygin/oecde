@@ -20,6 +20,7 @@ import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.web.jsfbeans.util.NewEntry;
 import org.springframework.util.Assert;
+import org.springframework.util.CollectionUtils;
 
 /**
  *
@@ -58,7 +59,7 @@ public class OldGrades extends AbstractStudentBean{
             }else
                 map = studentSessionBean.getCurriculumAndTeacher(semester%2);
 
-            if(map == null)
+            if(CollectionUtils.isEmpty(map))
                 return points;
             else
                 map = new HashMap<DeCurriculum, Teacher>(map);
@@ -108,7 +109,7 @@ public class OldGrades extends AbstractStudentBean{
 
     @Override
     public void setSemester(int semester) {
-        group = groupDao.getTeachersAndCurriculumsByOldGroup(semester/2, student);
+        group = groupDao.getTeachersAndCurriculumsByOldGroup(semester/2+semester%2, student);
         if(group == null)
             group = student.getGroup();
         super.setSemester(semester);

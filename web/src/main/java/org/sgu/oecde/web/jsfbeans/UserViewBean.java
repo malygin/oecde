@@ -59,6 +59,8 @@ public class UserViewBean implements Serializable{
                 default:
                     throw new IllegalAccessError();
             }
+            if(!t.equals(UserType.toType(user)))
+                return null;
         }
         return user;
     }
