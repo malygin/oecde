@@ -35,6 +35,7 @@
                                 </a>
                             </div>
                         </td>
+                        <h:outputText escape="true" rendered="#{i.index eq 2}" value="&lt;/tr&lt;tr>"/>
                     </ui:repeat>
                 </tr>
             </table>
@@ -45,7 +46,7 @@
         <div class="usersOnlineTableContainer">
 <table cellpadding="3" cellspacing="1" >
                 <tr>
-                    <ui:repeat value="#{usersInCache.sixStudents}" var="st" varStatus="i">
+                    <ui:repeat value="#{usersInCache.sixTeachers}" var="st" varStatus="i">
                         <td style="max-width: 68px;">
                             <div class="userOnlineLinkContainer">
                                 <a href="student.xhtml?id=#{st.id}">
