@@ -29,6 +29,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
  *
  * @author Malygin
  * получение листа сообщений в чат, все это хозяйство можно заменить бином с видимостью приложение, но пока не хочется
+ * @todo разобраться с экранированием
  */
 @WebServlet(value="/ChatList", loadOnStartup=1)
 public class ChatList extends HttpServlet {
@@ -100,7 +101,7 @@ public class ChatList extends HttpServlet {
 
                                           break;
                                   }
-                                  str.append("\", \"message\": \"").append(l.getMessage()).append("\"},");
+                                  str.append("\", \"message\": \"").append(l.getMessage().replaceAll("\"", "")).append("\"},");
                               }
                         }
              str.deleteCharAt(str.length()-1);
