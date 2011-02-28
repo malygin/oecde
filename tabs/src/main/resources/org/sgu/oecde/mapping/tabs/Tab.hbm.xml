@@ -9,7 +9,7 @@
       </generator>
     </id>
     <property length="250" name="name" not-null="true" type="string"/>
-    <property column="tab_type" name="type" not-null="true">
+    <property column="tab_type" name="type">
       <type name="org.sgu.oecde.core.GenericEnumUserType">
         <param name="enumClass">org.sgu.oecde.tabs.TabType</param>
       </type>

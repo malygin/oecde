@@ -10,29 +10,7 @@
        ">
 <!-- DATA BASE CONFIGS-->
 
-  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-    <!-- PostgreSql
-    <property name="username" value="malyginav"/>
-    <property name="password" value="andreyko"/>
-    <property name="url" value="jdbc:postgresql://oec.sgu.ru/postgres"/>
-    <property name="driverClassName" value="org.postgresql.Driver" />
--->
-    <!-- MySql 
-    <property name="username" value="oecdo_test"/>
-    <property name="password" value="urDCU7uJpdFA2fZ4"/>
-    <property name="url" value="jdbc:mysql://nanna.main.sgu.ru/oecdo_test"/>
-    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-   -->
-
-    <!--   Oracle  -->
-    <property name="username" value="oecdo_test"/>
-    <property name="password" value="oecdo_test"/>
-    <property name="url" value="jdbc:oracle:thin:@odin.sgu.ru:1521:odin"/>
-    <property name="driverClassName" value="oracle.jdbc.OracleDriver" />
-
-  </bean>
-
-  <bean depends-on="userInstantiationListener" p:dataSource-ref="dataSource" id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+  <bean depends-on="userInstantiationListener" id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
     <property name="mappingDirectoryLocations">
         <list>
             <value>classpath:/org/sgu/oecde/mapping/</value>
