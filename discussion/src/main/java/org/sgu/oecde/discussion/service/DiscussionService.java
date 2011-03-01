@@ -71,7 +71,7 @@ public class DiscussionService {
      * @param message
      * @param user
      */
-    public void addNode(Long idNode, Long idObject, ForumTypes type, Long idParent, String message, AbstractUser user){
+    public Node addNode(Long idNode, Long idObject, ForumTypes type, Long idParent, String message, AbstractUser user){
         Node node= new Node();
         if(idNode!=null) node.setId(idNode);
         node.setMessage(message);
@@ -98,5 +98,6 @@ public class DiscussionService {
         else node.setRoot(root);
         if(node.getId()==null)  nodeDao.save(node);
         else  nodeDao.update(node);
+        return node;
     }
 }

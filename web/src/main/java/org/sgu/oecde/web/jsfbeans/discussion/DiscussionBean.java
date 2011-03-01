@@ -14,8 +14,11 @@ import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.discussion.ForumTypes;
 import org.sgu.oecde.discussion.Node;
+import org.sgu.oecde.discussion.Root;
 import org.sgu.oecde.discussion.service.DiscussionService;
 import org.sgu.oecde.discussion.util.NodeRevertComparator;
+import org.sgu.oecde.journal.EventType;
+import org.sgu.oecde.journal.JournalService;
 import org.sgu.oecde.news.NewsItem;
 import org.sgu.oecde.news.dao.INewsDao;
 
@@ -32,6 +35,8 @@ public class DiscussionBean {
     private DiscussionService discussionService;
     @ManagedProperty(value="#{newsDao}")
     private INewsDao newsDao;
+    @ManagedProperty(value="#{journalService}")
+    private JournalService journalService;
 
     private AbstractUser  currentUser;
     List<Node> nodes;
@@ -46,6 +51,7 @@ public class DiscussionBean {
     private boolean renderReply=false;
     private boolean renderEdit=false;
 
+    private Root currentRoot;
     private ForumTypes objectTypeEnum=ForumTypes.STUDENT_ORG;
 
 
@@ -67,6 +73,8 @@ public class DiscussionBean {
        if(objectId==null) return new ArrayList<Node>();
        if((nodes==null)){
            List<Node> nodesTemp=discussionService.getNodesByPage(new Long(objectId), objectTypeEnum, nodesOnPage, currentPage);
+           currentRoot = new Root(new Long(objectId), objectTypeEnum);
+           currentRoot.setId(new Long(objectId));
            Node nodeRoot=new Node();
            NodeRevertComparator comp= new NodeRevertComparator();
            //создали корень дерева для обработки листа
@@ -74,7 +82,7 @@ public class DiscussionBean {
            nodeSet.addAll(nodesTemp);
            nodeRoot.setChildren(nodeSet);
            //составили дерево для вывода в виде листа
-           nodes=walk(new ArrayList<Node>(), nodeRoot, 1);
+           nodes=walk(new ArrayList<Node>(), nodeRoot,null, 1);
            //удалили корень
            nodes.remove(0);
         }
@@ -85,11 +93,12 @@ public class DiscussionBean {
     /**
      * служебный метод для рекурсии по дереву нодов
      */
-    private List<Node> walk(List<Node> list, Node node, int level) {  
-        node.setLevel(level);       
+    private List<Node> walk(List<Node> list, Node node, Node parent, int level) {
+        node.setLevel(level);
+        node.setParent(parent);
         list.add(node);
         for(Node kid : node.getChildren()) {
-              walk(list, kid, level+1);
+              walk(list, kid, node, level+1);
         }
         return list;
    }
@@ -110,12 +119,13 @@ public class DiscussionBean {
      * @throws IOException
      */
      public void saveNodes() throws IOException{
-         discussionService.addNode(null, new Long(objectId), objectTypeEnum, 0L, nodeText , currentUser);
+         Node node = discussionService.addNode(null, new Long(objectId), objectTypeEnum, 0L, nodeText , currentUser);
          if(objectTypeEnum==ForumTypes.NEWS){
                  NewsItem news=newsDao.getById(new Long(objectId));
                  news.setCommentNumber(news.getCommentNumber()+1);
                  newsDao.update(news);
-         }
+                 journalService.save(EventType.POST_ADD, currentUser,news, currentUser);
+         }else   journalService.save(EventType.POST_ADD, currentUser,node);
             HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
             String url=request.getRequestURI().split("/")[3];      
             FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId);
@@ -145,13 +155,16 @@ public class DiscussionBean {
       * @throws IOException
       */
      public void saveReply() throws IOException{
+           Node node=discussionService.addNode(null, new Long(objectId), objectTypeEnum, new Long(nodeId), nodeTextReply , currentUser);
+           node.setParent(currentNode); 
+           node.setRoot(currentRoot);
+           if(objectTypeEnum==ForumTypes.NEWS){
+                  NewsItem news=newsDao.getById(new Long(objectId));
+                  news.setCommentNumber(news.getCommentNumber()+1);
+                  newsDao.update(news);
+                  journalService.save(EventType.POST_ANSWER, currentUser,news, node);
+            }else journalService.save(EventType.POST_ANSWER, currentUser,node);
 
-          discussionService.addNode(null, new Long(objectId), objectTypeEnum, new Long(nodeId), nodeTextReply , currentUser);
-            if(objectTypeEnum==ForumTypes.NEWS){
-                 NewsItem news=newsDao.getById(new Long(objectId));
-                 news.setCommentNumber(news.getCommentNumber()+1);
-                 newsDao.update(news);
-             }
              HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
              String url=request.getRequestURI().split("/")[3];
              FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId+"&page="+currentPage);
@@ -303,5 +316,10 @@ public class DiscussionBean {
     public void setNewsDao(INewsDao newsDao) {
         this.newsDao = newsDao;
     }
+
+    public void setJournalService(JournalService journalService) {
+        this.journalService = journalService;
+    }
+
 
 }

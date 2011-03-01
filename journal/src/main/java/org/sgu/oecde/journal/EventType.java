@@ -928,6 +928,7 @@ public enum EventType {
                 default:
                     el[0] = new EventBodyElement("К вашему сообщению ");
                     el[1] = new EventBodyElement(Long.valueOf(str[1]), "на форуме", EventBodyElement.forumPage);
+                    break;
                 case NEWS:
                     el[0] = new EventBodyElement("К вашему комментарию к новости ");
                     el[1] = new EventBodyElement(Long.valueOf(str[1]), str[2], EventBodyElement.newsPage);
@@ -956,8 +957,10 @@ public enum EventType {
 
         @Override
         public EventItem fillEventItem(AbstractUser user, Object... o) {
-            if(checkObjectArrayAndUser(user, 2, this, o))
+            if(user == null || o == null || o.length==0){
+                logger.debug(this+": user is null or objects is empty");
                 return null;
+            }
             
             NewsItem news = null;
             Node node = null;
@@ -982,9 +985,11 @@ public enum EventType {
             if(ForumTypes.NEWS.equals(type)&&news!=null){
                 str[1] = news.getHeader();
                 id = news.getId();
-            }else
-                id = node.getRoot().getObjectId();
-
+            }else{
+                  id = node.getRoot().getObjectId();
+                  str[1]=(new Long(id)).toString();
+            }
+              
             return generateEventItem(user, id, str);
         }
 
