@@ -35,68 +35,68 @@
 
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
+                        <h:graphicImage value='../resources/images/disciplineTableMarks.png'/>
                     </f:facet>
                     <span class="controlWorksDisciplineName studentStandatrTableCenter controlWorksDisciplineNameLink"><h:outputLink value="discipline.xhtml?c=#{p.points.curriculum.id} ">#{p.points.curriculum.discipline.name}</h:outputLink></span>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="#{msgs.student_gradesTableHeadTeacher}" />
+                        <h:graphicImage value='../resources/images/teacherTable.png'/>
                     </f:facet>
                         <span class="linkToTeachersProfile studentStandatrTableCenter" style="background: none; padding: 0;"><h:outputLink value="teacher.xhtml?id=${p.teacher.id}">#{p.teacher.initials}</h:outputLink></span>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="#{msgs.student_gradesTableHeadTests}" />
+                        <h:graphicImage value='../resources/images/testTable.png'/>
                     </f:facet>
                     #{p.test} <span style="color:#808080;">(#{p.testsMaxPoints})</span>
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Пере- экзаменовка" />
+                       <h:graphicImage value='../resources/images/reexTable.png'/>
                     </f:facet>
                     #{p.reTest}
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="#{msgs.student_gradesTableHeadFinTests}" />
+                       <h:graphicImage value='../resources/images/resultTestsTable.png'/>
                     </f:facet>
                    #{p.concludingTest} <span style="color:#808080;">(#{p.concludingTestsMaxPoints})</span>
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="#{msgs.student_gradesTableHeadFinTestsResit}" />
+                       <h:graphicImage value='../resources/images/resultTestExam.png'/>
                     </f:facet>
                     #{p.concludingReTest}
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="#{msgs.student_gradesTableHeadCWPoints}" />
+                        <h:graphicImage value='../resources/images/contrMarksTable.png'/>
                     </f:facet>
                     #{p.controlWorkPoints}
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="#{msgs.student_gradesTableHeadCWs}" />
+                        <h:graphicImage value='../resources/images/contrWorksTable.png'/>
                     </f:facet>
                     <h:outputText converter="enumConverter" value="#{p.controlWorkValue}"/>
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="#{msgs.student_gradesTableHeadSumm}" />
+                       <h:graphicImage value='../resources/images/summTable.png'/>
                     </f:facet>
                     #{p.points.sum}
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="#{msgs.student_gradesTableHeadFinal}" />
+                       <h:graphicImage value='../resources/images/resultTable.png'/>
                     </f:facet>
                     <h:outputText converter="enumConverter" value="#{p.grade}"/>
                 </h:column>
