@@ -91,7 +91,7 @@ public class UmkBean implements Serializable {
               //вытаскиваем первый таск следующего модуля, если мы смотрим последний таск текущего модуля
              if((currentModule!=null)&&(nextTask.getId().equals(0L))&&( !m.getResources().isEmpty())){
                  nextModule=m;
-                 nextTask=(Task) m.getResources().toArray()[0];
+                 nextTask= m.<Task>getResources().iterator().next();
                  break;
              }
              //если это нужный нам модуль - вытаскиеваем нужный таск (+ следующий и предыдущий) из него и список всех тасков модуля
