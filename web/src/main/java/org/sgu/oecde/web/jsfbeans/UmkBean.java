@@ -89,7 +89,7 @@ public class UmkBean implements Serializable {
             if (m == null)
                 continue;
               //вытаскиваем первый таск следующего модуля, если мы смотрим последний таск текущего модуля
-             if((currentModule!=null)&&(nextTask.getId().equals(0L))){
+             if((currentModule!=null)&&(nextTask.getId().equals(0L))&&( !m.getResources().isEmpty())){
                  nextModule=m;
                  nextTask=(Task) m.getResources().toArray()[0];
                  break;
@@ -97,19 +97,17 @@ public class UmkBean implements Serializable {
              //если это нужный нам модуль - вытаскиеваем нужный таск (+ следующий и предыдущий) из него и список всех тасков модуля
              if (m.getId().toString().equals(moduleId)){
                   currentModule=m;
-                  //System.out.println(""+m.getResources());
-                  for(AbstractResource t:m.getResources()){
-                     Task t1=(Task)t;
-                     if ((currentTask!=null)&&(nextTask.getId().equals(0L))) nextTask=t1;
-                     if (t1.getId().toString().equals(taskId))  currentTask=t1;
-                   //   System.out.println("! "+currentTask);
-                     if (currentTask==null) prevTask=t1;
-                     tasks.add(t1);
+                  for(Task t:m.<Task>getResources()){                  
+                     if ((currentTask!=null)&&(nextTask.getId().equals(0L))) nextTask=t;
+                     if (t.getId().toString().equals(taskId))  currentTask=t;
+                     if (currentTask==null) prevTask=t;
+                     tasks.add(t);
                    }                  
               }
              //если мы вытащили текущий модуль, он не первый, а занятие в нем первое, то вытаскиваем
              //для предыдущего модуля и таска соотвествующие значения
-             if((currentModule!=null)&&(prevModuleTemp!=null)&&(prevTask.getId().equals(0L))){
+            //и если у этого модуля 1 занятие, продолжим итерацию цикла на проверку есть ли следующее занятие
+             if((currentModule!=null)&&(prevModuleTemp!=null)&&(prevTask.getId().equals(0L))&&(currentModule.getResources().size()!=1)){
                  int length=prevModuleTemp.getResources().toArray().length;
                  if (length!=0){                 
                      prevTask=(Task) prevModuleTemp.getResources().toArray()[length-1];
