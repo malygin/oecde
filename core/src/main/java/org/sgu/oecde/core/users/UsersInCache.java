@@ -3,11 +3,13 @@ package org.sgu.oecde.core.users;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import net.sf.ehcache.Ehcache;
 import net.sf.ehcache.Element;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 /**
  * пользователи в кеше пользователей онлайн, соответсвующем типу пользователя.
  * имеет методы на получение в кеш и получение из кеша
@@ -218,5 +220,17 @@ public class UsersInCache{
             default:
                 throw new AssertionError("no cache with name "+name);
         }
+    }
+
+    private static UsersInCache cache;
+
+    static boolean isOnline(AbstractUser user) {
+        Assert.notNull(cache);
+        return cache.isUserInCache(user);
+    }
+
+    @PostConstruct
+    public void postConstract(){
+        cache = this;
     }
 }

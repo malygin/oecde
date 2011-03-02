@@ -12,7 +12,7 @@
     <set batch-size="1" cascade="none" fetch="select" lazy="true" name="persons" table="group_membership">
       <cache usage="read-write"/>
       <key column="group_id" foreign-key="fk_group_membershp_group"/>
-      <many-to-many class="org.sgu.oecde.core.users.AbstractPerson" column="person_id"  fetch="join" foreign-key="fk_group_person" lazy="false"/>
+      <many-to-many class="org.sgu.oecde.core.users.AbstractPerson" column="person_id" fetch="join" foreign-key="fk_group_person" lazy="false"/>
     </set>
   </class>
 </hibernate-mapping>

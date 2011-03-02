@@ -9,7 +9,7 @@
     <property insert="false" name="version" scale="3" type="integer"/>
     <property insert="false" name="visible" scale="1" type="true_false"/>
     <property column="date_last_change" insert="false" length="19" name="dateLastСhange" type="string"/>
-    <set batch-size="5" cascade="none" lazy="true" fetch="select" mutable="false" name="authors" table="resource_author">
+    <set batch-size="5" cascade="none" fetch="select" lazy="true" mutable="false" name="authors" table="resource_author">
       <cache usage="read-only"/>
       <key column="resource_id" foreign-key="fk_resource_author_resource" not-null="true"/>
       <many-to-many class="org.sgu.oecde.core.education.resource.Author" column="author" foreign-key="fk_resource_author"/>

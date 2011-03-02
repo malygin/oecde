@@ -34,9 +34,10 @@ public class CacheTest extends AbstractJUnit4SpringContextTests{
         IUpdateDao<Teacher>t = (IUpdateDao<Teacher>) applicationContext.getBean("teacherDao");
         IUpdateDao<AbstractUser>d = (IUpdateDao<AbstractUser>) applicationContext.getBean("userDao");
         AbstractUser st = d.getById(1L);
-        AbstractUser st2 = t.getById(44240L);
+        Teacher st2 = t.getById(44240L);
         uic.putUserInCache(st);
         uic.putUserInCache(st2);
+        System.out.println(st.getOnline());
     }
 
     @Ignore

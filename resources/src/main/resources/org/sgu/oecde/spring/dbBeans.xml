@@ -10,7 +10,7 @@
        ">
 <!-- DATA BASE CONFIGS-->
 
-  <bean depends-on="userInstantiationListener" id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+  <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
     <property name="mappingDirectoryLocations">
         <list>
             <value>classpath:/org/sgu/oecde/mapping/</value>
@@ -18,12 +18,6 @@
     </property>
     <property name="hibernateProperties">
         <util:properties location="classpath:/org/sgu/oecde/hibernate.properties" />
-    </property>
-
-    <property name="eventListeners" >
-        <map>
-            <entry key="post-load" value-ref="userInstantiationListener"/>
-        </map>
     </property>
   </bean>
 

@@ -5,9 +5,9 @@
     <cache usage="read-only"/>
     <id name="id" type="long"/>
     <discriminator column="discriminator" insert="false" length="15"/>
-    <property insert="false" update="false" name="semester" scale="2" type="integer"/>
-    <property column="calendar_year" insert="false" update="false" name="calendarYear" scale="4" type="integer"/>
-    <property column="examination_type" update="false" insert="false" length="10" name="examinationType" not-null="true">
+    <property insert="false" name="semester" scale="2" type="integer" update="false"/>
+    <property column="calendar_year" insert="false" name="calendarYear" scale="4" type="integer" update="false"/>
+    <property column="examination_type" insert="false" length="10" name="examinationType" not-null="true" update="false">
       <type name="org.sgu.oecde.core.GenericEnumUserType">
         <param name="enumClass">org.sgu.oecde.core.education.ExaminationType</param>
         <param name="identifierMethod">toName</param>
@@ -23,6 +23,6 @@
         <many-to-one cascade="none" class="org.sgu.oecde.core.users.StudentGroup" column="student_group" fetch="join" foreign-key="fk_teacher_2_group_group" insert="false" name="group"/>
       </composite-element>
     </set>
-    <many-to-one class="org.sgu.oecde.core.education.Umk" fetch="join" foreign-key="fk_curriculum_umk" lazy="false" insert="false" update="false" name="umk"/>
+    <many-to-one class="org.sgu.oecde.core.education.Umk" fetch="join" foreign-key="fk_curriculum_umk" insert="false" lazy="false" name="umk" update="false"/>
   </class>
 </hibernate-mapping>

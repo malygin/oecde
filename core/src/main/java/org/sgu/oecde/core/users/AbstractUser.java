@@ -45,10 +45,6 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
      */
     private String smallPhoto;
     /**
-     * пользователь онлай
-     */
-    private transient boolean online=false;
-    /**
      * оригинальный айди
      */
     private Long originalId;
@@ -123,16 +119,13 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
      * @return онлайн ли
      */
     public boolean getOnline() {
-        return online;
+        return UsersInCache.isOnline(this);
     }
 
     /**
      * онлайн ли
      * @param online
      */
-    public void setOnline(boolean online) {
-        this.online = online;
-    }
 
     /**
      *
