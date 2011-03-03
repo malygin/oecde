@@ -5,6 +5,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ut="http://java.sun.com/jsf/composite/components/util"
       xmlns:sec="http://www.springframework.org/security/facelets/tags"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       >
 
 
@@ -20,6 +21,9 @@
        </style>
        <div style="float: left; margin-right: 20px;">
            <ut:showPhoto user="#{cc.attrs.u}" styleClass="#{cc.attrs.u.classType}" size="medium"/>
+       </div>
+       <div>
+        
        </div>
         <div>
             <table style="height:100%; width:60%;">
@@ -40,6 +44,7 @@
                     <tr><td style="color:#808080;">Специальность:</td><td>#{cc.attrs.u.group.speciality.name}</td></tr>
                     <tr><td style="color:#808080;">Группа:</td><td><h:outputLink value="group.xhtml?id=#{cc.attrs.u.group.id}">#{cc.attrs.u.group.name}</h:outputLink></td></tr>
                     <tr><td style="color:#808080;">Курс:</td><td>#{cc.attrs.u.group.year}</td></tr>
+                    <tr><td></td><td><h:outputText rendered="#{cc.attrs.u.online}" value="On-line" style="color:#617F5F;"/></td></tr>
                 </h:panelGroup>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'admin'}">
                     <tr><td style="color:#808080;">Должность:</td><td>#{cc.attrs.u.position}</td></tr>

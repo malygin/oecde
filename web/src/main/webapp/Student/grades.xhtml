@@ -17,12 +17,12 @@
             <div class="changeSemWithoutBorder">
                 <est:changeSemester semester="#{gradesBean.semester}"/>
             </div>
-            <div  class="controlWorksDisciplineNameLink" style="text-align: right;padding-right: 15px; padding-top: 5px;">
-            <a href="#help" class="help_part_href">Подсказка</a>
+            <div  class="controlWorksDisciplineNameLink" style="text-align: right;padding-right: 15px; padding-top: 5px; position: relative; top: -25px;">
+                <a href="#help" class="help_part_href">Подсказка</a>
             </div>
             <div>
             <h:dataTable  value="#{gradesBean.points}"
-                         columnClasses="studentStandatrTableTd studentStandatrTableTdWithBorderBrighter,
+                         columnClasses="studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableTdFirstWidth,
                          studentStandatrTableTd studentStandatrTableTdWithBorderBrighter linkToTeachersProfileFromStudent studentStandatrTableCenter student_gradesTableHeadTeacherWidth,
                          studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter,
                          studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter,
@@ -35,7 +35,7 @@
 
                 <h:column>
                     <f:facet name="header">
-                        <h:graphicImage value='../resources/images/disciplineTableMarks.png'/>
+                        <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
                     </f:facet>
                     <span class="controlWorksDisciplineName studentStandatrTableCenter controlWorksDisciplineNameLink"><h:outputLink value="discipline.xhtml?c=#{p.points.curriculum.id} ">#{p.points.curriculum.discipline.name}</h:outputLink></span>
                 </h:column>
