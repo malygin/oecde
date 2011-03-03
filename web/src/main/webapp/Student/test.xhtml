@@ -94,10 +94,11 @@
         <h:panelGroup id="TestPassing" rendered="#{testBean.renderTestPassing}">              
                 <script>
                       $(function(){
+                      
                           //сделали костыльный эскейп для формул и хтмок всех
                         jQuery("label").each(function(i){$(this).html($(this).text());});
                          if (flag){
-                                  console.log('in');
+                           
                                 $("#counter").counter({
                                           min:'#{testPassingBean.timeTest}',
                                           sec:'0',

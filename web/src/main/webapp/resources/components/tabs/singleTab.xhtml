@@ -29,7 +29,7 @@
                         <br/>
                         <hr/>
                         <br/>
-                        Файлы:
+                    <h:outputText rendered="#{tabsViewBean.currentPage.files!=null}" value="Файлы"/> 
                     <h:dataTable id="files" value="#{setToList.getList(tabsViewBean.currentPage.files)}" var="f">
                         <h:column>
                             <h:panelGroup rendered="#{f.visible}">

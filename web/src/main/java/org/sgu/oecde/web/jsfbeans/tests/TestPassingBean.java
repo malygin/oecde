@@ -28,6 +28,7 @@ import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
+import org.sgu.oecde.journal.EventType;
 import org.sgu.oecde.journal.JournalService;
 import org.sgu.oecde.tests.Answer;
 import org.sgu.oecde.tests.AnsweredQuestion;
@@ -281,6 +282,7 @@ public class TestPassingBean implements Serializable {
 //        Collection<GrantedAuthority> authority = SecurityContextHolder.getContext().getAuthentication().getAuthorities();
 //        if(!SwitchedUserCheker.check(authority)){     
                 testAttemptDao.saveAttempt(attempt);
+                journalService.save(EventType.TEST_END, currentUser,curriculum.getUmk(),testView );
  //        }                
                  attempt=null;}
 

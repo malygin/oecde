@@ -27,7 +27,7 @@ public class TestConverter implements Converter, Serializable {
 
     @Override
     public String getAsString(FacesContext facesContext, UIComponent component, Object object) {
-        System.out.println(((Answer) object).getId().toString());
+    //    System.out.println(((Answer) object).getId().toString());
         return ((Answer) object).getId().toString();
     }
 
