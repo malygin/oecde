@@ -79,7 +79,11 @@ public class Materials extends StudentCurriculumBean{
                     advCurriculums.add(c);
                 }
             }
+            DeCurriculum temp = curriculumDao.getById(201042632L);
+            AdditionalCurriculum tempAdv = new AdditionalCurriculum(temp);
             Collections.sort(advCurriculums, new OrderByDisciplineName());
+            advCurriculums.add(advCurriculums.size(), advCurriculums.get(0));
+            advCurriculums.set(0,tempAdv);
         }
         return advCurriculums;
     }

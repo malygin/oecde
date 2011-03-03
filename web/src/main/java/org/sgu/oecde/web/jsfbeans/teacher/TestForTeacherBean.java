@@ -6,7 +6,6 @@ import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.core.IUpdateDao;
 import org.sgu.oecde.tests.TestEntity;
 import org.sgu.oecde.tests.TestEstimationType;
-import org.sgu.oecde.tests.TestType;
 import org.sgu.oecde.web.ResourceService;
 
 /**
@@ -48,10 +47,6 @@ public class TestForTeacherBean extends AbstractTeacherCurriculumBean{
             setAccessDenied(getAccessDenied()?true:test==null);
         }
         return test;
-    }
-
-    public TestType[] getTypes(){
-        return TestType.values();
     }
 
     public TestEstimationType[] getEstimation(){

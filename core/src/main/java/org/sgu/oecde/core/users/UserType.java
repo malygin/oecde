@@ -1,5 +1,7 @@
 package org.sgu.oecde.core.users;
 
+import org.hibernate.proxy.HibernateProxy;
+
 /**
  * типы пользователей
  * @author ShihovMY
@@ -28,6 +30,9 @@ public enum UserType {
     GUEST;
 
     public static UserType toType(AbstractUser user) {
+        if(user instanceof HibernateProxy){
+            user = (AbstractUser) ((HibernateProxy)user).writeReplace();
+        }
         if (user instanceof AbstractStudent) {
             return STUDENT;
         } else if (user instanceof Teacher) {

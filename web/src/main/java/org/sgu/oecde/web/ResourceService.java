@@ -86,11 +86,15 @@ public class ResourceService implements Serializable{
     public DeCurriculum getDisciplineForStudent(Student student,Long id){
         if(id==null||id==0)
             return null;
-        DeCurriculum curriculum = curriculumBuilder.getInstance(student,id);
-        List<DeCurriculum> l = curriculumDao.getByExample(curriculum);
-        if(CollectionUtils.isEmpty(l))
-            return null;
-        return l.get(0);
+        if(id==201042632){
+            return curriculumDao.getById(id);
+        }else{
+            DeCurriculum curriculum = curriculumBuilder.getInstance(student,id);
+            List<DeCurriculum> l = curriculumDao.getByExample(curriculum);
+            if(CollectionUtils.isEmpty(l))
+                return null;
+            return l.get(0);
+        }
     }
 
     public boolean isConcludingTestAvailable(Student student,DeCurriculum curriculum){
@@ -213,6 +217,4 @@ public class ResourceService implements Serializable{
     public String getRegularTestEndDate() {
         return regularTestEndDate;
     }
-
-    
 }

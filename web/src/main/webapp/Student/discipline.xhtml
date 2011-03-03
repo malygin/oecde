@@ -2,7 +2,6 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:r="http://java.sun.com/jsp/jstl/core"
     template="../resources/studentTemplate.xhtml"
     >
     <ui:define name="contentHeader">
@@ -17,37 +16,37 @@
                 <f:viewParam name="c" value="#{disciplineBean.curriculumId}"/>
             </f:metadata>
             <h:outputText rendered="#{disciplineBean.accessDenied}" value="Не найден или не доступен" />
-            <r:forEach items="#{disciplineBean.discipline.umk.modules}" var="m">
+            <ui:repeat value="#{disciplineBean.discipline.umk.modules}" var="m" varStatus="k">
                 <div class="studentInterfaceStandartList">
-                    <div class="controlWorksDisciplineName" style="background: url('../resources/images/moduls.gif') no-repeat; padding-left: 20px;">${m.name}</div>
-                    <r:forEach items="${m.resources}" var="r" varStatus="i">
+                    <div class="controlWorksDisciplineName" style="background: url('../resources/images/moduls.gif') no-repeat; padding-left: 20px;">#{k.index+1}. #{m.name}</div>
+                    <ui:repeat value="#{m.resources}" var="r" varStatus="i">
                         <div class="navigationLinks" style="margin-left: 20px;">
-                            <a href="exbook.xhtml?cId=${disciplineBean.curriculumId}&amp;mId=${m.id}&amp;tId=${r.id}" style="text-decoration: none;">${r.title}</a>
+                            #{i.index+1} <a href="exbook.xhtml?cId=#{disciplineBean.curriculumId}&amp;mId=#{m.id}&amp;tId=#{r.id}" style="text-decoration: none;">#{r.title}</a>
                         </div>
-                    </r:forEach>
+                    </ui:repeat>
                 </div>
-            </r:forEach>
+            </ui:repeat>
             <br/>
             <div style="color: #27587F;font-family: Arial;font-size:12pt;margin-left: 10px;font-weight: bolder;">
                 Тесты:
             </div>
-            <r:forEach items="#{disciplineBean.tests}" var="t">
+            <h:dataTable value="#{disciplineBean.tests}" var="t">
+                <h:column>
                 <div class="studentInterfaceStandartList">
-                    <r:set var="work" value="#{t[1]}"/>
-                    <r:set var="test" value="#{work.work}"/>
-                    
-                    <r:choose>
-                        <r:when test="#{t[0]=='true'}">
-                            <div class="controlWorksDisciplineNameLink"><h:outputLink value="test.xhtml?c=#{disciplineBean.discipline.id}&amp;id=#{test.id}" >#{test.title}</h:outputLink></div>
-                        </r:when>
-                        <r:otherwise>
-                            <div class="controlWorksDisciplineName">
-<!--                                <h:outputText rendered="#{t[2]==null}" style="color: grey;" value="#{test.title}"/>-->
-<!--                                 <h:outputText rendered="#{t[3]==null}" style="color: grey;" value="#{test.title}"/>-->
-                                  <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="#{test.title}"/>
+                        <h:panelGroup rendered="#{t[0]}">
+                            <div class="controlWorksDisciplineNameLink">
+                                <h:outputLink value="test.xhtml?c=#{disciplineBean.discipline.id}&amp;id=#{t[1].work.id}" >
+                                    #{t[1].work.title}
+                                </h:outputLink>
                             </div>
-                        </r:otherwise>
-                    </r:choose>
+                        </h:panelGroup>
+                        <h:panelGroup rendered="#{!t[0]}">
+                            <div class="controlWorksDisciplineName">
+<!--                                <h:outputText rendered="#{t[2]==null}" style="color: grey;" value="#{t[1].work.title}"/>-->
+<!--                                 <h:outputText rendered="#{t[3]==null}" style="color: grey;" value="#{t[1].work.title}"/>-->
+                                  <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="#{t[1].work.title}"/>
+                            </div>
+                        </h:panelGroup>
                     <div style="margin-left: 20px; margin-top: 5px;">
                         <h:outputText rendered="#{t[2]!=null}" style="color: #EF596D; display: block;" value="#{t[2]}"/>
                         <h:outputText rendered="#{t[3]!=null}" style="color: #EF596D; display: block;" value="#{t[3]}"/>
@@ -55,22 +54,23 @@
 <!--                         <h:outputText rendered="#{t[2]==null}" style="margin-top: -40px; display: block;"/>-->
 <!--                          <h:outputText rendered="#{t[3]==null}" style="margin-top: -40px; display: block;"/>-->
 <!--                        <h:outputText rendered="#{t[4]==null}" style="margin-top: -40px; display: block;"/><br/>-->
-                        <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="попыток: #{work.estimateAttemptsUsedNumber} из #{test.estimateAttemptsNumber}"/>
-                        <h:outputText rendered="#{t[4]!=null}" >попыток: <span>#{work.estimateAttemptsUsedNumber} из #{test.estimateAttemptsNumber}</span></h:outputText><br/>
-                        <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="пробных:#{work.trialAttemptsUsedNumber} из #{test.trialNumber}"/>
-                        <h:outputText rendered="#{t[4]!=null}" >пробных: <span>#{work.trialAttemptsUsedNumber} из #{test.trialNumber}</span></h:outputText><br/>
-                       <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="переэкзаменовка: #{work.reExameAttemptsUsedNumber}"/>
-                        <h:outputText rendered="#{t[4]!=null}" >переэкзаменовка: <span>#{work.reExameAttemptsUsedNumber}</span></h:outputText><br/>
-                        <h:outputText rendered="#{test.openDate ne null and test.closeDate ne null}" value="доступен с #{test.openDate} по #{test.closeDate}"/><br/>
-                        <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="количество вопросов: #{test.quantity}"/>
-                        <h:outputText rendered="#{t[4]!=null}" >количество вопросов:  <span>#{test.quantity}</span></h:outputText><br/>
-                        <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="предоставленное время: #{test.duration}"/>
-                        <h:outputText rendered="#{t[4]!=null}" >предоставленное время:  <span>#{test.duration}</span></h:outputText><br/>
-                        <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="результаты тестирования: #{work.pointsForWork}"/>
-                        <h:outputText rendered="#{t[4]!=null}" >результаты тестирования: <span>#{work.pointsForWork}</span></h:outputText><br/>
+                        <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="попыток: #{t[1].estimateAttemptsUsedNumber} из #{t[1].work.estimateAttemptsNumber}"/>
+                        <h:outputText rendered="#{t[4]!=null}" >попыток: <span>#{t[1].estimateAttemptsUsedNumber} из #{t[1].work.estimateAttemptsNumber}</span></h:outputText><br/>
+                        <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="пробных:#{t[1].trialAttemptsUsedNumber} из #{t[1].work.trialNumber}"/>
+                        <h:outputText rendered="#{t[4]!=null}" >пробных: <span>#{t[1].trialAttemptsUsedNumber} из #{t[1].work.trialNumber}</span></h:outputText><br/>
+                       <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="переэкзаменовка: #{t[1].reExameAttemptsUsedNumber}"/>
+                        <h:outputText rendered="#{t[4]!=null}" >переэкзаменовка: <span>#{t[1].reExameAttemptsUsedNumber}</span></h:outputText><br/>
+                        <h:outputText rendered="#{t[1].work.openDate ne null and t[1].work.closeDate ne null}" value="доступен с #{t[1].work.openDate} по #{t[1].work.closeDate}"/><br/>
+                        <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="количество вопросов: #{t[1].work.quantity}"/>
+                        <h:outputText rendered="#{t[4]!=null}" >количество вопросов:  <span>#{t[1].work.quantity}</span></h:outputText><br/>
+                        <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="предоставленное время: #{t[1].work.duration}"/>
+                        <h:outputText rendered="#{t[4]!=null}" >предоставленное время:  <span>#{t[1].work.duration}</span></h:outputText><br/>
+                        <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="результаты тестирования: #{t[1].pointsForWork}"/>
+                        <h:outputText rendered="#{t[4]!=null}" >результаты тестирования: <span>#{t[1].pointsForWork}</span></h:outputText><br/>
                     </div>
                 </div>
-            </r:forEach>
+                </h:column>
+            </h:dataTable>
         </div>
        
     </ui:define>

@@ -6,6 +6,8 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.core.IUpdateDao;
 import org.sgu.oecde.tests.TestEntity;
+import org.sgu.oecde.tests.TestEstimationType;
+import org.sgu.oecde.tests.TestType;
 
 /**
  *
@@ -36,6 +38,14 @@ public class AdminTestBean implements Serializable{
     public void setId(Long id) {
         test = testDao.getById(id);
         this.id = id;
+    }
+
+    public TestType[] getTypes(){
+        return TestType.values();
+    }
+
+    public TestEstimationType[] getEstimation(){
+        return TestEstimationType.values();
     }
 
     public TestEntity getTest() {

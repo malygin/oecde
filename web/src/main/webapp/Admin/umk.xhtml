@@ -13,21 +13,26 @@
             <f:metadata>
                 <f:viewParam name="id" value="#{adminUmkBean.id}"/>
             </f:metadata>
-            <h:dataTable value="#{setToList.getList(adminUmkBean.umk.modules)}" var="m">
+            <h:dataTable value="#{adminUmkBean.umk.modules}" var="m">
+                <h:column>
                 <div class="studentInterfaceStandartList">
                     <div class="controlWorksDisciplineName">#{m.name}</div>
-                    <h:dataTable value="#{setToList.getList(m.resources)}" var="r">
+                    <h:dataTable value="#{m.resources}" var="r">
+                        <h:column>
                         <div class="navigationLinks" style="margin-left: 20px;">
                             <a href="exbook.xhtml?mId=#{m.id}&amp;tId=#{r.id}">#{r.title}</a>
                         </div>
+                        </h:column>
                     </h:dataTable>
                 </div>
+                </h:column>
             </h:dataTable>
             <br/>
             <div>
                 Тесты:
             </div>
-            <h:dataTable value="#{setToList.getList(adminUmkBean.umk.resources)}" var="test">
+            <h:dataTable value="#{adminUmkBean.umk.resources}" var="test">
+                <h:column>
                 <div class="studentInterfaceStandartList">
                 <div class="controlWorksDisciplineNameLink">
                     <h:outputLink value="test.xhtml?id=#{test.id}">
@@ -38,6 +43,7 @@
                     </h:outputLink>
                 </div>
                 </div>
+                </h:column>
             </h:dataTable>
         </div>
     </ui:define>
