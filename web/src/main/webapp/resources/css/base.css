@@ -796,12 +796,12 @@ color: black;
     vertical-align: top;
 }
 .mainStyle .standartContainerForStudentMediumAvatar{
-    border: 1px #4DB7F1 solid;
+/*    border: 1px #4DB7F1 solid;*/
     padding: 3px;
     background: white;
     width: 100px;
     float: left;
-    margin-right: 20px;
+/*    margin-right: 20px;*/
     overflow: hidden;
     text-align: center;
 }
@@ -1264,10 +1264,10 @@ body:first-of-type .mainStyle .StudentWriteMess{
     padding-left: 18px;
 }
 .s2{
-    background: url("../resources/images/dialog.png") no-repeat left bottom;
+    background: url("../resources/images/dialog.png") no-repeat left top;
 }
 .s1{
-    background: url("../resources/images/write_new.png") no-repeat left bottom;
+    background: url("../resources/images/write_new.png") no-repeat left top;
 }
 .mainStyle a.reitingLink:hover{text-decoration: underline;}
 
@@ -1457,7 +1457,10 @@ background:url("../resources/images/buttonBlue2.jpg") repeat-x scroll center tra
   background-color:  white;
 }
  .mainStyle div.interfaceContent{
-    padding: 0px !important;
+    padding: 0px;
+}
+.mainStyle div.interfaceContentForMyMarks{
+     padding: 0px !important;
 }
   .StudentTestMark{
  color: #1D1F1F;
