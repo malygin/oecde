@@ -32,7 +32,7 @@
                                 fio = this.fio.substr(0,l);
                                      $('#chatShortHistory').prepend( '<div class="chatPost"><span><span class="'+this.type+'" ><a href="'+this.link+'.xhtml?id='+this.id+'" title="'+this.fio+'">'+fio+'</a></span><span class="chatPostDate">'+this.date+'</span><div class="floatDestroyer"/></span><span class="chatPostText">'+this.message+'</span><div class="floatDestroyer"/></div>');
                             });
-                            $('#chatShortHistory').scrollTop(2000);
+                            $('#chatShortHistory').scrollTop(4000);
              });
              setTimeout('update()', 11000);
          }
