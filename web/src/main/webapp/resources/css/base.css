@@ -637,10 +637,10 @@ color: black;
 .mainStyle .userOnlineImgContainer img{
     width: 100%;
 }
-.mainStyle .userOnlineLinkContainer a:link {color: #505050; text-decoration: none; font-weight: normal; }
-.mainStyle .userOnlineLinkContainer a:visited {color: #505050; text-decoration: none; font-weight: normal;}
-.mainStyle .userOnlineLinkContainer a:active {color: #505050; text-decoration: none; font-weight: normal;}
-.mainStyle .userOnlineLinkContainer a:hover {color: #505050; text-decoration: underline; font-weight: normal;}
+.mainStyle .userOnlineLinkContainer a:link {color: #505050; text-decoration: none; font-weight: normal; font-size: 8pt; }
+.mainStyle .userOnlineLinkContainer a:visited {color: #505050; text-decoration: none; font-weight: normal; font-size: 8pt;}
+.mainStyle .userOnlineLinkContainer a:active {color: #505050; text-decoration: none; font-weight: normal;font-size: 8pt;}
+.mainStyle .userOnlineLinkContainer a:hover {color: #505050; text-decoration: underline; font-weight: normal;font-size: 8pt;}
 
 .mainStyle .userOnlineImgContainerHeightController{
     height: 66px;
@@ -1086,6 +1086,9 @@ body:first-of-type .mainStyle .StudentWriteMess{
     border-left: 0px;
     border-top: 0px;
 }
+.mainStyle .StudentTablePadding  th img{
+    margin: auto;
+}
  .studentStandatrTableTdTests{
      border: 1px solid #D1E0EF !important;
      border-left: 0px !important;
@@ -1454,7 +1457,7 @@ background:url("../resources/images/buttonBlue2.jpg") repeat-x scroll center tra
   background-color:  white;
 }
  .mainStyle div.interfaceContent{
-    padding: 0px;
+    padding: 0px !important;
 }
   .StudentTestMark{
  color: #1D1F1F;
@@ -1549,4 +1552,7 @@ html, body{ margin:0; padding:0; height:100%;}
     font-family: Arial;
     font-size: 11pt;
      font-weight: 600;
+}
+.mainStyle .studentStandatrTableTdFirstWidth{
+    width: 30%;
 }
