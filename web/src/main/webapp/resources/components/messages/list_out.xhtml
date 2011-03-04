@@ -26,50 +26,49 @@
                     <div style="float:left; margin-right: 20px;">
                        
                     </div>
-                    <div style="height: 50px;">
+                    <div style="height: 100%;">
                         <div>
-                            <table>
+                            <table  style="width: 100%;">
                                 <tr>                                 
                                     <td>
-                                        <h:dataTable value="#{message.message.recipients}" var="rec">
+                                        <h:dataTable value="#{message.message.recipients}" var="rec" style="width: 100%;"
+                                                     columnClasses="outMessStudFirstTd,
+                                                     outMessStudSecTd">
                                             <h:column>
                                                <ut:showPhoto user="#{rec.recipient}" size="medium"/>
-                                               <div class="linkTo#{message.message.author.classType}sProfile"><a href="#{fn:toLowerCase(message.message.author.classType)}.xhtml?id=#{rec.recipient.id}"><h:outputText value="#{rec.fioAuthor}"/></a> <h:panelGroup rendered="#{message.readed}"><span style="color: red; font-weight: bolder; padding-left: 20px;">Прочитано</span></h:panelGroup></div>
-                                           </h:column>
+                                            </h:column>
+                                            <h:column>
+                                               <div class="linkTo#{message.message.author.classType}sProfile"><span style="color: grey; margin-right: 10px; padding-bottom: 10px; font-weight: normal !important;">Кому:</span><a href="#{fn:toLowerCase(message.message.author.classType)}.xhtml?id=#{rec.recipient.id}"><h:outputText value="#{rec.fioAuthor}"/></a> <h:panelGroup rendered="#{message.readed}"><span style="color: red; font-weight: bolder; padding-left: 20px;">Прочитано</span></h:panelGroup></div>
+                                               <div>
+                                                   <span  style="color: grey; margin-right: 7px; margin-bottom: 10px;">#{msgs.message_theme}
+                                                   </span>
+                                                   <span class="navigationLinks"><a href="messages_read.xhtml?id=#{message.message.id}&amp;type=false"><h:outputText value="#{message.message.theme}"/></a>
+                                                   </span>
+                                               </div>
+                                               <a href="messages_read.xhtml?id=#{message.message.id}&amp;type=false" class="listMessagesShortMessage" style="width:95%; float: left; position: relative; top: 10px; right: 3px;">
+                                                    <div style="color: #3F3E3B;cursor: pointer;float: left;font-family: Verdana;font-weight: normal;width: 95%;"><h:outputText value="#{message.shortText}"/></div>
+                                                    <div class="listMessagesAttachmentsIco"><r:if test="#{message.filesExist eq true}"><img title="#{msgs.message_iconFilesExistTitle}" src="../resources/images/isAttachment.png" alt=""/></r:if><r:if test="#{message.filesExist ne true}"><img title="#{msgs.message_iconFilesNotExistTitle}" src="../resources/images/isNotAttachment.png" alt=""/></r:if></div>
+                                                    <div class="floatDestroyer"/>
+                                                </a>
+                                            </h:column>
                                         </h:dataTable>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        #{msgs.message_theme}
-                                    </td>
-                                    <td>
-                                        <span class="navigationLinks">
-                                            <a href="messages_read.xhtml?id=#{message.message.id}&amp;type=false"><h:outputText value="#{message.message.theme}"/></a>
-                                            <br/> <h:outputLink rendered="#{not MessageBean.renderDeleteSuccess}" value="messages_read.xhtml?id=#{message.message.id}">#{msgs.message_answer}</h:outputLink>
-                                        </span>
+                                        <div class="controlWorksDisciplineNameLink">
+                                           <h:outputLink rendered="#{not MessageBean.renderDeleteSuccess}" value="messages_read.xhtml?id=#{message.message.id}" styleClass="studentButton"  style=" display: block;margin-left: 15px;margin-top: 10px;text-align: center;width: 80px;">#{msgs.message_answer}</h:outputLink>
+                                        </div>
                                     </td>
                                 </tr>
                             </table>
 
                         </div>
-                        <div class="chatPostDate" style="font-size: 8pt;position: relative;top: -40px;">
+                        <div class="chatPostDate" style="font-size: 8pt;position: relative;top: -160px;">
                             <h:outputText converter="dateConverter" value="#{message.message.dateMessage}"/>
                         </div>
                         <div class="floatDestroyer"/>
                     </div>
-                    <div class="listMessagesShortMessage" style="width:70%; float: left; position: relative; top: -5px;">
-                        <div style="float: left; width: 95%;"><h:outputText value="#{message.shortText}"/></div>
-                        <div class="listMessagesAttachmentsIco"><r:if test="#{message.filesExist eq true}"><img title="#{msgs.message_iconFilesExistTitle}" src="../resources/images/isAttachment.png" alt=""/></r:if><r:if test="#{message.filesExist ne true}"><img title="#{msgs.message_iconFilesNotExistTitle}" src="../resources/images/isNotAttachment.png" alt=""/></r:if></div>
-                        <div class="floatDestroyer"/>
-                    </div>
-                    <table style="width: 100%;">
-                        <tr>
-                            <td class="navigationLinks">
-                            </td>
-                            
-                        </tr>
-                    </table>
                 </div>
             </h:form>
            </h:column>
