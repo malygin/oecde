@@ -35,11 +35,15 @@
                                                      columnClasses="outMessStudFirstTd,
                                                      outMessStudSecTd">
                                             <h:column>
-                                               <ut:showPhoto user="#{rec.recipient}" size="medium"/>
+                                               <ut:showPhoto user="#{rec.recipient}" styleClass="#{rec.recipient.classType}" size="medium"/>
                                             </h:column>
                                             <h:column>
-                                               <div class="linkTo#{message.message.author.classType}sProfile"><span style="color: grey; margin-right: 10px; padding-bottom: 10px; font-weight: normal !important;">Кому:</span><a href="#{fn:toLowerCase(message.message.author.classType)}.xhtml?id=#{rec.recipient.id}"><h:outputText value="#{rec.fioAuthor}"/></a> <h:panelGroup rendered="#{message.readed}"><span style="color: red; font-weight: bolder; padding-left: 20px;">Прочитано</span></h:panelGroup></div>
+                                               <div class="linkTo#{rec.recipient.classType}sProfile"><span style="color: grey; margin-right: 10px; padding-bottom: 10px; font-weight: normal !important;">Кому:</span><a href="#{fn:toLowerCase(message.message.author.classType)}.xhtml?id=#{rec.recipient.id}"><h:outputText value="#{rec.fioAuthor}"/></a> <h:panelGroup rendered="#{message.readed}"><span style="padding-left: 20px;" class="DisciplineText">Прочитано</span></h:panelGroup>
+                                                <div class="chatPostDate" style="font-size: 8pt;position: relative;">
+                                                     <h:outputText converter="dateConverter" value="#{message.message.dateMessage}"/>
+                                                </div></div>
                                                <div>
+
                                                    <span  style="color: grey; margin-right: 7px; margin-bottom: 10px;">#{msgs.message_theme}
                                                    </span>
                                                    <span class="navigationLinks"><a href="messages_read.xhtml?id=#{message.message.id}&amp;type=false"><h:outputText value="#{message.message.theme}"/></a>
@@ -64,9 +68,7 @@
                             </table>
 
                         </div>
-                        <div class="chatPostDate" style="font-size: 8pt;position: relative;top: -160px;">
-                            <h:outputText converter="dateConverter" value="#{message.message.dateMessage}"/>
-                        </div>
+                       
                         <div class="floatDestroyer"/>
                     </div>
                 </div>

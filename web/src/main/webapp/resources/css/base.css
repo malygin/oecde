@@ -1565,3 +1565,8 @@ html, body{ margin:0; padding:0; height:100%;}
  .outMessStudSecTd{
     vertical-align: top;
 }
+.mainStyle .navigationLinksMess a:link{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+
+.mainStyle .navigationLinksMess a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinksMess a:hover{color: #C2D9EF; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinksMess a:visited{color:#C2D9EF; text-decoration: none; font-weight: normal;}
