@@ -167,7 +167,7 @@ public class DiscussionBean {
 
              HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
              String url=request.getRequestURI().split("/")[3];
-             FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId+"&page="+currentPage);
+             FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId+"&page="+currentPage+"#"+nodeId);
      }
 
      /**
