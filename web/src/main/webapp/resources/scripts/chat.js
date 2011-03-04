@@ -28,9 +28,8 @@
                             var object = $.parseJSON(data);
                             $('#chatShortHistory').empty();
                             $.each(object.Super, function() {
-                                l = this.fio.indexOf(' ');
-                                fio = this.fio.substr(0,l);
-                                     $('#chatShortHistory').prepend( '<div class="chatPost"><span><span class="'+this.type+'" ><a href="'+this.link+'.xhtml?id='+this.id+'" title="'+this.fio+'">'+fio+'</a></span><span class="chatPostDate">'+this.date+'</span><div class="floatDestroyer"/></span><span class="chatPostText">'+this.message+'</span><div class="floatDestroyer"/></div>');
+                           
+                                     $('#chatShortHistory').prepend( '<div class="chatPost"><span><span class="'+this.type+'" ><a href="'+this.link+'.xhtml?id='+this.id+'" title="'+this.fio+'">'+this.fio+'</a></span><span class="chatPostDate">'+this.date+'</span><div class="floatDestroyer"/></span><span class="chatPostText">'+this.message+'</span><div class="floatDestroyer"/></div>');
                             });
                             $('#chatShortHistory').scrollTop(4000);
              });

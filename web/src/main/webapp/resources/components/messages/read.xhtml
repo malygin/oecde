@@ -5,6 +5,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:r="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:ut="http://java.sun.com/jsf/composite/components/util"
       xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 
@@ -22,7 +23,8 @@
             <h:panelGroup rendered="#{not MessageReadBean.noAccess}">
                 <h:form  id ="formSend">
                     <div style="float:left; margin-right: 20px;">
-                    <ut:showPhoto user="#{cc.attrs.mess.message.author}" size="medium" styleClass="#{cc.attrs.mess.message.author.classType}"/>
+                         <h:panelGroup rendered="#{MessageReadBean.type}"><ut:showPhoto user="#{cc.attrs.mess.message.author}" size="medium" styleClass="#{cc.attrs.mess.message.author.classType}"/></h:panelGroup>
+                         <h:panelGroup rendered="#{not MessageReadBean.type}"><ut:showPhoto user="#{MessageReadBean.userOut}" size="medium" styleClass="#{MessageReadBean.userOut.classType}"/></h:panelGroup>
                     </div>
                     <div style="float: left;">
                         <table cellpadding="3" cellspacing="6">
@@ -37,7 +39,7 @@
                                     </div>
                                 </td>
                                 <td class="navigationLinks">
-                                    (<h:outputLink  value="messages_dialog.xhtml?user=#{cc.attrs.mess.message.author.id}">#{msgs.message_showHistory}</h:outputLink>)
+                                    <h:panelGroup rendered="#{MessageReadBean.type}"> (<h:outputLink  value="messages_dialog.xhtml?user=#{cc.attrs.mess.message.author.id}">#{msgs.message_showHistory} </h:outputLink>)</h:panelGroup>
                                 </td>
                             </tr>
                             <tr>
@@ -45,12 +47,14 @@
                                     #{msgs.message_recipients}
                                 </td>
                                 <td>
-                                    <r:forEach items="#{cc.attrs.mess.message.recipients}" var="rec">
-                                         <div class="linkTo#{rec.recipient.classType}sProfile"><a href="#{fn:toLowerCase(rec.recipient.classType)}.xhtml?id=#{rec.recipient.id}">
-                                        <h:outputText value="#{rec.fioAuthor}"/><br/>
-                                             </a>
+                                    <ui:repeat  value="#{cc.attrs.mess.message.recipients}" var="rec">
+                                        <div class="linkTo#{rec.recipient.classType}sProfile"><a href="#{fn:toLowerCase(rec.recipient.classType)}.xhtml?id=#{rec.recipient.id}"> </a>
+                                        <h:outputText value="#{rec.fioAuthor}"/>
+                                        <h:panelGroup rendered="#{not MessageReadBean.type}"> (<h:outputLink  value="messages_dialog.xhtml?user=#{rec.recipient.id}">#{msgs.message_showHistory} </h:outputLink>)</h:panelGroup>
+                                        <br/>
+                                            
                                          </div>
-                                    </r:forEach>
+                                    </ui:repeat >
                                 </td>
                             </tr>
                             <tr>

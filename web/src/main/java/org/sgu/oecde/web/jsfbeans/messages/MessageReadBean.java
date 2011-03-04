@@ -28,7 +28,11 @@ public class MessageReadBean {
   
     private boolean noAccess=true;
     private int id_message;
+    //false если просмотр из исходящих сообщени
+    AbstractUser userOut;
+    private boolean type=true;
     private MessageImpl message;
+
  
     public MessageReadBean() {
     }
@@ -81,5 +85,22 @@ public class MessageReadBean {
     public void setNoAccess(boolean noAccess) {
         this.noAccess = noAccess;
     }
+
+    public boolean isType() {
+        return type;
+    }
+
+    public void setType(boolean type) {
+         this.type = type;
+         if(!type){
+             userOut=(message.getMessage().getRecipients().get(0)).getRecipient();
+         }
+    }
+
+    public AbstractUser getUserOut() {
+        return userOut;
+    }
+
+    
 
 }

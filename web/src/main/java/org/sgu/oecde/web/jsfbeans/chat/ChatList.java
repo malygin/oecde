@@ -77,7 +77,7 @@ public class ChatList extends HttpServlet {
                                   switch(UserType.toType(l.getAuthor())){
                                       case ADMIN :
                                           Admin admin =(Admin)l.getAuthor();
-                                                  str.append(admin.getSurname()).append(" ").append(admin.getName()).
+                                                  str.append(admin.getInitials()).
                                                   append("\", \"date\": \"").append(l.getDateMessage().substring(11)).
                                                   append("\", \"id\": \"").append(l.getAuthor().getId()).
                                                   append("\", \"link\": \"").append("admin").
@@ -85,7 +85,7 @@ public class ChatList extends HttpServlet {
                                           break;
                                       case STUDENT :
                                          Student student=(Student)l.getAuthor();
-                                                  str.append(student.getSurname()).append(" ").append(student.getName()).
+                                                  str.append(student.getInitials()).
                                                   append("\", \"date\": \"").append(l.getDateMessage().substring(11)).
                                                   append("\", \"id\": \"").append(l.getAuthor().getId()).
                                                   append("\", \"link\": \"").append("student").
@@ -93,7 +93,7 @@ public class ChatList extends HttpServlet {
                                           break;
                                        case TEACHER :
                                          Teacher teacher=(Teacher)l.getAuthor();
-                                                  str.append(teacher.getSurname()).append(" ").append(teacher.getName()).
+                                                  str.append(teacher.getInitials()).
                                                   append("\", \"date\": \"").append(l.getDateMessage().substring(11)).
                                                   append("\", \"id\": \"").append(l.getAuthor().getId()).
                                                   append("\", \"link\": \"").append("teacher").

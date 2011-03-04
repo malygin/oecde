@@ -16,6 +16,8 @@ import javax.faces.component.UIComponent;
 @ManagedBean(name="NavigationBean")
 @ViewScoped
 public class NavigationBean implements Serializable{
+   // диапазон выводимых значений
+    private final int range=2;
     private List<String> pages=null;
     private String page;
     //элементов на странице
@@ -24,6 +26,8 @@ public class NavigationBean implements Serializable{
     private int numElements;
     private UIComponent params;
     private Object field;
+
+ 
 
     public NavigationBean() {
     }
@@ -57,11 +61,21 @@ public class NavigationBean implements Serializable{
             //  System.out.println("nE "+numElements);
           //    System.out.println("el "+elementOnPage);
              int forsum=numElements / elementOnPage;
+             //если страница всего одна - возвращаем пустой список
+             if (forsum==0) return pages;
              if ((numElements%elementOnPage)!=0) forsum++;
+           
+             int b;
+             if ((Integer.parseInt(getPage())-2)>1){               
+                 pages.add("begin");
+                 b=Integer.parseInt(getPage())-2;
+             }else b=1;
+             int e=(Integer.parseInt(getPage())+2)<forsum?(Integer.parseInt(getPage())+2):forsum;
+             
+             for(int i=b;i<=e;i++) pages.add(Integer.toString(i));
 
-             for(int i=1;i<=forsum;i++){
-                 pages.add(Integer.toString(i));
-             }
+             if ((Integer.parseInt(getPage())+2)<forsum) pages.add("end");
+           
         } 
         return pages;
     }
@@ -95,8 +109,9 @@ public class NavigationBean implements Serializable{
       }
       return "" + field;
     }
+
+public int getNumPages(){
+    return (numElements / elementOnPage)+1;
+}
   
-
-
-
 }

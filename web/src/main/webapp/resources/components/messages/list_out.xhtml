@@ -24,24 +24,18 @@
             <h:form id="formList">
                 <div class="studentInterfaceStandartList" style="width: 100%;">
                     <div style="float:left; margin-right: 20px;">
-                        <ut:showPhoto user="#{cc.attrs.u}" size="medium"/>
+                       
                     </div>
                     <div style="height: 50px;">
                         <div>
                             <table>
-                                <tr>
-                                    <td valign="top">
-                                        <span style="margin-right: 10px;">
-                                            #{msgs.message_forWhom}
-                                        </span>
-                                    </td>
+                                <tr>                                 
                                     <td>
                                         <h:dataTable value="#{message.message.recipients}" var="rec">
                                             <h:column>
-                                           
-                                               <div class="linkTo#{message.message.author.classType}sProfile"><a href="#{fn:toLowerCase(message.message.author.classType)}.xhtml?id=#{message.message.author.id}"><h:outputText value="#{rec.fioAuthor}"/></a> <h:panelGroup rendered="#{message.readed}"><span style="color: red; font-weight: bolder; padding-left: 20px;">Прочитано</span></h:panelGroup></div>
-                                            
-                                            </h:column>
+                                               <ut:showPhoto user="#{rec.recipient}" size="medium"/>
+                                               <div class="linkTo#{message.message.author.classType}sProfile"><a href="#{fn:toLowerCase(message.message.author.classType)}.xhtml?id=#{rec.recipient.id}"><h:outputText value="#{rec.fioAuthor}"/></a> <h:panelGroup rendered="#{message.readed}"><span style="color: red; font-weight: bolder; padding-left: 20px;">Прочитано</span></h:panelGroup></div>
+                                           </h:column>
                                         </h:dataTable>
                                     </td>
                                 </tr>
@@ -51,7 +45,8 @@
                                     </td>
                                     <td>
                                         <span class="navigationLinks">
-                                            <a href="messages_read.xhtml?id=#{message.message.id}"><h:outputText value="#{message.message.theme}"/></a>
+                                            <a href="messages_read.xhtml?id=#{message.message.id}&amp;type=false"><h:outputText value="#{message.message.theme}"/></a>
+                                            <br/> <h:outputLink rendered="#{not MessageBean.renderDeleteSuccess}" value="messages_read.xhtml?id=#{message.message.id}">#{msgs.message_answer}</h:outputLink>
                                         </span>
                                     </td>
                                 </tr>
@@ -71,7 +66,6 @@
                     <table style="width: 100%;">
                         <tr>
                             <td class="navigationLinks">
-                                <h:outputLink rendered="#{not MessageBean.renderDeleteSuccess}" value="messages_read.xhtml?id=#{message.message.id}">#{msgs.message_answer}</h:outputLink>
                             </td>
                             
                         </tr>
