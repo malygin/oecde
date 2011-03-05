@@ -23,9 +23,16 @@
     background-color: #EFF9FF;
     border: 1px solid #7F9DB9;
     margin-top: 10px;
- 
+}
+.mainStyle .adminButton{
+/*    background: url('../resources/images/button.jpg');*/
 
-
+    color: #6F1B1B;
+    cursor: pointer;
+    font-size: 10pt;
+    background-color: #FFEFEF;
+    border: 1px solid #B97F7F;
+    margin-top: 10px;
 }
 .mainStyle .studentButtonRed{
     color: #6F1B1B;
@@ -832,8 +839,8 @@ color: black;
     min-height: 50px;
     margin: 5px;
     padding: 5px;
-    border: 1px solid silver;
-    background: #EFF9FF;
+    border: 1px solid #8EB8CF;
+/*    background: #EFF9FF;*/
 }
 .mainStyle .newsListNewPreview img{
     float: left;
