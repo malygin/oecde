@@ -42,7 +42,7 @@ public class AppTest extends BasicTest{
         this.<JournalService>getBean("journalService").save(EventType.TEST_END, s, c.getUmk(),e);
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void showStudentEvents(){
         setDao("studentDao");
@@ -60,7 +60,7 @@ public class AppTest extends BasicTest{
     }
 
 
-//    @Ignore
+    @Ignore
     @Test
     public void zowStudentEvents2(){
         FilterType.studentEvents.getArray();

@@ -66,15 +66,15 @@ public class NavigationBean implements Serializable{
              if ((numElements%elementOnPage)!=0) forsum++;
            
              int b;
-             if ((Integer.parseInt(getPage())-2)>1){               
+             if ((Integer.parseInt(getPage())-range)>1){
                  pages.add("begin");
-                 b=Integer.parseInt(getPage())-2;
+                 b=Integer.parseInt(getPage())-range;
              }else b=1;
-             int e=(Integer.parseInt(getPage())+2)<forsum?(Integer.parseInt(getPage())+2):forsum;
+             int e=(Integer.parseInt(getPage())+range)<forsum?(Integer.parseInt(getPage())+range):forsum;
              
              for(int i=b;i<=e;i++) pages.add(Integer.toString(i));
 
-             if ((Integer.parseInt(getPage())+2)<forsum) pages.add("end");
+             if ((Integer.parseInt(getPage())+range)<forsum) pages.add("end");
            
         } 
         return pages;

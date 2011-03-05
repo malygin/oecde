@@ -902,38 +902,60 @@ public enum EventType {
                 return null;
             }
             Node node = null;
+            NewsItem news=null;
+            Long id;
+
             for(Object object:o){
-                if(object instanceof Node){
-                    node = (Node) object;
-                    return POST_ADD.fillEventItem(node.getParent().getUser(), o);
-                }
+                    if(object instanceof Node){
+                        node = (Node) object;
+                    }else if (object instanceof NewsItem){
+                        news = (NewsItem) object;
+                    }}
+             String[] str=new String[o.length+1];
+             ForumTypes type = node.getRoot().getObjectType();
+             str[0] = type.toString();
+                  
+             if(ForumTypes.NEWS.equals(type)&&news!=null){
+                str[1] = news.getHeader();
+                str[2] = node.getParent().getId().toString();
+                str[3]=(String)o[2];
+                str[4]=(String)o[3];
+                id = news.getId();
+             }else{
+                 id = node.getRoot().getObjectId();
+                 str[1]=node.getParent().getId().toString();
+                 str[2]=(String)o[1];
+                 str[3]=(String)o[2];
             }
-            logger.debug(this+": node stil null");
-            return null;
+            return generateEventItem(node.getParent().getUser(), id, str);
         }
+
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
             if(checkEventItem(item, this))
                 return null;
-
             EventBodyElement[] el = new EventBodyElement[3];
             String str[] = item.getEventBody().split(splitter);
-            if(checkSplittetArrayLength(str, 2, this))
-                return null;
-
+    
             String subjectType = str[0];
             ForumTypes postType = ForumTypes.parse(subjectType);
+
             switch (postType) {
-                default:
-                    el[0] = new EventBodyElement("К вашему сообщению ");
-                    el[1] = new EventBodyElement(Long.valueOf(str[1]), "на форуме", EventBodyElement.forumPage);
+               case STUDENT_FAQ:
+                    el[0] = new EventBodyElement(str[3]+" ответил(а) на ваш пост ");
+                    el[1] = new EventBodyElement("?page="+str[2]+"#"+str[1], "на техническом форуме", EventBodyElement.forumStudentTechPage);
+                    break;
+              case STUDENT_ORG:
+                    el[0] = new EventBodyElement(str[3]+" ответил(а) на ваш пост ");
+                    el[1] = new EventBodyElement("?page="+str[2]+"#"+str[1], "на организационном форуме", EventBodyElement.forumTeacherOrgPage);
                     break;
                 case NEWS:
                     el[0] = new EventBodyElement("К вашему комментарию к новости ");
-                    el[1] = new EventBodyElement(Long.valueOf(str[1]), str[2], EventBodyElement.newsPage);
+                    el[1] = new EventBodyElement("?id="+item.getMultiId()+"&amp;page="+str[3]+"#"+str[2], str[1], EventBodyElement.newsPage);
+                    el[2] = new EventBodyElement(" "+ str[4]+"  добавил(а) ответ.");
+                    break;
             }
-            el[2] = new EventBodyElement(" был добавлен ответ.");
             return el;
         }
 
@@ -958,8 +980,8 @@ public enum EventType {
         @Override
         public EventItem fillEventItem(AbstractUser user, Object... o) {
             if(user == null || o == null || o.length==0){
-                logger.debug(this+": user is null or objects is empty");
-                return null;
+              //  logger.debug(this+": user is null or objects is empty");
+              //  return null;
             }
             
             NewsItem news = null;
@@ -972,38 +994,26 @@ public enum EventType {
                         node = (Node) object;
                     }else if (object instanceof NewsItem){
                         news = (NewsItem) object;
-                    }else {
-                        logWrongObjectType(object,this);
-                        return null;
                     }
                 }
 
             final String[] str = new String[length];
+
             long id = 0;
             ForumTypes type = node.getRoot().getObjectType();
             str[0] = type.toString();
+
             if(ForumTypes.NEWS.equals(type)&&news!=null){
-                str[1] = news.getHeader();
+                str[1] = news.getHeader();             
                 id = news.getId();
-            }else{
-                  id = node.getRoot().getObjectId();
-                  str[1]=(new Long(id)).toString();
-            }
-              
-            return generateEventItem(user, id, str);
+            }              
+          return generateEventItem(user, id, str);
         }
 
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
-            if(checkEventItem(item, this))
-                return null;
-
             EventBodyElement[] el = new EventBodyElement[5];
-
             String str[] = item.getEventBody().split(splitter);
-            if(checkSplittetArrayLength(str, length, this))
-                return null;
-
             el[0] = new EventBodyElement(userType(item.getUser()));
             el[1] = new EventBodyElement(item.getUser().getId(), fioFromUser(item.getUser()));
             setPageTypeByUser(el[1], item.getUser());
@@ -1011,13 +1021,18 @@ public enum EventType {
             String subjectType = str[0];
             ForumTypes postType = ForumTypes.parse(subjectType);
             switch (postType) {
-                default:
-                    el[3] = new EventBodyElement("добавил комментарий на ");
-                    el[4] = new EventBodyElement(item.getMultiId(), "форуме", EventBodyElement.forumPage);
+                case STUDENT_FAQ:
+                    el[3] = new EventBodyElement("добавил(а) комментарий на ");
+                    el[4] = new EventBodyElement("", " техническом форуме студентов", EventBodyElement.forumStudentTechPage);
+                    break;
+              case STUDENT_ORG:
+                    el[3] = new EventBodyElement("добавил(а) комментарий на ");
+                    el[4] = new EventBodyElement("", "на организационном форуме студентов", EventBodyElement.forumStudentOrgPage);
                     break;
                 case NEWS:
-                    el[3] = new EventBodyElement("добавил комментарий к новости ");
+                    el[3] = new EventBodyElement("добавил(а) комментарий к новости ");
                     el[4] = new EventBodyElement(item.getMultiId(), str[1], EventBodyElement.newsPage);
+                    break;
             }
             return el;
         }
@@ -1155,7 +1170,7 @@ public enum EventType {
     private static EventItem generateEventItem(AbstractUser user, Long id, String[]body) {
         StringBuilder sb = new StringBuilder();
         for (String s : body) {
-            sb.append(s).append(splitter);
+            if (s !=null) sb.append(s).append(splitter);
         }
         return generateEventItem(user, id, sb.toString());
     }

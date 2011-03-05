@@ -46,6 +46,7 @@ public class DiscussionBean {
     private String nodeText;
     private String nodeTextReply;
     private String nodeId;
+    //private String discussionId;
     private Node currentNode;
 
     private boolean renderReply=false;
@@ -124,8 +125,8 @@ public class DiscussionBean {
                  NewsItem news=newsDao.getById(new Long(objectId));
                  news.setCommentNumber(news.getCommentNumber()+1);
                  newsDao.update(news);
-                 journalService.save(EventType.POST_ADD, currentUser,news, currentUser);
-         }else   journalService.save(EventType.POST_ADD, currentUser,node);
+                 journalService.save(EventType.POST_ADD, currentUser, news, node);
+         }else   journalService.save(EventType.POST_ADD, currentUser, node);
             HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
             String url=request.getRequestURI().split("/")[3];      
             FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId);
@@ -158,12 +159,13 @@ public class DiscussionBean {
            Node node=discussionService.addNode(null, new Long(objectId), objectTypeEnum, new Long(nodeId), nodeTextReply , currentUser);
            node.setParent(currentNode); 
            node.setRoot(currentRoot);
+           
            if(objectTypeEnum==ForumTypes.NEWS){
                   NewsItem news=newsDao.getById(new Long(objectId));
                   news.setCommentNumber(news.getCommentNumber()+1);
                   newsDao.update(news);
-                  journalService.save(EventType.POST_ANSWER, currentUser,news, node);
-            }else journalService.save(EventType.POST_ANSWER, currentUser,node);
+                  journalService.save(EventType.POST_ANSWER, currentUser,news, node, Integer.toString(currentPage), node.getUser().getFio());
+            }else journalService.save(EventType.POST_ANSWER, currentUser,node, Integer.toString(currentPage), node.getUser().getFio() );
 
              HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
              String url=request.getRequestURI().split("/")[3];

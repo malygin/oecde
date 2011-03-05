@@ -95,6 +95,7 @@ public class NewsBean implements Serializable{
               this.currentNewId=id;
               currentNewItem= newsDao.getById(new Long(this.currentNewId));
               currentNewItem.setReviewNumber(currentNewItem.getReviewNumber()+1);
+
               newsDao.update(currentNewItem);
               journalService.save(EventType.NEWS_VIEW, SecurityContextHandler.getUser(), currentNewItem);
         }
