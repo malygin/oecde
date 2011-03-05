@@ -35,7 +35,7 @@
                 <div class="studentInterfaceStandartList">
                         <h:panelGroup rendered="#{t[0]}">
                             <div class="controlWorksDisciplineNameLink">
-                                <h:outputLink value="test.xhtml?c=#{disciplineBean.discipline.id}&amp;id=#{t[1].work.id}" >
+                                <h:outputLink value="test.xhtml?c=#{disciplineBean.discipline.id}&amp;id=#{t[1].work.id}" style=" font-size: 11pt !important;" >
                                     #{t[1].work.title}
                                 </h:outputLink>
                             </div>
@@ -54,18 +54,18 @@
 <!--                         <h:outputText rendered="#{t[2]==null}" style="margin-top: -40px; display: block;"/>-->
 <!--                          <h:outputText rendered="#{t[3]==null}" style="margin-top: -40px; display: block;"/>-->
 <!--                        <h:outputText rendered="#{t[4]==null}" style="margin-top: -40px; display: block;"/><br/>-->
-                        <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="попыток: #{t[1].estimateAttemptsUsedNumber} из #{t[1].work.estimateAttemptsNumber}"/>
+                        <h:outputText rendered="#{t[4]==null}" style="color: grey;background: url('../resources/images/attemps.gif') 2px 1px no-repeat; padding-left: 18px;" value="попыток: #{t[1].estimateAttemptsUsedNumber} из #{t[1].work.estimateAttemptsNumber}"/>
                         <h:outputText rendered="#{t[4]!=null}" >попыток: <span>#{t[1].estimateAttemptsUsedNumber} из #{t[1].work.estimateAttemptsNumber}</span></h:outputText><br/>
-                        <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="пробных:#{t[1].trialAttemptsUsedNumber} из #{t[1].work.trialNumber}"/>
+                        <h:outputText rendered="#{t[4]==null}" style="color: grey; background: url('../resources/images/tryingAttemps.gif') no-repeat; padding-left: 18px;" value="пробных:#{t[1].trialAttemptsUsedNumber} из #{t[1].work.trialNumber}"/>
                         <h:outputText rendered="#{t[4]!=null}" >пробных: <span>#{t[1].trialAttemptsUsedNumber} из #{t[1].work.trialNumber}</span></h:outputText><br/>
-                       <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="переэкзаменовка: #{t[1].reExameAttemptsUsedNumber}"/>
+                       <h:outputText rendered="#{t[4]==null}" style="color: grey; background: url('../resources/images/arrows.gif') 2px 1px no-repeat; padding-left: 18px;" value="переэкзаменовка: #{t[1].reExameAttemptsUsedNumber}" />
                         <h:outputText rendered="#{t[4]!=null}" >переэкзаменовка: <span>#{t[1].reExameAttemptsUsedNumber}</span></h:outputText><br/>
-                        <h:outputText rendered="#{t[1].work.openDate ne null and t[1].work.closeDate ne null}" value="доступен с #{t[1].work.openDate} по #{t[1].work.closeDate}"/><br/>
-                        <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="количество вопросов: #{t[1].work.quantity}"/>
+                        <h:outputText rendered="#{t[1].work.openDate ne null and t[1].work.closeDate ne null}" value="доступен с #{t[1].work.openDate} по #{t[1].work.closeDate}" style="background: url('../resources/images/available.gif') no-repeat; padding-left: 18px;"/><br/>
+                        <h:outputText rendered="#{t[4]==null}" style="color: grey; background: url('../resources/images/star.gif') no-repeat; padding-left: 18px;" value="количество вопросов: #{t[1].work.quantity}"/>
                         <h:outputText rendered="#{t[4]!=null}" >количество вопросов:  <span>#{t[1].work.quantity}</span></h:outputText><br/>
-                        <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="предоставленное время: #{t[1].work.duration}"/>
+                        <h:outputText rendered="#{t[4]==null}" style="color: grey;background: url('../resources/images/time.gif')2px 0 no-repeat; padding-left: 18px;" value="предоставленное время: #{t[1].work.duration}"/>
                         <h:outputText rendered="#{t[4]!=null}" >предоставленное время:  <span>#{t[1].work.duration}</span></h:outputText><br/>
-                        <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="результаты тестирования: #{t[1].pointsForWork}"/>
+                        <h:outputText rendered="#{t[4]==null}" style="color: grey; background: url('../resources/images/discipline_summ.gif') no-repeat; padding-left: 18px;" value="результаты тестирования: #{t[1].pointsForWork}"/>
                         <h:outputText rendered="#{t[4]!=null}" >результаты тестирования: <span>#{t[1].pointsForWork}</span></h:outputText><br/>
                     </div>
                 </div>

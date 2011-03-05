@@ -18,7 +18,7 @@
             <div class="studentInterfaceStandartList">
                 <div>
                     <div style="float: left; font-size: 10pt;" class="controlWorksDisciplineNameLink"><a href="news_read.xhtml?id=#{new.id}">#{new.header}</a></div>
-                    <span class="chatPostDate" >#{new.time}</span>
+                    <span class="chatPostDate" ><h:outputText converter="dateConverter" value="#{new.time}"></h:outputText></span>
                     <div class="floatDestroyer"/>
                     <div class="newsListNewPreview">
 <!--                        <img src="../resources/images/image_news.jpg" alt="" style="width: 100px;"/>-->
