@@ -5,6 +5,7 @@ import org.sgu.oecde.core.BasicItem;
 import org.sgu.oecde.core.education.Discipline;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.users.StudentGroup;
+import org.sgu.oecde.de.education.City;
 
 /**
  * занятие на видеоконференции
@@ -23,6 +24,7 @@ public class Lesson extends BasicItem{
     private String colorDisable;
     private Boolean winter;
     private Integer year;
+    private City city;
     
     private boolean notUsed = true;
     private boolean warning;
@@ -175,5 +177,13 @@ public class Lesson extends BasicItem{
         if (this.isNotUsed()){
             return this.color;
         }else return this.colorDisable;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
     }
 }

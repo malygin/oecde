@@ -16,6 +16,7 @@
     </list>
     <many-to-one class="org.sgu.oecde.core.users.Teacher" fetch="join" foreign-key="fk_lesson_teacher" name="teacher"/>
     <many-to-one class="org.sgu.oecde.core.education.Discipline" fetch="join" foreign-key="fk_lesson_discipline" name="discipline"/>
+    <many-to-one class="org.sgu.oecde.de.education.City" fetch="join" foreign-key="fk_lesson_city" name="city"/>
     <property name="room" scale="2" type="integer"/>
     <property column="date_update" length="19" name="updateDate" not-null="false" type="string" update="false"/>
     <property column="lesson_date" length="19" name="lessonDate" not-null="false" type="string"/>
