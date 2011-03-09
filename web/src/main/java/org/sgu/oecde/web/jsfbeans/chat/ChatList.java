@@ -57,15 +57,16 @@ public class ChatList extends HttpServlet {
               list= myDao.getChatList(1L, number);
 
             }
-            if(request.getParameter("message")!=null){
-              ChatMessage message=new ChatMessage();
-              message.setAuthor(SecurityContextHandler.getUser());
-              message.setDateMessage(DateConverter.convert(System.currentTimeMillis()));
-              message.setMessage(!request.getParameter("message").equals("")?request.getParameter("message"):" ");
-              list.add(0, message);
+            if((request.getParameter("message")!=null)&&(!request.getParameter("message").equals(""))){
+                  ChatMessage message=new ChatMessage();
+                  message.setAuthor(SecurityContextHandler.getUser());
+                  message.setDateMessage(DateConverter.convert(System.currentTimeMillis()));
+                  message.setMessage(request.getParameter("message"));
+                  list.add(0, message);
                   ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
                   IChatDao myDao = (IChatDao) context.getBean("chatDao");
                   myDao.save(message);
+              
             }
 
             StringBuffer str=new StringBuffer();
