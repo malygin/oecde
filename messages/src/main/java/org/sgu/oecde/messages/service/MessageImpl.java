@@ -17,7 +17,7 @@ public class MessageImpl {
     private Boolean archived=false;
     private Boolean deleted=false;
     private Boolean readed=false;
-    final static public int numCharInShortText=30;
+    final static public int numCharInShortText=200;
 
     /**
      * Возвращает boolean для метки письма прочитано оно или нет (jsf не выводит Boolean)
