@@ -32,7 +32,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
         if(!StringUtils.hasText(username))
             return null;
         AbstractUser example = AbstractUser.getUserWithName(username);
-        List<AbstractUser> l = userDao.getBySimpleExample(example);
+        List<AbstractUser> l = userDao.getByExample(example);
         return (UserDetails) (l.size() > 0 ? l.get(0) : null);
     }
 }

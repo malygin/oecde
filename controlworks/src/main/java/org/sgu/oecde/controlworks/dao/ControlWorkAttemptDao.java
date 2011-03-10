@@ -47,6 +47,8 @@ public class ControlWorkAttemptDao extends UpdateDao<ControlWorkAttempt> impleme
     }
 
     public int getAttemptCountForTeacher(List<? extends Curriculum>curriculums,Teacher teacher, boolean readOnly) throws DataAccessException {
+        if(CollectionUtils.isEmpty(curriculums)||teacher == null)
+            return 0;
         List<Long>list = getSession()
                 .createQuery("select count(*) from ControlWorkAttempt cw join cw.work w join w.curriculum cr join cr.teacherToGroups tg join tg.group gr join gr.persons p where cr in (:crs) and w.student in (p) and tg.teacher=:tch and cw.filePath!='empty'"+(readOnly?" and cw.read='T' ":""))
                 .setParameterList("crs", curriculums).setParameter("tch", teacher).list();

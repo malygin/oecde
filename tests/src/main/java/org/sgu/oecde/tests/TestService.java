@@ -43,7 +43,7 @@ public class TestService implements Serializable{
         if(t==null&&CollectionUtils.isEmpty(t.getQuestions()))
             return null;
         if(t.getShuffle()){
-            List l = new ArrayList(t.getQuestions());
+            List<Question>l = new ArrayList<Question>(t.getQuestions());
             Collections.shuffle(l);
             t.setQuestions(new LinkedHashSet(l));
         }

@@ -2,15 +2,15 @@ package org.sgu.oecde.core.education.estimation;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.work.AbstractResult;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
-import org.springframework.util.CollectionUtils;
 
 /**
  * класс для обработки результатов фильтрами и формирования Points
@@ -34,7 +34,7 @@ public class ResultPreFilter implements Serializable{
      * @return - лист баллов
      * @see IResultFilter фильтр
      */
-    public List<Points> forEachResult(List<? extends AbstractResult> results, boolean sumEachIteration,List<IResultFilter> resultFilters, List<? extends AbstractStudent>students,List<? extends Curriculum>curriculums){
+    public List<Points> forEachResult(List<? extends AbstractResult> results, boolean sumEachIteration,List<IResultFilter> resultFilters, Collection<? extends AbstractStudent>students,Collection<? extends Curriculum>curriculums){
         Assert.state(!resultFilters.isEmpty(), "result filters Set can not be empty");
         
         List<Points> pointsList = new ArrayList<Points>();
@@ -47,7 +47,7 @@ public class ResultPreFilter implements Serializable{
         Curriculum cur = null;
         AbstractStudent st = null;
         Collections.sort(results);
-        ListIterator<? extends AbstractResult>iterator = results.listIterator();
+        Iterator<? extends AbstractResult>iterator = results.iterator();
         boolean breakPoint = false;
         while(iterator.hasNext()){
             AbstractResult result = iterator.next();

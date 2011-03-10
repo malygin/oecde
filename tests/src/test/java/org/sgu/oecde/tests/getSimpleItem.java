@@ -78,7 +78,7 @@ public class getSimpleItem extends BasicTest{
         this.<ITestAttemptDao>getDao().saveAttempt(a);
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void filtResults(){
         List<IResultFilter>filters = new LinkedList();
@@ -115,7 +115,7 @@ public class getSimpleItem extends BasicTest{
         }
     }
     
-//    @Ignore
+    @Ignore
     @Test
     public void getByExampleWithType(){
         setDao("testAttemptDao");
@@ -138,7 +138,7 @@ public class getSimpleItem extends BasicTest{
         }
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void getCurriculumAttempts(){
         TestAttemptService serv = (TestAttemptService) applicationContext.getBean("testAttemptService");
@@ -244,11 +244,13 @@ public class getSimpleItem extends BasicTest{
     @Ignore
     @Test
     public void constants(){
-        StringConstantsGetter g = getBean("testsDatesGetter");
-//        g.save(new CalendarConstants(ControlWorkCalendarConstantName.controlWorksBeginDate, "10"), "ControlWorkCalendarConstants");
+        this.<TestEntity>setDao("testDao");
+        TestEntity t = this.<TestEntity>getItem(3105L);
+        System.out.println(t.getQuestions());
+        System.out.println(new HashSet(t.getQuestions()));
     }
 
-//    @Ignore
+    @Ignore
     @Test
     public void getStudentsDisciplines(){
         setDao("studentDao");

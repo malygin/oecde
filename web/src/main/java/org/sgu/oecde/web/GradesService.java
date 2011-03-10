@@ -2,6 +2,7 @@ package org.sgu.oecde.web;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -47,7 +48,7 @@ public class GradesService implements Serializable{
 
     private static final long serialVersionUID = 165L;
 
-    public List<Points> getGrades(List<DeCurriculum> curriculums,List<Student>students) {
+    public List<Points> getGrades(Collection<DeCurriculum> curriculums,Collection<Student>students) {
         List<IResultFilter>filters = new ArrayList(3);
         filters.add(controlWorkFilter);
         filters.add(estimateFilter);

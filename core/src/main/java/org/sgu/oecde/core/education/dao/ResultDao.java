@@ -1,5 +1,6 @@
 package org.sgu.oecde.core.education.dao;
 
+import java.util.Collection;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
@@ -31,7 +32,7 @@ public class ResultDao<T extends AbstractResult> extends BasicDao<T> implements 
      * {@inheritDoc }
      */
     @Override
-    public List<T> getByStudentsAndCurriculums(List<? extends Curriculum> curriculums, List<? extends AbstractStudent> students, T result) throws DataAccessException {
+    public List<T> getByStudentsAndCurriculums(Collection<? extends Curriculum> curriculums, Collection<? extends AbstractStudent> students, T result) throws DataAccessException {
         if(CollectionUtils.isEmpty(curriculums)||CollectionUtils.isEmpty(students))
             return null;
         Criteria cr =  getSession().createCriteria(type);

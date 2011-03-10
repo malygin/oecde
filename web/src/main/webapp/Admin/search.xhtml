@@ -21,7 +21,7 @@
                  </h:commandButton>
             </td></tr></table>
         </h:form>
-        <h:dataTable value="#{searchBean.items}" var="i" id="table">
+            <h:dataTable style="width: 100%" value="#{searchBean.items}" var="i" id="table">
             <h:column>
                 <h:panelGroup rendered="#{searchBean.type eq 'teacher' or searchBean.type eq 'student'}">
                     <div class="studentInterfaceStandartList">

@@ -28,8 +28,8 @@ public interface ILessonDao extends IBasicDao<Lesson>{
      * @return количество найденных сущностей
      * @throws DataAccessException
      */
-    public Integer getLessonCount(final Lesson lesson)throws DataAccessException;
-
+    public Long getLessonCount(final Lesson lesson, long groupId, String beginDate, String endDate) throws DataAccessException;
+    
     /**
      * @param year год
      * @param month месяц
@@ -48,4 +48,6 @@ public interface ILessonDao extends IBasicDao<Lesson>{
     public void deleteLesson(final Lesson lesson) throws DataAccessException;
 
     public List<Lesson>getByGroups(List<? extends StudentGroup>groups, boolean isWinter, int year)throws DataAccessException;
+    
+    public List<Lesson>getByLessonAndDate( Lesson l, long groupId, int maxResult, int firtsResult,String beginDate, String endDate) throws DataAccessException;
 }

@@ -3,23 +3,33 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/studentTemplate.xhtml"
+      xmlns:util="http://java.sun.com/jsf/composite/components/util"
     >
     <ui:define name="contentHeader">
         #{msgs.student_controlMenuSchedule}
     </ui:define>
+    <ui:define name="online">
+            c <util:date_picker value="#{studentScheduleBean.beginDate}"/> по
+            <util:date_picker value="#{studentScheduleBean.endDate}"/>
+    </ui:define>
     <ui:define name="content">
+
+            <f:metadata>
+                <f:viewParam name="pageNumber" value="#{studentScheduleBean.pageNumber}"/>
+            </f:metadata>
         <style type="text/css">
             .mainStyle .studentStandatrTable *{
                 text-align: left !important;
             }
         </style>
         <div class="interfaceContent">
-            <h:dataTable columnClasses="
+               <util:navigationList numElements="#{studentScheduleBean.count(true)}" elementOnPage="40"/>
+        <h:dataTable columnClasses="
                          studentStandatrTableTd,
                          studentStandatrTableTd,
                          studentStandatrTableTd,
                         studentStandatrTableTdLastTd  studentStandatrTableExamin "
-                         value="#{studentScheduleBean.schedule}" var="s" styleClass="studentStandatrTable studentStandatrTableExamin" cellpadding="0" cellspacing="0">
+                         value="#{studentScheduleBean.schedule(40,true)}" var="s" styleClass="studentStandatrTable studentStandatrTableExamin" cellpadding="0" cellspacing="0">
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="дисциплина"/>
@@ -47,6 +57,7 @@
                     <span ><h:outputText converter="dateConverter" value="#{s.lessonDate}"/></span>
                 </h:column>
             </h:dataTable>
+               <util:navigationList numElements="#{studentScheduleBean.count(true)}" elementOnPage="40"/>
         </div>
     </ui:define>
 </ui:composition>

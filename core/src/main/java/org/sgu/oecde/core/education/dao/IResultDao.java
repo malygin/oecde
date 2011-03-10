@@ -1,5 +1,6 @@
 package org.sgu.oecde.core.education.dao;
 
+import java.util.Collection;
 import java.util.List;
 import org.sgu.oecde.core.IBasicDao;
 import org.sgu.oecde.core.education.Curriculum;
@@ -24,5 +25,5 @@ public interface IResultDao<T extends AbstractResult> extends IBasicDao<T>{
      * @throws DataAccessException
      */
     @SuppressWarnings("unchecked")
-    public List<T> getByStudentsAndCurriculums(List<? extends Curriculum>curriculums,List<? extends AbstractStudent>students, T result) throws DataAccessException;
+    public List<T> getByStudentsAndCurriculums(Collection<? extends Curriculum>curriculums,Collection<? extends AbstractStudent>students, T result) throws DataAccessException;
 }

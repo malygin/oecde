@@ -13,11 +13,13 @@ import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Formatter;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
@@ -33,6 +35,9 @@ import javax.activation.MimetypesFileTypeMap;
 import org.apache.xmlbeans.impl.piccolo.util.RecursionException;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.sgu.oecde.core.education.Curriculum;
+import org.sgu.oecde.de.education.DeCurriculum;
+import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.journal.EventType;
 import org.sgu.oecde.web.jsfbeans.admin.ConstantsFormBean;
 
@@ -109,8 +114,5 @@ public class simpleTest{
 
     @Test
     public void asdasd(){
-        Formatter f = new Formatter();
-        File s;
-        f.format("%S", "hello123");
     }
 }

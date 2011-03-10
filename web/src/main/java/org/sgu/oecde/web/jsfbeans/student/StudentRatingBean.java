@@ -1,6 +1,7 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -42,8 +43,7 @@ public class StudentRatingBean extends StudentCurriculumBean{
 
     public List<Points>  getGroupRating() {
         if(rating==null){
-            List<Student>students = new ArrayList<Student>(student.<Group>getGroup().getPersons());
-            rating = getStudentsRating(students);
+            rating = getStudentsRating(student.<Group>getGroup().getPersons());
         }
         return rating;
     }
@@ -60,7 +60,7 @@ public class StudentRatingBean extends StudentCurriculumBean{
         return points;
     }
 
-    private List<Points> getStudentsRating(List<Student>students){
+    private List<Points> getStudentsRating(Collection<Student> students){
         setSemester(0);
         List<IResultFilter>filters = new ArrayList(2);
         filters.add(controlWorkFilter);

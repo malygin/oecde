@@ -18,6 +18,8 @@ public class StudentGroup<T extends AbstractStudent> extends AbstractGroup<T>{
      */
     private Set<TeacherToGroup> teacherToGroups;
 
+    private Integer calendarYear;
+
     public  StudentGroup() {
     }
 
@@ -63,5 +65,13 @@ public class StudentGroup<T extends AbstractStudent> extends AbstractGroup<T>{
      */
     public void setTeacherToGroups(Set<TeacherToGroup> teacherToGroups) {
         this.teacherToGroups = teacherToGroups;
+    }
+
+    public Integer getCalendarYear() {
+        return calendarYear;
+    }
+
+    public void setCalendarYear(Integer calendarYear) {
+        this.calendarYear = calendarYear;
     }
 }

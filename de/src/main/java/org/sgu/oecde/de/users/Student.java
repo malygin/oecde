@@ -30,6 +30,11 @@ public class Student extends AbstractStudent{
      * город
      */
     private City city;
+    /**
+     * номер студенческого
+     */
+    private Long studentPassId;
+
     private static final long serialVersionUID = 51L;
 
     public Student() {
@@ -102,5 +107,13 @@ public class Student extends AbstractStudent{
      */
     public void setIcq(Integer icq) {
         this.icq = icq;
+    }
+
+    public Long getStudentPassId() {
+        return studentPassId;
+    }
+
+    public void setStudentPassId(Long studentPassId) {
+        this.studentPassId = studentPassId;
     }
 }

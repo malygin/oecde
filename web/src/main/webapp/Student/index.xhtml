@@ -10,15 +10,16 @@
     xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
     xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 
+    <ui:define name="contentHeader">
+        #{msgs.student_index}
+    </ui:define>
     <ui:define name="fio">
         <h:outputText value="#{studentSessionBean.student.fio}"/>
     </ui:define>
     <ui:define name="content">
 
             <f:metadata>
-                <f:viewParam name="s" value="#{badPassedTestsBean.semester}"/>
-                <f:viewParam name="s" value="#{lowGradedDisciplinesBean.semester}"/>
-                <f:viewParam name="s" value="#{lowGradedCwBean.semester}"/>
+                <f:viewParam name="s" value="#{studentIndexBean.semester}"/>
             </f:metadata>
 
         <div class="userFile">
@@ -41,7 +42,10 @@
                         <td><p>#{msgs.student_mainContentUserInfoGroup}</p></td><td><div>#{studentSessionBean.student.group.name}</div></td>
                     </tr>
                     <tr>
-                        <td><p>Ваш рейтинг:</p></td>
+                        <td><p>#{msgs.student_studentPassId}</p></td><td><div>#{studentSessionBean.student.studentPassId}</div></td>
+                    </tr>
+                    <tr>
+                        <td><p>#{msgs.student_yourRating}</p></td>
                         <td><a class="reitingLink" href="groupRating.xhtml" style="color: green; font-weight: bolder; font-family: Verdana;">#{studentRatingBean.studentRating.sum}</a></td>
                     </tr>
                 </table>
@@ -63,7 +67,7 @@
                                      studentStandatrTableTd studentStandatrTableTdWithBorder,
                                      studentStandatrTableTd studentStandatrTableTdWithBorder,
                                      studentStandatrTableTdLastTd studentStandatrTableTdLastTdwithBorder"
-                                     value="#{studentScheduleBean.schedule}" var="s" styleClass="studentStandatrTable" cellpadding="0" cellspacing="0">
+                                     value="#{studentScheduleBean.schedule(20,false)}" var="s" styleClass="studentStandatrTable" cellpadding="0" cellspacing="0">
                             <h:column>
                                 <f:facet name="header">
                                     <h:outputText value="#{msgs.student_Dicipline}"/>
@@ -195,7 +199,7 @@
                             </div>
                         </div>
                     </td>
-                    <td style="width: 80%;" class="StudentTimeTable" valign="top">
+                    <td style="width: 50%;" class="StudentTimeTable" valign="top">
                         <div style=" border-bottom: 1px solid silver; padding-top: 4px;">
                             <div class="navigationLinks indentionInNavigation"><a style="font-size: 12pt; background:url('../resources/images/events.gif') no-repeat left top;  padding-left: 24px;" href="journal.xhtml" >Лента событий</a></div>
                         </div>
@@ -204,9 +208,10 @@
                         </div>
                     </td>
                 </tr>
+                <h:panelGroup rendered="#{studentIndexBean.exame}">
                 <tr>
                     <td colspan="2" class="indexChangeSemestrPanel">
-                        <est:changeSemester semester="#{lowGradedDisciplinesBean.semester}"/>
+                        <est:changeSemester semester="#{studentIndexBean.semester}"/>
                     </td>
                 </tr>
                 <tr>
@@ -218,7 +223,7 @@
                         <h:dataTable columnClasses="studentStandatrTableTd studentStandatrTableTdTests,
                                       studentStandatrTableTdLastTdwithBorder " styleClass="studentStandatrTable studentStandatrTableBorder"
                                      style="width: 100%;"
-                                     value="#{lowGradedDisciplinesBean.lowGradedDisciplines}" var="p" cellpadding="0" cellspacing="0">
+                                     value="#{studentIndexBean.lowGradedDisciplines}" var="p" cellpadding="0" cellspacing="0">
                         <h:column>
                             <div>
                                 <div class="controlWorksDisciplineNameLink">
@@ -254,12 +259,12 @@
                                      columnClasses="studentStandatrTableTd studentStandatrTableTdTests,
                                       studentStandatrTableTdLastTdwithBorder " styleClass="studentStandatrTable studentStandatrTableBorder"
                                      style="width: 100%;"
-                                     value="#{badPassedTestsBean.badPassedTests(false)}" var="r">
+                                     value="#{studentIndexBean.badPassedTests(false)}" var="r">
                             <h:column>
                             <div>
                                 <div class="controlWorksDisciplineNameLink">
                                     <div>
-                                        #{r.work.title}
+                                        <h:outputLink value="test.xhtml?c=#{r.curriculum.id}&amp;id=#{r.work.id}">#{r.work.title}</h:outputLink>
                                     </div>
                                 </div>
                                 <div class="educ_content_title_activ">
@@ -283,12 +288,12 @@
                                      columnClasses="studentStandatrTableTd studentStandatrTableTdTests,
                                       studentStandatrTableTdLastTdwithBorder" styleClass="studentStandatrTable studentStandatrTableBorder"
                                      style="width: 100%;"
-                                     value="#{badPassedTestsBean.badPassedTests(true)}" var="r">
+                                     value="#{studentIndexBean.badPassedTests(true)}" var="r">
                             <h:column>
                             <div>
                                 <div class="controlWorksDisciplineNameLink">
                                     <div>
-                                        #{r.work.title}
+                                        <h:outputLink value="test.xhtml?c=#{r.curriculum.id}&amp;id=#{r.work.id}">#{r.work.title}</h:outputLink>
                                     </div>
                                 </div>
                                 <div class="educ_content_title_activ">
@@ -311,7 +316,7 @@
                         <h:dataTable columnClasses="studentStandatrTableTd studentStandatrTableTdTests,
                                       studentStandatrTableTdLastTdwithBorder " styleClass="studentStandatrTable studentStandatrTableBorder"
                                      style="width: 100%;"
-                                     value="#{lowGradedCwBean.works}" var="w" cellpadding="0" cellspacing="0">
+                                     value="#{studentIndexBean.works}" var="w" cellpadding="0" cellspacing="0">
                         <h:column>
                             <div>
                                 <div class="controlWorksDisciplineNameLink">
@@ -338,6 +343,7 @@
                         </div>
                     </td>
                 </tr>
+                </h:panelGroup>
             </table>
         </div>
     </ui:define>

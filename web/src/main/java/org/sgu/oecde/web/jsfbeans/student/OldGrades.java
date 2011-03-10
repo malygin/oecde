@@ -85,6 +85,7 @@ public class OldGrades extends AbstractStudentBean{
                     }
                 }
             }
+            setI = map.entrySet().iterator();
             if(setI.hasNext()){
                 Map.Entry<DeCurriculum,Teacher> entry = setI.next();
                 NewEntry<DeCurriculum,Teacher>ctE = new NewEntry<DeCurriculum, Teacher>(entry.getKey(), entry.getValue());

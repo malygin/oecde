@@ -2,6 +2,7 @@ package org.sgu.oecde.controlworks;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -58,7 +59,7 @@ public class ControlWorkService implements Serializable{
      * @return учебные планы и контрльные работы по ним
      */
     @SuppressWarnings({"unchecked"})
-    public <K extends Curriculum,V extends ControlWork>Map<K,V> getStudensControlWorks(AbstractStudent student, List<? extends Curriculum> curriculums){
+    public <K extends Curriculum,V extends ControlWork>Map<K,V> getStudensControlWorks(AbstractStudent student, Collection<? extends Curriculum> curriculums){
         List<AbstractStudent>students = ListUtil.oneItemList(student);
         List<ControlWork> list = controlWorkDao.getByStudentsAndCurriculums(curriculums, students,null);
         Map<K,V>map = new LinkedHashMap<K, V>();
@@ -89,7 +90,7 @@ public class ControlWorkService implements Serializable{
      * @return студенты и кр
      */
     @SuppressWarnings({"unchecked"})
-    public <T extends AbstractStudent,V extends ControlWork>Map<T, V>getCurriculumControlWorks(List<? extends AbstractStudent> students, Curriculum curriculum){
+    public <T extends AbstractStudent,V extends ControlWork>Map<T, V>getCurriculumControlWorks(Collection<? extends AbstractStudent> students, Curriculum curriculum){
         List<Curriculum>curriculums = ListUtil.oneItemList(curriculum);
         return getAllControlWorks(students,curriculums);
     }
@@ -103,7 +104,7 @@ public class ControlWorkService implements Serializable{
      * @return студенты и кр
      */
     @SuppressWarnings({"unchecked"})
-    public <T extends AbstractStudent,V extends ControlWork>Map<T, V>getAllControlWorks(List<? extends AbstractStudent> students,List<? extends Curriculum> curriculums){
+    public <T extends AbstractStudent,V extends ControlWork>Map<T, V>getAllControlWorks(Collection<? extends AbstractStudent> students,Collection<? extends Curriculum> curriculums){
         List<ControlWork> list = controlWorkDao.getByStudentsAndCurriculums(curriculums,students,null);
         Map<T,V>map = new LinkedHashMap<T, V>();
         for(AbstractStudent s:students){

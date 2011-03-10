@@ -1,5 +1,6 @@
 package org.sgu.oecde.core.education.dao;
 
+import java.util.Collection;
 import java.util.List;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.work.Estimate;
@@ -22,7 +23,7 @@ public class EstimateDao extends ResultDao<Estimate> implements IEstimateDao{
 
     private static final long serialVersionUID = 131L;
 
-    public int getEstimatedGroupsCount(List<? extends Curriculum>curriculums,Teacher teacher)throws DataAccessException {
+    public int getEstimatedGroupsCount(Collection<? extends Curriculum>curriculums,Teacher teacher)throws DataAccessException {
         if(CollectionUtils.isEmpty(curriculums)||teacher == null)
             return 0;
         List<Long>list = getSession()

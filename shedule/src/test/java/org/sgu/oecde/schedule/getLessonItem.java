@@ -123,7 +123,6 @@ public class getLessonItem extends BasicTest{
         l.setSdsy(sdsy);*/
            l.setLessonDate("24.04.10");
         setDao("lessonDao");
-        System.out.println("sd   "+((ILessonDao)getDao()).getLessonCount(l));
     }
 
     @Ignore

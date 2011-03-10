@@ -23,6 +23,7 @@ import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.de.users.Student;
 import org.springframework.context.ApplicationContext;
+import org.springframework.util.StringUtils;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 /**
@@ -57,7 +58,7 @@ public class ChatList extends HttpServlet {
               list= myDao.getChatList(1L, number);
 
             }
-            if((request.getParameter("message")!=null)&&(!request.getParameter("message").equals(""))){
+            if(StringUtils.hasText(request.getParameter("message"))){
                   ChatMessage message=new ChatMessage();
                   message.setAuthor(SecurityContextHandler.getUser());
                   message.setDateMessage(DateConverter.convert(System.currentTimeMillis()));
