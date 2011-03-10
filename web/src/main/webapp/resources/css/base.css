@@ -37,7 +37,7 @@
 .mainStyle .studentButtonRed{
     color: #6F1B1B;
     cursor: pointer;
-    font-size: 10pt;
+    font-size: 9pt !important;
     background-color: #FFEFEF;
     border: 1px solid #B97F7F;
     margin-top: 10px;
@@ -467,7 +467,7 @@ color: black;
 .mainStyle .violUnderTitleLink a:visited {color: #A978FE; text-decoration: none; font-weight: normal; margin-left: 10px;}
 .mainStyle .violUnderTitleLink a:active {color: black; text-decoration: none; font-weight: normal; margin-left: 10px;}
 .mainStyle .violUnderTitleLink a:hover {color: black; text-decoration: none; font-weight: normal; margin-left: 10px;}
-/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> данный блок стилей является пережитком старого прошлого для системы*/
 .mainStyle .rightSideMenuLinks{
     list-style: none;
     margin: 0px;
@@ -731,8 +731,18 @@ color: black;
     min-height: 50px;
     margin: 5px;
     padding: 5px;
-    border: 1px solid silver;
-    background: #EFEFEF;
+     border: 1px solid #D1E0EF;
+/*    border: 1px solid silver;*/
+/*    background: #EFEFEF;*/
+}
+.mainStyle .answerMess{
+    display: block;
+    padding-left: 16px;
+    margin-left: 15px;
+    margin-top: 10px;
+    text-align: center;
+    width: 80px;
+   
 }
 .mainStyle .fullMessageMessageText{
     min-height: 50px;
@@ -748,7 +758,7 @@ color: black;
     float: right;
     height: 16px;
     width: 16px;
-    border: 1px solid silver;
+    border: 1px solid #D1E0EF;
     padding: 1px;
 }
 .mainStyle .actionResultSuccessfull{
@@ -1125,6 +1135,11 @@ body:first-of-type .mainStyle .StudentWriteMess{
 .mainStyle .controlWorksDisciplineNameLink a:visited{color: #4593DF;}
 .mainStyle .controlWorksDisciplineNameLink a:active{color: #8DBEE0;}
 .mainStyle .controlWorksDisciplineNameLink a:hover{color: #8DBEE0;}
+
+.mainStyle .controlWorksDisciplineNameLinkGrey a:link{color: #8F8F8F;}
+.mainStyle .controlWorksDisciplineNameLinkGrey a:visited{color: #8F8F8F;}
+.mainStyle .controlWorksDisciplineNameLinkGrey a:active{color: #B5CADF;}
+.mainStyle .controlWorksDisciplineNameLinkGrey a:hover{color: #B5CADF;}
 
 .mainStyle .saveButton{
     width: 100px !important;
@@ -1567,7 +1582,7 @@ html, body{ margin:0; padding:0; height:100%;}
     width: 30%;
 }
   .outMessStudFirstTd{
-   width: 16%;
+   width: 10%;
 }
  .outMessStudSecTd{
     vertical-align: top;
@@ -1577,3 +1592,10 @@ html, body{ margin:0; padding:0; height:100%;}
 .mainStyle .navigationLinksMess a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
 .mainStyle .navigationLinksMess a:hover{color: #C2D9EF; text-decoration: none; font-weight: normal;}
 .mainStyle .navigationLinksMess a:visited{color:#C2D9EF; text-decoration: none; font-weight: normal;}
+
+.mainStyle .greyMess{
+    color: grey;
+    margin-right: 10px;
+    padding-bottom: 10px;
+    font-weight: normal !important;
+}
