@@ -60,7 +60,8 @@
                         <h:outputText rendered="#{t[4]!=null}" >пробных: <span>#{t[1].trialAttemptsUsedNumber} из #{t[1].work.trialNumber}</span></h:outputText><br/>
                        <h:outputText rendered="#{t[4]==null}" style="color: grey; background: url('../resources/images/arrows.gif') 2px 1px no-repeat; padding-left: 18px;" value="переэкзаменовка: #{t[1].reExameAttemptsUsedNumber}" />
                         <h:outputText rendered="#{t[4]!=null}" >переэкзаменовка: <span>#{t[1].reExameAttemptsUsedNumber}</span></h:outputText><br/>
-                        <h:outputText rendered="#{t[1].work.openDate ne null and t[1].work.closeDate ne null}" value="доступен с #{t[1].work.openDate} по #{t[1].work.closeDate}" style="background: url('../resources/images/available.gif') no-repeat; padding-left: 18px;"/><br/>
+                        доступен с <h:outputText converter="dateConverter" rendered="#{t[1].work.openDate ne null}" value="#{t[1].work.openDate}" /> по
+ <h:outputText converter="dateConverter" rendered="#{t[1].work.closeDate ne null}" value="#{t[1].work.closeDate}" /> <br/>
                         <h:outputText rendered="#{t[4]==null}" style="color: grey; background: url('../resources/images/star.gif') no-repeat; padding-left: 18px;" value="количество вопросов: #{t[1].work.quantity}"/>
                         <h:outputText rendered="#{t[4]!=null}" >количество вопросов:  <span>#{t[1].work.quantity}</span></h:outputText><br/>
                         <h:outputText rendered="#{t[4]==null}" style="color: grey;background: url('../resources/images/time.gif')2px 0 no-repeat; padding-left: 18px;" value="предоставленное время: #{t[1].work.duration}"/>

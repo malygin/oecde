@@ -528,4 +528,13 @@ public class TestPassingBean implements Serializable {
     public void setSemesterGetter(SemesterGetter semesterGetter) {
         this.semesterGetter = semesterGetter;
     }
+
+    public int getIterQ() {
+        return iterQ;
+    }
+
+    public void setIterQ(int iterQ) {
+        this.iterQ = iterQ;
+    }
+    
   }
