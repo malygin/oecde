@@ -22,7 +22,7 @@
         <h:dataTable value="#{cc.attrs.list}"  var="message"  style="width: 98%;">
             <h:column>
             <h:form id="formList">
-                <div class="studentInterfaceStandartList" style="width: 100%;">
+                <div class="studentInterfaceStandartList" style="width: 100%;border-bottom: 1px solid silver;border-top: 1px solid silver;margin-top: 3px;padding: 10px;">
                     <div style="float:left; margin-right: 20px;">
                        
                     </div>
@@ -35,18 +35,18 @@
                                                      columnClasses="outMessStudFirstTd,
                                                      outMessStudSecTd">
                                             <h:column>
-                                               <ut:showPhoto user="#{rec.recipient}" styleClass="#{rec.recipient.classType}" size="medium"/>
+                                               <ut:showPhoto user="#{rec.recipient}" styleClass="#{rec.recipient.classType}" size="small"/>
                                             </h:column>
                                             <h:column>
-                                               <div class="linkTo#{rec.recipient.classType}sProfile"><span style="color: grey; margin-right: 10px; padding-bottom: 10px; font-weight: normal !important;">Кому:</span><a href="#{fn:toLowerCase(message.message.author.classType)}.xhtml?id=#{rec.recipient.id}"><h:outputText value="#{rec.fioAuthor}"/></a> <h:panelGroup rendered="#{message.readed}"><span style="padding-left: 20px;" class="DisciplineText">Прочитано</span></h:panelGroup>
+                                               <div class="linkTo#{rec.recipient.classType}sProfile"><span class="greyMess">Кому:</span><a href="#{fn:toLowerCase(message.message.author.classType)}.xhtml?id=#{rec.recipient.id}"><h:outputText value="#{rec.fioAuthor}"/></a> <h:panelGroup rendered="#{message.readed}"><span style="padding-left: 20px;" class="DisciplineText">Прочитано</span></h:panelGroup>
                                                 <div class="chatPostDate" style="font-size: 8pt;position: relative;">
                                                      <h:outputText converter="dateConverter" value="#{message.message.dateMessage}"/>
                                                 </div></div>
                                                <div>
 
-                                                   <span  style="color: grey; margin-right: 7px; margin-bottom: 10px;">#{msgs.message_theme}
-                                                   </span>
-                                                   <span class="navigationLinks"><a href="messages_read.xhtml?id=#{message.message.id}&amp;type=false"><h:outputText value="#{message.message.theme}"/></a>
+<!--                                                   <span  style="color: grey; margin-right: 7px; margin-bottom: 10px;">#{msgs.message_theme}
+                                                   </span>-->
+                                                   <span class="controlWorksDisciplineNameLink"><a href="messages_read.xhtml?id=#{message.message.id}&amp;type=false"><h:outputText value="#{message.message.theme}"/></a>
                                                    </span>
                                                </div>
                                                <a href="messages_read.xhtml?id=#{message.message.id}&amp;type=false" class="listMessagesShortMessage" style="width:95%; float: left; position: relative; top: 10px; right: 3px;">
@@ -60,8 +60,9 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div class="controlWorksDisciplineNameLink">
-                                           <h:outputLink rendered="#{not MessageBean.renderDeleteSuccess}" value="messages_read.xhtml?id=#{message.message.id}" styleClass="studentButton"  style=" display: block;margin-left: 15px;margin-top: 10px;text-align: center;width: 80px;">#{msgs.message_answer}</h:outputLink>
+                                        <div class="controlWorksDisciplineNameLinkGrey" style="margin-top: 10px;  float: right;">
+                                           <h:outputLink rendered="#{not MessageBean.renderDeleteSuccess}" value="messages_read.xhtml?id=#{message.message.id}" 
+                                                         styleClass="answerMess"  style=" background: url('../resources/images/answer.gif') no-repeat;">#{msgs.message_answer}</h:outputLink>
                                         </div>
                                     </td>
                                 </tr>

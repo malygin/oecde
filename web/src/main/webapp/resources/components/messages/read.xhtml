@@ -29,7 +29,7 @@
                     <div style="float: left;">
                         <table cellpadding="3" cellspacing="6">
                             <tr>
-                                <td>
+                                <td class="greyMess" style="padding: 0px;">
                                     #{msgs.message_author}
                                 </td>
                                 <td>
@@ -38,18 +38,19 @@
                                     </a>
                                     </div>
                                 </td>
-                                <td class="navigationLinks">
-                                    <h:panelGroup rendered="#{MessageReadBean.type}"> (<h:outputLink  value="messages_dialog.xhtml?user=#{cc.attrs.mess.message.author.id}">#{msgs.message_showHistory} </h:outputLink>)</h:panelGroup>
+                                <td class="controlWorksDisciplineNameLinkGrey">
+                                    <h:panelGroup rendered="#{MessageReadBean.type}" styleClass="controlWorksDisciplineNameLinkGrey" style="background: url('../resources/images/correspondence.gif') no-repeat;  padding-left: 18px;"> <h:outputLink  value="messages_dialog.xhtml?user=#{cc.attrs.mess.message.author.id}">#{msgs.message_showHistory} </h:outputLink></h:panelGroup>
                                 </td>
                             </tr>
                             <tr>
-                                <td valign="top" style="width: 100px;">
+                                <td valign="top" style="width: 100px; padding: 0px;" class="greyMess">
                                     #{msgs.message_recipients}
                                 </td>
                                 <td>
                                     <ui:repeat  value="#{cc.attrs.mess.message.recipients}" var="rec">
-                                        <div class="linkTo#{rec.recipient.classType}sProfile"><a href="#{fn:toLowerCase(rec.recipient.classType)}.xhtml?id=#{rec.recipient.id}"> </a>
-                                        <h:outputText value="#{rec.fioAuthor}"/>
+                                        <div class="linkTo#{rec.recipient.classType}sProfile"><a href="#{fn:toLowerCase(rec.recipient.classType)}.xhtml?id=#{rec.recipient.id}">
+                                            
+                                        <h:outputText value="#{rec.fioAuthor}"/></a>
                                         <h:panelGroup rendered="#{not MessageReadBean.type}"> (<h:outputLink  value="messages_dialog.xhtml?user=#{rec.recipient.id}">#{msgs.message_showHistory} </h:outputLink>)</h:panelGroup>
                                         <br/>
                                             
@@ -58,9 +59,9 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+<!--                                <td class="greyMess">
                                     #{msgs.message_theme}
-                                </td>
+                                </td>-->
                                 <td>
                                     <h:outputText value="#{cc.attrs.mess.message.theme}"/>
                                 </td>
@@ -80,7 +81,7 @@
                         </div>
                         <div class="floatDestroyer"/>
                     </div>
-                    <div style="" class="fullMessageMessageText">
+                    <div style="" class="listMessagesShortMessage">
                         <h:outputText value="#{cc.attrs.mess.message.fullText}"/>
 
                     </div>
@@ -106,11 +107,11 @@
                             </div>
                             <table style="width: 100%;">
                                 <tr>
-                                    <td style="width: 40px;">#{msgs.message_theme}</td>
-                                    <td ><h:inputText styleClass="writeMessageInterfaceTheme" value="#{MessageWriteBean.theme}"/></td>
+                                    <td class="greyMess" style="width: 40px; padding: 0;">#{msgs.message_theme}</td>
+                                    <td ><h:inputText styleClass="writeMessageInterfaceTheme" style="border: 1px solid #D1E0EF; color: #6D869F;" value="#{MessageWriteBean.theme}"/></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2"><h:inputTextarea styleClass="writeMessageInterfaceMessBodySmall" value="#{MessageWriteBean.fullText}"/></td>
+                                    <td colspan="2"><h:inputTextarea styleClass="writeMessageInterfaceMessBodySmall" style="border: 1px solid #D1E0EF;" value="#{MessageWriteBean.fullText}"/></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2" style="text-align: center;">

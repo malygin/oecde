@@ -19,80 +19,84 @@
         <h:panelGroup rendered="#{empty cc.attrs.list}" class="DisciplineText">
             <span style="display: block;height: 30px;margin-left:20px;padding-left: 40px;padding-top: 10px; font-style: italic; font-size: 12pt;font-weight: bolder; background: url('../resources/images/message-delete.gif') no-repeat 0 0;">Сообщений нет!</span>
         </h:panelGroup>
-   
-       <h:dataTable value="#{cc.attrs.list}" var="message" style="width: 98%;">
-          <h:column>
-            <h:form id="formList">
-                <div class="studentInterfaceStandartList"  style="width: 100%;">
-                     <div  style="float:left; margin-right: 20px;">
-                   
-                         <ut:showPhoto user="#{message.message.author}" styleClass="#{message.message.author.classType}" size="medium"/>
-                    </div>
-                    <div style="height: 50px;">
-                        <div style="float: left;">
-                            <table>
+
+        <h:dataTable value="#{cc.attrs.list}" var="message" style="width: 98%;">
+            <h:column>
+                <h:form id="formList">
+                    <div class="studentInterfaceStandartList"  style="width: 100%; border-bottom: 1px solid silver;border-top: 1px solid silver;margin-top: 3px;padding: 10px;">
+                        <div  style="float:left; margin-right: 20px; margin-top: 10px;">
+
+                            <ut:showPhoto user="#{message.message.author}" styleClass="#{message.message.author.classType}" size="small"/>
+                        </div>
+                        <div style="height: 30px;">
+                            <div style="float: left;">
+                                <table>
+                                    <tr>
+                                        <td valign="top">
+                                            <span class="greyMess">
+                                                #{msgs.message_fromWhom}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="linkTo#{message.message.author.classType}sProfile"><a href="#{fn:toLowerCase(message.message.author.classType)}.xhtml?id=#{message.message.author.id}"><h:outputText value="#{message.fioAuthor}"/></a>
+                                                <h:panelGroup rendered="#{not message.readed}"><span class="DisciplineText" style="padding-left: 20px;">Новое</span></h:panelGroup>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <!--                                    <td>
+                                        #{msgs.message_theme}
+                                    </td>-->
+                                        <td>
+                                            <span class="controlWorksDisciplineNameLink">
+                                                <a href="messages_read.xhtml?id=#{message.message.id}"><h:outputText value="#{message.message.theme}"/></a>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                            <div class="chatPostDate" style="font-size: 8pt;">
+                                <h:outputText converter="dateConverter" value="#{message.message.dateMessage}"/>
+                            </div>
+                            <div class="floatDestroyer"/>
+                        </div>
+                        <div class="listMessagesShortMessage" style="width:86%; float: left; margin-left: 3px;">
+                            <a href="messages_read.xhtml?id=#{message.message.id}"><div style="float: left; width: 95%; color: #3F3E3B;cursor: pointer; font-family: Verdana;font-weight: normal;"><h:outputText value="#{message.shortText}"/></div></a>
+                            <div class="listMessagesAttachmentsIco"><r:if test="#{message.filesExist eq true}"><img title="#{msgs.message_iconFilesExistTitle}" src="../resources/images/isAttachment.png" alt=""/></r:if><r:if test="#{message.filesExist ne true}"><img title="#{msgs.message_iconFilesNotExistTitle}" src="../resources/images/isNotAttachment.png" alt=""/></r:if></div>
+                            <div class="floatDestroyer"/>
+                        </div>
+                            <div class="floatDestroyer"/>
+                        <div align="right" style="width: 100%; margin-left: 20px;">
+                            <table style="width: 20%; float: right;">
                                 <tr>
-                                    <td valign="top">
-                                        <span style="margin-right: 10px;">
-                                            #{msgs.message_fromWhom}
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <div class="linkTo#{message.message.author.classType}sProfile"><a href="#{fn:toLowerCase(message.message.author.classType)}.xhtml?id=#{message.message.author.id}"><h:outputText value="#{message.fioAuthor}"/></a>
-                                           <h:panelGroup rendered="#{not message.readed}"><span style="color: red; padding-left: 20px;">Новое</span></h:panelGroup>
-                                        </div>
+                                    <td colspan="2">
+                                        <h:panelGroup layout="block" rendered="#{MessageBean.renderDeleteSuccess}" styleClass="actionResultSuccessfull">
+                                            #{msgs.message_deleteSuccess}
+                                        </h:panelGroup>
+                                        <!--                                        <div class="actionResultFailed">
+                                                                                <h:outputText  value="# {msgs.message_deleteFailed}" rendered="# {MessageBean.renderDeleteSuccess}"/>
+                                                                            </div>-->
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        #{msgs.message_theme}
+                                    <td class="controlWorksDisciplineNameLinkGrey" style="width: 80px;">
+                                        <h:outputLink rendered="#{not MessageBean.renderDeleteSuccess}" value="messages_read.xhtml?id=#{message.message.id}" styleClass="answerMess" style=" background: url('../resources/images/answer.gif') no-repeat; width: 65px;">#{msgs.message_answer}</h:outputLink>
                                     </td>
-                                    <td>
-                                        <span class="navigationLinks">
-                                            <a href="messages_read.xhtml?id=#{message.message.id}"><h:outputText value="#{message.message.theme}"/></a>
-                                        </span>
+                                    <td class="controlWorksDisciplineNameLinkGrey" style="text-align: right; vertical-align: bottom;">
+                                        <h:commandLink   action="#{MessageBean.deleteMessage}" styleClass="answerMess" style="float: right; background: url('../resources/images/deleteMess.gif') no-repeat;">
+                                            <h:outputText rendered="#{not MessageBean.renderDeleteSuccess}" value="#{msgs.message_delete}"/>
+                                            <f:setPropertyActionListener target="#{MessageBean.currentMessageId}" value="#{message.message.id}" />
+                                            <f:ajax  execute="@this" render="@form" />
+                                        </h:commandLink>
                                     </td>
                                 </tr>
                             </table>
-
+                            <div class="floatDestroyer"/>
                         </div>
-                        <div class="chatPostDate" style="font-size: 8pt;">
-                            <h:outputText converter="dateConverter" value="#{message.message.dateMessage}"/>
-                        </div>
-                        <div class="floatDestroyer"/>
                     </div>
-                    <div class="listMessagesShortMessage" style="width:70%; float: left;">
-                         <a href="messages_read.xhtml?id=#{message.message.id}"><div style="float: left; width: 95%;"><h:outputText value="#{message.shortText}"/></div></a>
-                        <div class="listMessagesAttachmentsIco"><r:if test="#{message.filesExist eq true}"><img title="#{msgs.message_iconFilesExistTitle}" src="../resources/images/isAttachment.png" alt=""/></r:if><r:if test="#{message.filesExist ne true}"><img title="#{msgs.message_iconFilesNotExistTitle}" src="../resources/images/isNotAttachment.png" alt=""/></r:if></div>
-                        <div class="floatDestroyer"/>
-                    </div>
-                    <table style="width: 100%;">
-                        <tr>
-                            <td colspan="2">
-                                <h:panelGroup layout="block" rendered="#{MessageBean.renderDeleteSuccess}" styleClass="actionResultSuccessfull">
-                                        #{msgs.message_deleteSuccess}
-                                </h:panelGroup>
-                                <!--                                        <div class="actionResultFailed">
-                                                                        <h:outputText  value="# {msgs.message_deleteFailed}" rendered="# {MessageBean.renderDeleteSuccess}"/>
-                                                                    </div>-->
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="navigationLinks">
-                                <h:outputLink rendered="#{not MessageBean.renderDeleteSuccess}" value="messages_read.xhtml?id=#{message.message.id}">#{msgs.message_answer}</h:outputLink>
-                            </td>
-                            <td class="navigationLinksRed" style="text-align: right;">
-                                <h:commandLink   action="#{MessageBean.deleteMessage}" >
-                                    <h:outputText rendered="#{not MessageBean.renderDeleteSuccess}" value="#{msgs.message_delete}"/>
-                                    <f:setPropertyActionListener target="#{MessageBean.currentMessageId}" value="#{message.message.id}" />
-                                    <f:ajax  execute="@this" render="@form" />
-                                </h:commandLink>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </h:form>
-          </h:column>
+                </h:form>
+            </h:column>
         </h:dataTable>
     </composite:implementation>
 </html>
