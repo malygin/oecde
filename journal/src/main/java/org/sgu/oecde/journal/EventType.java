@@ -810,83 +810,83 @@ public enum EventType {
      * {@link Lesson}
      * пользователь админ
      */
-    SHEDULE_CHANGE(true,"Изменение расписания группы"){
-
-        @Override
-        public EventItem fillEventItem(AbstractUser user, Object... o) {
-            if(checkSingleObjectArray(user, UserType.ADMIN, Lesson.class, this, o))
-                return null;
-
-            Lesson l = (Lesson) o[0];
-            String[] str = new String[l.getGroups().size()];
-            ListIterator<StudentGroup>i = l.getGroups().listIterator();
-            while(i.hasNext()){
-                str[i.nextIndex()] = i.next().getId().toString();
-            }
-            i = l.getGroups().listIterator();
-            while(i.hasNext()){
-                str[i.nextIndex()] = i.next().getName();
-            }
-            return generateEventItem(user, 0l, str);
-        }
-
-        @Override
-        public EventBodyElement[] parseEvent(EventItem item) {
-            String[] str = checkArray(item);
-            if(str == null)
-                return null;
-
-            int size = str.length;
-            EventBodyElement[] el = new EventBodyElement[size/2];
-            StringBuilder sb = new StringBuilder("У групп ");
-
-            for(int i = 0;i<size/2;i++){
-                sb.append(str[i+size]).append(", ");
-            }
-
-            el[0] = new EventBodyElement(sb.toString());
-            return el;
-        }
-
-        @Override
-        public EventBodyElement[] parseEventForAdmin(EventItem item) {
-            String[] str = checkArray(item);
-            if(str == null)
-                return null;
-
-            int size = str.length;
-            EventBodyElement[] el = new EventBodyElement[size/2];
-            el[0] = new EventBodyElement("У групп ");
-            for(int i = 0;i<size/2;i++){
-                el[i+1] = new EventBodyElement(Long.valueOf(str[i]), str[i+size], EventBodyElement.groupPage);
-            }
-            return el;
-        }
-
-        @Override
-        protected boolean addConditionByStudent(StringBuilder sb, AbstractStudent user) {
-            super.addConditionByStudent(sb, user);
-            sb.append(" and multiId like %'").append(user.getId()).append("%' ");
-            return false;
-        }
-
-        private String[] checkArray(EventItem item){
-            if(checkEventItem(item, this))
-                return null;
-
-            String[] str = item.getEventBody().split(splitter);
-            if(str == null){
-                logger.debug(this+": string array is null");
-                return null;
-            }
-            if(str.length<2){
-                logger.debug(this+": string array length less than 2");
-                return null;
-            }
-            return str;
-        }
-
-    },
+//    SHEDULE_CHANGE(true,"Изменение расписания группы"){
+//
+//        @Override
+//        public EventItem fillEventItem(AbstractUser user, Object... o) {
+//            if(checkSingleObjectArray(user, UserType.ADMIN, Lesson.class, this, o))
+//                return null;
+//
+//            Lesson l = (Lesson) o[0];
+//            String[] str = new String[l.getGroups().size()];
+//            ListIterator<StudentGroup>i = l.getGroups().listIterator();
+//            while(i.hasNext()){
+//                str[i.nextIndex()] = i.next().getId().toString();
+//            }
+//            i = l.getGroups().listIterator();
+//            while(i.hasNext()){
+//                str[i.nextIndex()] = i.next().getName();
+//            }
+//            return generateEventItem(user, 0l, str);
+//        }
+//
+//        @Override
+//        public EventBodyElement[] parseEvent(EventItem item) {
+//            String[] str = checkArray(item);
+//            if(str == null)
+//                return null;
+//
+//            int size = str.length;
+//            EventBodyElement[] el = new EventBodyElement[size/2];
+//            StringBuilder sb = new StringBuilder("У групп ");
+//
+//            for(int i = 0;i<size/2;i++){
+//                sb.append(str[i+size]).append(", ");
+//            }
+//
+//            el[0] = new EventBodyElement(sb.toString());
+//            return el;
+//        }
+//
+//        @Override
+//        public EventBodyElement[] parseEventForAdmin(EventItem item) {
+//            String[] str = checkArray(item);
+//            if(str == null)
+//                return null;
+//
+//            int size = str.length;
+//            EventBodyElement[] el = new EventBodyElement[size/2];
+//            el[0] = new EventBodyElement("У групп ");
+//            for(int i = 0;i<size/2;i++){
+//                el[i+1] = new EventBodyElement(Long.valueOf(str[i]), str[i+size], EventBodyElement.groupPage);
+//            }
+//            return el;
+//        }
+//
+//        @Override
+//        protected boolean addConditionByStudent(StringBuilder sb, AbstractStudent user) {
+//            super.addConditionByStudent(sb, user);
+//            sb.append(" and multiId like %'").append(user.getId()).append("%' ");
+//            return false;
+//        }
+//
+//        private String[] checkArray(EventItem item){
+//            if(checkEventItem(item, this))
+//                return null;
+//
+//            String[] str = item.getEventBody().split(splitter);
+//            if(str == null){
+//                logger.debug(this+": string array is null");
+//                return null;
+//            }
+//            if(str.length<2){
+//                logger.debug(this+": string array length less than 2");
+//                return null;
+//            }
+//            return str;
+//        }
+//
+//    },
     /**
      * Ответ на пост в обсуждении.
      * аттрибуты:
