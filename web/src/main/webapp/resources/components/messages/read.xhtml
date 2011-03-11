@@ -58,14 +58,6 @@
                                     </ui:repeat >
                                 </td>
                             </tr>
-                            <tr>
-<!--                                <td class="greyMess">
-                                    #{msgs.message_theme}
-                                </td>-->
-                                <td>
-                                    <h:outputText value="#{cc.attrs.mess.message.theme}"/>
-                                </td>
-                            </tr>
                         </table>
                     </div>
                     <div class="chatPostDate" style="font-size: 8pt;">
@@ -74,6 +66,7 @@
                     <div class="floatDestroyer"/>
 
                     <div style="margin: 0px 5px; height: 20px;">
+                         <h:outputText styleClass="DisciplineText" value="#{cc.attrs.mess.message.theme}"/>
                         <div style="" class="trashIconContainer">
                             <h:commandLink action="#{MessageReadBean.delete}">
                                 <img style="margin: 2px; margin-top: 1px;" src="../resources/images/trashMessage.gif" title="#{msgs.message_iconDeleteMessTitle}" alt=""/>
