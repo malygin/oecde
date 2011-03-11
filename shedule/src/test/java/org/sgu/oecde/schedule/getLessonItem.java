@@ -2,6 +2,7 @@ package org.sgu.oecde.schedule;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -52,19 +53,20 @@ public class getLessonItem extends BasicTest{
         Teacher t = teacherDao.getByExample(e).get(0);
         List<DeCurriculum> li = sdsyDao.getBySemesterYearAndParameters(Semesters.summer(), 2009, t);
         Discipline s = getDisciplines(li).iterator().next();
-        List<Group> cis;
+        Set<CityWithGroup> cis= new HashSet<CityWithGroup>();
         int number = 0;
-        List<Group> cssIs = sdsyDao.getGroupsForTeacher(Semesters.summer(), 2009, t);
+        List<Group>cssIs = sdsyDao.getGroupsForTeacher(Semesters.summer(), 2009, t);
         System.out.println(cssIs.size());
         for(Iterator<Group> it = cssIs.iterator();it.hasNext();){
             Group css = it.next();
             number+=css.getNumber();
+            CityWithGroup g = new CityWithGroup(((Student)css.getPersons().iterator().next()).getCity(), css);
+            cis.add(g);
         }
-        cis= new ArrayList<Group>(cssIs);
         Lesson l = new Lesson();
         l.setLessonDate("05.02.10 16:38:21");
-        l.setGroups(cis);
         l.setNumber(number);
+        l.setCitiesWithGroups(cis);
         l.setRoom(1);
         l.setDiscipline(s);
         l.setTeacher(t);
@@ -90,19 +92,14 @@ public class getLessonItem extends BasicTest{
     @Ignore
     @Test
     public void getLesson(){
-        Lesson l = super.getItem(27L);
-        System.out.println(l.getClass().getTypeParameters().length);
-        System.out.println(l.getClass().getGenericSuperclass());
-        for(Object c:l.getClass().getTypeParameters()){
-            System.out.println("s   "+c);
-        }
-//        for(Group c:l.getCss()){
-//            System.out.println("s   "+c.getCity().getName());
-//        }
-//        System.out.println(l.getNumber());
-//        for(Group c:l.getCss()){
-//            System.out.println("s   "+c.getCity().getName());
-//        }
+        Teacher e = new Teacher();
+        e.setSurname("ИВАНОВ");
+        Teacher t = teacherDao.getByExample(e).get(0);
+        List<DeCurriculum> li = sdsyDao.getBySemesterYearAndParameters(Semesters.summer(), 2009, t);
+        List<Group>cssIs = sdsyDao.getGroupsForTeacher(Semesters.summer(), 2009, t);
+        setDao("lessonDao");
+        this.<ILessonDao>getDao().getLessonsFroStudent(false, cssIs.get(0), ((Student)cssIs.get(0).getPersons().iterator().next()).getCity(), 20, 0, null, null);
+
     }
 
     @Ignore
@@ -144,7 +141,6 @@ public class getLessonItem extends BasicTest{
     public void DeleteItem(){
         setDao("lessonDao");
         Lesson l = getItem(286L);
-        l.setGroups(null);
         ((ILessonDao)getDao()).deleteLesson(l);
     }
 
@@ -165,10 +161,10 @@ public class getLessonItem extends BasicTest{
     public void getByGroups() throws DataAccessException, ParseException{
         List gs = new ArrayList();
         Group g = new Group();
-        g.setId(25548224L);
+        g.setId(140928L);
         gs.add(g);
         setDao("lessonDao");
-        List<Lesson> l= this.<ILessonDao>getDao().getByGroups(gs,false,2009);
+        List<Lesson> l= this.<ILessonDao>getDao().getLessonsByGroups(gs,false,2009,20,0);
         System.out.println("!! "+l);
         for(Lesson c:l){
             System.out.println("-- "+c.getLessonDate());

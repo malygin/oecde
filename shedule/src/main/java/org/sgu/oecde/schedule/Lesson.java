@@ -1,11 +1,9 @@
 package org.sgu.oecde.schedule;
 
-import java.util.List;
+import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
 import org.sgu.oecde.core.education.Discipline;
 import org.sgu.oecde.core.users.Teacher;
-import org.sgu.oecde.core.users.StudentGroup;
-import org.sgu.oecde.de.education.City;
 
 /**
  * занятие на видеоконференции
@@ -13,7 +11,6 @@ import org.sgu.oecde.de.education.City;
  */
 public class Lesson extends BasicItem{
 
-    private List<? extends StudentGroup> groups;
     private Discipline discipline;
     private Teacher teacher;
     private Integer number;
@@ -24,7 +21,7 @@ public class Lesson extends BasicItem{
     private String colorDisable;
     private Boolean winter;
     private Integer year;
-    private City city;
+    private Set<CityWithGroup>citiesWithGroups;
     
     private boolean notUsed = true;
     private boolean warning;
@@ -39,16 +36,6 @@ public class Lesson extends BasicItem{
         this.notUsed=notUsed;
         this.color=color;
         this.colorDisable=color2;
-    }
-    /**
-     * @return коллекция город-специальность-курс, которые присутствуют на занятии
-     */
-    public <T extends StudentGroup>List<T> getGroups() {
-        return (List<T>) groups;
-    }
-
-    public void setGroups(List<? extends StudentGroup> groups) {
-        this.groups = groups;
     }
     /**
      * @return количество человек на занятии
@@ -179,11 +166,11 @@ public class Lesson extends BasicItem{
         }else return this.colorDisable;
     }
 
-    public City getCity() {
-        return city;
+    public Set<CityWithGroup> getCitiesWithGroups() {
+        return citiesWithGroups;
     }
 
-    public void setCity(City city) {
-        this.city = city;
+    public void setCitiesWithGroups(Set<CityWithGroup> citiesWithGroups) {
+        this.citiesWithGroups = citiesWithGroups;
     }
 }

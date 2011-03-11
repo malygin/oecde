@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.util.List;
 import org.sgu.oecde.core.IBasicDao;
 import org.sgu.oecde.core.users.StudentGroup;
+import org.sgu.oecde.de.education.City;
+import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.schedule.Lesson;
 import org.springframework.dao.DataAccessException;
 
@@ -20,17 +22,7 @@ public interface ILessonDao extends IBasicDao<Lesson>{
      * @param lesson - сохраняемая сущность
      * @throws DataAccessException
      */
-    public void saveLesson(final Lesson lesson) throws DataAccessException;
-
-    /**
-     * получает количество занятий по критериям, что берутся из параметров lesson
-     * @param lesson сущность, из которой берутся параметры, используемые в критерии
-     * @return количество найденных сущностей
-     * @throws DataAccessException
-     */
-    public Long getLessonCount(final Lesson lesson, long groupId, String beginDate, String endDate) throws DataAccessException;
-    
-    /**
+    public void saveLesson(final Lesson lesson) throws DataAccessException;/**
      * @param year год
      * @param month месяц
      * @return занятия за указанные год и месяц
@@ -47,7 +39,16 @@ public interface ILessonDao extends IBasicDao<Lesson>{
      */
     public void deleteLesson(final Lesson lesson) throws DataAccessException;
 
-    public List<Lesson>getByGroups(List<? extends StudentGroup>groups, boolean isWinter, int year)throws DataAccessException;
+    public Long getLessonsCountByGroups(List<? extends StudentGroup> groups, boolean isWinter, int year) throws DataAccessException ;
+    public List<Lesson>getLessonsByGroups(List<? extends StudentGroup>groups, boolean isWinter, int year, int maxResult, int firtsResult)throws DataAccessException;
     
-    public List<Lesson>getByLessonAndDate( Lesson l, long groupId, int maxResult, int firtsResult,String beginDate, String endDate) throws DataAccessException;
+    public List<Lesson>getLessonsFroStudent( boolean isWinter,  Group g,City c, int maxResult, int firtsResult,String beginDate, String endDate) throws DataAccessException;
+
+    /**
+     * получает количество занятий по критериям, что берутся из параметров lesson
+     * @param lesson сущность, из которой берутся параметры, используемые в критерии
+     * @return количество найденных сущностей
+     * @throws DataAccessException
+     */
+    public Long getLessonsCountForStudent(boolean isWinter, Group g,City c, String beginDate, String endDate) throws DataAccessException;
 }
