@@ -5,6 +5,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
        xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+       xmlns:fn="http://java.sun.com/jsp/jstl/functions"
       >
 
     <!-- INTERFACE -->
@@ -15,7 +16,7 @@
 
     <!-- IMPLEMENTATION -->
     <cc:implementation>
-        <div class="interfaceContent NewMessage">
+        <div class="interfaceContent">
             <h:form  id="formSend"  enctype="multipart/form-data" >
                 <h:panelGroup rendered="#{MessageWriteBean.renderSuccessSend}" styleClass="actionResultSuccessfull">
                     #{msgs.message_sentSuccess}
@@ -26,34 +27,37 @@
                 <div style="padding-top:10px;">
                 <h:dataTable id="recipients" value="#{MessageWriteBean.recipients}" var="recipient">
                     <h:column>
-                        <div class="NewMessageInfo" style="width: 52px;">
+                        <div class="greyMess" style="width: 48px; padding: 0;">
                            #{msgs.message_forWhom}
                         </div>
                     </h:column>
                     <h:column>
-                        <span class="linkToTeachersProfile linkToTeachersProfileFromStudent"><a href="#{recipient.recipient.classType}.xhtml?id=#{recipient.recipient.id}">
+                        <span class="linkTo#{recipient.recipient.classType}sProfile linkTo#{recipient.recipient.classType}sProfileFromStudent"><a href="#{fn:toLowerCase(recipient.recipient.classType)}.xhtml?id=#{recipient.recipient.id}">
                         #{recipient.fioAuthor}</a>
                         </span>
                     
                     </h:column>
                 </h:dataTable>
+                    <table>
+                         <tr>
+                        <td class="greyMess" style="width: 60px; padding: 0;">#{msgs.message_theme}</td>
+                        <td>
+                            <h:inputText style="width: 338px; border: 1px solid #D1E0EF;  color: #6D869F;" value="#{MessageWriteBean.theme}"/>
+                        </td>
+                    </tr>
+                    </table>
                 </div>
-                <table cellpadding="0" cellspacing="3" class="writeMessageInterfaceTableForm">
+                <table cellpadding="0" cellspacing="3" class="writeMessageInterfaceTableForm" style="margin-bottom: 15px;">
                     <tr>
                         <td style="width: 50px; "></td>
                         <td>
 
                         </td>
                     </tr>
+                   
                     <tr>
-                        <td class="NewMessageInfo" style=" text-align: right;width: 125px;">#{msgs.message_theme}</td>
-                        <td>
-                            <h:inputText styleClass="writeMessageInterfaceThemeMess" value="#{MessageWriteBean.theme}"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <h:inputTextarea styleClass="writeMessageInterfaceMessBodyMess" value="#{MessageWriteBean.fullText}"/>
+                        <td colspan="2" style="border-top: 1px solid #C0C0C0;">
+                            <h:inputTextarea styleClass="writeMessageInterfaceMessBodyMess listMessagesText" style="width: 95%;" value="#{MessageWriteBean.fullText}"/>
                         </td>
                     </tr>
                 </table>
@@ -68,7 +72,7 @@
                         </span>
                     </h:column>
                 </h:dataTable>
-                <div style="padding: 3px;">
+                <div style="padding: 3px; border-top: 1px solid #C0C0C0; padding-top: 10px;">
                     <input type="file" name="MessageFile" style="background-color: #DFF1FE; font-size: 9pt; display: block; margin-left: 10px;" class="StudentWriteMess"/>
                     <h:commandButton  action="#{MessageWriteBean.addFile}" value="#{msgs.message_addFile}" styleClass="studentButton" style="margin-top: 7px; display: block; width: 220px;"/>
                     <div style="width: 100%; text-align: center; margin-top: 8px; position: relative; top: -45px;">

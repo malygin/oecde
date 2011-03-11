@@ -731,9 +731,14 @@ color: black;
     min-height: 50px;
     margin: 5px;
     padding: 5px;
-     border: 1px solid #D1E0EF;
+     border: 1px solid #D1E0EF !important;
 /*    border: 1px solid silver;*/
 /*    background: #EFEFEF;*/
+}
+.mainStyle .listMessagesText{
+    min-height: 50px;
+    padding: 5px;
+     border: 1px solid #D1E0EF !important;
 }
 .mainStyle .answerMess{
     display: block;
@@ -1568,10 +1573,10 @@ html, body{ margin:0; padding:0; height:100%;}
     font-size: 8pt;
     padding-bottom: 10px;
 }
-.mainStyle .NewMessage{
+/*.mainStyle .NewMessage{
     background: #EFFFFD;
      border-bottom: 1px solid #D1EAEF;
-}
+}*/
 .mainStyle .NewMessageInfo{
     color: #5785AF;
     font-family: Arial;
