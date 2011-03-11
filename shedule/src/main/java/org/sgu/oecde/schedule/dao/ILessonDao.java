@@ -39,8 +39,8 @@ public interface ILessonDao extends IBasicDao<Lesson>{
      */
     public void deleteLesson(final Lesson lesson) throws DataAccessException;
 
-    public Long getLessonsCountByGroups(List<? extends StudentGroup> groups, boolean isWinter, int year) throws DataAccessException ;
-    public List<Lesson>getLessonsByGroups(List<? extends StudentGroup>groups, boolean isWinter, int year, int maxResult, int firtsResult)throws DataAccessException;
+    public Long getLessonsCountByGroups(List<? extends StudentGroup> groups, boolean isWinter, int year, String beginDate, String endDate) throws DataAccessException ;
+    public List<Lesson>getLessonsByGroups(List<? extends StudentGroup>groups, boolean isWinter, int year, int maxResult, int firtsResult, String beginDate, String endDate)throws DataAccessException;
     
     public List<Lesson>getLessonsFroStudent( boolean isWinter,  Group g,City c, int maxResult, int firtsResult,String beginDate, String endDate) throws DataAccessException;
 

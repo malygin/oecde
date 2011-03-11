@@ -1,10 +1,8 @@
 package org.sgu.oecde.schedule.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
-import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.sgu.oecde.core.BasicDao;
 import org.sgu.oecde.core.users.StudentGroup;
@@ -22,7 +20,11 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
 
-    private final static String GET_LESSONS_FOR_TEACHER_QUERY="select distinct l from Lesson as l join fetch l.citiesWithGroups as g join fetch l.discipline c join fetch l.teacher t where g.group in(:grs) and l.year=:y and l.winter=:w order by c,g.city,g.group,l.lessonDate";
+    private final static String GET_LESSONS_BY_GROUPS_QUERY="select distinct l from Lesson as l join fetch l.citiesWithGroups as cwg join fetch l.discipline c join fetch l.teacher t where cwg.group in(:grs) and l.year=:y and l.winter=:w";
+
+    private final static String GET_LESSONS_FOR_STUDENT_QUERY="from Lesson l join l.citiesWithGroups cwg where l.winter=:w and cwg.group=:g and cwg.city=:c";
+
+    private final static String ORDER_BY=" order by l.lessonDate,l.discipline,cwg.city,cwg.group";
 
     public LessonDao() {
         super(Lesson.class);
@@ -61,8 +63,8 @@ public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
      * {@inheritDoc }
      */
     @Override
-    public List<Lesson> getLessonsByGroups(List<? extends StudentGroup> groups, boolean isWinter, int year, int maxResult, int firtsResult) throws DataAccessException {
-        return getSession().createQuery(GET_LESSONS_FOR_TEACHER_QUERY)
+    public List<Lesson> getLessonsByGroups(List<? extends StudentGroup> groups, boolean isWinter, int year, int maxResult, int firtsResult, String beginDate, String endDate) throws DataAccessException {
+        return getSession().createQuery(GET_LESSONS_BY_GROUPS_QUERY+insertParameters(beginDate, endDate)+ORDER_BY)
                 .setParameterList("grs", groups).setBoolean("w", isWinter).setInteger("y", year)
                 .setFirstResult(getFirstResult(maxResult, firtsResult)).setMaxResults(maxResult).list();
     }
@@ -70,8 +72,8 @@ public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
     /**
      * {@inheritDoc }
      */
-    public Long getLessonsCountByGroups(List<? extends StudentGroup> groups, boolean isWinter, int year) throws DataAccessException {
-        Query q = getSession().createQuery("select count(l) "+GET_LESSONS_FOR_TEACHER_QUERY)
+    public Long getLessonsCountByGroups(List<? extends StudentGroup> groups, boolean isWinter, int year, String beginDate, String endDate) throws DataAccessException {
+        Query q = getSession().createQuery("select count(l) "+GET_LESSONS_BY_GROUPS_QUERY)
                 .setParameterList("grs", groups).setBoolean("w", isWinter).setInteger("y", year);
         List<Long>l =q.list();
         return !l.isEmpty()?(Long)l.get(0):0l;
@@ -82,7 +84,7 @@ public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
      */
     @Override
     public Long getLessonsCountForStudent(boolean isWinter, Group g,City c, String beginDate, String endDate) throws DataAccessException {
-        String query = insertParameters(beginDate, endDate);
+        String query = GET_LESSONS_FOR_STUDENT_QUERY+insertParameters(beginDate, endDate);
         Query q = getSession().createQuery("select count(l) "+query);
         q.setBoolean("w", isWinter).setParameter("g", g).setParameter("c", c);
         List<Long>l =q.list();
@@ -90,18 +92,18 @@ public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
     }
 
     public List<Lesson>getLessonsFroStudent( boolean isWinter, Group g,City c, int maxResult, int firtsResult,String beginDate, String endDate) throws DataAccessException{
-        String query = insertParameters(beginDate, endDate);
+        String query = GET_LESSONS_FOR_STUDENT_QUERY+insertParameters(beginDate, endDate)+ORDER_BY;
         Query q = getSession().createQuery(query);
         q.setBoolean("w", isWinter).setParameter("g", g).setParameter("c", c).setFirstResult(getFirstResult(maxResult, firtsResult)).setMaxResults(maxResult);
         return q.list();
     }
 
     private String insertParameters( String beginDate, String endDate){
-        String query = "from Lesson l join l.citiesWithGroups cwg where l.winter=:w and cwg.group=:g and cwg.city=:c";
+        String query = " and l.lessonDate ";
         if(beginDate == null && endDate == null){
-            query+= " and l.lessonDate > '"+DateConverter.currentDate()+"'";
+            query+= " > '"+DateConverter.currentDate()+"'";
         } else{
-            query+=" and l.lessonDate between '"+beginDate +" 00:00:00' and '"+endDate+" 00:00:00'";
+            query+=" between '"+beginDate +" 00:00:00' and '"+endDate+" 00:00:00'";
         }
         return query;
     }

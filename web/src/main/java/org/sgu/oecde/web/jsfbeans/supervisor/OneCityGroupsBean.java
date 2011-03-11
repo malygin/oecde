@@ -47,4 +47,8 @@ public class OneCityGroupsBean implements Serializable{
         return specialities;
     }
 
+    public void setSupervisorSessionBean(SupervisorSessionBean supervisorSessionBean) {
+        this.supervisorSessionBean = supervisorSessionBean;
+    }
+
 }

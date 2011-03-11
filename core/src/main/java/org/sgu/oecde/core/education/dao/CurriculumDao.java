@@ -10,6 +10,7 @@ import org.hibernate.ScrollableResults;
 import org.hibernate.criterion.Property;
 import org.sgu.oecde.core.UpdateDao;
 import org.sgu.oecde.core.education.Curriculum;
+import org.sgu.oecde.core.education.Discipline;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.users.StudentGroup;
 import org.sgu.oecde.core.util.HqlConstructor;
@@ -70,15 +71,21 @@ public class CurriculumDao<T extends Curriculum> extends UpdateDao<T> implements
         }
         return map;
     }
+    
     /**
      * {@inheritDoc }
      */
     @Override
-    public <E extends StudentGroup> List<E> getGroupsForTeacher(Integer[] semester, int year, Teacher teacher) throws DataAccessException {
+    public <E extends StudentGroup> List<E> getGroupsForTeacher(Integer[] semester, int year, Teacher teacher, Discipline discipline) throws DataAccessException {
         if(teacher == null&& teacher.getId()==0)
             return new ArrayList(0);
-         return makeQuery("distinct t.group"," t.teacher=:t",new String[]{"t.group.speciality"},null,semester,year)
-                 .setParameter("t", teacher).setCacheable(false).list();
+        String qs = "select distinct t.group  from org.sgu.oecde.core.education.Curriculum c join c.teacherToGroups t  join fetch t.group.speciality where c.calendarYear=:y and c.semester in (:s)  and  t.teacher=:t";
+        if(discipline!=null)
+            qs+=" and c.discipline=:d";
+        Query q = getSession().createQuery(qs).setParameter("t", teacher).setParameterList("s", semester).setInteger("y", year).setCacheable(false);
+        if(discipline!=null)           
+            q.setParameter("d", discipline);
+         return q.list();
     }
     
     /**

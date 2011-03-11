@@ -7,7 +7,6 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
-import org.sgu.oecde.core.IBasicDao;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.core.util.SemesterGetter;

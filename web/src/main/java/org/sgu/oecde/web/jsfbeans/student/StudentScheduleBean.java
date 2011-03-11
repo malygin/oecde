@@ -42,8 +42,6 @@ public class StudentScheduleBean extends AbstractStudentBean{
 
     public Long count(boolean byDate){
         if(count == null){
-            Lesson ex = new Lesson();
-            ex.setWinter(semesterGetter.getCurrentSemester()==SemesterGetter.WINTER_SEMESTER);
             count = lessonDao.getLessonsCountForStudent(semesterGetter.getCurrentSemester()==SemesterGetter.WINTER_SEMESTER,student.<Group>getGroup(),student.getCity(),byDate?beginDate:null,byDate?endDate:null);
         }
         return count;

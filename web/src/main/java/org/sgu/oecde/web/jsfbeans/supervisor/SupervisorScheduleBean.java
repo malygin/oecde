@@ -28,11 +28,32 @@ public class SupervisorScheduleBean implements Serializable{
 
     public List<Lesson>lessons;
 
+    private int pageNumber = 1;
+
+    private int maxResult = 40;
+
+    private String beginDate;
+
+    private String endDate;
+
+    private Long count;
+
     public List<Lesson> getLessons() {
         if(lessons == null){
-            lessons = lessonDao.getLessonsByGroups(supervisorSessionBean.getGroups(),semesterGetter.getCurrentSemester() == SemesterGetter.WINTER_SEMESTER,semesterGetter.getCurrentYear(),20,0);
+            lessons = lessonDao.getLessonsByGroups(supervisorSessionBean.getGroups(),semesterGetter.getCurrentSemester() == SemesterGetter.WINTER_SEMESTER,semesterGetter.getCurrentYear(),maxResult,pageNumber,beginDate,endDate);
         }
         return lessons;
+    }
+
+    public Long getCount() {
+        if(count == null){
+              lessons = lessonDao.getLessonsByGroups(supervisorSessionBean.getGroups(),semesterGetter.getCurrentSemester() == SemesterGetter.WINTER_SEMESTER,semesterGetter.getCurrentYear(),maxResult,pageNumber,beginDate,endDate);
+        }
+        return count;
+    }
+
+    public int getMaxResult() {
+        return maxResult;
     }
 
     public void setLessonDao(ILessonDao lessonDao) {
@@ -45,5 +66,29 @@ public class SupervisorScheduleBean implements Serializable{
 
     public void setSemesterGetter(SemesterGetter semesterGetter) {
         this.semesterGetter = semesterGetter;
+    }
+
+    public String getBeginDate() {
+        return beginDate;
+    }
+
+    public void setBeginDate(String beginDate) {
+        this.beginDate = beginDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
+    public int getPageNumber() {
+        return pageNumber;
+    }
+
+    public void setPageNumber(int pageNumber) {
+        this.pageNumber = pageNumber;
     }
 }

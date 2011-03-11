@@ -55,7 +55,7 @@ public class getLessonItem extends BasicTest{
         Discipline s = getDisciplines(li).iterator().next();
         Set<CityWithGroup> cis= new HashSet<CityWithGroup>();
         int number = 0;
-        List<Group>cssIs = sdsyDao.getGroupsForTeacher(Semesters.summer(), 2009, t);
+        List<Group>cssIs = sdsyDao.getGroupsForTeacher(Semesters.summer(), 2009, t,null);
         System.out.println(cssIs.size());
         for(Iterator<Group> it = cssIs.iterator();it.hasNext();){
             Group css = it.next();
@@ -89,14 +89,11 @@ public class getLessonItem extends BasicTest{
         return ds;
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void getLesson(){
-        Teacher e = new Teacher();
-        e.setSurname("ИВАНОВ");
-        Teacher t = teacherDao.getByExample(e).get(0);
-        List<DeCurriculum> li = sdsyDao.getBySemesterYearAndParameters(Semesters.summer(), 2009, t);
-        List<Group>cssIs = sdsyDao.getGroupsForTeacher(Semesters.summer(), 2009, t);
+        Teacher t = teacherDao.getById(46103l);
+        List<Group>cssIs = sdsyDao.getGroupsForTeacher(Semesters.summer(), 2010, t,new Discipline(2l));
         setDao("lessonDao");
         this.<ILessonDao>getDao().getLessonsFroStudent(false, cssIs.get(0), ((Student)cssIs.get(0).getPersons().iterator().next()).getCity(), 20, 0, null, null);
 
@@ -164,7 +161,7 @@ public class getLessonItem extends BasicTest{
         g.setId(140928L);
         gs.add(g);
         setDao("lessonDao");
-        List<Lesson> l= this.<ILessonDao>getDao().getLessonsByGroups(gs,false,2009,20,0);
+        List<Lesson> l= this.<ILessonDao>getDao().getLessonsByGroups(gs,false,2009,20,0,null,null);
         System.out.println("!! "+l);
         for(Lesson c:l){
             System.out.println("-- "+c.getLessonDate());

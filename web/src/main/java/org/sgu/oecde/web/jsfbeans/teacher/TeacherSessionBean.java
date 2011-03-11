@@ -41,7 +41,7 @@ public class TeacherSessionBean extends AbstractTeacherBean{
     public List<Group>getGroups(int semester){
         if(((summerGroups==null&&semester==SemesterGetter.SUMMER_SEMESTER)||(winterGroups==null&&semester==SemesterGetter.WINTER_SEMESTER))){
             setSemester(semester);
-            List<Group>l = curriculumDao.<Group>getGroupsForTeacher(semesters(), year(),teacher);
+            List<Group>l = curriculumDao.<Group>getGroupsForTeacher(semesters(), year(),teacher,null);
             if(semester == SemesterGetter.SUMMER_SEMESTER)
                 summerGroups=l;
             else

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import org.sgu.oecde.core.IUpdateDao;
 import org.sgu.oecde.core.education.Curriculum;
+import org.sgu.oecde.core.education.Discipline;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.users.StudentGroup;
 import org.springframework.dao.DataAccessException;
@@ -59,5 +60,5 @@ public interface ICurriculumDao<T extends Curriculum> extends IUpdateDao<T>{
      * @throws DataAccessException
      */
     @SuppressWarnings("unchecked")
-    public <E extends StudentGroup> List<E> getGroupsForTeacher(Integer[] semester, int year, Teacher teacher) throws DataAccessException;
+    public <E extends StudentGroup> List<E> getGroupsForTeacher(Integer[] semester, int year, Teacher teacher, Discipline discipline ) throws DataAccessException;
 }
