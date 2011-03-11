@@ -29,25 +29,25 @@
    <composite:implementation>
        <h:dataTable id="events" value="#{cc.attrs.list}" var="e">
             <h:column>
-                <div style="margin-top: 5px; margin-left: 30px;padding-bottom: 5px;">
+                <div class="controlWorksDisciplineNameLink" style="margin-top: 5px;padding-bottom: 5px; padding-left: 10px;">
                     
-                    <div class="chatPostDate" style="color: #C9C9C9; font-size: 8pt; margin-bottom: 5px; margin-right: 10px;">
+                    <div class="chatPostDate" style="color:#8F8F8F; font-size: 8pt; margin-bottom: 5px; margin-right: 10px;">
                    <h:outputText converter="dateConverter" value="#{e.time}."/></div>
                     <div class="floatDestroyer"></div>
 <!--  картинки не переименованы, потому сча тут закоменчено
 <img src="../resources/images/evLineIco/event#{e.eventType}.png" alt=""/>-->
                     <sec:ifAnyGranted roles="ROLE_ADMIN">
                         <ui:repeat value="#{e.bodyForAdmin}" var="b">
-                            <h:outputText  rendered="#{b.type eq null}" value="#{b.text}" style="font-family: tahoma;  margin-left: 20px; margin-right: 10px; color: grey;"/>
+                            <h:outputText  rendered="#{b.type eq null}" value="#{b.text}" style="font-family: tahoma; margin-right: 10px; color: grey;"/>
                            <span class="controlWorksDisciplineNameLink"><h:outputLink styleClass="navigationLinks" rendered="#{b.type ne null}" value="#{b.type}#{b.id}" style="text-decoration: underline; margin-right: 2px;">#{b.text}</h:outputLink>
                            </span>
                         </ui:repeat>
                     </sec:ifAnyGranted>
                     <sec:ifNotGranted roles="ROLE_ADMIN">
                         <ui:repeat value="#{e.body}" var="b">
-                            <h:outputText rendered="#{b.type eq null}" value="#{b.text}" style="font-family: tahoma;"/>
-                             <span class="content controlWorksDisciplineNameLink"><h:outputLink styleClass="navigationLinks" rendered="#{b.type ne null}" value="#{b.type}#{b.id}">#{b.text}</h:outputLink>
-                             </span>
+                            <h:outputText rendered="#{b.type eq null}" value="#{b.text}" styleClass="previewText" style="font-family: tahoma;color: black;"/>
+                            <h:outputLink styleClass="navigationLinks" rendered="#{b.type ne null}" value="#{b.type}#{b.id}"> #{b.text}</h:outputLink>
+                            
                         </ui:repeat>
                     </sec:ifNotGranted>
                 </div>

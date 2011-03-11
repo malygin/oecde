@@ -6,6 +6,10 @@
      template="../resources/adminTemplate.xhtml"
      xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
      xmlns:ut="http://java.sun.com/jsf/composite/components/util">
+    <ui:define name="online">
+        #{studentViewBean.setType('STUDENT')}
+        <h:outputText rendered="#{studentViewBean.user.online}" value="On-line"/>
+    </ui:define>
     <ui:define name="content">
         <f:metadata>
             <f:viewParam name="id" value="#{studentViewBean.id}"/>
@@ -14,5 +18,4 @@
         </f:metadata>
         <ui:include src="../resources/includes/student.xhtml"/>
     </ui:define>
-
 </ui:composition>

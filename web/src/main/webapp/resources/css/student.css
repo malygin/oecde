@@ -17,7 +17,7 @@
 }
 .mainStyle .userPhoto{
     float: left;
-    width: 22%;
+    width: 15%;
 }
 .mainStyle .userPhotoBorder{
     border: 1px #4DB7F1 solid;
@@ -45,7 +45,7 @@
     padding: 0px 10px;
 }
 .mainStyle .userData{
-    width: 78%;
+    width: 85%;
     float: right;
 }
 .mainStyle .userData p{

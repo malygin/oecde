@@ -21,6 +21,8 @@
        </style>
        <div style="float: left; margin-right: 20px;">
            <ut:showPhoto user="#{cc.attrs.u}" styleClass="#{cc.attrs.u.classType}" size="small"/>
+           <div class="floatDestroyer"/>
+           <h:outputText rendered="#{cc.attrs.u.online}" value="On-line" style="color:#617F5F;"/>
        </div>
        <div>
         
@@ -44,7 +46,7 @@
                     <tr><td style="color:#808080;">Специальность:</td><td>#{cc.attrs.u.group.speciality.name}</td></tr>
                     <tr><td style="color:#808080;">Группа:</td><td><h:outputLink value="group.xhtml?id=#{cc.attrs.u.group.id}">#{cc.attrs.u.group.name}</h:outputLink></td></tr>
                     <tr><td style="color:#808080;">Курс:</td><td>#{cc.attrs.u.group.year}</td></tr>
-                    <tr><td></td><td><h:outputText rendered="#{cc.attrs.u.online}" value="On-line" style="color:#617F5F;"/></td></tr>
+<!--                    <tr><td></td><td><h:outputText rendered="#{cc.attrs.u.online}" value="On-line" style="color:#617F5F;"/></td></tr>-->
                 </h:panelGroup>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'admin'}">
 <!--                    <tr><td style="color:#808080;">Должность:</td><td>#{cc.attrs.u.position}</td></tr>
@@ -68,11 +70,13 @@
                         <span class="s1 controlWorksDisciplineNameLink"><a href="messages_write.xhtml?user=${cc.attrs.u.id}">#{msgs.student_studentListWriteMessage}</a></span>
                         <span class="s2 controlWorksDisciplineNameLink"><a href="messages_dialog.xhtml?user=${cc.attrs.u.id}">#{msgs.student_studentLestShowDialog}</a></span>
                     </td>
+                    
                     <sec:ifAnyGranted roles="ROLE_ADMIN">
                        <td colspan="2" class="navigationLinks" style="height: 30px; vertical-align: bottom;">
                           <h:outputLink value="switch_user?j_username=#{cc.attrs.u.username}" >Зайти</h:outputLink>
                        </td>
                     </sec:ifAnyGranted>
+                    
                 </tr>
             </table>
         </div>

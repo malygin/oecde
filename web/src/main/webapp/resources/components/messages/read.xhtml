@@ -22,9 +22,9 @@
             </h:panelGroup>
             <h:panelGroup rendered="#{not MessageReadBean.noAccess}">
                 <h:form  id ="formSend">
-                    <div style="float:left; margin-right: 20px;">
-                         <h:panelGroup rendered="#{MessageReadBean.type}"><ut:showPhoto user="#{cc.attrs.mess.message.author}" size="medium" styleClass="#{cc.attrs.mess.message.author.classType}"/></h:panelGroup>
-                         <h:panelGroup rendered="#{not MessageReadBean.type}"><ut:showPhoto user="#{MessageReadBean.userOut}" size="medium" styleClass="#{MessageReadBean.userOut.classType}"/></h:panelGroup>
+                    <div style="float:left; margin-right: 20px; margin-left: 5px;">
+                         <h:panelGroup rendered="#{MessageReadBean.type}"><ut:showPhoto user="#{cc.attrs.mess.message.author}" size="small" styleClass="#{cc.attrs.mess.message.author.classType}"/></h:panelGroup>
+                         <h:panelGroup rendered="#{not MessageReadBean.type}"><ut:showPhoto user="#{MessageReadBean.userOut}" size="small" styleClass="#{MessageReadBean.userOut.classType}"/></h:panelGroup>
                     </div>
                     <div style="float: left;">
                         <table cellpadding="3" cellspacing="6">

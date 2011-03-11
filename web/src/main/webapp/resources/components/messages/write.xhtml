@@ -18,31 +18,41 @@
     <cc:implementation>
         <div class="interfaceContent">
             <h:form  id="formSend"  enctype="multipart/form-data" >
-                <h:panelGroup rendered="#{MessageWriteBean.renderSuccessSend}" styleClass="actionResultSuccessfull">
-                    #{msgs.message_sentSuccess}
-                </h:panelGroup>
+                
                   <div style="float: left; margin-right: 20px; margin-top: 5px;">
-                        <ut:showPhoto user="#{cc.attrs.u}" styleClass="#{cc.attrs.u.classType}" size="small"/>
+                      
                 </div>
                 <div style="padding-top:10px;">
                 <h:dataTable id="recipients" value="#{MessageWriteBean.recipients}" var="recipient">
                     <h:column>
-                        <div class="greyMess" style="width: 48px; padding: 0;">
-                           #{msgs.message_forWhom}
-                        </div>
+                       
+                             <ut:showPhoto user="#{recipient.recipient}" styleClass="#{recipient.recipient.classType}" size="small"/>
+                        
                     </h:column>
                     <h:column>
-                        <span class="linkTo#{recipient.recipient.classType}sProfile linkTo#{recipient.recipient.classType}sProfileFromStudent"><a href="#{fn:toLowerCase(recipient.recipient.classType)}.xhtml?id=#{recipient.recipient.id}">
+                        
+                         <div class="greyMess" style="width: 48px; margin:  0; padding: 5px;">
+                           #{msgs.message_forWhom}
+                       </div>
+                             
+                        <div class="greyMess" style="margin: 0; padding: 5px;">#{msgs.message_theme}
+                        </div>
+                             
+                        </h:column>
+                    <h:column>
+                        <div class="linkTo#{recipient.recipient.classType}sProfile linkTo#{recipient.recipient.classType}sProfileFromStudent" style="padding: 5px;"><a href="#{fn:toLowerCase(recipient.recipient.classType)}.xhtml?id=#{recipient.recipient.id}">
                         #{recipient.fioAuthor}</a>
-                        </span>
-                    
+                        </div>
+                        <div style="padding: 5px;">
+                         <h:inputText style="width: 338px; border: 1px solid #D1E0EF;  color: #6D869F;" value="#{MessageWriteBean.theme}"/>
+                        </div>
                     </h:column>
                 </h:dataTable>
                     <table>
                          <tr>
-                        <td class="greyMess" style="width: 60px; padding: 0;">#{msgs.message_theme}</td>
+                        
                         <td>
-                            <h:inputText style="width: 338px; border: 1px solid #D1E0EF;  color: #6D869F;" value="#{MessageWriteBean.theme}"/>
+                           
                         </td>
                     </tr>
                     </table>
@@ -72,10 +82,14 @@
                         </span>
                     </h:column>
                 </h:dataTable>
+                
                 <div style="padding: 3px; border-top: 1px solid #C0C0C0; padding-top: 10px;">
                     <input type="file" name="MessageFile" style="background-color: #DFF1FE; font-size: 9pt; display: block; margin-left: 10px;" class="StudentWriteMess"/>
                     <h:commandButton  action="#{MessageWriteBean.addFile}" value="#{msgs.message_addFile}" styleClass="studentButton" style="margin-top: 7px; display: block; width: 220px;"/>
-                    <div style="width: 100%; text-align: center; margin-top: 8px; position: relative; top: -45px;">
+                    <h:panelGroup layout="block" rendered="#{MessageWriteBean.renderSuccessSend}" styleClass="actionResultSuccessfull">
+                        #{msgs.message_sentSuccess}
+                    </h:panelGroup>
+                    <div style="width: 100%; text-align: center; margin-top: 8px;">
                         <h:commandButton action="#{MessageWriteBean.save}" value="#{msgs.message_sendMess}" styleClass="studentButton" style="margin-left: 3px; width: 160px;"/>
                     </div>
                 </div>
