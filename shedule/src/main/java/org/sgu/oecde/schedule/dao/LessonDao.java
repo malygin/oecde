@@ -64,7 +64,7 @@ public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
     public List<Lesson> getLessonsByGroups(List<? extends StudentGroup> groups, boolean isWinter, int year, int maxResult, int firtsResult) throws DataAccessException {
         return getSession().createQuery(GET_LESSONS_FOR_TEACHER_QUERY)
                 .setParameterList("grs", groups).setBoolean("w", isWinter).setInteger("y", year)
-                .setFirstResult(firtsResult).setMaxResults(maxResult).list();
+                .setFirstResult(getFirstResult(maxResult, firtsResult)).setMaxResults(maxResult).list();
     }
 
     /**
@@ -92,17 +92,21 @@ public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
     public List<Lesson>getLessonsFroStudent( boolean isWinter, Group g,City c, int maxResult, int firtsResult,String beginDate, String endDate) throws DataAccessException{
         String query = insertParameters(beginDate, endDate);
         Query q = getSession().createQuery(query);
-        q.setBoolean("w", isWinter).setParameter("g", g).setParameter("c", c).setFirstResult(firtsResult).setMaxResults(maxResult);
+        q.setBoolean("w", isWinter).setParameter("g", g).setParameter("c", c).setFirstResult(getFirstResult(maxResult, firtsResult)).setMaxResults(maxResult);
         return q.list();
     }
 
     private String insertParameters( String beginDate, String endDate){
         String query = "from Lesson l join l.citiesWithGroups cwg where l.winter=:w and cwg.group=:g and cwg.city=:c";
         if(beginDate == null && endDate == null){
-            query+= " and l.lessonDate = '"+DateConverter.currentDate()+"'";
+            query+= " and l.lessonDate > '"+DateConverter.currentDate()+"'";
         } else{
             query+=" and l.lessonDate between '"+beginDate +" 00:00:00' and '"+endDate+" 00:00:00'";
         }
         return query;
+    }
+
+    private int getFirstResult(int maxResult, int pageNumber){
+        return maxResult * (pageNumber-1) ;
     }
 }

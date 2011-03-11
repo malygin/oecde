@@ -19,8 +19,8 @@
     <set batch-size="5" cascade="save-update, delete" fetch="select" lazy="true" name="citiesWithGroups" table="lesson_to_group">
       <key column="lesson" foreign-key="fk_lesson_2_group_lesson"/>
       <composite-element class="org.sgu.oecde.schedule.CityWithGroup">
-        <many-to-one class="org.sgu.oecde.de.users.Group" column="student_group" name="group" foreign-key="fk_lesson_2_group_group"/>
-        <many-to-one class="org.sgu.oecde.de.education.City" fetch="join" foreign-key="fk_lesson_2_group_city" name="city"/>
+        <many-to-one class="org.sgu.oecde.de.users.Group" not-null="true" column="student_group" name="group" foreign-key="fk_lesson_2_group_group"/>
+        <many-to-one class="org.sgu.oecde.de.education.City" not-null="true" fetch="join" foreign-key="fk_lesson_2_group_city" name="city"/>
     </composite-element>
     </set>
   </class>
