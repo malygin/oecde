@@ -27,7 +27,7 @@
             <ui:repeat value="#{cc.attrs.list}" var="message">
                 <div class="studentInterfaceStandartList">
                     <div class="chatPostDate" style="font-size: 8pt;">
-                        <h:outputText value="#{message.message.dateMessage}"/>
+                        <h:outputText converter="dateConverter" value="#{message.message.dateMessage}"/>
                     </div>
                     <table>
                         <tr>

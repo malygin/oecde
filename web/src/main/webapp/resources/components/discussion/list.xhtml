@@ -47,7 +47,7 @@
                     <div>
 
                         <span class="linkTo#{node.user.classType}sProfile" style="margin-left: 15px;"><a href="#{node.user.classTypeLowerCase}.xhtml?id=#{node.user.id}">#{node.user.initials}</a></span>
-                        <span class="discussionCommentDate"><h:outputText converter="dateConverter" value="#{node.time}"/></span>
+                        <span class="discussionCommentDate"><h:outputText  converter="dateConverter" value="#{node.time}"/></span>
                     </div>
                     <div class="discussionCommentContentText">
                         <h:outputText value="#{node.message}" rendered="#{not DiscussionBean.renderEdit}"/>

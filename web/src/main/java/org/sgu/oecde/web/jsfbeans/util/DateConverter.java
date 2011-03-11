@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,6 +24,17 @@ import javax.faces.convert.FacesConverter;
 @FacesConverter( value="dateConverter" )
 public class DateConverter implements Converter, Serializable {
     private static Map<String, String> map=new HashMap<String, String>();
+    String[] dateNow;
+    String[] dateYesterday;
+
+  
+    {
+          dateNow=org.sgu.oecde.core.util.DateConverter.convert(System.currentTimeMillis()).split(" ");
+           Calendar cal = Calendar.getInstance();
+           cal.add(Calendar.DATE, -1);
+          dateYesterday=org.sgu.oecde.core.util.DateConverter.convert(cal.getTime()).split(" ");
+    }
+
       static{
         map.put("01", "января");
         map.put("02", "февраля");
@@ -47,13 +59,17 @@ public class DateConverter implements Converter, Serializable {
     public String getAsString(FacesContext facesContext, UIComponent component, Object object) {
        if (object == null) {
             return null;
-        }else{
-           StringBuffer dateResult= new StringBuffer();
+        }else{         
+           StringBuilder dateResult= new StringBuilder();
            String[] date=((String)object).split(" ");
            if (date[0]!=null){
                String[] ymd=date[0].split("\\.");
-               dateResult.append((ymd[2].charAt(0)=='0')?ymd[2].charAt(1):ymd[2])
+
+               if (dateNow[0].equals(date[0])) dateResult.append("сегодня");
+               else if (dateYesterday[0].equals(date[0])) dateResult.append("вчера");
+               else dateResult.append((ymd[2].charAt(0)=='0')?ymd[2].charAt(1):ymd[2])
                        .append(" ").append(map.get(ymd[1]));
+
                if(date.length>1){
                    String[] hms=date[1].split(":");
                    dateResult.append(" "+hms[0]+":"+hms[1]);
