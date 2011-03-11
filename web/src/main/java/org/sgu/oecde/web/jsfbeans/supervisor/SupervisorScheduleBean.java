@@ -30,7 +30,7 @@ public class SupervisorScheduleBean implements Serializable{
 
     public List<Lesson> getLessons() {
         if(lessons == null){
-            lessons = lessonDao.getByGroups(supervisorSessionBean.getGroups(),semesterGetter.getCurrentSemester() == SemesterGetter.WINTER_SEMESTER,semesterGetter.getCurrentYear());
+            lessons = lessonDao.getLessonsByGroups(supervisorSessionBean.getGroups(),semesterGetter.getCurrentSemester() == SemesterGetter.WINTER_SEMESTER,semesterGetter.getCurrentYear(),20,0);
         }
         return lessons;
     }

@@ -50,9 +50,12 @@
                     </h:form>
                 </h:panelGroup>
                 <h:panelGroup rendered="#{searchBean.type eq 'group'}">
-                     <h:outputLink value="group.xhtml?id=#{i.id}">#{i.name}</h:outputLink><br/>
-                    (<h:outputText value="#{i.faculty}"/>,
-                    <h:outputText value="#{i.speciality.name}"/>)
+                <div class="DisciplineText" style="margin-bottom: 10px;margin-top: 10px;">
+                     <h:outputLink value="group.xhtml?id=#{i.id}">#{i.name}</h:outputLink>
+                (<h:outputText value="#{i.faculty}"/>
+                <h:outputText  rendered="#{i.faculty!=null}" value=", "/>
+                <h:outputText value="#{i.speciality.name}"/>,<h:outputText value="#{i.calendarYear}"/>)
+                </div>
                 </h:panelGroup>
             </h:column>
         </h:dataTable>        

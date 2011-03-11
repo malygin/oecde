@@ -73,7 +73,6 @@ public class NewsBean implements Serializable{
          renderAddSuccess=true;
         Long id=newsDao.save(n);
         n.setId(id);
-        journalService.save(EventType.NEW_NEWS, SecurityContextHandler.getUser(), n);
 
     }
 

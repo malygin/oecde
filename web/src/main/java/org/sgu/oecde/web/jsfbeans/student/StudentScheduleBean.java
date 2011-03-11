@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.core.util.SemesterGetter;
+import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.schedule.Lesson;
 import org.sgu.oecde.schedule.dao.ILessonDao;
 import org.springframework.util.Assert;
@@ -34,10 +35,7 @@ public class StudentScheduleBean extends AbstractStudentBean{
 
     public List<Lesson> schedule(int maxResult, boolean byDate){
         if(lessons==null){
-            Lesson ex = new Lesson();
-            ex.setWinter(semesterGetter.getCurrentSemester()==SemesterGetter.WINTER_SEMESTER);
-            ex.setCity(student.getCity());
-            lessons = lessonDao.getByLessonAndDate(ex,student.getGroup().getId(),maxResult,pageNumber,byDate?beginDate:null,byDate?endDate:null);
+            lessons = lessonDao.getLessonsFroStudent(semesterGetter.getCurrentSemester()==SemesterGetter.WINTER_SEMESTER,student.<Group>getGroup(),student.getCity(),maxResult,pageNumber,byDate?beginDate:null,byDate?endDate:null);
         }
         return lessons;
     }
@@ -46,8 +44,7 @@ public class StudentScheduleBean extends AbstractStudentBean{
         if(count == null){
             Lesson ex = new Lesson();
             ex.setWinter(semesterGetter.getCurrentSemester()==SemesterGetter.WINTER_SEMESTER);
-            ex.setCity(student.getCity());
-            count = lessonDao.getLessonCount(ex,student.getGroup().getId(),byDate?beginDate:null,byDate?endDate:null);
+            count = lessonDao.getLessonsCountForStudent(semesterGetter.getCurrentSemester()==SemesterGetter.WINTER_SEMESTER,student.<Group>getGroup(),student.getCity(),byDate?beginDate:null,byDate?endDate:null);
         }
         return count;
     }
