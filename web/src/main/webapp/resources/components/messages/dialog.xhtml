@@ -26,7 +26,7 @@
 
         <h:panelGroup rendered="#{not messageDialogBean.noDialog}">
             <ui:repeat value="#{cc.attrs.list}" var="message">
-                <div class="" style="border-bottom: 1px solid #EFF7FF; padding-bottom: 4px;padding-top: 2px; padding-left: 5px;">
+                <div class="" style="border-bottom: 1px solid #EFF7FF; padding-bottom: 10px;padding-top: 10px; padding-left:60px; padding-right: 60px;">
                     <div class="chatPostDate" style="font-size: 8pt;margin-right: 10px;">
                         <h:outputText converter="dateConverter" value="#{message.message.dateMessage}"/>
                     </div>
@@ -64,17 +64,19 @@
                         <table style="width: 100%;">
                             <tr>
                                 <td style="width: 40px; padding: 0;" class="greyMess">#{msgs.message_theme}</td>
-                                <td ><h:inputText styleClass="writeMessageInterfaceTheme inputMessText" value="#{MessageWriteBean.theme}"/></td>
+                                <td ><h:inputText styleClass="writeMessageInterfaceTheme inputMessText" /></td>
                             </tr>
                             <tr>
                                 <td colspan="2"><h:inputTextarea styleClass="writeMessageInterfaceMessBodySmall inputMessText" value="#{MessageWriteBean.fullText}"/></td>
                             </tr>
                             <tr>
-                                <td colspan="2" style="text-align: center;">
+                                <td colspan="2" style="text-align: center; padding-top: 10px;">
+                                    
                                     <h:commandButton action="#{MessageWriteBean.save}" value="#{msgs.message_sendMess}" styleClass="studentButton">
                                         <f:setPropertyActionListener target="#{MessageWriteBean.recipient_id}" value="#{messageDialogBean.recipientId}"/>
                                         <f:ajax execute="@form" render="@form" />
                                     </h:commandButton>
+                                    
                                 </td>
                             </tr>
                         </table>

@@ -32,7 +32,7 @@
                             <div style="float: left;">
                                 <table>
                                     <tr>
-                                        <td valign="top">
+                                        <td>
                                             <span class="greyMess">
                                                 #{msgs.message_fromWhom}
                                             </span>
@@ -62,7 +62,7 @@
                             <div class="floatDestroyer"/>
                         </div>
                         <div class="listMessagesShortMessage" style="width:86%; float: left; margin-left: 3px;">
-                            <a href="messages_read.xhtml?id=#{message.message.id}"><div style="float: left; width: 95%; color: #3F3E3B;cursor: pointer; font-family: Verdana;font-weight: normal;"><h:outputText value="#{message.shortText}"/></div></a>
+                            <a href="messages_read.xhtml?id=#{message.message.id}"><div style="float: left; width: 95%; color: #333333;cursor: pointer; font-family: Verdana;font-weight: normal;"><h:outputText value="#{message.shortText}"/></div></a>
                             <div class="listMessagesAttachmentsIco"><r:if test="#{message.filesExist eq true}"><img title="#{msgs.message_iconFilesExistTitle}" src="../resources/images/isAttachment.png" alt=""/></r:if><r:if test="#{message.filesExist ne true}"><img title="#{msgs.message_iconFilesNotExistTitle}" src="../resources/images/isNotAttachment.png" alt=""/></r:if></div>
                             <div class="floatDestroyer"/>
                         </div>

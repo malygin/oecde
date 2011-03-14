@@ -15,15 +15,17 @@
    base-disign styles
 */
 .mainStyle .studentButton{
-/*    background: url('../resources/images/button.jpg');*/
+   background: url('../resources/images/pic_for_Button_main.jpg');
 
-    color: #27587F;
+    color: #00194F;
     cursor: pointer;
     font-size: 10pt;
     background-color: #EFF9FF;
     border: 1px solid #7F9DB9;
     margin-top: 10px;
 }
+
+
 .mainStyle .adminButton{
 /*    background: url('../resources/images/button.jpg');*/
 
@@ -35,9 +37,10 @@
     margin-top: 10px;
 }
 .mainStyle .studentButtonRed{
+    background: url('../resources/images/pic_for_Button_Red.jpg');
     color: #6F1B1B;
     cursor: pointer;
-    font-size: 9pt !important;
+    font-size: 10pt;
     background-color: #FFEFEF;
     border: 1px solid #B97F7F;
     margin-top: 10px;
@@ -102,10 +105,11 @@
      text-align: center;
 }
 .mainStyle .TestCounter {
-    color: darkBlue;
-    font-size: 10pt;
+    color: #EF5D0E;
+    font-size: 11pt;
     font-weight: bold;
-    margin: 10px 10px 2px;
+    margin-top: 5px;
+    margin-right: 25px;
     padding: 5px;
     text-align: center;
     width: 50px;
@@ -1141,10 +1145,10 @@ body:first-of-type .mainStyle .StudentWriteMess{
 .mainStyle .controlWorksDisciplineNameLink a:active{color: #8DBEE0;}
 .mainStyle .controlWorksDisciplineNameLink a:hover{color: #8DBEE0;}
 
-.mainStyle .controlWorksDisciplineNameLinkGrey a:link{color: #8F8F8F;}
-.mainStyle .controlWorksDisciplineNameLinkGrey a:visited{color: #8F8F8F;}
-.mainStyle .controlWorksDisciplineNameLinkGrey a:active{color: #B5CADF;}
-.mainStyle .controlWorksDisciplineNameLinkGrey a:hover{color: #B5CADF;}
+.mainStyle .controlWorksDisciplineNameLinkGrey a:link{color: #5F5F5F; font-weight: normal;}
+.mainStyle .controlWorksDisciplineNameLinkGrey a:visited{color: #5F5F5F;font-weight: normal;}
+.mainStyle .controlWorksDisciplineNameLinkGrey a:active{color: #B5CADF;font-weight: normal;}
+.mainStyle .controlWorksDisciplineNameLinkGrey a:hover{color: #B5CADF;font-weight: normal;}
 
 .mainStyle .saveButton{
     width: 100px !important;
@@ -1636,4 +1640,6 @@ html, body{ margin:0; padding:0; height:100%;}
     color:#1B7EDF ;
     font-weight: normal;
 }
-
+.mainStyle #counter{
+    color: #EF5D0E;
+}

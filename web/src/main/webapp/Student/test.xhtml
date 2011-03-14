@@ -10,8 +10,10 @@
              <f:viewParam name="c" value="#{testBean.curriculumId}"/>
              <f:viewParam name="id" value="#{testBean.testId}"/>
          </f:metadata>
+            <div style="text-align: right; float: right;">
             <div class="TestCounter">
        <span id="counter"></span>
+            </div>
             </div>
        <script type="text/javascript" src="../resources/jquery/js/jquery.jCountr.js"></script>
        <script type="text/javascript" src="../resources/scripts/test.js"></script>
@@ -20,11 +22,11 @@
            //блокатор на повторное создание счетчик
                      var flag=true;
        </script>
-
+       <div>
        <h:form id="mainForm">
          <h:panelGroup rendered="#{not testBean.renderTestPassing}">
            <h:outputText rendered="#{testBean.accessDenied}" value="Не найден или не доступен" />
-           <h:outputLink value="discipline.xhtml?c=#{testBean.curriculumId}" styleClass="navigationLinks" style="display: block; margin-top: 5px;">назад</h:outputLink>
+           <h:outputLink value="discipline.xhtml?c=#{testBean.curriculumId}" styleClass="navigationLinks" style="display: block; margin-top: 5px;margin-left: 70px;">назад</h:outputLink>
            <r:set var="t" value="#{testBean.test}"/>
            <r:set var="work" value="#{t[1]}"/>
            <r:set var="test" value="#{work.work}"/><br/>
@@ -110,23 +112,23 @@
               <r:set var="question" value="#{testPassingBean.currentQustionView.question}"/>
              
                   <h:panelGroup id="mainPanel" rendered="#{not testPassingBean.renderCompleteTest}" >
-                      <div style="margin-top: 10px;"><span class="DisciplineText">отвечено на </span><span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countAnsweredquestion}</span><span class="DisciplineText" style="padding:0;"> из </span><span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countQuestions}</span></div>
+                      <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 70px;"><span class="DisciplineText">отвечено на </span><span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countAnsweredquestion}</span><span class="DisciplineText" style="padding:0;"> из </span><span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countQuestions}</span></div>
                     <b>  Вопрос № #{testPassingBean.iterQ+1}</b>  <h:outputText escape="false" value="#{testPassingBean.questionTitle}" style="display: block; padding-top: 10px; margin: 0;"/><br/>
                          <h:panelGroup  id="radioType" rendered="#{question.type=='radio'}" styleClass="educ_umk_text_block">
-                             <h:selectOneRadio   converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}">
+                             <h:selectOneRadio   converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}" style="margin-bottom: 10px;">
                                  <f:selectItems   itemLabelEscaped="false" var="item" itemValue="23423"  itemLabel="234234" value="#{testPassingBean.answers}">
                                   
                               </f:selectItems>  <br/>
                             </h:selectOneRadio>
                          </h:panelGroup>
 
-                          <h:panelGroup id="checkType" rendered="#{question.type=='check'}" styleClass="educ_umk_text_block">
+                          <h:panelGroup id="checkType" rendered="#{question.type=='check'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
                               <h:selectManyCheckbox  converter="testConverter"  layout="pageDirection"  value="#{testPassingBean.selectedAnswers}" >
                                   <f:selectItems itemLabelEscaped="false" itemLabel="dfgdfg"    value="#{testPassingBean.answers}" /><br/>
                             </h:selectManyCheckbox >
                          </h:panelGroup>
 
-                          <h:panelGroup id="textType" rendered="#{question.type=='text'}" styleClass="educ_umk_text_block">
+                          <h:panelGroup id="textType" rendered="#{question.type=='text'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
                              <br/> <h:inputText value="#{testPassingBean.selectedAnswerText}" />
                          </h:panelGroup>
                           <h:panelGroup id="comparisonType" rendered="#{question.type=='comparison'}" style="position: relative; left: 40%;">
@@ -201,5 +203,6 @@
                  <h:messages/>
                  </h:panelGroup>
             </h:form>
+</div>
         </ui:define>
     </ui:composition>
