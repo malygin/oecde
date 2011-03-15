@@ -54,8 +54,8 @@
                         <h:inputTextarea value="#{DiscussionBean.nodeText}" style="width: 90%; height: 50px;" rendered="#{DiscussionBean.renderEdit}"/>
                         
                       
-                        <div class="navigationLinks" style="margin: 5px 0px 0px 15px;">
-                            <h:commandLink rendered="#{!DiscussionBean.renderEdit}" style="margin-right: 10px;" action="#{DiscussionBean.showReply}" value="Ответить">
+                        <div class="controlWorksDisciplineNameLinkGrey" style="margin: 5px 0px 0px 15px;">
+                            <h:commandLink rendered="#{!DiscussionBean.renderEdit}" styleClass="answerMess" style="margin-right: 10px; margin-top: 10px;background: url('../resources/images/answer.gif') no-repeat;" action="#{DiscussionBean.showReply}" value="Ответить">
                                         <f:ajax  execute="@this" render="@form" />
                                         <f:setPropertyActionListener target="#{DiscussionBean.currentNode}" value="#{node}" />
                              </h:commandLink>
