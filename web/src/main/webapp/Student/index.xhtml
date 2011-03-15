@@ -85,8 +85,8 @@
                                 <f:facet name="header">
                                     <h:outputText value="#{msgs.student_Room}"/>
                                 </f:facet>
-                                <div style="text-align: center !important;">
-                                    <h:outputText value="#{s.room}" style="color: #{s.color}"/>
+                                <div style="text-align: center !important;">                                 
+                                    <h:outputText converter="roomConverter" value="#{s.room}" style="color: #{s.color}"/> 
                                 </div>
                             </h:column>
                             <h:column>
