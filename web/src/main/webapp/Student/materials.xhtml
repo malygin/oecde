@@ -21,7 +21,13 @@
                     <span class="controlWorksDisciplineNameLink" style="padding-left: 10px;"><h:outputLink value="discipline.xhtml?c=#{m.curriculum.id}" style=" font-size: 11pt !important;">#{m.curriculum.umk.name}</h:outputLink><br/></span>
                     
                     <div class="materialInfo DisciplineText" style="padding-top: 5px; font-size: 9pt; font-family: Verdana,'Verdana CE',Arial,'Arial CE','Lucida Grande CE',lucida,'Helvetica CE',sans-serif">
-                        <p> ${msgs.student_finishedTests}<span> #{m.passedTests} ${msgs.student_fromWord} #{m.testsCount}</span></p>
+                        <p> ${msgs.student_finishedTests}<span> #{m.passedTests} ${msgs.student_fromWord} #{m.testsCount} <div class="progressBarMaterials">
+                        <div style="background: #B5CFB5; height: 12px; width:#{m.passedTests/m.testsCount*100}%;">
+                        </div>
+                        </div>
+                                </span>
+                            </p>
+                    
                         <p> ${msgs.student_testResults}<span> #{m.reTestPoints==0?m.testPoints:m.reTestPoints}</span></p>
                        <p>${msgs.student_mainTest} <span>#{m.concludingReTestPoints==0?m.concludingTestPoints:m.concludingReTestPoints}</span></p>
                     </div>
