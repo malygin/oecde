@@ -41,6 +41,7 @@ import org.sgu.oecde.tests.TestAttemptType;
 import org.sgu.oecde.tests.TestEntity;
 import org.sgu.oecde.tests.dao.TestAttemptDao;
 import org.sgu.oecde.web.ResourceService;
+import org.sgu.oecde.web.jsfbeans.TaskServlet;
 import org.sgu.oecde.web.jsfbeans.util.HTMLSanitiser;
 
 /**
@@ -226,6 +227,7 @@ public class TestPassingBean implements Serializable {
                       countRight++;
                     //  points+=10;
                   }
+                  selectedAnswerText="";
                   break;
               case comparison:
                    int i=0;
@@ -238,11 +240,13 @@ public class TestPassingBean implements Serializable {
                       givenAnswers.add(ga2);
                    
                   }
+                   i=0;
                    for(AnswerComparisnView a:answerComparisnView){
                        ArrayList<Answer> array=new ArrayList(currentQustionView.getQuestion().getAnswers());
-                       String titleQ =array.get(Integer.parseInt(a.getAnswer())-1).getRightAnswer();
-                       String titleA=a.getTitle2();
-                    if (!titleQ.equals(titleA)) rightQuestion=false;                    
+                       String titleQ =checkForFormulaOrLink(array.get(i++).getRightAnswer());
+                       String titleA=answerComparisnView.get(Integer.parseInt(a.getAnswer())-1).getTitle2();
+                    if (!titleQ.equals(titleA)) rightQuestion=false;
+                       
                    }
                    if(rightQuestion){
                        countRight++;
@@ -310,7 +314,7 @@ public class TestPassingBean implements Serializable {
       */
      private void makeAnswersList() throws MalformedURLException, IOException {
         QuestionType type=currentQustionView.getQuestion().getType();
-        if ((type==QuestionType.radio)||(type==QuestionType.check)){       
+        if ((type==QuestionType.radio)||(type==QuestionType.check)){
             answers=new ArrayList<SelectItem>();
             for(Answer a:currentQustionView.getQuestion().getAnswers()){
                 answers.add(new SelectItem(a, checkForFormulaOrLink(a.getTitle())));
@@ -329,13 +333,13 @@ public class TestPassingBean implements Serializable {
             answerComparisnView=new ArrayList<AnswerComparisnView>();
             List<String> titles2=new ArrayList<String>();
             for(Answer a:currentQustionView.getQuestion().getAnswers()){                
-                answerComparisnView.add(new AnswerComparisnView(a.getTitle()));
+                answerComparisnView.add(new AnswerComparisnView(checkForFormulaOrLink(a.getTitle())));
                 titles2.add(a.getRightAnswer());
             }
             Collections.shuffle(titles2);
             int i=0;
              for(AnswerComparisnView a:answerComparisnView){                
-               a.setTitle2(titles2.get(i++));
+             a.setTitle2(checkForFormulaOrLink(titles2.get(i++)));
             }
              
         }
@@ -384,13 +388,17 @@ public class TestPassingBean implements Serializable {
           s= s.replaceFirst("\\$+"," '/> ");
          }
         if(s.indexOf("link:")!=-1){
-             URL url = new URL("http://oecdo.sgu.ru/textbooks/avtomat_offise/m0-z4.html");
+             URL url = new URL(TaskServlet.urlServer+s.split(":")[1]);
              String str="";
               StringBuffer strbuf = new StringBuffer();
               BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
               while ((str = in.readLine()) != null) {strbuf.append(str);}
               //str=strbuf.toString().replaceAll("src=\"", "src=\""+currentUrl+"/");
+          //    strbuf.replace(0, strbuf.length(), "<meta http-equiv='Content-Type' content='text/htm; charset=utf-8'>");
               s=HTMLSanitiser.encodeInvalidMarkup(strbuf.toString());
+              s=s.replaceFirst("<meta http-equiv='Content-Type' content='text/htm; charset=utf-8'>", "");
+              s=s.replaceAll("src=\"", "src=\""+TaskServlet.urlServer+"/DOY/tests/3/");
+             // s=strbuf.toString();
         }
         return s;
     }

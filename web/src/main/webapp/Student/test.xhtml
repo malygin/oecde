@@ -132,26 +132,40 @@
                              <br/> <h:inputText value="#{testPassingBean.selectedAnswerText}" />
                          </h:panelGroup>
                           <h:panelGroup id="comparisonType" rendered="#{question.type=='comparison'}" style="position: relative; left: 40%;">
-                              <div style="margin-top: 30px; margin-bottom: 30px;">
-                              <ol style="text-align: left;">
-                              <ui:repeat value="#{testPassingBean.answerComparisnView}"  var="a">
-                                 <li> <h:outputText value="#{a.title}"/> --  <h:outputText value="#{a.title2}"/></li>
+                              <div>
+                                  <table style="margin: auto">
+                              <ui:repeat value="#{testPassingBean.answerComparisnView}"  var="a" varStatus="i">
+                                 <tr>
+                                     <td valign="middle">
+                                  #{i.index+1}.
+                                     </td>
+                                     <td valign="middle">
+                                        <h:outputText escape="false" value="#{a.title2}"/>
+                                        </td>
+                                        </tr>
                               </ui:repeat>
-                              </ol>
+                                  </table>
+
                               </div>
-                              <div style="margin-top: 30px; margin-bottom: 30px;">
-                              <ol  style="text-align: left;">
-                              <ui:repeat value="#{testPassingBean.answerComparisnView}"  var="a">
-                                  <li><h:inputText styleClass="numberField" onkeyup="
+                              <div style="text-align: center">
+                           <br/><br/> <small>поставьте в соответствующие ячейки номера значений из верхнего столбца </small><br/><br/>
+                           <table style="margin: auto;">
+                           <ui:repeat value="#{testPassingBean.answerComparisnView}"  var="a"  varStatus="i">
+                                 <tr>
+                                     <td valign="middle"><h:outputText escape="false" value="#{a.title} "/></td>
+
+                                 <td valign="middle"><h:inputText size="2" styleClass="numberField" onkeyup="
                                       if(isNaN(parseInt(this.value))){this.value='';}
                                       else{ if((this.value>#{testPassingBean.currentQustionView.countAnswers}) || (this.value&lt;1)) this.value=#{testPassingBean.currentQustionView.countAnswers};
                                              else this.value=parseInt(this.value)}
                                                    "  value="#{a.answer}">
                                       }
-                                  </h:inputText>
-                                  </li>
+                                  </h:inputText></td>
+                                 </tr>
+                                
                               </ui:repeat>
-                              </ol>
+</table>
+                     
                                   </div>
                          </h:panelGroup>
 
@@ -176,7 +190,7 @@
                                    $(window).unbind('beforeunload');
                                });
                         </script>
-                     <div class="DisciplineText" style="font-size: 14pt;">Тест успешно завершен!</div>
+                     <div class="DisciplineText" style="font-size: 14pt;">Тест  завершен!</div>
                      <div style="position: relative; left: 40%;">
                      <table style="margin-top: 20px;">
                          <tr>

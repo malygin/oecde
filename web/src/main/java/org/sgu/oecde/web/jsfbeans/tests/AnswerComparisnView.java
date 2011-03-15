@@ -9,7 +9,7 @@ package org.sgu.oecde.web.jsfbeans.tests;
 public class AnswerComparisnView {
     private String title;
     private String title2;
-    private String answer;
+    private String answer="";
 
     public AnswerComparisnView(String title) {
         this.title = title;
