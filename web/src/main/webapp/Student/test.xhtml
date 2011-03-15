@@ -18,6 +18,45 @@
        <script type="text/javascript" src="../resources/jquery/js/jquery.jCountr.js"></script>
        <script type="text/javascript" src="../resources/scripts/test.js"></script>
 
+       <script type="text/javascript" src="jquery/js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="../resources/jquery/js/jquery.progressbar.js"></script>
+	<style type="text/css">
+		/* progress bar container */
+#progressbar{
+        border:1px solid black;
+        width:400px;
+        height:10px;
+        position:relative;
+        color:black;
+        margin-top: 10px;
+}
+/* color bar */
+#progressbar div.progress{
+        position:absolute;
+        width:0;
+        height:100%;
+        overflow:hidden;
+        background-color:#369;
+}
+
+	</style>
+	<script>
+		var pct=0;
+		var handle=0;
+		function update(){
+				$("#progressbar").reportprogress(++pct);
+				if(pct==400){
+						clearInterval(handle);
+						pct=0;
+				}
+		}
+		jQuery(function($){
+			$("document").ready(function(){
+				handle=setInterval("update()",1000);
+			});
+		});
+	</script>
+
        <script>
            //блокатор на повторное создание счетчик
                      var flag=true;
@@ -188,7 +227,10 @@
                         <div style="background: #487F47; height: 15px; width:#{testPassingBean.countAnsweredquestion/testPassingBean.countQuestions*100}%;">
                         </div>
                     </div>
-
+                    <div id="progressbar">
+                        <div class="progress">
+                        </div>
+                    </div>
                  </h:panelGroup>
 
                  <h:panelGroup   rendered="#{testPassingBean.renderCompleteTest}">
@@ -225,6 +267,7 @@
                  <h:messages/>
                  </h:panelGroup>
             </h:form>
-</div>
+          
+</div>       
         </ui:define>
     </ui:composition>
