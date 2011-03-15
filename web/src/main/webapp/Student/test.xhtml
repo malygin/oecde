@@ -115,11 +115,12 @@
                       <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 70px;"><span class="DisciplineText">отвечено на </span><span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countAnsweredquestion}</span><span class="DisciplineText" style="padding:0;"> из </span><span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countQuestions}</span></div>
                     <b>  Вопрос № #{testPassingBean.iterQ+1}</b>  <h:outputText escape="false" value="#{testPassingBean.questionTitle}" style="display: block; padding-top: 10px; margin: 0;"/><br/>
                          <h:panelGroup  id="radioType" rendered="#{question.type=='radio'}" styleClass="educ_umk_text_block">
-                             <h:selectOneRadio   converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}" style="margin-bottom: 10px;">
+                             <h:selectOneRadio   converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}" style="margin-bottom: 10px;position: relative;left: 45%;">
                                  <f:selectItems   itemLabelEscaped="false" var="item" itemValue="23423"  itemLabel="234234" value="#{testPassingBean.answers}">
                                   
-                              </f:selectItems>  <br/>
+                              </f:selectItems>
                             </h:selectOneRadio>
+                             <br/><small>выберете один вариант ответа</small><br/><br/>
                          </h:panelGroup>
 
                           <h:panelGroup id="checkType" rendered="#{question.type=='check'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
@@ -129,9 +130,10 @@
                          </h:panelGroup>
 
                           <h:panelGroup id="textType" rendered="#{question.type=='text'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
-                             <br/> <h:inputText value="#{testPassingBean.selectedAnswerText}" />
+                              <br/> <h:inputText value="#{testPassingBean.selectedAnswerText}" style="position: relative; right: 5px;"/>
+                               <br/><br/><small>напишите ответ</small><br/>
                          </h:panelGroup>
-                          <h:panelGroup id="comparisonType" rendered="#{question.type=='comparison'}" style="position: relative; left: 40%;">
+                          <h:panelGroup id="comparisonType" rendered="#{question.type=='comparison'}">
                               <div>
                                   <table style="margin: auto">
                               <ui:repeat value="#{testPassingBean.answerComparisnView}"  var="a" varStatus="i">
@@ -147,8 +149,8 @@
                                   </table>
 
                               </div>
-                              <div style="text-align: center">
-                           <br/><br/> <small>поставьте в соответствующие ячейки номера значений из верхнего столбца </small><br/><br/>
+                              <div style="text-align: center; margin-top: 12px;">
+                           
                            <table style="margin: auto;">
                            <ui:repeat value="#{testPassingBean.answerComparisnView}"  var="a"  varStatus="i">
                                  <tr>
@@ -167,6 +169,7 @@
 </table>
                      
                                   </div>
+                              <br/><small>поставьте в соответствующие ячейки номера значений из верхнего столбца </small><br/><br/>
                          </h:panelGroup>
 
                          <h:commandButton value="следующий" action="#{testPassingBean.next}" styleClass="studentButton" style="margin: 8px; width: 150px;">
@@ -181,6 +184,11 @@
                              <f:ajax render="@form"/>
                          </h:commandButton>
 
+                    <div style="border: 1px solid green; width: 300px;height: 15px; margin: auto;margin-top: 20px;">
+                        <div style="background: #487F47; height: 15px; width:#{testPassingBean.countAnsweredquestion/testPassingBean.countQuestions*100}%;">
+                        </div>
+                    </div>
+
                  </h:panelGroup>
 
                  <h:panelGroup   rendered="#{testPassingBean.renderCompleteTest}">
@@ -190,8 +198,8 @@
                                    $(window).unbind('beforeunload');
                                });
                         </script>
-                     <div class="DisciplineText" style="font-size: 14pt;">Тест  завершен!</div>
-                     <div style="position: relative; left: 40%;">
+                     <div class="DisciplineText" style="font-size: 14pt;padding: 0; margin: auto; width: 180px;">Тест  завершен!</div>
+                     <div style="margin: auto; width: 180px;">
                      <table style="margin-top: 20px;">
                          <tr>
                              <td>
