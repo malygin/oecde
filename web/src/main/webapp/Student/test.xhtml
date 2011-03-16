@@ -21,26 +21,6 @@
             </div>
        <script type="text/javascript" src="../resources/jquery/js/jquery.jCountr.js"></script>
        <script type="text/javascript" src="../resources/scripts/test.js"></script>
-	<style type="text/css">
-		/* progress bar container */
-#progressbar{
-        border:1px solid black;
-        width:90%;
-        height:10px;
-        position:relative;
-        color:black;
-        margin-top: 10px;
-
-}
-/* color bar */
-#progressbar div.progress{
-        position:absolute;
-        width:0%;
-        height:100%;
-        overflow:hidden;
-        background-color:#369;
-}
-	</style>
 	<script>
                 //счетчик секунд для прогрессбара
                 var pct=1;
@@ -141,43 +121,52 @@
               <r:set var="question" value="#{testPassingBean.currentQustionView.question}"/>
              
                   <h:panelGroup id="mainPanel" rendered="#{not testPassingBean.renderCompleteTest}" >
-                    <b>  Вопрос № #{testPassingBean.iterQ+1}</b>  <h:outputText escape="false" value="#{testPassingBean.questionTitle}" style="display: block; padding-top: 10px; margin: 0;"/>
+                      <div style="width: 100px; float: left; color: #27587F; font-size: 14px; margin-left: 10px;">  Вопрос № #{testPassingBean.iterQ+1}</div> <div style="margin-top: 15px;"><h:outputText escape="false" value="#{testPassingBean.questionTitle}" style="display: block; font-size: 14px;"/></div>
                          <h:panelGroup  id="radioType" rendered="#{question.type=='radio'}" styleClass="educ_umk_text_block">
-                             <h:selectOneRadio   converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}" style="margin-bottom: 10px;position: relative;left: 45%;">
+                             <h:selectOneRadio   converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}" style="margin-left: 200px; margin-bottom: 10px; margin-top: 10px;">
                                  <f:selectItems   itemLabelEscaped="false" var="item" itemValue="23423"  itemLabel="234234" value="#{testPassingBean.answers}">
                                   
                               </f:selectItems>
                             </h:selectOneRadio>
-                             <br/><small>выберете один вариант ответа</small><br/><br/>
+                             
                          </h:panelGroup>
 
                           <h:panelGroup id="checkType" rendered="#{question.type=='check'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
-                              <h:selectManyCheckbox  converter="testConverter"  layout="pageDirection"  value="#{testPassingBean.selectedAnswers}" >
+                              <h:selectManyCheckbox  converter="testConverter"  layout="pageDirection"  value="#{testPassingBean.selectedAnswers}" style="margin-left: 200px; margin-bottom: 10px;">
                                   <f:selectItems itemLabelEscaped="false" itemLabel="dfgdfg"    value="#{testPassingBean.answers}" /><br/>
                             </h:selectManyCheckbox >
                          </h:panelGroup>
 
                           <h:panelGroup id="textType" rendered="#{question.type=='text'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
                               <br/> <h:inputText value="#{testPassingBean.selectedAnswerText}" style="position: relative; right: 5px;"/>
-                               <br/><br/><small>напишите ответ</small><br/>
+                               
                          </h:panelGroup>
                           <h:panelGroup id="comparisonType" rendered="#{question.type=='comparison'}">
-                              <div>
-                                  <table style="margin: auto">
+                              <div  style="margin-top: 10px; margin-bottom: 10px;">
+                                  <table style="margin-left: 320px;">
                               <ui:repeat value="#{testPassingBean.answerComparisnView}"  var="a" varStatus="i">
                                  <tr>
                                      <td valign="middle">
                                   #{i.index+1}.
                                      </td>
-                                     <td valign="middle">
+                                     <td valign="middle" width="80px;">
                                         <h:outputText escape="false" value="#{a.title2}"/>
                                         </td>
+                                         <td valign="middle"><h:outputText escape="false" value="#{a.title} "/></td>
+                                        <td valign="middle"><h:inputText size="2" styleClass="numberField" onkeyup="
+                                              if(isNaN(parseInt(this.value))){this.value='';}
+                                              else{ if((this.value>#{testPassingBean.currentQustionView.countAnswers}) || (this.value&lt;1)) this.value=#{testPassingBean.currentQustionView.countAnswers};
+                                                     else this.value=parseInt(this.value)}
+                                                           "  value="#{a.answer}">
+                                              }
+                                          </h:inputText>
+                                         </td>
                                         </tr>
                               </ui:repeat>
                                   </table>
 
                               </div>
-                              <div style="text-align: center; margin-top: 12px;">
+<!--                              <div style="text-align: center; margin-top: 12px;">
                            
                            <table style="margin: auto;">
                            <ui:repeat value="#{testPassingBean.answerComparisnView}"  var="a"  varStatus="i">
@@ -192,12 +181,8 @@
                                       }
                                   </h:inputText></td>
                                  </tr>
-                                
                            </ui:repeat>
-</table>
-                     
-                                  </div>
-                              <br/><small>поставьте в соответствующие ячейки номера значений из верхнего столбца </small><br/><br/>
+                              </div>-->
                          </h:panelGroup>
 
                          <h:commandButton value="следующий" action="#{testPassingBean.next}" styleClass="studentButton" style="margin: 8px; width: 150px;">
@@ -211,17 +196,34 @@
                          <h:commandButton id="completeTest" onclick="removeCounter();" value="завершить тест" action="#{testPassingBean.completeTest}" styleClass="studentButtonRed"  style="margin: 8px; width: 150px;">
                              <f:ajax render="@form"/>
                          </h:commandButton>
-                      <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 70px;"><span class="DisciplineText">отвечено на </span><span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countAnsweredquestion}</span><span class="DisciplineText" style="padding:0;"> из </span><span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countQuestions}</span></div>
-
+<!--                      <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 70px;"><span class="DisciplineText">отвечено на </span><span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countAnsweredquestion}</span><span class="DisciplineText" style="padding:0;"> из </span><span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countQuestions}</span></div>-->
                     <div style="border: 1px solid green; width: 90%;height: 15px; margin: auto;margin-top: 20px;">
-                        <div style="background: #487F47; height: 15px; width:#{testPassingBean.countAnsweredquestion/testPassingBean.countQuestions*100}%;">
+                        <div style="background:  url('../resources/images/greenMenuTitle.png') repeat-x; height: 15px; width:#{testPassingBean.countAnsweredquestion/testPassingBean.countQuestions*100}%;">
+
+                            <div style="width: 740px;">
+                                <span style="color: #04383F;">отвечено на </span>
+                                <span style="color: #373E3F; font-weight: bold;">#{testPassingBean.countAnsweredquestion}</span>
+                            <span style="padding:0; color:#04383F;"> из </span>
+                            <span style="color: #373E3F;font-weight: bold;">#{testPassingBean.countQuestions}</span>
+                            </div>
                         </div>
                     </div>
                     <div id="progressbar">
                         <div class="progress">
                         </div>
                     </div>
+                    <h:panelGroup rendered="#{question.type=='comparison'}">
+                      <br/><small>поставьте в соответствующие ячейки номера значений из верхнего столбца </small><br/><br/></h:panelGroup>
                  </h:panelGroup>
+              <h:panelGroup  rendered="#{question.type=='radio'}">
+                  <br/><small>выберете один вариант ответа</small><br/><br/>
+              </h:panelGroup>
+              <h:panelGroup rendered="#{question.type=='text'}">
+                <br/><br/><small>напишите ответ</small><br/>
+              </h:panelGroup>
+              <h:panelGroup rendered="#{question.type=='check'}" style="margin-bottom: 10px;">
+              <br/><small>выберете один вариант ответа</small><br/><br/>
+              </h:panelGroup>
 
                  <h:panelGroup   rendered="#{testPassingBean.renderCompleteTest}">
                          <script type="text/javascript">
