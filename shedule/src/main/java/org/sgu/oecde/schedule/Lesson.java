@@ -32,9 +32,10 @@ public class Lesson extends BasicItem{
     public Lesson() {
     }
 
-    public Lesson(int room, String lessonDate,boolean notUsed, String color, String color2) {
+    public Lesson(int room, String lessonDate, String lessonEndDate, boolean notUsed, String color, String color2) {
         this.room=room;
         this.lessonDate=lessonDate;
+        this.lessonEndDate=lessonEndDate;
         this.notUsed=notUsed;
         this.color=color;
         this.colorDisable=color2;
@@ -138,6 +139,13 @@ public class Lesson extends BasicItem{
             return "";
     }
 
+      public String getShortDateEnd(){
+        if(this.lessonEndDate!=null&&this.lessonEndDate.length()>16)
+            return this.lessonEndDate.substring(11, 16);
+        else
+            return "";
+    }
+
     public Boolean getWinter() {
         return winter;
     }
@@ -191,4 +199,5 @@ public class Lesson extends BasicItem{
     public void setLessonType(LessonType lessonType) {
         this.lessonType = lessonType;
     }
+
 }
