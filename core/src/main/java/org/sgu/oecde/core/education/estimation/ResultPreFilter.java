@@ -80,8 +80,8 @@ public class ResultPreFilter implements Serializable{
             List<? extends Curriculum>newCurriculums = new ArrayList<Curriculum>(curriculums);
             newStudents.removeAll(studentsForRemove);
             newCurriculums.removeAll(curriculumsForRemove);
-            for(Curriculum c:curriculums){
-                for(AbstractStudent s:students){
+            for(Curriculum c:newCurriculums){
+                for(AbstractStudent s:newStudents){
                     boolean exist = false;
                     points:
                     for(Points p:pointsList){

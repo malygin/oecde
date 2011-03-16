@@ -17,7 +17,7 @@ import org.springframework.util.StringUtils;
 public class UserDetailsServiceImpl implements UserDetailsService{
 
     @Resource
-    IBasicDao<AbstractUser> userDao;
+    private IBasicDao<AbstractUser> userDao;
 
     private static final long serialVersionUID = 136L;
 
