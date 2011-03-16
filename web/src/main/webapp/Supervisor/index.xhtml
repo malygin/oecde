@@ -1,0 +1,15 @@
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/supervisorTemplate.xhtml"
+    xmlns:j="http://java.sun.com/jsf/composite/components/journal">
+    >
+    <ui:define name="content">
+        <f:metadata>
+            <f:viewParam name="page" value="#{journalBean.pageNumber}"/>
+            <f:viewParam name="page" value="#{NavigationBean.page}"/>
+        </f:metadata>
+        <j:output type="adminEvents"/>
+    </ui:define>
+</ui:composition>
