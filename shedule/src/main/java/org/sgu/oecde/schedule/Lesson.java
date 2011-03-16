@@ -16,6 +16,8 @@ public class Lesson extends BasicItem{
     private Integer number;
     private Integer room;
     private String lessonDate;
+    private String lessonEndDate;
+    private LessonType lessonType;
     private String updateDate;
     private String color;
     private String colorDisable;
@@ -160,6 +162,14 @@ public class Lesson extends BasicItem{
         this.colorDisable = colorDisable;
     }
 
+    public String getLessonEndDate() {
+        return lessonEndDate;
+    }
+
+    public void setLessonEndDate(String lessonEndDate) {
+        this.lessonEndDate = lessonEndDate;
+    }
+
     public String getColorPick(){
         if (this.isNotUsed()){
             return this.color;
@@ -172,5 +182,13 @@ public class Lesson extends BasicItem{
 
     public void setCitiesWithGroups(Set<CityWithGroup> citiesWithGroups) {
         this.citiesWithGroups = citiesWithGroups;
+    }
+
+    public LessonType getLessonType() {
+        return lessonType;
+    }
+
+    public void setLessonType(LessonType lessonType) {
+        this.lessonType = lessonType;
     }
 }
