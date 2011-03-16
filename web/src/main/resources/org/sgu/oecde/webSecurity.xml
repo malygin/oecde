@@ -12,6 +12,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
     <custom-filter position="SWITCH_USER_FILTER " ref="switchUserProcessingFilter" />
     <custom-filter position="LAST" ref="eventListner" />
     <intercept-url pattern="/resources/" filters="none"/>
+    <intercept-url pattern="/ConferenceWebServiceService" filters="none"/>
     <intercept-url pattern="/Admin/exit_user" access="ROLE_PREVIOUS_ADMINISTRATOR" />
     <intercept-url pattern="/Admin/**" access="ROLE_ADMIN" />
     <intercept-url pattern="/Student/**" access="ROLE_STUDENT" />

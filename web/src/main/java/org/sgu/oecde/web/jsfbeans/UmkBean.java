@@ -79,7 +79,7 @@ public class UmkBean implements Serializable {
           this.cId = cId;
           //храним временно значение для предыдущего модуля
           Module prevModuleTemp=null;
-          curriculum = resourceService.getDisciplineForStudent((Student) SecurityContextHandler.getUser(),new Long(cId));
+          curriculum = resourceService.getDisciplineForStudent((Student) SecurityContextHandler.getUser(),new Long(cId),null);
           currentUrl=mainUrl+curriculum.getUmk().getFolder();
           prevTask= new Task(0L);
           nextTask= new Task(0L);

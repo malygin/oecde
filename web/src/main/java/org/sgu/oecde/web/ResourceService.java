@@ -83,18 +83,20 @@ public class ResourceService implements Serializable{
         return rs.get(0);
     }
 
-    public DeCurriculum getDisciplineForStudent(Student student,Long id){
+    public DeCurriculum getDisciplineForStudent(Student student,Long id,List<DeCurriculum>curriculums){
         if(id==null||id==0)
             return null;
-        if(id==201042632){
-            return curriculumDao.getById(id);
-        }else{
-            DeCurriculum curriculum = curriculumBuilder.getInstance(student,id);
-            List<DeCurriculum> l = curriculumDao.getByExample(curriculum);
-            if(CollectionUtils.isEmpty(l))
-                return null;
-            return l.get(0);
-        }
+        if(!CollectionUtils.isEmpty(curriculums))
+            for(DeCurriculum c:curriculums){
+                if(c!=null&&c.getId().equals(id)){
+                    return c;
+                }
+            }
+        DeCurriculum curriculum = curriculumBuilder.getInstance(student,id);
+        List<DeCurriculum> l = curriculumDao.getByExample(curriculum);
+        if(CollectionUtils.isEmpty(l))
+            return null;
+        return l.get(0);
     }
 
     public boolean isConcludingTestAvailable(Student student,DeCurriculum curriculum){

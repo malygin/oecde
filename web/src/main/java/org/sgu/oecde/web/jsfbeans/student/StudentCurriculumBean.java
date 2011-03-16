@@ -32,7 +32,8 @@ public class StudentCurriculumBean extends AbstractStudentBean{
 
     public List<DeCurriculum> getCurriculums() {
         if(curriculums==null){
-            curriculums =  curriculumDao.getByExample(curriculumBuilder.getInstanceByCurrentDate(student, semester));
+            curriculums = curriculumDao.getByExample(curriculumBuilder.getInstanceByCurrentDate(student, semester));
+            curriculums.add(curriculumDao.getById(201042632L));
             if(sort)
                 Collections.sort(curriculums, new OrderByDisciplineName());
         }

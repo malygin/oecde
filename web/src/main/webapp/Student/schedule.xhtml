@@ -47,7 +47,9 @@
                         <h:outputText value="комната"/>
                     </f:facet>
                     <div style="text-align: center !important;">
-                    <h:outputText value="#{s.room}" style="color: #{s.color}"/>
+                        <h:outputText value="#{s.room/13+1}" style="color: #{s.color}">
+                            <f:convertNumber maxFractionDigits="0" groupingUsed="false"/>
+                        </h:outputText>
                     </div>
                 </h:column>
                 <h:column>

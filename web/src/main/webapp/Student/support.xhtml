@@ -9,12 +9,15 @@
         Помощь
     </ui:define>
     <ui:define name="content">
+         <f:metadata>
+             <f:viewParam name="type" value="#{tabsViewBean.type}"/>
+         </f:metadata>
         <div class="interfaceContent" style="padding-top: 10px;">
         <table>
             <tr>
                 <td style="width: 245px; border-right: 1px solid silver;" valign="top">
             <h:form>
-                <h:dataTable title="разделы" id="tabs" value="#{tabsViewBean.getTabs('student_help')}" var="t" border="0" cellpadding="0" cellspacing="0">
+                <h:dataTable title="разделы" id="tabs" value="#{tabsViewBean.tabs}" var="t" border="0" cellpadding="0" cellspacing="0">
                     <h:column>
                         <f:facet name="header">
                             <div style="line-height: 30px; font-weight: normal; color: silver;">

@@ -9,8 +9,67 @@
         Информация
     </ui:define>
     <ui:define name="content">
-        <div class="interfaceContent">
-            <t:singleTab type="student_information"/>
+        <div class="interfaceContent" style="padding-top: 10px;">
+        <table>
+            <tr>
+                <td style="width: 245px; border-right: 1px solid silver;" valign="top">
+            <h:form>
+                <h:dataTable title="разделы" id="tabs" value="#{tabsViewBean.getTabs('student_information')}" var="t" border="0" cellpadding="0" cellspacing="0">
+                    <h:column>
+                        <f:facet name="header">
+                            <div style="line-height: 30px; font-weight: normal; color: silver;">
+                                Оглавление:
+                            </div>
+                        </f:facet>
+                        <div style="margin-left: 10px;">
+                            <div class="controlWorksDisciplineName DisciplineText">
+                                <h:outputText value="#{t.name}"/>
+                            </div>
+                            <h:dataTable id="tabs" style="margin-left: 20px;" value="#{setToList.getList(t.pages)}" var="p">
+                                <h:column>
+                                    <span class="navigationLinks" >
+<!--                                        <img src="../resources/images/listMarker.png" alt=""/>-->
+                                        <h:commandLink id="link" rendered="#{p.visible}" value="#{p.title}" style="color: #8BB5DF;">
+                                            <f:attribute name="page" value="#{p}"/>
+                                            <f:ajax render=":page :files :title" listener="#{tabsViewBean.setCurrentPage}"/>
+                                        </h:commandLink>
+                                    </span>
+                                </h:column>
+                            </h:dataTable>
+                        </div>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+            </td>
+            <td valign="top" style="padding-left: 10px; padding-bottom: 10px; padding-right: 10px;">
+                <div style="height: 30px;">
+                    <span style="line-height: 30px; color: silver;"></span>
+                </div>
+                <div style="margin-left: 10px;">
+                    <div class="controlWorksDisciplineName DisciplineText" style="margin-bottom: 5px;">
+                        <h:outputText id="title" value="#{tabsViewBean.currentPage.title}"/>
+                    </div>
+                    <div style="text-align: justify;">
+                        <h:outputText escape="false" id="page" value="#{tabsViewBean.currentPage.text}"/>
+                    </div>
+                    <div style="text-align: justify;">
+                        <br/>
+                        <hr/>
+                        <br/>
+                        Файлы:
+                    <h:dataTable id="files" value="#{setToList.getList(tabsViewBean.currentPage.files)}" var="f">
+                        <h:column>
+                            <h:panelGroup rendered="#{f.visible}">
+                                <h:graphicImage rendered="#{f.image}" value="../resources/userFiles/tabs/#{f.name}" alt="#{(f.description eq null||f.description eq '')?f.name:f.description}"/>
+                                <h:outputLink rendered="#{!f.image}" value="../resources/userFiles/tabs/#{f.name}"><h:outputText value="#{(f.description eq null||f.description eq '')?f.name:f.description}"/></h:outputLink>
+                            </h:panelGroup>
+                        </h:column>
+                    </h:dataTable>
+                    </div>
+                </div>
+            </td>
+            </tr>
+        </table>
         </div>
     </ui:define>
 </ui:composition>

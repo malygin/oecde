@@ -40,7 +40,7 @@ public class DisciplineBean extends StudentCurriculumBean{
     }
 
     public List<Object[]> getTests() {
-        if(tests==null){
+        if(tests==null && curriculum!=null){
             tests = new LinkedList();
             List<AdditionalSelfDependentWork>l = testAttemptService.getStudentSingleCurriculumTestsWithAttempts(curriculum,student);
             if(CollectionUtils.isEmpty(l))
@@ -58,9 +58,9 @@ public class DisciplineBean extends StudentCurriculumBean{
 
     public void setCurriculumId(Long curriculumId) {
         this.curriculumId = curriculumId;
-        curriculum = resourceService.getDisciplineForStudent(student,curriculumId);
-        accessDenied = (curriculum==null);
         tests = null;
+        curriculum = resourceService.getDisciplineForStudent(student,curriculumId,getCurriculums());
+        accessDenied = (curriculum==null);
     }
 
     public Long getCurriculumId() {

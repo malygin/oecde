@@ -51,7 +51,7 @@ public class JournalBean implements Serializable{
         EventBodyElement.taskPage = "task.xhtml";
         EventBodyElement.teacherPage = "teacher.xhtml";
         EventBodyElement.testPage = "test.xhtml";
-        EventBodyElement.umkPage = "exbook.xhtml";
+        EventBodyElement.umkPage = "umk.xhtml";
         EventBodyElement.whoIs = "http://whois.domaintools.com/";
     }
 

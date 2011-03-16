@@ -62,14 +62,16 @@ public class TestBean extends StudentCurriculumBean {
         this.testAttemptService = testAttemptService;
     }
 
-    public void setTestId(Long testId) throws MalformedURLException, IOException {
+    public void setTestId(Long testId) throws MalformedURLException, IOException  {
         this.testId = testId;
-        DeCurriculum c = resourceService.getDisciplineForStudent(student, curriculumId);
-        TestEntity t = resourceService.getResource(c,new TestEntity(testId),TestEntity.class);
-        boolean available = resourceService.isConcludingTestAvailable(student, c);
-        test = resourceService.getTestForStudent(testAttemptService.getStudentSingleTestWithAttempts(t, student,c),student,available);
+        DeCurriculum curriculum = resourceService.getDisciplineForStudent(student, curriculumId,getCurriculums());
+        if(curriculum == null)
+            return;
+        TestEntity t = resourceService.getResource(curriculum,new TestEntity(testId),TestEntity.class);
+        boolean available = resourceService.isConcludingTestAvailable(student, curriculum);
+        test = resourceService.getTestForStudent(testAttemptService.getStudentSingleTestWithAttempts(t, student,curriculum),student,available);
         accessDenied = test==null;
-        this.testPassingBean.startTest(test, c);
+        this.testPassingBean.startTest(test, curriculum);
     }
 
     public void startTest(){

@@ -26,13 +26,14 @@ public class TabsViewBean implements Serializable{
     private List<Tab>tabs;
     private Tab tab;
     private Page currentPage;
+    private String type;
     
     private static final long serialVersionUID = 161L;
 
-    public List<Tab> getTabs(String t){
-        if(tabs == null&&t!=null){
-            TabType type = TabType.valueOf(t.toUpperCase());
-            Tab example = new Tab(type);
+    public List<Tab> getTabs(){
+        if(tabs == null&&type!=null){
+            TabType t = TabType.valueOf(type.toUpperCase());
+            Tab example = new Tab(t);
             tabs = tabsDao.getByExample(example);
             if(!CollectionUtils.isEmpty(tabs))
                 if(!CollectionUtils.isEmpty(tabs.get(0).getPages()))
@@ -60,6 +61,14 @@ public class TabsViewBean implements Serializable{
             tabs = tabsDao.getAll();
         }
         return tabs;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public void setCurrentPage(AjaxBehaviorEvent event){
