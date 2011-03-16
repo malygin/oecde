@@ -3,10 +3,8 @@ package org.sgu.oecde.journal;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.discussion.ForumTypes;
 import org.sgu.oecde.discussion.Node;
-import java.util.ListIterator;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.sgu.oecde.schedule.Lesson;
 import org.sgu.oecde.messages.Message;
 import org.sgu.oecde.core.education.Discipline;
 import org.sgu.oecde.core.users.AbstractStudent;
@@ -596,7 +594,7 @@ public enum EventType {
             EventBodyElement[] el = new EventBodyElement[3];
             el[0] = new EventBodyElement(UserType.STUDENT.toString());
             el[1] = new EventBodyElement(item.<AbstractStudent>getUser().getId(), item.<AbstractStudent>getUser().getInitials(), EventBodyElement.studentPage);
-            el[2] = new EventBodyElement("прошёл тест "+str[1]);
+            el[2] = new EventBodyElement("прошёл тест"+str[1]);
             return el;
         }
 
@@ -605,17 +603,17 @@ public enum EventType {
             if(checkEventItem(item, this))
                 return null;
 
-            EventBodyElement[] el = new EventBodyElement[5];
+            EventBodyElement[] el = new EventBodyElement[6];
             el[0] = new EventBodyElement(UserType.STUDENT.toString());
             el[1] = new EventBodyElement(item.<AbstractStudent>getUser().getId(), item.<AbstractStudent>getUser().getInitials(), EventBodyElement.studentPage);
-            
+            el[2] = new EventBodyElement("прошёл");
             String[] str = item.getEventBody().split(splitter);
             if(checkSplittetArrayLength(str, 3, this))
                 return null;
 
-            el[2] = new EventBodyElement(Long.valueOf(str[2]), str[1], EventBodyElement.testPage);
-            el[3] = new EventBodyElement(" по курсу");
-            el[4] = new EventBodyElement(item.getMultiId(), str[0], EventBodyElement.umkPage);
+            el[3] = new EventBodyElement(Long.valueOf(str[2]), str[1], EventBodyElement.testPage);
+            el[4] = new EventBodyElement("по курсу");
+            el[5] = new EventBodyElement(item.getMultiId(), str[0], EventBodyElement.umkPage);
             return el;
         }
     },
@@ -652,7 +650,7 @@ public enum EventType {
 
             EventBodyElement[] el = new EventBodyElement[2];
             el[0] = new EventBodyElement("Создан курс");
-            el[1] = new EventBodyElement(item.getMultiId(), item.getEventBody(), EventBodyElement.umkPage);
+            el[1] = new EventBodyElement( item.getEventBody());
             return el;
         }
     },
@@ -775,7 +773,7 @@ public enum EventType {
                 return null;
 
             el[0] = new EventBodyElement("К курсу");
-            el[1] = new EventBodyElement(item.getMultiId(), str[0], EventBodyElement.umkPage);
+            el[1] = new EventBodyElement(str[0]);
             el[2] = new EventBodyElement("добавлен тест");
             el[3] = new EventBodyElement(Long.valueOf(str[2]), str[1], EventBodyElement.teacherPage);
             return el;

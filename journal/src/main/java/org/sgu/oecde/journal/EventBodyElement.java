@@ -32,18 +32,17 @@ public class EventBodyElement implements Serializable{
     private static final long serialVersionUID = 187L;
 
     public EventBodyElement(String text) {
-        this.text = text;
-        type = null;
+        setText(text);
     }
 
     public EventBodyElement(long id, String text) {
         this.id = "?id="+Long.toString(id);
-        this.text = text;
+        setText(text);
     }
 
     public EventBodyElement(long id, String text, String type) {
         this.id = "?id="+Long.toString(id);
-        this.text = text;
+        setText(text);
         this.type = type;
     }
 
@@ -66,7 +65,8 @@ public class EventBodyElement implements Serializable{
     }
 
     public void setText(String text) {
-        this.text = text;
+        if(text!=null)
+            this.text = text.trim();
     }
 
     public String getType() {

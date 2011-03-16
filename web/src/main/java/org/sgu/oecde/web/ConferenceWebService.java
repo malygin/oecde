@@ -1,5 +1,6 @@
 package org.sgu.oecde.web;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,10 +21,12 @@ import org.springframework.web.context.support.SpringBeanAutowiringSupport;
  * @author ShihovMY
  */
 @WebService
-public class ConferenceWebService extends SpringBeanAutowiringSupport{
+public class ConferenceWebService extends SpringBeanAutowiringSupport implements Serializable{
 
     @Autowired
     IBasicDao<AbstractUser> userDao;
+
+    private static final long serialVersionUID = 218L;
 
     /**
      * Web service operation

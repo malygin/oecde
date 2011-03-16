@@ -31,7 +31,7 @@ public class AppTest extends BasicTest{
 
     }
 
-//   @Ignore
+   @Ignore
     @Test
     public void getList() {
       setDao("chatDao");

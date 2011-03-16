@@ -45,7 +45,7 @@ public class getSimpleItem extends BasicTest{
         }
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void getSt(){
         this.setDao("userDao");
