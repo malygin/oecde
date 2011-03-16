@@ -5,11 +5,15 @@
          xmlns:r="http://java.sun.com/jsp/jstl/core"
          template="../resources/studentTemplate.xhtml"
          >
-        <ui:define name="content">
-         <f:metadata>
+          <f:metadata>
              <f:viewParam name="c" value="#{testBean.curriculumId}"/>
              <f:viewParam name="id" value="#{testBean.testId}"/>
          </f:metadata>
+        <ui:define name="contentHeader">
+        Прохождение теста -  "#{testBean.test[1].work.title}"
+        </ui:define>
+        <ui:define name="content">
+       
             <div style="text-align: right; float: right;">
             <div class="TestCounter">
        <span id="counter"></span>
@@ -17,49 +21,31 @@
             </div>
        <script type="text/javascript" src="../resources/jquery/js/jquery.jCountr.js"></script>
        <script type="text/javascript" src="../resources/scripts/test.js"></script>
-
-       <script type="text/javascript" src="jquery/js/jquery-1.4.2.min.js"></script>
-	<script type="text/javascript" src="../resources/jquery/js/jquery.progressbar.js"></script>
 	<style type="text/css">
 		/* progress bar container */
 #progressbar{
         border:1px solid black;
-        width:400px;
+        width:90%;
         height:10px;
         position:relative;
         color:black;
         margin-top: 10px;
+
 }
 /* color bar */
 #progressbar div.progress{
         position:absolute;
-        width:0;
+        width:0%;
         height:100%;
         overflow:hidden;
         background-color:#369;
 }
-
 	</style>
 	<script>
-		var pct=0;
-		var handle=0;
-		function update(){
-				$("#progressbar").reportprogress(++pct);
-				if(pct==400){
-						clearInterval(handle);
-						pct=0;
-				}
-		}
-		jQuery(function($){
-			$("document").ready(function(){
-				handle=setInterval("update()",1000);
-			});
-		});
-	</script>
-
-       <script>
-           //блокатор на повторное создание счетчик
-                     var flag=true;
+                //счетчик секунд для прогрессбара
+                var pct=1;
+                //блокатор на повторное создание счетчик
+                 var flag=true;
        </script>
        <div>
        <h:form id="mainForm">
@@ -101,7 +87,7 @@
                        <td>
                         доступен
                        </td>
-                       <td>с #{test.openDate} по #{test.closeDate}
+                       <td>с <h:outputText converter="dateConverter" value="#{test.openDate}"/> по <h:outputText converter="dateConverter" value="#{test.closeDate}"/>
                        </td>
                    </tr>
                    <tr>
@@ -134,25 +120,28 @@
 
         <h:panelGroup id="TestPassing" rendered="#{testBean.renderTestPassing}">              
                 <script>
-                      $(function(){
-                      
+                      $(function(){                     
                           //сделали костыльный эскейп для формул и хтмок всех
-                        jQuery("label").each(function(i){$(this).html($(this).text());});
+                         jQuery("label").each(function(i){$(this).html($(this).text());});
                          if (flag){
-                           
+                             //идем в первый раз
                                 $("#counter").counter({
                                           min:'#{testPassingBean.timeTest}',
                                           sec:'0',
                                           message: 'Время вышло!',
-                                          finish_function: 'checkTime()' });
-                                flag=false;}
+                                              finish_function: 'checkTime()' });
+                                 setInterval(function() {
+                                        $("#progressbar div.progress").css("width",pct*100/(#{testPassingBean.timeTest}*60)+"%");
+                                        pct++;
+                                    }, 1000);
+                                 flag=false;}
+
                                });
                 </script>
               <r:set var="question" value="#{testPassingBean.currentQustionView.question}"/>
              
                   <h:panelGroup id="mainPanel" rendered="#{not testPassingBean.renderCompleteTest}" >
-                      <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 70px;"><span class="DisciplineText">отвечено на </span><span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countAnsweredquestion}</span><span class="DisciplineText" style="padding:0;"> из </span><span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countQuestions}</span></div>
-                    <b>  Вопрос № #{testPassingBean.iterQ+1}</b>  <h:outputText escape="false" value="#{testPassingBean.questionTitle}" style="display: block; padding-top: 10px; margin: 0;"/><br/>
+                    <b>  Вопрос № #{testPassingBean.iterQ+1}</b>  <h:outputText escape="false" value="#{testPassingBean.questionTitle}" style="display: block; padding-top: 10px; margin: 0;"/>
                          <h:panelGroup  id="radioType" rendered="#{question.type=='radio'}" styleClass="educ_umk_text_block">
                              <h:selectOneRadio   converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}" style="margin-bottom: 10px;position: relative;left: 45%;">
                                  <f:selectItems   itemLabelEscaped="false" var="item" itemValue="23423"  itemLabel="234234" value="#{testPassingBean.answers}">
@@ -204,7 +193,7 @@
                                   </h:inputText></td>
                                  </tr>
                                 
-                              </ui:repeat>
+                           </ui:repeat>
 </table>
                      
                                   </div>
@@ -222,8 +211,9 @@
                          <h:commandButton id="completeTest" onclick="removeCounter();" value="завершить тест" action="#{testPassingBean.completeTest}" styleClass="studentButtonRed"  style="margin: 8px; width: 150px;">
                              <f:ajax render="@form"/>
                          </h:commandButton>
+                      <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 70px;"><span class="DisciplineText">отвечено на </span><span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countAnsweredquestion}</span><span class="DisciplineText" style="padding:0;"> из </span><span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countQuestions}</span></div>
 
-                    <div style="border: 1px solid green; width: 300px;height: 15px; margin: auto;margin-top: 20px;">
+                    <div style="border: 1px solid green; width: 90%;height: 15px; margin: auto;margin-top: 20px;">
                         <div style="background: #487F47; height: 15px; width:#{testPassingBean.countAnsweredquestion/testPassingBean.countQuestions*100}%;">
                         </div>
                     </div>
@@ -249,7 +239,8 @@
                              </td>
                              <td>
                              <h:outputText rendered="#{testPassingBean.points!=0}" style=" color: #373E3F;font-weight: bolder;" value="#{testPassingBean.points}"/>
-                            <h:outputText rendered="#{testPassingBean.points==0}" style=" color: red;font-weight: bolder;" value="#{testPassingBean.points}"/>
+                             <h:outputText rendered="#{testPassingBean.points==0}" style=" color: red;font-weight: bolder;" value="#{testPassingBean.points}"/>
+                             из 100
                             </td>
                          </tr>
                     <tr>
@@ -259,6 +250,7 @@
                         <td>
                          <h:outputText rendered="#{testPassingBean.countRight!=0}" style=" color: #373E3F;font-weight: bolder;" value="#{testPassingBean.countRight}"/>
                          <h:outputText rendered="#{testPassingBean.countRight==0}" style=" color: red;font-weight: bolder;" value="#{testPassingBean.countRight}"/>
+                         из #{testPassingBean.countQuestions} 
                          </td>
                      </tr>
                      </table>
