@@ -20,9 +20,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
 
-    private final static String GET_LESSONS_BY_GROUPS_QUERY="select distinct l from Lesson as l join fetch l.citiesWithGroups as cwg join fetch l.discipline c join fetch l.teacher t where cwg.group in(:grs) and l.year=:y and l.winter=:w";
+    private final static String GET_LESSONS_BY_GROUPS_QUERY="select distinct l from Lesson as l join fetch l.citiesWithGroups as cwg join fetch l.discipline c join fetch l.teacher t where cwg.city =:c and l.year=:y and l.winter=:w";
 
-    private final static String GET_LESSONS_FOR_STUDENT_QUERY="from Lesson l join l.citiesWithGroups cwg where l.winter=:w and cwg.group=:g and cwg.city=:c";
+    private final static String GET_LESSONS_FOR_STUDENT_QUERY="select distinct l from Lesson l join fetch l.citiesWithGroups cwg where l.winter=:w and cwg.group=:g and cwg.city=:c";
 
     private final static String ORDER_BY=" order by l.lessonDate,l.discipline,cwg.city,cwg.group";
 
@@ -63,18 +63,18 @@ public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
      * {@inheritDoc }
      */
     @Override
-    public List<Lesson> getLessonsByGroups(List<? extends StudentGroup> groups, boolean isWinter, int year, int maxResult, int firtsResult, String beginDate, String endDate) throws DataAccessException {
+    public List<Lesson> getLessonsByCity(City c, boolean isWinter, int year, int maxResult, int firtsResult, String beginDate, String endDate) throws DataAccessException {
         return getSession().createQuery(GET_LESSONS_BY_GROUPS_QUERY+insertParameters(beginDate, endDate)+ORDER_BY)
-                .setParameterList("grs", groups).setBoolean("w", isWinter).setInteger("y", year)
+                .setParameter("c", c).setBoolean("w", isWinter).setInteger("y", year)
                 .setFirstResult(getFirstResult(maxResult, firtsResult)).setMaxResults(maxResult).list();
     }
 
     /**
      * {@inheritDoc }
      */
-    public Long getLessonsCountByGroups(List<? extends StudentGroup> groups, boolean isWinter, int year, String beginDate, String endDate) throws DataAccessException {
+    public Long getLessonsCountByCity(City c, boolean isWinter, int year, String beginDate, String endDate) throws DataAccessException {
         Query q = getSession().createQuery("select count(l) "+GET_LESSONS_BY_GROUPS_QUERY)
-                .setParameterList("grs", groups).setBoolean("w", isWinter).setInteger("y", year);
+                .setParameter("c", c).setBoolean("w", isWinter).setInteger("y", year);
         List<Long>l =q.list();
         return !l.isEmpty()?(Long)l.get(0):0l;
     }

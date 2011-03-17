@@ -17,7 +17,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
     <intercept-url pattern="/Admin/**" access="ROLE_ADMIN" />
     <intercept-url pattern="/Student/**" access="ROLE_STUDENT" />
     <intercept-url pattern="/Teacher/**" access="ROLE_TEACHER" />
-    <intercept-url pattern="/AdminLite/**" access="ROLE_SUPERVISOR" />
+    <intercept-url pattern="/Supervisor/**" access="ROLE_SUPERVISOR" />
     <intercept-url pattern="/index.xhtml" access="IS_AUTHENTICATED_FULLY,IS_AUTHENTICATED_ANONYMOUSLY" />
     <anonymous />
     <remember-me services-ref="rememberMeServices"/>

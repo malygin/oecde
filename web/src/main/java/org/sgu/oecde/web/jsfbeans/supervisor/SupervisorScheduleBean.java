@@ -40,14 +40,14 @@ public class SupervisorScheduleBean implements Serializable{
 
     public List<Lesson> getLessons() {
         if(lessons == null){
-            lessons = lessonDao.getLessonsByGroups(supervisorSessionBean.getGroups(),semesterGetter.getCurrentSemester() == SemesterGetter.WINTER_SEMESTER,semesterGetter.getCurrentYear(),maxResult,pageNumber,beginDate,endDate);
+            lessons = lessonDao.getLessonsByCity(supervisorSessionBean.getSupervisor().getCity(),semesterGetter.getCurrentSemester() == SemesterGetter.WINTER_SEMESTER,semesterGetter.getCurrentYear(),maxResult,pageNumber,beginDate,endDate);
         }
         return lessons;
     }
 
     public Long getCount() {
         if(count == null){
-              lessons = lessonDao.getLessonsByGroups(supervisorSessionBean.getGroups(),semesterGetter.getCurrentSemester() == SemesterGetter.WINTER_SEMESTER,semesterGetter.getCurrentYear(),maxResult,pageNumber,beginDate,endDate);
+              lessons = lessonDao.getLessonsByCity(supervisorSessionBean.getSupervisor().getCity(),semesterGetter.getCurrentSemester() == SemesterGetter.WINTER_SEMESTER,semesterGetter.getCurrentYear(),maxResult,pageNumber,beginDate,endDate);
         }
         return count;
     }

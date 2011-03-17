@@ -28,6 +28,10 @@ public class City extends BasicItem{
     public City() {
     }
 
+    public City(Long id) {
+        setId(id);
+    }
+
     /**
      *
      * @return название

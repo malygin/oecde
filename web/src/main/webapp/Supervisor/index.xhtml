@@ -3,13 +3,75 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/supervisorTemplate.xhtml"
-    xmlns:j="http://java.sun.com/jsf/composite/components/journal">
+      xmlns:util="http://java.sun.com/jsf/composite/components/util"
     >
+    <ui:define name="contentHeader">
+        #{msgs.student_controlMenuSchedule}
+    </ui:define>
+    <ui:define name="online">
+            c <util:date_picker value="#{supervisorScheduleBean.beginDate}"/> по
+            <util:date_picker value="#{supervisorScheduleBean.endDate}"/>
+    </ui:define>
     <ui:define name="content">
-        <f:metadata>
-            <f:viewParam name="page" value="#{journalBean.pageNumber}"/>
-            <f:viewParam name="page" value="#{NavigationBean.page}"/>
-        </f:metadata>
-        <j:output type="adminEvents"/>
+
+            <f:metadata>
+                <f:viewParam name="pageNumber" value="#{supervisorScheduleBean.pageNumber}"/>
+            </f:metadata>
+        <style type="text/css">
+            .mainStyle .studentStandatrTable *{
+                text-align: left !important;
+            }
+        </style>
+        <div class="interfaceContent">
+            <util:navigationList numElements="#{supervisorScheduleBean.count}" elementOnPage="#{supervisorScheduleBean.maxResult}"/>
+        <h:dataTable columnClasses="
+                         studentStandatrTableTd,
+                         studentStandatrTableTd,
+                         studentStandatrTableTd,
+                         studentStandatrTableTd,
+                        studentStandatrTableTdLastTd  studentStandatrTableExamin "
+                         value="#{supervisorScheduleBean.lessons}" var="s" styleClass="studentStandatrTable studentStandatrTableExamin" cellpadding="0" cellspacing="0">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="группы"/>
+                    </f:facet>
+                    <h:dataTable var="cwg" value="#{setToList.getList(s.citiesWithGroups)}">
+                        <h:column>
+                            <h:panelGroup>
+                            <h:outputText value="#{cwg.group.name}"/>
+                            (<h:outputText value="#{cwg.group.speciality.engShort}"/>)
+                            </h:panelGroup>
+                        </h:column>
+                    </h:dataTable>
+                </h:column>
+            <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="дисциплина"/>
+                    </f:facet>
+                    <span class="controlWorksDisciplineName" style="font-size: 8pt; font-weight: normal;display:  block; padding-left: 8px;"><h:outputText value="#{s.discipline.name}"/></span>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="преподаватель"/>
+                    </f:facet>
+                    <span class="linkToTeachersProfile linkToTeachersProfileFromStudent" style="background: none;"><a href="teacher.xhtml?id=#{s.teacher.id}"><h:outputText value="#{s.teacher.initials}"/></a></span>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="комната"/>
+                    </f:facet>
+                    <div style="text-align: center !important;">
+                        <h:outputText converter="roomConverter"  value="#{s.room}" style="color: #{s.color}"/>
+                    </div>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="дата"/>
+                    </f:facet>
+                    <span ><h:outputText converter="dateConverter" value="#{s.lessonDate}"/></span>
+                </h:column>
+            </h:dataTable>
+            <util:navigationList numElements="#{supervisorScheduleBean.count}" elementOnPage="#{supervisorScheduleBean.maxResult}"/>
+        </div>
     </ui:define>
 </ui:composition>

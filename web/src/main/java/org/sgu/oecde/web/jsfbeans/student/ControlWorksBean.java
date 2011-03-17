@@ -12,6 +12,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.AjaxBehaviorEvent;
 import javax.servlet.http.HttpServletRequest;
 import org.sgu.oecde.controlworks.ControlWork;
 import org.sgu.oecde.controlworks.ControlWorkAttempt;
@@ -29,6 +30,7 @@ import org.sgu.oecde.web.jsfbeans.util.fileUpload.FacesUtil;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.FileUploadUtil;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.MultipartRequestWrapper;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.UploadFile;
+import org.springframework.util.CollectionUtils;
 
 /**
  *
@@ -58,7 +60,6 @@ public class ControlWorksBean extends StudentCurriculumBean{
     private String reExameEndDate;
 
     private ControlWork currentControlWorks;
-    private DeCurriculum currentDeCurriculum;
 
     private static final long serialVersionUID = 105L;
 
@@ -76,7 +77,6 @@ public class ControlWorksBean extends StudentCurriculumBean{
                 Object[] data = new Object[5];
                 works.add(data);
                 data[0] = cr;
-                data[1] = w;
                 if(((currentDate.compareTo(controlWorksBeginDate)>=0
                     &&currentDate.compareTo(controlWorksEndDate)<0)
                     ||(currentDate.compareTo(reExameBeginDate)>=0
@@ -86,6 +86,10 @@ public class ControlWorksBean extends StudentCurriculumBean{
                     &&student.getFullAccess()){
                     available = true;
                 }
+                if(w == null){
+                    w = new ControlWork(student, cr);
+                }
+                data[1] = w;
                 data[2] = available;
                 if(getCurriculumAndTeacher().containsKey(cr))
                     data[3] = getCurriculumAndTeacher().get(cr);
@@ -112,50 +116,42 @@ public class ControlWorksBean extends StudentCurriculumBean{
         controlWorksEndDate = cwDatesGetter.getConstant(ControlWorkCalendarConstantName.controlWorksEndDate).toString();
     }
 
+    public void setCw(AjaxBehaviorEvent event){
+        currentControlWorks = (ControlWork) event.getComponent().getAttributes().get("cw");
+    }
+
     public String saveCw() throws IOException{
          HttpServletRequest req = FacesUtil.getRequest();
          if(req instanceof MultipartRequestWrapper){
             MultipartRequestWrapper multi = (MultipartRequestWrapper)req;
             //CwFile -  имя файла в форме
             UploadFile uf = multi.findFile("CwFile");
-            if(uf != null){
-                 ControlWorkAttempt a = new ControlWorkAttempt();
-                 List<ControlWorkAttempt> s=new ArrayList<ControlWorkAttempt>(1);
-                 s.add(a);
-                 currentControlWorks.setCwAttempt(s);
-                 a.setAttemptDate(DateConverter.convert(System.currentTimeMillis()));
-                 a.setWork(currentControlWorks);
-                 //controlWorks -  в данном случае имя папки и имя префикса в именах файлов
-                 String name = FileUploadUtil.Upload(uf, multi, "controlWorks",true);
-                 if(name!=null){
-                     a.setFilePath(name);
-                     controlWorkDao.save(currentControlWorks);
-                     journalService.save(EventType.TASK_HAS_BEEN_SEND_TO_PREP, student, currentDeCurriculum);
-                }else
-                    return null;
+            if(uf != null && currentControlWorks!=null){
+                ControlWorkAttempt a = new ControlWorkAttempt();
+                List<ControlWorkAttempt> s = (List<ControlWorkAttempt>) currentControlWorks.getCwAttempt();
+                if(CollectionUtils.isEmpty(s))
+                    s = new ArrayList<ControlWorkAttempt>(1);
+                s.add(a);
+                a.setAttemptDate(DateConverter.convert(System.currentTimeMillis()));
+                a.setWork(currentControlWorks);
+                //controlWorks -  в данном случае имя папки и имя префикса в именах файлов
+                String name = FileUploadUtil.Upload(uf, multi, "controlWorks",true);
+                if(name!=null){
+                    a.setFilePath(name);
+                    controlWorkDao.save(currentControlWorks);
+                    journalService.save(EventType.TASK_HAS_BEEN_SEND_TO_PREP, student, currentControlWorks.getCurriculum());
+                }
             }
         }
-        return "controlWorks";
+        return "controlWorks?faces-redirect=true&amp;s="+getSemester();
     }
 
     public ControlWork getCurrentControlWorks() {
         return currentControlWorks;
     }
 
-    public void setCurrentControlWorks(ControlWork currentControlWorks) {
-        this.currentControlWorks = currentControlWorks;
-    }
-
     public void setControlWorkDao(IControlWorkDao<ControlWork> controlWorkDao) {
         this.controlWorkDao = controlWorkDao;
-    }
-
-    public DeCurriculum getCurrentDeCurriculum() {
-        return currentDeCurriculum;
-    }
-
-    public void setCurrentDeCurriculum(DeCurriculum currentDeCurriculum) {
-        this.currentDeCurriculum = currentDeCurriculum;
     }
 
     public void setJournalService(JournalService journalService) {

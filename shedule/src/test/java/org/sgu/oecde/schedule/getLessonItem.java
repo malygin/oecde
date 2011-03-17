@@ -15,6 +15,7 @@ import org.sgu.oecde.core.education.Discipline;
 import org.sgu.oecde.core.education.dao.ICurriculumDao;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.util.Semesters;
+import org.sgu.oecde.de.education.City;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.de.users.Student;
@@ -161,7 +162,7 @@ public class getLessonItem extends BasicTest{
         g.setId(140928L);
         gs.add(g);
         setDao("lessonDao");
-        List<Lesson> l= this.<ILessonDao>getDao().getLessonsByGroups(gs,false,2009,20,0,null,null);
+        List<Lesson> l= this.<ILessonDao>getDao().getLessonsByCity(new City(24l),false,2009,20,0,null,null);
         System.out.println("!! "+l);
         for(Lesson c:l){
             System.out.println("-- "+c.getLessonDate());
