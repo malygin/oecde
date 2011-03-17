@@ -8,8 +8,9 @@
         #{disciplineBean.discipline.umk.name}
     </ui:define>
     <ui:define name="content">
-         <div style="padding: 15px;width: 50px; float: right;" class="controlWorksDisciplineNameLink">
-            <a href="materials.xhtml" style="font-size: 10pt !important;">Назад</a>
+         <div style="padding: 15px;width: 130px; float: right;" class="controlWorksDisciplineNameLink">
+             <div style="float: left;"><a href="#toTests" style="font-size: 10pt !important; margin-right: 10px;">К тестам</a></div>
+             <div> <a href="materials.xhtml" style="font-size: 10pt !important;">Назад</a></div>
         </div>
         <div class="interfaceContent">
             <f:metadata>
@@ -21,15 +22,17 @@
                     <div class="controlWorksDisciplineName" style="background: url('../resources/images/moduls.gif') no-repeat; padding-left: 20px;">#{k.index+1}. #{m.name}</div>
                     <ui:repeat value="#{m.resources}" var="r" varStatus="i">
                         <div class="navigationLinks" style="margin-left: 20px;">
-                            #{i.index+1} <a href="exbook.xhtml?cId=#{disciplineBean.curriculumId}&amp;mId=#{m.id}&amp;tId=#{r.id}" style="text-decoration: none;">#{r.title}</a>
+                            <span style="color: #4593DF;">#{i.index+1}</span> <a href="exbook.xhtml?cId=#{disciplineBean.curriculumId}&amp;mId=#{m.id}&amp;tId=#{r.id}" style="text-decoration: none;">#{r.title}</a>
                         </div>
                     </ui:repeat>
                 </div>
             </ui:repeat>
             <br/>
+            <a name="toTests">
             <div style="color: #27587F;font-family: Arial;font-size:12pt;margin-left: 10px;font-weight: bolder;">
                 Тесты:
             </div>
+             </a>
             <h:dataTable value="#{disciplineBean.tests}" var="t">
                 <h:column>
                 <div class="studentInterfaceStandartList">
