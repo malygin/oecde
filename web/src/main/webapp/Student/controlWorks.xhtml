@@ -21,16 +21,16 @@
                         <table cellpadding="2" cellspacing="2" style="width: 100%;" class="${o[1].progress} controlWorksBorders">
                             <tr>
                                 <td valign="top" style="color: gray; width: 170px; padding-left: 10px; text-align: justify;">Название дисциплины: </td>
-                                <td valign="top" class="controlWorksDisciplineNameLink" style="padding-left:10px;">
+                                <td valign="top" class="controlWorksDisciplineNameLink" style="padding-left:10px; width: 25%;">
                                     <h:outputLink value="discipline.xhtml?c=${o[0].id}">${o[0].discipline.name}</h:outputLink></td>
-                        <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">
+                        <td valign="top" class="controlWorksDisciplineNameLink">
                                 <h:commandLink id="updt" value="Выбрать дисциплину" style="padding-left: 17px;">
                                     <f:attribute value="#{o[1]}" name="cw"/>
                                     <f:ajax execute="@form" render="@form" event="click" listener="#{controlWorksBean.setCw}"/>
                                 </h:commandLink>
                                 <h:panelGroup rendered="#{controlWorksBean.currentControlWorks!=null and controlWorksBean.currentControlWorks == o[1]}" id="addFile">
-                                    <input type="file" name="CwFile" />
-                                    <span class="AdminNavigationLinksBold">
+                                    <input type="file" name="CwFile" style="background: white;"/>
+                                    <span class="studentButton" style="display: block; width: 50px;text-align: center; float: right; margin: 0; margin-top: 4px;">
                                         <h:commandLink action="#{controlWorksBean.saveCw}" id="fileBtn" value="ОК"/>
                                     </span>
                                 </h:panelGroup>
