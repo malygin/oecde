@@ -298,11 +298,13 @@ public class TestPassingBean implements Serializable {
       * формируем списек вопросов
       */
      private void makeQuestionList() throws MalformedURLException, IOException {
-        countQuestions=questions.size();
+        
+        countQuestions=(testView.getQuantity()<questions.size())?testView.getQuantity():questions.size();
         questionsView = new QuestionImpl[questions.size()];
         int i=0;
         for(Question q:questions){
             questionsView[i++]=new QuestionImpl(q);
+            if (i>=countQuestions) break;
         }
         currentQustionView=questionsView[0];
         questionTitle=checkForFormulaOrLink(currentQustionView.getQuestion().getTitle());
