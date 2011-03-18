@@ -48,23 +48,23 @@
                         <td><p>#{msgs.student_mainContentUserInfoGroup}</p></td><td><div>#{userViewBean.user.group.name}</div></td>
                     </tr>
                     <tr>
-                        <td><p>полный ли доступ</p></td><td><div><h:inputText value="#{userViewBean.user.fullAccess}"/></div></td>
+                        <td><p>#{msgs.admin_mainContentFullAccessOrNot}</p></td><td><div><h:inputText value="#{userViewBean.user.fullAccess}"/></div></td>
                     </tr>
                     <tr>
-                        <td><p>есть ли доступ на портал</p></td><td><div><h:inputText value="#{userViewBean.user.enabled}"/></div></td>
+                        <td><p>#{msgs.admin_mainContentIsAccessOrNot}</p></td><td><div><h:inputText value="#{userViewBean.user.enabled}"/></div></td>
                     </tr>
                     <tr>
                         <td><p></p></td><td><div>#{userViewBean.user.username}</div></td>
                     </tr>
                     <tr>
-                        <td><p>парольлогин</p></td><td><div><h:inputText value="#{userViewBean.user.password}"/></div></td>
+                        <td><p>#{msgs.admin_mainContentPasswordLogin}</p></td><td><div><h:inputText value="#{userViewBean.user.password}"/></div></td>
                     </tr>
                     <tr>
-                        <td><p>изначальный айди</p></td><td><div>#{userViewBean.user.originalId}</div></td>
+                        <td><p>#{msgs.admin_mainContentStartId}</p></td><td><div>#{userViewBean.user.originalId}</div></td>
                     </tr>
                     <tr>
                         <td><div>
-                            <h:commandButton value="ОКЭ" action="#{userViewBean.save}"/>
+                            <h:commandButton value="ОК" action="#{userViewBean.save}"/>
                         </div></td>
                     </tr>
                 </table>

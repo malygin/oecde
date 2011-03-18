@@ -23,6 +23,18 @@
                                 <td valign="top" style="color: gray; width: 170px; padding-left: 10px; text-align: justify;">Название дисциплины: </td>
                                 <td valign="top" class="controlWorksDisciplineNameLink" style="padding-left:10px;">
                                     <h:outputLink value="discipline.xhtml?c=${o[0].id}">${o[0].discipline.name}</h:outputLink></td>
+                        <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">
+                                <h:commandLink id="updt" value="Выбрать дисциплину" style="padding-left: 17px;">
+                                    <f:attribute value="#{o[1]}" name="cw"/>
+                                    <f:ajax execute="@form" render="@form" event="click" listener="#{controlWorksBean.setCw}"/>
+                                </h:commandLink>
+                                <h:panelGroup rendered="#{controlWorksBean.currentControlWorks!=null and controlWorksBean.currentControlWorks == o[1]}" id="addFile">
+                                    <input type="file" name="CwFile" />
+                                    <span class="AdminNavigationLinksBold">
+                                        <h:commandLink action="#{controlWorksBean.saveCw}" id="fileBtn" value="ОК"/>
+                                    </span>
+                                </h:panelGroup>
+                                </td>
                             </tr>
                             <tr>
                                 <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">Преподаватель: </td>
@@ -49,18 +61,9 @@
                                         (${o[1].points}  баллов)
                                     </span>
                                 </td>
-                                <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">
-                                <h:commandLink id="updt" value="Выбрать дисциплину" style="padding-left: 17px;">
-                                    <f:attribute value="#{o[1]}" name="cw"/>
-                                    <f:ajax execute="@form" render="@form" event="click" listener="#{controlWorksBean.setCw}"/>
-                                </h:commandLink>
-                                <h:panelGroup rendered="#{controlWorksBean.currentControlWorks!=null and controlWorksBean.currentControlWorks == o[1]}" id="addFile">
-                                    <input type="file" name="CwFile" />
-                                    <span class="AdminNavigationLinksBold">
-                                        <h:commandLink action="#{controlWorksBean.saveCw}" id="fileBtn" value="ОК"/>
-                                    </span>
-                                </h:panelGroup>
-                                </td>
+                                </tr>
+                                <tr>
+                                
                             </tr>
                             <tr><td>
                                 <h:dataTable value="#{o[1].cwAttempt}" var="a">

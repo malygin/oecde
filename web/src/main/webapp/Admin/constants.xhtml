@@ -6,7 +6,7 @@
     template="../resources/adminTemplate.xhtml"
     >
      <ui:define name="contentHeader">
-        Настройки портала
+       #{msgs.admin_topMenuPortalSettings}
     </ui:define>
     <ui:define name="content">
         <h:form>
@@ -14,77 +14,77 @@
                 <tr>
                     
                     <td><util:date_picker value="#{calendarConstantsBean.controlWorksBeginDate}"/></td>
-                    <td>дата открытия отправки контрольных работ</td>
+                    <td>#{msgs.admin_mainContentDateOpenSentControlWorks}</td>
                 </tr>
                 <tr style="display: block; margin-bottom: 20px;">
                     
                     <td><util:date_picker value="#{calendarConstantsBean.controlWorksEndDate}"/></td>
-                    <td>дата закрытия отправки контрольных работ</td>
+                    <td>#{msgs.admin_mainContentDateCloseSentControlWorks}</td>
                  </tr>
                 <tr>
                     
                     <td><util:date_picker value="#{calendarConstantsBean.regularTestBeginDate}"/></td>
-                    <td>дата начала тестов</td>
+                    <td>#{msgs.admin_mainContentDateBeginTests}</td>
                 </tr>
                 <tr>
                     
                     <td><util:date_picker value="#{calendarConstantsBean.regularTestEndDate}"/></td>
-                    <td>дата окончания тестов</td>
+                    <td>#{msgs.admin_mainContentDateEndTests}</td>
                </tr>
                 <tr style="display: block; margin-bottom: 20px;">
                     
                     <td><util:date_picker value="#{calendarConstantsBean.simpleSpecialitiesTestsClosing}"/></td>
-                    <td>дата закрытия тестов для специальностей обычной (не сокращённой и ускоренной) формы обучения</td>
+                    <td>#{msgs.admin_mainContentDateEndTestsUsualSpeciality}</td>
                </tr>
                 <tr>
                      
                     <td><util:date_picker value="#{calendarConstantsBean.concludingTestBeginDate}"/></td>
-                    <td>дата начала итоговых тестов</td>
+                    <td>#{msgs.admin_mainContentDateBeginFinalTests}</td>
                </tr>
                 <tr  style="display: block; margin-bottom: 20px;">
                     
                     <td><util:date_picker value="#{calendarConstantsBean.concludingTestEndDate}"/></td>
-                    <td>дата окончания итоговых тестов</td>
+                    <td>#{msgs.admin_mainContentDateEndFinalTests}</td>
               </tr>
                 <tr>
                     
                     <td><util:date_picker value="#{calendarConstantsBean.reExameBeginDate}"/></td>
-                     <td>дата начала переэкзаменовки</td>
+                     <td>#{msgs.admin_mainContentDateBeginReexamination}</td>
               </tr>
                 <tr  style="display: block; margin-bottom: 20px;">
                     
                     <td><util:date_picker value="#{calendarConstantsBean.reExameEndDate}"/></td>
-                    <td>дата окончания переэкзаменовки</td>
+                    <td>#{msgs.admin_mainContentDateEndReexamination}</td>
              </tr>
                 <tr>
                      
                     <td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.summerRegularTestReExameAttemtpsCount}"/></td>
-                    <td>количество переэкзаменовок для летних тестов</td>
+                    <td>#{msgs.admin_mainContentNumberReexaminationsForSummerTests}</td>
                 </tr>
                 <tr>
                      
                     <td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.summerConcludingTestReExameAttemtpsCount}"/></td>
-                    <td>количество переэкзаменовок для летних итоговых тестов</td>
+                    <td>#{msgs.admin_mainContentNumberReexaminationsForSummerFinalTests}</td>
                 </tr>
                 <tr>
                     
                     <td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.winterRegularTestReExameAttemtpsCount}"/></td>
-                    <td>количество переэкзаменовок для зимних тестов</td>
+                    <td>#{msgs.admin_mainContentNumberReexaminationsForWinterTests}</td>
                 </tr>
                 <tr  style="display: block; margin-bottom: 20px;">
                       
                     <td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.winterConcludingTestReExameAttemtpsCount}"/></td>
-                     <td>количество переэкзаменовок для зимних итоговых тестов</td>
+                     <td>#{msgs.admin_mainContentNumberReexaminationsForWinterFinalTests}</td>
                 </tr>
                 <tr  style="display: block; margin-bottom: 20px;">
                      
                     <td><h:inputText maxlength="4" size="4" value="#{calendarConstantsBean.year}"/></td>
-                    <td>год</td>
+                    <td>#{msgs.admin_mainContentYear}</td>
                 </tr>
                 <tr>
                     
                     <td><h:selectBooleanCheckbox  value="#{calendarConstantsBean.semester}"/></td>
-                    <td>зимний семестр</td>
+                    <td>#{msgs.admin_mainContentWinterSemester}</td>
                 </tr>
                 <tr><td><h:commandButton value="ОК" styleClass="studentButton" style="width: 70px;">
                     <f:ajax execute="@form" render="@form error saved" listener="#{calendarConstantsBean.save}"/>

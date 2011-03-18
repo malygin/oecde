@@ -13,13 +13,13 @@
                 <br/>
                 <div  style="float: left; margin-right: 10px;">
                 <span  class="AdminTextGrey">
-                Имя вкладки:
+                #{msgs.admin_mainContentInsertName}
                 </span>
                 <h:inputText id="tabName" value="#{tabEditBean.tab.name}"/>
                 </div>
                 <div>
                 <span  class="AdminTextGrey">
-                Тип вкладки:
+                #{msgs.admin_mainContentInsertType}
                 </span>
                 <h:selectOneMenu id="tabType" value="#{tabEditBean.tab.type}">
                     <f:selectItems value="#{tabEditBean.types}" />
@@ -32,19 +32,19 @@
                 <h:dataTable styleClass="studentStandatrTable" columnClasses="studentStandatrTableTd,studentStandatrTableTd,studentStandatrTableTd studentStandatrTableExamin,studentStandatrTableTdLastTd studentStandatrTableExamin" cellpadding="0" cellspacing="0"  id="pages" value="#{setToList.getList(tabEditBean.tab.pages)}" var="p">
                     <h:column>
                         <f:facet name="header">
-                           Заголовок страницы
+                           #{msgs.admin_mainContentPageTitle_}
                         </f:facet>
                         <h:outputText id="pName" value="#{p.title}" styleClass="AdminInfo" style="margin-left: 10px;"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            Видима ли страница
+                            #{msgs.admin_mainContentPageSeeOrNot_}
                         </f:facet>
-                        <h:outputText id="visibility" rendered="#{p.visible}" value="да"/>
+                        <h:outputText id="visibility" rendered="#{p.visible}" value="#{msgs.admin_mainContentYes}"/>
                     </h:column>
                     <h:column>
                         <span class="AdminNavigationLinks"  style="text-align: center;">
-                            <h:outputLink value="pageEdit.xhtml?id=#{tabEditBean.tab.id}&amp;p=#{p.id}">Редактировать</h:outputLink>
+                            <h:outputLink value="pageEdit.xhtml?id=#{tabEditBean.tab.id}&amp;p=#{p.id}">#{msgs.admin_mainContentEdit}</h:outputLink>
                         </span>
                     </h:column>
                     <h:column>
@@ -58,7 +58,7 @@
                 </h:dataTable>
                 <div style="text-align: center; padding-top: 5px;">
                 <span class="AdminNavigationLinksBold" style="  background: url('../resources/images/save.gif') no-repeat 0 0;">
-                    <h:commandLink id="updt" value="Сохранить" style="margin-left: 17px;">
+                    <h:commandLink id="updt" value="#{msgs.admin_mainContentSave}" style="margin-left: 17px;">
                         <f:ajax execute="@form" render="@form" event="click" listener="#{tabEditBean.updateTab}"/>
                     </h:commandLink>
                 </span>
@@ -68,7 +68,7 @@
             <hr/>
             <br/>
             <span class="AdminNavigationLinksBold" style="  background: url('../resources/images/add_page.gif') no-repeat 0 0;">
-                <h:outputLink value="pageEdit.xhtml?id=#{tabEditBean.tab.id}" style="margin-left: 17px;">Добавить страницу</h:outputLink>
+                <h:outputLink value="pageEdit.xhtml?id=#{tabEditBean.tab.id}" style="margin-left: 17px;">#{msgs.admin_mainContentAddPage}</h:outputLink>
             </span>
         </div>
     </ui:define>

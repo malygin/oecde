@@ -8,7 +8,7 @@
          <f:metadata>
              <f:viewParam name="user" value="#{messageDialogBean.recipientId}"/>
         </f:metadata>
-        <ui:define name="contentHeader">История сообщений  -  #{messageDialogBean.recipient.fioAuthor}</ui:define>
+        <ui:define name="contentHeader">#{msgs.admin_mainContentMessageHistory}  -  #{messageDialogBean.recipient.fioAuthor}</ui:define>
         <ui:define name="content">
             <div class="interfaceContent">
                 <mess:dialog list="#{messageDialogBean.messagesDialog}"/>

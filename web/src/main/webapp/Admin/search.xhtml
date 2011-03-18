@@ -32,17 +32,17 @@
                 <h:panelGroup rendered="#{searchBean.type eq 'umk'}">
                     <h:form>
                         <h:outputLink value="umk.xhtml?id=#{i.id}">#{i.name}</h:outputLink><br/>
-                        <h:commandLink value="курс отредактирован">
+                        <h:commandLink value="#{msgs.admin_mainContentCourseEdited}">
                             <f:attribute name="umk" value="#{i}"/>
                             <f:attribute name="event" value="UMK_CREATE"/>
                             <f:ajax execute="@this" listener="#{umkEventsBean.logEvent}"/>
                         </h:commandLink> |
-                        <h:commandLink value="курс удалён">
+                        <h:commandLink value="#{msgs.admin_mainContentCourseDeleted}">
                             <f:attribute name="umk" value="#{i}"/>
                             <f:attribute name="event" value="UMK_DELETE"/>
                             <f:ajax execute="@this" listener="#{umkEventsBean.logEvent}"/>
                         </h:commandLink> |
-                        <h:commandLink value="курс добавлен">
+                        <h:commandLink value="#{msgs.admin_mainContentCourseAdded}">
                             <f:attribute name="umk" value="#{i}"/>
                             <f:attribute name="event" value="UMK_EDIT"/>
                             <f:ajax execute="@this" listener="#{umkEventsBean.logEvent}"/>
