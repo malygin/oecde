@@ -1490,6 +1490,11 @@ background:url("../resources/images/buttonBlue2.jpg") repeat-x scroll center tra
  .mainStyle div.interfaceContent{
     padding: 0px;
 }
+
+.mainStyle div.interfaceContent{
+    padding-left: 10px;
+    padding-right: 10px;
+}
 .mainStyle div.interfaceContentForMyMarks{
      padding: 0px !important;
 }
