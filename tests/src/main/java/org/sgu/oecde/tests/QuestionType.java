@@ -44,10 +44,10 @@ public enum QuestionType {
             case radio:
                 return 1;
             case check:
-                return 2;
-            case text:
-                return 3;
+                return 2;          
             case comparison:
+                return 3;
+            case text:
                 return 4;
             default:
                 throw new AssertionError();
@@ -58,11 +58,11 @@ public enum QuestionType {
         switch(type){
             case 2:
                 return check;
-            case 3:
+            case 4:
                 return text;
             case 1:
                 return radio;
-            case 4:
+            case 3:
                 return comparison;
             default:
                 throw new AssertionError();

@@ -102,7 +102,8 @@
                 <script>
                       $(function(){                     
                           //сделали костыльный эскейп для формул и хтмок всех
-                         jQuery("label").each(function(i){$(this).html($(this).text());});
+                         jQuery("label").each(function(i){                          
+                             $(this).html($(this).text());});
                          if (flag){
                              //идем в первый раз
                                 $("#counter").counter({
@@ -118,22 +119,26 @@
 
                                });
                 </script>
+            <style>
+                input[type="radio"]{margin-top: 0px; margin-right: 10px;}
+input[type="radio"]+label{float: right;}
+                input[type="checkbox"]{margin-top: 0px; margin-right: 10px;}
+input[type="checkbox"]+label{float: right;}
+            </style>
               <r:set var="question" value="#{testPassingBean.currentQustionView.question}"/>
              
                   <h:panelGroup id="mainPanel" rendered="#{not testPassingBean.renderCompleteTest}" >
                       <div style="width: 100px; float: left; color: #27587F; font-size: 14px; margin-left: 10px;">  Вопрос № #{testPassingBean.iterQ+1}</div> <div style="margin-top: 15px;"><h:outputText escape="false" value="#{testPassingBean.questionTitle}" style="display: block; font-size: 14px;"/></div>
                          <h:panelGroup  id="radioType" rendered="#{question.type=='radio'}" styleClass="educ_umk_text_block">
                              <h:selectOneRadio   converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}" style="margin-left: 200px; margin-bottom: 10px; margin-top: 10px;">
-                                 <f:selectItems   itemLabelEscaped="false" var="item" itemValue="23423"  itemLabel="234234" value="#{testPassingBean.answers}">
-                                  
-                              </f:selectItems>
+                                 <f:selectItems   value="#{testPassingBean.answers}" />
                             </h:selectOneRadio>
                              
                          </h:panelGroup>
 
                           <h:panelGroup id="checkType" rendered="#{question.type=='check'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
                               <h:selectManyCheckbox  converter="testConverter"  layout="pageDirection"  value="#{testPassingBean.selectedAnswers}" style="margin-left: 200px; margin-bottom: 10px;">
-                                  <f:selectItems itemLabelEscaped="false" itemLabel="dfgdfg"    value="#{testPassingBean.answers}" /><br/>
+                                  <f:selectItems   value="#{testPassingBean.answers}" /><br/>
                             </h:selectManyCheckbox >
                          </h:panelGroup>
 

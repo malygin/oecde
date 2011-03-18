@@ -9,6 +9,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpServletRequest;
 import org.sgu.oecde.core.UpdateDao;
@@ -62,19 +63,22 @@ public class MessageWriteBean  implements Serializable{
     }
 
 
-    public void save(){    
+    public void save() throws IOException{
         Message messageSave=new Message();
         messageSave.setFullText(fullText);
         messageSave.setTheme(theme);
         messageSave.setType(MessageType.privateMessage);
         messageSave.setRecipients(recipients);
+        recipientId=(recipients.get(0)).getId().toString();
         messageSave.setDateMessage(DateConverter.currentDate());
         messageSave.setAuthor(SecurityContextHandler.getUser());
         messageSave.setFiles(files);
       messageService.save(messageSave);
       recipients= new ArrayList();
       this.renderSuccessSend=true;
+    //FacesContext.getCurrentInstance().getExternalContext().redirect("messages_write.xhtml?user="+user);
     }
+
     public void saveFromRead(){
         Message messageSave=new Message();
         messageSave.setFullText(fullText);

@@ -389,15 +389,18 @@ public class TestPassingBean implements Serializable {
          }
         if(s.indexOf("link:")!=-1){
              URL url = new URL(TaskServlet.urlServer+s.split(":")[1]);
+             String[] link=(s.split(":")[1]).split("/");
+             String resultLink=link[0]+"/"+link[1]+"/"+link[2]+"/";
              String str="";
               StringBuffer strbuf = new StringBuffer();
               BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
               while ((str = in.readLine()) != null) {strbuf.append(str);}
               //str=strbuf.toString().replaceAll("src=\"", "src=\""+currentUrl+"/");
           //    strbuf.replace(0, strbuf.length(), "<meta http-equiv='Content-Type' content='text/htm; charset=utf-8'>");
-              s=HTMLSanitiser.encodeInvalidMarkup(strbuf.toString());
+           //   s=HTMLSanitiser.encodeInvalidMarkup(strbuf.toString());
+              s=strbuf.toString();
               s=s.replaceFirst("<meta http-equiv='Content-Type' content='text/htm; charset=utf-8'>", "");
-              s=s.replaceAll("src=\"", "src=\""+TaskServlet.urlServer+"/DOY/tests/3/");
+              s=s.replaceAll("src=\"", "src=\""+TaskServlet.urlServer+resultLink);
              // s=strbuf.toString();
         }
         return s;

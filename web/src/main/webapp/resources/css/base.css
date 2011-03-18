@@ -1669,3 +1669,6 @@ html, body{ margin:0; padding:0; height:100%;}
         overflow:hidden;
         background: url('../resources/images/blueMenuTitle.png') repeat-x;
 }
+.mainStyle .imG_span img{
+    display: inline !important;
+}
