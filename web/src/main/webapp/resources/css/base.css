@@ -206,7 +206,7 @@ color: black;
 }
 .mainStyle .firstBorder{
     border-color: white;
-    border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
+    -o-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
     -moz-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
     -webkit-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
     border-width: 4px;
@@ -225,7 +225,7 @@ color: black;
 }
 .mainStyle .topMenu{
     border-color: white;
-    border-image: url("../resources/images/topMenuBorder.png") 12 12 19 22 round round;
+     -o-border-image: url("../resources/images/topMenuBorder.png") 12 12 19 22 round round;
     -moz-border-image: url("../resources/images/topMenuBorder.png") 12 12 19 22 round round;
     -webkit-border-image: url("../resources/images/topMenuBorder.png") 12 12 19 22 round round;
     border-width: 8px;
@@ -1122,7 +1122,7 @@ body:first-of-type .mainStyle .StudentWriteMess{
     border-top: 0px !important;
 }
   .studentStandatrWidth{
-    width: 50%;
+    width: 40%;
     text-indent: 10px;
 }
 
@@ -1203,7 +1203,7 @@ body:first-of-type .mainStyle .StudentWriteMess{
     text-align: center !important;
 }
 .mainStyle .userData input{
-    width: 100%;
+/*    width: 100%;*/
 }
 
  .userData td{
@@ -1268,12 +1268,12 @@ body:first-of-type .mainStyle .StudentWriteMess{
     padding: 3px;
     background: white;
 }
-.mainStyle .userPhotoBorderTeacher{
+/*.mainStyle .userPhotoBorderTeacher {
     border: 1px #74CF91 solid;
     width: 100%;
     padding: 3px;
     background: white;
-}
+}*/
 .mainStyle .userPhotoBorderStudent{
     border: 1px #4DB7F1 solid;
     width: 100%;
@@ -1300,7 +1300,10 @@ body:first-of-type .mainStyle .StudentWriteMess{
 .s1{
     background: url("../resources/images/write_new.png") no-repeat left top;
 }
-.mainStyle a.reitingLink:hover{text-decoration: underline;}
+.mainStyle .reitingLink  a{color: green !important; font-weight: bolder !important; font-family: Verdana;}
+.mainStyle .reitingLink a:hover{text-decoration: underline;}
+
+
 
 .mainStyle .AdminInfo {
     color: #4593DF;

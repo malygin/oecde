@@ -15,7 +15,7 @@
             <f:viewParam name="id" value="#{userViewBean.id}"/>
         </f:metadata>
         <div class="userFile">
-        <util:showPhoto user="#{userViewBean.user}" size="large" />
+        <util:showPhoto user="#{userViewBean.user}" styleClass="#{userViewBean.user.classType}" size="medium"/>
             <div class="userData">
                 <table cellspacing="8">
                     <tr>

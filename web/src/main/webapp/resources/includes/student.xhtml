@@ -72,13 +72,13 @@
                     </tr>
                     <sec:ifAnyGranted roles="ROLE_ADMIN">
                         <tr>
-                            <td><p>Полный ли доступ:</p></td><td><div><h:selectBooleanCheckbox  value="#{studentViewBean.user.fullAccess}" style="width:0%;"/></div></td>
+                            <td><p>Полный ли доступ:</p></td><td><div><h:selectBooleanCheckbox  value="#{studentViewBean.user.fullAccess}"/></div></td>
                         </tr>
                         <tr>
-                            <td><p>Переведён ли на след. курс:</p></td><td><div><h:selectBooleanCheckbox  value="#{studentViewBean.user.transfered}" style="width:0%;"/></div></td>
+                            <td><p>Переведён ли на след. курс:</p></td><td><div><h:selectBooleanCheckbox  value="#{studentViewBean.user.transfered}"/></div></td>
                         </tr>
                         <tr>
-                            <td><p>Есть ли доступ на портал:</p></td><td><div><h:selectBooleanCheckbox  value="#{studentViewBean.user.enabled}" style="width:0%;"/></div></td>
+                            <td><p>Есть ли доступ на портал:</p></td><td><div><h:selectBooleanCheckbox  value="#{studentViewBean.user.enabled}"/></div></td>
                         </tr>
                         <tr>
                             <td><p>Логин:</p></td><td><div>#{studentViewBean.user.username}</div></td>

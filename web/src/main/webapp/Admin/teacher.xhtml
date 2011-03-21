@@ -3,7 +3,7 @@
      xmlns:ui="http://java.sun.com/jsf/facelets"
      xmlns:f="http://java.sun.com/jsf/core"
      xmlns:h="http://java.sun.com/jsf/html"
-     template="../resources/studentTemplate.xhtml"
+     template="../resources/adminTemplate.xhtml"
      xmlns:util="http://java.sun.com/jsf/composite/components/util">
 
     <ui:define name="online">
@@ -24,7 +24,7 @@
                     </tr>
                 </table>
             </div>-->
-        <util:showPhoto user="#{userViewBean.user}" size="large" />
+        <util:showPhoto user="#{userViewBean.user}" styleClass="#{userViewBean.user.classType}" size="medium"/>
             <div class="userData">
                 <table cellspacing="8">
                     <tr>
@@ -40,7 +40,7 @@
                         <td><p>#{msgs.admin_mainContentMobilePhone}</p></td><td><div>#{userViewBean.user.cellPhone}</div></td>
                     </tr>
                     <tr>
-                        <td><p>#{msgs.admin_mainContentE-mail}</p></td><td><div>#{userViewBean.user.email}</div></td>
+                        <td><p>e-mail:</p></td><td><div>#{userViewBean.user.email}</div></td>
                     </tr>
                     <tr>
                         <td><p>#{msgs.admin_mainContentOfficePhoneNumber}</p></td><td><div>#{userViewBean.user.officePhoneNumber}</div></td>

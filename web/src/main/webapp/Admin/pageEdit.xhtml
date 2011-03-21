@@ -78,7 +78,7 @@
                     </h:column>
                     <h:column>
                         <span class="AdminNavigationLinksBold" style="background: url('../resources/images/news_delete.gif') no-repeat 0 0;">
-                        <h:commandLink id="delF" value="удалить" style="margin-left: 17px;">
+                        <h:commandLink id="delF" value="#{msgs.admin_mainContentDelete}" style="margin-left: 17px;">
                             <f:attribute name="file" value="#{f}"/>
                             <f:ajax render="@form"  listener="#{tabEditBean.deleteFile}"/>
                         </h:commandLink>
