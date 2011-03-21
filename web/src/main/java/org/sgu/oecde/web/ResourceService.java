@@ -124,8 +124,7 @@ public class ResourceService implements Serializable{
             available = false;
             data[2] = "Контрольная работа не зачтена";
         }else{
-            if((currentDate.compareTo(testBeginDate)>=0)&&(currentDate.compareTo(testEndDate)<0)
-                    &&w.getCurriculum().getSemester()!=semesterGetter.getCalendarYear(student, semesterGetter.getCurrentSemester())){
+            if((currentDate.compareTo(testBeginDate)>=0)&&(currentDate.compareTo(testEndDate)<0)){
                 if(w.getReExameAttemptsUsedNumber()>=Integer.parseInt(
                         (TestType.concluding.equals(e.getType())
                         ?getConcludingAttemtpsCount(semesterGetter.getCurrentSemester())
@@ -153,9 +152,12 @@ public class ResourceService implements Serializable{
                             testBeginDate = regularTestBeginDate;
                             break;
                     }
+                    e.setOpenDate(testBeginDate);
+                    e.setCloseDate(testEndDate);
                 }
                 if(StringUtils.hasText(testBeginDate)&&StringUtils.hasText(testEndDate)
-                        &&(currentDate.compareTo(testBeginDate)>=0)&&(currentDate.compareTo(testEndDate)<=0))
+                        &&(currentDate.compareTo(testBeginDate)>=0)&&(currentDate.compareTo(testEndDate)<=0)
+                        &&w.getCurriculum().getSemester()==semesterGetter.getSemesterByStudentYear(student, semesterGetter.getCurrentSemester()))
                     available = true;
                 else{
                     data[2] = "Тест не доступен";
