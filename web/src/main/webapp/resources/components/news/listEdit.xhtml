@@ -19,32 +19,32 @@
   <!-- IMPLEMENTATION -->
     <composite:implementation>
         <div style="margin-left: 20px;">
-        <h:dataTable value="#{cc.attrs.list}" var="new"  styleClass="adminIndent" >
+        <h:dataTable value="#{cc.attrs.list}" var="n"  styleClass="adminIndent" >
                 <h:column>
                     <h:form id="formList">
                          <h:outputText  rendered="#{NewsBean.renderDeleteSuccess}" value="Удалена новость"/>
                          <span class="AdminNavigationLinks" style="background: url('../resources/images/news_delete.gif') no-repeat 0 0; margin-right: 20px;">
                          <h:commandLink rendered="#{not NewsBean.renderDeleteSuccess}"  action="#{NewsBean.delete}" value="Удалить" style="margin-left: 16px;">
-                            <f:setPropertyActionListener target="#{NewsBean.newIdDelete}" value="#{new.id}" />
+                            <f:setPropertyActionListener target="#{NewsBean.newIdDelete}" value="#{n.id}" />
                             <f:ajax  execute="@this" render="@form" />
                          </h:commandLink>
                           </span>
                          <span class="AdminNavigationLinks" style="background: url('../resources/images/news_edit.gif') no-repeat 0 0;">
-                         <h:outputLink value="news_read.xhtml?id=#{new.id}" rendered="#{not NewsBean.renderDeleteSuccess}" styleClass="AdminNavigationLinks" style="margin-left: 16px;">
+                         <h:outputLink value="news_read.xhtml?id=#{n.id}" rendered="#{not NewsBean.renderDeleteSuccess}" styleClass="AdminNavigationLinks" style="margin-left: 16px;">
                             Редактировать
                         </h:outputLink>
                          </span>
                          <br/>
                          <div style="margin-top: 8px; margin-bottom: 8px;">
-                         <span style="color: grey; font-family:tahoma;"><h:outputText converter="dateConverter" value="#{new.time}"/></span>
+                         <span style="color: grey; font-family:tahoma;"><h:outputText converter="dateConverter" value="#{n.time}"/></span>
                          <span>
-                        <span style="color:#077F5B; font-weight: bolder;"> #{new.header}</span>
+                        <span style="color:#077F5B; font-weight: bolder;"> #{n.header}</span>
                          </span>
                          </div>
                          <div style="margin-bottom: 8px;">
-                         <h:outputText escape="false" value="#{new.announcement}" />
+                         <h:outputText escape="false" value="#{n.announcement}" />
                          </div>
-                         <div style="margin-bottom: 20px; color: grey;">Количество просмотров:<span  style="color:#373E3F;font-weight: bolder;">#{new.reviewNumber}</span></div>
+                         <div style="margin-bottom: 20px; color: grey;">Количество просмотров:<span  style="color:#373E3F;font-weight: bolder;">#{n.reviewNumber}</span></div>
                   
                  
                     </h:form>

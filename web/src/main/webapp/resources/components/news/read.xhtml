@@ -7,25 +7,25 @@
 
     <!-- INTERFACE -->
     <composite:interface>
-        <composite:attribute  name="new"/>
+        <composite:attribute  name="n"/>
     </composite:interface>
 
     <!-- IMPLEMENTATION -->
     <composite:implementation>
         <div style="margin-top: 10px;">
             <span class="chatPostDate" style="font-size: 10pt;">
-                #{cc.attrs.new.time}
+                #{cc.attrs.n.time}
             </span>
             <span style="float: left; font-size: 12pt;" class="controlWorksDisciplineName">
-                #{cc.attrs.new.header}
+                #{cc.attrs.n.header}
             </span>
             <div class="floatDestroyer"/>
         </div>
         <div class="newsListNewPreview">
      
-            <h:outputText escape="false" value="#{cc.attrs.new.fullText}"/>
+            <h:outputText escape="false" value="#{cc.attrs.n.fullText}"/>
             <div class="floatDestroyer"/>
         </div>
-            <span style="font-size: 8pt;">Просмотров: <span style="color: #373E3F;font-weight: bolder;"> #{cc.attrs.new.reviewNumber}</span></span>
+            <span style="font-size: 8pt;">Просмотров: <span style="color: #373E3F;font-weight: bolder;"> #{cc.attrs.n.reviewNumber}</span></span>
     </composite:implementation>
 </html>

@@ -19,7 +19,7 @@
         <ui:define name="content">
     
             <div class="interfaceContent">
-                <news:read new="#{NewsBean.currentNewItem}"/>
+                <news:read n="#{NewsBean.currentNewItem}"/>
             </div>        
 
             <util:navigationList link="id=#{NewsBean.currentNewId}"  elementOnPage="#{DiscussionBean.nodesOnPage}"

@@ -78,8 +78,10 @@ public class ResultPreFilter implements Serializable{
         if(pointsList.size()!=students.size()||pointsList.size()!=curriculums.size()){
             List<? extends AbstractStudent>newStudents = new ArrayList<AbstractStudent>(students);
             List<? extends Curriculum>newCurriculums = new ArrayList<Curriculum>(curriculums);
-            newStudents.removeAll(studentsForRemove);
-            newCurriculums.removeAll(curriculumsForRemove);
+            if(students.size()>1||!sumEachIteration)
+                newStudents.removeAll(studentsForRemove);
+            if(curriculums.size()>1)
+                newCurriculums.removeAll(curriculumsForRemove);
             for(Curriculum c:newCurriculums){
                 for(AbstractStudent s:newStudents){
                     boolean exist = false;

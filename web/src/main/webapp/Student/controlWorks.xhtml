@@ -24,7 +24,7 @@
                                 <td valign="top" class="controlWorksDisciplineNameLink" style="padding-left:10px; width: 25%;">
                                     <h:outputLink value="discipline.xhtml?c=${o[0].id}">${o[0].discipline.name}</h:outputLink></td>
                         <td valign="top" class="controlWorksDisciplineNameLink">
-                                <h:commandLink id="updt" value="Выбрать дисциплину" style="padding-left: 17px;">
+                                <h:commandLink id="updt" value="Выбрать к/р" style="padding-left: 17px;">
                                     <f:attribute value="#{o[1]}" name="cw"/>
                                     <f:ajax execute="@form" render="@form" event="click" listener="#{controlWorksBean.setCw}"/>
                                 </h:commandLink>

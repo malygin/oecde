@@ -145,16 +145,6 @@
         </dependency>
 
     <!--- jsf and richfaces-->
-        <dependency>
-            <groupId>com.sun.faces</groupId>
-            <artifactId>jsf-api</artifactId>
-            <version>2.0.2-b10</version>
-        </dependency>
-        <dependency>
-            <groupId>com.sun.faces</groupId>
-            <artifactId>jsf-impl</artifactId>
-            <version>2.0.2-b10</version>
-        </dependency>
 
         <dependency>
             <groupId>taglibs</groupId>
@@ -243,4 +233,3 @@
         <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
     </properties>
 </project>
-

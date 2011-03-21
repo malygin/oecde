@@ -129,8 +129,10 @@ public class ControlWorksBean extends StudentCurriculumBean{
             if(uf != null && currentControlWorks!=null){
                 ControlWorkAttempt a = new ControlWorkAttempt();
                 List<ControlWorkAttempt> s = (List<ControlWorkAttempt>) currentControlWorks.getCwAttempt();
-                if(CollectionUtils.isEmpty(s))
+                if(CollectionUtils.isEmpty(s)){
                     s = new ArrayList<ControlWorkAttempt>(1);
+                    currentControlWorks.setCwAttempt(s);
+                }
                 s.add(a);
                 a.setAttemptDate(DateConverter.convert(System.currentTimeMillis()));
                 a.setWork(currentControlWorks);

@@ -91,9 +91,17 @@
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
+                                    <h:outputText value="#{msgs.student_lessonType}"/>
+                                </f:facet>
+                                <div style="text-align: center !important;">
+                                    <h:outputText converter="enumConverter" value="#{s.lessonType}" />
+                                </div>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
                                     <h:outputText value="#{msgs.student_Data}"/>
                                 </f:facet>
-                                <span ><h:outputText converter="dateConverter" value="#{s.lessonDate}"/></span>
+                                <span ><h:outputText converter="dateConverter" value="#{s.lessonDate}"/> - <h:outputText converter="dateConverter" value="#{s.lessonEndDate}"/></span>
                             </h:column>
                         </h:dataTable>
                     </td>
@@ -185,14 +193,14 @@
                                 <div class="navigationLinks indentionInNavigation"><a style="font-size: 12pt; padding-left: 24px; background:url('../resources/images/news_icon.gif') no-repeat ; " href="news_list.xhtml">Новости</a></div>
                             </div>
                             <div style="padding: 5px;">
-                                <h:dataTable value="#{NewsBean.news}" var="new" style="width: 100%;">
+                                <h:dataTable value="#{NewsBean.news}" var="n" style="width: 100%;">
                                     <h:column>
                                         <div style=" max-width: 60%; float: left;">
-                                            <span class="controlWorksDisciplineNameLink"><a style="font-size: 9pt;" href="news_read.xhtml?id=#{new.id}">#{new.header}</a></span>
+                                            <span class="controlWorksDisciplineNameLink"><a style="font-size: 9pt;" href="news_read.xhtml?id=#{n.id}">#{n.header}</a></span>
                                         </div>
-                                        <span class="chatPostDate"><h:outputText converter="dateConverter" value="#{fn:substring(new.time,0,11)}"/></span>
+                                        <span class="chatPostDate"><h:outputText converter="dateConverter" value="#{fn:substring(n.time,0,11)}"/></span>
                                         <div class="floatDestroyer"></div>
-                                        <div class="previewText"><h:outputText escape="false" value="#{new.announcement}"/></div>
+                                        <div class="previewText"><h:outputText escape="false" value="#{n.announcement}"/></div>
                                         <br/>
                                     </h:column>
                                 </h:dataTable>

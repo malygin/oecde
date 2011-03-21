@@ -54,7 +54,7 @@
                     <f:facet name="header">
                         <h:outputText value="дата"/>
                     </f:facet>
-                    <span ><h:outputText converter="dateConverter" value="#{s.lessonDate}"/></span>
+                    <span ><h:outputText converter="dateConverter" value="#{s.lessonDate}"/> - <h:outputText converter="dateConverter" value="#{s.lessonEndDate}"/></span>
                 </h:column>
             </h:dataTable>
                <util:navigationList numElements="#{studentScheduleBean.count(true)}" elementOnPage="40"/>

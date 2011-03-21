@@ -9,13 +9,22 @@ import java.io.Serializable;
 public enum LessonType implements Serializable{
     practice("практика"),
     exam("экзамен/зачёт"),
-    consult("консультация");
+    consult;
     private static final long serialVersionUID = 216L;
 
     private LessonType(String name) {
         this.name = name;
     }
 
-    private String name;
+    private LessonType() {
+    }
+
+    private String name = "консультация";
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
 
 }

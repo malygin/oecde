@@ -14,24 +14,24 @@
 
     <!-- IMPLEMENTATION -->
     <composite:implementation>         
-        <ui:repeat value="#{cc.attrs.list}" var="new">
+        <ui:repeat value="#{cc.attrs.list}" var="n">
             <div class="studentInterfaceStandartList">
                 <div>
-                    <div style="float: left; font-size: 10pt;" class="controlWorksDisciplineNameLink"><a href="news_read.xhtml?id=#{new.id}">#{new.header}</a></div>
-                    <span class="chatPostDate" ><h:outputText converter="dateConverter" value="#{new.time}"></h:outputText></span>
+                    <div style="float: left; font-size: 10pt;" class="controlWorksDisciplineNameLink"><a href="news_read.xhtml?id=#{n.id}">#{n.header}</a></div>
+                    <span class="chatPostDate" ><h:outputText converter="dateConverter" value="#{n.time}"></h:outputText></span>
                     <div class="floatDestroyer"/>
                     <div class="newsListNewPreview">
 <!--                        <img src="../resources/images/image_news.jpg" alt="" style="width: 100px;"/>-->
                         <div>
-                            <h:outputText escape="false" value="#{new.announcement}"/>
+                            <h:outputText escape="false" value="#{n.announcement}"/>
                             
                         </div>
                         <div class="floatDestroyer"/>
                     </div>
                     <div>
-                        <span style="font-size: 8pt;">#{msgs.student_newsLooks}<span style="color: #373E3F;font-weight: bolder;"> #{new.reviewNumber}</span> Количестов комментов: <span style="color: #373E3F;font-weight: bolder;"> #{new.commentNumber}</span></span>
+                        <span style="font-size: 8pt;">#{msgs.student_newsLooks}<span style="color: #373E3F;font-weight: bolder;"> #{n.reviewNumber}</span> Количестов комментов: <span style="color: #373E3F;font-weight: bolder;"> #{n.commentNumber}</span></span>
                         <span class="navigationLinks" style="float: right;">
-                            <a href="news_read.xhtml?id=#{new.id}">#{msgs.student_newsMore}</a>
+                            <a href="news_read.xhtml?id=#{n.id}">#{msgs.student_newsMore}</a>
                         </span>
                     </div>
                 </div>
