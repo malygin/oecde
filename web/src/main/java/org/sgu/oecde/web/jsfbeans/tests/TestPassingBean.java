@@ -375,7 +375,7 @@ public class TestPassingBean implements Serializable {
       */
     private boolean checkListQuestion(){
         boolean f=true;
-        for(int i=0;i<questions.size();i++){
+        for(int i=0;i<countQuestions;i++){
             f=questionsView[i].isAnswered()&f;
         }
         return f;

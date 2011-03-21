@@ -69,12 +69,12 @@ public class MessageWriteBean  implements Serializable{
         messageSave.setTheme(theme);
         messageSave.setType(MessageType.privateMessage);
         messageSave.setRecipients(recipients);
-        recipientId=(recipients.get(0)).getId().toString();
+        recipientId=(recipients.get(0)).getRecipient().getId().toString();
         messageSave.setDateMessage(DateConverter.currentDate());
         messageSave.setAuthor(SecurityContextHandler.getUser());
         messageSave.setFiles(files);
       messageService.save(messageSave);
-      recipients= new ArrayList();
+     // recipients= new ArrayList();
       this.renderSuccessSend=true;
     //FacesContext.getCurrentInstance().getExternalContext().redirect("messages_write.xhtml?user="+user);
     }
