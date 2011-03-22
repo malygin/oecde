@@ -9,14 +9,14 @@
     </ui:define>
     <ui:define name="content">
          <div style="padding: 15px;width: 130px; float: right;" class="controlWorksDisciplineNameLink">
-             <div style="float: left;"><a href="#toTests" style="font-size: 10pt !important; margin-right: 10px;">К тестам</a></div>
-             <div> <a href="materials.xhtml" style="font-size: 10pt !important;">Назад</a></div>
+             <div style="float: left;"><a href="#toTests" style="font-size: 10pt !important; margin-right: 10px;">#{msgs.student_ToTests}</a></div>
+             <div> <a href="materials.xhtml" style="font-size: 10pt !important;">#{msgs.student_back}</a></div>
         </div>
         <div class="interfaceContent">
             <f:metadata>
                 <f:viewParam name="c" value="#{disciplineBean.curriculumId}"/>
             </f:metadata>
-            <h:outputText rendered="#{disciplineBean.accessDenied}" value="Не найден или не доступен" />
+            <h:outputText rendered="#{disciplineBean.accessDenied}" value="#{msgs.student_TestIsNotFoundOrNotAvail}" />
             <ui:repeat value="#{disciplineBean.discipline.umk.modules}" var="m" varStatus="k">
                 <div class="studentInterfaceStandartList">
                     <div class="controlWorksDisciplineName" style="background: url('../resources/images/moduls.gif') no-repeat; padding-left: 20px;">#{k.index+1}. #{m.name}</div>
@@ -30,7 +30,7 @@
             <br/>
             <a name="toTests">
             <div style="color: #27587F;font-family: Arial;font-size:12pt;margin-left: 10px;font-weight: bolder;">
-                Тесты:
+                #{msgs.admin_mainContentTests}
             </div>
              </a>
             <h:dataTable value="#{disciplineBean.tests}" var="t">
@@ -57,20 +57,20 @@
 <!--                         <h:outputText rendered="#{t[2]==null}" style="margin-top: -40px; display: block;"/>-->
 <!--                          <h:outputText rendered="#{t[3]==null}" style="margin-top: -40px; display: block;"/>-->
 <!--                        <h:outputText rendered="#{t[4]==null}" style="margin-top: -40px; display: block;"/><br/>-->
-                        <h:outputText rendered="#{t[4]==null}" style="color: grey;background: url('../resources/images/attemps.gif') 2px 1px no-repeat; padding-left: 18px;" value="попыток: #{t[1].estimateAttemptsUsedNumber} из #{t[1].work.estimateAttemptsNumber}"/>
-                        <h:outputText rendered="#{t[4]!=null}" >попыток: <span>#{t[1].estimateAttemptsUsedNumber} из #{t[1].work.estimateAttemptsNumber}</span></h:outputText><br/>
-                        <h:outputText rendered="#{t[4]==null}" style="color: grey; background: url('../resources/images/tryingAttemps.gif') no-repeat; padding-left: 18px;" value="пробных:#{t[1].trialAttemptsUsedNumber} из #{t[1].work.trialNumber}"/>
-                        <h:outputText rendered="#{t[4]!=null}" >пробных: <span>#{t[1].trialAttemptsUsedNumber} из #{t[1].work.trialNumber}</span></h:outputText><br/>
-                       <h:outputText rendered="#{t[4]==null}" style="color: grey; background: url('../resources/images/arrows.gif') 2px 1px no-repeat; padding-left: 18px;" value="переэкзаменовка: #{t[1].reExameAttemptsUsedNumber}" />
-                        <h:outputText rendered="#{t[4]!=null}" >переэкзаменовка: <span>#{t[1].reExameAttemptsUsedNumber}</span></h:outputText><br/>
-                        доступен с <h:outputText converter="dateConverter" rendered="#{t[1].work.openDate ne null}" value="#{t[1].work.openDate}" /> по
+                        <h:outputText rendered="#{t[4]==null}" style="color: grey;background: url('../resources/images/attemps.gif') 2px 1px no-repeat; padding-left: 18px;" value="#{msgs.student_TestAttemps}: #{t[1].estimateAttemptsUsedNumber} #{msgs.student_From} #{t[1].work.estimateAttemptsNumber}"/>
+                        <h:outputText rendered="#{t[4]!=null}" >#{msgs.student_TestAttemps}: <span>#{t[1].estimateAttemptsUsedNumber} #{msgs.student_From} #{t[1].work.estimateAttemptsNumber}</span></h:outputText><br/>
+                        <h:outputText rendered="#{t[4]==null}" style="color: grey; background: url('../resources/images/tryingAttemps.gif') no-repeat; padding-left: 18px;" value="#{msgs.student_TestTryingAttemps}:#{t[1].trialAttemptsUsedNumber} #{msgs.student_From} #{t[1].work.trialNumber}"/>
+                        <h:outputText rendered="#{t[4]!=null}" >#{msgs.student_TestTryingAttemps}: <span>#{t[1].trialAttemptsUsedNumber} #{msgs.student_From} #{t[1].work.trialNumber}</span></h:outputText><br/>
+                       <h:outputText rendered="#{t[4]==null}" style="color: grey; background: url('../resources/images/arrows.gif') 2px 1px no-repeat; padding-left: 18px;" value="#{msgs.student_TestReexamin}: #{t[1].reExameAttemptsUsedNumber}" />
+                        <h:outputText rendered="#{t[4]!=null}" >#{msgs.student_TestReexamin}: <span>#{t[1].reExameAttemptsUsedNumber}</span></h:outputText><br/>
+                        #{msgs.student_TestAlailFrom} <h:outputText converter="dateConverter" rendered="#{t[1].work.openDate ne null}" value="#{t[1].work.openDate}" /> #{msgs.student_TestTo}
  <h:outputText converter="dateConverter" rendered="#{t[1].work.closeDate ne null}" value="#{t[1].work.closeDate}" /> <br/>
-                        <h:outputText rendered="#{t[4]==null}" style="color: grey; background: url('../resources/images/star.gif') no-repeat; padding-left: 18px;" value="количество вопросов: #{t[1].work.quantity}"/>
-                        <h:outputText rendered="#{t[4]!=null}" >количество вопросов:  <span>#{t[1].work.quantity}</span></h:outputText><br/>
-                        <h:outputText rendered="#{t[4]==null}" style="color: grey;background: url('../resources/images/time.gif')2px 0 no-repeat; padding-left: 18px;" value="предоставленное время: #{t[1].work.duration}"/>
-                        <h:outputText rendered="#{t[4]!=null}" >предоставленное время:  <span>#{t[1].work.duration}</span></h:outputText><br/>
-                        <h:outputText rendered="#{t[4]==null}" style="color: grey; background: url('../resources/images/discipline_summ.gif') no-repeat; padding-left: 18px;" value="результаты тестирования: #{t[1].pointsForWork}"/>
-                        <h:outputText rendered="#{t[4]!=null}" >результаты тестирования: <span>#{t[1].pointsForWork}</span></h:outputText><br/>
+                        <h:outputText rendered="#{t[4]==null}" style="color: grey; background: url('../resources/images/star.gif') no-repeat; padding-left: 18px;" value="#{msgs.student_TestQuestionNumber}: #{t[1].work.quantity}"/>
+                        <h:outputText rendered="#{t[4]!=null}" >#{msgs.student_TestQuestionNumber}:  <span>#{t[1].work.quantity}</span></h:outputText><br/>
+                        <h:outputText rendered="#{t[4]==null}" style="color: grey;background: url('../resources/images/time.gif')2px 0 no-repeat; padding-left: 18px;" value="#{msgs.student_TestTime}: #{t[1].work.duration}"/>
+                        <h:outputText rendered="#{t[4]!=null}" >#{msgs.student_TestTime}:  <span>#{t[1].work.duration}</span></h:outputText><br/>
+                        <h:outputText rendered="#{t[4]==null}" style="color: grey; background: url('../resources/images/discipline_summ.gif') no-repeat; padding-left: 18px;" value="#{msgs.student_TestResults}: #{t[1].pointsForWork}"/>
+                        <h:outputText rendered="#{t[4]!=null}" >#{msgs.student_TestResults}: <span>#{t[1].pointsForWork}</span></h:outputText><br/>
                     </div>
                 </div>
                 </h:column>

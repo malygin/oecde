@@ -18,7 +18,7 @@
             <c:forEach items="${groupCwBean.controlWorkInfo4Group}" var="w">
                 <table cellpadding="2" cellspacing="2" style="width: 100%;" class="#{w.value.progress} controlWorksBorders">
                     <tr>
-                        <td valign="top" style="color: gray; width: 170px; padding-left: 10px; text-align: justify;">Название дисциплины: </td>
+                        <td valign="top" style="color: gray; width: 170px; padding-left: 10px; text-align: justify;">#{msgs.student_DiciplineName}: </td>
                         <td valign="top" style="padding-left:10px;">
                             <span class="controlWorksDisciplineNameLink" style="font-size: 8pt;"> <h:outputLink value="discipline.xhtml?c=#{w.value.curriculum.discipline.id}">#{w.value.curriculum.discipline.name}</h:outputLink></span>
                             <h:outputText rendered="${w.value.curriculum.discipline.name ne ''}" value="#{w.value.curriculum.discipline.name}"/>
@@ -28,7 +28,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">Студент: </td>
+                        <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">#{msgs.student_Student}: </td>
                         <td valign="top" style="padding-left: 10px;">
                             <span class="linkToStudentsProfile">
                                 <a href="student.xhtml?id=#{w.key.id}">#{w.key.fio}</a>
@@ -36,7 +36,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">Оценка: </td>
+                        <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">#{msgs.student_Mark}: </td>
                         <td valign="top" style="padding-left: 10px; color: #174F05;">
                            <span style="">
                            </span>

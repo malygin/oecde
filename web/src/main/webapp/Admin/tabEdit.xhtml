@@ -49,7 +49,7 @@
                     </h:column>
                     <h:column>
                         <span class="navigationLinksRed" style="text-align: center;">
-                            <h:commandLink id="delete" value="Удалить">
+                            <h:commandLink id="delete" value="#{msgs.message_delete}">
                                 <f:attribute name="page" value="#{p}"/>
                                 <f:ajax render=":edit" listener="#{tabEditBean.deletePage}"/>
                             </h:commandLink>

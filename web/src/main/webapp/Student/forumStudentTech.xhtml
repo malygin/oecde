@@ -11,7 +11,7 @@
               <f:viewParam name="page" value="#{DiscussionBean.currentPage}"/>
          </f:metadata>
     <ui:define name="contentHeader">
-        Технический форум
+        #{msgs.teacher_forumMenuTechForum}
     </ui:define>
         <ui:define name="content">
 
@@ -22,10 +22,8 @@
                     <div class="studentInterfaceStandartList" style="padding-top: 4px; padding-bottom: 2px;">
                        
                         <div style="text-align: justify; margin: 5px 0px 5px 0px;">
-                          Вы выбраны в качестве бета-тестеров. Это очень большая отвественность.
-                          Найденные ошибки и предложения старайтесь описывать подробно. <br/>
-                          Если у вас вопрос по вашим обязанностям или необходимо приложить картинку к сообщению об ошибке -
-                          пишите на аккаунт <a href="messages_write.xhtml?user=1">Михаила Шихова (ведущего программиста проекта)</a>
+                          #{msgs.student_forumTexBettaTesters} <br/>
+                          #{msgs.student_forumTexWhiteYourSuggestion} <a href="messages_write.xhtml?user=1">#{msgs.student_MichelShixov}</a>
 
 
                         </div>

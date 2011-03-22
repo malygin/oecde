@@ -29,7 +29,7 @@
             </h:dataTable>
             <br/>
             <div>
-                Тесты:
+               #{msgs.admin_mainContentTests}
             </div>
             <h:dataTable value="#{adminUmkBean.umk.resources}" var="test">
                 <h:column>
@@ -39,7 +39,7 @@
                         #{test.title}
                     </h:outputLink>
                     <h:outputLink value="testEdit.xhtml?id=#{test.id}" >
-                        (редактировать)
+                        (#{msgs.admin_mainContentedit})
                     </h:outputLink>
                 </div>
                 </div>

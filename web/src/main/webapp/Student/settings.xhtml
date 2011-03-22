@@ -6,6 +6,51 @@
     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
     xmlns:set="http://java.sun.com/jsf/composite/components/settings">
     >
+    <h:head>
+         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <script type="text/javascript" src="../resources/jquery/js/jquery-1.4.2.min.js"></script>-->
+<!--         <script type="text/javascript" src="../resources/jquery/js/jquery.maskedinput-1.2.2.js"></script>-->
+<!--        <script type="text/javascript" src="jquery-1.2.6.js"></script>
+        <script type="text/javascript" src="jquery.validate-1.5.1.js"></script>-->
+
+              
+       
+<!--        <script type="text/javascript"src="../resources/jquery/js/"></script>-->
+
+
+<!-- <script type="text/javascript" src="jquery-1.3.2.min.js"></script>-->
+<!--<script type="text/javascript">
+$(document).ready(function() {
+ $("#validate").keyup(function(){
+
+    var email = $("#validate").val();
+
+    if(email != 0)
+    {
+    if(isValidEmailAddress(email))
+    {
+    $("#validEmail").html("");
+    } else {
+    $("#validEmail").html("неправильный    e-mail");
+    }
+    } else {
+    $("#validEmail").html("введите e-mail");
+    }
+
+    });
+
+
+    });
+
+
+    function isValidEmailAddress(emailAddress) {
+    var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+    return pattern.test(emailAddress);
+    }
+
+</script>-->
+    </h:head>
     <ui:define name="content">
         <style type="text/css">
             .s tr td p{
@@ -22,7 +67,9 @@
                                     <p>Мобильный телефон:</p>
                                 </td>
                                 <td>
-                                    <h:inputText id="cellPhone" maxlength="10" size="10" value="#{studentSettingsBean.student.cellPhone}"/>
+                                    
+                            <h:inputText id="cellPhone" maxlength="10" size="10" value="#{studentSettingsBean.student.cellPhone}" style="width: 140px;"/>
+
                                 </td>
                             </tr>
                             <tr>
@@ -30,7 +77,7 @@
                                     <p>Адрес электронной почты:</p>
                                 </td>
                                 <td>
-                                    <h:inputText id="eMail" size="19" value="#{studentSettingsBean.student.email}"/>
+                                    <h:inputText id="eMail" size="19" value="#{studentSettingsBean.student.email}" style="width: 140px;"/>
                                 </td>
                             </tr>
                             <tr>
@@ -38,7 +85,7 @@
                                     <p>ICQ:</p>
                                 </td>
                                 <td>
-                                    <h:inputText id="icq" maxlength="9" size="9" value="#{studentSettingsBean.student.icq}"/>
+                                    <h:inputText id="icq" maxlength="9" size="9" value="#{studentSettingsBean.student.icq}" style="width: 140px;"/>
                                 </td>
                             </tr>
                         </table>

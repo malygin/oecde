@@ -18,7 +18,7 @@
                 <est:changeSemester semester="#{gradesBean.semester}"/>
             </div>
             <div  class="controlWorksDisciplineNameLink" style="text-align: right;padding-right: 15px; padding-top: 5px; position: relative; top: -25px;">
-                <a href="#help" class="help_part_href">Подсказка</a>
+                <a href="#help" class="help_part_href">#{msgs.student_marksHelp}</a>
             </div>
             <div>
             <h:dataTable  value="#{gradesBean.points}"
@@ -104,7 +104,7 @@
             </div>
             <div class="prosto_tekst">
                 <a name="help"></a>
-                <p class="help_part">Подсказки</p>
+                <p class="help_part">#{msgs.student_marksHelps}</p>
                         <p class="comment"></p>
             </div>
             </div>

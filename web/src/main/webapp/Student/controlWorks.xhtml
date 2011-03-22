@@ -20,11 +20,11 @@
                 <h:column>
                         <table cellpadding="2" cellspacing="2" style="width: 100%;" class="${o[1].progress} controlWorksBorders">
                             <tr>
-                                <td valign="top" style="color: gray; width: 170px; padding-left: 10px; text-align: justify;">Название дисциплины: </td>
+                                <td valign="top" style="color: gray; width: 170px; padding-left: 10px; text-align: justify;">#{msgs.student_DiciplineName}: </td>
                                 <td valign="top" class="controlWorksDisciplineNameLink" style="padding-left:10px; width: 25%;">
                                     <h:outputLink value="discipline.xhtml?c=${o[0].id}">${o[0].discipline.name}</h:outputLink></td>
                         <td valign="top" class="controlWorksDisciplineNameLink">
-                                <h:commandLink id="updt" value="Выбрать к/р" style="padding-left: 17px;">
+                                <h:commandLink id="updt" value="#{msgs.student_ChooseControlWork}" style="padding-left: 17px;">
                                     <f:attribute value="#{o[1]}" name="cw"/>
                                     <f:ajax execute="@form" render="@form" event="click" listener="#{controlWorksBean.setCw}"/>
                                 </h:commandLink>
@@ -37,7 +37,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">Преподаватель: </td>
+                                <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">#{msgs.student_Teacher}: </td>
                                 <td valign="top" style="padding-left: 10px;">
                                     <span class="linkToTeachersProfile linkToTeachersProfileFromStudent">
                                         <h:outputLink value="teacher.xhtml?id=${o[3].id}">${o[3].initials}</h:outputLink>
@@ -45,7 +45,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">Оценка: </td>
+                                <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">#{msgs.student_Mark}: </td>
                                 <td valign="top" style="padding-left: 10px; font-size: 10pt;">
                                    <h:panelGroup rendered="${o[1].progress=='passed'}" style="color:#0F3F00; padding-left: 17px;  background: url('../resources/images/discipline_summ.gif') no-repeat 0 0;">
                                    <h:outputText converter="enumConverter" value="${o[1].progress}"/>
@@ -58,7 +58,7 @@
                                    </h:panelGroup>
                                     
                                     <span class="StudentTestMark">
-                                        (${o[1].points}  баллов)
+                                        (${o[1].points}  #{msgs.student_grades})
                                     </span>
                                 </td>
                                 </tr>
