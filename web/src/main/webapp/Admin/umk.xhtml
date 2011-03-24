@@ -20,7 +20,7 @@
                     <h:dataTable value="#{m.resources}" var="r">
                         <h:column>
                         <div class="navigationLinks" style="margin-left: 20px;">
-                            <a href="exbook.xhtml?mId=#{m.id}">#{r.title}</a>
+                           <a href="exbook.xhtml?cId=#{adminUmkBean.id}&amp;mId=#{m.id}&amp;tId=#{r.id}" style="text-decoration: none;">#{r.title}</a>
                         </div>
                         </h:column>
                     </h:dataTable>

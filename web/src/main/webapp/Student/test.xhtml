@@ -31,7 +31,7 @@
        <h:form id="mainForm">
          <h:panelGroup rendered="#{not testBean.renderTestPassing}">
            <h:outputText rendered="#{testBean.accessDenied}" value="Не найден или не доступен" />
-           <h:outputLink value="discipline.xhtml?c=#{testBean.curriculumId}" styleClass="navigationLinks" style="display: block; margin-top: 5px;margin-left: 70px;">назад</h:outputLink>
+           <h:outputLink value="umk.xhtml?c=#{testBean.curriculumId}" styleClass="navigationLinks" style="display: block; margin-top: 5px;margin-left: 70px;">назад</h:outputLink>
            <r:set var="t" value="#{testBean.test}"/>
            <r:set var="work" value="#{t[1]}"/>
            <r:set var="test" value="#{work.work}"/><br/>

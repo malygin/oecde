@@ -13,9 +13,12 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.model.SelectItem;
+import org.sgu.oecde.core.IBasicDao;
 import org.sgu.oecde.core.education.Module;
+import org.sgu.oecde.core.education.Umk;
 import org.sgu.oecde.core.education.resource.AbstractResource;
 import org.sgu.oecde.core.education.resource.Task;
+import org.sgu.oecde.core.users.Admin;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
@@ -36,7 +39,11 @@ public class UmkBean implements Serializable {
     @ManagedProperty(value="#{resourceService}")
     private ResourceService resourceService;
 
+    @ManagedProperty(value="#{umkDao}")
+    private IBasicDao<Umk>umkDao;
+
     private DeCurriculum curriculum;
+    private Umk currentUmk;
     private Module currentModule;
     private Module nextModule;
     private Module prevModule;
@@ -64,7 +71,7 @@ public class UmkBean implements Serializable {
 
 
     public String getUrl() throws MalformedURLException{  
-          return curriculum.getUmk().getFolder()+"/"+currentTask.getUrl();
+          return currentUmk.getFolder()+"/"+currentTask.getUrl();
     }
 
     public String getcId() {
@@ -77,15 +84,22 @@ public class UmkBean implements Serializable {
  */
     public void setcId(String cId) {
           this.cId = cId;
+          if (SecurityContextHandler.getUser() instanceof Student){
+             curriculum = resourceService.getDisciplineForStudent((Student) SecurityContextHandler.getUser(),new Long(cId),null);
+             currentUmk=curriculum.getUmk();
+
+          }else if(SecurityContextHandler.getUser() instanceof Admin){
+              currentUmk=umkDao.getById(new Long(this.cId));
+          }
+
           //храним временно значение для предыдущего модуля
           Module prevModuleTemp=null;
-          curriculum = resourceService.getDisciplineForStudent((Student) SecurityContextHandler.getUser(),new Long(cId),null);
-          currentUrl=mainUrl+curriculum.getUmk().getFolder();
+          currentUrl=mainUrl+currentUmk.getFolder();
           prevTask= new Task(0L);
           nextTask= new Task(0L);
 
           // вычисляем текущий таск, также следующий и последующие, кроме того - формируем список тасков
-          for(Module m:curriculum.getUmk().getModules()){
+          for(Module m:currentUmk.getModules()){
             if (m == null)
                 continue;
               //вытаскиваем первый таск следующего модуля, если мы смотрим последний таск текущего модуля
@@ -171,7 +185,7 @@ public class UmkBean implements Serializable {
 
     public List<SelectItem> getModules() {
         modules=new ArrayList<SelectItem>();
-         for(Module m:curriculum.getUmk().getModules()){
+         for(Module m:currentUmk.getModules()){
              modules.add(new SelectItem(m, m.getName()));
           }
 
@@ -218,6 +232,22 @@ public class UmkBean implements Serializable {
 
     public void setPrevModule(Module prevModule) {
         this.prevModule = prevModule;
+    }
+
+    public IBasicDao<Umk> getUmkDao() {
+        return umkDao;
+    }
+
+    public void setUmkDao(IBasicDao<Umk> umkDao) {
+        this.umkDao = umkDao;
+    }
+
+    public Umk getCurrentUmk() {
+        return currentUmk;
+    }
+
+    public void setCurrentUmk(Umk currentUmk) {
+        this.currentUmk = currentUmk;
     }
 
 }
