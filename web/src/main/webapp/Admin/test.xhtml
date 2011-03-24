@@ -1,0 +1,98 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:r="http://java.sun.com/jsp/jstl/core"
+         template="../resources/adminTemplate.xhtml"
+         >
+          <f:metadata>        
+             <f:viewParam name="id" value="#{adminTestBean.id}"/>
+             <f:viewParam name="action" value="#{adminTestBean.action}"/>
+         </f:metadata>
+        <ui:define name="contentHeader">
+            Тест.#{adminTestBean.test.title}
+        </ui:define>
+       <ui:define name="content"> 
+
+        <div>
+       <h:form id="mainForm">
+        <h:panelGroup id="TestPassing" rendered="#{adminTestBean.renderTestPassing}">
+                <script>
+                      $(function(){                      
+                       $(".qTitle").each(function(i){
+                                  if($(this).text().indexOf("link:")!=-1){
+                                      str=$(this).text();
+                                      $(this).html("");                                  
+                                      $('<iframe height="100px"   frameborder="0"  width="700px" name="myFrame"/>').attr('src', '../TestServlet?task='+str.substring(5)).appendTo($(this));
+                                    }
+                            }); 
+                               });
+                </script>
+            <script type="text/javascript" >
+                      $(function(){
+                       $("label").each(function(i){
+                            if($(this).text().indexOf("\$\$")!=-1){
+                                      str=$(this).text();                                    
+                                      $(this).html("");
+                                      $('<iframe height="50px"   frameborder="0"  width="300px" name="myFrame"/>').attr('src', '../TestServlet?task='+str).appendTo($(this));
+                                      }
+                                
+                            });
+                               });
+              </script>
+              <script type="text/javascript" >
+                      $(function(){
+                       $("label").each(function(i){
+                                  if($(this).text().indexOf("link:")!=-1){
+                                      str=$(this).text();
+                                      $(this).html("");
+                                      $('<iframe height="70px"   frameborder="0"  width="400px" name="myFrame"/>').attr('src', '../TestServlet?task='+str.substring(6)).appendTo($(this));
+                                    }
+                            });
+                               });
+                </script>
+            <style>
+                input[type="radio"]{margin-top: 0px; margin-right: 10px;}input[type="radio"]+label{float: right;}
+                input[type="checkbox"]{margin-top: 0px; margin-right: 10px;}input[type="checkbox"]+label{float: right;}
+            </style>
+              <r:set var="question" value="#{testPassingBean.currentQustionView.question}"/>
+             
+                  <h:panelGroup id="mainPanel" rendered="#{not testPassingBean.renderCompleteTest}" >
+                      <div style="width: 100px; float: left; color: #27587F; font-size: 14px; margin-left: 10px;">  Вопрос № #{testPassingBean.iterQ+1} (#{testPassingBean.countQuestions})</div> <div style="margin-top: 15px;"><h:outputText id="qTitle" title="qTitle" styleClass="qTitle" escape="false" value="#{testPassingBean.questionTitle}" style="display: block; font-size: 14px;"/></div>
+                         <h:panelGroup  id="radioType" rendered="#{question.type=='radio'}" styleClass="educ_umk_text_block">
+                             <ui:repeat value="#{setToList.getList(testPassingBean.currentQustionView.question.answers)}" var="ans">
+                                 <label> #{ans.title}</label> - <b>#{ans.rightAnswer}</b><br/>
+                             </ui:repeat>
+                            <b>Тип один из многих!</b>                             
+                         </h:panelGroup>
+
+                          <h:panelGroup id="checkType" rendered="#{question.type=='check'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
+                              <ui:repeat value="#{setToList.getList(testPassingBean.currentQustionView.question.answers)}" var="ans">
+                                 <label> #{ans.title}</label> - <b>#{ans.rightAnswer}</b><br/>
+                             </ui:repeat>
+                            <b>Тип многие из многих!</b>
+                         </h:panelGroup>
+
+                          <h:panelGroup id="textType" rendered="#{question.type=='text'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
+                              <ui:repeat value="#{setToList.getList(testPassingBean.currentQustionView.question.answers)}" var="ans">
+                                 <label> #{ans.title}</label> - <b>#{ans.rightAnswer}</b><br/>
+                             </ui:repeat>
+                               <b>Текст!</b>
+                         </h:panelGroup>
+                          <h:panelGroup id="comparisonType" rendered="#{question.type=='comparison'}">
+                              <ui:repeat value="#{setToList.getList(testPassingBean.currentQustionView.question.answers)}" var="ans">
+                                 <label> #{ans.title}</label> - <b>#{ans.rightAnswer}</b><br/>
+                             </ui:repeat>
+                               <b>Сопоставление!</b>
+                         </h:panelGroup>
+
+                         <h:commandButton value="следующий" action="#{testPassingBean.next}" styleClass="studentButton" style="margin: 8px; width: 150px;">
+                             <f:ajax render="@form"/>
+                         </h:commandButton>
+                   </h:panelGroup>
+                </h:panelGroup>
+            </h:form>
+          
+</div>       
+        </ui:define>
+    </ui:composition>

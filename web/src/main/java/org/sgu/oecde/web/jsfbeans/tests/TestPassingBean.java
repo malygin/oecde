@@ -41,7 +41,7 @@ import org.sgu.oecde.tests.TestAttemptType;
 import org.sgu.oecde.tests.TestEntity;
 import org.sgu.oecde.tests.dao.TestAttemptDao;
 import org.sgu.oecde.web.ResourceService;
-import org.sgu.oecde.web.jsfbeans.TaskServlet;
+import org.sgu.oecde.web.TaskServlet;
 import org.sgu.oecde.web.jsfbeans.util.HTMLSanitiser;
 
 /**
@@ -123,8 +123,25 @@ public class TestPassingBean implements Serializable {
         questions=new ArrayList<Question>(testView.getQuestions());
         if (!questions.isEmpty()){
             attempt.setWork(testView);
+            countQuestions=(testView.getQuantity()<questions.size())?testView.getQuantity():questions.size();
+
             makeQuestionList();
-            beginDate= System.currentTimeMillis();       
+            beginDate= System.currentTimeMillis();
+
+       }
+    }
+
+     public void startAdminTest(TestEntity test) throws MalformedURLException, IOException {
+       testView=test;
+     //  checkTestAttemptType(testView);
+        questions=new ArrayList<Question>(testView.getQuestions());
+        if (!questions.isEmpty()){
+            attempt.setWork(testView);
+            countQuestions=questions.size();
+            makeQuestionList();
+            beginDate= System.currentTimeMillis();
+
+
        }
     }
 
@@ -299,8 +316,7 @@ public class TestPassingBean implements Serializable {
       */
      private void makeQuestionList() throws MalformedURLException, IOException {
         
-        countQuestions=(testView.getQuantity()<questions.size())?testView.getQuantity():questions.size();
-        questionsView = new QuestionImpl[questions.size()];
+       questionsView = new QuestionImpl[countQuestions];
         int i=0;
         for(Question q:questions){
             questionsView[i++]=new QuestionImpl(q);
@@ -389,22 +405,22 @@ public class TestPassingBean implements Serializable {
           s= s.replaceFirst("\\$+"," <img src='http://oec.sgu.ru/latex/latex.php?code=");
           s= s.replaceFirst("\\$+"," '/> ");
          }
-        if(s.indexOf("link:")!=-1){
-             URL url = new URL(TaskServlet.urlServer+s.split(":")[1]);
-             String[] link=(s.split(":")[1]).split("/");
-             String resultLink=link[0]+"/"+link[1]+"/"+link[2]+"/";
-             String str="";
-              StringBuffer strbuf = new StringBuffer();
-              BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
-              while ((str = in.readLine()) != null) {strbuf.append(str);}
-              //str=strbuf.toString().replaceAll("src=\"", "src=\""+currentUrl+"/");
-          //    strbuf.replace(0, strbuf.length(), "<meta http-equiv='Content-Type' content='text/htm; charset=utf-8'>");
-           //   s=HTMLSanitiser.encodeInvalidMarkup(strbuf.toString());
-              s=strbuf.toString();
-              s=s.replaceFirst("<meta http-equiv='Content-Type' content='text/htm; charset=utf-8'>", "");
-              s=s.replaceAll("src=\"", "src=\""+TaskServlet.urlServer+resultLink);
-             // s=strbuf.toString();
-        }
+//        if(s.indexOf("link:")!=-1){
+//             URL url = new URL(TaskServlet.urlServer+s.split(":")[1]);
+//             String[] link=(s.split(":")[1]).split("/");
+//             String resultLink=link[0]+"/"+link[1]+"/"+link[2]+"/";
+//             String str="";
+//              StringBuffer strbuf = new StringBuffer();
+//              BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
+//              while ((str = in.readLine()) != null) {strbuf.append(str);}
+//              //str=strbuf.toString().replaceAll("src=\"", "src=\""+currentUrl+"/");
+//          //    strbuf.replace(0, strbuf.length(), "<meta http-equiv='Content-Type' content='text/htm; charset=utf-8'>");
+//           //   s=HTMLSanitiser.encodeInvalidMarkup(strbuf.toString());
+//              s=strbuf.toString();
+//              s=s.replaceFirst("<meta http-equiv='Content-Type' content='text/htm; charset=utf-8'>", "");
+//              s=s.replaceAll("src=\"", "src=\""+TaskServlet.urlServer+resultLink);
+//             // s=strbuf.toString();
+//        }
         return s;
     }
 

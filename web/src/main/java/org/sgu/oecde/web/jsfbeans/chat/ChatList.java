@@ -62,8 +62,9 @@ public class ChatList extends HttpServlet {
                   ChatMessage message=new ChatMessage();
                   message.setAuthor(SecurityContextHandler.getUser());
                   message.setDateMessage(DateConverter.convert(System.currentTimeMillis()));
-                  message.setMessage(request.getParameter("message"));
+                  message.setMessage(request.getParameter("message").replaceAll("////","").replaceAll("\\\\",""));
                   list.add(0, message);
+                  
                   ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
                   IChatDao myDao = (IChatDao) context.getBean("chatDao");
                   myDao.save(message);

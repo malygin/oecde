@@ -3,8 +3,9 @@
  * and open the template in the editor.
  */
 
-package org.sgu.oecde.web.jsfbeans;
 
+
+import org.sgu.oecde.web.TaskServlet;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -23,42 +24,41 @@ import org.springframework.util.ObjectUtils;
 /**
  *
  * @author Malygin
- * сервлет, который подгружает в фрейм занятие от умк, пергружает пути к картинкам и добавляет стили
+ * сервлет, который подгружает в фрейм хтмлку тест
+ *
  */
-@WebServlet(value="/TaskServlet")
-public class TaskServlet extends HttpServlet {
-    public static final String urlServer="http://oecdo.sgu.ru/textbooks/";
-    /** 
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+@WebServlet(value="/TestServlet")
+public class TestServlet extends HttpServlet {
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-      try{
+          if (request.getParameter("task").indexOf("$$")!=-1){
+              String s=request.getParameter("task");
+              while (s.indexOf("$")!=-1){
+                 s= s.replaceFirst("\\$+"," <img src='http://oec.sgu.ru/latex/latex.php?code=");
+                 s= s.replaceFirst("\\$+"," '/> ");
+              }
+                  out.print(s);
+              return;
+          }
           String str="";
           String[] urlTask=request.getParameter("task").split("/");
-          URL url = new URL(urlServer+request.getParameter("task"));
+          URL url = new URL(TaskServlet.urlServer+request.getParameter("task"));
           StringBuilder strbuf = new StringBuilder();
           BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
-          String mime = new MimetypesFileTypeMap().getContentType(new File(request.getParameter("task")));
-          if(!ObjectUtils.containsElement(FileUploadUtil.mimetypes, mime)){
-              while ((str = in.readLine()) != null) {strbuf.append(str);}
-              System.out.println(strbuf);
-              str=strbuf.toString().replaceAll("src='", "src='"+urlServer+"/"+urlTask[0]+"/"+((urlTask.length>2)?urlTask[1]:"")+"/");
-              str=str.replaceAll("src=\"", "src=\""+urlServer+"/"+urlTask[0]+"/"+((urlTask.length>2)?urlTask[1]:"")+"/");
-              System.out.println(str);
-              out.print("<link href=\"../resources/css/default.css\" rel=\"stylesheet\" type=\"text/css\" /> "+str);}
-          else out.print("Вы можете скачать этот файл! <br/>"
-              + "<a href=\""+url+"\"> скачать файл</a>"); 
-        } finally { 
-            out.close();
-        }
-    } 
+          while ((str = in.readLine()) != null) {strbuf.append(str);}
+          //в некоторых тестах пути нестандартные - сразу с тектбукс
+          if (strbuf.lastIndexOf("textbooks")==-1){
+             str=strbuf.toString().replaceAll("src='", "src='"+TaskServlet.urlServer+"/"+urlTask[0]+"/"+urlTask[1]+"/");
+             str=str.replaceAll("src=\"", "src=\""+TaskServlet.urlServer+urlTask[0]+"/"+urlTask[1]+"/"+urlTask[2]+"/");
+           }else{
+             str=strbuf.toString().replaceAll("src=\"../textbooks/", "src=\""+TaskServlet.urlServer);;
+          }            
+          out.print(str);}
+
+  
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
