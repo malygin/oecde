@@ -28,10 +28,10 @@
             </ol>
        <div class="violMenuTitle"><p class="sideBarTitle">#{msgs.student_chatMenuTitle}</p></div>
         <div class="sideBarUnderTitleText"><div class="violUnderTitleLink"><a href="#">#{msgs.student_generalChatLink} </a></div></div>
-        <div id="chatShortHistory" class="chatShortHistory">
+        <div id="chatShortHistory1" class="chatShortHistory">
         </div>
         <div class="smallChatTools">
-            <input id="message"/><button id="button"></button>
+            <input id="message1"/><button id="button1"></button>
             <div style="height:18px;"></div>
         </div>
         </ui:define>
@@ -83,6 +83,13 @@
                 <li><a href="teacher_forum_tech.xhtml">#{msgs.admin_forumMenuTeachOrgForum}</a></li>
 <!--                <li><a href="index.xhtml">#{msgs.admin_forumMenuCityForums}</a></li>-->
             </ol>
+       <div class="violMenuTitle"><p class="sideBarTitle">Админский Чат</p></div>
+        <div id="chatShortHistory2" class="chatShortHistory">
+        </div>
+        <div class="smallChatTools">
+            <input id="message2"/><button id="button2"></button>
+            <div style="height:18px;"></div>
+        </div>
         <ut:usersOnline/>
             <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.admin_adminsOnlineMenuTitle}</p></div>
             <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="usersOnlineList.xhtml?type=admin">#{msgs.admin_adminsOnlineUnderTitleText} (#{usersInCache.adminsNumber})</a></div></div>

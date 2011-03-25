@@ -32,6 +32,6 @@ public interface IChatDao extends IUpdateDao<ChatMessage> {
      * @return лист сообщений чата
      * @throws DataAccessException
      */
-    public List<ChatMessage> getChatList(Long roomId, int number) throws DataAccessException ;
+    public List<ChatMessage> getChatList(ChatRoom room, int number) throws DataAccessException ;
 
 }

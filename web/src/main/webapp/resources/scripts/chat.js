@@ -1,38 +1,41 @@
+      $(document).ready(function() {
+                             chatAction(1)});
+     $(document).ready(function() {
+                             chatAction(2)});
 
-       $(document).ready(function(){
-                 update();
-                 $('#button').click(function(){
+           function chatAction(roomId) {
+                 update(roomId);
+                 $('#button'+roomId).click(function(){
                        $.post('../ChatList',
-                              { message: $('#message').val()},
+                              { message: $('#message'+roomId).val(), room: roomId},
                               function(data){
-                                    update();
-                                    $('#message').val('');
+                                    update(roomId);
+                                    $('#message'+roomId).val('');
                                }
                        );
-                       });
-                  $('#message').keypress(function(e) {
+                  });
+                  $('#message'+roomId).keypress(function(e) {
                         if(e.which == 13) {
                            $.post('../ChatList',
-                              { message: $('#message').val()},
-                              function(data){
-                                    update();
-                                    $('#message').val('');
+                           { message: $('#message'+roomId).val(), room: roomId},
+                               function(data){
+                                    update(roomId);
+                                    $('#message'+roomId).val('');
                               }
                             );
                         }
                     });
-        });
+           }
 
-         function update(){
-            $.post("../ChatList", {}, function(data){                       
+         function update(roomId){
+            $.post("../ChatList", {room: roomId}, function(data){
                             var object = $.parseJSON(data);
-                            $('#chatShortHistory').empty();
-                            $.each(object.Super, function() {
-                           
-                                     $('#chatShortHistory').prepend( '<div class="chatPost"><span><span class="'+this.type+'" ><a href="'+this.link+'.xhtml?id='+this.id+'" title="'+this.fio+'">'+this.fio+'</a></span><span class="chatPostDate">'+this.date+'</span><div class="floatDestroyer"/></span><span class="chatPostText">'+this.message+'</span><div class="floatDestroyer"/></div>');
+                            $('#chatShortHistory'+roomId).empty();
+                            $.each(object.Super, function() {                           
+                                     $('#chatShortHistory'+roomId).prepend( '<div class="chatPost"><span><span class="'+this.type+'" ><a href="'+this.link+'.xhtml?id='+this.id+'" title="'+this.fio+'">'+this.fio+'</a></span><span class="chatPostDate">'+this.date+'</span><div class="floatDestroyer"/></span><span class="chatPostText">'+this.message+'</span><div class="floatDestroyer"/></div>');
                             });
-                            $('#chatShortHistory').scrollTop(4000);
+                            $('#chatShortHistory'+roomId).scrollTop(8000);
              });
-             setTimeout('update()', 11000);
+             setTimeout('update('+roomId+')', 4000);
          }
 

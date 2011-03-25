@@ -13,7 +13,9 @@ public class ChatRoom extends BasicItem {
 
     public ChatRoom() {
     }
-
+    public ChatRoom(Long id) {
+        this.setId(id);
+    }
 
     public String getName() {
         return name;

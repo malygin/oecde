@@ -7,6 +7,8 @@ package org.sgu.oecde.web.jsfbeans.chat;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.AbstractList;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.sgu.oecde.chat.ChatMessage;
+import org.sgu.oecde.chat.ChatRoom;
 import org.sgu.oecde.chat.IChatDao;
 import org.sgu.oecde.core.users.Admin;
 import org.sgu.oecde.core.users.Teacher;
@@ -35,7 +38,8 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 @WebServlet(value="/ChatList", loadOnStartup=1)
 public class ChatList extends HttpServlet {
     private static final int number=25;
-    private List<ChatMessage> list;
+    private List<ChatMessage> listGeneralChat;
+    private List<ChatMessage> listAdminChat;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -51,20 +55,27 @@ public class ChatList extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
           //  System.out.println("!" +list);
-            if (list == null){
+            if ((listGeneralChat == null) || (listAdminChat == null) ){
               ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
               IChatDao myDao = (IChatDao) context.getBean("chatDao");
-
-              list= myDao.getChatList(1L, number);
+              listGeneralChat= myDao.getChatList(new ChatRoom(1L), number);
+              listAdminChat= myDao.getChatList(new ChatRoom(2L), number);
 
             }
+
+            List<ChatMessage> list= new ArrayList<ChatMessage>();
+            switch(Integer.parseInt(request.getParameter("room"))){
+                     case 1:  list = listGeneralChat; break;
+                     case 2:  list = listAdminChat; break;
+             }
+
             if(StringUtils.hasText(request.getParameter("message"))){
                   ChatMessage message=new ChatMessage();
                   message.setAuthor(SecurityContextHandler.getUser());
                   message.setDateMessage(DateConverter.convert(System.currentTimeMillis()));
                   message.setMessage(request.getParameter("message").replaceAll("////","").replaceAll("\\\\",""));
+                  message.setRoom(new ChatRoom(Long.parseLong(request.getParameter("room"))));
                   list.add(0, message);
-                  
                   ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
                   IChatDao myDao = (IChatDao) context.getBean("chatDao");
                   myDao.save(message);
@@ -73,7 +84,7 @@ public class ChatList extends HttpServlet {
 
             StringBuffer str=new StringBuffer();
             str.append("{\"Super\": [");
-                    for(ChatMessage l:list ){                           
+                    for(ChatMessage l:list ){                         
            
                               if (l.getAuthor()!=null){
                                      str.append("{\"fio\": \"");

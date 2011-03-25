@@ -3,6 +3,7 @@ package org.sgu.oecde.chat;
 
 import java.util.List;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Property;
 import org.sgu.oecde.core.UpdateDao;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
@@ -26,17 +27,17 @@ public class ChatDao  extends UpdateDao<ChatMessage> implements IChatDao {
     @Transactional
     @Override
     public void save(ChatMessage message) throws DataAccessException {
-        getSession().save(message);
+        getSession().merge(message);
     }
    
     @Override
  /**
   * @todo сделать комнаты, если понадобиться
   */
-    public List<ChatMessage> getChatList(Long roomId, int number) throws DataAccessException {
+    public List<ChatMessage> getChatList(ChatRoom room, int number) throws DataAccessException {
 
          return getSession().createCriteria(type).addOrder(Order.desc("dateMessage")).
-              //   add(Property.forName("room").eq(roomId)).
+                 add(org.hibernate.criterion.Property.forName("room").eq(room)).
                  setMaxResults(number).list();
 
     }
