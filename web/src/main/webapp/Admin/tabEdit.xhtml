@@ -11,7 +11,7 @@
             </f:metadata>
             <h:form id="edit">
                 <br/>
-                <div  style="float: left; margin-right: 10px;">
+                <div class="includeName">
                 <span  class="AdminTextGrey">
                 #{msgs.admin_mainContentInsertName}
                 </span>
@@ -26,8 +26,8 @@
                 </h:selectOneMenu>
                 </div>
                 <div style="margin-top: 10px;">
-                 <div class="AdminNavigationLinksBold" style="float:left; margin-right: 20px;"><span style="  background: url('../resources/images/return_to_list.gif') no-repeat 0 0;"><h:outputLink value="tabsView.xhtml" style="margin-left: 17px;">к списку</h:outputLink></span></div>
-                 <div class="AdminNavigationLinksBold"><span style="  background: url('../resources/images/news_delete.gif') no-repeat 0 0;"><h:commandLink action="#{tabEditBean.deleteTab}" id="del" value="удалить вкладку" style="margin-left: 17px;"/></span></div>
+                    <div class="AdminNavigationLinksBold includeName"><span class="return_to_list"><h:outputLink value="tabsView.xhtml" styleClass="margFromBackground">к списку</h:outputLink></span></div>
+                 <div class="AdminNavigationLinksBold"><span class="news_delete"><h:commandLink action="#{tabEditBean.deleteTab}" id="del" value="удалить вкладку" styleClass="margFromBackground"/></span></div>
                 </div>
                 <h:dataTable styleClass="studentStandatrTable" columnClasses="studentStandatrTableTd,studentStandatrTableTd,studentStandatrTableTd studentStandatrTableExamin,studentStandatrTableTdLastTd studentStandatrTableExamin" cellpadding="0" cellspacing="0"  id="pages" value="#{setToList.getList(tabEditBean.tab.pages)}" var="p">
                     <h:column>
@@ -57,8 +57,8 @@
                     </h:column>
                 </h:dataTable>
                 <div style="text-align: center; padding-top: 5px;">
-                <span class="AdminNavigationLinksBold" style="  background: url('../resources/images/save.gif') no-repeat 0 0;">
-                    <h:commandLink id="updt" value="#{msgs.admin_mainContentSave}" style="margin-left: 17px;">
+                <span class="AdminNavigationLinksBold saveChanges">
+                    <h:commandLink id="updt" value="#{msgs.admin_mainContentSave}" styleClass="margFromBackground">
                         <f:ajax execute="@form" render="@form" event="click" listener="#{tabEditBean.updateTab}"/>
                     </h:commandLink>
                 </span>
@@ -67,8 +67,8 @@
             <br/>
             <hr/>
             <br/>
-            <span class="AdminNavigationLinksBold" style="  background: url('../resources/images/add_page.gif') no-repeat 0 0;">
-                <h:outputLink value="pageEdit.xhtml?id=#{tabEditBean.tab.id}" style="margin-left: 17px;">#{msgs.admin_mainContentAddPage}</h:outputLink>
+            <span class="AdminNavigationLinksBold add_page">
+                <h:outputLink value="pageEdit.xhtml?id=#{tabEditBean.tab.id}" styleClass="margFromBackground">#{msgs.admin_mainContentAddPage}</h:outputLink>
             </span>
         </div>
     </ui:define>

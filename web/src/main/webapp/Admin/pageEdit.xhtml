@@ -7,7 +7,7 @@
 
     <ui:define name="content">
         <div class="interfaceContent">
-            <div style="text-align: right; padding-top: 5px;">
+            <div class="backLinkPosition">
                 <span class="AdminNavigationLinksBold">
                     <h:outputLink value="tabEdit.xhtml?id=#{tabEditBean.tab.id}">Hазад</h:outputLink>
                 </span>
@@ -78,8 +78,8 @@
                         <h:selectBooleanCheckbox id="image" value="#{f.image}"/>
                     </h:column>
                     <h:column>
-                        <span class="AdminNavigationLinksBold" style="background: url('../resources/images/news_delete.gif') no-repeat 0 0;">
-                        <h:commandLink id="delF" value="#{msgs.admin_mainContentDelete}" style="margin-left: 17px;">
+                        <span class="AdminNavigationLinksBold news_delete">
+                        <h:commandLink id="delF" value="#{msgs.admin_mainContentDelete}">
                             <f:attribute name="file" value="#{f}"/>
                             <f:ajax render="@form"  listener="#{tabEditBean.deleteFile}"/>
                         </h:commandLink>
@@ -87,10 +87,10 @@
                     </h:column>
                 </h:dataTable>
 
-                <div style="text-align: right; padding-top: 5px;">
-                    <span class="AdminNavigationLinksBold">
+                <div class="backLinkPosition">
+                    <span class="AdminNavigationLinksBold saveChanges">
                     <h:commandLink rendered="#{tabEditBean.pageId eq null}" action="#{tabEditBean.updateTab}" id="newBtn" value="#{msgs.admin_mainContentSaveChanges}"/>
-                    <span style=" background: url('../resources/images/save.gif') no-repeat 0 0;"><h:commandLink rendered="#{tabEditBean.pageId ne null}" id="updt" value="#{msgs.admin_mainContentSaveChanges}" style="padding-left: 17px;">
+                    <span><h:commandLink rendered="#{tabEditBean.pageId ne null}" id="updt" value="#{msgs.admin_mainContentSaveChanges}">
                         <f:ajax execute="@form" render="@form" event="click" listener="#{tabEditBean.updateTab}"/>
                         </h:commandLink>
                     </span>

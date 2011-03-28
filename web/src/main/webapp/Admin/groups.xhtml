@@ -5,19 +5,18 @@
          template="../resources/adminTemplate.xhtml">
         <ui:define name="content">
             <div class="interfaceContent">
-                <h:dataTable id="table" value="#{citiesAndGroups.cities}" var="w" styleClass="StudentBorderInfo" cellspacing="0" cellpadding="0" style="width: 100%;"
-                              columnClasses="StudentBorderInfoTd,
-                                               ">
+                <h:dataTable id="table" value="#{citiesAndGroups.cities}" var="w" styleClass="StudentBorderInfo  centerTextInTables" cellspacing="0" cellpadding="0" style="width: 100%;"
+                              columnClasses="StudentBorderInfoTd,">
                 <h:column>
                     <f:facet name="header">
-                     <h:outputText value="Город" styleClass="DisciplineText" style="display: block; text-align: center !important;"/>
+                     <h:outputText value="Город" styleClass="DisciplineText"/>
                     </f:facet>
-                    <h:outputText value="#{w.key.name}" style="text-align:center; color: grey;"/>
+                    <h:outputText value="#{w.key.name}" styleClass="townsInTableGroups"/>
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Группы" styleClass="DisciplineText" style="display: block;  text-align: center !important;"/>
+                        <h:outputText value="Группы" styleClass="DisciplineText"/>
                     </f:facet>
                     <h:dataTable value="#{w.value}" var="s" cellspacing="0" cellpadding="0" border="0" styleClass="StudentBorderInfoTableCity" style="width: 100%;">
                         <h:column>
