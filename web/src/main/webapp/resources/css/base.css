@@ -3,207 +3,12 @@
     Created on : 06.07.2010, 10:40:52
     Author     : KorgovVD
     Description:
-        Purpose of the stylesheet follows.
+       базовые стили для всех пользователей
 */
 
-/*
-   TODO customize this sample style
-   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
-*/
-
-/*
-   base-disign styles
-*/
-.mainStyle .studentButton{
-   background: url('../resources/images/pic_for_Button_main.jpg');
-
-    color: #00194F;
-    cursor: pointer;
-    font-size: 10pt;
-    background-color: #EFF9FF;
-    border: 1px solid #7F9DB9;
-    margin-top: 10px;
-}
 
 
-.mainStyle .adminButton{
-/*    background: url('../resources/images/button.jpg');*/
-
-    color: #6F1B1B;
-    cursor: pointer;
-    font-size: 10pt;
-    background-color: #FFEFEF;
-    border: 1px solid #B97F7F;
-    margin-top: 10px;
-}
-.mainStyle .studentButtonRed{
-    background: url('../resources/images/pic_for_Button_Red.jpg');
-    color: #6F1B1B;
-    cursor: pointer;
-    font-size: 10pt;
-    background-color: #FFEFEF;
-    border: 1px solid #B97F7F;
-    margin-top: 10px;
-
-}
-.mainStyle .StudentBorderInfo{
-     border: 1px solid #CFCFCF;
-}
-.mainStyle .StudentBorderInfo tr td:nth-child(1){
-      border-bottom: 1px solid #CFCFCF;
-}
-
-.mainStyle .StudentBorderInfo th{
-    border-bottom: 1px solid #CFCFCF;
-}
-.mainStyle .StudentBorderInfo th:nth-child(1){
-     height: 30px;
-}
-.mainStyle .StudentBorderInfo th:nth-child(2){
-     border-bottom: 1px solid #CFCFCF;
-     border-left: 1px solid #CFCFCF;
-}
-.mainStyle .StudentBorderInfoTd span{
-    text-align: center !important;
-    display: block;
-}
-/*.mainStyle .StudentBorderInfo th:nth-child(1){
-    border-right: 1px solid #C0C0C0;
-}
-.mainStyle .StudentBorderInfo td:nth-child(1){
-     border-bottom: 1px solid #C0C0C0;
-     border-right: 1px solid #C0C0C0;
-}
-.mainStyle .StudentBorderInfo td:nth-child(2){
-     border-bottom: 1px solid #C0C0C0;
-}
-.mainStyle .StudentBorderInfoTableGroup{
-    border-right: 1px solid #C0C0C0;
-    border-bottom: 0px !important;
-}*/
-
-.mainStyle .StudentBorderInfo .StudentBorderInfoTableCity{
-  border-bottom: 1px solid #CFCFCF;
-  text-indent: 5px;
-}
-.mainStyle .StudentBorderInfo .StudentBorderInfoTableCity tr:last-child td{
-     border-bottom: 0 !important;
-}
-.mainStyle .StudentBorderInfo .StudentBorderInfoTableCity td{
-      border-left: 1px solid #CFCFCF;
-       border-right: 1px solid #CFCFCF;
-       border-bottom: 1px solid #CFCFCF;
-     width: 100%;
-     color: #1F1D1D;
-}
-.mainStyle .StudentBorderInfo .StudentBorderInfoTableCity td:nth-child(2){
-    width: 50px;
-}
-.mainStyle .StudentBorderInfo .StudentBorderInfoTableCity .StudentBorderInfoTableNumberGroup td{
-     border: 0 !important;
-     width: 100%;
-     text-align: center;
-}
-.mainStyle .TestCounter {
-    color: #EF5D0E;
-    font-size: 11pt;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-right: 25px;
-    padding: 5px;
-    text-align: center;
-    width: 50px;
-}
- .mainStyle .StudentTablePadding{
-                padding: 10px;
-                margin: 0 !important;
-}
-.StudentTestsPadding{
-    padding-left: 10px;
-}
-.educ_umk_text_block{
-   margin-left: 10px;
-   display: block;
-}
- .educ_umk_text {
-margin-bottom: 2px;
-margin-left: 28px;
-}
-.educ_content_title {
-margin-bottom: 5px;
-margin-left: 30px;
-margin-top: 2px;
-}
-.my_educ_text ol {
-margin-left: 0;
-}
-.my_educ_disc_reason{
-list-style: none;
-}
-.my_educ_disc_reason li{
-margin-left: 23px;
-}
-.mainStyle .controlWorksDisciplineNameLink a{font-size: 9pt !important;}
-.previewText{
-                font-size: 8pt;
-            }
-            .mainStyle .changeSemestrBlock div{
-                margin: 3px 0px;
-                border: 1px solid silver;
-                padding: 5px;
-            }
-            .indexChangeSemestrPanel div{
-                border: 1px solid silver;
-            }
-            .indexChangeSemestrPanel div div{
-                background: none !important;
-                border: 0px;
-            }
-            .indexChangeSemestrPanel div div div{
-               color: #686E6F;
-                font-weight: bolder;
-                 padding-left: 10px;
-            }
-             
- .indentionInNavigation{
-                padding-left: 10px; color: gray; font-size: 12pt !important;
-                height: 20px;
-
-}
-  .mainStyle .studentStandatrTableBorder{
-                                border-right: 1px solid #D1E0EF;
-}
-
-.controlWorksBorders{
-                    border-bottom: 1px solid #D1E0EF;
-                     padding-bottom: 10px;
-                    padding-top: 10px;
-                }
-                .mainStyle .DisciplineText{
-                  font-size: 11pt;
-                font-weight: normal !important;
-                color: #27587F !important;
-                font-family: Arial;
-                padding-left: 12px;
-
-             }
- .my_educ_disc_reason span{
-color: black;
-}
- .studentStandatrTableBorder{
-    border-right: 1px solid #D1E0EF;
-}
-.StudentTimeTable{
-    padding: 3px 3px 10px 3px;
-    border: 1px solid silver;
-}
-.StudentSecondLineBlocks{
-    padding: 3px 3px 0px 3px; border: 1px solid silver;
-}
-.mainStyle .interfaceContent{
-/*    padding: 0px 10px 0px 10px !important;*/
-    text-align: left;
-}
+/*стили для бэйзТемплэйт*/
 .mainStyle .firstBorder{
     border-color: white;
     -o-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
@@ -218,6 +23,9 @@ color: black;
     width: 16%;
     float: left;
     padding-top: 20px;
+}
+.mainStyle .leftMenuContainer{
+    width: 100%;
 }
 .mainStyle .rightPagePart{
     margin-left: 16%;
@@ -244,69 +52,15 @@ color: black;
         margin-right:  0px;
     }
 }
-.mainStyle .leftMenu{
-
-}
 .mainStyle .contentArea{
     width: 80%;
     float: left;
     border-right: 1px solid #9E9E9E;
 }
-.mainStyle .FIOplace{
-    border-color: white;
-    border-image: url("../resources/images/fioPlaceBorder.png") 12 12 9 22 round round;
-    -moz-border-image: url("../resources/images/fioPlaceBorder.png") 12 12 9 22 round round;
-    -webkit-border-image: url("../resources/images/fioPlaceBorder.png") 12 12 9 22 round round;
-    border-width: 0px;
-    border-left-width: 20px;
-    border-bottom-width: 9px;
-    border-style: solid;
-    height: 45px;
-    text-align: left;
-}
-.mainStyle .sguLink{
-    color: #A3A3A3;
-    text-decoration: none;
-    font-size: 10pt;
-    font-weight: bold;
-    margin: 0px;
-    font-family: Arial;
-}
-
-.mainStyle .sguLink a:link {color: #A3A3A3; text-decoration: none; font-size: 10pt; font-weight: bold;margin: 0px;font-family: Arial;}
-.mainStyle .sguLink a:visited {color: #A3A3A3; text-decoration: none; font-size:10pt; font-weight: bold;margin: 0px; font-family: Arial;}
-.mainStyle .sguLink a:active {color: #A3A3A3; text-decoration:  underline;font-size: 10pt;font-weight: bold;margin: 0px; font-family: Arial;}
-.mainStyle .sguLink a:hover {color: #A3A3A3; text-decoration: underline; font-size: 10pt; font-weight: bold; margin: 0px; font-family: Arial;}
-
-.mainStyle .greenFIO{
-    color: #64D359;
-    text-decoration: none;
-    font-size: 11pt;
-    font-weight: bold;
-    margin-top: 3px;
-    margin-bottom: 0px;
-}
-.mainStyle .blueFIO{
-    color: #00A4FF;
-    text-decoration: none;
-    font-size: 11pt;
-    font-weight: bold;
-    margin-top: 3px;
-    margin-bottom: 0px;
-}
-.mainStyle .bottom{
-    border-color: white;
-    border-image: url("../resources/images/bottomMenuBorder.png") 12 5 5 12 round round;
-    -moz-border-image: url("../resources/images/bottomMenuBorder.png") 12 5 5 12 round round;
-    -webkit-border-image: url("../resources/images/bottomMenuBorder.png") 12 5 5 12 round round;
-    border-width: 12px;
-    border-right-width: 5px;
-    border-style: solid;
-}
 .mainStyle .content{
     border-left: 1px solid #9E9E9E;
     border-top: 1px solid #9E9E9E;
-    margin-top: 5px;
+/*    margin-top: 5px;*/
     min-height: 1060px;
 }
 /*temporary styles for page content part*/
@@ -317,68 +71,87 @@ color: black;
 .mainStyle .content a:visited {color: #8BB5DF; text-decoration: none; font-size:10pt; font-weight: bold;margin: 0px; font-family: Arial;}
 .mainStyle .content a:active {color: #8BB5DF; text-decoration: none;font-size: 10pt;font-weight: bold;margin: 0px; font-family: Arial;}
 .mainStyle .content a:hover {color: #A3A3A3; text-decoration: none; font-size: 10pt; font-weight: bold; margin: 0px; font-family: Arial;}
-/*temporary style for page content part*/
-.mainStyle .leftMenuContainer{
-    width: 100%;
-}
-.mainStyle .topMenuLinks{
-    list-style: none;
-    margin-left: 2%;
-    width: 98%;
-}
-.mainStyle .topMenuLinkContainer{
-    float: left;
-    margin-right: 10px;
-    margin-top: 8px;
-    padding-right: 10px;
-    border-right:1px solid #E0E0E0;
-}
-.mainStyle .topMenuLinkContainer a:link {color: #959595; text-decoration: none; font-size: 100%; font-weight: normal; padding-top:0px;}
-.mainStyle .topMenuLinkContainer a:visited {color: #959595; text-decoration: none; font-size: 100%; font-weight: normal; padding-top:0px;}
-.mainStyle .topMenuLinkContainer a:active {color: #F95E62; text-decoration: none; font-size: 100%; font-weight: normal; padding-top:0px;}
-.mainStyle .topMenuLinkContainer a:hover {color: #F95E62; text-decoration: none; font-size: 100%; font-weight: normal;  padding-top:0px;}
 
-.mainStyle .topMenuLinkContainer p{
-    color:#AFAFAF;
-    font-family:Tahoma;
-    font-size: 100%;
-    font-weight:normal;
-    margin-bottom:0;
-    margin-top:0;
-    text-decoration:none;
-}
-.mainStyle .searchPannelContainer{
-    float: left;
-    margin-top: 7px;
-    width: 50%;
-    text-align: left;
-}
-.mainStyle .searchPannelContainer div{
+.mainStyle .contentHeader{
     width: 100%;
-    padding-left: 3px;
+    background: #79CEFF;
+    border-top: #0E96FF 1px solid;
+    border-bottom: #0E96FF 1px solid;
 }
-.mainStyle .topSearchInput{
-    height: 16px;
-    width: 82%;
-    background-image: url("../resources/images/search_small.jpg");
-    background-position: 2px 2px;
-    background-repeat: no-repeat;
-    padding-left: 14px;
-    border: 1px solid #B3B3B3;
-    font-size: 100%;
-    color: #B3B3B3;
+.mainStyle .contentHeader p{
+    font-size: 150%;
+    padding: 5px 0 5px 15px;
+    text-align: left;
+    color: white;
+    font-family: Arial;
     float: left;
 }
-.mainStyle .topSearchButton{
-    color: #B3B3B3;
-    background: none;
-    border: 1px solid #B3B3B3;
-    border-left: 0px;
-    height: 18px;
-    font-size: 100%;
-    width: 60px;
-    cursor: pointer;
+.mainStyle .interfaceContent{
+    text-align: left;
+    padding: 0px;
 }
+/* .mainStyle div.interfaceContent{
+    padding: 0px;
+}*/
+
+.mainStyle div.interfaceContent{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.mainStyle div.interfaceContentForMyMarks{
+     padding: 0px !important;
+}
+.mainStyle .interfaceContentWithoutPadding{
+    padding: 0px;
+    text-align: left !important;
+    text-indent: 10px;
+}
+.mainStyle .bottom{
+    border-color: white;
+    border-image: url("../resources/images/bottomMenuBorder.png") 12 5 5 12 round round;
+    -moz-border-image: url("../resources/images/bottomMenuBorder.png") 12 5 5 12 round round;
+    -webkit-border-image: url("../resources/images/bottomMenuBorder.png") 12 5 5 12 round round;
+    border-width: 12px;
+    border-right-width: 5px;
+    border-style: solid;
+}
+.mainStyle .bottomMenu{
+    list-style: none;
+    padding-left: 38%;
+}
+.mainStyle .bottomMenu li{
+    margin-top: 5px;
+    padding-bottom: 3px;
+}
+.mainStyle .bottomMenuLinkContainer{
+    float: left;
+    border-right: 1px solid #989898;
+    margin-right: 15px;
+    padding-right: 15px;
+    text-align: center;
+}
+.mainStyle .copyrightCOO{
+    float: right;
+    margin-right: 20px;
+}
+.mainStyle .bottomMenuLinkContainer a:link {color: #A3A3A3; text-decoration: none; font-size: 100%; font-weight: normal;  font-family: Tahoma;}
+.mainStyle .bottomMenuLinkContainer a:visited {color: #A3A3A3; text-decoration: none; font-size: 100%; font-weight: normal;  font-family: Tahoma;}
+.mainStyle .bottomMenuLinkContainer a:active {color: #A3A3A3; text-decoration: none; font-size: 100%; font-weight: normal;  font-family: Tahoma;}
+.mainStyle .bottomMenuLinkContainer a:hover {color: #636363; text-decoration: none; font-size: 100%; font-weight: normal;  font-family: Tahoma; }
+
+.mainStyle .copyrightCOO p{
+    color: #AFAFAF;
+    text-decoration: none;
+    font-size: 95%;
+    font-weight: normal;
+    font-family: Tahoma;
+    margin:0px;
+    padding: 0px;
+    margin-top: 2px;
+    line-height: 11px;
+}
+
+/*левая и правая панели для всех пользователей*/
 .mainStyle .blueMenuTitle{
     width: 100%;
     height: 19px;
@@ -471,65 +244,470 @@ color: black;
 .mainStyle .violUnderTitleLink a:visited {color: #A978FE; text-decoration: none; font-weight: normal; margin-left: 10px;}
 .mainStyle .violUnderTitleLink a:active {color: black; text-decoration: none; font-weight: normal; margin-left: 10px;}
 .mainStyle .violUnderTitleLink a:hover {color: black; text-decoration: none; font-weight: normal; margin-left: 10px;}
-/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> данный блок стилей является пережитком старого прошлого для системы*/
-.mainStyle .rightSideMenuLinks{
-    list-style: none;
+
+.mainStyle .userPhotoBorder{
+    border: 1px #4DB7F1 solid;
+    width: 96%;
+    padding: 3px;
+    background: white;
+}
+
+/*стили для фото всех пользователей*/
+.mainStyle .userPhoto{
+    float: left;
+    width: 15%;
+}
+.mainStyle .userPhotoBorder img{
     margin: 0px;
     padding: 0px;
-    width: 90%;
-    padding: 0 5%;
-    padding-top: 5px;
-    text-align: left;
+    vertical-align: top;
+    width: 100%;
 }
-.mainStyle .rightSideMenuLinks ol{
-    list-style-position: outside;
-    list-style-type: none;
-    padding: 0pt;
-    margin-left: 0pt;
-    margin-right: 0pt;
-    margin-top: 0pt;
-    margin-bottom: 1em;
+.mainStyle .userPhotoBorderAdmin{
+    border: 1px #FF796F solid;
+    width: 100%;
+    padding: 3px;
+    background: white;
 }
-.mainStyle .rightSideMenuLinks a:link {color: #71C5F4; text-decoration: none; font-size: 100%; font-weight: normal;}
-.mainStyle .rightSideMenuLinks a:visited {color: #71C5F4; text-decoration: none; font-size: 100%; font-weight: normal;}
-.mainStyle .rightSideMenuLinks a:active {color: #0E82C4; text-decoration: none; font-size: 100%; font-weight: normal;}
-.mainStyle .rightSideMenuLinks a:hover {color: #0E689C; text-decoration: none; font-size: 100%; font-weight: normal;}
-/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-.mainStyle .bottomMenu{
-    list-style: none;
-    padding-left: 38%;
+.mainStyle .userPhotoBorderStudent{
+    border: 1px #4DB7F1 solid;
+    width: 100%;
+    padding: 3px;
+    background: white;
 }
-.mainStyle .bottomMenu li{
-    margin-top: 5px;
-    padding-bottom: 3px;
+.mainStyle .userPhotoBorderTeacher{
+    border: 1px #74CF91 solid;
+    width: 100%;
+    padding: 3px;
+    background: white;
 }
-.mainStyle .bottomMenuLinkContainer{
-    float: left;
-    border-right: 1px solid #989898;
-    margin-right: 15px;
-    padding-right: 15px;
+/*тесты для студентов*/
+.mainStyle .StudentTestStartPages td:nth-child(1){
+    color: gray !important;
+}
+.mainStyle .StudentTestStartPages td:nth-child(2){
+     color: #373E3F !important;
+    font-weight: bolder !important;
+    text-indent: 3px;
+}
+.mainStyle .TestCounter {
+    color: #EF5D0E;
+    font-size: 11pt;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-right: 25px;
+    padding: 5px;
+    text-align: center;
+    width: 50px;
+}
+.StudentTestsPadding{
+    padding-left: 10px;
+}
+.educ_umk_text_block{
+   margin-left: 10px;
+   display: block;
+}
+ .educ_umk_text {
+    margin-bottom: 2px;
+    margin-left: 28px;
+}
+.educ_content_title {
+    margin-bottom: 5px;
+    margin-left: 30px;
+    margin-top: 2px;
+}
+
+/*кнопки*/
+.mainStyle .adminButton{
+    color: #6F1B1B;
+    cursor: pointer;
+    font-size: 10pt;
+    background-color: #FFEFEF;
+    border: 1px solid #B97F7F;
+    margin-top: 10px;
+}
+.mainStyle .studentButton{
+    background: url('../resources/images/pic_for_Button_main.jpg');
+    color: #00194F;
+    cursor: pointer;
+    font-size: 10pt;
+    background-color: #EFF9FF;
+    border: 1px solid #7F9DB9;
+    margin-top: 10px;
+}
+.mainStyle .studentButtonRed{
+    background: url('../resources/images/pic_for_Button_Red.jpg');
+    color: #6F1B1B;
+    cursor: pointer;
+    font-size: 10pt;
+    background-color: #FFEFEF;
+    border: 1px solid #B97F7F;
+    margin-top: 10px;
+}
+.mainStyle .saveButton{
+    width: 100px !important;
+}
+/*стили для таблиц*/
+.mainStyle .studentStandatrTable *{
+    text-align: left !important;
+
+}
+.mainStyle .studentStandatrTable .studentStandatrTableExamin{
+    text-align: center !important;
+}
+
+.mainStyle .studentStandatrTable{
+    margin-top: 10px;
+    width: 100%;
+}
+.mainStyle .studentStandatrTableTdFirstWidth{
+    width: 30%;
+}
+.mainStyle .studentStandatrTable th{
+    font-weight: normal;
+    font-size: 8pt;
+    text-align: center !important;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-bottom: 3px double silver;
+    padding: 1px;
+    background: #EFEFEF;
+    padding: 7px 0px;
+    color: gray;
+    padding: 3px 3px;
+}
+.mainStyle .studentStandatrTableForChrome{
+    font-weight: normal;
+    font-size: 8pt;
+    text-align: center !important;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-bottom: 3px double silver;
+    padding: 1px;
+    background: #EFEFEF;
+    padding: 7px 0px;
+    color: gray;
+    padding: 3px 3px;
+}
+.mainStyle .studentStandatrTableTdLastTdForChrome{
+     text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+}
+.mainStyle .studentStandatrTableTdForChrome{
+      text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+}
+mainStyle .studentStandatrTable tr td .AdminIndent{
+    text-align: left !important;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+body:first-of-type .mainStyle .AdminAddAvatar{
+    background: #FFE1DF !important;
+    border: 1px solid #DF9E99;
+}
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+body:first-of-type .mainStyle .StudentWriteMess{
+     background: none !important;
+    border: 1px solid #7F9DB9;
+}
+}
+.mainStyle .studentStandatrTable .studentStandatrTableTd{
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+}
+.mainStyle .studentStandatrTable .studentStandatrTableTdLastTd{
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+}
+.mainStyle .studentStandatrTable .studentStandatrTableTdWithBorder{
+ border: 1px solid #EFEFEF;
+ border-left: 0px;
+ border-top: 0px;
+}
+.mainStyle .studentStandatrTable .studentStandatrTableTdWithBorderBrighter{
+    /*border: 1px solid #DFDFDF !important;*/
+    border-left: 0px;
+    border-top: 0px;
+}
+.mainStyle .StudentTablePadding  th img{
+    margin: auto;
+}
+ .studentStandatrTableTdTests{
+     border: 1px solid #D1E0EF !important;
+     border-left: 0px !important;
+    border-right: 0px !important;
+    border-top: 0px !important;
+}
+  .studentStandatrWidth{
+    width: 40%;
+    text-indent: 10px;
+}
+
+.mainStyle .studentStandatrTable .studentStandatrTableTdLastTdwithBorder{
+    text-align: center !important;
+    border: 1px solid #EFEFEF;
+     border-left: 0px;
+     border-right: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+ }
+ .mainStyle .studentStandatrTableBorder{
+    border-right: 1px solid #D1E0EF;
+}
+.mainStyle .studentStandatrTableCenter{
+    text-align: center !important;
+    vertical-align:middle;
+    font-size: 8pt;
+    font-weight: normal;
+}
+.mainStyle .studentStandatrTableTdWithBorder1{
+    color: #DFDFDF !important;
+}
+ .mainStyle .changeSemWithoutBorder div{
+                border-bottom: 0px !important;
+}
+.mainStyle .StudentTablePadding th:nth-child(4){
+    width: 30px;
+}
+.mainStyle .StudentBorderInfo{
+     border: 1px solid #CFCFCF;
+}
+.mainStyle .StudentBorderInfo tr td:nth-child(1){
+      border-bottom: 1px solid #CFCFCF;
+}
+
+.mainStyle .StudentBorderInfo th{
+    border-bottom: 1px solid #CFCFCF;
+}
+.mainStyle .StudentBorderInfo th:nth-child(1){
+     height: 30px;
+}
+.mainStyle .StudentBorderInfo th:nth-child(2){
+     border-bottom: 1px solid #CFCFCF;
+     border-left: 1px solid #CFCFCF;
+}
+.mainStyle .StudentBorderInfoTd span, .centerTextInTables th span{
+    text-align: center !important;
+    display: block;
+}
+.mainStyle .StudentBorderInfo .StudentBorderInfoTableCity{
+  border-bottom: 1px solid #CFCFCF;
+  text-indent: 5px;
+}
+.mainStyle .StudentBorderInfo .StudentBorderInfoTableCity tr:last-child td{
+     border-bottom: 0 !important;
+}
+.mainStyle .StudentBorderInfo .StudentBorderInfoTableCity td{
+      border-left: 1px solid #CFCFCF;
+       border-right: 1px solid #CFCFCF;
+       border-bottom: 1px solid #CFCFCF;
+     width: 100%;
+     color: #1F1D1D;
+}
+.mainStyle .StudentBorderInfo .StudentBorderInfoTableCity td:nth-child(2){
+    width: 50px;
+}
+.mainStyle .StudentBorderInfo .StudentBorderInfoTableCity .StudentBorderInfoTableNumberGroup td{
+     border: 0 !important;
+     width: 100%;
+     text-align: center;
+}
+.mainStyle .studentTabInStandartTable{
+    width: 100%;
+}
+.mainStyle .studentTabInStandartTable .studentTabInStandartTableTh{
+    border: 0px;
+    border-bottom: 1px solid silver;
+    background: none;
+    padding: 0px;
+}
+.mainStyle .nullSign{
+    color:red;
+    font-weight: bolder;
+}
+.mainStyle .studentTabInStandartTable .studentTabInStandartTableThContainer{
+    border-right: 1px solid silver;
+    height: 100%;
+    text-align: center;
+    padding: 3px;
+}
+.mainStyle .studentTabInStandartTable .studentTabInStandartTableLeftTd{
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+    padding: 3px 0px;
+}
+.mainStyle .studentTabInStandartTable .studentTabInStandartTableRightTd{
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+    padding: 3px 0px;
+}
+.mainStyle .studentStandatrTable .studentStandatrTableSubtableTd{
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-top: 0px;
+    border-bottom: 0px;
+    font-size: 8pt;
+}
+.mainStyle .studentStandatrTable th:nth-last-child(1),
+.mainStyle .studentStandatrTable tr:nth-last-child(1){
+    border-right: 0px !important;
+}
+ .studentStandatrTable tr td:nth-child(2){
     text-align: center;
 }
-.mainStyle .copyrightCOO{
-    float: right;
-    margin-right: 20px;
+.mainStyle .student_gradesTableHeadTeacherWidth{
+    width: 50px;
 }
-.mainStyle .bottomMenuLinkContainer a:link {color: #A3A3A3; text-decoration: none; font-size: 100%; font-weight: normal;  font-family: Tahoma;}
-.mainStyle .bottomMenuLinkContainer a:visited {color: #A3A3A3; text-decoration: none; font-size: 100%; font-weight: normal;  font-family: Tahoma;}
-.mainStyle .bottomMenuLinkContainer a:active {color: #A3A3A3; text-decoration: none; font-size: 100%; font-weight: normal;  font-family: Tahoma;}
-.mainStyle .bottomMenuLinkContainer a:hover {color: #636363; text-decoration: none; font-size: 100%; font-weight: normal;  font-family: Tahoma; }
+/*блок изменить семестр*/
+ .mainStyle .changeSemestrBlock div{
+    margin: 3px 0px;
+    border: 1px solid silver;
+    padding: 5px;
+}
+.indexChangeSemestrPanel div{
+    border: 1px solid silver;
+}
+.indexChangeSemestrPanel div div{
+    background: none !important;
+    border: 0px;
+}
+.indexChangeSemestrPanel div div div{
+   color: #686E6F;
+   font-weight: bolder;
+   padding-left: 10px;
+}
+.mainStyle .changeSemestr{
+    background: #e2f3fc;
+    color: #4593DF;
+    padding: 4px 5px 3px 5px;
+}
+/*стили для текста*/
+ .mainStyle .DisciplineText{
+    font-size: 11pt;
+    font-weight: normal !important;
+    color: #27587F !important;
+    font-family: Arial;
+    padding-left: 12px;
+ }
+ .mainStyle .prosto_tekst {
+    padding-top: 10px;
+}
+.mainStyle .prosto_tekst p {
+    color: black;
+    margin: 0;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    text-align: justify;
+}
+.mainStyle .prosto_tekst .help_part {
+    color: #2DA0BA !important;
+    font-size: 10pt;
+    margin-left: 10px;
+    padding-top: 5px;
+}
+.mainStyle .prosto_tekst .comment {
+    border-bottom: 1px solid lightblue;
+    border-top: 1px solid lightblue;
+    color: #4C4C4C !important;
+    font-size: 8pt;
+    padding-bottom: 10px;
+}
+.mainStyle .centerAlignText{
+    text-align: center !important;
+}
+.mainStyle .controlWorksDisciplineNameLink a{font-size: 9pt !important;}
+.previewText{
+                font-size: 8pt;
+            }           
+ .indentionInNavigation{
+                padding-left: 10px; color: gray; font-size: 12pt !important;
+                height: 20px;
+}
+/*temporary style for page content part*/
 
-.mainStyle .copyrightCOO p{
-    color: #AFAFAF;
-    text-decoration: none;
-    font-size: 95%;
-    font-weight: normal;
-    font-family: Tahoma;
-    margin:0px;
-    padding: 0px;
-    margin-top: 2px;
-    line-height: 11px;
+.mainStyle .topMenuLinks{
+    list-style: none;
+    margin-left: 2%;
+    width: 98%;
 }
+.mainStyle .topMenuLinkContainer{
+    float: left;
+    margin-right: 10px;
+    margin-top: 8px;
+    padding-right: 10px;
+    border-right:1px solid #E0E0E0;
+}
+.mainStyle .topMenuLinkContainer a:link {color: #959595; text-decoration: none; font-size: 100%; font-weight: normal; padding-top:0px;}
+.mainStyle .topMenuLinkContainer a:visited {color: #959595; text-decoration: none; font-size: 100%; font-weight: normal; padding-top:0px;}
+.mainStyle .topMenuLinkContainer a:active {color: #F95E62; text-decoration: none; font-size: 100%; font-weight: normal; padding-top:0px;}
+.mainStyle .topMenuLinkContainer a:hover {color: #F95E62; text-decoration: none; font-size: 100%; font-weight: normal;  padding-top:0px;}
+
+.mainStyle .topMenuLinkContainer p{
+    color:#AFAFAF;
+    font-family:Tahoma;
+    font-size: 100%;
+    font-weight:normal;
+    margin-bottom:0;
+    margin-top:0;
+    text-decoration:none;
+}
+.mainStyle .searchPannelContainer{
+    float: left;
+    margin-top: 7px;
+    width: 50%;
+    text-align: left;
+}
+.mainStyle .searchPannelContainer div{
+    width: 100%;
+    padding-left: 3px;
+}
+.mainStyle .topSearchInput{
+    height: 16px;
+    width: 82%;
+    background-image: url("../resources/images/search_small.jpg");
+    background-position: 2px 2px;
+    background-repeat: no-repeat;
+    padding-left: 14px;
+    border: 1px solid #B3B3B3;
+    font-size: 100%;
+    color: #B3B3B3;
+    float: left;
+}
+.mainStyle .topSearchButton{
+    color: #B3B3B3;
+    background: none;
+    border: 1px solid #B3B3B3;
+    border-left: 0px;
+    height: 18px;
+    font-size: 100%;
+    width: 60px;
+    cursor: pointer;
+}
+/*чатик*/
 .mainStyle .chatShortHistory{
     margin: 5px;
     padding: 5px;
@@ -556,13 +734,12 @@ color: black;
     float: left;
     max-width: 80%;
 }
+/*ссылки*/
 .mainStyle .linkToStudentsProfile{
     font-weight: bolder;
     XxXwidth: 70%;
     XxXfloat: left;
     Xcolor: #00A4FF;
-    /*padding-left: 20px;
-    background: url("../resources/images/studentIcon.png") no-repeat left bottom;*/
 }
 .mainStyle .linkToTeachersProfile{
     XxXwidth: 70%;
@@ -580,7 +757,10 @@ color: black;
     font-weight: bolder;
     color: #EF596D;
 }
-
+.mainStyle .controlWorksDisciplineName{
+    font-weight: bolder;
+    color: #4593DF;
+}
 .mainStyle .linkToStudentsProfile a:link{color: #1B8CDF; text-decoration: none; font-weight: normal;}
 .mainStyle .linkToStudentsProfile a:visited{color: #1B8CDF; text-decoration: none; font-weight: normal;}
 .mainStyle .linkToStudentsProfile a:active{color:#1B8CDF; text-decoration: underline; font-weight: normal;}
@@ -589,22 +769,91 @@ color: black;
 .mainStyle .linkToTeachersProfile a:link{ color: #4FAF41 !important; text-decoration: none; font-weight: normal;vertical-align: top;}
 .mainStyle .linkToTeachersProfile a:visited{ color: #4FAF41 !important; text-decoration: none; font-weight: normal;vertical-align: top;}
 .mainStyle .linkToTeachersProfile a:active{ color: #4FAF41 !important; text-decoration: underline; font-weight: normal;vertical-align: top;}
-.mainStyle .linkToTeachersProfile a:hover{ color: #4FAF41 !important; text-decoration: underline; font-weight: normal;vertical-align: top;}/*
-.mainStyle .linkToStudentsProfile a:link {color: #00A4FF; text-decoration: underline; font-size: 100%; font-family: Tahoma;}
-.mainStyle .linkToStudentsProfile a:visited {color: #00A4FF; text-decoration: underline; font-size: 100%; font-family: Tahoma;}
-.mainStyle .linkToStudentsProfile a:active {color: #00A4FF; text-decoration: underline; font-size: 100%; font-family: Tahoma;}
-.mainStyle .linkToStudentsProfile a:hover {color: #00A4FF; text-decoration: none; font-size: 100%; font-family: Tahoma; }
+.mainStyle .linkToTeachersProfile a:hover{ color: #4FAF41 !important; text-decoration: underline; font-weight: normal;vertical-align: top;}
 
-.mainStyle .linkToTeachersProfile a:link {color: #64D359; text-decoration: underline; font-size: 100%; font-family: Tahoma;}
-.mainStyle .linkToTeachersProfile a:visited {color: #64D359; text-decoration: underline; font-size: 100%; font-family: Tahoma;}
-.mainStyle .linkToTeachersProfile a:active {color: #64D359; text-decoration: underline; font-size: 100%; font-family: Tahoma;}
-.mainStyle .linkToTeachersProfile a:hover {color: #64D359; text-decoration: none; font-size: 100%; font-family: Tahoma; }
-*/
 .mainStyle .linkToAdminsProfile a:link {color: #EF596D; text-decoration: none; font-weight: normal; font-family: Tahoma;}
 .mainStyle .linkToAdminsProfile a:visited {color: #EF596D; text-decoration: none; font-weight: normal; font-family: Tahoma;}
 .mainStyle .linkToAdminsProfile a:active {color: #EF596D; text-decoration: underline; font-weight: normal; font-family: Tahoma;}
 .mainStyle .linkToAdminsProfile a:hover {color: #EF596D; text-decoration: underline; font-weight: normal; font-family: Tahoma; }
 
+.mainStyle .navigationLinks,.mainStyle .navigationLinks a{
+    font-size: 10pt;
+}
+.mainStyle .navigationLinks a:link{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
+.mainStyle .navigationLinks a:visited{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
+.mainStyle .navigationLinks a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinks a:hover{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+
+.mainStyle .navigationLinksRed a:link{color: red; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinksRed a:visited{color: red; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinksRed a:active{color: #FF3F3F; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinksRed a:hover{color: #FF3F3F; text-decoration: none; font-weight: normal;}
+
+.mainStyle .navigationLinksSmall,.mainStyle .navigationLinksSmall a{
+    font-size: 8pt;
+}
+.mainStyle .navigationLinksSmall a:link{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
+.mainStyle .navigationLinksSmall a:visited{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
+.mainStyle .navigationLinksSmall a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinksSmall a:hover{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+
+.mainStyle .navigationLinksRedSmall a:link{color: red; text-decoration: underline; font-weight: normal;}
+.mainStyle .navigationLinksRedSmall a:visited{color: red; text-decoration: underline; font-weight: normal;}
+.mainStyle .navigationLinksRedSmall a:active{color: #FF3F3F; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinksRedSmall a:hover{color: #FF3F3F; text-decoration: none; font-weight: normal;}
+
+.mainStyle .controlWorksDisciplineNameLink a:link{color: #4593DF;}
+.mainStyle .controlWorksDisciplineNameLink a:visited{color: #4593DF;}
+.mainStyle .controlWorksDisciplineNameLink a:active{color: #8DBEE0;}
+.mainStyle .controlWorksDisciplineNameLink a:hover{color: #8DBEE0;}
+
+.mainStyle .controlWorksDisciplineNameLinkGrey a:link{color: #5F5F5F; font-weight: normal;}
+.mainStyle .controlWorksDisciplineNameLinkGrey a:visited{color: #5F5F5F;font-weight: normal;}
+.mainStyle .controlWorksDisciplineNameLinkGrey a:active{color: #B5CADF;font-weight: normal;}
+.mainStyle .controlWorksDisciplineNameLinkGrey a:hover{color: #B5CADF;font-weight: normal;}
+
+.mainStyle .reitingLink  a{color: green !important; font-weight: bolder !important; font-family: Verdana;}
+.mainStyle .reitingLink a:hover{text-decoration: underline;}
+
+.mainStyle div.navigationLinks a:link{color: #4593DF;}
+.mainStyle div.navigationLinks a:hover{color: #8DBEE0;}
+.mainStyle div.navigationLinks a:active{color: #8DBEE0;}
+.mainStyle div.navigationLinks a:visited{color: #8DBEE0;}
+
+.mainStyle .navigationLinksMess a:link{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinksMess a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinksMess a:hover{color: #C2D9EF; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinksMess a:visited{color:#C2D9EF; text-decoration: none; font-weight: normal;}
+
+.mainStyle .messTheme a:link{
+    font-family: Verdana;
+    font-size: 10pt;
+    padding-left: 12px;
+    color: #6D869F;
+    font-weight: normal;
+}
+.mainStyle .messTheme a:visited{
+    font-family: Verdana;
+    font-size: 10pt;
+    padding-left: 12px;
+    color: #6D869F;
+    font-weight: normal;
+}
+.mainStyle .messTheme a:hover{
+    font-family: Verdana;
+    font-size: 10pt;
+    padding-left: 12px;
+    color:#1B7EDF;
+    font-weight: normal;
+}
+.mainStyle .messTheme a:active{
+    font-family: Verdana;
+    font-size: 10pt;
+    padding-left: 12px;
+    color:#1B7EDF ;
+    font-weight: normal;
+}
+/*даты*/
 .mainStyle .chatPostDate{
     color: #8F8F8F;
     float: right;
@@ -612,6 +861,17 @@ color: black;
     font-size: 75%;
     font-weight: normal;
     margin-top: 3px;
+}
+.mainStyle .chatPostDateEvents{
+    color:#8F8F8F;
+    font-size: 8pt;
+    margin-bottom: 5px;
+    margin-right: 10px;
+}
+mainStyle .chatPostUser{
+    font-family: tahoma;
+    margin-right: 10px;
+    color: grey;
 }
 .mainStyle .chatPost{
     margin-top: 3px;
@@ -622,6 +882,7 @@ color: black;
 .mainStyle .chatPostText{
     font-size: 85%;
 }
+/*пользователи он-лайн*/
 .mainStyle .usersOnlineTableContainer{
     text-align: center;
     width: 100%;
@@ -657,6 +918,7 @@ color: black;
     height: 66px;
     width: 1px;
 }
+/*загрузить файл*/
 .mainStyle .downLoadFileLink a:link{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
 .mainStyle .downLoadFileLink a:visited{color: #8BB5DF; text-decoration: none; font-weight: normal;}
 .mainStyle .downLoadFileLink a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
@@ -667,32 +929,7 @@ color: black;
     text-decoration: none;
     font-weight: normal;
 }
-.mainStyle .navigationLinks,.mainStyle .navigationLinks a{
-    font-size: 10pt;
-}
-.mainStyle .navigationLinks a:link{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
-.mainStyle .navigationLinks a:visited{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
-.mainStyle .navigationLinks a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
-.mainStyle .navigationLinks a:hover{color: #8BB5DF; text-decoration: none; font-weight: normal;}
-
-.mainStyle .navigationLinksRed a:link{color: red; text-decoration: none; font-weight: normal;}
-.mainStyle .navigationLinksRed a:visited{color: red; text-decoration: none; font-weight: normal;}
-.mainStyle .navigationLinksRed a:active{color: #FF3F3F; text-decoration: none; font-weight: normal;}
-.mainStyle .navigationLinksRed a:hover{color: #FF3F3F; text-decoration: none; font-weight: normal;}
-
-.mainStyle .navigationLinksSmall,.mainStyle .navigationLinksSmall a{
-    font-size: 8pt;
-}
-.mainStyle .navigationLinksSmall a:link{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
-.mainStyle .navigationLinksSmall a:visited{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
-.mainStyle .navigationLinksSmall a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
-.mainStyle .navigationLinksSmall a:hover{color: #8BB5DF; text-decoration: none; font-weight: normal;}
-
-.mainStyle .navigationLinksRedSmall a:link{color: red; text-decoration: underline; font-weight: normal;}
-.mainStyle .navigationLinksRedSmall a:visited{color: red; text-decoration: underline; font-weight: normal;}
-.mainStyle .navigationLinksRedSmall a:active{color: #FF3F3F; text-decoration: none; font-weight: normal;}
-.mainStyle .navigationLinksRedSmall a:hover{color: #FF3F3F; text-decoration: none; font-weight: normal;}
-
+/*сообщения*/
 .mainStyle .writeMessageInterfaceTheme{
     width: 100%;
 }
@@ -731,18 +968,35 @@ color: black;
 .mainStyle .writeMessageInterfaceTableForm input{
     color: gray;
 }
+.mainStyle .groupControlWorksCWProgress{
+    color: gray;
+}
 .mainStyle .listMessagesShortMessage{
     min-height: 50px;
     margin: 5px;
     padding: 5px;
      border: 1px solid #D1E0EF !important;
-/*    border: 1px solid silver;*/
-/*    background: #EFEFEF;*/
 }
 .mainStyle .listMessagesText{
     min-height: 50px;
     padding: 5px;
      border: 1px solid #D1E0EF !important;
+}
+.mainStyle .FullTextMess{
+    color:#3D3D3D;
+    margin-top: 3px;
+    margin-left: 8px;
+    color: #3F3E3B;
+    cursor: pointer;
+    font-family: Verdana;
+    font-weight: normal;
+    text-align: left;
+     border-bottom: 1px solid #EFF2F4;
+}
+.mainStyle .dialogBlocks{
+    padding-left: 50px;
+    padding-right: 50px;
+   
 }
 .mainStyle .answerMess{
     display: block;
@@ -753,12 +1007,46 @@ color: black;
     width: 80px;
    
 }
+.mainStyle .MessNothing{
+    display: block;
+    height: 30px;
+    margin-left:20px;
+    padding-left: 40px;
+    padding-top: 10px;
+    font-style: italic;
+    font-size: 12pt;
+    font-weight: bolder;
+    background: url('../resources/images/message-delete.gif') no-repeat 0 0;
+}
 .mainStyle .fullMessageMessageText{
     min-height: 50px;
     margin: 0px 5px;
     padding: 5px;
     border: 1px solid silver;
     background: #EFEFEF;
+}
+.outMessStudFirstTd{
+   width: 10%;
+}
+.outMessStudSecTd{
+    vertical-align: top;
+}
+
+.mainStyle .greyMess{
+    color: grey;
+    margin-right: 10px;
+    padding-bottom: 10px;
+    font-weight: normal !important;
+}
+.mainStyle .NewMessageInfo{
+    color: #5785AF;
+    font-family: Arial;
+    font-size: 11pt;
+     font-weight: 600;
+}
+.mainStyle .inputMessText{
+    border: 1px solid #D1E0EF;
+    color: #6D869F;
 }
 .mainStyle .listMessagesAttachmentsIco{
     position: relative;
@@ -769,6 +1057,19 @@ color: black;
     width: 16px;
     border: 1px solid #D1E0EF;
     padding: 1px;
+}
+mainStyle  .writeMessAndWatchCorrespondence{
+    width: 50%;
+    margin-left: 17%;
+}
+.s2,.s1{
+    padding-left: 18px;
+}
+.s2{
+    background: url("../resources/images/dialog.png") no-repeat left top;
+}
+.s1{
+    background: url("../resources/images/write_new.png") no-repeat left top;
 }
 .mainStyle .actionResultSuccessfull{
     color: #11628F;
@@ -806,7 +1107,15 @@ color: black;
     border: 1px solid silver;
     background: #EFEFEF;
 }
-.mainStyle .standartContainerForTeacherMediumAvatar{
+.mainStyle .dialogBlock{
+    border-bottom: 1px solid #EFF7FF;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left:60px;
+    padding-right: 60px;
+}
+.mainStyle .writeAndWatchMessProfile{width: 50%; margin-left: 10%;}
+/*.mainStyle .standartContainerForTeacherMediumAvatar{
     border: 1px #64D359 solid;
     padding: 3px;
     background: white;
@@ -822,12 +1131,10 @@ color: black;
     vertical-align: top;
 }
 .mainStyle .standartContainerForStudentMediumAvatar{
-/*    border: 1px #4DB7F1 solid;*/
     padding: 3px;
     background: white;
     width: 100px;
     float: left;
-/*    margin-right: 20px;*/
     overflow: hidden;
     text-align: center;
 }
@@ -853,13 +1160,12 @@ color: black;
 }
 .mainStyle .standartContainerForTeacherInfoInTeachersList{
     width: 100%;
-}
+}*/
 .mainStyle .newsListNewPreview{
     min-height: 50px;
     margin: 5px;
     padding: 5px;
     border: 1px solid #8EB8CF;
-/*    background: #EFF9FF;*/
 }
 .mainStyle .newsListNewPreview img{
     float: left;
@@ -905,6 +1211,9 @@ color: black;
 }
 
 /*UMK Styles*/
+.mainStyleUMKTemplate{
+    margin:0; padding:0; height:100%;
+}
 .mainStyle .umkFixedHeadBlock{
     height: 108px;
 }
@@ -1022,207 +1331,26 @@ color: black;
 .mainStyle .umkNavigationLinkContainer a:visited{color: #8BB5DF; text-decoration: none; font-weight: normal;}
 .mainStyle .umkNavigationLinkContainer a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
 
-.mainStyle .studentStandatrTable *{
-    text-align: left !important;
+/*профиль пользователей*/
+.userData td{
+    vertical-align: top !important;
+}
+ .mainStyle .userData div {
+color: white;
+text-align: left;
+/*font-weight: bold;*/
 
 }
-.mainStyle .studentStandatrTable .studentStandatrTableExamin{
-    text-align: center !important;
-}
-
-.mainStyle .studentStandatrTable{
-    margin-top: 10px;
-    width: 100%;
-}
-.mainStyle .studentStandatrTable th{
+ .userData tr:nth-child(1) td:nth-child(3) div{
+    text-align: right !important;
+    font-size: 150%;
+    font-family: Arial;
+    position: relative;
+    top: -8px;
+    left: 10px;
     font-weight: normal;
-    font-size: 8pt;
-    text-align: center !important;
-    border: 1px solid silver;
-    border-left: 0px;
-    border-bottom: 3px double silver;
-    padding: 1px;
-    background: #EFEFEF;
-    padding: 7px 0px;
-    color: gray;
-    padding: 3px 3px;
 }
-.mainStyle .studentStandatrTableForChrome{
-    font-weight: normal;
-    font-size: 8pt;
-    text-align: center !important;
-    border: 1px solid silver;
-    border-left: 0px;
-    border-bottom: 3px double silver;
-    padding: 1px;
-    background: #EFEFEF;
-    padding: 7px 0px;
-    color: gray;
-    padding: 3px 3px;
-}
-.mainStyle .studentStandatrTableTdLastTdForChrome{
-     text-align: center;
-    border: 1px solid silver;
-    border-left: 0px;
-    border-right: 0px;
-    border-top: 0px;
-    font-size: 8pt;
-}
-.mainStyle .studentStandatrTableTdForChrome{
-      text-align: center;
-    border: 1px solid silver;
-    border-left: 0px;
-    border-top: 0px;
-    font-size: 8pt;
-}
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-body:first-of-type .mainStyle .AdminAddAvatar{
-    background: #FFE1DF !important;
-    border: 1px solid #DF9E99;
-}
-}
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-body:first-of-type .mainStyle .StudentWriteMess{
-     background: none !important;
-    border: 1px solid #7F9DB9;
-}
-}
-.mainStyle .studentStandatrTable .studentStandatrTableTd{
-    text-align: center;
-    border: 1px solid silver;
-    border-left: 0px;
-    border-top: 0px;
-    font-size: 8pt;
-}
-.mainStyle .studentStandatrTable .studentStandatrTableTdLastTd{
-    text-align: center;
-    border: 1px solid silver;
-    border-left: 0px;
-    border-right: 0px;
-    border-top: 0px;
-    font-size: 8pt;
-}
-.mainStyle .studentStandatrTable .studentStandatrTableTdWithBorder{
- border: 1px solid #EFEFEF;
- border-left: 0px;
- border-top: 0px;
-}
-.mainStyle .studentStandatrTable .studentStandatrTableTdWithBorderBrighter{
-    /*border: 1px solid #DFDFDF !important;*/
-    border-left: 0px;
-    border-top: 0px;
-}
-.mainStyle .StudentTablePadding  th img{
-    margin: auto;
-}
- .studentStandatrTableTdTests{
-     border: 1px solid #D1E0EF !important;
-     border-left: 0px !important;
-    border-right: 0px !important;
-    border-top: 0px !important;
-}
-  .studentStandatrWidth{
-    width: 40%;
-    text-indent: 10px;
-}
-
-.mainStyle .studentStandatrTable .studentStandatrTableTdLastTdwithBorder{
-    text-align: center !important;
-    border: 1px solid #EFEFEF;
-     border-left: 0px;
-     border-right: 0px;
-    border-top: 0px;
-    font-size: 8pt;
- }
-.mainStyle .controlWorksDisciplineName{
-    /*font-size: 10pt;*/
-    font-weight: bolder;
-    color: #4593DF;
-}
-/*подобрать цвета для ссылок*/
-.mainStyle .controlWorksDisciplineNameLink a:link{color: #4593DF;}
-.mainStyle .controlWorksDisciplineNameLink a:visited{color: #4593DF;}
-.mainStyle .controlWorksDisciplineNameLink a:active{color: #8DBEE0;}
-.mainStyle .controlWorksDisciplineNameLink a:hover{color: #8DBEE0;}
-
-.mainStyle .controlWorksDisciplineNameLinkGrey a:link{color: #5F5F5F; font-weight: normal;}
-.mainStyle .controlWorksDisciplineNameLinkGrey a:visited{color: #5F5F5F;font-weight: normal;}
-.mainStyle .controlWorksDisciplineNameLinkGrey a:active{color: #B5CADF;font-weight: normal;}
-.mainStyle .controlWorksDisciplineNameLinkGrey a:hover{color: #B5CADF;font-weight: normal;}
-
-.mainStyle .saveButton{
-    width: 100px !important;
-}
-.mainStyle .studentTabInStandartTable{
-    width: 100%;
-    /*text-align: center !important;*/
-}
-.mainStyle .studentTabInStandartTable .studentTabInStandartTableTh{
-    border: 0px;
-    border-bottom: 1px solid silver;
-    background: none;
-    padding: 0px;
-
-}
-.mainStyle .studentTabInStandartTable .studentTabInStandartTableThContainer{
-    border-right: 1px solid silver;
-    height: 100%;
-    text-align: center;
-    padding: 3px;
-}
-.mainStyle .studentTabInStandartTable .studentTabInStandartTableLeftTd{
-    text-align: center;
-    border: 1px solid silver;
-    border-left: 0px;
-    border-top: 0px;
-    font-size: 8pt;
-    padding: 3px 0px;
-}
-.mainStyle .studentTabInStandartTable .studentTabInStandartTableRightTd{
-    text-align: center;
-    border: 1px solid silver;
-    border-left: 0px;
-    border-right: 0px;
-    border-top: 0px;
-    font-size: 8pt;
-    padding: 3px 0px;
-}
-.mainStyle .studentStandatrTable .studentStandatrTableSubtableTd{
-    text-align: center;
-    border: 1px solid silver;
-    border-left: 0px;
-    border-top: 0px;
-    border-bottom: 0px;
-    font-size: 8pt;
-}
-.mainStyle .studentStandatrTable th:nth-last-child(1),
-.mainStyle .studentStandatrTable tr:nth-last-child(1){
-    border-right: 0px !important;
-}
- .studentStandatrTable tr td:nth-child(2){
-    text-align: center !important;
-}
-.mainStyle .userData input{
-/*    width: 100%;*/
-}
-
- .userData td{
-                  vertical-align: top !important;
-            }
-             .mainStyle .userData div {
-            color: white;
-            text-align: left;
-
-            }
-             .userData tr:nth-child(1) td:nth-child(3) div{
-                text-align: right !important;
-                font-size: 150%;
-                font-family: Arial;
-                position: relative;
-                top: -8px;
-                left: 10px;
-        }
-.save{
+/*.save{
     background: url("../resources/images/buttonBlue.jpg") repeat-x scroll center transparent;
     border: 1px solid #6CC2D9;
     color: #016281;
@@ -1257,397 +1385,38 @@ body:first-of-type .mainStyle .StudentWriteMess{
     color: #016281;
     border: 1px solid #6cc2d9;
     outline: none;
-}
-.mainStyle .userPhoto{
-    float: left;
-    width: 15%;
-}
-.mainStyle .userPhotoBorderAdmin{
-    border: 1px #FF796F solid;
-    width: 100%;
-    padding: 3px;
-    background: white;
-}
-/*.mainStyle .userPhotoBorderTeacher {
-    border: 1px #74CF91 solid;
-    width: 100%;
-    padding: 3px;
-    background: white;
 }*/
-.mainStyle .userPhotoBorderStudent{
-    border: 1px #4DB7F1 solid;
-    width: 100%;
-    padding: 3px;
-    background: white;
-}
-.mainStyle .userPhotoBorder img{
-    margin: 0px;
-    padding: 0px;
-    vertical-align: top;
-    width: 100%;
-}
-
 /**
 используется на данный момент в userListItem.xhtml в components/util/, student.xtml в  Student/
 */
 
-.s2,.s1{
-    padding-left: 18px;
-}
-.s2{
-    background: url("../resources/images/dialog.png") no-repeat left top;
-}
-.s1{
-    background: url("../resources/images/write_new.png") no-repeat left top;
-}
-.mainStyle .reitingLink  a{color: green !important; font-weight: bolder !important; font-family: Verdana;}
-.mainStyle .reitingLink a:hover{text-decoration: underline;}
 
 
 
-.mainStyle .AdminInfo {
-    color: #4593DF;
-    font-size: 8pt;
-    font-weight: normal;
-    text-indent: 10px;
-}
-.mainStyle .AdminNavigationLinks a:link{
-    color: #4593DF;
-    font-family: Arial;
-    font-size: 10pt;
-    font-weight: normal;
-    margin: 0;
-    text-decoration: none;
-}
-.mainStyle .AdminNavigationLinks a:visited{
-     color: #4593DF;
-    font-family: Arial;
-    font-size: 10pt;
-   font-weight: normal;
-    margin: 0;
-    text-decoration: none;
-}
-.mainStyle .AdminNavigationLinks a:hover{
-    color: #8DBEE0;
-    font-family: Arial;
-    font-size: 10pt;
-   font-weight: normal;
-    margin: 0;
-    text-decoration: none;
-}
-.mainStyle .AdminNavigationLinks a:active{
-    color: #8DBEE0;
-    font-family: Arial;
-    font-size: 10pt;
-    font-weight: normal;
-    margin: 0;
-    text-decoration: none;
-
-}
-
-.mainStyle .StudentTestStartPages td:nth-child(1){
-    color: gray !important;
-}
-.mainStyle .StudentTestStartPages td:nth-child(2){
-     color: #373E3F !important;
-    font-weight: bolder !important;
-    text-indent: 3px;
-}
-.mainStyle .AdminTextGrey{
-    line-height: 30px;
-    font-weight: normal;
-    color: #6F6F6F;
-}
-.mainStyle .AdminNavigationLinksBold a:link{
-    color: #4593DF;
-    font-family: Arial;
-    font-size: 10pt;
-    font-weight:bold;
-    margin: 0;
-    text-decoration: none;
-}
-    .mainStyle .AdminNavigationLinksBold a:visited{
-    color: #4593DF;
-    font-family: Arial;
-    font-size: 10pt;
-   font-weight:bold;
-    margin: 0;
-    text-decoration: none;
-}
-.mainStyle .AdminNavigationLinksBold a:hover{
-    color: #8DBEE0;
-    font-family: Arial;
-    font-size: 10pt;
-    font-weight:bold;
-    margin: 0;
-    text-decoration: none;
-}
-.mainStyle .AdminNavigationLinksBold a:active{
-    color: #8DBEE0;
-    font-family: Arial;
-    font-size: 10pt;
-    font-weight:bold;
-    margin: 0;
-    text-decoration: none;
-}
-.mainStyle .studentStandatrTable tr .AdminIndent{
-    text-align: left !important;
-}
-.mainStyle .pageEditTable{
-    width: 70%;
-     left: 3%;
-    position: relative;
-}
-.mainStyle .pageEditTable th{
-    text-align: center !important;
-    font-weight: normal;
-    color:#373E3F;
-}
-.mainStyle .pageEditTable td{
-    text-align: center !important;
-}
-
-.DataTests td:nth-child(2){
-      color: #6F6F6F;
-    display: block;
-    margin-left: 10px;
-   
-
-}
-.DataTests td:nth-child(1){
-
-    display: block;
-    float: left;
-    margin-left: 10px;
-    margin-right: 20px;
-}
-.DataTests input{
-    width: 35px;
-    text-align: center !important;
-}
-.mainStyle .AdminBackground{
- background:url("../resources/images/buttonRed.png") repeat-x scroll center transparent;;
-    border: 1px solid #DF9E99;
-    color: #9F3027;
-    font-size: 10pt;
-    height: 17px;
-    margin-right: 21px;
-    padding-left: 9px;
-    padding-right: 9px;
-    padding-top: 0;
-    vertical-align: top;
-    cursor: pointer;
-    width: 100px !important;
-}
-.mainStyle .AdminBackground:hover,.mainStyle .AdminBackground:active {
- background:url("../resources/images/buttonRed2.png") repeat-x scroll center transparent;;
-    border: 1px solid #DF9E99;
-    color: #9F3027;
-    font-size: 10pt;
-    height: 17px;
-    margin-right: 21px;
-    padding-left: 9px;
-    padding-right: 9px;
-    padding-top: 0;
-    vertical-align: top;
-    cursor: pointer;
-    width: 100px !important;
-}
-.mainStyle .StudentBackground{
-background:url("../resources/images/buttonBlue.jpg") repeat-x scroll center transparent;;
-    border: 1px solid #6CC2D9;
-    color: #016281;
-    font-size: 10pt;
-    height: 17px;
-    margin-right: 21px;
-    padding-left: 9px;
-    padding-right: 9px;
-    padding-top: 0;
-    vertical-align: top;
-    cursor: pointer;
-    width: 100px !important;
-}
-.mainStyle .StudentBackground:hover, .mainStyle .StudentBackground:active{
-background:url("../resources/images/buttonBlue2.jpg") repeat-x scroll center transparent;;
-    border: 1px solid #6CC2D9;
-    color: #016281;
-    font-size: 10pt;
-    height: 17px;
-    margin-right: 21px;
-    padding-left: 9px;
-    padding-right: 9px;
-    padding-top: 0;
-    vertical-align: top;
-    cursor: pointer;
-    width: 100px !important;
-}
-.mainStyle .TeacherBackground{
-    
-}
   .mainStyle .passed,
  .mainStyle .failed,
 .mainStyle .available,
 .mainStyle .notAvailable{
   background-color:  white;
 }
- .mainStyle div.interfaceContent{
-    padding: 0px;
-}
-
-.mainStyle div.interfaceContent{
-    padding-left: 10px;
-    padding-right: 10px;
-}
-.mainStyle div.interfaceContentForMyMarks{
-     padding: 0px !important;
-}
-  .StudentTestMark{
- color: #1D1F1F;
-
-}
- .materialInfo p{
-    padding-bottom: 5px;
-    padding-left: 17px;
-}
-.materialInfo span{
-       color: #1D1F1F;
-       /*font-weight: bolder;*/
-}
-.materialInfo p:nth-child(1){
-   background:  url("../resources/images/control_works_little.gif") no-repeat ;
-}
-.materialInfo p:nth-child(2){
-   background:  url("../resources/images/test_results_little.gif") no-repeat;
-   background-position: -2px 0;
-}
-.materialInfo p:nth-child(3){
-     background:  url("../resources/images/test_result_little.gif") no-repeat;
-}
- .mainStyle div.navigationLinks a:link{
-     color: #4593DF;}
-.mainStyle div.navigationLinks a:hover{
-       color: #8DBEE0;}
- .mainStyle div.navigationLinks a:active{
-     color: #8DBEE0;}
-  .mainStyle div.navigationLinks a:visited{
-                 color: #8DBEE0;}
-  .mainStyle div span{
+.mainStyle div span{
       color: #373E3F;
-/*        font-weight: bolder;*/
 }
-.mainStyleUMKTemplate{
-    margin:0; padding:0; height:100%;
+.mainStyle .darkGreyColor{
+    color: #04383F;
 }
+.mainStyle .darkGreyColorBold{
+    color: #373E3F;
+    font-weight: bold;
+}
+
 /*iframe:first-child{
     margin:0; padding:0; height:100%; 
 }*/
-html, body{ margin:0; padding:0; height:100%;}
-.mainStyle .studentStandatrTableCenter{
-                text-align: center !important;
-                vertical-align:middle;
-                font-size: 8pt;
-                font-weight: normal;
-}
-.mainStyle .studentStandatrTableTdWithBorder1{
-    color: #DFDFDF !important;
-}
- .mainStyle .changeSemWithoutBorder div{
-                border-bottom: 0px !important;
-}
-.mainStyle .StudentTablePadding th:nth-child(4){
-    width: 30px;
-}
-.mainStyle .student_gradesTableHeadTeacherWidth{
-    width: 50px;
-}
-.mainStyle .prosto_tekst {
-    padding-top: 10px;
-}
+/*html, body{ margin:0; padding:0; height:100%;}*/
 
-.mainStyle .prosto_tekst p {
-    color: black;
-    margin: 0;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 10px;
-    text-align: justify;
-}
-.mainStyle .prosto_tekst .help_part {
-    color: #2DA0BA !important;
-    font-size: 10pt;
-    margin-left: 10px;
-    padding-top: 5px;
-}
-.mainStyle .prosto_tekst .comment {
-    border-bottom: 1px solid lightblue;
-    border-top: 1px solid lightblue;
-    color: #4C4C4C !important;
-    font-size: 8pt;
-    padding-bottom: 10px;
-}
-/*.mainStyle .NewMessage{
-    background: #EFFFFD;
-     border-bottom: 1px solid #D1EAEF;
-}*/
-.mainStyle .NewMessageInfo{
-    color: #5785AF;
-    font-family: Arial;
-    font-size: 11pt;
-     font-weight: 600;
-}
-.mainStyle .studentStandatrTableTdFirstWidth{
-    width: 30%;
-}
-  .outMessStudFirstTd{
-   width: 10%;
-}
- .outMessStudSecTd{
-    vertical-align: top;
-}
-.mainStyle .navigationLinksMess a:link{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+/*тесты секундомер прогрессбар*/
 
-.mainStyle .navigationLinksMess a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
-.mainStyle .navigationLinksMess a:hover{color: #C2D9EF; text-decoration: none; font-weight: normal;}
-.mainStyle .navigationLinksMess a:visited{color:#C2D9EF; text-decoration: none; font-weight: normal;}
-
-.mainStyle .greyMess{
-    color: grey;
-    margin-right: 10px;
-    padding-bottom: 10px;
-    font-weight: normal !important;
-}
-.mainStyle .inputMessText{
-    border: 1px solid #D1E0EF;
-    color: #6D869F;
-}
-.mainStyle .messTheme a:link{
-    font-family: Verdana;
-    font-size: 10pt;
-    padding-left: 12px;
-    color: #6D869F;
-    font-weight: normal;
-}
-.mainStyle .messTheme a:visited{
-    font-family: Verdana;
-    font-size: 10pt;
-    padding-left: 12px;
-    color: #6D869F;
-    font-weight: normal;
-}
-.mainStyle .messTheme a:hover{
-    font-family: Verdana;
-    font-size: 10pt;
-    padding-left: 12px;
-    color:#1B7EDF;
-    font-weight: normal;
-}
-.mainStyle .messTheme a:active{
-    font-family: Verdana;
-    font-size: 10pt;
-    padding-left: 12px;
-    color:#1B7EDF ;
-    font-weight: normal;
-}
 .mainStyle #counter{
     color: #EF5D0E;
 }
@@ -1669,6 +1438,7 @@ html, body{ margin:0; padding:0; height:100%;}
         margin-top: 20px;
 
 }
+
 /* color bar */
 .mainStyle #progressbar div.progress{
         position:absolute;
@@ -1679,4 +1449,69 @@ html, body{ margin:0; padding:0; height:100%;}
 }
 .mainStyle .imG_span img{
     display: inline !important;
+}
+/*форум*/
+.mainStyle .forumDiscriptionText {
+    text-align: justify;
+    margin: 5px 0px 5px 0px;
+}
+.mainStyle .forumTopBlock{
+    padding-top: 4px;
+    padding-bottom: 2px;
+}
+
+.mainStyle .bothMargins{text-align: left; margin-left: 10px; margin-top: 10px;}
+
+.mainStyle .forumPicAdminStyle{
+    margin: 0px 10px 2px 0px;
+    border: 1px solid red;
+    padding: 3px;
+    float: left;
+}
+.mainStyle .questionArea{
+    width: 50%;
+    margin: auto;
+}
+.mainStyle .questionAreaText{
+    text-align: left;
+    margin: 3px 0px 5px 3px;
+    font-size: 8pt;
+    color: gray;
+}
+.mainStyle .questionAreaBlock{
+    max-width: 90%;
+    margin-top: 10px;
+}
+/*информация о пользователе*/
+.mainStyle .userPhotoPosition{
+    float: right; width: 78%; text-align: left;
+}
+.mainStyle .margFromBackground{
+    margin-left: 17px;
+}
+.mainStyle .userinfoContent{
+    float: right;
+    width: 78%;
+    text-align: left;
+}
+.mainStyle .userinfoContentUp{
+    float: none;
+    width: 60%;
+}
+/*мои оценки*/
+.mainStyle .helpLink{
+    text-align: right;
+    padding-right: 15px;
+    padding-top: 5px;
+    position: relative;
+    top: -25px;
+    height: 0;
+}
+/*настройки портала*/
+.mainStyle .portalSettingsButtonPosition{
+    margin-left: 10px;
+    width: 70px;
+    display: block;
+    position: relative;
+    left: 45%;
 }

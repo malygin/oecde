@@ -3,46 +3,65 @@
     Created on : 14.07.2010, 10:51:45
     Author     : KorgovVD
     Description:
-        Purpose of the stylesheet follows.
+       стили для студента
 */
 
-/* 
-   TODO customize this sample style
-   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
-*/
+/*стили для студент Темплэйт*/
 .mainStyle .userFile{
     background: #A2DEF6;
     padding: 10px 15px;
     border-bottom: #57C3FF 1px solid;
 }
-.mainStyle .userPhoto{
-    float: left;
-    width: 15%;
+.StudentSecondLineBlocks{
+    padding: 3px 3px 0px 3px; border: 1px solid silver;
 }
-.mainStyle .userPhotoBorder{
-    border: 1px #4DB7F1 solid;
-    width: 96%;
-    padding: 3px;
-    background: white;
+/*стили для таблиц*/
+ .mainStyle .StudentTablePadding{
+                padding: 10px;
+                margin: 0 !important;
 }
-.mainStyle .userPhotoBorder img{
-    margin: 0px;
-    padding: 0px;
-    vertical-align: top;
-    width: 100%;
+
+/*главная страница студента*/
+.my_educ_text ol {
+    margin-left: 0;
 }
-.mainStyle .loadPhotoButton{
-    background: #79CEFF;
-    border-top: 1px solid #B5E4FF;
-    border-left: 1px solid #B5E4FF;
-    border-right: 1px solid #57C3FF;
-    border-bottom: 1px solid #57C3FF;
-    color: white;
-    min-height: 25px;
-    margin-top: 10px;
-    font-size: 100%;
-    cursor: pointer;
-    padding: 0px 10px;
+.my_educ_disc_reason{
+    list-style: none;
+}
+.my_educ_disc_reason li{
+    margin-left: 23px;
+}
+.my_educ_disc_reason span{
+    color: black;
+}
+.mainStyle .news_icon{
+    font-size: 12pt;
+    padding-left: 24px;
+    background:url('../resources/images/news_icon.gif') no-repeat ;
+}
+.mainStyle .events{
+    font-size: 12pt;
+    background:url('../resources/images/events.gif') no-repeat left top;
+    padding-left: 24px;
+}
+.mainStyle .discipline{
+    font-family: Arial;
+    color: #27587F;
+    background:url('../resources/images/discipline.gif') no-repeat;
+    padding-left: 24px;
+}
+/*стили для границ блоков*/
+.controlWorksBorders{
+    border-bottom: 1px solid #D1E0EF;
+     padding-bottom: 10px;
+    padding-top: 10px;
+}
+ .studentStandatrTableBorder{
+    border-right: 1px solid #D1E0EF;
+}
+.StudentTimeTable{
+    padding: 3px 3px 10px 3px;
+    border: 1px solid silver;
 }
 .mainStyle .userData{
     width: 85%;
@@ -52,25 +71,13 @@
     color: #96A0A2;
     text-align: left;
     margin-right: 10px;
+    width: 200px;
 }
-.mainStyle .userData div{
+/*.mainStyle .userData div{
     color: white;
     text-align: left;
-}
-.mainStyle .contentHeader{
-    width: 100%;
-    background: #79CEFF;
-    border-top: #0E96FF 1px solid;
-    border-bottom: #0E96FF 1px solid;
-}
-.mainStyle .contentHeader p{
-    font-size: 150%;
-    padding: 5px 0 5px 15px;
-    text-align: left;
-    color: white;
-    font-family: Arial;
-    float: left;
-}
+}*/
+
 .mainStyle .onlineStatus{
     float: right;
     padding: 10px 15px 5px 0px;
@@ -78,18 +85,236 @@
     text-decoration: underline;
     font-family: Arial;
 }
-.mainStyle .controlWorksControlTitle{
-    
-}
 .mainStyle .studentInterfaceStandartList{
     margin-top: 3px;
     padding: 10px;
     border-bottom: 1px solid silver;
     border-top: 1px solid silver;
+    margin-left: 10px;
+    margin-right: 10px;
 }
-.mainStyle .groupControlWorksCWProgress{
-    color: gray;
-}
+
+/*мои изучаемые материалы*/
 .mainStyle .materialInfo{
     margin-left: 25px;
+}
+ .materialInfo p{
+    padding-bottom: 5px;
+    padding-left: 17px;
+}
+.materialInfo span{
+       color: #1D1F1F;
+       /*font-weight: bolder;*/
+}
+.materialInfo p:nth-child(1){
+   background:  url("../resources/images/control_works_little.gif") no-repeat ;
+}
+.materialInfo p:nth-child(2){
+   background:  url("../resources/images/test_results_little.gif") no-repeat;
+   background-position: -2px 0;
+}
+.materialInfo p:nth-child(3){
+     background:  url("../resources/images/test_result_little.gif") no-repeat;
+}
+  .StudentTestMark{
+ color: #1D1F1F;
+}
+/*список администраторов*/
+.mainStyle .studentPaddBott{
+    padding-bottom: 10px;
+}
+.mainStyle .studentPaddLeft{
+    padding-left: 10px;
+}
+/*мои контрольные работы*/
+.mainStyle .columnNames{
+    color: gray;
+    width: 170px;
+    padding-left: 10px;
+}
+.mainStyle .chooseContrWorkButtonPosition{
+    display: block;
+    width: 50px;
+    text-align: center !important;
+    float: right;
+    margin-top: 4px;
+    margin-right: 50px;
+}
+.mainStyle .controlWorkResultStyle{
+    color:#0F3F00;
+    padding-left: 17px;
+}
+/*тесты*/
+.mainStyle .toTestLink{
+    color: #27587F;
+    font-family: Arial;
+    font-size:12pt;
+    margin-left: 10px;
+    font-weight: bolder;
+}
+.mainStyle .notPassedTest{
+    color: #EF596D;
+    display: block;
+}
+.mainStyle .backLinkPosition{
+    display: block;
+    margin-top: 5px;
+    margin-left: 70px;
+}
+.mainStyle .counterPosition{
+    text-align: right;
+    float: right;
+}
+.mainStyle .testItemsDiv{
+    text-align: left;
+    width: 50%;
+    position: relative;
+    left: 35%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.mainStyle .beginTest{
+    display: block;
+    width: 150px;
+    position: relative;
+    left: 40%;
+}
+    input[type="radio"]{margin-top: 0px; margin-right: 10px;}
+    input[type="radio"]+label{float: right;}
+    input[type="checkbox"]{margin-top: 0px; margin-right: 10px;}
+    input[type="checkbox"]+label{float: right;}
+
+ .mainStyle .testQuestionBlock{
+     width: 100px;
+     float: left;
+     color: #27587F;
+     font-size: 14px;
+     margin-left: 10px;
+ }
+ .mainStyle .testQuestionTitle{
+     display: block;
+     font-size: 14px;
+ }
+ .mainStyle .testSelectPadding{
+     margin-left: 200px;
+     margin-bottom: 10px;
+ }
+ .mainStyle .testButtons{
+     margin: 8px;
+     width: 150px;
+ }
+ .mainStyle .progressBarBorder{
+     border: 1px solid green;
+     width: 90%;
+     height: 15px;
+     margin: auto;
+     margin-top: 20px;
+ }
+ .mainStyle .testFinish{
+     font-size: 14pt;
+     padding: 0;
+     margin: auto;
+     width: 180px;
+ }
+ .mainStyle .testResultMarkNotNull{
+     color: #373E3F;
+     font-weight: bolder;
+ }
+ .mainStyle .testResultMarkNull{
+     color: red;
+     font-weight: bolder;
+ }
+/* результаты тестов*/
+ .mainStyle .workTitle{
+     font-size: 8pt;
+     font-weight: normal;
+     display: block;
+     padding-left: 8px;
+ }
+/*рейтинг*/
+.mainStyle .ratingStyle{
+    color: green;
+    font-weight: bolder;
+    font-size: 10pt;
+}
+/*главная страница*/
+.mainStyle .tdStudentMainPage{
+    width: 50%;
+    padding: 3px 3px 0px 3px;
+    border: 1px solid silver;
+}
+.mainStyle .StudentMainPageTitles{
+    border-bottom: 1px solid silver;
+    padding-top: 4px;
+}
+.mainStyle .StudentMainPageImgPadd{
+    padding-left: 17px;
+    padding-bottom: 3px;
+}
+.mainStyle .test_results{
+    font-family: Arial;
+    color: #27587F;
+    background:url('../resources/images/test_results.gif') no-repeat;
+    padding-left: 24px;
+}
+.mainStyle .control_works{
+    font-size: 12pt;
+    background:url('../resources/images/control_works.gif') no-repeat;
+    padding-left: 24px;
+}
+/*помощь*/
+.mainStyle .studentHelp{
+    width: 245px;
+    border-right: 1px solid silver;
+}
+.mainStyle .contentsBlock{
+    line-height: 30px;
+    font-weight: normal;
+    color: silver;
+}
+.mainStyle .mainContentHelpPadding{
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+/*pictures*/
+/*.mainStyle .discipline_summ{
+    background: url('../resources/images/discipline_summ.gif') no-repeat 0 0;
+}*/
+.mainStyle .cross-circle{
+    background: url('../resources/images/cross-circle.gif') no-repeat 0 0;
+}
+/*мои изучаемые материалы дисциплины*/
+.mainStyle .moduls{
+    background: url('../resources/images/moduls.gif') no-repeat; padding-left: 20px;
+}
+.mainStyle .attemps{
+    color: grey;
+    background: url('../resources/images/attemps.gif') 2px 1px no-repeat;
+    padding-left: 18px;
+}
+.mainStyle .tryingAttemps{
+    color: grey;
+    background: url('../resources/images/tryingAttemps.gif') no-repeat;
+    padding-left: 18px;
+}
+.mainStyle .arrows{
+    color: grey;
+    background: url('../resources/images/arrows.gif') 2px 1px no-repeat;
+    padding-left: 18px;
+}
+.mainStyle .star{
+/*    color: grey;*/
+    background: url('../resources/images/star.gif') no-repeat;
+/*    padding-left: 18px;*/
+}
+.mainStyle .time{
+    color: grey;
+    background: url('../resources/images/time.gif')2px 0 no-repeat;
+    padding-left: 18px;
+}
+.mainStyle .discipline_summ{
+/*    color: grey;*/
+    background: url('../resources/images/discipline_summ.gif') no-repeat;
+/*    padding-left: 18px;*/
 }

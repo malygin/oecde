@@ -17,7 +17,7 @@
     <!-- IMPLEMENTATION -->
     <composite:implementation>
         <h:panelGroup rendered="#{empty cc.attrs.list}" class="DisciplineText">
-            <span style="display: block;height: 30px;margin-left:20px;padding-left: 40px;padding-top: 10px; font-style: italic; font-size: 12pt;font-weight: bolder; background: url('../resources/images/message-delete.gif') no-repeat 0 0;">Сообщений нет!</span>
+            <span class="MessNothing">Сообщений нет!</span>
         </h:panelGroup>
 
         <h:dataTable value="#{cc.attrs.list}" var="message" style="width: 98%;">

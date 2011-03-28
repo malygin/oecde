@@ -26,7 +26,7 @@
 
         <h:panelGroup rendered="#{not messageDialogBean.noDialog}">
             <ui:repeat value="#{cc.attrs.list}" var="message">
-                <div class="" style="border-bottom: 1px solid #EFF7FF; padding-bottom: 10px;padding-top: 10px; padding-left:60px; padding-right: 60px;">
+                <div class="dialogBlocks">
                     <div class="chatPostDate" style="font-size: 8pt;margin-right: 10px;">
                         <h:outputText converter="dateConverter" value="#{message.message.dateMessage}"/>
                     </div>
@@ -47,7 +47,7 @@
                     </table>
                     <div class="floatDestroyer"/>
                     <a href="messages_read.xhtml?id=#{message.message.id}">
-                    <div style="color:#3D3D3D; margin-top: 3px; margin-left: 8px;color: #3F3E3B; cursor: pointer; font-family: Verdana;font-weight: normal;text-align: left;">
+                    <div class="FullTextMess">
                         <h:outputText value="#{message.message.fullText}"/>
                     </div>
                     </a>
@@ -61,7 +61,7 @@
                         <div style="width: 100%; text-align: right;" class="navigationLinks">
                             <a href="messages_write.xhtml?user=#{messageDialogBean.recipientId}">#{msgs.message_goToFullWritingVersion}</a>
                         </div>
-                        <table style="width: 100%;">
+                        <table class="leftMenuContainer">
                             <tr>
                                 <td style="width: 40px; padding: 0;" class="greyMess">#{msgs.message_theme}</td>
                                 <td ><h:inputText styleClass="writeMessageInterfaceTheme inputMessText" /></td>

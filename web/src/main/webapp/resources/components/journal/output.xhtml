@@ -22,10 +22,10 @@
                 </h:column>
             </h:dataTable>
             <div style="margin-top: 15px;">
-             <span style="color: gray;">начало события:</span> <util:date_picker  value="#{journalBean.filter.beginDate}"/>
-             <span style="color: gray;">конец события:</span><util:date_picker value="#{journalBean.filter.endDate}"/>
+             <span class="groupControlWorksCWProgress">начало события:</span> <util:date_picker  value="#{journalBean.filter.beginDate}"/>
+             <span class="groupControlWorksCWProgress">конец события:</span><util:date_picker value="#{journalBean.filter.endDate}"/>
             </div>
-            <h:commandButton value="OK" action="#{journalBean.clearEvents}" styleClass="studentButton" style="margin-left: 10px;width: 70px; display: block; position: relative; left: 45%;"/>
+            <h:commandButton value="OK" action="#{journalBean.clearEvents}" styleClass="studentButton portalSettingsButtonPosition"/>
 
            <util:navigationList numElements="#{journalBean.eventsCount}" elementOnPage="#{journalBean.filter.capacity}"/>
            <j:eventsOnly  list="#{journalBean.events}"/>

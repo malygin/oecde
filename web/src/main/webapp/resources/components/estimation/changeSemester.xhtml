@@ -13,8 +13,8 @@
 
     <!-- IMPLEMENTATION -->
     <composite:implementation>
-        <div style="border-bottom: 1px solid silver;">
-            <div style="background: #e2f3fc; color: #4593DF; padding: 4px 5px 3px 5px;">
+        <div style="border: 1px solid silver;">
+            <div class="changeSemestr">
                 <div class="navigationLinks">
                     <h:outputText value="#{changeSemesterBean.semesterName(cc.attrs.semester)}"/>
                     <h:outputText rendered="#{cc.attrs.semester eq semesterGetter.currentSemester}" value=" (текущий)"/>

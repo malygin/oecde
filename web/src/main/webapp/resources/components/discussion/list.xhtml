@@ -23,11 +23,11 @@
                 margin: 1px 1px 0 1px;
             }
         </style>-->
-            <div style="text-align: center;">
-                <div style="width: 50%; margin: auto;">
+            <div class="usersOnlineTableContainer">
+                <div class="questionArea">
                     <h:form>
-                        <p style="text-align: left; margin: 3px 0px 5px 3px; font-size: 8pt; color: gray;">Текст Вашего вопроса:</p>
-                        <h:inputTextarea value="#{DiscussionBean.nodeText}" rows="5" style="width: 100%;"/>
+                        <p class="questionAreaText">Текст Вашего вопроса:</p>
+                        <h:inputTextarea value="#{DiscussionBean.nodeText}" rows="5" styleClass="leftMenuContainer"/>
                         <div class="navigationLinks" style="text-align: right;">
                             <h:commandLink action="#{DiscussionBean.saveNodes}" value="Отправить"/>
                         </div>
@@ -36,7 +36,7 @@
             </div>
 
 
-        <h:dataTable value="#{cc.attrs.list}" var="node" style="width: 100%;">
+        <h:dataTable value="#{cc.attrs.list}" var="node" styleClass="leftMenuContainer">
             <h:column>
              <h:form>
                 <div class="discussionComment" style="margin-left: #{(node.level-2)*30}px;">
@@ -79,8 +79,8 @@
                             </h:panelGroup>
 
                             <h:panelGroup rendered="#{DiscussionBean.renderReply}">
-                                <div style="max-width: 90%; margin-top: 10px;" >
-                                    <h:inputTextarea cols="30" rows="5"  value="#{DiscussionBean.nodeTextReply}" style="width: 100%;" />
+                                <div class="questionAreaBlock">
+                                    <h:inputTextarea cols="30" rows="5"  value="#{DiscussionBean.nodeTextReply}" styleClass="leftMenuContainer" />
                                     <div class="navigationLinks" style="text-align: right;">
                                         <h:commandLink action="#{DiscussionBean.saveReply}" value="Отправить">
                                             <f:setPropertyActionListener target="#{DiscussionBean.nodeId}" value="#{node.id}" />
