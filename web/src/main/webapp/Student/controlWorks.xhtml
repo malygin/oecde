@@ -18,10 +18,10 @@
                             <h:form enctype="multipart/form-data">
             <h:dataTable width="100%" value="#{controlWorksBean.controlWorks}" var="o" cellpadding="0" cellspacing="0">
                 <h:column>
-                        <table cellpadding="2" cellspacing="2" style="width: 100%;" class="${o[1].progress} controlWorksBorders">
+                        <table cellpadding="2" cellspacing="2" class="${o[1].progress} controlWorksBorders leftMenuContainer">
                             <tr>
-                                <td valign="top" style="color: gray; width: 170px; padding-left: 10px; text-align: justify;">#{msgs.student_DiciplineName}: </td>
-                                <td valign="top" class="controlWorksDisciplineNameLink" style="padding-left:10px; width: 25%;">
+                                <td valign="top" class="columnNames" style="text-align: justify;">#{msgs.student_DiciplineName}: </td>
+                                <td valign="top" class="controlWorksDisciplineNameLink studentPaddLeft" style="width: 25%;">
                                     <h:outputLink value="umk.xhtml?c=${o[0].id}">${o[0].discipline.name}</h:outputLink></td>
                         <td valign="top" class="controlWorksDisciplineNameLink">
                                 <h:commandLink id="updt" value="#{msgs.student_ChooseControlWork}" style="padding-left: 17px;">
@@ -30,41 +30,40 @@
                                 </h:commandLink>
                                 <h:panelGroup rendered="#{controlWorksBean.currentControlWorks!=null and controlWorksBean.currentControlWorks == o[1]}" id="addFile">
                                     <input type="file" name="CwFile" style="background: white;"/>
-                                    <span class="studentButton" style="display: block; width: 50px;text-align: center; float: right; margin: 0; margin-top: 4px;">
+                                    <span class="studentButton chooseContrWorkButtonPosition">
                                         <h:commandLink action="#{controlWorksBean.saveCw}" id="fileBtn" value="ОК"/>
                                     </span>
                                 </h:panelGroup>
                                 </td>
                             </tr>
                             <tr>
-                                <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">#{msgs.student_Teacher}: </td>
-                                <td valign="top" style="padding-left: 10px;">
+                                <td valign="top" class="columnNames">#{msgs.student_Teacher}: </td>
+                                <td valign="top" class="studentPaddLeft">
                                     <span class="linkToTeachersProfile linkToTeachersProfileFromStudent">
                                         <h:outputLink value="teacher.xhtml?id=${o[3].id}">${o[3].initials}</h:outputLink>
                                     </span>
                                 </td>
                             </tr>
                             <tr>
-                                <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">#{msgs.student_Mark}: </td>
-                                <td valign="top" style="padding-left: 10px; font-size: 10pt;">
-                                   <h:panelGroup rendered="${o[1].progress=='passed'}" style="color:#0F3F00; padding-left: 17px;  background: url('../resources/images/discipline_summ.gif') no-repeat 0 0;">
+                                <td valign="top" class="columnNames">#{msgs.student_Mark}: </td>
+                                <td valign="top" class="studentPaddLeft" style="font-size: 10pt;">
+                            <h:panelGroup rendered="${o[1].progress=='passed'}" styleClass="controlWorkResultStyle discipline_summ">
                                    <h:outputText converter="enumConverter" value="${o[1].progress}"/>
                                    </h:panelGroup>
-                                    <h:panelGroup rendered="${o[1].progress=='failed'}" style="color:#0F3F00; padding-left: 17px;  background: url('../resources/images/cross-circle.gif') no-repeat 0 0;">
+                                    <h:panelGroup rendered="${o[1].progress=='failed'}" styleClass="controlWorkResultStyle cross-circle">
                                    <h:outputText converter="enumConverter" value="${o[1].progress}"/>
                                    </h:panelGroup>
-                                    <h:panelGroup rendered="${o[1].progress == 'notAvailable' or o[1].progress == 'available'}" style="color:#0F3F00; padding-left: 17px;  background: none;">
+                            <h:panelGroup rendered="${o[1].progress == 'notAvailable' or o[1].progress == 'available'}" styleClass="controlWorkResultStyle" style="background: none;">
                                    <h:outputText converter="enumConverter" value="${o[1].progress}"/>
                                    </h:panelGroup>
                                     
                                     <span class="StudentTestMark">
-                                        (${o[1].points}  #{msgs.student_grades})
+                                        (${o[1].points}  #{msgs.student_gradesMarks})
                                     </span>
                                 </td>
                                 </tr>
                                 <tr>
-                                
-                            </tr>
+                                </tr>
                             <tr><td>
                                 <h:dataTable value="#{o[1].cwAttempt}" var="a">
                                     <h:column>
@@ -79,8 +78,7 @@
                         </table>
                 </h:column>
             </h:dataTable>
-
-                            </h:form>
+            </h:form>
         </div>
     </ui:define>
 </ui:composition>

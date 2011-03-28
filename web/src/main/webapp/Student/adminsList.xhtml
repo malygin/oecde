@@ -10,20 +10,20 @@
         #{msgs.admin_adminsOnlineMenuTitle}
     </ui:define>
     <ui:define name="content">
-        <div class="interfaceContent" style="padding: 0;">
+        <div class="interfaceContent">
 
-           <div class="DisciplineText" style="padding-top: 10px; padding-bottom: 10px;">#{msgs.student_representation}:
+           <div class="DisciplineText prosto_tekst studentPaddBott studentPaddLeft">#{msgs.student_representation}:
            </div>
-            <h:dataTable value="#{studentAdminsBean.supervisors}" style="width: 100%;" var="s">
+            <h:dataTable value="#{studentAdminsBean.supervisors}" styleClass="leftMenuContainer" var="s">
                 <h:column>
-                <div class="standartContainerForStudentMediumAvatar" style="margin-left: 8px; width: 80px;" align="center">
+                <div class="standartContainerForStudentMediumAvatar studentPaddLeft" style="margin-left: 8px; width: 80px;" align="center">
                     <ut:showPhoto user="#{s}" size="small"/>
                 </div>
                 <div class="standartContainerForTeacherInfoInTeachersList">
                     <table>
                         <tr>
                             <td>
-                                <div style="padding-bottom: 10px;">
+                                <div class="studentPaddBott">
                                 <span class="AdminTextGrey">#{msgs.student_description}:</span>
                                  #{s.description}
                                 </div>
@@ -31,7 +31,7 @@
                         </tr>
                         <tr>
                         <td class="controlWorksDisciplineNameLinkGrey">
-                            <span style="padding-bottom: 10px;" class="s1">
+                            <span class="s1 studentPaddBott">
                                 <a href="messages_write.xhtml?user=${s.id}">#{msgs.student_studentListWriteMessage}</a>
                             </span>
                             <span class="s2 controlWorksDisciplineNameLink">
@@ -43,16 +43,14 @@
                 </div>
                 </h:column>
             </h:dataTable>
-            <h:dataTable value="#{studentAdminsBean.admins}" style="width: 100%;" var="a">
+            <h:dataTable value="#{studentAdminsBean.admins}" styleClass="leftMenuContainer" var="a">
                 <h:column>
                 <div class="studentInterfaceStandartList">
                     <ut:userListItem type="admin" u="#{a}"/>
                 </div>
                 </h:column>
             </h:dataTable>
-
-           
-                    <div class="floatDestroyer"/>
+            <div class="floatDestroyer"/>
         </div>
     </ui:define>
 </ui:composition>

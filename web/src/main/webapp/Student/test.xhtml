@@ -14,7 +14,7 @@
         </ui:define>
         <ui:define name="content">
        
-            <div style="text-align: right; float: right;">
+            <div class="counterPosition">
             <div class="TestCounter">
        <span id="counter"></span>
             </div>
@@ -31,7 +31,7 @@
        <h:form id="mainForm">
          <h:panelGroup rendered="#{not testBean.renderTestPassing}">
            <h:outputText rendered="#{testBean.accessDenied}" value="Не найден или не доступен" />
-           <h:outputLink value="umk.xhtml?c=#{testBean.curriculumId}" styleClass="navigationLinks" style="display: block; margin-top: 5px;margin-left: 70px;">назад</h:outputLink>
+           <h:outputLink value="discipline.xhtml?c=#{testBean.curriculumId}" styleClass="navigationLinks backLinkPosition">назад</h:outputLink>
            <r:set var="t" value="#{testBean.test}"/>
            <r:set var="work" value="#{t[1]}"/>
            <r:set var="test" value="#{work.work}"/><br/>
@@ -39,7 +39,7 @@
 
            <h:outputText rendered="#{(t[2]!=null)&amp;&amp;(t[3]!=null)&amp;&amp;(t[4]!=null)}" style="color: red" value="#{t[2]}  ||  #{t[3]}  ||  #{t[4]}"/>
          
-           <div style="text-align: left; width: 50%;position: relative; left: 35%;  margin-top: 10px; margin-bottom: 10px;">
+           <div class="testItemsDiv">
                <table class="StudentTestStartPages">
                    <tr>
                        <td>
@@ -93,7 +93,7 @@
                    </tr>
                 </table>
            </div>       
-              <h:commandLink action="#{testBean.startTest}" rendered="#{not testBean.accessDenied}" styleClass="studentButton" style="display: block; width: 150px; position: relative; left: 40%;">Начать тест!
+              <h:commandLink action="#{testBean.startTest}" rendered="#{not testBean.accessDenied}" styleClass="studentButton beginTest">Начать тест!
                   <f:ajax render="@form" />
               </h:commandLink>  
            </h:panelGroup>
@@ -119,25 +119,19 @@
 
                                });
                 </script>
-            <style>
-                input[type="radio"]{margin-top: 0px; margin-right: 10px;}
-input[type="radio"]+label{float: right;}
-                input[type="checkbox"]{margin-top: 0px; margin-right: 10px;}
-input[type="checkbox"]+label{float: right;}
-            </style>
               <r:set var="question" value="#{testPassingBean.currentQustionView.question}"/>
              
                   <h:panelGroup id="mainPanel" rendered="#{not testPassingBean.renderCompleteTest}" >
-                      <div style="width: 100px; float: left; color: #27587F; font-size: 14px; margin-left: 10px;">  Вопрос № #{testPassingBean.iterQ+1}</div> <div style="margin-top: 15px;"><h:outputText escape="false" value="#{testPassingBean.questionTitle}" style="display: block; font-size: 14px;"/></div>
+                      <div class="testQuestionBlock">  Вопрос № #{testPassingBean.iterQ+1}</div> <div style="margin-top: 15px;"><h:outputText escape="false" value="#{testPassingBean.questionTitle}" styleClass="testQuestionTitle"/></div>
                          <h:panelGroup  id="radioType" rendered="#{question.type=='radio'}" styleClass="educ_umk_text_block">
-                             <h:selectOneRadio   converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}" style="margin-left: 200px; margin-bottom: 10px; margin-top: 10px;">
+                             <h:selectOneRadio   converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}" styleClass="testSelectPadding" style="margin-top: 10px;">
                                  <f:selectItems   value="#{testPassingBean.answers}" />
                             </h:selectOneRadio>
                              
                          </h:panelGroup>
 
                           <h:panelGroup id="checkType" rendered="#{question.type=='check'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
-                              <h:selectManyCheckbox  converter="testConverter"  layout="pageDirection"  value="#{testPassingBean.selectedAnswers}" style="margin-left: 200px; margin-bottom: 10px;">
+                              <h:selectManyCheckbox  converter="testConverter"  layout="pageDirection"  value="#{testPassingBean.selectedAnswers}" styleClass="testSelectPadding">
                                   <f:selectItems   value="#{testPassingBean.answers}" /><br/>
                             </h:selectManyCheckbox >
                          </h:panelGroup>
@@ -190,26 +184,25 @@ input[type="checkbox"]+label{float: right;}
                               </div>-->
                          </h:panelGroup>
 
-                         <h:commandButton value="следующий" action="#{testPassingBean.next}" styleClass="studentButton" style="margin: 8px; width: 150px;">
+                         <h:commandButton value="следующий" action="#{testPassingBean.next}" styleClass="studentButton testButtons">
                              <f:ajax render="@form"/>
                          </h:commandButton>
 
-                         <h:commandButton value="ответить" action="#{testPassingBean.answer}" styleClass="studentButton"  style="margin: 8px; width: 150px;">
+                         <h:commandButton value="ответить" action="#{testPassingBean.answer}" styleClass="studentButton testButtons">
                               <f:ajax execute="@form" render="@form"/>
                          </h:commandButton>
 
-                         <h:commandButton id="completeTest" onclick="removeCounter();" value="завершить тест" action="#{testPassingBean.completeTest}" styleClass="studentButtonRed"  style="margin: 8px; width: 150px;">
+                         <h:commandButton id="completeTest" onclick="removeCounter();" value="завершить тест" action="#{testPassingBean.completeTest}" styleClass="studentButtonRed testButtons">
                              <f:ajax render="@form"/>
                          </h:commandButton>
 <!--                      <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 70px;"><span class="DisciplineText">отвечено на </span><span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countAnsweredquestion}</span><span class="DisciplineText" style="padding:0;"> из </span><span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countQuestions}</span></div>-->
-                    <div style="border: 1px solid green; width: 90%;height: 15px; margin: auto;margin-top: 20px;">
+                    <div class="progressBarBorder">
                         <div style="background:  url('../resources/images/greenMenuTitle.png') repeat-x; height: 15px; width:#{testPassingBean.countAnsweredquestion/testPassingBean.countQuestions*100}%;">
-
                             <div style="width: 740px;">
-                                <span style="color: #04383F;">отвечено на </span>
-                                <span style="color: #373E3F; font-weight: bold;">#{testPassingBean.countAnsweredquestion}</span>
-                            <span style="padding:0; color:#04383F;"> из </span>
-                            <span style="color: #373E3F;font-weight: bold;">#{testPassingBean.countQuestions}</span>
+                                <span class="darkGreyColor">отвечено на </span>
+                                <span class="darkGreyColorBold">#{testPassingBean.countAnsweredquestion}</span>
+                            <span class="darkGreyColor" style="padding:0;"> из </span>
+                            <span class="darkGreyColorBold">#{testPassingBean.countQuestions}</span>
                             </div>
                         </div>
                     </div>
@@ -237,7 +230,7 @@ input[type="checkbox"]+label{float: right;}
                                    $(window).unbind('beforeunload');
                                });
                         </script>
-                     <div class="DisciplineText" style="font-size: 14pt;padding: 0; margin: auto; width: 180px;">Тест  завершен!</div>
+                     <div class="DisciplineText testFinish">Тест  завершен!</div>
                      <div style="margin: auto; width: 180px;">
                      <table style="margin-top: 20px;">
                          <tr>
@@ -245,8 +238,8 @@ input[type="checkbox"]+label{float: right;}
                          <span style="color: grey;">Баллов</span>
                              </td>
                              <td>
-                             <h:outputText rendered="#{testPassingBean.points!=0}" style=" color: #373E3F;font-weight: bolder;" value="#{testPassingBean.points}"/>
-                             <h:outputText rendered="#{testPassingBean.points==0}" style=" color: red;font-weight: bolder;" value="#{testPassingBean.points}"/>
+                             <h:outputText rendered="#{testPassingBean.points!=0}" styleClass="testResultMarkNotNull" value="#{testPassingBean.points}"/>
+                             <h:outputText rendered="#{testPassingBean.points==0}" styleClass="testResultMarkNull" value="#{testPassingBean.points}"/>
                              из 100
                             </td>
                          </tr>
@@ -255,8 +248,8 @@ input[type="checkbox"]+label{float: right;}
                      <span style="color: grey;">Правильно ответил на </span>
                         </td>
                         <td>
-                         <h:outputText rendered="#{testPassingBean.countRight!=0}" style=" color: #373E3F;font-weight: bolder;" value="#{testPassingBean.countRight}"/>
-                         <h:outputText rendered="#{testPassingBean.countRight==0}" style=" color: red;font-weight: bolder;" value="#{testPassingBean.countRight}"/>
+                         <h:outputText rendered="#{testPassingBean.countRight!=0}" styleClass="testResultMarkNotNull" value="#{testPassingBean.countRight}"/>
+                         <h:outputText rendered="#{testPassingBean.countRight==0}" styleClass="testResultMarkNull" value="#{testPassingBean.countRight}"/>
                          из #{testPassingBean.countQuestions} 
                          </td>
                      </tr>

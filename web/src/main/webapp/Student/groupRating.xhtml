@@ -9,18 +9,18 @@
         Рейтинг моей группы
     </ui:define>
     <ui:define name="content">
-        <div class="interfaceContent" style="padding: 0;">
-            <h:dataTable value="#{studentRatingBean.groupRating}" var="p" cellpadding="0" cellspacing="0" style="width: 100%;">
+        <div class="interfaceContent">
+            <h:dataTable value="#{studentRatingBean.groupRating}" var="p" cellpadding="0" cellspacing="0" styleClass="writeMessageInterfaceTheme">
                <h:column>
-                   <table cellpadding="2" cellspacing="2" class="controlWorksBorders " style="width: 100%;">
+                   <table cellpadding="2" cellspacing="2" class="controlWorksBorders writeMessageInterfaceTheme">
                         <tr>
-                            <td valign="top" style="color: gray; width: 80px; padding-left: 10px; text-align: justify;">Студент:</td>
-                <td valign="top" class="controlWorksDisciplineName"><span class="linkToStudentsProfile" style="color:#1B8CDF; font-weight: normal; font-size: 10pt;"><a href="student.xhtml?id=#{p.student.id}"><h:outputText value=" #{p.student.fio}"/></a></span></td>
+                            <td valign="top" class="columnNames" style="width: 80px;">Студент:</td>
+                <td valign="top" class="controlWorksDisciplineName"><span class="linkToStudentsProfile"><a href="student.xhtml?id=#{p.student.id}"><h:outputText value=" #{p.student.fio}"/></a></span></td>
                </tr>
                         <tr>
-                            <td valign="top" style="color: gray; width: 80px; padding-left: 10px;">Рейтинг:</td>
+                            <td valign="top" class="columnNames" style="width: 80px;">Рейтинг:</td>
                             <td valign="top">
-                                <span style="color: green; font-weight: bolder; font-size: 10pt;"><h:outputText value="#{p.sum}"></h:outputText></span>
+                                <span class="ratingStyle"><h:outputText value="#{p.sum}"></h:outputText></span>
                             </td>
                         </tr>
                     </table>

@@ -10,8 +10,8 @@
         #{msgs.student_studentListHeader}
     </ui:define>
     <ui:define name="content">
-        <div class="interfaceContent" style="padding: 0;">
-            <h:dataTable value="#{groupBean.students}" style="width: 100%;" var="s">
+        <div class="interfaceContent">
+            <h:dataTable value="#{groupBean.students}" styleClass="leftMenuContainer" var="s">
                 <h:column>
                 <div class="studentInterfaceStandartList">
                     <ut:userListItem type="student" u="#{s}"/>

@@ -21,17 +21,17 @@
                 <f:viewParam name="c" value="#{testResultsBean.curriculumId}"/>
                 <f:viewParam name="r" value="#{testResultsBean.reExame}"/>
             </f:metadata>
-            <h:dataTable style="width: 100%;" value="#{testResultsBean.attempts}" cellpadding="0" cellspacing="0"
+            <h:dataTable value="#{testResultsBean.attempts}" cellpadding="0" cellspacing="0"
                          columnClasses="studentStandatrTableTd,
                          studentStandatrTableExamin studentStandatrTableTd,
                          studentStandatrTableExamin studentStandatrTableSubtableTd,
                          studentStandatrTableExamin studentStandatrTableTd,
-                         studentStandatrTableExamin studentStandatrTableTdLastTd" styleClass="studentStandatrTable"  var="r">
+                         studentStandatrTableExamin studentStandatrTableTdLastTd" styleClass="studentStandatrTable leftMenuContainer"  var="r">
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_testResultName}" />
                     </f:facet>
-                    <span class="controlWorksDisciplineName" style="font-size: 8pt; font-weight: normal;display: block; padding-left: 8px;">#{r.work.title}</span>
+                    <span class="controlWorksDisciplineName workTitle">#{r.work.title}</span>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
@@ -71,10 +71,10 @@
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_testResultResult}" />
                     </f:facet>
-                    <h:panelGroup  rendered="#{r.pointsForWork>80}" style="color:#373E3F; font-weight: bold;">
+                    <h:panelGroup  rendered="#{r.pointsForWork>80}" styleClass="testResultMarkNotNull">
                          #{r.pointsForWork}
                     </h:panelGroup>
-                     <h:panelGroup rendered="#{r.pointsForWork&lt;80}" style="color: red; font-weight: bold;">
+                     <h:panelGroup rendered="#{r.pointsForWork&lt;80}" styleClass="testResultMarkNull">
                          #{r.pointsForWork}
                     </h:panelGroup>
                 </h:column>

@@ -4,7 +4,6 @@
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/studentTemplate.xhtml"
     xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
-    >
     <ui:define name="contentHeader">
         #{msgs.student_grades}
     </ui:define>
@@ -17,7 +16,7 @@
             <div class="changeSemWithoutBorder">
                 <est:changeSemester semester="#{gradesBean.semester}"/>
             </div>
-            <div  class="controlWorksDisciplineNameLink" style="text-align: right;padding-right: 15px; padding-top: 5px; position: relative; top: -25px;">
+            <div  class="controlWorksDisciplineNameLink helpLink">
                 <a href="#help" class="help_part_href">#{msgs.student_marksHelp}</a>
             </div>
             <div>

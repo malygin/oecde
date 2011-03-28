@@ -6,13 +6,12 @@
     xmlns:r="http://java.sun.com/jsp/jstl/core"
     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
     xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
-    >
     <ui:define name="contentHeader">Список преподавателей</ui:define>
     <ui:define name="content">
         <f:metadata>
             <f:viewParam name="s" value="#{teachersListBean.semester}"/>
         </f:metadata>
-        <div class="interfaceContent" style="padding: 0;">
+        <div class="interfaceContentWithoutPadding">
             <est:changeSemester semester="#{teachersListBean.semester}"/>
             <r:forEach items="#{teachersListBean.teachers}" var="t">
                 <div class="studentInterfaceStandartList">

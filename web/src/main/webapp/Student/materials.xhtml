@@ -16,11 +16,11 @@
                 <f:viewParam name="s" value="#{materialsBean.semester}"/>
             </f:metadata>
             <est:changeSemester semester="#{materialsBean.semester}"/>
-            <h:dataTable value="#{materialsBean.studentsDisciplines}" var="m" >
+            <h:dataTable value="#{materialsBean.studentsDisciplines}" var="m" styleClass="leftMenuContainer">
                 <h:column>
-                <div style="width: 100%;" class="controlWorksBorders">
-                    <span class="controlWorksDisciplineNameLink" style="padding-left: 10px;"><h:outputLink value="umk.xhtml?c=#{m.curriculum.id}" style=" font-size: 11pt !important;">#{m.curriculum.umk.name}</h:outputLink><br/></span>
-           
+                <div class="controlWorksBorders">
+                    <span class="controlWorksDisciplineNameLink studentPaddLeft"><h:outputLink value="discipline.xhtml?c=#{m.curriculum.id}" style=" font-size: 11pt !important;">#{m.curriculum.umk.name}</h:outputLink><br/></span>
+
                     <div class="materialInfo DisciplineText" style="padding-top: 5px; font-size: 9pt; font-family: Verdana,'Verdana CE',Arial,'Arial CE','Lucida Grande CE',lucida,'Helvetica CE',sans-serif">
                         <p> #{msgs.student_finishedTests}<span> #{m.passedTests} #{msgs.student_fromWord} #{m.testsCount}
                         <!--<div class="progressBarMaterials">

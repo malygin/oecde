@@ -15,16 +15,16 @@
         <div class="interfaceContent" style="padding-top: 10px;">
         <table>
             <tr>
-                <td style="width: 245px; border-right: 1px solid silver;" valign="top">
+                <td class="studentHelp" valign="top">
             <h:form>
                 <h:dataTable title="разделы" id="tabs" value="#{tabsViewBean.tabs}" var="t" border="0" cellpadding="0" cellspacing="0">
                     <h:column>
                         <f:facet name="header">
-                            <div style="line-height: 30px; font-weight: normal; color: silver;">
+                            <div class="contentsBlock">
                                 Оглавление:
                             </div>
                         </f:facet>
-                        <div style="margin-left: 10px;">
+                        <div class="educ_umk_text_block">
                             <div class="controlWorksDisciplineName DisciplineText">
                                 <h:outputText value="#{t.name}"/>
                             </div>
@@ -44,11 +44,11 @@
                 </h:dataTable>
             </h:form>
             </td>
-            <td valign="top" style="padding-left: 10px; padding-bottom: 10px; padding-right: 10px;">
+            <td valign="top" class="mainContentHelpPadding">
                 <div style="height: 30px;">
-                    <span style="line-height: 30px; color: silver;"></span>
+                    <span class="contentsBlock"></span>
                 </div>
-                <div style="margin-left: 10px;">
+                <div class="educ_umk_text_block">
                     <div class="controlWorksDisciplineName DisciplineText" style="margin-bottom: 5px;">
                         <h:outputText id="title" value="#{tabsViewBean.currentPage.title}"/>
                     </div>

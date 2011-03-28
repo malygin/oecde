@@ -19,17 +19,14 @@
                                numElements="#{DiscussionBean.getNumOfNodes('1','STUDENT_FAQ')}"/>
 
              <div class="interfaceContent">
-                    <div class="studentInterfaceStandartList" style="padding-top: 4px; padding-bottom: 2px;">
+                    <div class="studentInterfaceStandartList forumTopBlock">
                        
-                        <div style="text-align: justify; margin: 5px 0px 5px 0px;">
+                        <div class="forumDiscriptionText">
                           #{msgs.student_forumTexBettaTesters} <br/>
                           #{msgs.student_forumTexWhiteYourSuggestion} <a href="messages_write.xhtml?user=1">#{msgs.student_MichelShixov}</a>
-
-
                         </div>
                         <div class="floatDestroyer"/>
                     </div>
-
                     <div class="interfaceContent">
                         <discuss:list list="#{DiscussionBean.nodesByPage}"/>
                     </div>

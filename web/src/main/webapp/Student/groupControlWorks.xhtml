@@ -18,8 +18,8 @@
             <c:forEach items="${groupCwBean.controlWorkInfo4Group}" var="w">
                 <table cellpadding="2" cellspacing="2" style="width: 100%;" class="#{w.value.progress} controlWorksBorders">
                     <tr>
-                        <td valign="top" style="color: gray; width: 170px; padding-left: 10px; text-align: justify;">#{msgs.student_DiciplineName}: </td>
-                        <td valign="top" style="padding-left:10px;">
+                        <td valign="top" class="columnNames">#{msgs.student_DiciplineName}: </td>
+                        <td valign="top" class="studentPaddLeft">
                             <span class="controlWorksDisciplineNameLink" style="font-size: 8pt;"> <h:outputLink value="umk.xhtml?c=#{w.value.curriculum.discipline.id}">#{w.value.curriculum.discipline.name}</h:outputLink></span>
                             <h:outputText rendered="${w.value.curriculum.discipline.name ne ''}" value="#{w.value.curriculum.discipline.name}"/>
                    
@@ -28,22 +28,22 @@
                         </td>
                     </tr>
                     <tr>
-                        <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">#{msgs.student_Student}: </td>
-                        <td valign="top" style="padding-left: 10px;">
+                        <td valign="top" class="columnNames">#{msgs.student_Student}: </td>
+                        <td valign="top" class="studentPaddLeft">
                             <span class="linkToStudentsProfile">
                                 <a href="student.xhtml?id=#{w.key.id}">#{w.key.fio}</a>
                             </span>
                         </td>
                     </tr>
                     <tr>
-                        <td valign="top" style="color: gray; width: 170px; padding-left: 10px;">#{msgs.student_Mark}: </td>
-                        <td valign="top" style="padding-left: 10px; color: #174F05;">
+                        <td valign="top" class="columnNames">#{msgs.student_Mark}: </td>
+                        <td valign="top" class="studentPaddLeft" style="color: #174F05;">
                            <span style="">
                            </span>
-                        <h:panelGroup rendered="#{w.value.progress=='passed'}" style="color:#174F05; padding-left: 17px;  background: url('../resources/images/discipline_summ.gif') no-repeat 0 0;">
+                        <h:panelGroup rendered="#{w.value.progress=='passed'}" styleClass="discipline_summ" style="color:#174F05;">
                     <h:outputText converter="enumConverter" value="#{w.value.progress}"/>
                      </h:panelGroup>
-                    <h:panelGroup rendered="#{w.value.progress=='failed'}" style="padding-left: 17px;  background: url('../resources/images/cross-circle.gif') no-repeat 0 0; color: #8F3563;">
+                    <h:panelGroup rendered="#{w.value.progress=='failed'}" styleClass="cross-circle" style="color: #8F3563;">
                     <h:outputText converter="enumConverter" value="#{w.value.progress}"/>
                      </h:panelGroup>
                     </td>
