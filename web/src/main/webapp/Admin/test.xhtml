@@ -58,37 +58,49 @@
               <r:set var="question" value="#{testPassingBean.currentQustionView.question}"/>
              
                   <h:panelGroup id="mainPanel" rendered="#{not testPassingBean.renderCompleteTest}" >
-                      <div style="width: 100px; float: left; color: #27587F; font-size: 14px; margin-left: 10px;">  Вопрос № #{testPassingBean.iterQ+1} (#{testPassingBean.countQuestions})</div> <div style="margin-top: 15px;"><h:outputText id="qTitle" title="qTitle" styleClass="qTitle" escape="false" value="#{testPassingBean.questionTitle}" style="display: block; font-size: 14px;"/></div>
+                      <div style="width: 100px; float: left; color: #27587F; font-size: 14px; margin-left: 10px;">  Вопрос № #{testPassingBean.iterQ+1} (#{testPassingBean.countQuestions})
+                       <h:commandButton value="следующий" action="#{testPassingBean.next}" styleClass="studentButton" style="margin: 8px; width: 90px;">
+                             <f:ajax render="@form"/>
+                         </h:commandButton></div>
+                      
+                      <div style="margin-top: 15px;"><h:outputText id="qTitle" title="qTitle" styleClass="qTitle" escape="false" value="#{testPassingBean.questionTitle}" style="display: block; font-size: 14px;"/></div>
                          <h:panelGroup  id="radioType" rendered="#{question.type=='radio'}" styleClass="educ_umk_text_block">
                              <ui:repeat value="#{setToList.getList(testPassingBean.currentQustionView.question.answers)}" var="ans">
-                                 <label> #{ans.title}</label> - <b>#{ans.rightAnswer}</b><br/>
+                                  <h:panelGroup rendered="#{ans.rightAnswer==1}" styleClass="radioButtonActive"><label> #{ans.title}</label>
+                                </h:panelGroup>
+                                  <h:panelGroup rendered="#{ans.rightAnswer==0}" styleClass="radioButtonEnabled"><label> #{ans.title}</label>
+                                </h:panelGroup>
                              </ui:repeat>
-                            <b>Тип один из многих!</b>                             
+                            <div class="testAdminTextCenter">Тип один из многих!</div>
                          </h:panelGroup>
 
                           <h:panelGroup id="checkType" rendered="#{question.type=='check'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
                               <ui:repeat value="#{setToList.getList(testPassingBean.currentQustionView.question.answers)}" var="ans">
-                                 <label> #{ans.title}</label> - <b>#{ans.rightAnswer}</b><br/>
-                             </ui:repeat>
-                            <b>Тип многие из многих!</b>
+                                 <h:panelGroup rendered="#{ans.rightAnswer==1}" styleClass="checkboxActive"><label> #{ans.title}</label>
+                                </h:panelGroup>
+                                  <h:panelGroup rendered="#{ans.rightAnswer==0}" styleClass="checkboxEnabled"><label> #{ans.title}</label>
+                                </h:panelGroup>
+                              </ui:repeat>
+                            <div class="testAdminTextCenter">Тип многие из многих</div>
                          </h:panelGroup>
 
                           <h:panelGroup id="textType" rendered="#{question.type=='text'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
                               <ui:repeat value="#{setToList.getList(testPassingBean.currentQustionView.question.answers)}" var="ans">
-                                 <label> #{ans.title}</label> - <b>#{ans.rightAnswer}</b><br/>
+                                  <h:panelGroup rendered="#{ans.rightAnswer==1}" styleClass="radioButtonActive"><label> #{ans.title}</label>
+                                </h:panelGroup>
+                                  <h:panelGroup rendered="#{ans.rightAnswer==0}" styleClass="radioButtonEnabled"><label> #{ans.title}</label>
+                                </h:panelGroup>
                              </ui:repeat>
-                               <b>Текст!</b>
+                               <div class="testAdminTextCenter">Текст!</div>
                          </h:panelGroup>
                           <h:panelGroup id="comparisonType" rendered="#{question.type=='comparison'}">
                               <ui:repeat value="#{setToList.getList(testPassingBean.currentQustionView.question.answers)}" var="ans">
                                  <label> #{ans.title}</label> - <b>#{ans.rightAnswer}</b><br/>
                              </ui:repeat>
-                               <b>Сопоставление!</b>
+                               <div class="testAdminTextCenter">Сопоставление!</div>
                          </h:panelGroup>
 
-                         <h:commandButton value="следующий" action="#{testPassingBean.next}" styleClass="studentButton" style="margin: 8px; width: 150px;">
-                             <f:ajax render="@form"/>
-                         </h:commandButton>
+                        
                    </h:panelGroup>
                 </h:panelGroup>
             </h:form>
