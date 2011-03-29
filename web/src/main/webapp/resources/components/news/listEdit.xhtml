@@ -19,24 +19,24 @@
                 <h:column>
                     <h:form id="formList" styleClass="newsBlocks">
                          <div style="margin-top: 8px; margin-bottom: 8px;">
-                         <span style="color: grey; font-family:tahoma; font-size: 8pt;"><h:outputText converter="dateConverter" value="#{n.time}"/></span>
+                         <span class="chatPostUser" style="font-size: 8pt;"><h:outputText converter="dateConverter" value="#{n.time}"/></span>
                          <span>
-                        <span style="color:#077F5B; font-weight: bolder;margin-left: 20px;"> #{n.header}</span>
+                        <span class="newsName"> #{n.header}</span>
                          </span>
                          </div>
                          <div style="margin-bottom: 8px;">
                          <h:outputText escape="false" value="#{n.announcement}" />
                          </div>
-                         <div style="margin-bottom: 10px; color:#577F7E;">Количество просмотров:<span  style="color:#5A6C6F;font-weight: bolder;">#{n.reviewNumber}</span></div>
+                         <div class="reviewNumber">Количество просмотров:<span class="reviewNumberNumber">#{n.reviewNumber}</span></div>
                           <h:outputText  rendered="#{NewsBean.renderDeleteSuccess}" value="Удалена новость"/>
-                         <span class="controlWorksDisciplineNameLinkGrey" style="background: url('../resources/images/news_delete.gif') no-repeat 0 0; margin-right: 20px;">
-                         <h:commandLink rendered="#{not NewsBean.renderDeleteSuccess}"  action="#{NewsBean.delete}" value="Удалить" style="margin-left: 16px;">
+                         <span class="controlWorksDisciplineNameLinkGrey news_delete">
+                         <h:commandLink rendered="#{not NewsBean.renderDeleteSuccess}"  action="#{NewsBean.delete}" value="Удалить">
                             <f:setPropertyActionListener target="#{NewsBean.newIdDelete}" value="#{n.id}" />
                             <f:ajax  execute="@this" render="@form" />
                          </h:commandLink>
                           </span>
-                         <span class="controlWorksDisciplineNameLinkGrey" style="background: url('../resources/images/news_edit.gif') no-repeat 0 0;">
-                         <h:outputLink value="news_read.xhtml?id=#{n.id}" rendered="#{not NewsBean.renderDeleteSuccess}" styleClass="AdminNavigationLinks" style="margin-left: 16px;">
+                         <span class="controlWorksDisciplineNameLinkGrey news_edit">
+                         <h:outputLink value="news_read.xhtml?id=#{n.id}" rendered="#{not NewsBean.renderDeleteSuccess}" styleClass="AdminNavigationLinks">
                             Редактировать
                         </h:outputLink>
                          </span>

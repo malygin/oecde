@@ -10,13 +10,9 @@
         <link href="../resources/css/default.css"  rel="stylesheet" type="text/css" />
         <h:outputStylesheet name="base.css" library="css" rendered="true"/>  
         <ui:insert name="userCSS"/>
-
         <title>#{msgs.title}</title>
-
     	<script type="text/javascript" src="../resources/jquery/js/jquery-1.4.2.min.js"></script>
-        <script type="text/javascript" src="../resources/scripts/chat.js" >
-
-</script>
+        <script type="text/javascript" src="../resources/scripts/chat.js" ></script>
     </h:head>
     
     <h:body>
@@ -41,11 +37,11 @@
                         </div>
                         <div>
                             <div class="contentArea">
-                                <div class="FIOplace" style="display: none;">
+<!--                                <div class="FIOplace" style="display: none;">
                                     <p class="sguLink"><a href="http://www.sgu.ru">#{msgs.sguLinkText}</a></p>
                                     <p class="greenFIO"><ui:insert name="fio">#{msgs.userFIO}</ui:insert></p>
-                                </div>
-                                <div class="content" style="margin: 0px;">
+                                </div>-->
+                                <div class="content">
                                     <div class="contentHeader">
                                         <p><ui:insert name="contentHeader">#{msgs.mainContentUserInfo}</ui:insert></p><div class="onlineStatus"><ui:insert name="online"></ui:insert></div><div class="floatDestroyer"></div>
                                     </div>

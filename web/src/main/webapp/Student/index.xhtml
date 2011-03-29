@@ -22,7 +22,7 @@
             </f:metadata>
 
         <div class="userFile">
-            <div style="width: 9%">
+            <div style="width:60%">
                 <ut:showPhoto user="#{studentSessionBean.student}" size="small"/>
             </div>
             <div class="userData" style="width: 91%;">
@@ -215,7 +215,7 @@
                     </td>
                     <td style="width: 50%;" class="StudentTimeTable" valign="top">
                         <div class="StudentMainPageTitles">
-                            <div class="navigationLinks indentionInNavigation"><a class="events" href="journal.xhtml" >Лента событий</a></div>
+                            <div class="navigationLinks indentionInNavigation" style="font-size: 12pt;"><a class="events" href="journal.xhtml" >Лента событий</a></div>
                         </div>
                         <div class="StudentTestsPadding">
                             <j:eventsOnly  list="#{journalBean.events('studentEvents',studentSessionBean.student)}"/>

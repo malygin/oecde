@@ -243,10 +243,7 @@ float: left; margin-right: 10px;
     text-align: center !important;
 }
 /*pictures*/
-.mainStyle .news_delete{
-    background: url('../resources/images/news_delete.gif') no-repeat 0 0;
-    padding-left: 17px;
-}
+
 .mainStyle .saveChanges{
     background: url('../resources/images/save.gif') no-repeat 0 0;
     padding-left: 17px;

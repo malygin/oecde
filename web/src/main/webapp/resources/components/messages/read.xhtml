@@ -22,7 +22,7 @@
             </h:panelGroup>
             <h:panelGroup rendered="#{not MessageReadBean.noAccess}">
                 <h:form  id ="formSend">
-                    <div style="float:left; margin-right: 20px; margin-left: 5px;">
+                    <div class="messContentBlockPhotoBlock" style="margin-left: 5px;margin-top: 0;">
                          <h:panelGroup rendered="#{MessageReadBean.type}"><ut:showPhoto user="#{cc.attrs.mess.message.author}" size="small" styleClass="#{cc.attrs.mess.message.author.classType}"/></h:panelGroup>
                          <h:panelGroup rendered="#{not MessageReadBean.type}"><ut:showPhoto user="#{MessageReadBean.userOut}" size="small" styleClass="#{MessageReadBean.userOut.classType}"/></h:panelGroup>
                     </div>
@@ -39,7 +39,7 @@
                                     </div>
                                 </td>
                                 <td class="controlWorksDisciplineNameLinkGrey">
-                                    <h:panelGroup rendered="#{MessageReadBean.type}" styleClass="controlWorksDisciplineNameLinkGrey" style="background: url('../resources/images/correspondence.gif') no-repeat;  padding-left: 18px;"> <h:outputLink  value="messages_dialog.xhtml?user=#{cc.attrs.mess.message.author.id}">#{msgs.message_showHistory} </h:outputLink></h:panelGroup>
+                                    <h:panelGroup rendered="#{MessageReadBean.type}" styleClass="controlWorksDisciplineNameLinkGrey correspondenceMess"> <h:outputLink  value="messages_dialog.xhtml?user=#{cc.attrs.mess.message.author.id}">#{msgs.message_showHistory} </h:outputLink></h:panelGroup>
                                 </td>
                             </tr>
                             <tr>
@@ -90,15 +90,15 @@
                         </div>
                     </div>
                     <br/>
-                    <div align="center" style="padding: 10px; border-top: 1px solid silver; text-align: center;">
+                    <div align="center" class="actionResultSuccessfullOutsideBlock">
                         <h:panelGroup layout="block" rendered="#{MessageWriteBean.renderSuccessSend}" styleClass="actionResultSuccessfull">
                             #{msgs.message_sentSuccess}
                         </h:panelGroup>
-                        <div style="width: 60%; margin: 0 auto;">
-                            <div style="width: 100%; text-align: right;" class="navigationLinks">
+                        <div class="messBlockRead">
+                            <div style="text-align: right;" class="navigationLinks leftMenuContainer">
                                 <a href="messages_write.xhtml?user=#{cc.attrs.mess.message.author.id}">#{msgs.message_goToFullWritingVersion}</a>
                             </div>
-                            <table style="width: 100%;">
+                            <table class="leftMenuContainer">
                                 <tr>
                                     <td class="greyMess" style="width: 40px; padding: 0;">#{msgs.message_theme}</td>
                                     <td ><h:inputText styleClass="writeMessageInterfaceTheme" style="border: 1px solid #D1E0EF; color: #6D869F;"/></td>

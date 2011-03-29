@@ -15,10 +15,10 @@
        <h:dataTable id="tabs" style="margin-left: 20px;" value="#{setToList.getList(tabsViewBean.getTab(cc.attrs.type).pages)}" var="p">
             <h:column>
                 <span class="navigationLinks">
-                <div style="height: 30px;">
-                    <span style="line-height: 30px; color: silver;"></span>
+                <div>
+                    <span class="contentsBlock"></span>
                 </div>
-                <div style="margin-left: 10px;">
+                <div class="educ_umk_text_block">
                     <div class="controlWorksDisciplineName" style="margin-bottom: 5px;">
                         <h:outputText id="title" value="#{p.title}"/>
                     </div>

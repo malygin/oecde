@@ -30,7 +30,7 @@
         <div style="padding-top: 5px;">
             <table style="height:100%; width:60%;">
                 <tr>
-                    <td style="color:#808080; width: 10%;">
+                    <td class="userInfoItemColor" style="width: 10%;">
                         #{msgs.student_studentListFIO}
                     </td>
                     <td>
@@ -42,10 +42,10 @@
                     </td>
                 </tr>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'student'}">
-                    <tr><td style="color:#808080;">Город:</td><td>#{cc.attrs.u.city.name}</td></tr>
-                    <tr><td style="color:#808080;">Специальность:</td><td>#{cc.attrs.u.group.speciality.name}</td></tr>
-                    <tr><td style="color:#808080;">Группа:</td><td><h:outputLink value="group.xhtml?id=#{cc.attrs.u.group.id}">#{cc.attrs.u.group.name}</h:outputLink></td></tr>
-                    <tr><td style="color:#808080;">Курс:</td><td>#{cc.attrs.u.group.year}</td></tr>
+                    <tr><td class="userInfoItemColor">Город:</td><td>#{cc.attrs.u.city.name}</td></tr>
+                    <tr><td class="userInfoItemColor">Специальность:</td><td>#{cc.attrs.u.group.speciality.name}</td></tr>
+                    <tr><td class="userInfoItemColor">Группа:</td><td><h:outputLink value="group.xhtml?id=#{cc.attrs.u.group.id}">#{cc.attrs.u.group.name}</h:outputLink></td></tr>
+                    <tr><td class="userInfoItemColor">Курс:</td><td>#{cc.attrs.u.group.year}</td></tr>
 <!--                    <tr><td></td><td><h:outputText rendered="#{cc.attrs.u.online}" value="On-line" style="color:#617F5F;"/></td></tr>-->
                 </h:panelGroup>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'admin'}">
@@ -53,9 +53,9 @@
                     <tr><td style="color:#808080;">Описание:</td><td>#{cc.attrs.u.description}</td></tr>-->
                 </h:panelGroup>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'teacher'}">
-                    <tr><td style="color:#808080;">Отдел:</td><td>#{cc.attrs.u.department.name}</td></tr>
+                    <tr><td class="userInfoItemColor">Отдел:</td><td>#{cc.attrs.u.department.name}</td></tr>
                     <tr>
-                        <td style="color:#808080;">
+                        <td class="userInfoItemColor">
                             Дисциплина:
                         </td>
                         <td class="controlWorksDisciplineNameLink" style="font-size: 8pt; font-weight: normal !important;">
@@ -72,7 +72,7 @@
                     </td>
                     
                     <sec:ifAnyGranted roles="ROLE_ADMIN">
-                       <td colspan="2" class="controlWorksDisciplineNameLinkGrey" style="vertical-align: bottom; background: url('../resources/images/enter.gif') no-repeat bottom; padding-right: 55px;">
+                       <td colspan="2" class="controlWorksDisciplineNameLinkGrey enterPic">
                           <h:outputLink value="switch_user?j_username=#{cc.attrs.u.username}" >Зайти</h:outputLink>
                        </td>
                     </sec:ifAnyGranted>

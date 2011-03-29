@@ -251,7 +251,3 @@
 		}
 	});
 })(jQuery);
-jQuery(function($) {
-$.mask.definitions['~']='[+-]';
-$('input[id*="cellPhone"]').mask('(999) 999-99-99');
-});

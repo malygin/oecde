@@ -63,6 +63,9 @@
 /*    margin-top: 5px;*/
     min-height: 1060px;
 }
+.mainStyle .floatLeft{
+    float: left;
+}
 /*temporary styles for page content part*/
 .mainStyle .content table *{
     text-align: left;
@@ -868,10 +871,10 @@ body:first-of-type .mainStyle .StudentWriteMess{
     margin-bottom: 5px;
     margin-right: 10px;
 }
-mainStyle .chatPostUser{
+.mainStyle .chatPostUser{
     font-family: tahoma;
     margin-right: 10px;
-    color: grey;
+/*    color: grey;*/
 }
 .mainStyle .chatPost{
     margin-top: 3px;
@@ -960,6 +963,39 @@ mainStyle .chatPostUser{
 }
 .mainStyle .writeMessageInterfaceTableForm{
     width: 100%;
+}
+.mainStyle .messContentBlock{
+    border-top: 1px solid #DFDFDF;
+    border-bottom: 1px solid #DFDFDF;
+    margin-top: 3px;
+    padding: 10px;
+}
+.mainStyle .messContentBlockPhotoBlock{
+    float:left;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+.mainStyle .listMessagesShortMessageBlock{
+    width:86%;
+    float: left;
+    margin-left: 3px;
+}
+.mainStyle .messBlockLink{
+    float: left;
+    width: 95%;
+    color: #333333;
+    cursor: pointer;
+    font-family: Verdana;
+    font-weight: normal;
+}
+.mainStyle .messBlockRead{
+   width: 60%;
+   margin: 0 auto;
+}
+.mainStyle .navigationLinksMessInNavigationList{
+    margin-top: 5px;
+    font-family: Arial;
+    text-decoration: none !important;
 }
 .mainStyle .writeMessageInterfaceTableForm input,
 .mainStyle .writeMessageInterfaceTableForm textarea{
@@ -1058,9 +1094,21 @@ mainStyle .chatPostUser{
     border: 1px solid #D1E0EF;
     padding: 1px;
 }
-mainStyle  .writeMessAndWatchCorrespondence{
+.mainStyle  .writeMessAndWatchCorrespondence{
     width: 50%;
     margin-left: 17%;
+}
+.mainStyle .answerMessPic{
+    background: url('../resources/images/answer.gif') no-repeat;
+    width: 65px;
+}
+.mainStyle .deleteMess{
+    float: right;
+    background: url('../resources/images/deleteMess.gif') no-repeat;
+}
+.mainStyle .correspondenceMess{
+    background: url('../resources/images/correspondence.gif') no-repeat;
+    padding-left: 18px;
 }
 .s2,.s1{
     padding-left: 18px;
@@ -1079,6 +1127,11 @@ mainStyle  .writeMessAndWatchCorrespondence{
     margin: auto;
     padding: 10px;
     border: 1px solid green;
+}
+.mainStyle .actionResultSuccessfullOutsideBlock{
+    padding: 10px;
+    border-top: 1px solid silver;
+    text-align: center;
 }
 .mainStyle .actionResultNeutral{
     text-align: center !important;
@@ -1338,7 +1391,7 @@ mainStyle  .writeMessAndWatchCorrespondence{
  .mainStyle .userData div {
 color: white;
 text-align: left;
-/*font-weight: bold;*/
+font-weight: bold;
 
 }
  .userData tr:nth-child(1) td:nth-child(3) div{
@@ -1498,6 +1551,31 @@ text-align: left;
     float: none;
     width: 60%;
 }
+.mainStyle .downloadPhoto{
+    clear: both;
+    text-align: left;
+    width: 21%;
+    text-align: center;
+}
+.mainStyle .downloadPhotoInputStyle{
+    font-size: 9pt;
+    background-color: #DFF1FE;
+}
+.mainStyle .changePasswordButtonSaveAdminPosition{
+    margin-right: 0;
+    margin-top: 10px;
+    width: 100px;
+}
+.mainStyle .changePasswordMessStyle{
+    color: red;
+    list-style-image: none;
+    margin-bottom: 20px;
+    margin-left: 3px;
+    list-style-type: none;
+}
+.mainStyle .userInfoItemColor {
+    color:#808080;
+}
 /*мои оценки*/
 .mainStyle .helpLink{
     text-align: right;
@@ -1514,4 +1592,42 @@ text-align: left;
     display: block;
     position: relative;
     left: 45%;
+}
+/*новости*/
+.mainStyle .previewColor{
+    color: #6F6F6F;
+}
+.mainStyle .previewPadBott{
+    margin-bottom: 15px;
+}
+.mainStyle .previewPadLeft{
+    margin-left: 80px;
+}
+.mainStyle .newsName{
+    color:#077F5B;
+    font-weight: bolder;
+    margin-left: 20px;
+}
+.mainStyle .reviewNumber{
+    margin-bottom: 10px;
+    color:#577F7E;
+}
+.mainStyle .reviewNumberNumber{
+    color:#5A6C6F;
+    font-weight: bolder;
+}
+/*pictures*/
+.mainStyle .news_delete{
+    background: url('../resources/images/news_delete.gif') no-repeat 0 0;
+    padding-left: 17px;
+}
+.mainStyle .news_edit{
+    background: url('../resources/images/news_edit.gif') no-repeat 0 0;
+    padding-left: 17px;
+}
+/*списки юзеров*/
+.mainStyle .enterPic{
+    vertical-align: bottom !important;
+    background: url('../resources/images/enter.gif') no-repeat bottom;
+    padding-right: 55px;
 }

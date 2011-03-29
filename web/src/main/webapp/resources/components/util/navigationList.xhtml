@@ -16,7 +16,7 @@
   <!-- IMPLEMENTATION -->
     <composite:implementation>
  
-        <div class="navigationLinksMess" style="margin-top: 5px; font-family: Arial; text-decoration: none !important;">
+        <div class="navigationLinksMess navigationLinksMessInNavigationList">
             <ui:repeat varStatus="i" value="#{NavigationBean.getPages(cc.attrs.elementOnPage, cc.attrs.numElements)}" var="page">
                   <h:outputText rendered="#{page==NavigationBean.page}" value="#{page}" style=" color:#C2D9EF; font-weight: bold; margin-right: 6px;font-size: 10pt;"/>
                   <h:panelGroup rendered="#{page!=NavigationBean.page}">

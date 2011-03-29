@@ -16,7 +16,7 @@
             <span class="chatPostDate" style="font-size: 10pt;">
                 #{cc.attrs.n.time}
             </span>
-            <span style="float: left; font-size: 12pt;" class="controlWorksDisciplineName">
+            <span style="font-size: 12pt;" class="controlWorksDisciplineName floatLeft">
                 #{cc.attrs.n.header}
             </span>
             <div class="floatDestroyer"/>
@@ -26,6 +26,6 @@
             <h:outputText escape="false" value="#{cc.attrs.n.fullText}"/>
             <div class="floatDestroyer"/>
         </div>
-            <span style="font-size: 8pt;">Просмотров: <span style="color: #373E3F;font-weight: bolder;"> #{cc.attrs.n.reviewNumber}</span></span>
+            <span style="font-size: 8pt;">Просмотров: <span class="darkGreyColorBold"> #{cc.attrs.n.reviewNumber}</span></span>
     </composite:implementation>
 </html>

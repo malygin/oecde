@@ -16,8 +16,8 @@
         <div style="">
             <h:form enctype="multipart/form-data">
                 <ut:showPhoto user="#{cc.attrs.bean.user}" size="large"/>
-                <div style=" clear: both; text-align: left; width: 21%; text-align: center;">
-                    <input type="file" style="font-size: 9pt; background-color: #DFF1FE;" name="avatar" class="AdminAddAvatar" /><br/>
+                <div class="downloadPhoto">
+                    <input type="file" name="avatar" class="AdminAddAvatar downloadPhotoInputStyle" /><br/>
                     <h:commandButton action="#{cc.attrs.bean.uploadAvatar}" styleClass="studentButton" value="#{msgs.photoLoaderButton}" style="width: 150px;" />
                 </div>
             </h:form>

@@ -35,12 +35,12 @@
     color: black;
 }
 .mainStyle .news_icon{
-    font-size: 12pt;
+    font-size: 12pt !important;
     padding-left: 24px;
     background:url('../resources/images/news_icon.gif') no-repeat ;
 }
 .mainStyle .events{
-    font-size: 12pt;
+    font-size: 12pt !important;
     background:url('../resources/images/events.gif') no-repeat left top;
     padding-left: 24px;
 }

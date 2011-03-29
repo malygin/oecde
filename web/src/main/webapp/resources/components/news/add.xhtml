@@ -18,16 +18,16 @@
           <h:outputText  rendered="#{NewsBean.renderAddSuccess}" value="Добавлена новость" styleClass="DisciplineText"/><br/>
           </div>
  
-          <div style="margin-bottom: 15px;"> <span style="color: #6F6F6F">Заголовок: </span>  <h:inputText value="#{NewsBean.header}"/></div>
-          <span style="color: #6F6F6F">При создании короткой новости не нужно писать ее полный текст.</span><br/><br/>
-          <span style="color: #6F6F6F">Анонс: </span>
-          <div style="margin-bottom: 15px; margin-left: 80px;">
+          <div class="previewPadBott"> <span class="previewColor">Заголовок: </span>  <h:inputText value="#{NewsBean.header}"/></div>
+          <span  class="previewColor">При создании короткой новости не нужно писать ее полный текст.</span><br/><br/>
+          <span  class="previewColor">Анонс: </span>
+          <div class="previewPadLeft previewPadBott">
           <util:editor value="#{NewsBean.anons}"/>
           </div>
 
          
-          <span style="color: #6F6F6F">Полный текст: </span>
-          <div style="margin-left: 80px;"><util:editor value="#{NewsBean.fulltext}"/>
+          <span  class="previewColor">Полный текст: </span>
+          <div class="previewPadLeft"><util:editor value="#{NewsBean.fulltext}"/>
           </div>
           <h:commandButton styleClass="studentButton" action="#{NewsBean.save}" value="Добавить" style="width: 75px;"/>
               

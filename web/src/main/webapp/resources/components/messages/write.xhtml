@@ -19,9 +19,9 @@
         <div class="interfaceContent">
             <h:form  id="formSend"  enctype="multipart/form-data" >
                 
-                  <div style="float: left; margin-right: 20px; margin-top: 5px;">
+<!--                  <div style="float: left; margin-right: 20px; margin-top: 5px;">
                       
-                </div>
+                </div>-->
                 <div style="padding-top:10px;">
                 <h:dataTable id="recipients" value="#{MessageWriteBean.recipients}" var="recipient">
                     <h:column>
@@ -89,7 +89,7 @@
                     <h:panelGroup layout="block" rendered="#{MessageWriteBean.renderSuccessSend}" styleClass="actionResultSuccessfull">
                         #{msgs.message_sentSuccess}
                     </h:panelGroup>
-                    <div style="width: 100%; text-align: center; margin-top: 8px;">
+                    <div class="leftMenuContainer" style="text-align: center; margin-top: 8px;">
                         
                         <h:commandButton action="#{MessageWriteBean.save}" value="#{msgs.message_sendMess}" styleClass="studentButton" style="margin-left: 3px; width: 160px;"/>
                        

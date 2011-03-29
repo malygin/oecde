@@ -16,22 +16,22 @@
 
     <!-- IMPLEMENTATION -->
     <composite:implementation>
-         <h:panelGroup rendered="#{empty cc.attrs.list}" class="DisciplineText">
-          <span style="display: block;height: 30px;margin-left:20px;padding-left: 40px;padding-top: 10px; font-style: italic; font-size: 12pt;font-weight: bolder; background: url('../resources/images/message-delete.gif') no-repeat 0 0;">Сообщений нет!</span>
+         <h:panelGroup rendered="#{empty cc.attrs.list}" styleClass="DisciplineText">
+          <span class="MessNothing">Сообщений нет!</span>
         </h:panelGroup>
         <h:dataTable value="#{cc.attrs.list}"  var="message"  style="width: 98%;">
             <h:column>
             <h:form id="formList">
-                <div class="studentInterfaceStandartList" style="width: 100%;border-bottom: 1px solid #DFDFDF;border-top: 1px solid #DFDFDF;margin-top: 3px;padding: 10px;">
+                <div class="studentInterfaceStandartList messContentBlock leftMenuContainer">
                     <div style="float:left; margin-right: 20px;">
                        
                     </div>
                     <div style="height: 100%;">
                         <div>
-                            <table  style="width: 100%;">
+                            <table class="leftMenuContainer">
                                 <tr>                                 
                                     <td>
-                                        <h:dataTable value="#{message.message.recipients}" var="rec" style="width: 100%;"
+                                        <h:dataTable value="#{message.message.recipients}" var="rec" styleClass="leftMenuContainer"
                                                      columnClasses="outMessStudFirstTd,
                                                      outMessStudSecTd">
                                             <h:column>
@@ -49,8 +49,8 @@
                                                    <span class="controlWorksDisciplineNameLink"><a href="messages_read.xhtml?id=#{message.message.id}&amp;type=false"><h:outputText value="#{message.message.theme}"/></a>
                                                    </span>
                                                </div>
-                                               <a href="messages_read.xhtml?id=#{message.message.id}&amp;type=false" class="listMessagesShortMessage" style="width:95%; float: left; position: relative; top: 10px; right: 3px;">
-                                                    <div style="color: #3F3E3B;cursor: pointer;float: left;font-family: Verdana;font-weight: normal;width: 95%;"><h:outputText value="#{message.shortText}"/></div>
+                                               <a href="messages_read.xhtml?id=#{message.message.id}&amp;type=false" class="listMessagesShortMessage" style="width: 95%; float: left; position: relative; top: 10px; right: 3px;">
+                                                    <div class="messBlockLink" style="color: #3F3E3B;"><h:outputText value="#{message.shortText}"/></div>
                                                     <div class="listMessagesAttachmentsIco"><r:if test="#{message.filesExist eq true}"><img title="#{msgs.message_iconFilesExistTitle}" src="../resources/images/isAttachment.png" alt=""/></r:if><r:if test="#{message.filesExist ne true}"><img title="#{msgs.message_iconFilesNotExistTitle}" src="../resources/images/isNotAttachment.png" alt=""/></r:if></div>
                                                     <div class="floatDestroyer"/>
                                                 </a>
