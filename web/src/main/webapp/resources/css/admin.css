@@ -259,3 +259,42 @@ float: left; margin-right: 10px;
     background: url('../resources/images/add_page.gif') no-repeat 0 0;
     padding-left: 17px;
 }
+/*тесты*/
+.mainStyle .qTitle img{
+    display: inline;
+}
+.mainStyle .radioButtonActive label iframe{
+    background: url(../resources/images/radioButtonActive.png) no-repeat;
+    background-position: center left;
+    padding-left: 17px;
+    display: block;
+    margin-left: 330px;
+    overflow: hidden;
+}
+.mainStyle .radioButtonEnabled label iframe{
+    background: url(../resources/images/radioButtonEnabled.png) no-repeat;
+    background-position: center left;
+    padding-left: 17px;
+      display: block;
+       margin-left: 330px;
+       overflow: hidden;
+}
+.mainStyle .testAdminTextCenter{
+   font-weight: bold;
+}
+.mainStyle .checkboxActive label iframe{
+    background: url(../resources/images/checkboxActive.png) no-repeat;
+    background-position: center left;
+    padding-left: 17px;
+    display: block;
+    margin-left: 330px;
+    overflow: hidden;
+}
+.mainStyle .checkboxEnabled label iframe{
+    background: url(../resources/images/checkboxEnabled.png) no-repeat;
+    background-position: center left;
+    padding-left: 17px;
+    display: block;
+    margin-left: 330px;
+    overflow: hidden;
+}
