@@ -1345,6 +1345,16 @@ body:first-of-type .mainStyle .StudentWriteMess{
     position: fixed;
     width: 100%;
 }
+.mainStyle.controlWorksBorders{
+    border-bottom: 1px solid #D1E0EF;
+     padding-bottom: 10px;
+    padding-top: 10px;
+}
+.mainStyle table > tr .controlWorksBordersAdmin{
+ border-bottom: 1px solid #D1E0EF;
+    display: block;
+    width: 100%;
+}
 .mainStyle .umkTaskContentContainer{
     padding: 108px 10px 0px 10px;
     margin: 0px 50px;
