@@ -260,38 +260,46 @@ float: left; margin-right: 10px;
 .mainStyle .qTitle img{
     display: inline;
 }
-.mainStyle .radioButtonActive label iframe{
+.mainStyle .radioButtonActive label {
     background: url(../resources/images/radioButtonActive.png) no-repeat;
     background-position: center left;
     padding-left: 17px;
     display: block;
-    margin-left: 330px;
+/*    margin-left: 330px;*/
     overflow: hidden;
+    text-align: left;
 }
-.mainStyle .radioButtonEnabled label iframe{
+.mainStyle .radioButtonEnabled label{
     background: url(../resources/images/radioButtonEnabled.png) no-repeat;
     background-position: center left;
     padding-left: 17px;
       display: block;
-       margin-left: 330px;
+/*       margin-left: 330px;*/
        overflow: hidden;
+       text-align: left;
 }
 .mainStyle .testAdminTextCenter{
    font-weight: bold;
 }
-.mainStyle .checkboxActive label iframe{
+.mainStyle .checkboxActive label {
     background: url(../resources/images/checkboxActive.png) no-repeat;
     background-position: center left;
     padding-left: 17px;
     display: block;
-    margin-left: 330px;
+/*    margin-left: 330px;*/
     overflow: hidden;
+    text-align: left;
 }
-.mainStyle .checkboxEnabled label iframe{
+.mainStyle .checkboxEnabled label {
     background: url(../resources/images/checkboxEnabled.png) no-repeat;
     background-position: center left;
     padding-left: 17px;
     display: block;
-    margin-left: 330px;
+/*    margin-left: 330px;*/
     overflow: hidden;
+    text-align: left;
+}
+/*главная страница события*/
+.mainStyle .eventAdminColor tr{
+    background-color: #F9FCFC;
 }
