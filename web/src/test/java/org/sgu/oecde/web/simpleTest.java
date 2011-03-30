@@ -16,6 +16,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Currency;
 import java.util.Date;
 import java.util.Formatter;
 import java.util.HashMap;
@@ -27,11 +28,13 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 import javax.activation.MimetypesFileTypeMap;
+import oracle.sql.ARRAY;
 import org.apache.xmlbeans.impl.piccolo.util.RecursionException;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -99,20 +102,19 @@ public class simpleTest{
     @Ignore
     @Test
     public void asd(){
-        String s = "";
-        Boolean b1 = true;
-        Boolean b2 = false;
-        if((b2=false)|(21%5)>2)
-            s+="x";
-        if(b1||(b2 = true))
-            s+="y";
-        if(b2 == true)
-            s+="z";
-        System.out.println(s);
+        new B().doPublic();
     }
-
-
-    @Test
-    public void asdasd(){
-    }
+}
+ class A {
+ public void doPublic() {
+  doInternal();
+ }
+ private void doInternal() {
+  System.out.println("Do internal in A");
+ }
+}
+class B extends A {
+ public void doInternal() {
+  System.out.println("Do internal in B");
+ }
 }

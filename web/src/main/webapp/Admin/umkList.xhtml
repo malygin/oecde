@@ -1,0 +1,34 @@
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+    template="../resources/adminTemplate.xhtml"
+    >
+    <ui:define name="content">
+        <div class="interfaceContent">
+            <ut:navigationList numElements="#{umkListBean.count}" elementOnPage="#{umkListBean.maxNumber}"/>
+        <h:dataTable style="width: 100%" value="#{umkListBean.umkList}" var="i" id="table">
+            <h:column>
+                <h:outputLink value="umk.xhtml?id=#{i.id}">#{i.name}</h:outputLink><br/>
+                <h:dataTable value="#{i.resources}" var="test">
+                    <h:column>
+                    <div class="studentInterfaceStandartList">
+                    <div class="controlWorksDisciplineNameLink">
+                        <h:outputLink value="test.xhtml?id=#{test.id}&amp;action=start">
+                            #{test.title}
+                        </h:outputLink>
+                        <h:outputLink value="testEdit.xhtml?id=#{test.id}" >
+                            (#{msgs.admin_mainContentedit})
+                        </h:outputLink>
+                    </div>
+                    </div>
+                    </h:column>
+                </h:dataTable>
+                <hr/>
+            </h:column>
+        </h:dataTable>
+            <ut:navigationList numElements="#{umkListBean.count}" elementOnPage="#{umkListBean.maxNumber}"/>
+        </div>
+    </ui:define>
+</ui:composition>
