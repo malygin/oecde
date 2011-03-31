@@ -68,12 +68,13 @@
                   <div style="clear: left;">
                       <h:panelGroup  id="radioType" rendered="#{question.type=='radio'}" styleClass="educ_umk_text_block">
                              <ui:repeat value="#{setToList.getList(testPassingBean.currentQustionView.question.answers)}" var="ans">
-                                  <h:panelGroup rendered="#{ans.rightAnswer==1}" styleClass="radioButtonActive"><label> #{ans.title}</label>
+                                
+                                 <h:panelGroup rendered="#{ans.rightAnswer==1}" styleClass="radioButtonActive"><label> <b>#{ans.title}</b></label>
                                 </h:panelGroup>
                                   <h:panelGroup rendered="#{ans.rightAnswer==0}" styleClass="radioButtonEnabled"><label> #{ans.title}</label>
                                 </h:panelGroup>
                              </ui:repeat>
-                            
+                                        <br/>  <i>Один из многих</i>
                          </h:panelGroup>
                   </div>
 
@@ -85,32 +86,28 @@
                                   <h:panelGroup rendered="#{ans.rightAnswer==0}" styleClass="checkboxEnabled"><label> #{ans.title}</label>
                                 </h:panelGroup>
                               </ui:repeat>
-                            
+                             <br/>  <i>Многие из многих</i>
                          </h:panelGroup>
                        </div>
 
                       <div style="clear: left;">
                           <h:panelGroup id="textType" rendered="#{question.type=='text'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
                               <ui:repeat value="#{setToList.getList(testPassingBean.currentQustionView.question.answers)}" var="ans">
-                                  <h:panelGroup rendered="#{ans.rightAnswer==1}" styleClass="radioButtonActive"><label> #{ans.title}</label>
-                                </h:panelGroup>
-                                  <h:panelGroup rendered="#{ans.rightAnswer==0}" styleClass="radioButtonEnabled"><label> #{ans.title}</label>
-                                </h:panelGroup>
+                                  <br/>Ответ:  <b>#{ans.rightAnswer}</b>
                              </ui:repeat>
-                               
+                                <br/>  <i>Текстовый вопрос</i>
                          </h:panelGroup>
                       </div>
 
-                      <div style="clear: left;">
+                      <div style="clear: left;" align="left">
                           <h:panelGroup id="comparisonType" rendered="#{question.type=='comparison'}">
                               <ui:repeat value="#{setToList.getList(testPassingBean.currentQustionView.question.answers)}" var="ans">
-                                 <label> #{ans.title}</label> - <b>#{ans.rightAnswer}</b><br/>
+                             <li> <label> #{ans.title}</label> - <b>#{ans.rightAnswer}</b><br/></li>
                              </ui:repeat>
-                               
+                                 <i>Сопоставления</i>
                          </h:panelGroup>
-                      </div>
-
-                        
+                     </div>
+                       
                    </h:panelGroup>
                 </h:panelGroup>
             </h:form>
