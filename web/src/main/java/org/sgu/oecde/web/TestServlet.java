@@ -35,6 +35,7 @@ public class TestServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
           if (request.getParameter("task").indexOf("$$")!=-1){
               String s=request.getParameter("task");
@@ -42,7 +43,7 @@ public class TestServlet extends HttpServlet {
                  s= s.replaceFirst("\\$+"," <img src='http://oec.sgu.ru/latex/latex.php?code=");
                  s= s.replaceFirst("\\$+"," '/> ");
               }
-                  out.print(s);
+                  out.print("<meta http-equiv='Content-Type' content='text/htm; charset=utf-8'>"+s);
               return;
           }
           String str="";

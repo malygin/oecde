@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute  name="question" shortDescription="передаем вопрос для вывода"/>
+    </composite:interface>
+
+    <!-- IMPLEMENTATION -->
+
+    <composite:implementation>
+
+                 <div style="width: 100px; float: left; color: #27587F; font-size: 14px; margin-left: 10px;">  Вопрос № #{testPassingBean.iterQ+1} (#{testPassingBean.countQuestions})
+                   <h:commandButton value="следующий" action="#{testPassingBean.next}" styleClass="studentButton" style="margin: 8px; width: 90px;">
+                         <f:ajax render="@form"/>
+                     </h:commandButton>
+                 </div>
+
+                  <div style="margin-top: 15px;"><h:outputText id="qTitle" title="qTitle" styleClass="qTitle" escape="false" value="#{testPassingBean.questionTitle}" style="display: block; font-size: 14px;"/></div>
+
+                  <div style="clear: left;">
+                      <h:panelGroup  id="radioType" rendered="#{cc.attrs.question.type=='radio'}" styleClass="educ_umk_text_block">
+                             <ui:repeat value="#{setToList.getList(cc.attrs.question.answers)}" var="ans">
+
+                                 <h:panelGroup rendered="#{ans.rightAnswer==1}" styleClass="radioButtonActive"><label> <b>#{ans.title}</b></label>
+                                </h:panelGroup>
+                                  <h:panelGroup rendered="#{ans.rightAnswer!=1}" styleClass="radioButtonEnabled"><label> #{ans.title}</label>
+                                </h:panelGroup>
+                             </ui:repeat>
+                                        <br/>  <i>Один из многих</i>
+                         </h:panelGroup>
+                  </div>
+
+                   <div style="clear: left;">
+                          <h:panelGroup id="checkType" rendered="#{cc.attrs.question.type=='check'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
+                              <ui:repeat value="#{setToList.getList(cc.attrs.question.answers)}" var="ans">
+                                 <h:panelGroup rendered="#{ans.rightAnswer==1}" styleClass="checkboxActive"><label> #{ans.title}</label>
+                                </h:panelGroup>
+                                  <h:panelGroup rendered="#{ans.rightAnswer!=1}" styleClass="checkboxEnabled"><label> #{ans.title}</label>
+                                </h:panelGroup>
+                              </ui:repeat>
+                             <br/>  <i>Многие из многих</i>
+                         </h:panelGroup>
+                       </div>
+
+                      <div style="clear: left;">
+                          <h:panelGroup id="textType" rendered="#{cc.attrs.question.type=='text'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
+                              <ui:repeat value="#{setToList.getList(cc.attrs.question.answers)}" var="ans">
+                                  <br/>Ответ:  <b>#{ans.rightAnswer}</b>
+                             </ui:repeat>
+                                <br/>  <i>Текстовый вопрос</i>
+                         </h:panelGroup>
+                      </div>
+
+                      <div style="clear: left;" align="left">
+                          <h:panelGroup id="comparisonType" rendered="#{cc.attrs.question.type=='comparison'}">
+                              <ui:repeat value="#{setToList.getList(cc.attrs.question.answers)}" var="ans">
+                             <li> <label> #{ans.title}</label> - <b>#{ans.rightAnswer}</b><br/></li>
+                             </ui:repeat>
+                                 <i>Сопоставления</i>
+                         </h:panelGroup>
+                     </div>
+
+    </composite:implementation>
+</html>
