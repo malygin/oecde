@@ -264,6 +264,9 @@ float: left; margin-right: 10px;
     display: block;
     margin-bottom: 5px;
 }
+.mainStyle .radioButtonEnabled label p{
+    margin: 0;
+}
 .mainStyle .radioButtonActive label {
     background: url(../resources/images/radioButtonActive.png) no-repeat;
     background-position: center left;
