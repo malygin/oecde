@@ -201,6 +201,21 @@
     width: 35px;
     text-align: center !important;
 }
+.DataTestsRedact td:nth-child(2){
+      color: #6F6F6F;
+    margin-left: 10px;
+}
+.DataTestsRedact td:nth-child(1){
+
+    display: block;
+    float: left;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+.DataTestsRedact input{
+    text-align: center !important;
+    min-width: 50px;
+}
 /*форум*/
 .mainStyle .marginsDateBlocksPortalSettings{
     display: block;

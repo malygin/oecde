@@ -10,7 +10,7 @@
          <f:viewParam name="id" value="#{adminTestBean.id}"/>
      </f:metadata>
      <h:form>
-        <table>
+        <table class="DataTestsRedact">
             <tr><td><h:inputText maxlength="3" size="3" value="#{adminTestBean.test.duration}"/></td><td>duration</td></tr>
             <tr><td><h:inputText maxlength="1" size="1" value="#{adminTestBean.test.estimateAttemptsNumber}"/></td><td>estimateAttemptsNumber</td></tr>
             <tr><td><h:inputText size="70" value="#{adminTestBean.test.title}"/></td><td>title</td></tr>
@@ -27,7 +27,7 @@
             <tr><td><h:inputText maxlength="3" size="3" value="#{adminTestBean.test.quantity}"/></td><td>quantity</td></tr>
             <tr><td><h:selectBooleanCheckbox  value="#{adminTestBean.test.shuffle}"/></td><td>is shuffle</td></tr>
             <tr><td><h:selectBooleanCheckbox  value="#{adminTestBean.test.writable}"/></td><td>is winter</td></tr>
-            <tr><td><h:commandButton action="#{adminTestBean.save}" value="ОКЭ"/></td></tr>
+            <tr><td><h:commandButton action="#{adminTestBean.save}" value="ОК" styleClass="studentButton" style="width: 70px;"/></td></tr>
         </table>
     </h:form>
    </ui:define>
