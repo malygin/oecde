@@ -996,6 +996,7 @@ body:first-of-type .mainStyle .StudentWriteMess{
     margin-top: 5px;
     font-family: Arial;
     text-decoration: none !important;
+    text-align: center;
 }
 .mainStyle .writeMessageInterfaceTableForm input,
 .mainStyle .writeMessageInterfaceTableForm textarea{
@@ -1350,10 +1351,30 @@ body:first-of-type .mainStyle .StudentWriteMess{
      padding-bottom: 10px;
     padding-top: 10px;
 }
-.mainStyle table > tr .controlWorksBordersAdmin{
+.mainStyle .answerPic{
+    background: url("../resources/images/answer.gif") no-repeat;
+    padding-left: 15px;
+ }
+/*.mainStyle .studentInterfaceStandartList a:link{color: #8BB5DF;}
+.mainStyle .studentInterfaceStandartList a:visited{color: #8BB5DF;}
+.mainStyle .studentInterfaceStandartList a:active{color:#8BB5DF;}
+.mainStyle .studentInterfaceStandartList a:hover{color: #A3A3A3;}*/
+
+
+
+.mainStyle .controlWorksBordersAdmin tr{
  border-bottom: 1px solid #D1E0EF;
     display: block;
     width: 100%;
+}
+.mainStyle .controlWorksBordersAdminNon tr{
+    border: none !important;
+}
+.mainStyle .controlWorksBordersAdminNon a{
+    font-size: 9pt ! important;
+}
+.mainStyle .controlWorksBordersAdminNon{
+    margin-bottom: 2px;
 }
 .mainStyle .umkTaskContentContainer{
     padding: 108px 10px 0px 10px;
@@ -1501,7 +1522,31 @@ font-weight: bold;
         margin-top: 20px;
 
 }
+.mainStyle .toTestLink{
+    color: #27587F;
+    font-family: Arial;
+    font-size:12pt;
+    margin-left: 10px;
+    font-weight: bolder;
+}
+.mainStyle .moduls{
+    background: url('../resources/images/moduls.gif') no-repeat; padding-left: 20px;
+}
+.mainStyle .testUmk{
+    background: url('../resources/images/testUmk.gif') no-repeat;
+    padding-left: 14px;
+}
+.mainStyle .DisciplineTextlink a:link{color:#27587F;font-weight: normal;}
+.mainStyle .DisciplineTextlink a:hover{color:#A1A8AD;font-weight: normal;}
+.mainStyle .DisciplineTextlink a:visited{color:#27587F;font-weight: normal;}
+.mainStyle .DisciplineTextlink a:active{color:#27587F;font-weight: normal;}
 
+.mainStyle .DisciplineTextlink{
+    margin-left: 30px;
+}
+/*.mainStyle .sizeFont a{
+    font-size: 1pt;
+}*/
 /* color bar */
 .mainStyle #progressbar div.progress{
         position:absolute;

@@ -27,18 +27,18 @@
 
   <!-- IMPLEMENTATION -->
    <composite:implementation>
-       <h:dataTable id="events" value="#{cc.attrs.list}" var="e">
+       <h:dataTable id="events" value="#{cc.attrs.list}" var="e" styleClass="leftMenuContainer StudentTestsPadding" style="padding-right: 10px;">
             <h:column>
-                <div class="controlWorksDisciplineNameLink" style="padding-left: 5px;">
+                <table class="controlWorksDisciplineNameLink eventAdminColor" cellpadding="0" cellspacing="0"  style="padding-left: 5px; width: 100%;">
+                    <tr>
+                        <td>
                     
-                    <div class="chatPostDate chatPostDateEvents">
-                   <h:outputText converter="dateConverter" value="#{e.time}."/></div>
                     <div class="floatDestroyer"></div>
 <!--  картинки не переименованы, потому сча тут закоменчено
 <img src="../resources/images/evLineIco/event#{e.eventType}.png" alt=""/>-->
                     <sec:ifAnyGranted roles="ROLE_ADMIN">
                         <ui:repeat value="#{e.bodyForAdmin}" var="b">
-                            <h:outputText  rendered="#{b.type eq null}" value="#{b.text}" class="chatPostUser"/>
+                            <h:outputText  rendered="#{b.type eq null}" value="#{b.text}" styleClass="chatPostUser"/>
                            <span class="controlWorksDisciplineNameLink"><h:outputLink styleClass="navigationLinks" rendered="#{b.type ne null}" value="#{b.type}#{b.id}" style="text-decoration: underline; margin-right: 2px;">#{b.text}</h:outputLink>
                            </span>
                         </ui:repeat>
@@ -50,7 +50,13 @@
                             
                         </ui:repeat>
                     </sec:ifNotGranted>
-                </div>
+                        </td>
+                        <td style="width: 100px; text-align: center;">
+                            <div class="chatPostDate chatPostDateEvents">
+                   <h:outputText converter="dateConverter" value="#{e.time}."/></div>
+                        </td>
+                    </tr>
+                </table>
             </h:column>
         </h:dataTable>
    </composite:implementation>

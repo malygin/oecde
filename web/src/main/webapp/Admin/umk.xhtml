@@ -15,7 +15,7 @@
             </f:metadata>
             <h:dataTable value="#{adminUmkBean.umk.modules}" var="m">
                 <h:column>
-                <div class="studentInterfaceStandartList">
+                <div class="studentInterfaceStandartList moduls">
                     <div class="controlWorksDisciplineName">#{m.name}</div>
                     <h:dataTable value="#{m.resources}" var="r">
                         <h:column>
@@ -28,13 +28,13 @@
                 </h:column>
             </h:dataTable>
             <br/>
-            <div>
+            <div class="toTestLink">
                #{msgs.admin_mainContentTests}
             </div>
-            <h:dataTable value="#{adminUmkBean.umk.resources}" var="test">
+            <h:dataTable value="#{adminUmkBean.umk.resources}" var="test" style="margin-left: 10px;">
                 <h:column>
                 <div class="studentInterfaceStandartList">
-                <div class="controlWorksDisciplineNameLink">
+                <div class="DisciplineTextlink">
                     <h:outputLink value="test.xhtml?id=#{test.id}&amp;action=start">
                         #{test.title}
                     </h:outputLink>

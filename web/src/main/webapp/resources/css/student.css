@@ -51,11 +51,7 @@
     padding-left: 24px;
 }
 /*стили для границ блоков*/
-.controlWorksBorders{
-    border-bottom: 1px solid #D1E0EF;
-     padding-bottom: 10px;
-    padding-top: 10px;
-}
+
  .studentStandatrTableBorder{
     border-right: 1px solid #D1E0EF;
 }
@@ -145,13 +141,7 @@
     padding-left: 17px;
 }
 /*тесты*/
-.mainStyle .toTestLink{
-    color: #27587F;
-    font-family: Arial;
-    font-size:12pt;
-    margin-left: 10px;
-    font-weight: bolder;
-}
+
 .mainStyle .notPassedTest{
     color: #EF596D;
     display: block;
@@ -285,9 +275,7 @@
     background: url('../resources/images/cross-circle.gif') no-repeat 0 0;
 }
 /*мои изучаемые материалы дисциплины*/
-.mainStyle .moduls{
-    background: url('../resources/images/moduls.gif') no-repeat; padding-left: 20px;
-}
+
 .mainStyle .attemps{
     color: grey;
     background: url('../resources/images/attemps.gif') 2px 1px no-repeat;
@@ -318,3 +306,8 @@
     background: url('../resources/images/discipline_summ.gif') no-repeat;
 /*    padding-left: 18px;*/
 }
+/*.mainStyle.controlWorksBorders{
+    border-bottom: 1px solid #D1E0EF;
+     padding-bottom: 10px;
+    padding-top: 10px;
+}*/

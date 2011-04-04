@@ -19,16 +19,16 @@
          <h:panelGroup rendered="#{empty cc.attrs.list}" styleClass="DisciplineText">
           <span class="MessNothing">Сообщений нет!</span>
         </h:panelGroup>
-        <h:dataTable value="#{cc.attrs.list}"  var="message"  style="width: 98%;">
+        <h:dataTable value="#{cc.attrs.list}"  var="message"  style="width:100%;">
             <h:column>
             <h:form id="formList">
-                <div class="studentInterfaceStandartList messContentBlock leftMenuContainer">
+                <div class="messContentBlock">
                     <div style="float:left; margin-right: 20px;">
                        
                     </div>
                     <div style="height: 100%;">
                         <div>
-                            <table class="leftMenuContainer">
+                            <table style="width: 100%;">
                                 <tr>                                 
                                     <td>
                                         <h:dataTable value="#{message.message.recipients}" var="rec" styleClass="leftMenuContainer"
@@ -38,7 +38,9 @@
                                                <ut:showPhoto user="#{rec.recipient}" styleClass="#{rec.recipient.classType}" size="small"/>
                                             </h:column>
                                             <h:column>
-                                               <div class="linkTo#{rec.recipient.classType}sProfile"><span class="greyMess">Кому:</span><a href="#{fn:toLowerCase(message.message.author.classType)}.xhtml?id=#{rec.recipient.id}"><h:outputText value="#{rec.fioAuthor}"/></a> <h:panelGroup rendered="#{message.readed}"><span style="padding-left: 20px;" class="DisciplineText">Прочитано</span></h:panelGroup>
+                                               <div class="linkTo#{rec.recipient.classType}sProfile"> <span class="greyMess">
+                                                Кому:
+                                            </span><a href="#{fn:toLowerCase(message.message.author.classType)}.xhtml?id=#{rec.recipient.id}"><h:outputText value="#{rec.fioAuthor}"/></a> <h:panelGroup rendered="#{message.readed}"><span style="padding-left: 20px;" class="DisciplineText">Прочитано</span></h:panelGroup>
                                                 <div class="chatPostDate" style="font-size: 8pt;position: relative;">
                                                      <h:outputText converter="dateConverter" value="#{message.message.dateMessage}"/>
                                                 </div></div>
