@@ -260,6 +260,10 @@ float: left; margin-right: 10px;
 .mainStyle .qTitle img{
     display: inline;
 }
+.mainStyle .radioButtonActive, .radioButtonEnabled, .checkboxActive,.checkboxEnabled {
+    display: block;
+    margin-bottom: 5px;
+}
 .mainStyle .radioButtonActive label {
     background: url(../resources/images/radioButtonActive.png) no-repeat;
     background-position: center left;
@@ -268,6 +272,7 @@ float: left; margin-right: 10px;
 /*    margin-left: 330px;*/
     overflow: hidden;
     text-align: left;
+    min-height: 17px;
 }
 .mainStyle .radioButtonEnabled label{
     background: url(../resources/images/radioButtonEnabled.png) no-repeat;
@@ -277,6 +282,7 @@ float: left; margin-right: 10px;
 /*       margin-left: 330px;*/
        overflow: hidden;
        text-align: left;
+        min-height: 17px;
 }
 .mainStyle .testAdminTextCenter{
    font-weight: bold;
@@ -289,6 +295,7 @@ float: left; margin-right: 10px;
 /*    margin-left: 330px;*/
     overflow: hidden;
     text-align: left;
+     height: 17px;
 }
 .mainStyle .checkboxEnabled label {
     background: url(../resources/images/checkboxEnabled.png) no-repeat;
@@ -298,6 +305,7 @@ float: left; margin-right: 10px;
 /*    margin-left: 330px;*/
     overflow: hidden;
     text-align: left;
+     height: 17px;
 }
 /*главная страница события*/
 .mainStyle .eventAdminColor tr{

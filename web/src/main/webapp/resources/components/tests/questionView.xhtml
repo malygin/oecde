@@ -25,44 +25,55 @@
 
                   <div style="clear: left;">
                       <h:panelGroup  id="radioType" rendered="#{cc.attrs.question.type=='radio'}" styleClass="educ_umk_text_block">
-                             <ui:repeat value="#{setToList.getList(cc.attrs.question.answers)}" var="ans">
+                            <div style="margin-left: 100px;">
+                          <ui:repeat value="#{setToList.getList(cc.attrs.question.answers)}" var="ans">
 
                                  <h:panelGroup rendered="#{ans.rightAnswer==1}" styleClass="radioButtonActive"><label> <b>#{ans.title}</b></label>
                                 </h:panelGroup>
                                   <h:panelGroup rendered="#{ans.rightAnswer!=1}" styleClass="radioButtonEnabled"><label> #{ans.title}</label>
                                 </h:panelGroup>
                              </ui:repeat>
+                            </div>
                                         <br/>  <i>Один из многих</i>
                          </h:panelGroup>
                   </div>
 
                    <div style="clear: left;">
                           <h:panelGroup id="checkType" rendered="#{cc.attrs.question.type=='check'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
+                             <div style="margin-left: 100px;">
                               <ui:repeat value="#{setToList.getList(cc.attrs.question.answers)}" var="ans">
                                  <h:panelGroup rendered="#{ans.rightAnswer==1}" styleClass="checkboxActive"><label> #{ans.title}</label>
                                 </h:panelGroup>
                                   <h:panelGroup rendered="#{ans.rightAnswer!=1}" styleClass="checkboxEnabled"><label> #{ans.title}</label>
                                 </h:panelGroup>
                               </ui:repeat>
+                             </div>
                              <br/>  <i>Многие из многих</i>
                          </h:panelGroup>
                        </div>
 
                       <div style="clear: left;">
                           <h:panelGroup id="textType" rendered="#{cc.attrs.question.type=='text'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
+                             <div style="margin-left: 100px;">
                               <ui:repeat value="#{setToList.getList(cc.attrs.question.answers)}" var="ans">
                                   <br/>Ответ:  <b>#{ans.rightAnswer}</b>
                              </ui:repeat>
+                             </div>
                                 <br/>  <i>Текстовый вопрос</i>
                          </h:panelGroup>
                       </div>
 
                       <div style="clear: left;" align="left">
                           <h:panelGroup id="comparisonType" rendered="#{cc.attrs.question.type=='comparison'}">
+                              <div style="margin-left: 100px;">
                               <ui:repeat value="#{setToList.getList(cc.attrs.question.answers)}" var="ans">
                              <li> <label> #{ans.title}</label> - <b>#{ans.rightAnswer}</b><br/></li>
                              </ui:repeat>
-                                 <i>Сопоставления</i>
+                              </div>
+                                <br/>
+                                <div style="text-align: center;">
+                                    <i>Сопоставления</i>
+                                </div>
                          </h:panelGroup>
                      </div>
 

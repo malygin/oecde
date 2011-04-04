@@ -38,9 +38,11 @@
                     <h:outputLink value="test.xhtml?id=#{test.id}&amp;action=start">
                         #{test.title}
                     </h:outputLink>
+                    <span class="controlWorksDisciplineNameLinkGrey news_edit" style="margin-left: 20px;">
                     <h:outputLink value="testEdit.xhtml?id=#{test.id}" >
-                        (#{msgs.admin_mainContentedit})
+                        #{msgs.admin_mainContentedit}
                     </h:outputLink>
+                    </span>
                 </div>
                 </div>
                 </h:column>

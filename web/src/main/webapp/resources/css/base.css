@@ -810,10 +810,10 @@ body:first-of-type .mainStyle .StudentWriteMess{
 .mainStyle .controlWorksDisciplineNameLink a:active{color: #8DBEE0;}
 .mainStyle .controlWorksDisciplineNameLink a:hover{color: #8DBEE0;}
 
-.mainStyle .controlWorksDisciplineNameLinkGrey a:link{color: #5F5F5F; font-weight: normal;}
-.mainStyle .controlWorksDisciplineNameLinkGrey a:visited{color: #5F5F5F;font-weight: normal;}
-.mainStyle .controlWorksDisciplineNameLinkGrey a:active{color: #B5CADF;font-weight: normal;}
-.mainStyle .controlWorksDisciplineNameLinkGrey a:hover{color: #B5CADF;font-weight: normal;}
+.mainStyle .controlWorksDisciplineNameLinkGrey a:link{color: #5F5F5F !important; font-weight: normal;}
+.mainStyle .controlWorksDisciplineNameLinkGrey a:visited{color: #5F5F5F !important;font-weight: normal;}
+.mainStyle .controlWorksDisciplineNameLinkGrey a:active{color: #B5CADF !important;font-weight: normal;}
+.mainStyle .controlWorksDisciplineNameLinkGrey a:hover{color: #B5CADF !important;font-weight: normal;}
 
 .mainStyle .reitingLink  a{color: green !important; font-weight: bolder !important; font-family: Verdana;}
 .mainStyle .reitingLink a:hover{text-decoration: underline;}

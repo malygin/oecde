@@ -170,9 +170,9 @@
     left: 40%;
 }
     input[type="radio"]{margin-top: 0px; margin-right: 10px;}
-    input[type="radio"]+label{float: right;}
+/*    input[type="radio"]+label{float: right;}*/
     input[type="checkbox"]{margin-top: 0px; margin-right: 10px;}
-    input[type="checkbox"]+label{float: right;}
+/*    input[type="checkbox"]+label{float: right;}*/
 
  .mainStyle .testQuestionBlock{
      width: 100px;
