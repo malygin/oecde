@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute  name="type" shortDescription="тип вопроса"/>
+    </composite:interface>
+
+    <!-- IMPLEMENTATION -->
+
+    <composite:implementation>
+        
+        <h:panelGroup rendered="#{cc.attrs.type=='comparison'}">
+                      <br/><small>поставьте в соответствующие ячейки номера значений из верхнего столбца </small><br/><br/>
+              </h:panelGroup>
+              <h:panelGroup  rendered="#{cc.attrs.type=='radio'}">
+                  <br/><small>выберете один вариант ответа</small><br/><br/>
+              </h:panelGroup>
+              <h:panelGroup rendered="#{cc.attrs.type=='text'}">
+                <br/><br/><small>напишите ответ</small><br/>
+              </h:panelGroup>
+              <h:panelGroup rendered="#{cc.attrs.type=='check'}" style="margin-bottom: 10px;">
+              <br/><small>выберете один вариант ответа</small><br/><br/>
+              </h:panelGroup>
+    </composite:implementation>
+</html>

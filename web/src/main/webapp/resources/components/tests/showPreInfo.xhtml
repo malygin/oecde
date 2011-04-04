@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <!-- INTERFACE -->
+    <composite:interface>
+         <composite:attribute  name="t" shortDescription=""/>
+         <composite:attribute  name="work" shortDescription=""/>
+         <composite:attribute  name="test" shortDescription=""/>
+
+    </composite:interface>
+
+    <!-- IMPLEMENTATION -->
+
+    <composite:implementation>
+    
+           <h:outputText rendered="#{(cc.attrs.t[2]!=null)&amp;&amp;(cc.attrs.t[3]!=null)&amp;&amp;(cc.attrs.t[4]!=null)}" style="color: red" value="#{cc.attrs.t[2]}  ||  #{cc.attrs.t[3]}  ||  #{cc.attrs.t[4]}"/>
+
+           <div class="testItemsDiv">
+               <table class="StudentTestStartPages">
+                   <tr>
+                       <td>
+                        попыток:
+                       </td>
+                       <td>
+                           #{cc.attrs.work.estimateAttemptsUsedNumber} из #{cc.attrs.test.estimateAttemptsNumber}
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                        пробных:
+                       </td>
+                        <td> #{cc.attrs.work.trialAttemptsUsedNumber} из #{cc.attrs.test.trialNumber}
+                        </td>
+                   </tr>
+                   <tr>
+                       <td>
+                        переэкзаменовка:
+                       </td>
+                        <td> #{cc.attrs.work.reExameAttemptsUsedNumber}
+                        </td>
+                   </tr>
+                   <tr>
+                       <td>
+                        доступен
+                       </td>
+                       <td>с <h:outputText converter="dateConverter" value="#{cc.attrs.test.openDate}"/> по <h:outputText converter="dateConverter" value="#{cc.attrs.test.closeDate}"/>
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                        количество вопросов:
+                       </td>
+                        <td> #{cc.attrs.test.quantity}
+                        </td>
+                   </tr>
+                   <tr>
+                       <td>
+                        предоставленное время:
+                        </td>
+                            <td>#{cc.attrs.test.duration}
+                            </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           Результаты тестирования:
+                       </td>
+                        <td> #{cc.attrs.work.pointsForWork}
+                        </td>
+                   </tr>
+                </table>
+           </div>
+    </composite:implementation>
+</html>

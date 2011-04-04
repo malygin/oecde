@@ -3,263 +3,77 @@
          xmlns:f="http://java.sun.com/jsf/core"
          xmlns:h="http://java.sun.com/jsf/html"
          xmlns:r="http://java.sun.com/jsp/jstl/core"
-         template="../resources/studentTemplate.xhtml"
-         >
+         xmlns:tests="http://java.sun.com/jsf/composite/components/tests"
+         template="../resources/studentTemplate.xhtml">
           <f:metadata>
              <f:viewParam name="c" value="#{testBean.curriculumId}"/>
              <f:viewParam name="id" value="#{testBean.testId}"/>
          </f:metadata>
         <ui:define name="contentHeader">
-        Прохождение теста -  "#{testBean.test[1].work.title}"
+             Прохождение теста -  "#{testBean.test[1].work.title}"
         </ui:define>
+
         <ui:define name="content">
-       
-            <div class="counterPosition">
-            <div class="TestCounter">
-       <span id="counter"></span>
-            </div>
-            </div>
-       <script type="text/javascript" src="../resources/jquery/js/jquery.jCountr.js"></script>
-       <script type="text/javascript" src="../resources/scripts/test.js"></script>
+        <script type="text/javascript" src="../resources/jquery/js/jquery.jCountr.js"></script>
 	<script>
                 //счетчик секунд для прогрессбара
                 var pct=1;
                 //блокатор на повторное создание счетчик
                  var flag=true;
        </script>
-       <div>
-       <h:form id="mainForm">
-         <h:panelGroup rendered="#{not testBean.renderTestPassing}">
-           <h:outputText rendered="#{testBean.accessDenied}" value="Не найден или не доступен" />
-           <h:outputLink value="discipline.xhtml?c=#{testBean.curriculumId}" styleClass="navigationLinks backLinkPosition">назад</h:outputLink>
-           <r:set var="t" value="#{testBean.test}"/>
-           <r:set var="work" value="#{t[1]}"/>
-           <r:set var="test" value="#{work.work}"/><br/>
-         
+            <div class="counterPosition"><div class="TestCounter">
+                   <span id="counter"></span>
+            </div></div>
 
-           <h:outputText rendered="#{(t[2]!=null)&amp;&amp;(t[3]!=null)&amp;&amp;(t[4]!=null)}" style="color: red" value="#{t[2]}  ||  #{t[3]}  ||  #{t[4]}"/>
-         
-           <div class="testItemsDiv">
-               <table class="StudentTestStartPages">
-                   <tr>
-                       <td>
-                        попыток:
-                       </td>
-                       <td>
-                           #{work.estimateAttemptsUsedNumber} из #{test.estimateAttemptsNumber}
-                       </td>
-                   </tr>
-                   <tr>
-                       <td>
-                        пробных:
-                       </td>
-                        <td> #{work.trialAttemptsUsedNumber} из #{test.trialNumber}
-                        </td>
-                   </tr>
-                   <tr>
-                       <td>
-                        переэкзаменовка:
-                       </td>
-                        <td> #{work.reExameAttemptsUsedNumber}
-                        </td>
-                   </tr>
-                   <tr>
-                       <td>
-                        доступен
-                       </td>
-                       <td>с <h:outputText converter="dateConverter" value="#{test.openDate}"/> по <h:outputText converter="dateConverter" value="#{test.closeDate}"/>
-                       </td>
-                   </tr>
-                   <tr>
-                       <td>
-                        количество вопросов:
-                       </td>
-                        <td> #{test.quantity}
-                        </td>
-                   </tr>
-                   <tr>
-                       <td>
-                        предоставленное время:
-                        </td>
-                            <td>#{test.duration}
-                            </td>
-                   </tr>
-                   <tr>
-                       <td>
-                           Результаты тестирования:
-                       </td>
-                        <td> #{work.pointsForWork}
-                        </td>
-                   </tr>
-                </table>
-           </div>       
-              <h:commandLink action="#{testBean.startTest}" rendered="#{not testBean.accessDenied}" styleClass="studentButton beginTest">Начать тест!
-                  <f:ajax render="@form" />
-              </h:commandLink>  
-           </h:panelGroup>
+             <div>
+                 <h:form id="mainForm">
+                    <h:panelGroup rendered="#{not testBean.renderTestPassing}">
+                       <h:outputText rendered="#{testBean.accessDenied}" value="Не найден или не доступен" />
+                       <h:outputLink value="discipline.xhtml?c=#{testBean.curriculumId}" styleClass="navigationLinks backLinkPosition">назад</h:outputLink><br/>
+                        <tests:showPreInfo t="#{testBean.test}" test="#{testBean.test[1].work}" work="#{testBean.test[1]}"/>
+                        <h:commandLink action="#{testBean.startTest}" rendered="#{not testBean.accessDenied}" styleClass="studentButton beginTest">Начать тест!
+                              <f:ajax render="@form" />
+                        </h:commandLink>
+                    </h:panelGroup>
 
-        <h:panelGroup id="TestPassing" rendered="#{testBean.renderTestPassing}">              
-                <script>
-                      $(function(){                     
-                          //сделали костыльный эскейп для формул и хтмок всех
-                         jQuery("label").each(function(i){                          
-                             $(this).html($(this).text());});
-                         if (flag){
-                             //идем в первый раз
-                                $("#counter").counter({
-                                          min:'#{testPassingBean.timeTest}',
-                                          sec:'0',
-                                          message: 'Время вышло!',
-                                              finish_function: 'checkTime()' });
-                                 setInterval(function() {
-                                        $("#progressbar div.progress").css("width",pct*100/(#{testPassingBean.timeTest}*60)+"%");
-                                        pct++;
-                                    }, 1000);
-                                 flag=false;}
+                    <h:panelGroup id="TestPassing" rendered="#{testBean.renderTestPassing}">
+                            <script type="text/javascript" src="../resources/scripts/test.js"></script>
+                            <script>
+                                  $(function(){
+                                      //сделали костыльный эскейп для формул и хтмок всех
+                                     jQuery("label").each(function(i){
+                                         $(this).html($(this).text());});
+                                     if (flag){
+                                         //идем в первый раз
+                                            $("#counter").counter({
+                                                      min:'#{testPassingBean.timeTest}',
+                                                      sec:'0',
+                                                      message: 'Время вышло!',
+                                                          finish_function: 'checkTime()' });
+                                             setInterval(function() {
+                                                    $("#progressbar div.progress").css("width",pct*100/(#{testPassingBean.timeTest}*60)+"%");
+                                                    pct++;
+                                                }, 1000);
+                                             flag=false;}
 
-                               });
-                </script>
-              <r:set var="question" value="#{testPassingBean.currentQustionView.question}"/>
-             
-                  <h:panelGroup id="mainPanel" rendered="#{not testPassingBean.renderCompleteTest}" >
-                      <div class="testQuestionBlock">  Вопрос № #{testPassingBean.iterQ+1}</div> <div style="margin-top: 15px;"><h:outputText escape="false" value="#{testPassingBean.questionTitle}" styleClass="testQuestionTitle"/></div>
-                         <h:panelGroup  id="radioType" rendered="#{question.type=='radio'}" styleClass="educ_umk_text_block">
-                             <h:selectOneRadio   converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}" styleClass="testSelectPadding" style="margin-top: 10px;">
-                                 <f:selectItems   value="#{testPassingBean.answers}" />
-                            </h:selectOneRadio>
-                             
-                         </h:panelGroup>
-
-                          <h:panelGroup id="checkType" rendered="#{question.type=='check'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
-                              <h:selectManyCheckbox  converter="testConverter"  layout="pageDirection"  value="#{testPassingBean.selectedAnswers}" styleClass="testSelectPadding">
-                                  <f:selectItems   value="#{testPassingBean.answers}" /><br/>
-                            </h:selectManyCheckbox >
-                         </h:panelGroup>
-
-                          <h:panelGroup id="textType" rendered="#{question.type=='text'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
-                              <br/> <h:inputText value="#{testPassingBean.selectedAnswerText}" style="position: relative; right: 5px;"/>
-                               
-                         </h:panelGroup>
-                          <h:panelGroup id="comparisonType" rendered="#{question.type=='comparison'}">
-                              <div  style="margin-top: 10px; margin-bottom: 10px;">
-                                  <table style="margin-left: 320px;">
-                              <ui:repeat value="#{testPassingBean.answerComparisnView}"  var="a" varStatus="i">
-                                 <tr>
-                                     <td valign="middle">
-                                  #{i.index+1}.
-                                     </td>
-                                     <td valign="middle" width="80px;">
-                                        <h:outputText escape="false" value="#{a.title2}"/>
-                                        </td>
-                                         <td valign="middle"><h:outputText escape="false" value="#{a.title} "/></td>
-                                        <td valign="middle"><h:inputText size="2" styleClass="numberField" onkeyup="
-                                              if(isNaN(parseInt(this.value))){this.value='';}
-                                              else{ if((this.value>#{testPassingBean.currentQustionView.countAnswers}) || (this.value&lt;1)) this.value=#{testPassingBean.currentQustionView.countAnswers};
-                                                     else this.value=parseInt(this.value)}
-                                                           "  value="#{a.answer}">
-                                              }
-                                          </h:inputText>
-                                         </td>
-                                        </tr>
-                              </ui:repeat>
-                                  </table>
-
-                              </div>
-<!--                              <div style="text-align: center; margin-top: 12px;">
-                           
-                           <table style="margin: auto;">
-                           <ui:repeat value="#{testPassingBean.answerComparisnView}"  var="a"  varStatus="i">
-                                 <tr>
-                                     <td valign="middle"><h:outputText escape="false" value="#{a.title} "/></td>
-
-                                 <td valign="middle"><h:inputText size="2" styleClass="numberField" onkeyup="
-                                      if(isNaN(parseInt(this.value))){this.value='';}
-                                      else{ if((this.value>#{testPassingBean.currentQustionView.countAnswers}) || (this.value&lt;1)) this.value=#{testPassingBean.currentQustionView.countAnswers};
-                                             else this.value=parseInt(this.value)}
-                                                   "  value="#{a.answer}">
-                                      }
-                                  </h:inputText></td>
-                                 </tr>
-                           </ui:repeat>
-                              </div>-->
-                         </h:panelGroup>
-
-                         <h:commandButton value="следующий" action="#{testPassingBean.next}" styleClass="studentButton testButtons">
-                             <f:ajax render="@form"/>
-                         </h:commandButton>
-
-                         <h:commandButton value="ответить" action="#{testPassingBean.answer}" styleClass="studentButton testButtons">
-                              <f:ajax execute="@form" render="@form"/>
-                         </h:commandButton>
-
-                         <h:commandButton id="completeTest" onclick="removeCounter();" value="завершить тест" action="#{testPassingBean.completeTest}" styleClass="studentButtonRed testButtons">
-                             <f:ajax render="@form"/>
-                         </h:commandButton>
-<!--                      <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 70px;"><span class="DisciplineText">отвечено на </span><span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countAnsweredquestion}</span><span class="DisciplineText" style="padding:0;"> из </span><span style="color: #373E3F; font-weight: bolder;">#{testPassingBean.countQuestions}</span></div>-->
-                    <div class="progressBarBorder">
-                        <div style="background:  url('../resources/images/greenMenuTitle.png') repeat-x; height: 15px; width:#{testPassingBean.countAnsweredquestion/testPassingBean.countQuestions*100}%;">
-                            <div style="width: 740px;">
-                                <span class="darkGreyColor">отвечено на </span>
-                                <span class="darkGreyColorBold">#{testPassingBean.countAnsweredquestion}</span>
-                            <span class="darkGreyColor" style="padding:0;"> из </span>
-                            <span class="darkGreyColorBold">#{testPassingBean.countQuestions}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="progressbar">
-                        <div class="progress">
-                        </div>
-                    </div>
-                    <h:panelGroup rendered="#{question.type=='comparison'}">
-                      <br/><small>поставьте в соответствующие ячейки номера значений из верхнего столбца </small><br/><br/></h:panelGroup>
-                 </h:panelGroup>
-              <h:panelGroup  rendered="#{question.type=='radio'}">
-                  <br/><small>выберете один вариант ответа</small><br/><br/>
-              </h:panelGroup>
-              <h:panelGroup rendered="#{question.type=='text'}">
-                <br/><br/><small>напишите ответ</small><br/>
-              </h:panelGroup>
-              <h:panelGroup rendered="#{question.type=='check'}" style="margin-bottom: 10px;">
-              <br/><small>выберете один вариант ответа</small><br/><br/>
-              </h:panelGroup>
-
-                 <h:panelGroup   rendered="#{testPassingBean.renderCompleteTest}">
-                         <script type="text/javascript">
-                               $(function(){
-                                   $("#counter").remove();
-                                   $(window).unbind('beforeunload');
-                               });
-                        </script>
-                     <div class="DisciplineText testFinish">Тест  завершен!</div>
-                     <div style="margin: auto; width: 180px;">
-                     <table style="margin-top: 20px;">
-                         <tr>
-                             <td>
-                         <span style="color: grey;">Баллов</span>
-                             </td>
-                             <td>
-                             <h:outputText rendered="#{testPassingBean.points!=0}" styleClass="testResultMarkNotNull" value="#{testPassingBean.points}"/>
-                             <h:outputText rendered="#{testPassingBean.points==0}" styleClass="testResultMarkNull" value="#{testPassingBean.points}"/>
-                             из 100
-                            </td>
-                         </tr>
-                    <tr>
-                        <td>
-                     <span style="color: grey;">Правильно ответил на </span>
-                        </td>
-                        <td>
-                         <h:outputText rendered="#{testPassingBean.countRight!=0}" styleClass="testResultMarkNotNull" value="#{testPassingBean.countRight}"/>
-                         <h:outputText rendered="#{testPassingBean.countRight==0}" styleClass="testResultMarkNull" value="#{testPassingBean.countRight}"/>
-                         из #{testPassingBean.countQuestions} 
-                         </td>
-                     </tr>
-                     </table>
-                     </div>
-                 </h:panelGroup>
-                 <h:messages/>
-                 </h:panelGroup>
-            </h:form>
-          
-</div>       
+                                           });
+                            </script>
+                              <h:panelGroup id="mainPanel" rendered="#{not testPassingBean.renderCompleteTest}" >
+                                 <tests:questionAnswer question="#{testPassingBean.currentQustionView.question}"/>
+                                 <tests:questionProgressBars countAnsweredQuestion="#{testPassingBean.countAnsweredquestion}" countQuestions="#{testPassingBean.countQuestions}"/>
+                                 <tests:questionTips type="#{testPassingBean.currentQustionView.question.type}"/>
+                              </h:panelGroup>
+                                 <h:panelGroup   rendered="#{testPassingBean.renderCompleteTest}">
+                                        <script type="text/javascript">
+                                               $(function(){
+                                                   $("#counter").remove();
+                                                   $(window).unbind('beforeunload');
+                                               });
+                                        </script>
+                                     <tests:showResult countQuestions="#{testPassingBean.countQuestions}" countRight="#{testPassingBean.countRight}" points="#{testPassingBean.points}"/>
+                                   </h:panelGroup>                             
+                             </h:panelGroup>
+                        </h:form>
+               </div>
         </ui:define>
     </ui:composition>

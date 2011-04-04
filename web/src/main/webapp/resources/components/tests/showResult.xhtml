@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <!-- INTERFACE -->
+    <composite:interface>
+         <composite:attribute  name="points" shortDescription="количество баллов"/>
+         <composite:attribute  name="countRight" shortDescription="количество правильных ответов"/>
+         <composite:attribute  name="countQuestions" shortDescription="количество  вопросов"/>
+
+    </composite:interface>
+
+    <!-- IMPLEMENTATION -->
+
+    <composite:implementation>
+        <div class="DisciplineText testFinish">Тест  завершен!</div>
+                     <div style="margin: auto; width: 180px;">
+                     <table style="margin-top: 20px;">
+                         <tr>
+                             <td>
+                         <span style="color: grey;">Баллов</span>
+                             </td>
+                             <td>
+                             <h:outputText rendered="#{cc.attrs.points!=0}" styleClass="testResultMarkNotNull" value="#{cc.attrs.points}"/>
+                             <h:outputText rendered="#{cc.attrs.points==0}" styleClass="testResultMarkNull" value="#{cc.attrs.points}"/>
+                             из 100
+                            </td>
+                         </tr>
+                    <tr>
+                        <td>
+                     <span style="color: grey;">Правильно ответил на </span>
+                        </td>
+                        <td>
+                         <h:outputText rendered="#{cc.attrs.countRight!=0}" styleClass="testResultMarkNotNull" value="#{cc.attrs.countRight}"/>
+                         <h:outputText rendered="#{cc.attrs.countRight==0}" styleClass="testResultMarkNull" value="#{cc.attrs.countRight}"/>
+                         из #{cc.attrs.countQuestions}
+                         </td>
+                     </tr>
+                     </table>
+                     </div>
+
+    </composite:implementation>
+</html>

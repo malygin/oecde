@@ -1,4 +1,6 @@
-//       $(window).bind('beforeunload', function(){
+
+
+//       //       $(window).bind('beforeunload', function(){
 //		return 'Ваша попытка не будет засчитана, вы уверены?';
 //	   });
 
