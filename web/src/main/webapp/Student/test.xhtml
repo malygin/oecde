@@ -39,10 +39,7 @@
                     <h:panelGroup id="TestPassing" rendered="#{testBean.renderTestPassing}">
                             <script type="text/javascript" src="../resources/scripts/test.js"></script>
                             <script>
-                                  $(function(){
-                                      //сделали костыльный эскейп для формул и хтмок всех
-                                     jQuery("label").each(function(i){
-                                         $(this).html($(this).text());});
+                                  $(function(){                                     
                                      if (flag){
                                          //идем в первый раз
                                             $("#counter").counter({

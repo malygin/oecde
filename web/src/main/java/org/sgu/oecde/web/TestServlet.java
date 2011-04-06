@@ -15,11 +15,15 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.URL;
 import javax.activation.MimetypesFileTypeMap;
+import javax.faces.context.FacesContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import org.sgu.oecde.web.jsfbeans.tests.TestPassingBean;
+import org.sgu.oecde.web.jsfbeans.util.FacesUtil;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.FileUploadUtil;
 import org.springframework.util.ObjectUtils;
 
@@ -40,6 +44,9 @@ public class TestServlet extends HttpServlet {
           if (request.getParameter("task").indexOf("$$")!=-1){
               String s=request.getParameter("task");
               while (s.indexOf("$")!=-1){
+               //  FacesContext facesContext = FacesUtil.getFacesContext(request, response);
+               //  TestPassingBean myBean = (TestPassingBean) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("testPassingBean");
+
                  s= s.replaceFirst("\\$+"," <img src='http://oec.sgu.ru/latex/latex.php?code=");
                  s= s.replaceFirst("\\$+"," '/> ");
               }

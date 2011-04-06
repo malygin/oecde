@@ -15,17 +15,17 @@
 
     <composite:implementation>
         
-        <h:panelGroup rendered="#{cc.attrs.type=='comparison'}">
-                      <br/><small>поставьте в соответствующие ячейки номера значений из верхнего столбца </small><br/><br/>
+             <h:panelGroup rendered="#{cc.attrs.type=='comparison'}">
+                <br/><small>поставьте в соответствующие ячейки номера значений из верхнего столбца </small><br/><br/>
               </h:panelGroup>
-              <h:panelGroup  rendered="#{cc.attrs.type=='radio'}">
-                  <br/><small>выберете один вариант ответа</small><br/><br/>
+              <h:panelGroup rendered="#{cc.attrs.type=='radio'}">
+                <br/><small>выберете один вариант ответа</small><br/><br/>
               </h:panelGroup>
               <h:panelGroup rendered="#{cc.attrs.type=='text'}">
                 <br/><br/><small>напишите ответ</small><br/>
               </h:panelGroup>
               <h:panelGroup rendered="#{cc.attrs.type=='check'}" style="margin-bottom: 10px;">
-              <br/><small>выберете один вариант ответа</small><br/><br/>
+                <br/><small>выберете несколько вариантов ответа</small><br/><br/>
               </h:panelGroup>
     </composite:implementation>
 </html>

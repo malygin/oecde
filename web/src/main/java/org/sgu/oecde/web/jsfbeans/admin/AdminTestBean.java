@@ -51,9 +51,9 @@ public class AdminTestBean implements Serializable{
     
     }
 
-    public  void startTest() throws MalformedURLException, IOException{
+    public  void startTest(boolean view) throws MalformedURLException, IOException{
             renderTestPassing=true;
-            this.testPassingBean.startAdminTest(test);
+            this.testPassingBean.startAdminTest(test, view);
     }
 
     public TestType[] getTypes(){
@@ -91,7 +91,8 @@ public class AdminTestBean implements Serializable{
     }
 
     public void setAction(String action) throws MalformedURLException, IOException{
-       startTest();
+      if (action.equals("start")) startTest(true);
+      else startTest(false);
     }
 
     public String getAction() {

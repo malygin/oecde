@@ -14,18 +14,23 @@
         <ui:define name="contentHeader">
             Тест.#{adminTestBean.test.title}
         </ui:define>
-       <ui:define name="content"> 
-    
-      <div>
-          
+       <ui:define name="content">     
+      <div>          
        <h:form id="mainForm">
         <h:panelGroup id="TestPassing" rendered="#{adminTestBean.renderTestPassing}">
           <script type="text/javascript" src="../resources/scripts/test.js"></script>
            <style>
                 input[type="radio"]{margin-top: 0px; margin-right: 10px;}input[type="radio"]+label{float: right;}
                 input[type="checkbox"]{margin-top: 0px; margin-right: 10px;}input[type="checkbox"]+label{float: right;}
-            </style>
-           <tests:questionView question="#{testPassingBean.currentQustionView.question}"/>                       
+            </style>            
+            <h:panelGroup rendered="#{not testPassingBean.viewTest}">                
+                <tests:questionAnswer question="#{testPassingBean.currentQustionView.question}"/>
+                <tests:questionProgressBars countAnsweredQuestion="#{testPassingBean.countAnsweredquestion}" countQuestions="#{testPassingBean.countQuestions}"/>
+            </h:panelGroup>
+            <h:panelGroup rendered="#{testPassingBean.viewTest}">                 
+                 <tests:questionView question="#{testPassingBean.currentQustionView.question}"/>
+            </h:panelGroup>
+             <tests:questionTips type="#{testPassingBean.currentQustionView.question.type}"/>
           </h:panelGroup>
          </h:form>
           

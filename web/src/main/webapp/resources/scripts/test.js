@@ -23,15 +23,14 @@
                         }
                 });
                    });
-
+     
           $(function(){
            $("label").each(function(i){
-            
-                if($(this).text().indexOf("\$\$")!=-1){
-                          str=$(this).text();
-                          $(this).html("");
-                          $('<iframe height="50px"   frameborder="0"  width="300px" name="myFrame"/>').attr('src', '../TestServlet?task='+str).appendTo($(this));
-                          }
+
+                if($(this).text().indexOf("<img")!=-1){
+                    $(this).html($(this).text());
+               }
+
                if($(this).text().indexOf("link:")!=-1){
                           str=$(this).text();
                           $(this).html("");

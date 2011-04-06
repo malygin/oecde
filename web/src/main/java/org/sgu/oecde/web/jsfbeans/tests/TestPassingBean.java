@@ -3,17 +3,12 @@ package org.sgu.oecde.web.jsfbeans.tests;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.concurrent.TimeUnit;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -26,7 +21,6 @@ import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.core.util.SemesterGetter;
-import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.journal.EventType;
 import org.sgu.oecde.journal.JournalService;
@@ -41,8 +35,6 @@ import org.sgu.oecde.tests.TestAttemptType;
 import org.sgu.oecde.tests.TestEntity;
 import org.sgu.oecde.tests.dao.TestAttemptDao;
 import org.sgu.oecde.web.ResourceService;
-import org.sgu.oecde.web.TaskServlet;
-import org.sgu.oecde.web.jsfbeans.util.HTMLSanitiser;
 
 /**
  * бин для прохождения теста
@@ -85,10 +77,13 @@ public class TestPassingBean implements Serializable {
     private HashSet<AnsweredQuestion> answeredQuestions= new HashSet();
     private TestAttempt attempt=new TestAttempt();
 
-    int countRight=0;
-    int points=0;
+    private int countRight=0;
+    private int points=0;
+
     private Long beginDate;
-    private AbstractUser  currentUser;  
+    private AbstractUser  currentUser;
+    //режим просмотра теста?
+    private Boolean viewTest=false;
     
     @ManagedProperty(value="#{curriculumDao}")
     private CurriculumDao cDao;
@@ -115,7 +110,7 @@ public class TestPassingBean implements Serializable {
      * сеттер для айди плана и проверка на доступ к тесту
      */
     public void startTest(Object[] test, Curriculum c) throws MalformedURLException, IOException {
-        curriculum=c;
+       curriculum=c;
       // DeCurriculum c = resourceService.getDisciplineForStudent((Student) currentUser,curriculumId);
        AdditionalSelfDependentWork work= (AdditionalSelfDependentWork) test[1];
        testView=work.getWork();
@@ -124,24 +119,21 @@ public class TestPassingBean implements Serializable {
         if (!questions.isEmpty()){
             attempt.setWork(testView);
             countQuestions=(testView.getQuantity()<questions.size())?testView.getQuantity():questions.size();
-
             makeQuestionList();
             beginDate= System.currentTimeMillis();
 
        }
     }
 
-     public void startAdminTest(TestEntity test) throws MalformedURLException, IOException {
-       testView=test;
+     public void startAdminTest(TestEntity test, boolean view) throws MalformedURLException, IOException {
+        testView=test;
+        this.viewTest=view;
      //  checkTestAttemptType(testView);
         questions=new ArrayList<Question>(testView.getQuestions());
         if (!questions.isEmpty()){
             attempt.setWork(testView);
             countQuestions=questions.size();
             makeQuestionList();
-            beginDate= System.currentTimeMillis();
-
-
        }
     }
 
@@ -289,7 +281,7 @@ public class TestPassingBean implements Serializable {
        */
 
     public void completeTest(){
-            if (attempt!=null){
+            if (attempt!=null && (currentUser instanceof Student)){
                  renderCompleteTest=true;
                  points=(100*countRight)/questions.size();
                  attempt.setPoints(points);
@@ -308,9 +300,6 @@ public class TestPassingBean implements Serializable {
                  attempt=null;}
 
     }
-
-   
-
      /*
       * формируем списек вопросов
       */
@@ -335,16 +324,8 @@ public class TestPassingBean implements Serializable {
         if ((type==QuestionType.radio)||(type==QuestionType.check)){
             answers=new ArrayList<SelectItem>();
             for(Answer a:currentQustionView.getQuestion().getAnswers()){
-                answers.add(new SelectItem(a, checkForFormulaOrLink(a.getTitle())));
-                //answers.add(new SelectItem(a,a.getTitle()));
-//                System.out.println(" pre ");
-//                String res=a.getTitle().replace("\\", "\\\\");
-//                for(char c:res.toCharArray()){
-//                    System.out.print(" "+c);
-//                }
-              //  System.out.println("id "+a.getId());
-              //  System.out.println(" past "+checkForFormulaOrLink(a.getTitle()));
 
+                answers.add(new SelectItem(a, checkForFormulaOrLink(a.getTitle())));            
             }
         }
         if ((type==QuestionType.comparison)){       
@@ -401,26 +382,17 @@ public class TestPassingBean implements Serializable {
      * проверяем есть в тексте формула или это хтмлка
      */
     private String checkForFormulaOrLink(String s)throws MalformedURLException, IOException {
-        while (s.indexOf("$")!=-1){
-          s= s.replaceFirst("\\$+"," <img src='http://oec.sgu.ru/latex/latex.php?code=");
-          s= s.replaceFirst("\\$+"," '/> ");
-         }
-//        if(s.indexOf("link:")!=-1){
-//             URL url = new URL(TaskServlet.urlServer+s.split(":")[1]);
-//             String[] link=(s.split(":")[1]).split("/");
-//             String resultLink=link[0]+"/"+link[1]+"/"+link[2]+"/";
-//             String str="";
-//              StringBuffer strbuf = new StringBuffer();
-//              BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
-//              while ((str = in.readLine()) != null) {strbuf.append(str);}
-//              //str=strbuf.toString().replaceAll("src=\"", "src=\""+currentUrl+"/");
-//          //    strbuf.replace(0, strbuf.length(), "<meta http-equiv='Content-Type' content='text/htm; charset=utf-8'>");
-//           //   s=HTMLSanitiser.encodeInvalidMarkup(strbuf.toString());
-//              s=strbuf.toString();
-//              s=s.replaceFirst("<meta http-equiv='Content-Type' content='text/htm; charset=utf-8'>", "");
-//              s=s.replaceAll("src=\"", "src=\""+TaskServlet.urlServer+resultLink);
-//             // s=strbuf.toString();
-//        }
+        if(s.indexOf("$")!=-1){          
+           // s=s.replaceAll("\\$+[*\\+*]\\$+", "$$%2B");
+            while (s.indexOf("$")!=-1){
+               StringBuilder str =new StringBuilder(s);
+               String replaceString=str.substring(str.indexOf("$"), str.indexOf("$",str.indexOf("$")+2 )+2).replaceAll("\\+", "%2B");
+               str=str.replace(str.indexOf("$"), str.indexOf("$",str.indexOf("$")+2 )+2, replaceString);
+               s=str.toString();
+              s= s.replaceFirst("\\$+"," <img src='http://oec.sgu.ru/latex/latex.php?code=");
+              s= s.replaceFirst("\\$+"," '/> ");
+             }
+        }
         return s;
     }
 
@@ -565,5 +537,14 @@ public class TestPassingBean implements Serializable {
     public void setIterQ(int iterQ) {
         this.iterQ = iterQ;
     }
-    
+
+    public Boolean getViewTest() {
+        return viewTest;
+    }
+
+    public void setViewTest(Boolean viewTest) {
+        this.viewTest = viewTest;
+    }
+
+
   }

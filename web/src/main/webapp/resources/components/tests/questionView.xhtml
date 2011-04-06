@@ -26,15 +26,16 @@
                   <div style="clear: left;">
                       <h:panelGroup  id="radioType" rendered="#{cc.attrs.question.type=='radio'}" styleClass="educ_umk_text_block">
                             <div style="margin-left: 100px;">
-                          <ui:repeat value="#{setToList.getList(cc.attrs.question.answers)}" var="ans">
+                                <ui:repeat value="#{testPassingBean.answers}" var="ans">
 
-                                 <h:panelGroup rendered="#{ans.rightAnswer==1}" styleClass="radioButtonActive"><label> <b>#{ans.title}</b></label>
+
+                                 <h:panelGroup rendered="#{ans.value.rightAnswer==1}" styleClass="radioButtonActive"><label> <b>#{ans.label}</b></label>
                                 </h:panelGroup>
-                                  <h:panelGroup rendered="#{ans.rightAnswer!=1}" styleClass="radioButtonEnabled"><label> #{ans.title}</label>
+                                  <h:panelGroup rendered="#{ans.value.rightAnswer!=1}" styleClass="radioButtonEnabled"><label> #{ans.label}</label>
                                 </h:panelGroup>
                              </ui:repeat>
                             </div>
-                                        <br/>  <i>Один из многих</i>
+                                 
                          </h:panelGroup>
                   </div>
 
@@ -48,7 +49,7 @@
                                 </h:panelGroup>
                               </ui:repeat>
                              </div>
-                             <br/>  <i>Многие из многих</i>
+                        
                          </h:panelGroup>
                        </div>
 
@@ -59,7 +60,7 @@
                                   <br/>Ответ:  <b>#{ans.rightAnswer}</b>
                              </ui:repeat>
                              </div>
-                                <br/>  <i>Текстовый вопрос</i>
+                          
                          </h:panelGroup>
                       </div>
 
@@ -70,10 +71,7 @@
                              <li> <label> #{ans.title}</label> - <b>#{ans.rightAnswer}</b><br/></li>
                              </ui:repeat>
                               </div>
-                                <br/>
-                                <div style="text-align: center;">
-                                    <i>Сопоставления</i>
-                                </div>
+                               
                          </h:panelGroup>
                      </div>
 
