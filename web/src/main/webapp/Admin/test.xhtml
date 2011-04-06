@@ -18,11 +18,7 @@
       <div>          
        <h:form id="mainForm">
         <h:panelGroup id="TestPassing" rendered="#{adminTestBean.renderTestPassing}">
-          <script type="text/javascript" src="../resources/scripts/test.js"></script>
-           <style>
-                input[type="radio"]{margin-top: 0px; margin-right: 10px;}input[type="radio"]+label{float: right;}
-                input[type="checkbox"]{margin-top: 0px; margin-right: 10px;}input[type="checkbox"]+label{float: right;}
-            </style>            
+          <script type="text/javascript" src="../resources/scripts/test.js"></script>         
             <h:panelGroup rendered="#{not testPassingBean.viewTest}">                
                 <tests:questionAnswer question="#{testPassingBean.currentQustionView.question}"/>
                 <tests:questionProgressBars countAnsweredQuestion="#{testPassingBean.countAnsweredquestion}" countQuestions="#{testPassingBean.countQuestions}"/>
