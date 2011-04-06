@@ -9,6 +9,9 @@
 
 
 /*стили для бэйзТемплэйт*/
+.mainStyle .styleBlock img{
+    display: block;
+}
 .mainStyle .firstBorder{
     border-color: white;
     -o-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
@@ -306,10 +309,34 @@
 .StudentTestsPadding{
     padding-left: 10px;
 }
+ .mainStyle .testQuestionBlock{
+     width: 100px;
+     float: left;
+     color: #27587F;
+     font-size: 14px;
+     margin-left: 10px;
+ }
+  .mainStyle .testSelectPadding{
+     margin-left: 200px;
+     margin-bottom: 10px;
+ }
+ .mainStyle .testButtons{
+     margin: 8px;
+     width: 150px;
+ }
+   input[type="radio"]{margin-top: 0px; margin-right: 10px;}
+   input[type="checkbox"]{margin-top: 0px; margin-right: 10px;}
 .educ_umk_text_block{
    margin-left: 10px;
    display: block;
 }
+ .mainStyle .progressBarBorder{
+     border: 1px solid green;
+     width: 90%;
+     height: 15px;
+     margin: auto;
+     margin-top: 20px;
+ }
  .educ_umk_text {
     margin-bottom: 2px;
     margin-left: 28px;

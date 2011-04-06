@@ -325,6 +325,10 @@ float: left; margin-right: 10px;
     text-align: left;
      height: 17px;
 }
+.mainStyle .enterPicTest{
+    background: url("../resources/images/enter.gif") no-repeat;
+    padding-left: 19px;
+}
 /*главная страница события*/
 .mainStyle .eventAdminColor tr{
     background-color: #F9FCFC;

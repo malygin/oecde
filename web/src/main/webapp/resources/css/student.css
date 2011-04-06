@@ -169,37 +169,18 @@
     position: relative;
     left: 40%;
 }
-    input[type="radio"]{margin-top: 0px; margin-right: 10px;}
+  
 /*    input[type="radio"]+label{float: right;}*/
-    input[type="checkbox"]{margin-top: 0px; margin-right: 10px;}
+    
 /*    input[type="checkbox"]+label{float: right;}*/
 
- .mainStyle .testQuestionBlock{
-     width: 100px;
-     float: left;
-     color: #27587F;
-     font-size: 14px;
-     margin-left: 10px;
- }
+
  .mainStyle .testQuestionTitle{
      display: block;
      font-size: 14px;
  }
- .mainStyle .testSelectPadding{
-     margin-left: 200px;
-     margin-bottom: 10px;
- }
- .mainStyle .testButtons{
-     margin: 8px;
-     width: 150px;
- }
- .mainStyle .progressBarBorder{
-     border: 1px solid green;
-     width: 90%;
-     height: 15px;
-     margin: auto;
-     margin-top: 20px;
- }
+
+
  .mainStyle .testFinish{
      font-size: 14pt;
      padding: 0;

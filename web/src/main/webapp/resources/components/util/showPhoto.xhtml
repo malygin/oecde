@@ -21,7 +21,7 @@
             
                 <table cellpadding="0" cellspacing="0">
                     <tr>
-                        <td class="userPhotoBorder">
+                        <td class="styleBlock userPhotoBorder">
                             <h:graphicImage rendered="#{cc.attrs.user.largePhoto ne null}" value="../resources/userFiles/avatars/#{cc.attrs.user.largePhoto}"/>
                             <h:graphicImage rendered="#{cc.attrs.user.largePhoto eq null}" value="../resources/userFiles/avatars/defaultAvatarBig.jpg"/>
                         </td>
@@ -34,7 +34,7 @@
             <div class="userPhoto leftMenuContainer">
                 <table cellpadding="0" cellspacing="0">
                     <tr>
-                        <td class="userPhotoBorder#{cc.attrs.styleClass}">
+                        <td class="styleBlock userPhotoBorder#{cc.attrs.styleClass}">
                             <h:graphicImage styleClass="#{cc.attrs.styleClass}" rendered="#{cc.attrs.user.smallPhoto ne null}" value="../resources/userFiles/avatars/#{cc.attrs.user.smallPhoto}"/>
                             <h:graphicImage styleClass="#{cc.attrs.styleClass}" rendered="#{cc.attrs.user.smallPhoto eq null}" value="../resources/userFiles/avatars/defaultAvatarSmall.jpg"/>
                         </td>
@@ -46,7 +46,7 @@
             <div class="userPhoto">
                 <table cellpadding="0" cellspacing="0">
                     <tr>
-                        <td class="userPhotoBorder#{cc.attrs.styleClass}">
+                        <td class="styleBlock userPhotoBorder#{cc.attrs.styleClass}">
             <h:graphicImage rendered="#{cc.attrs.user.mediumPhoto ne null}" value="../resources/userFiles/avatars/#{cc.attrs.user.mediumPhoto}"/>
             <h:graphicImage rendered="#{cc.attrs.user.mediumPhoto eq null}" value="../resources/userFiles/avatars/defaultAvatarMedium.jpg"/>
             </td>
