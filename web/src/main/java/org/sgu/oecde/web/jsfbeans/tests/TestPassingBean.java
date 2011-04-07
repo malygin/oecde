@@ -24,15 +24,7 @@ import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.journal.EventType;
 import org.sgu.oecde.journal.JournalService;
-import org.sgu.oecde.tests.Answer;
-import org.sgu.oecde.tests.AnsweredQuestion;
-import org.sgu.oecde.tests.GivenAnswer;
-import org.sgu.oecde.tests.Question;
-import org.sgu.oecde.tests.QuestionType;
-import org.sgu.oecde.tests.TestAttempt;
-import org.sgu.oecde.tests.TestAttemptService;
-import org.sgu.oecde.tests.TestAttemptType;
-import org.sgu.oecde.tests.TestEntity;
+import org.sgu.oecde.tests.*;
 import org.sgu.oecde.tests.dao.TestAttemptDao;
 import org.sgu.oecde.web.ResourceService;
 
@@ -281,22 +273,23 @@ public class TestPassingBean implements Serializable {
        */
 
     public void completeTest(){
-            if (attempt!=null && (currentUser instanceof Student)){
+            if (attempt!=null){
                  renderCompleteTest=true;
                  points=(100*countRight)/questions.size();
                  attempt.setPoints(points);
-                 attempt.setRightAnswers(countRight);
-                 attempt.setDuration(new Integer(Long.toString(TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis()-beginDate))));
+                 attempt.setRightAnswers(countRight);             
                  attempt.setAnsweredQuestions(answeredQuestions);
-                 attempt.setCurriculum(curriculum);
-                 attempt.setStudent((AbstractStudent) currentUser);
-                 attempt.setType(testAttemptType);
+                 attempt.setCurriculum(curriculum); 
                  attempt.setDate(DateConverter.currentDate());
 //        Collection<GrantedAuthority> authority = SecurityContextHolder.getContext().getAuthentication().getAuthorities();
-//        if(!SwitchedUserCheker.check(authority)){     
+//        if(!SwitchedUserCheker.check(authority)){
+            if(currentUser instanceof Student){
+                attempt.setType(testAttemptType);
+                attempt.setStudent((AbstractStudent) currentUser);
+                attempt.setDuration(new Integer(Long.toString(TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis()-beginDate))));
                 testAttemptDao.saveAttempt(attempt);
                 journalService.save(EventType.TEST_END, currentUser,curriculum.getUmk(),testView );
- //        }                
+             }
                  attempt=null;}
 
     }
