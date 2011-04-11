@@ -17,8 +17,6 @@
         <div class="testQuestionBlock">  Вопрос № #{testPassingBean.iterQ+1}</div>
         <style type="text/css">
 /*            table[id*='selectRadio'] tr td{vertical-align: middle}*/
-            input[type='radio']{float: left; position: relative; top:49%; display: table-cell;}
-            label{display: block;margin-left: 13px;}
         </style>
                     <div><h:outputText id="qTitle" title="qTitle" styleClass="qTitle" escape="false" value="#{testPassingBean.questionTitle}" /></div>
                     <h:panelGroup  id="radioType" rendered="#{cc.attrs.question.type=='radio'}" styleClass="educ_umk_text_block">
@@ -33,6 +31,7 @@
                               <h:selectManyCheckbox  converter="testConverter"  layout="pageDirection"  value="#{testPassingBean.selectedAnswers}" styleClass="testSelectPadding">
                                   <f:selectItems   value="#{testPassingBean.answers}" /><br/>
                             </h:selectManyCheckbox >
+                             <div class="floatDestroyer"></div>
                          </h:panelGroup>
 
                           <h:panelGroup id="textType" rendered="#{cc.attrs.question.type=='text'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px; margin-left: 0; text-align: center !important;">
