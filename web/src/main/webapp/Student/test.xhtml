@@ -15,6 +15,7 @@
 
         <ui:define name="content">
         <script type="text/javascript" src="../resources/jquery/js/jquery.jCountr.js"></script>
+        
 	<script>
                 //счетчик секунд для прогрессбара
                 var pct=1;
@@ -27,6 +28,7 @@
 
              <div>
                  <h:form id="mainForm">
+                       <script type="text/javascript" src="../resources/scripts/test.js"></script>
                     <h:panelGroup rendered="#{not testBean.renderTestPassing}">
                        <h:outputText rendered="#{testBean.accessDenied}" value="Не найден или не доступен" />
                        <h:outputLink value="discipline.xhtml?c=#{testBean.curriculumId}" styleClass="navigationLinks backLinkPosition">назад</h:outputLink><br/>

@@ -14,11 +14,17 @@
     <!-- IMPLEMENTATION -->
 
     <composite:implementation>
-
-        <div class="testQuestionBlock">  Вопрос № #{testPassingBean.iterQ+1}</div> <div style="margin-top: 15px;"><h:outputText id="qTitle" title="qTitle" styleClass="qTitle" escape="false" value="#{testPassingBean.questionTitle}" /></div>
-                 <h:panelGroup  id="radioType" rendered="#{cc.attrs.question.type=='radio'}" styleClass="educ_umk_text_block">
+        <div class="testQuestionBlock">  Вопрос № #{testPassingBean.iterQ+1}</div>
+        <style type="text/css">
+/*            table[id*='selectRadio'] tr td{vertical-align: middle}*/
+            input[type='radio']{float: left; position: relative; top:49%; display: table-cell;}
+            label{display: block;margin-left: 13px;}
+        </style>
+                    <div><h:outputText id="qTitle" title="qTitle" styleClass="qTitle" escape="false" value="#{testPassingBean.questionTitle}" /></div>
+                    <h:panelGroup  id="radioType" rendered="#{cc.attrs.question.type=='radio'}" styleClass="educ_umk_text_block">
                              <h:selectOneRadio   converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}" styleClass="testSelectPadding" style="margin-top: 10px;">
                                  <f:selectItems   value="#{testPassingBean.answers}" />
+                                 <div class="floatDestroyer"></div>
                             </h:selectOneRadio>
 
                          </h:panelGroup>
@@ -29,8 +35,8 @@
                             </h:selectManyCheckbox >
                          </h:panelGroup>
 
-                          <h:panelGroup id="textType" rendered="#{cc.attrs.question.type=='text'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
-                              <br/> <h:inputText value="#{testPassingBean.selectedAnswerText}" style="position: relative; right: 5px;"/>
+                          <h:panelGroup id="textType" rendered="#{cc.attrs.question.type=='text'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px; margin-left: 0; text-align: center !important;">
+                              <br/> <h:inputText value="#{testPassingBean.selectedAnswerText}"/>
                          </h:panelGroup>
                           <h:panelGroup id="comparisonType" rendered="#{cc.attrs.question.type=='comparison'}">
                               <div  style="margin-top: 10px; margin-bottom: 10px;">

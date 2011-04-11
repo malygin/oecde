@@ -314,10 +314,13 @@
      float: left;
      color: #27587F;
      font-size: 14px;
-     margin-left: 10px;
+/*     margin-right: 10px;*/
+     text-align: center !important;
+     border: 1px solid #27587F;
+     margin: 5px;
  }
   .mainStyle .testSelectPadding{
-     margin-left: 200px;
+     margin-left: 100px;
      margin-bottom: 10px;
  }
  .mainStyle .testButtons{
@@ -362,6 +365,7 @@
     position: relative;
     top: 50px;
 }
+
 /*кнопки*/
 .mainStyle .adminButton{
     color: #6F1B1B;
