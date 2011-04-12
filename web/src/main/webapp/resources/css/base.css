@@ -341,7 +341,7 @@
      margin: 8px;
      width: 150px;
  }
-input[type='radio'], input[type='radio']{
+input[type='radio'], input[type='checkbox']{
     display: block;
     float: left;
 }
