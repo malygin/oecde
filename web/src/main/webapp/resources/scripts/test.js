@@ -45,7 +45,8 @@ $(function(){
 
     function iResize(){
         for (var i = 0; i < iFrames.length; i++){
-            iFrames[i].style.height = iFrames[i].contentWindow.document.body.offsetHeight +1+ 'px';
+            h = iFrames[i].contentWindow.document.body.offsetHeight;
+            iFrames[i].style.height = h +1+ 'px';
         }
     }
 
@@ -55,24 +56,30 @@ $(function(){
             style.innerHTML = 'body,body>*{margin: 0px; display: inline;} ';
             style.type = 'text/css';
             this.contentWindow.document.head.appendChild(style);
+            iResize();
+            d = $(this).parent().parent();
+            h = d.height();
+            c = d.children();
+            h = (h/2)-6;
+            c[0].setAttribute('style','margin-top:'+h+'px');
 
         });
-        $('iframe').load(function(){
-            t = setTimeout(iResize, 0);
-        });
-
-        for (i = 0; i < iFrames.length; i++){
-            iSource = iFrames[i].src;
-            iFrames[i].src = '';
-            iFrames[i].src = iSource;
-            console.log(123)
-        }
+//        for (i = 0; i < iFrames.length; i++){
+//            iSource = iFrames[i].src;
+//            iFrames[i].src = '';
+//            iFrames[i].src = iSource;
+//        }
     }else{
         $('iframe').load(function(){
             style = this.contentWindow.document.createElement('style');
             style.innerHTML = '*{margin: 0px; }';
             this.contentWindow.document.head.appendChild(style);
             this.style.height = this.contentWindow.document.body.offsetHeight + 'px';
+            d = $(this).parent().parent();
+            h = d.height();
+            c = d.children();
+            h = (h/2)-6;
+            c[0].setAttribute('style','margin-top:'+h+'px');
         });
     }
     

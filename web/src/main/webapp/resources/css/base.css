@@ -317,18 +317,38 @@
 /*     margin-right: 10px;*/
      text-align: center !important;
      border: 1px solid #27587F;
-     margin: 5px;
+     margin-left: 5px;
+     margin-top: 1px;
  }
   .mainStyle .testSelectPadding{
      margin-left: 100px;
      margin-bottom: 10px;
+     width: 80%;
+      border-bottom: 1px solid #E3F1FC;
  }
+ .mainStyle .testSelectPadding iframe{
+/*     border-bottom: 1px solid #E3F1FC;
+     border-top: 1px solid #E3F1FC;*/
+     width: 80%;
+     margin-bottom: 5px;
+     margin-top: 5px;
+
+}
+.mainStyle .testSelectPadding td{
+    border-top: 1px solid #E3F1FC;
+}
  .mainStyle .testButtons{
      margin: 8px;
      width: 150px;
  }
-            input[type='radio'], input[type='radio']{float: left; position: relative; top:49%; display: table-cell;}
-            label{display: block;margin-left: 13px;}
+input[type='radio'], input[type='radio']{
+    display: block;
+    float: left;
+}
+label{
+    display: block;
+    margin-left: 18px;
+}
 .educ_umk_text_block{
    margin-left: 10px;
    display: block;

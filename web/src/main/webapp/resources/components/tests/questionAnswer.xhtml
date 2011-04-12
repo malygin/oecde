@@ -18,7 +18,7 @@
         <style type="text/css">
 /*            table[id*='selectRadio'] tr td{vertical-align: middle}*/
         </style>
-                    <div><h:outputText id="qTitle" title="qTitle" styleClass="qTitle" escape="false" value="#{testPassingBean.questionTitle}" /></div>
+                    <div style="margin-top: 10px;"><h:outputText id="qTitle" title="qTitle" styleClass="qTitle" escape="false" value="#{testPassingBean.questionTitle}" /></div>
                     <h:panelGroup  id="radioType" rendered="#{cc.attrs.question.type=='radio'}" styleClass="educ_umk_text_block">
                              <h:selectOneRadio   converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}" styleClass="testSelectPadding" style="margin-top: 10px;">
                                  <f:selectItems   value="#{testPassingBean.answers}" />
