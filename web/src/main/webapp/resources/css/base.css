@@ -346,8 +346,11 @@ input[type='radio'], input[type='checkbox']{
     float: left;
 }
 label{
-    display: block;
+/*    display: block;*/
     margin-left: 18px;
+}
+not all and (-webkit-min-device-pixel-ratio:0) {
+  label {margin-left: 18px;}
 }
 .educ_umk_text_block{
    margin-left: 10px;

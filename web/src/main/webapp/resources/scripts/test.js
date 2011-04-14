@@ -4,41 +4,41 @@
 //		return 'Ваша попытка не будет засчитана, вы уверены?';
 //	   });
 
-         function checkTime() {
-           document.getElementById('mainForm:completeTest').click();
-           console.log("dsdsd");
+function checkTime() {
+    document.getElementById('mainForm:completeTest').click();
+    console.log("dsdsd");
 
+}
+function removeCounter() {
+    $("#counter").remove();
+
+}
+
+$(function(){
+    $(".qTitle").each(function(i){
+        if($(this).text().indexOf("link:")!=-1){
+            str=$(this).text();
+            $(this).html("");
+            $('<iframe height="100px"   frameborder="0"  width="700px" name="myFrame"/>').attr('src', '../TestServlet?task='+str.substring(5)).appendTo($(this));
         }
-         function removeCounter() {
-          $("#counter").remove();
-
-        }
-
-          $(function(){
-           $(".qTitle").each(function(i){
-                      if($(this).text().indexOf("link:")!=-1){
-                          str=$(this).text();
-                          $(this).html("");
-                          $('<iframe height="100px"   frameborder="0"  width="700px" name="myFrame"/>').attr('src', '../TestServlet?task='+str.substring(5)).appendTo($(this));
-                        }
-                });
-                   });
+    });
+});
      
-          $(function(){
-           $("label").each(function(i){
+$(function(){
+    $("label").each(function(i){
 
-                if($(this).text().indexOf("<img")!=-1){
-                    $(this).html($(this).text());
-               }
+        if($(this).text().indexOf("<img")!=-1){
+            $(this).html($(this).text());
+        }
 
-               if($(this).text().indexOf("link:")!=-1){
-                          str=$(this).text();
-                          $(this).html("");
-                          $('<iframe height="70px"   frameborder="0"  width="400px" name="myFrame"/>').attr('src', '../TestServlet?task='+str.substring(6)).appendTo($(this));
-                        }
+        if($(this).text().indexOf("link:")!=-1){
+            str=$(this).text();
+            $(this).html("");
+            $('<iframe height="70px"   frameborder="0"  width="400px" name="myFrame"/>').attr('src', '../TestServlet?task='+str.substring(6)).appendTo($(this));
+        }
 
-                });
-                   });
+    });
+});
 
 $(function(){
     var iFrames = document.getElementsByTagName('iframe');
@@ -46,41 +46,68 @@ $(function(){
     function iResize(){
         for (var i = 0; i < iFrames.length; i++){
             h = iFrames[i].contentWindow.document.body.offsetHeight;
-            iFrames[i].style.height = h +1+ 'px';
+            iFrames[i].style.height = h +3+'px';
         }
     }
-
-    if ($.browser.safari || $.browser.opera){
+    if ($.browser.safari){
         $('iframe').load(function(){
-            style = this.contentWindow.document.createElement("style");
-            style.innerHTML = 'body,body>*{margin: 0px; display: inline;} ';
-            style.type = 'text/css';
-            this.contentWindow.document.head.appendChild(style);
-            iResize();
-            d = $(this).parent().parent();
-            h = d.height();
-            c = d.children();
-            h = (h/2)-6;
-            c[0].setAttribute('style','margin-top:'+h+'px');
+            var tagP = this.contentWindow.document.body.childNodes[1];
+            this.contentWindow.document.body.setAttribute('style','margin: 0; padding: 0;');
+            tagP.setAttribute('style','margin: 0; padding: 0;');
+            tagPHeight = tagP.offsetHeight;
+            tagPChilds = tagP.childNodes;
+            if(tagPChilds != null){
+                for (i = 0; i < tagPChilds.length; i++){
+                    k = tagPChilds[i].offsetHeight;
+                    if(k >= tagPHeight) tagPHeight = k;
+                }
+            }
+            $(this).attr('style','height:'+tagPHeight+'px');
+            //       console.debug(this.contentWindow.document.firstChild.tagName);
+            this.contentWindow.document.firstChild.style.height = tagPHeight + 'px';
 
-        });
-//        for (i = 0; i < iFrames.length; i++){
-//            iSource = iFrames[i].src;
-//            iFrames[i].src = '';
-//            iFrames[i].src = iSource;
-//        }
-    }else{
-        $('iframe').load(function(){
             style = this.contentWindow.document.createElement('style');
             style.innerHTML = '*{margin: 0px; }';
             this.contentWindow.document.head.appendChild(style);
-            this.style.height = this.contentWindow.document.body.offsetHeight + 'px';
             d = $(this).parent().parent();
             h = d.height();
             c = d.children();
             h = (h/2)-6;
             c[0].setAttribute('style','margin-top:'+h+'px');
+
         });
+    }else{
+        if($.browser.opera){
+            $('iframe').load(function(){
+                style = this.contentWindow.document.createElement("style");
+                style.innerHTML = 'body,body>*{margin: 0px; display:inline;line-height: 100% !important;} *{margin: 0px; padding:0px;} ';
+                style.type = 'text/css';
+                this.contentWindow.document.head.appendChild(style);
+                iResize();
+                d = $(this).parent().parent();
+                h = d.height();
+                c = d.children();
+                h = (h/2)-6;
+                c[0].setAttribute('style','margin-top:'+h+'px');
+
+            });
+        //        for (i = 0; i < iFrames.length; i++){
+        //            iSource = iFrames[i].src;
+        //            iFrames[i].src = '';
+        //            iFrames[i].src = iSource;
+        //        }
+        }else{
+            $('iframe').load(function(){
+                style = this.contentWindow.document.createElement('style');
+                style.innerHTML = '*{margin: 0px; }';
+                this.contentWindow.document.head.appendChild(style);
+                this.style.height = this.contentWindow.document.body.offsetHeight + 'px';
+                d = $(this).parent().parent();
+                h = d.height();
+                c = d.children();
+                h = (h/2)-6;
+                c[0].setAttribute('style','margin-top:'+h+'px');
+            });
+        }
     }
-    
 });
