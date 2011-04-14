@@ -51,15 +51,15 @@ $(function(){
     }
     if ($.browser.safari){
         $('iframe').load(function(){
-            var tagP = this.contentWindow.document.body.childNodes[1];
+            var tagP = this.contentWindow.document.body;
             this.contentWindow.document.body.setAttribute('style','margin: 0; padding: 0;');
             tagP.setAttribute('style','margin: 0; padding: 0;');
             tagPHeight = tagP.offsetHeight;
             tagPChilds = tagP.childNodes;
             if(tagPChilds != null){
-                for (i = 0; i < tagPChilds.length; i++){
+                for (i = 1; i < tagPChilds.length; i++){
                     k = tagPChilds[i].offsetHeight;
-                    if(k >= tagPHeight) tagPHeight = k;
+                    if(k >= tagPChilds[i-1]) tagPHeight = k;
                 }
             }
             $(this).attr('style','height:'+tagPHeight+'px');
