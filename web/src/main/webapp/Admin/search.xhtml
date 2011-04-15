@@ -30,23 +30,31 @@
                    </div>
                 </h:panelGroup>
                 <h:panelGroup rendered="#{searchBean.type eq 'umk'}">
-                    <h:form>
-                        <h:outputLink value="umk.xhtml?id=#{i.id}">#{i.name}</h:outputLink><br/>
-                        <h:commandLink value="#{msgs.admin_mainContentCourseEdited}">
-                            <f:attribute name="umk" value="#{i}"/>
-                            <f:attribute name="event" value="UMK_CREATE"/>
-                            <f:ajax execute="@this" listener="#{umkEventsBean.logEvent}"/>
-                        </h:commandLink> |
-                        <h:commandLink value="#{msgs.admin_mainContentCourseDeleted}">
-                            <f:attribute name="umk" value="#{i}"/>
-                            <f:attribute name="event" value="UMK_DELETE"/>
-                            <f:ajax execute="@this" listener="#{umkEventsBean.logEvent}"/>
-                        </h:commandLink> |
-                        <h:commandLink value="#{msgs.admin_mainContentCourseAdded}">
-                            <f:attribute name="umk" value="#{i}"/>
-                            <f:attribute name="event" value="UMK_EDIT"/>
-                            <f:ajax execute="@this" listener="#{umkEventsBean.logEvent}"/>
-                        </h:commandLink><br/>
+                    <h:form styleClass="searchBorders">
+                        <span class="controlWorksDisciplineNameLink">
+                             <h:outputLink value="umk.xhtml?id=#{i.id}">#{i.name}</h:outputLink><br/>
+                        </span>
+                         <span class="controlWorksDisciplineNameLink">
+                             <h:commandLink value="#{msgs.admin_mainContentCourseEdited}">
+                                <f:attribute name="umk" value="#{i}"/>
+                                <f:attribute name="event" value="UMK_CREATE"/>
+                                <f:ajax execute="@this" listener="#{umkEventsBean.logEvent}"/>
+                            </h:commandLink> |
+                         </span>
+                         <span class="controlWorksDisciplineNameLink">
+                            <h:commandLink value="#{msgs.admin_mainContentCourseDeleted}">
+                                <f:attribute name="umk" value="#{i}"/>
+                                <f:attribute name="event" value="UMK_DELETE"/>
+                                <f:ajax execute="@this" listener="#{umkEventsBean.logEvent}"/>
+                            </h:commandLink> |
+                         </span>
+                         <span class="controlWorksDisciplineNameLink">
+                            <h:commandLink value="#{msgs.admin_mainContentCourseAdded}">
+                                <f:attribute name="umk" value="#{i}"/>
+                                <f:attribute name="event" value="UMK_EDIT"/>
+                                <f:ajax execute="@this" listener="#{umkEventsBean.logEvent}"/>
+                            </h:commandLink><br/>
+                         </span>
                     </h:form>
                 </h:panelGroup>
                 <h:panelGroup rendered="#{searchBean.type eq 'group'}">
