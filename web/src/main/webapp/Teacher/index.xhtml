@@ -3,12 +3,47 @@
          xmlns:f="http://java.sun.com/jsf/core"
          xmlns:h="http://java.sun.com/jsf/html"
          template="../resources/teacherTemplate.xhtml"
-         xmlns:ipsil="http://java.sun.com/jsf/composite/components/util">
+         xmlns:ipsil="http://java.sun.com/jsf/composite/components/util"
+         xmlns:ut="http://java.sun.com/jsf/composite/components/util">
+
+         <ui:define name="contentHeader">
+            #{msgs.student_index}
+        </ui:define>
+<!--        <ui:define name="fio">
+            <h:outputText value="#{teacherIndexBean.teacher.fio}"/>
+        </ui:define>-->
 
         <ui:define name="content">
-            <div class="interfaceContent">
-                 #{teacherIndexBean.estimatedGroupsCount} гр из #{teacherIndexBean.groupsCount}<br/>
-                 #{teacherIndexBean.readCwAttempsCount} из #{teacherIndexBean.cwAttempsCount}
+            <div class="userFile">
+                <div style="width:40%">
+                    <ut:showPhoto user="#{teacherIndexBean.teacher}" size="small"/>
+                </div>
+                <div class="userData" style="width: 91%;">
+                 <table class="leftMenuContainer">
+                     <tr>
+                         <td><p>#{msgs.teacher_mainContentUserInfoBirthDay}</p></td>
+                         <td><div></div>
+                         </td>
+                         <td colspan="3">
+                             <div> #{teacherIndexBean.teacher.surname}
+                                  #{teacherIndexBean.teacher.name}
+                                   #{teacherIndexBean.teacher.secondName}
+                             </div>
+                         </td>
+                     </tr>
+                      <tr>
+                          <td><p>#{msgs.teacher_mainContentUserInfoDepartment}</p>
+                         </td>
+                         <td>
+                         </td>
+                     </tr>
+                     <tr>
+                         <td><p>#{msgs.teacher_mainContentUserInfoPost}</p></td>
+                         <td></td>
+                     </tr>
+                 </table>
+                 </div>
+                <div class="floatDestroyer"></div>
             </div>
         </ui:define>
       

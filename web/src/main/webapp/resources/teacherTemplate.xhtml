@@ -12,24 +12,32 @@
     <ui:define name="left">
         <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.teacher_groupsMenuTitle}</p></div>
         <h:form>
-            <div class="navigationLinks" style="border-bottom: #5EBED9 1px solid; text-align: left; padding-left: 8px;">
-                 Показать <h:commandLink id="handle" style="text-decoration: none;">
+            <table  style="width: 100%;border-bottom: #5EBED9 1px solid; text-align: left; padding-left: 8px; font-size: 9pt !important;"  class="controlWorksDisciplineNameLink DisciplineText">
+                <tr>
+                    <td>Текущий семестр:</td>
+                    <td><h:outputText id="sName" value="#{changeSemesterBean.semesterName(teachersGroups.semester)}"/>
+                    </td>
+                    </tr>
+                    <tr>
+                        <td>Показать семестр:</td>
+                    <td><h:commandLink id="handle" style="text-decoration: none;">
                     <f:ajax event="click" render="table sName next" listener="#{teachersGroups.changeSemester}"/>
                     <f:attribute name="semester" value="#{teachersGroups.semester==0?1:0}"/>
                     <h:outputText id="next" value="#{changeSemesterBean.inversedSemesterName(teachersGroups.semester)}"/>
-                </h:commandLink><br/>
-                <h:outputText id="sName" value="#{changeSemesterBean.semesterName(teachersGroups.semester)}"/>:
-            </div>
+                </h:commandLink>
+                    </td>
+                </tr>
+            </table>
             <div style="font-size: 8pt;border: 1px solid silver; margin: 5px; padding: 5px; height: 450px; overflow-x: hidden;">
                 <h:dataTable cellpadding="0" cellspacing="0" id="table" value="#{teachersGroups.teachersGroups}" var="w">
                     <h:column>
-                        <div style="width: 100%; text-align: left;">
-                            <h:outputText value="#{w.key.name}"/>
+                        <div style="width: 100%; text-align: left;" class="groupsLinks controlWorksDisciplineNameLink">
+                            <h:outputLink value="discipline.xhtml?id=#{w.key.id}">#{w.key.name}#{w.key.id}</h:outputLink>
                             <h:outputText value="#{w.key.rusShort}"/>
                         </div>
                         <h:dataTable id="groups" value="#{w.value}" style="margin: 0px; padding: 0px; text-align: left; margin-left: 20px;" cellpadding="0" cellspacing="0" var="g">
                             <h:column>
-                                <span class="navigationLinksSmall" style="width: 100%;">
+                                <span class="groupsLinks" style="width: 100%;">
                                     <h:outputLink value="groupPoints.xhtml?g=#{g.id}&amp;s=#{teachersGroups.semester}">#{g.name}</h:outputLink>
                                 </span>
                             </h:column>
