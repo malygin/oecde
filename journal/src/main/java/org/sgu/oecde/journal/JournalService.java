@@ -32,9 +32,10 @@ public class JournalService {
     public void save(EventType eventType, AbstractUser user, Object ... o) {
         Assert.notNull(eventType);
         EventItem item = eventType.fillEventItem(user, o);
-        Assert.notNull(item);
-        item.setEventType(eventType);
-        journalDao.saveEventItem(item);
+        if(item!=null){
+            item.setEventType(eventType);
+            journalDao.saveEventItem(item);
+        }
     }
 
     /**

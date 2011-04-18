@@ -148,7 +148,7 @@ public enum EventType {
                 case ADMIN:
                     break;
                 default:
-                    throw new IllegalAccessError("user type is "+UserType.toType(user));
+                    throw new IllegalArgumentException("user type is "+UserType.toType(user));
             }
             AbstractStudent st = null;
             Discipline d = null;
@@ -354,7 +354,7 @@ public enum EventType {
                 case ADMIN:
                     break;
                 default:
-                    throw new IllegalAccessError("user type is "+UserType.toType(user));
+                    throw new IllegalArgumentException("user type is "+UserType.toType(user));
             }
             String[] str = {null};
             return generateEventItem(user, 0L, str);
@@ -1281,7 +1281,7 @@ public enum EventType {
                 el.setType(EventBodyElement.supervisorPage);
                 break;
             default:
-                throw new IllegalAccessError("user type is "+UserType.toType(user));
+                throw new IllegalArgumentException("user type is "+UserType.toType(user));
         }
     }
 }
