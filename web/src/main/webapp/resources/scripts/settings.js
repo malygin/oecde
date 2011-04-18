@@ -2,6 +2,7 @@ jQuery(function($) {
 //маска на номер телефона
 $.mask.definitions['~']='[+-]';
 $('input[id*="cellPhone"]').mask('+7(999)999-99-99');
+$('input[id*="officePhoneNumber"]').mask('99-99-99');
 });
 
 //проверка правильности ввода адреса эл.почты

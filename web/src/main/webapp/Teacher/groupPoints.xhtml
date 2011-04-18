@@ -15,15 +15,15 @@
             <est:header bean="#{groupPoints}"/>
             <h:form rendered="#{not groupPoints.accessDenied}" id="form" prependId="false">
                 <h:dataTable styleClass="studentStandatrTable"
-                         columnClasses="studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTdLastTd" cellpadding="0" cellspacing="0" id="table" value="#{groupPoints.points}" var="p">
+                         columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdWidthTeacher studentStandatrTableTdPaddingTeacher" cellpadding="0" cellspacing="0" id="table" value="#{groupPoints.points}" var="p">
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="студент" />
@@ -33,56 +33,56 @@
 
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="тесты" />
+                            <h:graphicImage value='../resources/images/resultTestsTable.png'/>
                         </f:facet>
-                        #{p.test}(#{p.testsMaxPoints})
+                        #{p.test} <span style="color:#808080;">(#{p.testsMaxPoints})</span>
                     </h:column>
 
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="переэкзаменовка" />
+                           <h:graphicImage value='../resources/images/reexTable.png'/>
                         </f:facet>
                         #{p.reTest}
                     </h:column>
 
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="итоговые тесты" />
+                            <h:graphicImage value='../resources/images/resultTestsTable.png'/>
                         </f:facet>
-                        #{p.concludingTest}(#{p.concludingTestsMaxPoints})
+                        #{p.concludingTest} <span style="color:#808080;">(#{p.concludingTestsMaxPoints})</span>
                     </h:column>
 
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="итоговые тесты переэкзаменовка" />
+                            <h:graphicImage value='../resources/images/resultTestExam.png'/>
                         </f:facet>
                         #{p.concludingReTest}
                     </h:column>
 
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="контрольные, баллы" />
+                           <h:graphicImage value='../resources/images/contrMarksTable.png'/>
                         </f:facet>
                         #{p.controlWorkPoints}
                     </h:column>
 
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="контрольные" />
+                            <h:graphicImage value='../resources/images/contrWorksTable.png'/>
                         </f:facet>
                         <h:outputText converter="enumConverter" value="#{p.controlWorkValue}" />
                     </h:column>
 
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="сумма" />
+                             <h:graphicImage value='../resources/images/summTable.png'/>
                         </f:facet>
                         #{p.points.sum}
                     </h:column>
 
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="итог" />
+                           <h:graphicImage value='../resources/images/resultTable.png'/>
                         </f:facet>
                         <h:selectOneMenu id="grade" value="#{p.grade}">
                             <f:selectItems value="#{groupPoints.enum}" />
@@ -91,7 +91,7 @@
                 </h:dataTable>
 
                 <div style="text-align: right; padding: 5px; ">
-                    <h:commandButton id="btn" value="#{msgs.teacher_saveButton}">
+                    <h:commandButton id="btn" value="#{msgs.teacher_saveButton}" styleClass="studentButton">
                         <f:ajax execute="@form" render="table:grade error saved" listener="#{groupPoints.save}"/>
                     </h:commandButton>
                 </div>

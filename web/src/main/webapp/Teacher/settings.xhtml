@@ -4,28 +4,46 @@
     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
     xmlns:set="http://java.sun.com/jsf/composite/components/settings"
     xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core">
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 
     <ui:define name="content">
+
+    <script type="text/javascript" src="../resources/jquery/js/jquery.maskedinput-1.2.2.js"></script>
+    <script type="text/javascript" src="../resources/jquery/js/jquery-1.3.2.min.js"></script>
+    
         <div class="userFile">
             <div style="float: right; width: 78%; text-align: left;">
                 <h:form>
+                    <script type="text/javascript" src="../resources/scripts/settings.js"></script>
                     <div class="userData" style="float: none; width: 60%;">
-                        <table style="width: 100%;">
+                        <table>
                             <tr>
                                 <td>
                                     <p>Адрес электронной почты:</p>
                                 </td>
                                 <td>
-                                    <h:inputText id="eMail" size="19" value="#{teacherSettingsBean.teacher.email}"/>
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td>
+                                                <h:inputText id="eMail" size="19" value="#{teacherSettingsBean.teacher.email}" styleClass="settingInputWidth"/>
+                                            </td>
+                                            <td>
+                                                <div class="settingErrDiv">
+                                                    <div id="validEmail">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <p>Мобильный телефон:       +7</p>
+                                    <p>Мобильный телефон:</p>
                                 </td>
                                 <td>
-                                    <h:inputText id="cellPhone" maxlength="10" size="10" value="#{teacherSettingsBean.teacher.cellPhone}"/>
+                                    <h:inputText id="cellPhone" maxlength="10" size="10" value="#{teacherSettingsBean.teacher.cellPhone}" styleClass="settingInputWidth"/>
                                 </td>
                             </tr>
                             <tr>
@@ -33,12 +51,12 @@
                                     <p>Рабочий телефон:</p>
                                 </td>
                                 <td>
-                                    <h:inputText id="officePhoneNumber" maxlength="10" size="10" value="#{teacherSettingsBean.teacher.officePhoneNumber}"/>
+                                    <h:inputText id="officePhoneNumber" maxlength="10" size="10" value="#{teacherSettingsBean.teacher.officePhoneNumber}" styleClass="settingInputWidth"/>
                                 </td>
                             </tr>
                         </table>
-                        <div style="text-align: center;">
-                            <h:commandButton value="#{msgs.teacher_saveButton}" styleClass="saveButton">
+                        <div style="text-align:right;">
+                            <h:commandButton value="#{msgs.teacher_saveButton}" styleClass="studentButton changePasswordButtonSaveAdminPosition #{fn:toLowerCase(cc.attrs.user.classType)}Button">
                                 <f:ajax execute="@form" render="@form mess saved error" listener="#{teacherSettingsBean.save}"/>
                             </h:commandButton>
                         </div>

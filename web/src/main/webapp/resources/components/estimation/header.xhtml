@@ -15,13 +15,13 @@
         <h:panelGroup id="group" rendered="#{not cc.attrs.bean.accessDenied}">
             <h:dataTable id="disciplines" value="#{cc.attrs.bean.disciplines}" var="d">
                 <h:column>
-                    <span class="navigationLinks"><h:outputLink value="?c=#{d.id}&amp;g=#{cc.attrs.bean.id}&amp;s=#{cc.attrs.bean.semester}">(<h:outputText value="#{d.discipline.name}"/>)</h:outputLink></span>
+                    <span class="groupsLinksBig controlWorksDisciplineNameLink" style="font-size: 11pt;"><h:outputLink value="?c=#{d.id}&amp;g=#{cc.attrs.bean.id}&amp;s=#{cc.attrs.bean.semester}"><h:outputText value="#{d.discipline.name}"/></h:outputLink></span>
                 </h:column>
             </h:dataTable>
 
             <h:outputText rendered="#{cc.attrs.bean.accessDenied}" value="дисциплина не найдена или не доступна" />
-            <h:outputText value="#{cc.attrs.bean.curriculum.discipline.name}"/>&nbsp;
-            <h:outputText value="#{cc.attrs.bean.group.name}"/> <h:outputText value="#{cc.attrs.bean.group.speciality.name}"/>)
+<!--            <h:outputText value="#{cc.attrs.bean.curriculum.discipline.name}"  styleClass="DisciplineText"/>&nbsp;-->
+            <h:outputText value="Группа: #{cc.attrs.bean.group.name}" styleClass="DisciplineText" style="padding: 0; font-size: 9pt;"/> (<h:outputText value="#{cc.attrs.bean.group.speciality.name}" styleClass="DisciplineText" style="padding: 0; font-size: 9pt;"/>)
 
         </h:panelGroup>
         <br/>
