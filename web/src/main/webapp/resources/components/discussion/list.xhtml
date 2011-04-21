@@ -26,10 +26,10 @@
             <div class="usersOnlineTableContainer">
                 <div class="questionArea">
                     <h:form>
-                        <p class="questionAreaText">Текст Вашего вопроса:</p>
+                        <p class="questionAreaText">#{msgs.user_questionText}</p>
                         <h:inputTextarea value="#{DiscussionBean.nodeText}" rows="5" styleClass="leftMenuContainer"/>
                         <div class="navigationLinks" style="text-align: right;">
-                            <h:commandLink action="#{DiscussionBean.saveNodes}" value="Отправить"/>
+                            <h:commandLink action="#{DiscussionBean.saveNodes}" value="#{msgs.user_sent}"/>
                         </div>
                     </h:form>
                 </div>
@@ -55,24 +55,24 @@
                         
                       
                         <div class="controlWorksDisciplineNameLinkGrey answerPic" style="margin: 5px 0px 0px 15px; margin-top: 20px;">
-                            <h:commandLink rendered="#{!DiscussionBean.renderEdit}" style="margin-right: 10px; margin-top: 10px;" action="#{DiscussionBean.showReply}" value="Ответить">
+                            <h:commandLink rendered="#{!DiscussionBean.renderEdit}" style="margin-right: 10px; margin-top: 10px;" action="#{DiscussionBean.showReply}" value="#{msgs.message_answer}">
                                         <f:ajax  execute="@this" render="@form" />
                                         <f:setPropertyActionListener target="#{DiscussionBean.currentNode}" value="#{node}" />
                              </h:commandLink>
 
                             <h:panelGroup rendered="#{DiscussionBean.currentUser.id==node.user.id || sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.class.simpleName eq 'Admin'}" style="float: right;">
 
-                                <h:commandLink rendered="#{!DiscussionBean.renderEdit}" style="margin-right: 10px;" action="#{DiscussionBean.showEdit}" value="Редактировать">
+                                <h:commandLink rendered="#{!DiscussionBean.renderEdit}" style="margin-right: 10px;" action="#{DiscussionBean.showEdit}" value="#{msgs.admin_mainContentEdit}">
                                         <f:ajax  execute="@this" render="@form" />
                                         <f:setPropertyActionListener target="#{DiscussionBean.currentNode}" value="#{node}" />
                                </h:commandLink>
 
 
-                                <h:commandLink rendered="#{DiscussionBean.renderEdit}" action="#{DiscussionBean.editNodes}" value="Изменить"/>&nbsp;&nbsp;
-                                <h:commandLink rendered="#{DiscussionBean.renderEdit}" action="#{DiscussionBean.cancelNodes}" value="Отменить"/>&nbsp;&nbsp;
+                                <h:commandLink rendered="#{DiscussionBean.renderEdit}" action="#{DiscussionBean.editNodes}" value="#{msgs.user_change}"/>&nbsp;&nbsp;
+                                <h:commandLink rendered="#{DiscussionBean.renderEdit}" action="#{DiscussionBean.cancelNodes}" value="#{msgs.user_cancel}"/>&nbsp;&nbsp;
 
                                 <span class="navigationLinksRed">
-                                    <h:commandLink action="#{DiscussionBean.deleteNode}" value="Удалить">
+                                    <h:commandLink action="#{DiscussionBean.deleteNode}" value="#{msgs.message_delete}">
                                         <f:setPropertyActionListener target="#{DiscussionBean.nodeId}" value="#{node.id}" />                                     
                                    </h:commandLink>
                                 </span>
@@ -82,7 +82,7 @@
                                 <div class="questionAreaBlock">
                                     <h:inputTextarea cols="30" rows="5"  value="#{DiscussionBean.nodeTextReply}" styleClass="leftMenuContainer" />
                                     <div class="navigationLinks" style="text-align: right;">
-                                        <h:commandLink action="#{DiscussionBean.saveReply}" value="Отправить">
+                                        <h:commandLink action="#{DiscussionBean.saveReply}" value="#{msgs.user_sent}">
                                             <f:setPropertyActionListener target="#{DiscussionBean.nodeId}" value="#{node.id}" />
                                        </h:commandLink>
                                     </div>

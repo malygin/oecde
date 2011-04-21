@@ -17,7 +17,7 @@
     <!-- IMPLEMENTATION -->
     <composite:implementation>
          <h:panelGroup rendered="#{empty cc.attrs.list}" styleClass="DisciplineText">
-          <span class="MessNothing">Сообщений нет!</span>
+          <span class="MessNothing">#{msgs.message_messNone}</span>
         </h:panelGroup>
         <h:dataTable value="#{cc.attrs.list}"  var="message"  style="width:100%;">
             <h:column>
@@ -39,8 +39,8 @@
                                             </h:column>
                                             <h:column>
                                                <div class="linkTo#{rec.recipient.classType}sProfile"> <span class="greyMess">
-                                                Кому:
-                                            </span><a href="#{fn:toLowerCase(message.message.author.classType)}.xhtml?id=#{rec.recipient.id}"><h:outputText value="#{rec.fioAuthor}"/></a> <h:panelGroup rendered="#{message.readed}"><span style="padding-left: 20px;" class="DisciplineText">Прочитано</span></h:panelGroup>
+                                                #{msgs.message_forWhom}
+                                            </span><a href="#{fn:toLowerCase(message.message.author.classType)}.xhtml?id=#{rec.recipient.id}"><h:outputText value="#{rec.fioAuthor}"/></a> <h:panelGroup rendered="#{message.readed}"><span style="padding-left: 20px;" class="DisciplineText">#{msgs.messade_Read}</span></h:panelGroup>
                                                 <div class="chatPostDate" style="font-size: 8pt;position: relative;">
                                                      <h:outputText converter="dateConverter" value="#{message.message.dateMessage}"/>
                                                 </div></div>

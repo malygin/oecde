@@ -388,6 +388,14 @@ not all and (-webkit-min-device-pixel-ratio:0) {
     position: relative;
     top: 50px;
 }
+ .mainStyle .testResultMarkNull{
+     color: red;
+     font-weight: bolder;
+ }
+ .mainStyle .backLink{
+     padding: 15px;
+     float: right;
+}
 
 /*кнопки*/
 .mainStyle .adminButton{
@@ -419,6 +427,12 @@ not all and (-webkit-min-device-pixel-ratio:0) {
 .mainStyle .saveButton{
     width: 100px !important;
 }
+.mainStyle .addNewsButtonPosition{
+    position: relative;
+    width: 130px;
+    left: 42%;
+    display: block;
+}
 /*стили для таблиц*/
 .mainStyle .studentStandatrTable *{
     text-align: left !important;
@@ -426,6 +440,14 @@ not all and (-webkit-min-device-pixel-ratio:0) {
 }
 .mainStyle .studentStandatrTable .studentStandatrTableExamin{
     text-align: center !important;
+}
+.mainStyle .studentInterfaceStandartList{
+    margin-top: 3px;
+    padding: 10px;
+    border-bottom: 1px solid silver;
+    border-top: 1px solid silver;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .mainStyle .studentStandatrTable{
@@ -1503,6 +1525,9 @@ font-weight: bold;
     left: 10px;
     font-weight: normal;
 }
+.mainStyle .InfoAboutUser p{
+    width: 100px !important;
+}
 /*.save{
     background: url("../resources/images/buttonBlue.jpg") repeat-x scroll center transparent;
     border: 1px solid #6CC2D9;
@@ -1745,6 +1770,24 @@ font-weight: bold;
 .mainStyle .reviewNumberNumber{
     color:#5A6C6F;
     font-weight: bolder;
+}
+.mainStyle .newsBlocks{
+    margin: 18px;
+}
+/*помощь*/
+.mainStyle .studentHelp{
+    width: 245px;
+    border-right: 1px solid silver;
+}
+.mainStyle .contentsBlock{
+    line-height: 30px;
+    font-weight: normal;
+    color: silver;
+}
+.mainStyle .mainContentHelpPadding{
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
 }
 /*pictures*/
 .mainStyle .news_delete{

@@ -33,7 +33,11 @@
                     <table>
                         <tr>
                             <td>
-                                <h:panelGroup rendered="#{message.fioAuthor==messageDialogBean.recipient.fioAuthor}"><span class="linkTo#{messageDialogBean.recipient.recipient.classType}sProfile"><a href="#{fn:toLowerCase(messageDialogBean.recipient.recipient.classType)}.xhtml?id=#{messageDialogBean.recipient.recipient.id}">#{messageDialogBean.recipient.fioAuthor}</a></span></h:panelGroup>
+                                <h:panelGroup rendered="#{message.fioAuthor==messageDialogBean.recipient.fioAuthor}">
+                                    <span class="linkTo#{messageDialogBean.recipient.recipient.classType}sProfile">
+                                        <a href="#{fn:toLowerCase(messageDialogBean.recipient.recipient.classType)}.xhtml?id=#{messageDialogBean.recipient.recipient.id}">#{messageDialogBean.recipient.fioAuthor}</a>
+                                    </span>
+                                </h:panelGroup>
                               <h:panelGroup rendered="#{message.fioAuthor!=messageDialogBean.recipient.fioAuthor}"><b style="color: #67737F; font-weight: bold; font-size: 10pt;">#{msgs.message_historyFromYouMess}</b></h:panelGroup>
                             </td>
                         </tr>

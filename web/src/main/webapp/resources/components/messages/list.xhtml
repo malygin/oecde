@@ -17,7 +17,7 @@
     <!-- IMPLEMENTATION -->
     <composite:implementation>
         <h:panelGroup rendered="#{empty cc.attrs.list}" styleClass="DisciplineText">
-            <span class="MessNothing">Сообщений нет!</span>
+            <span class="MessNothing">#{msgs.message_messNone}</span>
         </h:panelGroup>
 
         <h:dataTable value="#{cc.attrs.list}" var="message" style="width: 98%;">

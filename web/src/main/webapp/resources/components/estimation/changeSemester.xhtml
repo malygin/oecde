@@ -17,14 +17,14 @@
             <div class="changeSemestr">
                 <div class="navigationLinks">
                     <h:outputText value="#{changeSemesterBean.semesterName(cc.attrs.semester)}"/>
-                    <h:outputText rendered="#{cc.attrs.semester eq semesterGetter.currentSemester}" value=" (текущий)"/>
-                    cеместр.
-                Показать
+                    <h:outputText rendered="#{cc.attrs.semester eq semesterGetter.currentSemester}" value=" (#{msgs.user_currentSemester})"/>
+                    #{msgs.teacher_semester}.
+                #{msgs.user_show}
                 <h:outputLink value="?s=#{changeSemesterBean.inversedSemesterValue(cc.attrs.semester)}&amp;#{cc.attrs.link}">
                     <h:outputText value="#{fn:toLowerCase(changeSemesterBean.inversedSemesterName(cc.attrs.semester))}"/>
                 </h:outputLink>
-                <h:outputText rendered="#{cc.attrs.semester ne semesterGetter.currentSemester}" value=" (текущий)"/>
-                cеместр.
+                <h:outputText rendered="#{cc.attrs.semester ne semesterGetter.currentSemester}" value=" (#{msgs.user_currentSemester})"/>
+                #{msgs.teacher_semester}.
                 </div>
             </div>
         </div>

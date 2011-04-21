@@ -81,14 +81,6 @@
     text-decoration: underline;
     font-family: Arial;
 }
-.mainStyle .studentInterfaceStandartList{
-    margin-top: 3px;
-    padding: 10px;
-    border-bottom: 1px solid silver;
-    border-top: 1px solid silver;
-    margin-left: 10px;
-    margin-right: 10px;
-}
 
 /*мои изучаемые материалы*/
 .mainStyle .materialInfo{
@@ -191,10 +183,7 @@
      color: #373E3F;
      font-weight: bolder;
  }
- .mainStyle .testResultMarkNull{
-     color: red;
-     font-weight: bolder;
- }
+
 /* результаты тестов*/
  .mainStyle .workTitle{
      font-size: 8pt;
@@ -233,21 +222,7 @@
     background:url('../resources/images/control_works.gif') no-repeat;
     padding-left: 24px;
 }
-/*помощь*/
-.mainStyle .studentHelp{
-    width: 245px;
-    border-right: 1px solid silver;
-}
-.mainStyle .contentsBlock{
-    line-height: 30px;
-    font-weight: normal;
-    color: silver;
-}
-.mainStyle .mainContentHelpPadding{
-    padding-left: 10px;
-    padding-bottom: 10px;
-    padding-right: 10px;
-}
+
 /*pictures*/
 /*.mainStyle .discipline_summ{
     background: url('../resources/images/discipline_summ.gif') no-repeat 0 0;

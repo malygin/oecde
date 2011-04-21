@@ -228,20 +228,11 @@
     text-align:center;
     color: grey;
 }
-.mainStyle .addNewsButtonPosition{
-    position: relative;
-    width: 130px;
-    left: 42%;
-    display: block;
-}
 
 .mainStyle .backLinkPosition{
     text-align: right;
  padding-top: 5px;}
 
-.mainStyle .newsBlocks{
-    margin: 18px;
-}
 .mainStyle .includeName{
 float: left; margin-right: 10px;
 }
