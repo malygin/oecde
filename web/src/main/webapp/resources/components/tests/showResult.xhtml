@@ -17,27 +17,27 @@
     <!-- IMPLEMENTATION -->
 
     <composite:implementation>
-        <div class="DisciplineText testFinish">Тест  завершен!</div>
+        <div class="DisciplineText testFinish">#{msgs.student_TestTestEnded}</div>
                      <div style="margin: auto; width: 180px;">
                      <table style="margin-top: 20px;">
                          <tr>
                              <td>
-                         <span style="color: grey;">Баллов</span>
+                         <span style="color: grey;">#{msgs.student_TestMarks}</span>
                              </td>
                              <td>
                              <h:outputText rendered="#{cc.attrs.points!=0}" styleClass="testResultMarkNotNull" value="#{cc.attrs.points}"/>
                              <h:outputText rendered="#{cc.attrs.points==0}" styleClass="testResultMarkNull" value="#{cc.attrs.points}"/>
-                             из 100
+                             #{msgs.student_From} 100
                             </td>
                          </tr>
                     <tr>
                         <td>
-                     <span style="color: grey;">Правильно ответил на </span>
+                     <span style="color: grey;">#{msgs.student_TestRightAnsweredTo} </span>
                         </td>
                         <td>
                          <h:outputText rendered="#{cc.attrs.countRight!=0}" styleClass="testResultMarkNotNull" value="#{cc.attrs.countRight}"/>
                          <h:outputText rendered="#{cc.attrs.countRight==0}" styleClass="testResultMarkNull" value="#{cc.attrs.countRight}"/>
-                         из #{cc.attrs.countQuestions}
+                         #{msgs.student_From} #{cc.attrs.countQuestions}
                          </td>
                      </tr>
                      </table>

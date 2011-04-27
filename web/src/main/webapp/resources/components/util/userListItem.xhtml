@@ -42,10 +42,10 @@
                     </td>
                 </tr>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'student'}">
-                    <tr><td class="userInfoItemColor">Город:</td><td>#{cc.attrs.u.city.name}</td></tr>
-                    <tr><td class="userInfoItemColor">Специальность:</td><td>#{cc.attrs.u.group.speciality.name}</td></tr>
-                    <tr><td class="userInfoItemColor">Группа:</td><td><h:outputLink value="group.xhtml?id=#{cc.attrs.u.group.id}">#{cc.attrs.u.group.name}</h:outputLink></td></tr>
-                    <tr><td class="userInfoItemColor">Курс:</td><td>#{cc.attrs.u.group.year}</td></tr>
+                    <tr><td class="userInfoItemColor">#{msgs.teacher_city}:</td><td>#{cc.attrs.u.city.name}</td></tr>
+                    <tr><td class="userInfoItemColor">#{msgs.student_mainContentUserInfoSpec}</td><td>#{cc.attrs.u.group.speciality.name}</td></tr>
+                    <tr><td class="userInfoItemColor">#{msgs.student_mainContentUserInfoGroup}</td><td><h:outputLink value="group.xhtml?id=#{cc.attrs.u.group.id}">#{cc.attrs.u.group.name}</h:outputLink></td></tr>
+                    <tr><td class="userInfoItemColor">#{msgs.student_mainContentUserInfoCourse}</td><td>#{cc.attrs.u.group.year}</td></tr>
 <!--                    <tr><td></td><td><h:outputText rendered="#{cc.attrs.u.online}" value="On-line" style="color:#617F5F;"/></td></tr>-->
                 </h:panelGroup>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'admin'}">
@@ -53,10 +53,10 @@
                     <tr><td style="color:#808080;">Описание:</td><td>#{cc.attrs.u.description}</td></tr>-->
                 </h:panelGroup>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'teacher'}">
-                    <tr><td class="userInfoItemColor">Отдел:</td><td>#{cc.attrs.u.department.name}</td></tr>
+                    <tr><td class="userInfoItemColor">#{msgs.user_Department}</td><td>#{cc.attrs.u.department.name}</td></tr>
                     <tr>
                         <td class="userInfoItemColor">
-                            Дисциплина:
+                            #{msgs.student_gradesTableHeadDisc}:
                         </td>
                         <td class="controlWorksDisciplineNameLink" style="font-size: 8pt; font-weight: normal !important;">
                             <h:outputLink value="discipline.xhtml?c= #{t.key.id}">
@@ -73,7 +73,7 @@
                     
                     <sec:ifAnyGranted roles="ROLE_ADMIN">
                        <td colspan="2" class="controlWorksDisciplineNameLinkGrey enterPic">
-                          <h:outputLink value="switch_user?j_username=#{cc.attrs.u.username}" >Зайти</h:outputLink>
+                          <h:outputLink value="switch_user?j_username=#{cc.attrs.u.username}" >#{msgs.user_ComeIn}</h:outputLink>
                        </td>
                     </sec:ifAnyGranted>
                     

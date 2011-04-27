@@ -14,7 +14,7 @@
     <!-- IMPLEMENTATION -->
 
     <composite:implementation>
-        <div class="testQuestionBlock">  Вопрос № #{testPassingBean.iterQ+1}</div>
+        <div class="testQuestionBlock">  #{msgs.student_TestQuestion№} #{testPassingBean.iterQ+1}</div>
         <style type="text/css">
 /*            table[id*='selectRadio'] tr td{vertical-align: middle}*/
         </style>
@@ -65,15 +65,15 @@
 
              </h:panelGroup>
 
-             <h:commandButton value="следующий" action="#{testPassingBean.next}" styleClass="studentButton testButtons">
+             <h:commandButton value="#{msgs.student_TestNext}" action="#{testPassingBean.next}" styleClass="studentButton testButtons">
                  <f:ajax render="@form"/>
              </h:commandButton>
 
-             <h:commandButton value="ответить" action="#{testPassingBean.answer}" styleClass="studentButton testButtons">
+             <h:commandButton value="#{msgs.student_TestAnswer}" action="#{testPassingBean.answer}" styleClass="studentButton testButtons">
                   <f:ajax execute="@form" render="@form"/>
              </h:commandButton>
 
-             <h:commandButton id="completeTest" onclick="removeCounter();" value="завершить тест" action="#{testPassingBean.completeTest}" styleClass="studentButtonRed testButtons">
+             <h:commandButton id="completeTest" onclick="removeCounter();" value="#{msgs.student_TestCompleted}" action="#{testPassingBean.completeTest}" styleClass="studentButtonRed testButtons">
                  <f:ajax render="@form"/>
              </h:commandButton>
     </composite:implementation>

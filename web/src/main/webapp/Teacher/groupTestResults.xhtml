@@ -15,40 +15,40 @@
  <h:dataTable rendered="#{not groupTestResults.accessDenied}" value="#{groupTestResults.groupTestResults}" var="w">
        <h:column>
         <f:facet name="header">
-         <h:outputText value="студент" />
+         <h:outputText value="#{msgs.student_Student}" />
         </f:facet>
            <h:outputLink value="student.xhtml?id=#{w.key.id}&amp;s=#{groupTestResults.semester}">#{w.key.fio}</h:outputLink>
        </h:column>
      <h:column>
       <f:facet name="header">
-       <h:outputText value="результаты" />
+       <h:outputText value="#{msgs.teacher_results}" />
       </f:facet>
          <h:dataTable value="#{w.value}" var="r">
              <h:column>
                 <f:facet name="header">
-                 <h:outputText value="Название" />
+                 <h:outputText value="#{msgs.student_testResultName}" />
                 </f:facet>
                #{r.work.title} #{r.work.id}
                </h:column>
                <h:column>
                 <f:facet name="header">
-                 <h:outputText value="Попыток" />
+                 <h:outputText value="#{msgs.student_testResultAttempt}" />
                 </f:facet>
-               с #{r.estimateAttemptsUsedNumber} из #{r.work.estimateAttemptsNumber}<br/>
-               п: #{r.reExameAttemptsUsedNumber} из #{(r.work.type eq 'concluding')?groupTestResults.concludingAttemtpsCount:groupTestResults.regularAttemtpsCount}
+               #{msgs.user_from} #{r.estimateAttemptsUsedNumber} #{msgs.student_fromWord} #{r.work.estimateAttemptsNumber}<br/>
+               п: #{r.reExameAttemptsUsedNumber} #{msgs.student_fromWord} #{(r.work.type eq 'concluding')?groupTestResults.concludingAttemtpsCount:groupTestResults.regularAttemtpsCount}
                </h:column>
 
                <h:column>
                    <h:dataTable value="#{r.results}" var="a" id="rowId">
                        <h:column>
                             <f:facet name="header">
-                             <h:outputText value="Правильных ответов" />
+                             <h:outputText value="#{msgs.student_testResultCorrectAnswers}" />
                             </f:facet>
                            #{a.rightAnswers} #{msgs.student_fromWord} #{r.work.quantity}
                        </h:column>
                        <h:column>
                             <f:facet name="header">
-                             <h:outputText value="Дата" />
+                             <h:outputText value="#{msgs.student_testResultDate}" />
                             </f:facet>
                            #{a.date}
                        </h:column>
@@ -57,13 +57,13 @@
 
                <h:column>
                 <f:facet name="header">
-                 <h:outputText value="Результат" />
+                 <h:outputText value="#{msgs.student_testResultResult}" />
                 </f:facet>
                    #{r.pointsForWork}
                </h:column>
                <h:column>
                 <f:facet name="header">
-                 <h:outputText value="Способ оценивания" />
+                 <h:outputText value="#{msgs.teacher_wayOfEvaluation}" />
                 </f:facet>
                    <h:outputText converter="enumConverter" value="#{r.work.estimation}" />
                </h:column>

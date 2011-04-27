@@ -10,8 +10,13 @@
              <f:viewParam name="id" value="#{testForTeacher.id}"/>
              <f:viewParam name="s" value="#{testForTeacher.semester}"/>
          </f:metadata>
-           <h:outputText rendered="#{testForTeacher.accessDenied}" value="Не найден или не доступен" />
-           <h:outputLink value="discipline.xhtml?id=#{testForTeacher.curriculumId}&amp;#{testForTeacher.semester}" >назад</h:outputLink>
-          <h:outputLink value="javascript:void(0)" >#{testForTeacher.test.title}</h:outputLink>
+             <div class="backLink controlWorksDisciplineNameLink">
+                <h:outputLink value="discipline.xhtml?id=#{testForTeacher.curriculumId}&amp;#{testForTeacher.semester}" >#{msgs.student_back}</h:outputLink>
+            </div>
+            <h:outputText rendered="#{testForTeacher.accessDenied}" value="#{msgs.student_TestIsNotFoundOrNotAvail}" styleClass="testResultMarkNull educ_umk_text_block" style="margin-top: 10px;"/>
+             <h:outputLink value="javascript:void(0)" styleClass="educ_umk_text_block">#{testForTeacher.test.title}</h:outputLink>
+<!--             <h:outputText value="#{testForTeacher.test.title}" styleClass="testResultMarkNull"/>-->
+           
+            
        </ui:define>
     </ui:composition>

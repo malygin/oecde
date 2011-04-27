@@ -16,16 +16,16 @@
     <composite:implementation>
         
              <h:panelGroup rendered="#{cc.attrs.type=='comparison'}">
-                <br/><small>поставьте в соответствующие ячейки номера значений из верхнего столбца </small><br/><br/>
+                <br/><small>#{msgs.student_TestAccordance} </small><br/><br/>
               </h:panelGroup>
               <h:panelGroup rendered="#{cc.attrs.type=='radio'}">
-                <br/><small>выберите один вариант ответа</small><br/><br/>
+                <br/><small>#{msgs.student_TestOneVariant}</small><br/><br/>
               </h:panelGroup>
               <h:panelGroup rendered="#{cc.attrs.type=='text'}">
-                <br/><br/><small>напишите ответ</small><br/>
+                <br/><br/><small>#{msgs.student_TestWriteAnswer}</small><br/>
               </h:panelGroup>
               <h:panelGroup rendered="#{cc.attrs.type=='check'}" style="margin-bottom: 10px;">
-                <br/><small>выберите несколько вариантов ответа</small><br/><br/>
+                <br/><small>#{msgs.student_TestSeveralVariants}</small><br/><br/>
               </h:panelGroup>
     </composite:implementation>
 </html>

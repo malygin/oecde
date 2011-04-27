@@ -11,7 +11,7 @@
          <f:viewParam name="id" value="#{testForTeacher.id}"/>
                 <f:viewParam name="s" value="#{testForTeacher.semester}"/>
      </f:metadata>
-        <h:outputLink value="discipline.xhtml?id=#{testForTeacher.curriculumId}&amp;s=#{testForTeacher.semester}">назад к УМК #{testForTeacher.curriculum.umk.name}</h:outputLink><br/>
+        <h:outputLink value="discipline.xhtml?id=#{testForTeacher.curriculumId}&amp;s=#{testForTeacher.semester}">#{msgs.teacher_backToUMK}}#{testForTeacher.curriculum.umk.name}</h:outputLink><br/>
      <h:outputText rendered="#{testForTeacher.accessDenied}" value="Не найден или не доступен" />
      <h:form rendered="#{not testForTeacher.accessDenied}">
         <table>

@@ -16,14 +16,14 @@
            <h:dataTable rendered="#{not groupControlWorksForTeacher.accessDenied}" id="table" value="#{groupControlWorksForTeacher.groupControlWorks}" var="w">
             <h:column>
                 <f:facet name="header">
-                 <h:outputText value="студент" />
+                 <h:outputText value="#{msgs.student_Student}" />
                 </f:facet>
                 <h:outputLink value="student.xhtml?id=#{w.key.id}&amp;s=#{groupControlWorksForTeacher.semester}"><h:outputText value="#{w.key.fio}"/></h:outputLink>
             </h:column>
 
             <h:column>
                 <f:facet name="header">
-                    <h:outputText value="попытки" />
+                    <h:outputText value="#{msgs.teacher_attemps}" />
                 </f:facet>
 
                 <h:dataTable  id="attempts" value="#{w.value.cwAttempt}" var="a">
@@ -35,25 +35,25 @@
 
             <h:column>
                 <f:facet name="header">
-                 <h:outputText value="в рукописной" />
+                 <h:outputText value="#{msgs.teacher_inWriting}" />
                 </f:facet>
                 <h:commandLink id="handle">
                     <f:ajax execute="@this" event="click" render="attempts" listener="#{groupControlWorksForTeacher.saveEmpty}"/>
                     <f:attribute name="work" value="#{w.value}"/>
-                    <h:outputText value="отметить"/>
+                    <h:outputText value="#{msgs.teacher_toNote}"/>
                 </h:commandLink>
             </h:column>
 
             <h:column>
                 <f:facet name="header">
-                 <h:outputText value="баллы" />
+                 <h:outputText value="#{msgs.teacher_marks}" />
                 </f:facet>
              <h:inputText id="points" size="3" maxlength="3" value="#{w.value.points}"/>
             </h:column>
 
             <h:column>
                 <f:facet name="header">
-                 <h:outputText value="оценка" />
+                 <h:outputText value="#{msgs.student_Mark}" />
                 </f:facet>
                <h:selectOneMenu id="progress" value="#{w.value.progress}">
                    <f:selectItems value="#{groupControlWorksForTeacher.values}" />
@@ -61,7 +61,7 @@
             </h:column>
            </h:dataTable>
 
-              <h:commandButton id="btn" value="ОКЭ">
+              <h:commandButton id="btn" value="ОК">
                   <f:ajax execute="@form" event="click" render="table:points table:progress error saved" listener="#{groupControlWorksForTeacher.save}"/>
              </h:commandButton>
 

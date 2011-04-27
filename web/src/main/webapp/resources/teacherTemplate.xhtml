@@ -14,12 +14,12 @@
         <h:form>
             <table  style="width: 100%;border-bottom: #5EBED9 1px solid; text-align: left; padding-left: 8px; font-size: 9pt !important;"  class="controlWorksDisciplineNameLink DisciplineText">
                 <tr>
-                    <td>Текущий семестр:</td>
+                    <td>#{msgs.teacher_CurrentSemester}:</td>
                     <td><h:outputText id="sName" value="#{changeSemesterBean.semesterName(teachersGroups.semester)}"/>
                     </td>
                     </tr>
                     <tr>
-                        <td>Показать семестр:</td>
+                        <td>#{msgs.teacher_ShowSemester}:</td>
                     <td><h:commandLink id="handle" style="text-decoration: none;">
                     <f:ajax event="click" render="table sName next" listener="#{teachersGroups.changeSemester}"/>
                     <f:attribute name="semester" value="#{teachersGroups.semester==0?1:0}"/>
@@ -69,7 +69,7 @@
         </ol>
     </ui:define>
     <ui:define name="content">
-        Студенческий контент
+        #{msgs.teacher_StudentContent}
     </ui:define>
     <ui:define name="right">
         <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_comMenuTitle}</p></div>

@@ -24,7 +24,7 @@
                <table class="StudentTestStartPages">
                    <tr>
                        <td>
-                        попыток:
+                        #{msgs.student_TestAttempts}:
                        </td>
                        <td>
                            #{cc.attrs.work.estimateAttemptsUsedNumber} из #{cc.attrs.test.estimateAttemptsNumber}
@@ -32,42 +32,42 @@
                    </tr>
                    <tr>
                        <td>
-                        пробных:
+                        #{msgs.student_TestTryingAttemps}:
                        </td>
                         <td> #{cc.attrs.work.trialAttemptsUsedNumber} из #{cc.attrs.test.trialNumber}
                         </td>
                    </tr>
                    <tr>
                        <td>
-                        переэкзаменовка:
+                        #{msgs.student_TestReexamin}:
                        </td>
                         <td> #{cc.attrs.work.reExameAttemptsUsedNumber}
                         </td>
                    </tr>
                    <tr>
                        <td>
-                        доступен
+                        #{msgs.student_TestAvailable}
                        </td>
-                       <td>с <h:outputText converter="dateConverter" value="#{cc.attrs.test.openDate}"/> по <h:outputText converter="dateConverter" value="#{cc.attrs.test.closeDate}"/>
+                       <td>с <h:outputText converter="dateConverter" value="#{cc.attrs.test.openDate}"/> #{msgs.student_TestTo} <h:outputText converter="dateConverter" value="#{cc.attrs.test.closeDate}"/>
                        </td>
                    </tr>
                    <tr>
                        <td>
-                        количество вопросов:
+                        #{msgs.student_TestQuestionNumber}:
                        </td>
                         <td> #{cc.attrs.test.quantity}
                         </td>
                    </tr>
                    <tr>
                        <td>
-                        предоставленное время:
+                        #{msgs.student_TestTime}:
                         </td>
                             <td>#{cc.attrs.test.duration}
                             </td>
                    </tr>
                    <tr>
                        <td>
-                           Результаты тестирования:
+                           #{msgs.student_testResults}
                        </td>
                         <td> #{cc.attrs.work.pointsForWork}
                         </td>

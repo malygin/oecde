@@ -15,21 +15,21 @@
   <composite:implementation>
       <h:form>
           <div style="padding: 5px;">
-          <h:outputText  rendered="#{NewsBean.renderAddSuccess}" value="Добавлена новость" styleClass="DisciplineText"/><br/>
+          <h:outputText  rendered="#{NewsBean.renderAddSuccess}" value="#{msgs.user_newsAdded}" styleClass="DisciplineText"/><br/>
           </div>
  
-          <div class="previewPadBott"> <span class="previewColor">Заголовок: </span>  <h:inputText value="#{NewsBean.header}"/></div>
-          <span  class="previewColor">При создании короткой новости не нужно писать ее полный текст.</span><br/><br/>
-          <span  class="previewColor">Анонс: </span>
+          <div class="previewPadBott"> <span class="previewColor">#{msgs.user_newsTitle} </span>  <h:inputText value="#{NewsBean.header}"/></div>
+          <span  class="previewColor">#{msgs.user_newsShotNews}</span><br/><br/>
+          <span  class="previewColor">#{msgs.user_newsNotice} </span>
           <div class="previewPadLeft previewPadBott">
           <util:editor value="#{NewsBean.anons}"/>
           </div>
 
          
-          <span  class="previewColor">Полный текст: </span>
+          <span  class="previewColor">#{mags.user_newsFullText} </span>
           <div class="previewPadLeft"><util:editor value="#{NewsBean.fulltext}"/>
           </div>
-          <h:commandButton styleClass="studentButton" action="#{NewsBean.save}" value="Добавить" style="width: 75px;"/>
+          <h:commandButton styleClass="studentButton" action="#{NewsBean.save}" value="#{msgs.admin_mainContentAdd}" style="width: 75px;"/>
               
           <h:messages infoStyle="color:red;"/>
       

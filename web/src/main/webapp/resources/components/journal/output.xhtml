@@ -16,17 +16,46 @@
   <!-- IMPLEMENTATION -->
    <composite:implementation>
          <h:form>
-            <h:dataTable value="#{journalBean.getAvailableEvents(cc.attrs.type,cc.attrs.object)}" var="e">
-                <h:column>
-                    <h:selectBooleanCheckbox value="#{e.chosen}" style="margin-left: 8px;"/><span style="margin-left: 3px;">#{e.eventType.rus}</span>
-                </h:column>
-            </h:dataTable>
-            <div style="margin-top: 15px;">
-             <span class="groupControlWorksCWProgress">#{msgs.user_eventBegin}</span> <util:date_picker  value="#{journalBean.filter.beginDate}"/>
-             <span class="groupControlWorksCWProgress">#{msgs.user_eventEnd}</span><util:date_picker value="#{journalBean.filter.endDate}"/>
-            </div>
-            <h:commandButton value="OK" action="#{journalBean.clearEvents}" styleClass="studentButton portalSettingsButtonPosition"/>
+             <link href="style.css" rel="stylesheet" type="text/css" />
+<!--            <script type="text/javascript" src="js/jquery.js"></script>-->
+            <script type="text/javascript" src="../resources/scripts/slider.js"></script>
+            <style>
+                #button {
+                   margin: auto;
+                }
+                .the_menu {
+                    display:none;
+                }
+                .menu_class{
+                    background: url("../resources/images/eventsFilter.png") repeat scroll 0 0 transparent;
+                    color: white;
+                    font-size: 11pt;
+                    font-weight: bold;
+                    height: 20px;
+                    width: 300px;
+                   -moz-border-radius: 5px;
+                  -webkit-border-radius: 5px;
+                  -o-border-radius: 5px;
+                   margin: 5px auto auto;
+                  }
+          </style>
 
+            <div id="button">
+                <div class="menu_class">Фильтр событий
+                </div>
+                <div class="the_menu">
+                    <h:dataTable value="#{journalBean.getAvailableEvents(cc.attrs.type,cc.attrs.object)}" var="e">
+                        <h:column>
+                            <h:selectBooleanCheckbox value="#{e.chosen}" style="margin-left: 8px;"/><span style="margin-left: 3px;">#{e.eventType.rus}</span>
+                        </h:column>
+                    </h:dataTable>
+                    <div style="margin-top: 15px;">
+                     <span class="groupControlWorksCWProgress">#{msgs.user_eventBegin}</span> <util:date_picker  value="#{journalBean.filter.beginDate}"/>
+                     <span class="groupControlWorksCWProgress">#{msgs.user_eventEnd}</span><util:date_picker value="#{journalBean.filter.endDate}"/>
+                    </div>
+                    <h:commandButton value="OK" action="#{journalBean.clearEvents}" styleClass="studentButton portalSettingsButtonPosition"/>
+                </div>
+            </div>
            <util:navigationList numElements="#{journalBean.eventsCount}" elementOnPage="#{journalBean.filter.capacity}"/>
            <j:eventsOnly  list="#{journalBean.events}"/>
            <util:navigationList numElements="#{journalBean.eventsCount}" elementOnPage="#{journalBean.filter.capacity}"/>

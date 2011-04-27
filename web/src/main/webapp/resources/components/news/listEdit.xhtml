@@ -27,17 +27,17 @@
                          <div style="margin-bottom: 8px;">
                          <h:outputText escape="false" value="#{n.announcement}" />
                          </div>
-                         <div class="reviewNumber">Количество просмотров:<span class="reviewNumberNumber">#{n.reviewNumber}</span></div>
-                          <h:outputText  rendered="#{NewsBean.renderDeleteSuccess}" value="Удалена новость"/>
+                         <div class="reviewNumber">#{msgs.user_newsNumberOfReview}<span class="reviewNumberNumber">#{n.reviewNumber}</span></div>
+                          <h:outputText  rendered="#{NewsBean.renderDeleteSuccess}" value="#{msgs.user_newsDeleted}"/>
                          <span class="controlWorksDisciplineNameLinkGrey news_delete">
-                         <h:commandLink rendered="#{not NewsBean.renderDeleteSuccess}"  action="#{NewsBean.delete}" value="Удалить">
+                         <h:commandLink rendered="#{not NewsBean.renderDeleteSuccess}"  action="#{NewsBean.delete}" value="#{msgs.message_delete}">
                             <f:setPropertyActionListener target="#{NewsBean.newIdDelete}" value="#{n.id}" />
                             <f:ajax  execute="@this" render="@form" />
                          </h:commandLink>
                           </span>
                          <span class="controlWorksDisciplineNameLinkGrey news_edit">
                          <h:outputLink value="news_read.xhtml?id=#{n.id}" rendered="#{not NewsBean.renderDeleteSuccess}" styleClass="AdminNavigationLinks">
-                            Редактировать
+                            #{msgs.admin_mainContentEdit}
                         </h:outputLink>
                          </span>
                   
