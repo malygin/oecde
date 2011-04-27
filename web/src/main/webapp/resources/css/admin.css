@@ -10,7 +10,25 @@
    TODO customize this sample style
    Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
-
+/*фильтр событий*/
+.mainStyle #button {
+    margin: auto;
+    }
+.mainStyle .the_menu {
+    display:none;
+    }
+.mainStyle .menu_class{
+    background: url("../resources/images/eventsFilter.png") repeat scroll 0 0 transparent;
+    color: white;
+    font-size: 11pt;
+    font-weight: bold;
+    height: 20px;
+    width: 300px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin: 5px auto auto;
+}
 .mainStyle .userFile{
     background: #FFE1DF;
     padding: 10px 15px;
