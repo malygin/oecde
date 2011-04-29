@@ -10,6 +10,21 @@
    TODO customize this sample style
    Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
+/*главная*/
+.mainStyle .adminName{
+     color: white;
+    float: right;
+    font-family: Arial;
+    font-size: 150%;
+    padding: 5px 15px 5px 15px;
+    text-align: left;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+body:first-of-type .adminName {
+    font-size: 100%;
+     margin-right: 20px;
+    }
+}
 /*фильтр событий*/
 .mainStyle #button {
     margin: auto;
@@ -104,6 +119,12 @@
     font-family: Arial;
     float: left;
 }
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+body:first-of-type .mainStyle .contentHeader p {
+    width: 100%;
+    }
+}
+
 .mainStyle .onlineStatus{
     float: right;
     padding: 10px 15px 5px 0px;

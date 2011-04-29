@@ -4,7 +4,12 @@
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/adminTemplate.xhtml"
     xmlns:j="http://java.sun.com/jsf/composite/components/journal">
-    
+
+     <ui:define name="contentHeader">
+        #{msgs.student_index}
+       <div class="adminName">#{adminSessionBean.admin.surname} #{adminSessionBean.admin.name} #{adminSessionBean.admin.secondName}
+       </div>
+    </ui:define>
     <ui:define name="content">
         <f:metadata>
             <f:viewParam name="page" value="#{journalBean.pageNumber}"/>

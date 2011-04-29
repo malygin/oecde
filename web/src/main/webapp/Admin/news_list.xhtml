@@ -11,7 +11,9 @@
               <f:viewParam name="page" value="#{NavigationBean.page}"/>
               <f:viewParam name="page" value="#{NewsBean.currentPage}"/>
          </f:metadata>
-
+        <ui:define name="contentHeader">
+            #{msgs.student_newsTitle}
+        </ui:define>
         <ui:define name="content">
             
             <util:navigationList elementOnPage="#{NewsBean.newsOnPage}"

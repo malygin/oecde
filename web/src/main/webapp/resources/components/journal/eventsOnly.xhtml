@@ -34,8 +34,6 @@
                         <td style="background: url('../resources/images/event#{e.eventType}.gif') no-repeat; padding-left: 25px;">
                     
                     <div class="floatDestroyer"></div>
-
-<!--<img src="../resources/images/event#{e.eventType}.gif" alt=""/>-->
                     <sec:ifAnyGranted roles="ROLE_ADMIN">
                         <ui:repeat value="#{e.bodyForAdmin}" var="b">
                             <h:outputText  rendered="#{b.type eq null}" value="#{b.text}" styleClass="chatPostUser"/>

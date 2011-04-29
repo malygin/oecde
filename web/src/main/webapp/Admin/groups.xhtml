@@ -3,6 +3,9 @@
          xmlns:f="http://java.sun.com/jsf/core"
          xmlns:h="http://java.sun.com/jsf/html"
          template="../resources/adminTemplate.xhtml">
+         <ui:define name="contentHeader">
+          Группы
+        </ui:define>
         <ui:define name="content">
             <div class="interfaceContent">
                 <h:dataTable id="table" value="#{citiesAndGroups.cities}" var="w" styleClass="StudentBorderInfo  centerTextInTables" cellspacing="0" cellpadding="0" style="width: 100%;"
