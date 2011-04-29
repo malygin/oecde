@@ -1409,8 +1409,8 @@ body:first-of-type .mainStyle .StudentWriteMess{
     background: url("../resources/images/umkNavigationLinksContainerBackground.jpg") repeat-x bottom;
     height: 35px;
     text-align: left;
-    padding-left: 30px;
-    padding-right: 30px;
+/*    padding-left: 30px;
+    padding-right: 30px;*/
 }
 .mainStyle .umkNavigationLinksList{
     list-style: none;
@@ -1425,12 +1425,12 @@ body:first-of-type .mainStyle .StudentWriteMess{
 }
 .mainStyle .umkModuleName{
     height: 19px;
-    float: right;
+/*    float: right;*/
     padding-top: 6px;
     padding-right: 15px;
     padding-left: 15px;
-    border-left: 1px solid silver;
-    border-right: 1px solid silver;
+/*    border-left: 1px solid silver;
+    border-right: 1px solid silver;*/
     color: #777777;
 }
 .mainStyle .umkFixedHeadBlockContainer{

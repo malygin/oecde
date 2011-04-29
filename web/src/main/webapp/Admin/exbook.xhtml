@@ -16,7 +16,7 @@
                 
                 <b> занятие</b> -#{umkBean.currentTask.title}<br/>-->
         <div class="umkModuleName">#{msgs.student_ModuleName} - "#{umkBean.currentModule.name}"</div>
-        <ol class="umkNavigationLinksList">
+        <ol class="umkNavigationLinksList umkNavigationLinksContainer">
             <li class="umkNavigationLinkContainer" style="border-left: 1px solid silver; padding-left: 10px;">
                 <c:if test="${umkBean.prevTask.id==0}"><span>&larr;</span></c:if>
                 <c:if test="${umkBean.prevTask.id!=0}">
