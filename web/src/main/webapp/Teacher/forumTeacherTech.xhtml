@@ -10,19 +10,19 @@
              <f:viewParam  name="page" value="#{NavigationBean.page}"/>
               <f:viewParam name="page" value="#{DiscussionBean.currentPage}"/>
          </f:metadata>
-    <ui:define name="contentHeader">
-        #{msgs.teacher_forumMenuOrgForum}
-    </ui:define>
-        <ui:define name="content">
+         <ui:define name="contentHeader">
+           Преподовательский тех-форум
+         </ui:define>
+         <ui:define name="content">
 
-        <util:navigationList elementOnPage="#{DiscussionBean.nodesOnPage}"
-                               numElements="#{DiscussionBean.getNumOfNodes('1','STUDENT_ORG')}"/>
+         <util:navigationList elementOnPage="#{DiscussionBean.nodesOnPage}"
+                               numElements="#{DiscussionBean.getNumOfNodes('1','TEACHER_FAQ')}"/>
 
              <div class="interfaceContent">
                     <div class="studentInterfaceStandartList forumTopBlock">
                         <img src="../resources/userFiles/avatars/defaultAvatarMedium.jpg" class="forumPicAdminStyle" alt=""/>
                         <div class="forumDiscriptionText">
-                            #{msgs.admin_mainContentForumOrgDiscription}
+                            #{msgs.admin_mainContentForumTechDiscription}
                         </div>
                         <div class="floatDestroyer"/>
                     </div>
@@ -31,5 +31,8 @@
                         <discuss:list list="#{DiscussionBean.nodesByPage}"/>
                     </div>
               </div>
+
+                       <util:navigationList elementOnPage="#{DiscussionBean.nodesOnPage}"
+                               numElements="#{DiscussionBean.getNumOfNodes('1','TEACHER_FAQ')}"/>
          </ui:define>
     </ui:composition>

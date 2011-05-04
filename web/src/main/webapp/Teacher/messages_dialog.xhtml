@@ -1,0 +1,17 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+        template="../resources/teacherTemplate.xhtml"
+         xmlns:mess="http://java.sun.com/jsf/composite/components/messages"
+         xmlns:util="http://java.sun.com/jsf/composite/components/util">
+         <f:metadata>
+             <f:viewParam name="user" value="#{messageDialogBean.recipientId}"/>
+        </f:metadata>
+        <ui:define name="contentHeader">#{msgs.admin_mainContentMessageHistory}  -  #{messageDialogBean.recipient.fioAuthor}</ui:define>
+        <ui:define name="content">
+            <div class="interfaceContent">
+                <mess:dialog list="#{messageDialogBean.messagesDialog}"/>
+            </div>
+         </ui:define>
+    </ui:composition>

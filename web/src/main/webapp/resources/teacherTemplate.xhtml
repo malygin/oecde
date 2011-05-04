@@ -77,10 +77,26 @@
             <li><a href="curriculums.xhtml">#{msgs.teacher_communicationMenuMyCources}</a></li>
             <li><a href="controlWorksAttempts.xhtml">#{msgs.teacher_communicationMenuAllCw}</a></li>
             <li><a href="schedule.xhtml">#{msgs.teacher_communicationSchedule}</a></li>
-            <li><a href="forum_tech.xhtml">#{msgs.student_comMenuForumTech}</a></li>
-            <li><a href="forum_org.xhtml">#{msgs.student_comMenuForumOrg}</a></li>
+            <li><a href="forumTeacherOrg.xhtml">#{msgs.student_comMenuForumTech}</a></li>
+            <li><a href="forumTeacherTech.xhtml">#{msgs.student_comMenuForumOrg}</a></li>
             <li><p>#{msgs.student_comMenuVideoconferencing}</p></li>
         </ol>
+          <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_messMenuTitle}</p></div>
+        <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="messages_list.xhtml">#{msgs.student_messMenuIn}
+                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages>0}"  style="font-size: 15px; font-weight: bold; color: red;">#{MessageCountNewBean.newMessages}</h:panelGroup>
+                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages&lt;1}">#{MessageCountNewBean.newMessages}</h:panelGroup>
+                    )</a></div></div>
+        <ol class="leftSideMenuLinks">
+            <li><a href="messages_out.xhtml">#{msgs.student_messMenuOut}</a></li>
+
+        </ol>
+        <div class="violMenuTitle"><p class="sideBarTitle">#{msgs.student_chatMenuTitle}</p></div>
+         <div id="chatShortHistory1" class="chatShortHistory">
+        </div>
+        <div class="smallChatTools">
+            <input id="message1"/><button id="button1"></button>
+            <div style="height:18px;"></div>
+        </div>
         <ut:usersOnline/>
     </ui:define>
     <ui:define name="bottom">
