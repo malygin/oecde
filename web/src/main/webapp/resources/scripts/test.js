@@ -33,8 +33,10 @@ $(function(){
 
         if($(this).text().indexOf("link:")!=-1){
             str=$(this).text();
+            //console.log(str);
+        //    console.log(str.indexOf(":"))
             $(this).html("");
-            $('<iframe height="70px"   frameborder="0"  width="400px" name="myFrame"/>').attr('src', '../TestServlet?task='+str.substring(6)).appendTo($(this));
+            $('<iframe height="70px"   frameborder="0"  width="300px" name="myFrame"/>').attr('src', '../TestServlet?task='+str.substring(str.indexOf(":")+1)).appendTo($(this));
         }
 
     });

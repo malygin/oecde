@@ -51,9 +51,9 @@
                       #{i.index+1}.
                          </td>
                          <td valign="middle" width="">
-                            <h:outputText escape="false" value="#{a.title2}"/>
+                            <label><h:outputText escape="false" value="#{a.title2}"/></label>
                             </td>
-                             <td valign="middle"><h:outputText escape="false" value="#{a.title} "/></td>
+                             <td valign="middle"><label><h:outputText escape="false" value="#{a.title} "/></label></td>
                             <td valign="middle"><h:inputText size="2" styleClass="numberField" onkeyup="
                                   if(isNaN(parseInt(this.value))){this.value='';}
                                   else{ if((this.value>#{testPassingBean.currentQustionView.countAnswers}) || (this.value&lt;1)) this.value=#{testPassingBean.currentQustionView.countAnswers};
