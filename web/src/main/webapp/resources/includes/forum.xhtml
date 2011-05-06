@@ -1,0 +1,23 @@
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"  
+    xmlns:util="http://java.sun.com/jsf/composite/components/util"
+    xmlns:discuss="http://java.sun.com/jsf/composite/components/discussion"
+    >
+    <util:navigationList elementOnPage="#{DiscussionBean.nodesOnPage}" link="type=#{DiscussionBean.objectType}"
+                               numElements="#{DiscussionBean.getNumOfNodes('1','STUDENT_FAQ')}"/>
+
+             <div class="interfaceContent">
+                    <div class="studentInterfaceStandartList forumTopBlock">
+
+                        <div class="forumDiscriptionText">
+                            #{msgs.admin_mainContentForumDiscription}
+                        </div>
+                        <div class="floatDestroyer"/>
+                    </div>
+                    <div class="interfaceContent">
+                        <discuss:list list="#{DiscussionBean.nodesByPage}"/>
+                    </div>
+              </div>
+             <util:navigationList elementOnPage="#{DiscussionBean.nodesOnPage}" link="type=#{DiscussionBean.objectType}"
+                               numElements="#{DiscussionBean.getNumOfNodes('1','STUDENT_FAQ')}"/>
+</ui:composition>

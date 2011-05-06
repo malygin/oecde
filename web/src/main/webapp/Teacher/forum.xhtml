@@ -1,7 +1,7 @@
     <ui:composition
          xmlns:ui="http://java.sun.com/jsf/facelets"
-         xmlns:f="http://java.sun.com/jsf/core"     
-         template="../resources/adminTemplate.xhtml" 
+         xmlns:f="http://java.sun.com/jsf/core"
+         template="../resources/teacherTemplate.xhtml"
          xmlns:c="http://java.sun.com/jsp/jstl/core">
          <f:metadata>
              <f:viewParam  name="page" value="#{NavigationBean.page}"/>
@@ -10,7 +10,7 @@
          </f:metadata>
 
          <ui:define name="contentHeader">
-         #{DiscussionBean.forumTitle}
+            Форум
          </ui:define>
          <ui:define name="content">
               <ui:include src="../resources/includes/forum.xhtml"/>

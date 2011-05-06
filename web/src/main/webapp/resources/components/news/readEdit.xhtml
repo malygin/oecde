@@ -15,7 +15,7 @@
     <composite:implementation>
         <h:form>
       #{cc.attrs.n.time}<br/>
-        <h:outputText  rendered="#{NewsBean.renderAddSuccess}" value="#{msgs.user_newsSuccess!}"/><br/>
+        <h:outputText  rendered="#{NewsBean.renderAddSuccess}" value="#{msgs.user_newsSuccess}"/><br/>
 
         <div style="margin-bottom: 15px;"><h:inputText value="#{NewsBean.currentNewItem.header}"/></div>
         <div style="margin-left: 80px;"><util:editor value="#{NewsBean.currentNewItem.announcement}"/></div>

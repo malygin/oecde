@@ -110,7 +110,7 @@ public class DiscussionBean {
      */
      public int getNumOfNodes(String oId, String oTypeEnum ) {
          this.setObjectId(oId);
-         this.setObjectType(oTypeEnum);
+         //this.setObjectType(oTypeEnum);
         if((numOfNodes==-1)&&(objectId!=null))numOfNodes=discussionService.getCount(new Long(objectId), objectTypeEnum);
         return numOfNodes;
     }
@@ -129,7 +129,7 @@ public class DiscussionBean {
          }else   journalService.save(EventType.POST_ADD, currentUser, node);
             HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
             String url=request.getRequestURI().split("/")[3];      
-            FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId);
+            FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId+"&type="+objectType);
      }
     /**
      * редактирование нода
@@ -141,7 +141,7 @@ public class DiscussionBean {
          discussionService.addNode(currentNode.getId(), new Long(objectId), objectTypeEnum,  parentId, nodeText, currentUser);
             HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
             String url=request.getRequestURI().split("/")[3];
-            FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId);
+            FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId+"&type="+objectType);
      }
  /**
      * редактирование нода
@@ -169,7 +169,7 @@ public class DiscussionBean {
 
              HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
              String url=request.getRequestURI().split("/")[3];
-             FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId+"&page="+currentPage+"#"+nodeId);
+             FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId+"&page="+currentPage+"&type="+objectType+"#"+nodeId);
      }
 
      /**
@@ -187,7 +187,7 @@ public class DiscussionBean {
              }
              HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
              String url=request.getRequestURI().split("/")[3];
-             FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId+"&page="+currentPage);
+             FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId+"&page="+currentPage+"&type="+objectType);
      }
 
      /**
@@ -205,6 +205,9 @@ public class DiscussionBean {
          this.renderEdit=true;
      }
 
+    public String getForumTitle(){
+        return objectTypeEnum.getTitle();
+    }
 
     public DiscussionService getDiscussionService() {
         return discussionService;
@@ -251,7 +254,8 @@ public class DiscussionBean {
         return objectType;
     }
 
-    public void setObjectType(String objectType) {
+    public void setObjectType(String objectType) {       
+        this.objectType=objectType;
         objectTypeEnum=ForumTypes.valueOf(objectType);
     }
 

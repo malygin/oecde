@@ -1,6 +1,7 @@
 
 package org.sgu.oecde.web.jsfbeans;
 
+import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,7 +19,9 @@ import org.sgu.oecde.core.education.Module;
 import org.sgu.oecde.core.education.Umk;
 import org.sgu.oecde.core.education.resource.AbstractResource;
 import org.sgu.oecde.core.education.resource.Task;
+import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.Admin;
+import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
@@ -41,6 +44,8 @@ public class UmkBean implements Serializable {
 
     @ManagedProperty(value="#{umkDao}")
     private IBasicDao<Umk>umkDao;
+    
+    private AbstractUser user;
 
     private DeCurriculum curriculum;
     private Umk currentUmk;
@@ -84,12 +89,14 @@ public class UmkBean implements Serializable {
  */
     public void setcId(String cId) {
           this.cId = cId;
-          if (SecurityContextHandler.getUser() instanceof Student){
+          user=SecurityContextHandler.getUser();
+          if ( user instanceof Student){
              curriculum = resourceService.getDisciplineForStudent((Student) SecurityContextHandler.getUser(),new Long(cId),null);
              currentUmk=curriculum.getUmk();
 
-          }else if(SecurityContextHandler.getUser() instanceof Admin){
+          }else if(user instanceof Admin  || user instanceof Teacher){
               currentUmk=umkDao.getById(new Long(this.cId));
+             
           }
 
           //храним временно значение для предыдущего модуля
@@ -135,6 +142,15 @@ public class UmkBean implements Serializable {
           }
     }
 
+
+    public String getUserType(){
+           if (user instanceof Admin) return "admin";
+           else if (user instanceof Student) return "student";
+           else if (user instanceof Teacher) return "teacher";
+           else return "user";
+
+       
+    }
     public String getModuleId() {
         return moduleId;
     }
@@ -248,6 +264,14 @@ public class UmkBean implements Serializable {
 
     public void setCurrentUmk(Umk currentUmk) {
         this.currentUmk = currentUmk;
+    }
+
+    public AbstractUser getUser() {
+        return user;
+    }
+
+    public void setUser(AbstractUser user) {
+        this.user = user;
     }
 
 }
