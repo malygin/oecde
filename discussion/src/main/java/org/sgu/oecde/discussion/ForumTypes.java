@@ -62,4 +62,24 @@ public enum ForumTypes {
     public String toString() {
         return getName();
     }
+
+    public String getTitle(){
+        switch (this) {
+            case STUDENT_CITY:
+                return "stcity";
+            case STUDENT_FAQ:
+                return "Студенческий технически форум";
+            case STUDENT_ORG:
+                return "Студенческий организационный форум";
+            case TEACHER_FAQ:
+                return "преподовательский технический форум";
+            case TEACHER_ORG:
+                return "преподовательский организационный форум";
+            case NEWS:
+                return "новостной форум";
+            default:
+                //Заглушка. Недостижима.
+                throw new RuntimeException("No string representation found for " + this);
+        }
+    }
 }
