@@ -4,6 +4,7 @@
                 xmlns:h="http://java.sun.com/jsf/html">
           
         <div class="umkModuleName">#{msgs.student_ModuleName} - "#{umkBean.currentModule.name}"</div>
+        <div class="umkNavigationLinksContainer">
         <ol class="umkNavigationLinksList">
             <li class="umkNavigationLinkContainer" style="border-left: 1px solid silver; padding-left: 10px;">
                 <c:if test="${umkBean.prevTask.id==0}"><span>назад</span></c:if>
@@ -36,6 +37,7 @@
             </li>
             <li class="floatDestroyer"></li>
         </ol>
+        </div>
         <div class="floatDestroyer"/>
    
 </ui:composition>
