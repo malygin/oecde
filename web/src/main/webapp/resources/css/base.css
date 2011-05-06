@@ -261,7 +261,7 @@
 /*стили для фото всех пользователей*/
 .mainStyle .userPhoto{
     float: left;
-/*    width: 15%;*/
+    width: 15%;
 }
 .mainStyle .userPhotoBorder img{
     margin: 0px;
