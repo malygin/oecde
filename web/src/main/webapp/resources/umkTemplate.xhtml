@@ -8,16 +8,23 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="../resources/css/default.css"  rel="stylesheet" type="text/css" />
         <h:outputStylesheet name="base.css" library="css" rendered="true"/>
+        <script type="text/javascript" src="../resources/jquery/js/jquery-1.4.2.min.js"></script>
         <title>#{msgs.title}</title>
         <script type="text/javascript">
-            var windHeight = window.innerHeight;
-            console.debug(windHeight);
+            $(document).ready(function fn(){
+                var windHeight = window.innerHeight;
+                windHeight += 0;
+                $('body').attr('style','height:'+windHeight+'px');
+                console.debug($('iframe').attr('style'))
+//                $('iframe').attr('style','margin-top: 140px;')
+//            document.documentElement.setAttribute('style','height:'+windHeight+'px;');
+            });
             
         </script>
     </h:head>
     
-    <h:body style="height: 800px;">
-        <div class="mainStyle mainStyleUMKTemplate">
+    <h:body>
+        <div id="mainDiv" class="mainStyle mainStyleUMKTemplate">
             <div id="top" class="umkFixedHeadBlockContainer">
                 <div class="umkFixedHeadBlock">
                     <div style="background: #1A5B79; padding-top: 8px;">

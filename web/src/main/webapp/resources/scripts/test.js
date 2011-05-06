@@ -113,3 +113,23 @@ $(function(){
         }
     }
 });
+
+$(function(){
+    $('iframe').load(function(){
+    iframEWidth = ($(this).width())/2;
+    picture = this.contentWindow.document.getElementsByClassName('imG')[0];
+    pictureWidth = ($(picture).width())/2;
+    margiN = iframEWidth - pictureWidth -42;
+    pictureParent = $(picture).parent();
+    pictureParent.attr('style', 'margin-left:'+ margiN+ 'px;');
+//    vd=$('.testComparVariants').children()[0];
+   
+    });
+});
+
+$(function(){
+     vd = document.getElementsByClassName('testComparVariants');
+     console.log($(vd).children().children().attr('style','width: 170px;'));
+   
+});
+

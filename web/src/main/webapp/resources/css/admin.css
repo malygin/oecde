@@ -18,12 +18,9 @@
     font-size: 150%;
     padding: 5px 15px 5px 15px;
     text-align: left;
-}
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-body:first-of-type .adminName {
-    font-size: 100%;
-     margin-right: 20px;
-    }
+    position: absolute;
+    top: 78px;
+    right: 220px;
 }
 /*фильтр событий*/
 .mainStyle #button {
@@ -41,7 +38,7 @@ body:first-of-type .adminName {
     width: 300px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    -o-border-radius: 5px;
+    border-radius: 5px;
     margin: 5px auto auto;
 }
 .mainStyle .userFile{
@@ -51,7 +48,7 @@ body:first-of-type .adminName {
 }
 .mainStyle .userPhoto{
     float: left;
-    width: 15%;
+/*    width: 15%;*/
 }
 .mainStyle .userPhotoBorder{
     border: 1px #FF796F solid;
@@ -118,11 +115,6 @@ body:first-of-type .adminName {
     color: white;
     font-family: Arial;
     float: left;
-}
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-body:first-of-type .mainStyle .contentHeader p {
-    width: 100%;
-    }
 }
 
 .mainStyle .onlineStatus{

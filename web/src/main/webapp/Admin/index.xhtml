@@ -7,10 +7,12 @@
 
      <ui:define name="contentHeader">
         #{msgs.student_index}
-       <div class="adminName">#{adminSessionBean.admin.surname} #{adminSessionBean.admin.name} #{adminSessionBean.admin.secondName}
-       </div>
+       
     </ui:define>
+
     <ui:define name="content">
+         <div class="adminName">#{adminSessionBean.admin.surname} #{adminSessionBean.admin.name} #{adminSessionBean.admin.secondName}
+       </div>
         <f:metadata>
             <f:viewParam name="page" value="#{journalBean.pageNumber}"/>
             <f:viewParam name="page" value="#{NavigationBean.page}"/>

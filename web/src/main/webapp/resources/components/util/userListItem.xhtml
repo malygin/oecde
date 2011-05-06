@@ -27,8 +27,8 @@
        <div>
         
        </div>
-        <div style="padding-top: 5px;">
-            <table style="height:100%; width:60%;">
+        <div style="padding-top: 5px;" class="Search">
+            <table style="height:100%;">
                 <tr>
                     <td class="userInfoItemColor" style="width: 10%;">
                         #{msgs.student_studentListFIO}
@@ -53,7 +53,10 @@
                     <tr><td style="color:#808080;">Описание:</td><td>#{cc.attrs.u.description}</td></tr>-->
                 </h:panelGroup>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'teacher'}">
-                    <tr><td class="userInfoItemColor">#{msgs.user_Department}</td><td>#{cc.attrs.u.department.name}</td></tr>
+                    <tr>
+                        <td class="userInfoItemColor">#{msgs.user_Department}</td>
+                        <td>#{cc.attrs.u.department.name}</td>
+                    </tr>
                     <tr>
                         <td class="userInfoItemColor">
                             #{msgs.student_gradesTableHeadDisc}:

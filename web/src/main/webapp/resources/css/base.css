@@ -261,7 +261,7 @@
 /*стили для фото всех пользователей*/
 .mainStyle .userPhoto{
     float: left;
-    width: 15%;
+/*    width: 15%;*/
 }
 .mainStyle .userPhotoBorder img{
     margin: 0px;
@@ -396,6 +396,9 @@ not all and (-webkit-min-device-pixel-ratio:0) {
  .mainStyle .backLink{
      padding: 15px;
      float: right;
+}
+.mainStyle .numberField{
+    width: 50px;
 }
 
 /*кнопки*/
@@ -1374,7 +1377,7 @@ body:first-of-type .mainStyle .StudentWriteMess{
 }
 .mainStyle .umkTopLinkActive{
     border-color: white;
-    border-image: url("../resources/images/umkActiveLinkBorder.png") 0 7 0 7 stretch stretch;
+    -o-border-image: url("../resources/images/umkActiveLinkBorder.png") 0 7 0 7 stretch stretch;
     -moz-border-image: url("../resources/images/umkActiveLinkBorder.png") 0 7 0 7 stretch stretch;
     -webkit-border-image: url("../resources/images/umkActiveLinkBorder.png") 0 7 0 7 stretch stretch;
     border-width: 4px;
@@ -1653,6 +1656,9 @@ font-weight: bold;
 .mainStyle .imG_span img{
     display: inline !important;
 }
+.mainStyle .imG_span {
+    margin-left: 130px;
+}
 /*форум*/
 .mainStyle .forumDiscriptionText {
     text-align: justify;
@@ -1803,10 +1809,17 @@ font-weight: bold;
 .mainStyle .enterPic{
     vertical-align: bottom !important;
     background: url('../resources/images/enter.gif') no-repeat bottom;
-    padding-right: 55px;
+    padding-left: 35px;
 }
+/*.mainStyle .enterPic a{
+    float: right;
+}*/
 .mainStyle .searchBorders{
     border-top: 1px solid #E3F1FC;
     margin-bottom: 3px;
     margin-top: 5px;
+}
+/*поиск*/
+.mainStyle .Search td{
+    width: 400px;
 }

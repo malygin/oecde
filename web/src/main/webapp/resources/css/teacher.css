@@ -16,6 +16,10 @@
     padding: 10px 15px;
     border-bottom: #74CF91 1px solid;
 }
+.mainStyle .userPhoto {
+    float: left;
+/*    width: 15%;*/
+}
 .mainStyle .userPhotoBorder{
     border: 1px #74CF91 solid;
     width: 96%;
