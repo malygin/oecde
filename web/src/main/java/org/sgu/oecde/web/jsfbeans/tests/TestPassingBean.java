@@ -21,6 +21,7 @@ import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.core.util.SemesterGetter;
+import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.journal.EventType;
 import org.sgu.oecde.journal.JournalService;
@@ -120,6 +121,18 @@ public class TestPassingBean implements Serializable {
      public void startAdminTest(TestEntity test, boolean view) throws MalformedURLException, IOException {
         testView=test;
         this.viewTest=view;
+     //  checkTestAttemptType(testView);
+        questions=new ArrayList<Question>(testView.getQuestions());
+        if (!questions.isEmpty()){
+            attempt.setWork(testView);
+            countQuestions=questions.size();
+            makeQuestionList();
+       }
+    }
+
+     public void startTeacherTest(TestEntity test) throws MalformedURLException, IOException {
+        testView=test;
+        this.viewTest=true;
      //  checkTestAttemptType(testView);
         questions=new ArrayList<Question>(testView.getQuestions());
         if (!questions.isEmpty()){

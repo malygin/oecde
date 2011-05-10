@@ -1,7 +1,7 @@
 
 package org.sgu.oecde.web.jsfbeans;
 
-import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -26,6 +26,7 @@ import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.web.ResourceService;
+import org.sgu.oecde.web.jsfbeans.teacher.TeacherSessionBean;
 import org.sgu.oecde.web.jsfbeans.util.HTMLSanitiser;
 import org.springframework.util.ObjectUtils;
 
@@ -45,6 +46,8 @@ public class UmkBean implements Serializable {
     @ManagedProperty(value="#{umkDao}")
     private IBasicDao<Umk>umkDao;
     
+    @ManagedProperty(value="#{teacherSessionBean}")
+    private TeacherSessionBean teacherSessionBean;
     private AbstractUser user;
 
     private DeCurriculum curriculum;
@@ -93,10 +96,11 @@ public class UmkBean implements Serializable {
           if ( user instanceof Student){
              curriculum = resourceService.getDisciplineForStudent((Student) SecurityContextHandler.getUser(),new Long(cId),null);
              currentUmk=curriculum.getUmk();
-
-          }else if(user instanceof Admin  || user instanceof Teacher){
-              currentUmk=umkDao.getById(new Long(this.cId));
-             
+          }else if(user instanceof Admin){
+              currentUmk=umkDao.getById(new Long(this.cId));             
+          }else if(user instanceof Teacher){
+             curriculum = teacherSessionBean.getCurriculumById(new Long(cId));
+             currentUmk=curriculum.getUmk();                  
           }
 
           //храним временно значение для предыдущего модуля
@@ -273,5 +277,10 @@ public class UmkBean implements Serializable {
     public void setUser(AbstractUser user) {
         this.user = user;
     }
+
+    public void setTeacherSessionBean(TeacherSessionBean teacherSessionBean) {
+        this.teacherSessionBean = teacherSessionBean;
+    }
+
 
 }

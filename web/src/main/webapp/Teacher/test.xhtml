@@ -2,20 +2,35 @@
          xmlns:ui="http://java.sun.com/jsf/facelets"
          xmlns:f="http://java.sun.com/jsf/core"
          xmlns:h="http://java.sun.com/jsf/html"
+            xmlns:tests="http://java.sun.com/jsf/composite/components/tests"
          template="../resources/teacherTemplate.xhtml"
          >
-        <ui:define name="content">
-         <f:metadata>
+           <f:metadata>
              <f:viewParam name="c" value="#{testForTeacher.curriculumId}"/>
              <f:viewParam name="id" value="#{testForTeacher.id}"/>
              <f:viewParam name="s" value="#{testForTeacher.semester}"/>
          </f:metadata>
-             <div class="backLink controlWorksDisciplineNameLink">
-                <h:outputLink value="discipline.xhtml?id=#{testForTeacher.curriculumId}&amp;#{testForTeacher.semester}" >#{msgs.student_back}</h:outputLink>
-            </div>
-            <h:outputText rendered="#{testForTeacher.accessDenied}" value="#{msgs.student_TestIsNotFoundOrNotAvail}" styleClass="testResultMarkNull educ_umk_text_block" style="margin-top: 10px;"/>
-             <h:outputLink value="javascript:void(0)" styleClass="educ_umk_text_block">#{testForTeacher.test.title}</h:outputLink>
-<!--             <h:outputText value="#{testForTeacher.test.title}" styleClass="testResultMarkNull"/>-->
+        <ui:define name="content">
+
+            <h:form id="mainForm">
+        
+               <script type="text/javascript" src="../resources/scripts/test.js"></script>
+                <h:panelGroup   rendered="#{not testPassingBean.renderCompleteTest}">
+                      <h:panelGroup rendered="#{not testPassingBean.viewTest}">
+                            <tests:questionAnswer question="#{testPassingBean.currentQustionView.question}"/>
+                            <tests:questionProgressBars countAnsweredQuestion="#{testPassingBean.countAnsweredquestion}" countQuestions="#{testPassingBean.countQuestions}"/>
+                       </h:panelGroup>
+                        <h:panelGroup rendered="#{testPassingBean.viewTest}">
+                             <tests:questionView question="#{testPassingBean.currentQustionView.question}"/>
+                        </h:panelGroup>
+                        <tests:questionTips type="#{testPassingBean.currentQustionView.question.type}"/>
+               </h:panelGroup>
+               <h:panelGroup   rendered="#{testPassingBean.renderCompleteTest}">
+                        <tests:showResult countQuestions="#{testPassingBean.countQuestions}" countRight="#{testPassingBean.countRight}" points="#{testPassingBean.points}"/>
+                </h:panelGroup>
+          
+         </h:form>
+      
            
             
        </ui:define>

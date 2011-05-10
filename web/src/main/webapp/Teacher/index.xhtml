@@ -4,7 +4,8 @@
          xmlns:h="http://java.sun.com/jsf/html"
          template="../resources/teacherTemplate.xhtml"
          xmlns:ipsil="http://java.sun.com/jsf/composite/components/util"
-         xmlns:ut="http://java.sun.com/jsf/composite/components/util">
+         xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+         xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 
          <ui:define name="contentHeader">
             #{msgs.student_index}
@@ -39,6 +40,18 @@
             </div>
          #{teacherIndexBean.estimatedGroupsCount} гр из #{teacherIndexBean.groupsCount}<br/>
          #{teacherIndexBean.readCwAttempsCount} из #{teacherIndexBean.cwAttempsCount}
+
+           <h:dataTable value="#{NewsBean.news}" var="n" styleClass="leftMenuContainer">
+                                    <h:column>
+                                        <div style=" max-width: 60%; float: left;">
+                                            <span class="controlWorksDisciplineNameLink"><a style="font-size: 9pt;" href="news_read.xhtml?id=#{n.id}">#{n.header}</a></span>
+                                        </div>
+                                        <span class="chatPostDate"><h:outputText converter="dateConverter" value="#{fn:substring(n.time,0,11)}"/></span>
+                                        <div class="floatDestroyer"></div>
+                                        <div class="previewText"><h:outputText escape="false" value="#{n.announcement}"/></div>
+                                        <br/>
+                                    </h:column>
+                                </h:dataTable>
         </ui:define>
       
     </ui:composition>

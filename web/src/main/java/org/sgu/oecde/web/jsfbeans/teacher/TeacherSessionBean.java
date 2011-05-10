@@ -37,6 +37,13 @@ public class TeacherSessionBean extends AbstractTeacherBean{
         }
         return semester == SemesterGetter.SUMMER_SEMESTER?summerCurriculums:winterCurriculums;
     }
+    
+       public DeCurriculum getCurriculumById(Long cId){
+            DeCurriculum d=null;
+            for (DeCurriculum c:summerCurriculums!=null?summerCurriculums:winterCurriculums)
+                if (c.getId().equals(cId))  d=c;
+            return d;
+    }
 
     public List<Group>getGroups(int semester){
         if(((summerGroups==null&&semester==SemesterGetter.SUMMER_SEMESTER)||(winterGroups==null&&semester==SemesterGetter.WINTER_SEMESTER))){
