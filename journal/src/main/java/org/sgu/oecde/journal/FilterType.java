@@ -1,5 +1,6 @@
 package org.sgu.oecde.journal;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.logging.Log;
@@ -173,7 +174,7 @@ public enum FilterType {
         sb.append(" )");
     }
 
-    public class EventForChoise{
+    public class EventForChoise implements Serializable{
         private EventType eventType;
         private boolean chosen;
 
