@@ -10,61 +10,59 @@
         </ui:define>
     <ui:define name="content">
             <f:metadata>
-                <f:viewParam name="pageNumber" value="#{studentScheduleBean.pageNumber}"/>
+                <f:viewParam name="pageNumber" value="#{teacherScheduleBean.pageNumber}"/>
             </f:metadata>
         <div class="interfaceContent">
-<!--             <util:navigationList numElements="#{studentScheduleBean.count(true)}" elementOnPage="40"/>-->
-            <h:dataTable styleClass="studentStandatrTable"
-                         columnClasses="studentStandatrTableTd,
+                <util:navigationList numElements="#{teacherScheduleBean.count}" elementOnPage="#{teacherScheduleBean.maxResult}"/>
+        <h:dataTable columnClasses="
                          studentStandatrTableTd,
                          studentStandatrTableTd,
-                         studentStandatrTableTdLastTd" cellpadding="0" cellspacing="0" value="#{teacherScheduleBean.schedule}" var="s">
+                         studentStandatrTableTd,
+                         studentStandatrTableTd,
+                        studentStandatrTableTdLastTd  studentStandatrTableExamin "
+                         value="#{teacherScheduleBean.schedule}" var="s" styleClass="studentStandatrTable studentStandatrTableExamin" cellpadding="0" cellspacing="0">
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="#{msgs.student_Dicipline}"/>
-                    </f:facet>
-                    <span class="controlWorksDisciplineName"><h:outputText value="#{s.discipline.name}"/></span>
-                </h:column>
-
-                <h:column>
-                    <f:facet name="header">
-                            <h:outputText value="#{msgs.admin_mainContentGroup}"/>
-                    </f:facet>
-                    <h:dataTable value="#{s.groups}" var="g">
+                        <h:outputText value="группы"/>
+                    </f:facet>#{s.id}
+                    <h:dataTable var="cwg" value="#{setToList.getList(s.citiesWithGroups)}">
                         <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{msgs.admin_mainContentGroup}"/>
-                            </f:facet>
-                            <h:outputText value="#{g.name}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{msg.student_mainContentUserInfoSpec_}"/>
-                            </f:facet>
-                            <h:outputText value="#{g.speciality.name}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{msgs.teacher_city}"/>
-                            </f:facet>
-                            <h:outputText value="#{g.city.name}"/>
+                            <h:outputText value="#{cwg.group.name}"/>
+                            (<h:outputText value="#{cwg.group.speciality.engShort}"/>)
                         </h:column>
                     </h:dataTable>
                 </h:column>
-
-                <h:column>
+            <h:column>
                     <f:facet name="header">
-                        <h:outputText value="#{msgs.student_Room}"/>
+                        <h:outputText value="дисциплина"/>
                     </f:facet>
-                    <h:outputText value="#{s.room}" style="color: #{s.color}"/>
+                    <span class="controlWorksDisciplineName" style="font-size: 8pt; font-weight: normal;display:  block; padding-left: 8px;"><h:outputText value="#{s.discipline.name}"/></span>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="#{msgs.student_Data}"/>
+                        <h:outputText value="преподаватель"/>
                     </f:facet>
-                    <h:outputText value="#{s.lessonDate})"/>
+                    <span class="linkToTeachersProfile linkToTeachersProfileFromStudent" style="background: none;"><a href="teacher.xhtml?id=#{s.teacher.id}"><h:outputText value="#{s.teacher.initials}"/></a></span>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="комната"/>
+                    </f:facet>
+                    <div style="text-align: center !important;">
+                        <h:outputText converter="roomConverter"  value="#{s.room}" style="color: #{s.color}">
+                            <f:convertNumber maxFractionDigits="0" groupingUsed="false"/>
+                        </h:outputText>
+                    </div>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="дата"/>
+                    </f:facet>
+                    <span ><h:outputText converter="dateConverter" value="#{s.lessonDate}"/></span>
                 </h:column>
             </h:dataTable>
+            <util:navigationList numElements="#{teacherScheduleBean.count}" elementOnPage="#{teacherScheduleBean.maxResult}"/>
+        
         </div>
     </ui:define>
 </ui:composition>

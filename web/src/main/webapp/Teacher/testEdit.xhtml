@@ -20,7 +20,7 @@
             <tr><td><h:outputText value="#{testForTeacher.test.title}"/></td><td>title</td></tr>
             <tr><td><h:inputText maxlength="1" size="1" value="#{testForTeacher.test.trialNumber}"/></td><td>trialNumber</td></tr>
             <tr><td><h:inputText maxlength="3" size="3" value="#{testForTeacher.test.weight}"/></td><td>weight</td></tr>
-            <tr><td><h:outputText converter="enumConverter" value="#{testForTeacher.types}" /></td><td>type</td></tr>
+            <tr><td><h:outputText converter="enumConverter" value="#{testForTeacher.test.type}" /></td><td>type</td></tr>
             <tr><td><h:selectOneMenu id="estimationType" value="#{testForTeacher.test.estimation}">
                <f:selectItems value="#{testForTeacher.estimation}" />
             </h:selectOneMenu></td><td>estimation</td></tr>

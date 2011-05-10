@@ -9,9 +9,6 @@
          <ui:define name="contentHeader">
             #{msgs.student_index}
         </ui:define>
-<!--        <ui:define name="fio">
-            <h:outputText value="#{teacherIndexBean.teacher.fio}"/>
-        </ui:define>-->
 
         <ui:define name="content">
             <div class="userFile">
@@ -35,11 +32,13 @@
                      <tr>
                          <td><p>#{msgs.teacher_mainContentUserInfoPost}</p></td>
                          <td></td>
-                     </tr>
+                     </tr> 
                  </table>
                  </div>
                 <div class="floatDestroyer"></div>
             </div>
+         #{teacherIndexBean.estimatedGroupsCount} гр из #{teacherIndexBean.groupsCount}<br/>
+         #{teacherIndexBean.readCwAttempsCount} из #{teacherIndexBean.cwAttempsCount}
         </ui:define>
       
     </ui:composition>

@@ -40,6 +40,7 @@ public class TaskServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
       try{
+          
           String str="";
           String[] urlTask=request.getParameter("task").split("/");
           URL url = new URL(urlServer+request.getParameter("task"));
