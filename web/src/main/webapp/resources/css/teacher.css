@@ -109,3 +109,18 @@
 .mainStyle .settingInputWidth{
     width: 140px;
 }
+
+/*стили таблиц со страниц groupControlWorks и groupTestResults*/
+.mainStyle .opasityTableTestResult th{
+    border: none;
+    background: none;
+}
+.mainStyle .opasityTableTestResult tbody tr td{
+    border-right: 1px solid silver;
+}
+.mainStyle .opasityTableTestResult thead tr td{
+    border-right: 1px solid silver;
+}
+.mainStyle .litleTabContrWorks tbody tr td{
+    border: none;
+}
