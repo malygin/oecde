@@ -23,6 +23,10 @@ public class AppTest extends BasicTest{
         EventType e = EventType.UMK_VIEW;
         System.out.println(e.isChosen());
         System.out.println(EventType.SYSTEM_LOGIN.isChosen());
+         EventType e2 = EventType.SYSTEM_LOGIN;
+         
+
+
     }
 
     @Ignore

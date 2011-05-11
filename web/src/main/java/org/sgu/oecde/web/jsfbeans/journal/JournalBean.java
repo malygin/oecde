@@ -40,10 +40,10 @@ public class JournalBean implements Serializable{
         EventBodyElement.adminPage = "admin.xhtml";
         EventBodyElement.curriculumPage = "curriculum.xhtml";
         EventBodyElement.disciplinePage = "discipline.xhtml";
-        EventBodyElement.forumStudentTechPage = "forumStudentTech.xhtml";
-        EventBodyElement.forumStudentOrgPage = "forumStudentOrg.xhtml";
-        EventBodyElement.forumTeacherOrgPage = "forumTeacherOrg.xhtml";
-        EventBodyElement.forumTeacherTechPage = "forumTeacherTech.xhtml";
+        EventBodyElement.forumStudentTechPage = "forum.xhtml?type=STUDENT_FAQ";
+        EventBodyElement.forumStudentOrgPage = "forum.xhtml?type=STUDENT_ORG";
+        EventBodyElement.forumTeacherOrgPage = "forum.xhtml?type=TEACHER_ORG";
+        EventBodyElement.forumTeacherTechPage = "forum.xhtml?type=TEACHER_FAQ";
         EventBodyElement.groupPage = "group.xhtml";
         EventBodyElement.newsPage = "news_read.xhtml";
         EventBodyElement.studentPage = "student.xhtml";

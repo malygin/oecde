@@ -48,7 +48,7 @@ public enum EventType {
             String[] str = {(String)o[0],(String)o[1]};
             return generateEventItem(user, 0l, str);
         }
-
+     
         @Override
         public EventBodyElement[] parseEvent(EventItem item) {
             if(checkEventItem(item, this))
@@ -942,11 +942,11 @@ public enum EventType {
             switch (postType) {
                case STUDENT_FAQ:
                     el[0] = new EventBodyElement(str[3]+" ответил(а) на ваш пост ");
-                    el[1] = new EventBodyElement("?page="+str[2]+"#"+str[1], "на техническом форуме", EventBodyElement.forumStudentTechPage);
+                    el[1] = new EventBodyElement("&amp;page="+str[2]+"#"+str[1], "на техническом форуме", EventBodyElement.forumStudentTechPage);
                     break;
               case STUDENT_ORG:
                     el[0] = new EventBodyElement(str[3]+" ответил(а) на ваш пост ");
-                    el[1] = new EventBodyElement("?page="+str[2]+"#"+str[1], "на организационном форуме", EventBodyElement.forumTeacherOrgPage);
+                    el[1] = new EventBodyElement("&amp;page="+str[2]+"#"+str[1], "на организационном форуме", EventBodyElement.forumTeacherOrgPage);
                     break;
                 case NEWS:
                     el[0] = new EventBodyElement("К вашему комментарию к новости ");
