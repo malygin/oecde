@@ -11,7 +11,7 @@
              <f:viewParam name="g" value="#{groupControlWorksForTeacher.id}"/>
              <f:viewParam name="c" value="#{groupControlWorksForTeacher.curriculumId}"/>
          </f:metadata>
-         <est:header bean="#{groupControlWorksForTeacher}"/>
+            <est:header bean="#{groupControlWorksForTeacher}" pageName="cw"/>
          <h:form id="form" rendered="#{not groupControlWorksForTeacher.accessDenied}">
            <h:dataTable rendered="#{not groupControlWorksForTeacher.accessDenied}" id="table" value="#{groupControlWorksForTeacher.groupControlWorks}" var="w">
             <h:column>

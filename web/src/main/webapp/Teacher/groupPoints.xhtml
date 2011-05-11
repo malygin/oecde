@@ -12,7 +12,7 @@
                 <f:viewParam name="g" value="#{groupPoints.id}"/>
                 <f:viewParam name="c" value="#{groupPoints.curriculumId}"/>
             </f:metadata>
-            <est:header bean="#{groupPoints}"/>
+            <est:header bean="#{groupPoints}" pageName="points"/>
             <h:form rendered="#{not groupPoints.accessDenied}" id="form" prependId="false">
                 <h:dataTable styleClass="studentStandatrTable"
                          columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
