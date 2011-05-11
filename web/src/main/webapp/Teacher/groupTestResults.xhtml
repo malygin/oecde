@@ -5,30 +5,46 @@
  template="../resources/teacherTemplate.xhtml"
  xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
 <ui:define name="content">
+ <div class="interfaceContent">
  <f:metadata>
      <f:viewParam name="s" value="#{teachersGroups.semester}"/>
      <f:viewParam name="s" value="#{groupTestResults.semester}"/>
      <f:viewParam name="g" value="#{groupTestResults.id}"/>
      <f:viewParam name="c" value="#{groupTestResults.curriculumId}"/>
  </f:metadata>
+ 
     <est:header bean="#{groupTestResults}" pageName="tests"/>
- <h:dataTable rendered="#{not groupTestResults.accessDenied}" value="#{groupTestResults.groupTestResults}" var="w">
+
+
+ <h:dataTable rendered="#{not groupTestResults.accessDenied}" value="#{groupTestResults.groupTestResults}" var="w"
+              cellpadding="0" cellspacing="0"
+              styleClass="studentStandatrTable"
+              columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdWidthTeacher,
+                         studentStandatrTableTdPaddingTeacher">
        <h:column>
         <f:facet name="header">
-         <h:outputText value="#{msgs.student_Student}" />
+         <h:outputText value="#{msgs.student_Student}" styleClass="studentStandatrTable"/>
         </f:facet>
-           <h:outputLink value="student.xhtml?id=#{w.key.id}&amp;s=#{groupTestResults.semester}">#{w.key.fio}</h:outputLink>
+           <span class="linkToStudentsProfile"><h:outputLink value="student.xhtml?id=#{w.key.id}&amp;s=#{groupTestResults.semester}">#{w.key.fio}</h:outputLink></span>
        </h:column>
      <h:column>
       <f:facet name="header">
        <h:outputText value="#{msgs.teacher_results}" />
       </f:facet>
-         <h:dataTable value="#{w.value}" var="r">
+         <h:dataTable value="#{w.value}" var="r" styleClass="opasityTableTestResult" cellpadding="0" cellspacing="0">
              <h:column>
                 <f:facet name="header">
                  <h:outputText value="#{msgs.student_testResultName}" />
                 </f:facet>
-               #{r.work.title} #{r.work.id}
+                 #{r.work.title} #{r.work.id}
                </h:column>
                <h:column>
                 <f:facet name="header">
@@ -39,7 +55,7 @@
                </h:column>
 
                <h:column>
-                   <h:dataTable value="#{r.results}" var="a" id="rowId">
+                   <h:dataTable value="#{r.results}" var="a" id="rowId" styleClass="litleTabContrWorks">
                        <h:column>
                             <f:facet name="header">
                              <h:outputText value="#{msgs.student_testResultCorrectAnswers}" />
@@ -70,5 +86,6 @@
          </h:dataTable>
      </h:column>
  </h:dataTable>
+    </div>
 </ui:define>
 </ui:composition>
