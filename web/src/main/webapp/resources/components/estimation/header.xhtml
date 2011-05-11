@@ -24,7 +24,6 @@
                     </span>
                 </h:column>
             </h:dataTable>
-
             <h:outputText rendered="#{cc.attrs.bean.accessDenied}" value="#{msgs.teacher_disiplineNotFoundOrNotAvailable}" />
 <!--            <h:outputText value="#{cc.attrs.bean.curriculum.discipline.name}"  styleClass="DisciplineText"/>&nbsp;-->
             <h:outputText value="#{msgs.student_mainContentUserInfoGroup} #{cc.attrs.bean.group.name}" styleClass="DisciplineText" style="padding: 0; font-size: 9pt;"/> (<h:outputText value="#{cc.attrs.bean.group.speciality.name}" styleClass="DisciplineText" style="padding: 0; font-size: 9pt;"/>)
