@@ -5,6 +5,7 @@
          template="../resources/teacherTemplate.xhtml"
          xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
         <ui:define name="content">
+         <div class="interfaceContent">
          <f:metadata>
              <f:viewParam name="s" value="#{teachersGroups.semester}"/>
              <f:viewParam name="s" value="#{groupControlWorksForTeacher.semester}"/>
@@ -13,12 +14,25 @@
          </f:metadata>
             <est:header bean="#{groupControlWorksForTeacher}" pageName="cw"/>
          <h:form id="form" rendered="#{not groupControlWorksForTeacher.accessDenied}">
-           <h:dataTable rendered="#{not groupControlWorksForTeacher.accessDenied}" id="table" value="#{groupControlWorksForTeacher.groupControlWorks}" var="w">
+           <h:dataTable rendered="#{not groupControlWorksForTeacher.accessDenied}"
+                        styleClass="studentStandatrTable"
+                         columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                         studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdWidthTeacher,
+                         studentStandatrTableTdPaddingTeacher"
+                         cellpadding="0" cellspacing="0"
+                        id="table" value="#{groupControlWorksForTeacher.groupControlWorks}" var="w">
             <h:column>
                 <f:facet name="header">
                  <h:outputText value="#{msgs.student_Student}" />
                 </f:facet>
-                <h:outputLink value="student.xhtml?id=#{w.key.id}&amp;s=#{groupControlWorksForTeacher.semester}"><h:outputText value="#{w.key.fio}"/></h:outputLink>
+                <span class="linkToStudentsProfile"><h:outputLink value="student.xhtml?id=#{w.key.id}&amp;s=#{groupControlWorksForTeacher.semester}"><h:outputText value="#{w.key.fio}"/></h:outputLink></span>
             </h:column>
 
             <h:column>
@@ -37,11 +51,11 @@
                 <f:facet name="header">
                  <h:outputText value="#{msgs.teacher_inWriting}" />
                 </f:facet>
-                <h:commandLink id="handle">
+                <span class="linkToStudentsProfile"><h:commandLink id="handle">
                     <f:ajax execute="@this" event="click" render="attempts" listener="#{groupControlWorksForTeacher.saveEmpty}"/>
                     <f:attribute name="work" value="#{w.value}"/>
                     <h:outputText value="#{msgs.teacher_toNote}"/>
-                </h:commandLink>
+                    </h:commandLink></span>
             </h:column>
 
             <h:column>
@@ -60,14 +74,16 @@
                </h:selectOneMenu>
             </h:column>
            </h:dataTable>
-
-              <h:commandButton id="btn" value="ОК">
+              <div style="text-align: right; padding: 5px; ">
+              <h:commandButton id="btn" value="ОК" styleClass="studentButton">
                   <f:ajax execute="@form" event="click" render="table:points table:progress error saved" listener="#{groupControlWorksForTeacher.save}"/>
              </h:commandButton>
+              </div>
 
              <h:outputText id="error" rendered="#{groupControlWorksForTeacher.error}" value="ERROR"/>
              <h:outputText id="saved" rendered="#{groupControlWorksForTeacher.saved}" value="saved"/>
                  <br/>
           </h:form>
+            </div>
         </ui:define>
     </ui:composition>
