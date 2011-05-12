@@ -27,13 +27,15 @@
                 </c:if>
             </li>
             <li style="padding-top: 0px; height: 25px;">
-            <h:outputLink rendered="#{umkBean.userType=='student'}" value="discipline.xhtml?c=#{umkBean.curriculum.id}">
+             <h:outputLink rendered="#{umkBean.userType=='student'}" value="discipline.xhtml?c=#{umkBean.curriculum.id}">
                     <img src="../resources/images/umkCourseTasksList.jpg" alt=""/>
              </h:outputLink>
              <h:outputLink rendered="#{umkBean.userType=='admin'}" value="umk.xhtml?id=#{umkBean.cId}">
                     <img src="../resources/images/umkCourseTasksList.jpg" alt=""/>
              </h:outputLink>
-
+             <h:outputLink rendered="#{umkBean.userType=='teacher'}" value="discipline.xhtml?id=#{umkBean.curriculum.id}">
+                    <img src="../resources/images/umkCourseTasksList.jpg" alt=""/>
+             </h:outputLink>
             </li>
             <li class="floatDestroyer"></li>
         </ol>

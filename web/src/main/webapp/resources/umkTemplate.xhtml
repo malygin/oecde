@@ -37,7 +37,10 @@
                                     <a href="news_list.xhtml">#{msgs.student_newsTitle}</a>
                                 </li>
                                 <li class="umkTopLinkActive">
-                                    <a href="materials.xhtml">#{msgs.user_Materials}</a>
+                                    <h:outputLink rendered="#{umkBean.userType=='teacher'}" value="curriculums.xhtml">#{msgs.user_Materials}</h:outputLink>
+                                    <h:outputLink rendered="#{umkBean.userType=='student'}" value="materials.xhtml">#{msgs.user_Materials}</h:outputLink>
+                                    <h:outputLink rendered="#{umkBean.userType=='admin'}" value="umkList.xhtml">#{msgs.user_Materials}</h:outputLink>
+
                                 </li>
                                 <li class="floatDestroyer"></li>
                             </ol>
