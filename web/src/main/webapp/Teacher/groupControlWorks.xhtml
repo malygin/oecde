@@ -30,13 +30,14 @@
                         id="table" value="#{groupControlWorksForTeacher.groupControlWorks}" var="w">
             <h:column>
                 <f:facet name="header">
-                 <h:outputText value="#{msgs.student_Student}" />
+                    <h:outputText  value="#{msgs.student_Student}" />
                 </f:facet>
                 <span class="linkToStudentsProfile"><h:outputLink value="student.xhtml?id=#{w.key.id}&amp;s=#{groupControlWorksForTeacher.semester}"><h:outputText value="#{w.key.fio}"/></h:outputLink></span>
             </h:column>
 
             <h:column>
                 <f:facet name="header">
+                    
                     <h:outputText value="#{msgs.teacher_attemps}" />
                 </f:facet>
 
