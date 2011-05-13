@@ -161,3 +161,61 @@
 .mainStyle .DivWidth50{
     width: 50px;
 }
+/*тесты*/
+.mainStyle .qTitle img{
+    display: inline;
+}
+.mainStyle .radioButtonActive, .radioButtonEnabled, .checkboxActive,.checkboxEnabled {
+    display: block;
+    margin-bottom: 5px;
+}
+.mainStyle .radioButtonEnabled label p{
+    margin: 0;
+}
+.mainStyle .radioButtonActive label {
+    background: url(../resources/images/radioButtonActive.png) no-repeat;
+    background-position: center left;
+    padding-left: 17px;
+    display: block;
+/*    margin-left: 330px;*/
+    overflow: hidden;
+    text-align: left;
+    min-height: 17px;
+}
+.mainStyle .radioButtonEnabled label{
+    background: url(../resources/images/radioButtonEnabled.png) no-repeat;
+    background-position: center left;
+    padding-left: 17px;
+      display: block;
+/*       margin-left: 330px;*/
+       overflow: hidden;
+       text-align: left;
+        min-height: 17px;
+}
+.mainStyle .testAdminTextCenter{
+   font-weight: bold;
+}
+.mainStyle .checkboxActive label {
+    background: url(../resources/images/checkboxActive.png) no-repeat;
+    background-position: center left;
+    padding-left: 17px;
+    display: block;
+/*    margin-left: 330px;*/
+    overflow: hidden;
+    text-align: left;
+     height: 17px;
+}
+.mainStyle .checkboxEnabled label {
+    background: url(../resources/images/checkboxEnabled.png) no-repeat;
+    background-position: center left;
+    padding-left: 17px;
+    display: block;
+/*    margin-left: 330px;*/
+    overflow: hidden;
+    text-align: left;
+     height: 17px;
+}
+.mainStyle .enterPicTest{
+    background: url("../resources/images/enter.gif") no-repeat;
+    padding-left: 19px;
+}
