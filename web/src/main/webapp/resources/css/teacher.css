@@ -117,10 +117,34 @@
 }
 .mainStyle .opasityTableTestResult tbody tr td{
     border-right: 1px solid silver;
+    text-align:  center !important;
+    padding: 2px;
 }
 .mainStyle .opasityTableTestResult thead tr td{
     border-right: 1px solid silver;
 }
 .mainStyle .litleTabContrWorks tbody tr td{
     border: none;
+    border-bottom: 1px solid silver;
+}
+.mainStyle .resultRedText{
+    color: red;
+    font-size: 10pt;
+}
+.mainStyle .TestNameDiv{
+    min-width: 50px;
+    max-width: 400px;
+}
+.mainStyle .RightAnswerDiv{
+    width: 70px;
+    float: left;
+}
+.mainStyle .DateAnswerDiv{
+    width: 35px;
+    float: right;
+    padding-left: 10px;
+    padding-top: 6px;
+}
+.mainStyle .DivWidth60{
+    width: 60px;
 }

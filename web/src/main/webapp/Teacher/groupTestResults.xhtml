@@ -31,7 +31,7 @@
                          studentStandatrTableTdPaddingTeacher">
        <h:column>
         <f:facet name="header">
-         <h:outputText value="#{msgs.student_Student}" styleClass="studentStandatrTable"/>
+         <h:outputText value="#{msgs.student_Student}" />
         </f:facet>
            <span class="linkToStudentsProfile"><h:outputLink value="student.xhtml?id=#{w.key.id}&amp;s=#{groupTestResults.semester}">#{w.key.fio}</h:outputLink></span>
        </h:column>
@@ -42,9 +42,11 @@
          <h:dataTable value="#{w.value}" var="r" styleClass="opasityTableTestResult" cellpadding="0" cellspacing="0">
              <h:column>
                 <f:facet name="header">
-                 <h:outputText value="#{msgs.student_testResultName}" />
+                    <h:outputText value="#{msgs.student_testResultName}" />
                 </f:facet>
-                 #{r.work.title} #{r.work.id}
+                 <div class="TestNameDiv">
+                     <h:outputText value="#{r.work.title} #{r.work.id}" />
+                 </div>
                </h:column>
                <h:column>
                 <f:facet name="header">
@@ -55,33 +57,44 @@
                </h:column>
 
                <h:column>
-                   <h:dataTable value="#{r.results}" var="a" id="rowId" styleClass="litleTabContrWorks">
-                       <h:column>
-                            <f:facet name="header">
-                             <h:outputText value="#{msgs.student_testResultCorrectAnswers}" />
-                            </f:facet>
+                   
+                   <f:facet name="header">
+                       <div class="RightAnswerDiv">
+                       <h:outputText value="#{msgs.student_testResultCorrectAnswers}"/>
+                       </div>
+                   </f:facet>
+                   <f:facet name="header">
+                       <div class="DateAnswerDiv">
+                            <h:outputText  value="#{msgs.student_testResultDate}"  />
+                       </div>
+                   </f:facet>
+                   
+                   <h:dataTable value="#{r.results}" var="a" id="rowId" styleClass="litleTabContrWorks" cellpadding="0" cellspacing="0">
+                      <h:column>
+                           <div class="DivWidth60">
                            #{a.rightAnswers} #{msgs.student_fromWord} #{r.work.quantity}
+                           </div>
                        </h:column>
                        <h:column>
-                            <f:facet name="header">
-                             <h:outputText value="#{msgs.student_testResultDate}" />
-                            </f:facet>
-                           #{a.date}
+                           <div class="DivWidth60">
+                               <h:outputText  converter="dateConverter" value="#{a.date}" />
+                           </div>
                        </h:column>
-                   </h:dataTable>
+                  </h:dataTable>
                </h:column>
 
                <h:column>
                 <f:facet name="header">
                  <h:outputText value="#{msgs.student_testResultResult}" />
                 </f:facet>
-                   #{r.pointsForWork}
+                   <h:outputText styleClass="resultRedText" value="#{r.pointsForWork}" />
                </h:column>
                <h:column>
                 <f:facet name="header">
                  <h:outputText value="#{msgs.teacher_wayOfEvaluation}" />
                 </f:facet>
                    <h:outputText converter="enumConverter" value="#{r.work.estimation}" />
+                   <!--<br /><h:graphicImage value='../resources/images/summTable.png'/>-->
                </h:column>
          </h:dataTable>
      </h:column>
