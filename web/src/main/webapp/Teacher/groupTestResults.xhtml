@@ -4,7 +4,12 @@
  xmlns:h="http://java.sun.com/jsf/html"
  template="../resources/teacherTemplate.xhtml"
  xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
-<ui:define name="content">
+
+    <ui:define name="contentHeader">
+        #{msgs.teacher_groupInfo}
+    </ui:define>
+
+    <ui:define name="content">
  <div class="interfaceContent">
  <f:metadata>
      <f:viewParam name="s" value="#{teachersGroups.semester}"/>
@@ -18,7 +23,7 @@
 
  <h:dataTable rendered="#{not groupTestResults.accessDenied}" value="#{groupTestResults.groupTestResults}" var="w"
               cellpadding="0" cellspacing="0"
-              styleClass="studentStandatrTable"
+              styleClass="studentStandatrTable ContrWorkAndTestTable"
               columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
                          studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
                          studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
@@ -76,7 +81,7 @@
                            </div>
                        </h:column>
                        <h:column>
-                           <div style="width:90px;">
+                           <div style="width:95px;">
                                <h:outputText  converter="dateConverter" value="#{a.date}" />
                            </div>
                        </h:column>

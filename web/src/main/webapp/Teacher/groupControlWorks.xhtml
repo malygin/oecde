@@ -4,6 +4,11 @@
          xmlns:h="http://java.sun.com/jsf/html"
          template="../resources/teacherTemplate.xhtml"
          xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
+
+        <ui:define name="contentHeader">
+        #{msgs.teacher_groupInfo}
+        </ui:define>
+
         <ui:define name="content">
          <div class="interfaceContent">
          <f:metadata>
@@ -15,7 +20,7 @@
             <est:header bean="#{groupControlWorksForTeacher}" pageName="cw"/>
          <h:form id="form" rendered="#{not groupControlWorksForTeacher.accessDenied}">
            <h:dataTable rendered="#{not groupControlWorksForTeacher.accessDenied}"
-                        styleClass="studentStandatrTable"
+                        styleClass="studentStandatrTable ContrWorkAndTestTable"
                          columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
                          studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
                          studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
@@ -41,7 +46,7 @@
                     <h:outputText value="#{msgs.teacher_attemps}" />
                 </f:facet>
 
-                <h:dataTable  id="attempts" value="#{w.value.cwAttempt}" var="a">
+                <h:dataTable  id="attempts" value="#{w.value.cwAttempt}" var="a" styleClass="TableCenter">
                     <h:column>
                         <est:readCwAttempt attempt="#{a}"/>
                     </h:column>
@@ -63,7 +68,7 @@
                 <f:facet name="header">
                  <h:outputText value="#{msgs.teacher_marks}" />
                 </f:facet>
-             <h:inputText id="points" size="3" maxlength="3" value="#{w.value.points}"/>
+             <h:inputText id="points" size="3" maxlength="3" styleClass="inputTextCenter" value="#{w.value.points}"/>
             </h:column>
 
             <h:column>

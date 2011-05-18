@@ -17,6 +17,6 @@
             <f:attribute name="attempt" value="#{cc.attrs.attempt}"/>
             <h:outputText value="#{cc.attrs.attempt.attemptDate}"/>
         </h:outputLink>
-        <h:outputText rendered="#{cc.attrs.attempt.filePath eq 'empty'}" value="#{cc.attrs.attempt.attemptDate}"/>
+        <h:outputText converter="dateConverter" rendered="#{cc.attrs.attempt.filePath eq 'empty'}" value="#{cc.attrs.attempt.attemptDate}"/>
     </composite:implementation>
 </html>

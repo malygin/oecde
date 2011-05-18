@@ -4,6 +4,11 @@
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/teacherTemplate.xhtml"
     xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
+
+    <ui:define name="contentHeader">
+        #{msgs.teacher_groupInfo}
+    </ui:define>
+
     <ui:define name="content">
         <div class="interfaceContent">
             <f:metadata>
