@@ -1823,3 +1823,10 @@ font-weight: bold;
 .mainStyle .Search td{
     width: 400px;
 }
+
+/*стили для иконок в меню по бокам*/
+.mainStyle .iconInMenu{
+    margin-right: 3px;
+    margin-bottom: -7px;
+    margin-top: 10px;
+}

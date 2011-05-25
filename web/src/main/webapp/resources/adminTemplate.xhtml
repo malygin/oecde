@@ -11,8 +11,8 @@
         <ui:define name="left">
             <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.admin_eduMenuTitle}</p></div>
             <ol class="leftSideMenuLinks">
-                <li><a href="umkList.xhtml"> #{msgs.admin_eduMenuUMK}</a></li>
-                <li><a href="reports.xhtml">#{msgs.admin_eduMenuXlsReports}</a></li>
+                <li><a href="umkList.xhtml"><h:graphicImage value="../resources/images/materials.png" styleClass="iconInMenu" /> #{msgs.admin_eduMenuUMK}</a></li>
+                <li><a href="reports.xhtml"><h:graphicImage value="../resources/images/report.png" styleClass="iconInMenu" />#{msgs.admin_eduMenuXlsReports}</a></li>
 <!--                <li><a href="index.xhtml">#{msgs.admin_eduMenuNewEvent}</a></li>
                 <li><a href="index.xhtml"> #{msgs.admin_eduMenuTeachersExcercises}</a></li>
                 <li><a href="index.xhtml">#{msgs.admin_eduMenuGroupProjects}</a></li>-->
@@ -70,15 +70,15 @@
         <ui:define name="right">
             <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.admin_communicationMenuTitle}</p></div>
             <ol class="leftSideMenuLinks">
-                <li><a href="groups.xhtml">#{msgs.admin_communicationMenuStudents}</a></li>
-                <li><p>#{msgs.admin_communicationMenuVideoConfs}</p></li>
+                <li><a href="groups.xhtml"><h:graphicImage value="../resources/images/student.png" styleClass="iconInMenu" />#{msgs.admin_communicationMenuStudents}</a></li>
+                <li><p><h:graphicImage value="../resources/images/video.png" styleClass="iconInMenu" />#{msgs.admin_communicationMenuVideoConfs}</p></li>
             </ol>
             <div class="violMenuTitle"><p class="sideBarTitle">#{msgs.admin_forumMenuTitle}</p></div>
             <ol class="leftSideMenuLinks">
-                <li><a href="forum.xhtml?type=STUDENT_FAQ">#{msgs.admin_forumMenuStTechForum}</a></li>
-                <li><a href="forum.xhtml?type=STUDENT_ORG">#{msgs.admin_forumMenuStOrgForum}</a></li>
-                <li><a href="forum.xhtml?type=TEACHER_FAQ">#{msgs.admin_forumMenuTeachTechForum}</a></li>
-                <li><a href="forum.xhtml?type=TEACHER_ORG">#{msgs.admin_forumMenuTeachOrgForum}</a></li>
+                <li><a href="forum.xhtml?type=STUDENT_FAQ"><h:graphicImage value="../resources/images/teh_forum2_blue2.png" styleClass="iconInMenu" />#{msgs.admin_forumMenuStTechForum}</a></li>
+                <li><a href="forum.xhtml?type=STUDENT_ORG"><h:graphicImage value="../resources/images/org_forum_blue.png" styleClass="iconInMenu" />#{msgs.admin_forumMenuStOrgForum}</a></li>
+                <li><a href="forum.xhtml?type=TEACHER_FAQ"><h:graphicImage value="../resources/images/teh_forum2_blue2.png" styleClass="iconInMenu" />#{msgs.admin_forumMenuTeachTechForum}</a></li>
+                <li><a href="forum.xhtml?type=TEACHER_ORG"><h:graphicImage value="../resources/images/org_forum_blue.png" styleClass="iconInMenu" />#{msgs.admin_forumMenuTeachOrgForum}</a></li>
 <!--                <li><a href="index.xhtml">#{msgs.admin_forumMenuCityForums}</a></li>-->
             </ol>
        <div class="violMenuTitle"><p class="sideBarTitle">#{msgs.admin_AdminChat}</p></div>
