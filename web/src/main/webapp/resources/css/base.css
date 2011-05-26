@@ -1825,8 +1825,16 @@ font-weight: bold;
 }
 
 /*стили для иконок в меню по бокам*/
-.mainStyle .iconInMenu{
+.mainStyle .iconInMenu2{
     margin-right: 3px;
     margin-bottom: -7px;
     margin-top: 10px;
+}
+.mainStyle .iconInMenu{
+    margin-right: 3px;
+    float:left;
+}
+.mainStyle .iconMenu li{
+    margin-top:10px;
+    padding-bottom:10px;
 }

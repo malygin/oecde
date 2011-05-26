@@ -73,13 +73,13 @@
     </ui:define>
     <ui:define name="right">
         <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_comMenuTitle}</p></div>
-        <ol class="leftSideMenuLinks">
-            <li><a href="curriculums.xhtml">#{msgs.teacher_communicationMenuMyCources}</a></li>
-            <li><a href="controlWorksAttempts.xhtml">#{msgs.teacher_communicationMenuAllCw}</a></li>
-            <li><a href="schedule.xhtml">#{msgs.teacher_communicationSchedule}</a></li>
-            <li><a href="forum.xhtml?type=TEACHER_FAQ">#{msgs.student_comMenuForumTech}</a></li>
-            <li><a href="forum.xhtml?type=TEACHER_ORG">#{msgs.student_comMenuForumOrg}</a></li>
-            <li><p>#{msgs.student_comMenuVideoconferencing}</p></li>
+        <ol class="leftSideMenuLinks iconMenu">
+            <li><a href="curriculums.xhtml"><h:graphicImage value="../resources/images/materials.png" styleClass="iconInMenu" />#{msgs.teacher_communicationMenuMyCources}</a></li>
+            <li><a href="controlWorksAttempts.xhtml"><h:graphicImage value="../resources/images/control_work.png" styleClass="iconInMenu" />#{msgs.teacher_communicationMenuAllCw}</a></li>
+            <li><a href="schedule.xhtml"><h:graphicImage value="../resources/images/shedule.png" styleClass="iconInMenu" />#{msgs.teacher_communicationSchedule}</a></li>
+            <li><a href="forum.xhtml?type=TEACHER_FAQ"><h:graphicImage value="../resources/images/teh_forum_teacher.png" styleClass="iconInMenu" />#{msgs.student_comMenuForumTech}</a></li>
+            <li><a href="forum.xhtml?type=TEACHER_ORG"><h:graphicImage value="../resources/images/org_forum_teacher.png" styleClass="iconInMenu" />#{msgs.student_comMenuForumOrg}</a></li>
+            <li><p><h:graphicImage value="../resources/images/video.png" styleClass="iconInMenu" />#{msgs.student_comMenuVideoconferencing}</p></li>
         </ol>
           <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_messMenuTitle}</p></div>
         <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="messages_list.xhtml">#{msgs.student_messMenuIn}
