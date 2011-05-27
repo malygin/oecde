@@ -68,22 +68,22 @@
     <ui:define name="right">
         <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_comMenuTitle}</p></div>
         <ol class="leftSideMenuLinks iconMenu">
-            <li><a href="teachersList.xhtml"><h:graphicImage value="../resources/images/teacher.png" styleClass="iconInMenu" />#{msgs.student_comMenuTeachers}</a></li>
-            <li><a href="studentsList.xhtml"><h:graphicImage value="../resources/images/student.png" styleClass="iconInMenu" />#{msgs.student_comMenuStudents}</a></li>
-            <li><a href="adminsList.xhtml"><h:graphicImage value="../resources/images/admin.png" styleClass="iconInMenu" />#{msgs.student_templateAdmins}</a></li>
-            <li><a href="forum.xhtml?type=STUDENT_FAQ"><h:graphicImage value="../resources/images/advise.png" styleClass="iconInMenu" />#{msgs.student_MistakesAndSuggestions}</a></li>
-            <li><a href="forum.xhtml?type=STUDENT_ORG"><h:graphicImage value="../resources/images/org_forum_student.png" styleClass="iconInMenu" />#{msgs.student_comMenuForumOrg}</a></li>
-            <li><a target="_blank" href="http://oecdo.sgu.ru/client/"><h:graphicImage value="../resources/images/video.png" styleClass="iconInMenu" />#{msgs.student_comMenuVideoconferencing}</a></li>
+            <li><a href="teachersList.xhtml"><h:graphicImage value="../resources/images/teacher.png" styleClass="iconInMenu" /><div>#{msgs.student_comMenuTeachers}</div></a></li>
+            <li><a href="studentsList.xhtml"><h:graphicImage value="../resources/images/student.png" styleClass="iconInMenu" /><div>#{msgs.student_comMenuStudents}</div></a></li>
+            <li><a href="adminsList.xhtml"><h:graphicImage value="../resources/images/admin.png" styleClass="iconInMenu" /><div>#{msgs.student_templateAdmins}</div></a></li>
+            <li><a href="forum.xhtml?type=STUDENT_FAQ"><h:graphicImage value="../resources/images/advise.png" styleClass="iconInMenu" /><div>#{msgs.student_MistakesAndSuggestions}</div></a></li>
+            <li><a href="forum.xhtml?type=STUDENT_ORG"><h:graphicImage value="../resources/images/org_forum_student.png" styleClass="iconInMenu" /><div>#{msgs.student_comMenuForumOrg}</div></a></li>
+            <li><a target="_blank" href="http://oecdo.sgu.ru/client/"><h:graphicImage value="../resources/images/video.png" styleClass="iconInMenu" /><div>#{msgs.student_comMenuVideoconferencing}</div></a></li>
         
         </ol>
 
         <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.student_controlMenuTitle}</p></div>
         <ol class="leftSideMenuLinks iconMenu">
-            <li><a href="curriculum.xhtml"><h:graphicImage value="../resources/images/uch_plan.jpg" styleClass="iconInMenu" />#{msgs.student_controlMenuCurriculum}</a></li>
-            <li><a href="schedule.xhtml"><h:graphicImage value="../resources/images/shedule.png" styleClass="iconInMenu" />#{msgs.student_controlMenuSchedule}</a></li>
+            <li><a href="curriculum.xhtml"><h:graphicImage value="../resources/images/uch_plan.png" styleClass="iconInMenu" /><div>#{msgs.student_controlMenuCurriculum}</div></a></li>
+            <li><a href="schedule.xhtml"><h:graphicImage value="../resources/images/shedule.png" styleClass="iconInMenu" /><div>#{msgs.student_controlMenuSchedule}</div></a></li>
             <!--<li><a href="libraryMaterials.xhtml">#{msgs.student_controlMenuLibrary}</a></li>-->
-            <li><a href="oldGrades.xhtml"><h:graphicImage value="../resources/images/grade_book.png" styleClass="iconInMenu" />#{msgs.student_controlMenuRecordBook}</a></li>
-            <li><a href="groupRating.xhtml"><h:graphicImage value="../resources/images/group.png" styleClass="iconInMenu" />#{msgs.student_GroupRating}</a></li>
+            <li><a href="oldGrades.xhtml"><h:graphicImage value="../resources/images/grade_book.png" styleClass="iconInMenu" /><div>#{msgs.student_controlMenuRecordBook}</div></a></li>
+            <li><a href="groupRating.xhtml"><h:graphicImage value="../resources/images/group.png" styleClass="iconInMenu" /><div>#{msgs.student_GroupRating}</div></a></li>
         </ol>
 
         <ut:usersOnline/>

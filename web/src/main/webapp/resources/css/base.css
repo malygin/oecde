@@ -1833,8 +1833,15 @@ font-weight: bold;
 .mainStyle .iconInMenu{
     margin-right: 3px;
     float:left;
+    height: 24px;
 }
 .mainStyle .iconMenu li{
     margin-top:10px;
     padding-bottom:10px;
+}
+.mainStyle .iconMenu li a div{
+    height: 24px;
+    display: table-cell;
+    width: 159px;
+    vertical-align: middle;
 }

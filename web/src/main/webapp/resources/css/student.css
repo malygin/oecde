@@ -267,3 +267,8 @@
      padding-bottom: 10px;
     padding-top: 10px;
 }*/
+
+/*на главной странице переопределяет стиль таблицы studentStandatrTable*/
+.mainStyle .studentTableEvent th{
+    border-bottom: 1px solid silver;
+}
