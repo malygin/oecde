@@ -6,6 +6,10 @@ package org.sgu.oecde.controlworks;
  */
 public enum ControlWorkProgress {
     /**
+     * нет в наличии
+     */
+    notAvailable,
+    /**
      * зачтена
      */
     passed,
@@ -16,11 +20,7 @@ public enum ControlWorkProgress {
     /**
      * в наличии
      */
-    available,
-    /**
-     * нет в наличии
-     */
-    notAvailable;
+    available;
     private static final long serialVersionUID = 92L;
 
     @Override
@@ -30,11 +30,11 @@ public enum ControlWorkProgress {
                 return "зачтено";
             case failed:
                 return "не зачтено";
+            case notAvailable:
+                return "нет в наличии";
+            default:
             case available:
                 return "в наличии";
-            case notAvailable:
-            default:
-                return "нет в наличии";
         }
     }
 
@@ -44,11 +44,11 @@ public enum ControlWorkProgress {
                 return "passed";
             case failed:
                 return "failed";
+            case notAvailable:
+                return "notAvailable";
+            default:
             case available:
                 return "available";
-            case notAvailable:
-            default:
-                return "notAvailable";
         }
     }
 
@@ -57,10 +57,8 @@ public enum ControlWorkProgress {
             return passed;
         else if("failed".equals(name))
             return failed;
-        else if("available".equals(name))
-            return available;
         else
-            return notAvailable;
+            return available;
     }
 
     public String getName(){
