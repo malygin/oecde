@@ -30,11 +30,11 @@
  <br/>
  <div>
  <h:outputText rendered="#{cc.attrs.pageName eq 'points'}" value="оценки  | " />
- <h:outputLink rendered="#{cc.attrs.pageName ne 'points'}" value="groupPoints.xhtml?g=#{cc.attrs.bean.group.id}&amp;s=#{cc.attrs.bean.semester}" >оценки | </h:outputLink>
+ <h:outputLink rendered="#{cc.attrs.pageName ne 'points'}" value="groupPoints.xhtml?g=#{cc.attrs.bean.group.id}&amp;s=#{cc.attrs.bean.semester}&amp;c=#{cc.attrs.bean.curriculumId}" >оценки | </h:outputLink>
  <h:outputText rendered="#{cc.attrs.pageName eq 'cw'}" value="контрольные | " />
- <h:outputLink rendered="#{cc.attrs.pageName ne 'cw'}" value="groupControlWorks.xhtml?g=#{cc.attrs.bean.group.id}&amp;s=#{cc.attrs.bean.semester}" >контрольные | </h:outputLink>
+ <h:outputLink rendered="#{cc.attrs.pageName ne 'cw'}" value="groupControlWorks.xhtml?g=#{cc.attrs.bean.group.id}&amp;s=#{cc.attrs.bean.semester}&amp;c=#{cc.attrs.bean.curriculumId}" >контрольные | </h:outputLink>
  <h:outputText rendered="#{cc.attrs.pageName eq 'tests'}" value="результаты тестов" />
- <h:outputLink rendered="#{cc.attrs.pageName ne 'tests'}" value="groupTestResults.xhtml?g=#{cc.attrs.bean.group.id}&amp;s=#{cc.attrs.bean.semester}" >результаты тестов</h:outputLink>
+ <h:outputLink rendered="#{cc.attrs.pageName ne 'tests'}" value="groupTestResults.xhtml?g=#{cc.attrs.bean.group.id}&amp;s=#{cc.attrs.bean.semester}&amp;c=#{cc.attrs.bean.curriculumId}" >результаты тестов</h:outputLink>
  </div>
 
         </h:panelGroup>

@@ -10,6 +10,9 @@
     </ui:define>
 
     <ui:define name="content">
+         <ui:define name="contentHeader">
+            Результаты тестов
+         </ui:define>
  <div class="interfaceContent">
  <f:metadata>
      <f:viewParam name="s" value="#{teachersGroups.semester}"/>
@@ -98,7 +101,7 @@
                 <f:facet name="header">
                  <h:outputText value="#{msgs.teacher_wayOfEvaluation}" />
                 </f:facet>
-                   <h:outputText  value="#{r.work.estimation}" />
+                    <h:outputText converter="enumConverter" value="#{r.work.estimation}" />
                </h:column>
          </h:dataTable>
      </h:column>

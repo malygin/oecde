@@ -6,6 +6,9 @@
     xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
     xmlns:ut="http://java.sun.com/jsf/composite/components/util">
     <ui:define name="content">
+         <ui:define name="contentHeader">
+            Присланные контрольные работы
+         </ui:define>
         <div class="interfaceContent">
             <f:metadata>
                 <f:viewParam name="s" value="#{teachersGroups.semester}"/>
@@ -24,7 +27,7 @@
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
                     </f:facet>
-                    <span class="controlWorksDisciplineName"><h:outputText value="#{a.work.curriculum.discipline}"/></span>
+                    <span class="controlWorksDisciplineName"><h:outputText value="#{a.work.curriculum.discipline.name}"/></span>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
@@ -51,8 +54,7 @@
                     </f:facet>
                     <h:outputText rendered="#{a.read}" value="downloaded"/>
                     <est:readCwAttempt attempt="#{a}"/>
-                    <span class="navigationLinks"><h:outputLink value="../resources/userFiles/controlWorks/#{a.filePath}"><h:outputText value="#{a.attemptDate}"/></h:outputLink></span>
-                </h:column>
+                 </h:column>
             </h:dataTable>
             <ut:navigationList elementOnPage="#{controlWorksAttemptsBean.elementsOnPage}" numElements="#{controlWorksAttemptsBean.readCwAttempsCount}" link="s=#{controlWorksAttemptsBean.semester}"/>
         </div>

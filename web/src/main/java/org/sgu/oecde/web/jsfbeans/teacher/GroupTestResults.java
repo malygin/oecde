@@ -1,7 +1,9 @@
 package org.sgu.oecde.web.jsfbeans.teacher;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -25,23 +27,26 @@ public class GroupTestResults extends AbstractStudentsListBean{
     @ManagedProperty(value="#{resourceService}")
     private ResourceService resourceService;
 
-    private List<NewEntry<Student,AdditionalSelfDependentWork>>tests;
+    private List<NewEntry<Student,List<AdditionalSelfDependentWork>>>tests;
 
     private static final long serialVersionUID = 112L;
 
-    public List<NewEntry<Student,AdditionalSelfDependentWork>>  getGroupTestResults() {
+    public List<NewEntry<Student,List<AdditionalSelfDependentWork>>>  getGroupTestResults() {
         if(tests==null){
-            List<Student>passedStudents = new ArrayList<Student>();
+            Set<Student>passedStudents = new HashSet<Student>();
             List<AdditionalSelfDependentWork> l = testAttemptService.getCurriculumAttempts(getCurriculum(),getStudentsList());
             Student st = null;
             NewEntry e = null;
-            tests = new ArrayList<NewEntry<Student, AdditionalSelfDependentWork>>();
+            tests = new ArrayList<NewEntry<Student, List<AdditionalSelfDependentWork>>>();
+            List<AdditionalSelfDependentWork>newTestsList = null;
             for(AdditionalSelfDependentWork w:l){
                 if(!w.getStudent().equals(st)){
-                    e = new NewEntry(w.getStudent(), w);
+                    newTestsList = new ArrayList<AdditionalSelfDependentWork>();
+                    e = new NewEntry(w.getStudent(), newTestsList);
                     tests.add(e);
-                    passedStudents.add(st);
+                    passedStudents.add(w.<Student>getStudent());
                 }
+                newTestsList.add(w);
                 st = w.getStudent();
             }
             if(passedStudents.size()!=getStudentsList().size()){
