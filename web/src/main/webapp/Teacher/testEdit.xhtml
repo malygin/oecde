@@ -15,20 +15,19 @@
      <h:outputText rendered="#{testForTeacher.accessDenied}" value="Не найден или не доступен" />
      <h:form rendered="#{not testForTeacher.accessDenied}">
         <table>
-            <tr><td><h:inputText maxlength="3" size="3" value="#{testForTeacher.test.duration}"/></td><td>duration</td></tr>
-            <tr><td><h:inputText maxlength="1" size="1" value="#{testForTeacher.test.estimateAttemptsNumber}"/></td><td>estimateAttemptsNumber</td></tr>
-            <tr><td><h:outputText value="#{testForTeacher.test.title}"/></td><td>title</td></tr>
-            <tr><td><h:inputText maxlength="1" size="1" value="#{testForTeacher.test.trialNumber}"/></td><td>trialNumber</td></tr>
-            <tr><td><h:inputText maxlength="3" size="3" value="#{testForTeacher.test.weight}"/></td><td>weight</td></tr>
-            <tr><td><h:outputText converter="enumConverter" value="#{testForTeacher.test.type}" /></td><td>type</td></tr>
+            <tr><td><h:inputText maxlength="3" size="3" value="#{testForTeacher.test.duration}"/></td><td>длительность</td></tr>
+            <tr><td><h:inputText maxlength="1" size="1" value="#{testForTeacher.test.estimateAttemptsNumber}"/></td><td>количество попыток в зачёт</td></tr>
+            <tr><td><h:outputText value="#{testForTeacher.test.title}"/></td><td>название</td></tr>
+            <tr><td><h:inputText maxlength="1" size="1" value="#{testForTeacher.test.trialNumber}"/></td><td>количество пробных попыток</td></tr>
+            <tr><td><h:outputText converter="enumConverter" value="#{testForTeacher.test.type}" /></td><td>тип</td></tr>
             <tr><td><h:selectOneMenu id="estimationType" value="#{testForTeacher.test.estimation}">
                <f:selectItems value="#{testForTeacher.estimation}" />
-            </h:selectOneMenu></td><td>estimation</td></tr>
-            <tr><td><util:date_picker value="#{testForTeacher.test.closeDate}"/></td><td>closeDate</td></tr>
-            <tr><td><util:date_picker value="#{testForTeacher.test.openDate}"/></td><td>openDate</td></tr>
-            <tr><td><h:inputText maxlength="3" size="3" value="#{testForTeacher.test.quantity}"/></td><td>quantity</td></tr>
-            <tr><td><h:selectBooleanCheckbox  value="#{testForTeacher.test.shuffle}"/></td><td>is shuffle</td></tr>
-            <tr><td><h:selectBooleanCheckbox  value="#{testForTeacher.test.writable}"/></td><td>is winter</td></tr>
+            </h:selectOneMenu></td><td>способ оценивания</td></tr>
+            <tr><td><util:date_picker value="#{testForTeacher.test.closeDate}"/></td><td>дата закрытия</td></tr>
+            <tr><td><util:date_picker value="#{testForTeacher.test.openDate}"/></td><td>дата открытия</td></tr>
+            <tr><td><h:inputText maxlength="3" size="3" value="#{testForTeacher.test.quantity}"/></td><td>количество выводимых вопросов</td></tr>
+            <tr><td><h:selectBooleanCheckbox  value="#{testForTeacher.test.shuffle}"/></td><td>перемешиваются ли вопросы </td></tr>
+            <tr><td><h:selectBooleanCheckbox  value="#{testForTeacher.test.writable}"/></td><td>записывается ли прохождение</td></tr>
             <tr><td><h:commandButton action="#{testForTeacher.save}" value="ОКЭ"/></td></tr>
         </table>
     </h:form>
