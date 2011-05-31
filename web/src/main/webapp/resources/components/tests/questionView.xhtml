@@ -15,20 +15,17 @@
 
     <composite:implementation>
 
-        <div style="width: 100px; float: left; color: #27587F; font-size: 14px; margin-left: 10px;">  #{msgs.student_TestQuestionNumberQ} #{testPassingBean.iterQ+1} (#{testPassingBean.countQuestions})
-                   <h:commandButton value="следующий" action="#{testPassingBean.next}" styleClass="studentButton" style="margin: 8px; width: 90px;">
+                <div style="width: 100px; float: left; color: #27587F; font-size: 14px; margin-left: 10px;">  #{msgs.student_TestQuestionNumberQ} #{testPassingBean.iterQ+1} (#{testPassingBean.countQuestions})
+                     <h:commandButton value="следующий" action="#{testPassingBean.next}" styleClass="studentButton" style="margin: 8px; width: 90px;">
                          <f:ajax render="@form"/>
                      </h:commandButton>
                  </div>
-
-                  <div style="margin-top: 15px;"><h:outputText id="qTitle" title="qTitle" styleClass="qTitle" escape="false" value="#{testPassingBean.questionTitle}" style="display: block; font-size: 14px;"/></div>
-
-                  <div style="clear: left;">
+        
+                    <div style="margin-top: 15px;"><h:outputText id="qTitle" title="qTitle" styleClass="qTitle" escape="false" value="#{testPassingBean.questionTitle}" style="display: block; font-size: 14px;"/></div>
+                    <div style="clear: left;">
                       <h:panelGroup  id="radioType" rendered="#{cc.attrs.question.type=='radio'}" styleClass="educ_umk_text_block">
                             <div style="margin-left: 100px;">
                                 <ui:repeat value="#{testPassingBean.answers}" var="ans">
-
-
                                  <h:panelGroup rendered="#{ans.value.rightAnswer==1}" styleClass="radioButtonActive"><label> <b>#{ans.label}</b></label>
                                 </h:panelGroup>
                                   <h:panelGroup rendered="#{ans.value.rightAnswer!=1}" styleClass="radioButtonEnabled"><label> #{ans.label}</label>
@@ -37,15 +34,15 @@
                             </div>
                                  
                          </h:panelGroup>
-                  </div>
+                      </div>
 
-                   <div style="clear: left;">
+                      <div style="clear: left;">
                           <h:panelGroup id="checkType" rendered="#{cc.attrs.question.type=='check'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
                              <div style="margin-left: 100px;">
-                              <ui:repeat value="#{setToList.getList(cc.attrs.question.answers)}" var="ans">
-                                 <h:panelGroup rendered="#{ans.rightAnswer==1}" styleClass="checkboxActive"><label> #{ans.title}</label>
+                              <ui:repeat value="#{testPassingBean.answers}" var="ans">
+                                 <h:panelGroup rendered="#{ans.value.rightAnswer==1}" styleClass="checkboxActive"><label> #{ans.label}</label>
                                 </h:panelGroup>
-                                  <h:panelGroup rendered="#{ans.rightAnswer!=1}" styleClass="checkboxEnabled"><label> #{ans.title}</label>
+                                  <h:panelGroup rendered="#{ans.value.rightAnswer!=1}" styleClass="checkboxEnabled"><label> #{ans.label}</label>
                                 </h:panelGroup>
                               </ui:repeat>
                              </div>
@@ -67,13 +64,12 @@
                       <div style="clear: left;" align="left">
                           <h:panelGroup id="comparisonType" rendered="#{cc.attrs.question.type=='comparison'}">
                               <div style="margin-left: 100px;">
-                              <ui:repeat value="#{setToList.getList(cc.attrs.question.answers)}" var="ans">
-                             <li> <label> #{ans.title}</label> - <b>#{ans.rightAnswer}</b><br/></li>
-                             </ui:repeat>
-                              </div>
-                               
+                                  <ui:repeat value="#{setToList.getList(cc.attrs.question.answers)}" var="ans">
+                                     <li> <label> #{ans.title}</label> - <b>#{ans.rightAnswer}</b><br/></li>
+                                  </ui:repeat>
+                              </div>                               
                          </h:panelGroup>
-                     </div>
+                      </div>
 
     </composite:implementation>
 </html>

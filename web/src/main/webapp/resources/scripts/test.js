@@ -1,8 +1,8 @@
 
 
-//       //       $(window).bind('beforeunload', function(){
-//		return 'Ваша попытка не будет засчитана, вы уверены?';
-//	   });
+      $(window).bind('beforeunload', function(){
+		return 'Ваша попытка не будет засчитана, вы уверены?';
+         });
 
 function checkTime() {
     document.getElementById('mainForm:completeTest').click();
@@ -11,7 +11,6 @@ function checkTime() {
 }
 function removeCounter() {
     $("#counter").remove();
-
 }
 
 $(function(){
@@ -26,7 +25,6 @@ $(function(){
      
 $(function(){
     $("label").each(function(i){
-
         if($(this).text().indexOf("<img")!=-1){
             $(this).html($(this).text());
         }

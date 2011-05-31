@@ -309,8 +309,7 @@ public class TestPassingBean implements Serializable {
      /*
       * формируем списек вопросов
       */
-     private void makeQuestionList() throws MalformedURLException, IOException {
-        
+     private void makeQuestionList() throws MalformedURLException, IOException {        
        questionsView = new QuestionImpl[countQuestions];
         int i=0;
         for(Question q:questions){
@@ -330,8 +329,8 @@ public class TestPassingBean implements Serializable {
         if ((type==QuestionType.radio)||(type==QuestionType.check)){
             answers=new ArrayList<SelectItem>();
             for(Answer a:currentQustionView.getQuestion().getAnswers()){
-
-                answers.add(new SelectItem(a, checkForFormulaOrLink(a.getTitle())));            
+                answers.add(new SelectItem(a, checkForFormulaOrLink(a.getTitle())));
+                //System.out.println("!!"+answers.get(0).getLabel());
             }
         }
         if ((type==QuestionType.comparison)){       
@@ -395,10 +394,12 @@ public class TestPassingBean implements Serializable {
                String replaceString=str.substring(str.indexOf("$"), str.indexOf("$",str.indexOf("$")+2 )+2).replaceAll("\\+", "%2B");
                str=str.replace(str.indexOf("$"), str.indexOf("$",str.indexOf("$")+2 )+2, replaceString);
                s=str.toString();
+               // System.out.println("check "+s);
               s= s.replaceFirst("\\$+"," <img src='http://oec.sgu.ru/latex/latex.php?code=");
               s= s.replaceFirst("\\$+"," '/> ");
              }
         }
+      //  System.out.println("________megacheck "+s);
         return s;
     }
 
