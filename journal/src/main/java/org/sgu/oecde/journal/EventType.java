@@ -946,11 +946,19 @@ public enum EventType {
                     break;
               case STUDENT_ORG:
                     el[0] = new EventBodyElement(str[3]+" ответил(а) на ваш пост ");
+                    el[1] = new EventBodyElement("&amp;page="+str[2]+"#"+str[1], "на организационном форуме", EventBodyElement.forumStudentTechPage);
+                    break;
+               case TEACHER_FAQ:
+                    el[0] = new EventBodyElement(str[3]+" ответил(а) на ваш пост ");
+                    el[1] = new EventBodyElement("&amp;page="+str[2]+"#"+str[1], "на техническом форуме", EventBodyElement.forumTeacherTechPage);
+                    break;
+              case TEACHER_ORG:
+                    el[0] = new EventBodyElement(str[3]+" ответил(а) на ваш пост ");
                     el[1] = new EventBodyElement("&amp;page="+str[2]+"#"+str[1], "на организационном форуме", EventBodyElement.forumTeacherOrgPage);
                     break;
                 case NEWS:
                     el[0] = new EventBodyElement("К вашему комментарию к новости ");
-                    el[1] = new EventBodyElement("?id="+item.getMultiId()+"&amp;page="+str[3]+"#"+str[2], str[1], EventBodyElement.newsPage);
+                    el[1] = new EventBodyElement("&amp;id="+item.getMultiId()+"&amp;page="+str[3]+"#"+str[2], str[1], EventBodyElement.newsPage);
                     el[2] = new EventBodyElement(" "+ str[4]+"  добавил(а) ответ.");
                     break;
             }
@@ -1026,6 +1034,14 @@ public enum EventType {
               case STUDENT_ORG:
                     el[3] = new EventBodyElement("добавил(а) комментарий на ");
                     el[4] = new EventBodyElement("", "на организационном форуме студентов", EventBodyElement.forumStudentOrgPage);
+                    break;
+                case TEACHER_FAQ:
+                    el[3] = new EventBodyElement("добавил(а) комментарий на ");
+                    el[4] = new EventBodyElement("", " техническом форуме преподавателей", EventBodyElement.forumTeacherTechPage);
+                    break;
+              case TEACHER_ORG:
+                    el[3] = new EventBodyElement("добавил(а) комментарий на ");
+                    el[4] = new EventBodyElement("", "на организационном форуме преподавателей", EventBodyElement.forumTeacherOrgPage);
                     break;
                 case NEWS:
                     el[3] = new EventBodyElement("добавил(а) комментарий к новости ");
