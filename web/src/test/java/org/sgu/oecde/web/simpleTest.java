@@ -99,22 +99,42 @@ public class simpleTest{
         }
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void asd(){
-        new B().doPublic();
+        HashSet<item>h = new HashSet<item>();
+        h.add(new item(1));
+        h.add(new item(2));
+        System.out.println(h);
     }
 }
- class A {
- public void doPublic() {
-  doInternal();
- }
- private void doInternal() {
-  System.out.println("Do internal in A");
- }
-}
-class B extends A {
- public void doInternal() {
-  System.out.println("Do internal in B");
- }
+class item{
+    int id;
+
+    public item(int id) {
+        this.id = id;
+    }
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final item other = (item) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        return true;
+    }
 }
