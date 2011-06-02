@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     template="../resources/adminTemplate.xhtml"
+     xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
+     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+    xmlns:j="http://java.sun.com/jsf/composite/components/journal">
+
+     <ui:define name="contentHeader">
+        События студента
+       
+    </ui:define>
+    <ui:define name="content">
+        <f:metadata>
+            <f:viewParam name="id" value="#{studentViewBean.id}"/>
+        </f:metadata>
+        <f:metadata>
+            <f:viewParam name="page" value="#{journalBean.pageNumber}"/>
+            <f:viewParam name="page" value="#{NavigationBean.page}"/>
+        </f:metadata>
+        <j:output type="adminStudentEvents" object="#{studentViewBean.id}" link="id=#{studentViewBean.id}"/>
+    </ui:define>
+</ui:composition>

@@ -11,6 +11,7 @@
   <composite:interface>
       <composite:attribute name="type" required="true" type="java.lang.String" shortDescription="тип фильтра"/>
       <composite:attribute name="object" shortDescription="айди, либо пользователь"/>
+      <composite:attribute name="link" shortDescription="ссылка"/>
   </composite:interface>
 
   <!-- IMPLEMENTATION -->
@@ -34,9 +35,9 @@
                     <h:commandButton value="OK" action="#{journalBean.clearEvents}" styleClass="studentButton portalSettingsButtonPosition"/>
                 </div>
             </div>
-           <util:navigationList numElements="#{journalBean.eventsCount}" elementOnPage="#{journalBean.filter.capacity}"/>
+           <util:navigationList link="#{cc.attrs.link}" numElements="#{journalBean.eventsCount}" elementOnPage="#{journalBean.filter.capacity}"/>
            <j:eventsOnly  list="#{journalBean.events}"/>
-           <util:navigationList numElements="#{journalBean.eventsCount}" elementOnPage="#{journalBean.filter.capacity}"/>
+           <util:navigationList link="#{cc.attrs.link}" numElements="#{journalBean.eventsCount}" elementOnPage="#{journalBean.filter.capacity}"/>
         </h:form>
    </composite:implementation>
 </html>

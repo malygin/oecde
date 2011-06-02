@@ -11,6 +11,6 @@
         <f:metadata>
             <f:viewParam name="p" value="#{journalBean.pageNumber}"/>
         </f:metadata>
-        <j:output type="studentEvents"/>
+        <j:output type="studentEvents" object="#{studentSessionBean.student}" link="#{studentSessionBean.student.id}"/>
     </ui:define>
 </ui:composition>
