@@ -68,8 +68,8 @@
                                 <h:dataTable value="#{o[1].cwAttempt}" var="a">
                                     <h:column>
                                         <h:outputText rendered="#{a.filePath eq 'empty'}" value="#{a.attemptDate}"/>
-                                    <h:outputLink rendered="#{a.filePath ne 'empty'}" value="#{a.filePath}" id="log">
-                                        <h:outputText value="#{a.attemptDate}"/>
+                                    <h:outputLink rendered="#{a.filePath ne 'empty'}" value="../resources/userFiles/controlWorks/#{a.filePath}" id="log">
+                                        <h:outputText converter="dateConverter" value="#{a.attemptDate}"/> - скачать
                                     </h:outputLink>
                             </h:column>
                                 </h:dataTable>

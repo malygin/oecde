@@ -4,6 +4,7 @@ import org.sgu.oecde.core.BasicItem;
 import org.sgu.oecde.core.users.AbstractPerson;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.UserType;
+import org.sgu.oecde.de.users.DeSupervisor;
 
 /**
  * @author Andrey Malygin (mailto: anmalygin@gmail.com)
@@ -64,6 +65,7 @@ public class MessageRecipient extends BasicItem{
    public String getFioAuthor(){
      String fio="";
      UserType userType=UserType.toType(recipient);
+     if (userType==UserType.SUPERVISOR) return "Представительство"+((DeSupervisor)recipient).getCity().getName();
      AbstractPerson person=(AbstractPerson) recipient;
      switch(userType){
          case STUDENT:
