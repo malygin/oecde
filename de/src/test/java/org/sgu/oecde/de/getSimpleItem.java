@@ -49,7 +49,11 @@ public class getSimpleItem extends BasicTest{
     @Test
     public void getSt(){
         this.setDao("userDao");
-         System.out.println(this.<AbstractUser>getByExample(AbstractUser.getUserWithName("belousovyae")));
+        Student s = getItem(324725l);
+        for(Student st:s.<Group>getGroup()){
+            System.out.println(st);
+        }
+
     }
 
     @Ignore

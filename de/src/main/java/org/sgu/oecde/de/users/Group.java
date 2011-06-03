@@ -8,7 +8,7 @@ import org.springframework.util.StringUtils;
  * студенческая группа дистанционного образования
  * @author ShihovMY
  */
-public class Group extends StudentGroup implements Comparable<Group>{
+public class Group extends StudentGroup<Student>implements Comparable<Group>{
     /**
      * специальность
      */
