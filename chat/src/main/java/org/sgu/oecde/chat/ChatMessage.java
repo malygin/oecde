@@ -2,6 +2,7 @@
 package org.sgu.oecde.chat;
 
 import org.sgu.oecde.core.BasicItem;
+import org.sgu.oecde.core.users.AbstractPerson;
 import org.sgu.oecde.core.users.AbstractUser;
 
 /**
@@ -21,6 +22,10 @@ public class ChatMessage extends BasicItem  {
 
     public AbstractUser getAuthor() {
         return author;
+    }
+
+    public AbstractPerson getPerson(){
+        return (AbstractPerson) author;
     }
 
     public void setAuthor(AbstractUser author) {
