@@ -7,7 +7,7 @@ import org.sgu.oecde.core.BasicItem;
  *
  * @author ShihovMY
  */
-public class Tab extends BasicItem{
+public class Tab extends BasicItem implements Comparable<Tab> {
     private String name;
     private Set<Page>pages;
     private TabType type;
@@ -44,5 +44,13 @@ public class Tab extends BasicItem{
         if(type!=null)
             type.checkIntstantiation();
         this.type = type;
+    }
+
+    @Override
+    public int compareTo(Tab o) {
+        int c = 0;
+        if(o!=null&&o.getType()!=null)
+            c = this.getType().getName().compareTo(o.getType().getName());
+        return c;
     }
 }
