@@ -60,7 +60,7 @@
                                         <f:setPropertyActionListener target="#{DiscussionBean.currentNode}" value="#{node}" />
                              </h:commandLink>
 
-                            <h:panelGroup rendered="#{DiscussionBean.currentUser.id==node.user.id || sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.class.simpleName eq 'Admin'}" style="float: right;">
+                            <h:panelGroup rendered="#{DiscussionBean.currentUser.id==node.user.id || sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.authorities.get(0) eq 'ROLE_ADMIN'}" style="float: right;">
 
                                 <h:commandLink rendered="#{!DiscussionBean.renderEdit}" style="margin-right: 10px;" action="#{DiscussionBean.showEdit}" value="#{msgs.admin_mainContentEdit}">
                                         <f:ajax  execute="@this" render="@form" />

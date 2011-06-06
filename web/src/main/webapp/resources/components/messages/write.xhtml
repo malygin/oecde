@@ -17,7 +17,7 @@
     <!-- IMPLEMENTATION -->
     <cc:implementation>
         <div class="interfaceContent">
-            <h:form  id="formSend"  enctype="multipart/form-data" >
+            <h:form  id="formSend"   enctype="multipart/form-data" >
                 
 <!--                  <div style="float: left; margin-right: 20px; margin-top: 5px;">
                       
@@ -91,7 +91,9 @@
                     </h:panelGroup>
                     <div class="leftMenuContainer" style="text-align: center; margin-top: 8px;">
                         
-                        <h:commandButton action="#{MessageWriteBean.save}" value="#{msgs.message_sendMess}" styleClass="studentButton" style="margin-left: 3px; width: 160px;"/>
+                        <h:commandLink  action="#{MessageWriteBean.save}" value="#{msgs.message_sendMess}111111111" styleClass="studentButton" style="margin-left: 3px; width: 160px;">
+                         <f:ajax execute="@form" render="@form"/>
+                        </h:commandLink>
                        
                         </div>
                 </div>

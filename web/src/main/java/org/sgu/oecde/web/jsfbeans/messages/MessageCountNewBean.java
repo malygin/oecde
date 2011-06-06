@@ -1,6 +1,7 @@
 
 package org.sgu.oecde.web.jsfbeans.messages;
 
+import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
@@ -16,7 +17,7 @@ import org.sgu.oecde.messages.service.MessageService;
 
 @ManagedBean(name="MessageCountNewBean")
 @ViewScoped
-public class MessageCountNewBean {
+public class MessageCountNewBean implements Serializable{
     private int number=-1;
     @ManagedProperty(value="#{messageService}")
     private MessageService messageService;
