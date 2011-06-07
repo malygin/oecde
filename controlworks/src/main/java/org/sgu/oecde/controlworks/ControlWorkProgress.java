@@ -6,9 +6,9 @@ package org.sgu.oecde.controlworks;
  */
 public enum ControlWorkProgress {
     /**
-     * нет в наличии
+     * в наличии
      */
-    notAvailable,
+    available,
     /**
      * зачтена
      */
@@ -18,9 +18,9 @@ public enum ControlWorkProgress {
      */
     failed,
     /**
-     * в наличии
+     * нет в наличии
      */
-    available;
+    notAvailable;
     private static final long serialVersionUID = 92L;
 
     @Override
