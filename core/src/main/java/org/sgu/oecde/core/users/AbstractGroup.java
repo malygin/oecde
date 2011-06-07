@@ -1,5 +1,6 @@
 package org.sgu.oecde.core.users;
 
+import java.util.Iterator;
 import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
 
@@ -8,7 +9,7 @@ import org.sgu.oecde.core.BasicItem;
  * входить могут только пользователи-люди
  * @author ShihovMY
  */
-public abstract class AbstractGroup<T extends AbstractPerson> extends BasicItem{
+public abstract class AbstractGroup<T extends AbstractPerson> extends BasicItem implements Iterable<T>{
     /**
      * пользователи
      */
@@ -51,6 +52,14 @@ public abstract class AbstractGroup<T extends AbstractPerson> extends BasicItem{
      */
     public void setPersons(Set<T> persons) {
         this.persons = persons;
+    }
+
+    @Override
+    public Iterator<T> iterator(){
+        if(persons!=null)
+            return persons.iterator();
+        else
+            return null;
     }
 
     @Override

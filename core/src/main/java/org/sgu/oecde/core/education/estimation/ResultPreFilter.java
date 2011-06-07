@@ -75,6 +75,10 @@ public class ResultPreFilter implements Serializable{
             st = result.getStudent();
 
         }
+
+        for(IResultFilter filter:resultFilters)
+            filter.setPoints(points);
+
         if(pointsList.size()!=students.size()||pointsList.size()!=curriculums.size()){
             List<? extends AbstractStudent>newStudents = new ArrayList<AbstractStudent>(students);
             List<? extends Curriculum>newCurriculums = new ArrayList<Curriculum>(curriculums);
