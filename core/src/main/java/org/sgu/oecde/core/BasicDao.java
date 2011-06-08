@@ -78,7 +78,7 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
      */
     public List<T> getBySimpleExample(final T item) throws DataAccessException{
         Criteria cr =  getSession().createCriteria(type);
-        return cr.add(Example.create(item).enableLike(MatchMode.ANYWHERE).ignoreCase().excludeZeroes()).addOrder(Order.asc("id")).list();
+        return cr.add(Example.create(item).ignoreCase().excludeZeroes()).addOrder(Order.asc("id")).list();
     }
 
     /**
