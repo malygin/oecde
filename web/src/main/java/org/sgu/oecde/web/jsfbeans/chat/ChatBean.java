@@ -33,7 +33,7 @@ public class ChatBean implements Serializable{
 
     //по умолчанию тянем студенческий чат
     private String idChat="1";
-    private int numberMessage=100;
+    private int numberMessage=500;
 
     private static final long serialVersionUID = 163L;
 

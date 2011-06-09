@@ -1,10 +1,12 @@
     <ui:composition
          xmlns:ui="http://java.sun.com/jsf/facelets"
          xmlns:f="http://java.sun.com/jsf/core"
-         template="../resources/studentTemplate.xhtml"
+         template="../resources/adminTemplate.xhtml"
          xmlns:c="http://java.sun.com/jsp/jstl/core"
          xmlns:h="http://java.sun.com/jsf/html">
-   
+     <f:metadata>
+            <f:viewParam name="id" value="#{chatBean.idChat}"/>
+        </f:metadata>
          <ui:define name="contentHeader">
             История чата
          </ui:define>
