@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
  *
  * @author ShihovMY
  */
-@ContextConfiguration(locations={"../applicationContext.xml","../applicationContext-security.xml"})
+//@ContextConfiguration(locations={"../applicationContext-security.xml"})
 public class getUsers extends BasicTest{
 
 
@@ -28,7 +28,16 @@ public class getUsers extends BasicTest{
         System.out.println(uds.loadUserByUsername("shihovmy"));
     }
 
-//    @Ignore
+//     @Ignore
+    @Test
+    public void getByName2(){
+        IBasicDao<AbstractUser> userDao  = getBean("userDao");
+        AbstractUser example = AbstractUser.getUserWithName("shihovmy");
+        List<AbstractUser> l = userDao.getByExample(example);
+        System.out.println(((Admin)l.get(0)).getPosition());
+    }
+
+  @Ignore
     @Test
     public void getAllA(){
         this.setDao("adminDao");

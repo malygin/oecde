@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <subclass discriminator-value="pers" extends="org.sgu.oecde.core.users.AbstractUser" name="org.sgu.oecde.core.users.AbstractPerson">
+  <joined-subclass  extends="org.sgu.oecde.core.users.AbstractUser" name="org.sgu.oecde.core.users.AbstractPerson" table="abstract_person">
+    <key column="id" foreign-key="fk_person_user" not-null="true" on-delete="cascade"/>
     <property insert="false" length="50" name="name" type="string" update="false"/>
     <property column="second_name" insert="false" length="50" name="secondName" type="string" update="false"/>
     <property insert="false" length="50" name="surname" type="string" update="false"/>
-  </subclass>
+  </joined-subclass>
 </hibernate-mapping>

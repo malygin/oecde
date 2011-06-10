@@ -14,7 +14,7 @@ import org.sgu.oecde.core.util.DateConverter;
  */
 public class simpleTest{
 
-    @Ignore
+  //  @Ignore
     @Test
     public void getF(){
         Calendar c = new GregorianCalendar();

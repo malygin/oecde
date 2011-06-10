@@ -5,7 +5,7 @@
     <key column="id" foreign-key="fk_teacher_user" not-null="true" on-delete="cascade"/>
     <property insert="false" length="100" name="post" type="string"/>
     <many-to-one class="org.sgu.oecde.core.users.Department" fetch="join" foreign-key="fk_teacher_departament" insert="false" name="department" not-null="false"/>
-    <set cascade="none" fetch="select" lazy="true" mutable="false" name="teacherToGroups" schema="d_education" table="teacher_to_group">
+    <set cascade="none" fetch="select" lazy="true" mutable="false" name="teacherToGroups" schema="oecdo_test" table="teacher_to_group">
       <cache usage="read-only"/>
       <key column="teacher" foreign-key="fk_teacher_2_group_teacher"/>
       <composite-element class="org.sgu.oecde.core.education.TeacherToGroup">
