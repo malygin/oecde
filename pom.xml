@@ -24,7 +24,7 @@
     <module>de</module>
     <module>tabs</module>
     <module>chat</module>
-  </modules>
+  </modules><!--
    <repositories>
         <repository>
             <id>org.springframework.security.taglibs.facelets</id>
@@ -74,7 +74,7 @@
             <name>Java.net Repository for Glassfish</name>
         </repository>
 
-        </repositories>
+        </repositories>-->
 
         <pluginRepositories>
             <pluginRepository>
@@ -372,8 +372,8 @@
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>6.0</version>
+            <scope>provided</scope>
         </dependency>
-
         </dependencies>
         
     <build>
