@@ -14,13 +14,18 @@
     <!-- IMPLEMENTATION -->
     <composite:implementation>
         <div style="">
-            <h:form enctype="multipart/form-data">
-                <ut:showPhoto user="#{cc.attrs.bean.user}" size="large"/>
+            <form method="post" enctype="multipart/form-data" action="UploadServlet">
+                    <ut:showPhoto user="#{cc.attrs.bean.user}" size="large"/>
                 <div class="downloadPhoto">
                     <input type="file" name="avatar" class="AdminAddAvatar downloadPhotoInputStyle" /><br/>
-                    <h:commandButton action="#{cc.attrs.bean.uploadAvatar}" styleClass="studentButton" value="#{msgs.photoLoaderButton}" style="width: 150px;" />
+                    <button type="submit" styleClass="studentButton" style="width: 150px;">#{msgs.photoLoaderButton}</button>
                 </div>
-            </h:form>
+            </form>
+            #{cc.attrs.bean.uploadAvatar()}
+            <!--<form method="post" enctype="multipart/form-data" action="../Multipart">
+                 <input type="file" name="avatar" class="AdminAddAvatar downloadPhotoInputStyle" /><br/>
+                 <button type="submit" value="ok"/>
+            </form>-->
         </div>
     </composite:implementation>
 </html>

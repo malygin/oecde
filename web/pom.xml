@@ -169,38 +169,26 @@
             <version>3.1</version>
             <type>jar</type>
         </dependency>
-
+        
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>facelets-taglib-jsf20-spring-3</artifactId>
             <version>0.5</version>
         </dependency>
-        
+              
+        <dependency>
+          <groupId>org.glassfish.web</groupId>
+          <artifactId>el-impl</artifactId>
+          <version>2.2</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>org.springframework.security.taglibs</artifactId>
             <version>3.0.0.RELEASE</version>
         </dependency>
-
     </dependencies>
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jaxws-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>wsgen</goal>
-                        </goals>
-                        <configuration>
-                            <sei>org.sgu.oecde.web.ConferenceWebService</sei>
-                            <genWsdl>true</genWsdl>
-                            <keep>true</keep>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -259,6 +247,6 @@
         <finalName>web</finalName>
     </build>
     <properties>
-        <netbeans.hint.deploy.server>Tomcat70</netbeans.hint.deploy.server>
+        <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
     </properties>
 </project>

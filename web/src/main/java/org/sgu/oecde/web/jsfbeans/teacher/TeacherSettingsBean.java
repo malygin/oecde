@@ -51,9 +51,8 @@ public class TeacherSettingsBean implements IBeanWithAvatarAdding{
         saved = true;
     }
     
-    public String uploadAvatar(){
+    public void uploadAvatar(){
         avatarBuilder.addAvatar(teacherSessionBean.getTeacher());
-        return "?faces-redirect=true";
     }
 
     public String getError() {

@@ -43,9 +43,8 @@ public class AdminSettingsBean extends UserViewBean implements IBeanWithAvatarAd
         saved = true;
     }
     
-    public String uploadAvatar(){
+    public void uploadAvatar(){
         avatarBuilder.addAvatar(adminSessionBean.getAdmin());
-        return "?faces-redirect=true";
     }
 
     public String getError() {

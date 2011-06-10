@@ -96,21 +96,18 @@ public class MessageWriteBean  implements Serializable{
      * @throws IOException
      */
     public void addFile() throws IOException {    
-        HttpServletRequest req = FacesUtil.getRequest();
-        if(req instanceof MultipartRequestWrapper){          
-            MultipartRequestWrapper multi = (MultipartRequestWrapper)req;
-            //MessageFile -  имя файла в форме
-            UploadFile uf = multi.findFile("MessageFile");
-            if((uf != null)&&(!uf.getFileName().equals(""))){
-             MessageFile mfile= new MessageFile();
-             //messages -  в данном случае имя папки и имя префикса в именах файлов
-             String name = FileUploadUtil.Upload(uf, multi, "messages",true);
-             if(name!=null){
-                 mfile.setName(name);
-                 files.add(mfile);
-             }
-            }
-        }   
+        HttpServletRequest multi = FacesUtil.getRequest();  
+        //MessageFile -  имя файла в форме
+        UploadFile uf = FileUploadUtil.findFile(multi,"MessageFile");
+        if((uf != null)&&(!uf.getFileName().equals(""))){
+         MessageFile mfile= new MessageFile();
+         //messages -  в данном случае имя папки и имя префикса в именах файлов
+         String name = FileUploadUtil.Upload(uf, multi, "messages",true);
+         if(name!=null){
+             mfile.setName(name);
+             files.add(mfile);
+         }
+        }
     }
 
    /** 

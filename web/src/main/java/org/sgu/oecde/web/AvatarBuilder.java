@@ -1,7 +1,5 @@
 package org.sgu.oecde.web;
 
-
-
 import java.awt.*;
 import java.io.IOException;
 import java.awt.image.*;
@@ -13,7 +11,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Part;
 import org.sgu.oecde.core.IUpdateDao;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.journal.EventType;
@@ -27,7 +27,8 @@ import org.springframework.util.Assert;
  * Класс, изменяющий размеры изображения.
  */
 @Service
-public class AvatarBuilder implements Serializable{
+public class AvatarBuilder implements Serializable {
+
     private final int BIG_WIDTH = 150;
     private final int SMALL_WIDTH = 56;
     private final int MEDIUM_WIDTH = 100;
@@ -41,28 +42,37 @@ public class AvatarBuilder implements Serializable{
     private IUpdateDao<AbstractUser> userDao;
     @Resource
     private JournalService journalService;
-
     private static final long serialVersionUID = 179L;
 
-    public void addAvatar(AbstractUser user){
+    public void addAvatar(AbstractUser user) {
         HttpServletRequest req = FacesUtil.getRequest();
-        if(req instanceof MultipartRequestWrapper){
-            MultipartRequestWrapper multi = (MultipartRequestWrapper)req;
-            InputStream stream = multi.getStream("avatar");
+        HttpServletRequest multi = req;
+        InputStream stream = null;
+        try {
+            Part p = (Part) req.getAttribute("avatar");
+            if(p == null)
+                return;
+            stream = p.getInputStream();
             BufferedImage im;
+            im = ImageIO.read(stream);
+            if (im != null) {
+                addAvatar(user, im, multi);
+            }
+        }catch (IOException ex) {
+            Logger.getLogger(AvatarBuilder.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
             try {
-                im = ImageIO.read(stream);
-                if(im!=null)
-                    addAvatar(user,im,multi);
+                if(stream!=null)
+                    stream.close();
             } catch (IOException ex) {
                 Logger.getLogger(AvatarBuilder.class.getName()).log(Level.SEVERE, null, ex);
             }
-            userDao.update(user);
-            journalService.save(EventType.PHOTO_ADDITION,user);
         }
+        userDao.update(user);
+        journalService.save(EventType.PHOTO_ADDITION, user);
     }
 
-    private void addAvatar(AbstractUser u,BufferedImage im,MultipartRequestWrapper multi) throws IOException{
+    private void addAvatar(AbstractUser u, BufferedImage im, HttpServletRequest multi) throws IOException {
         Assert.notNull(u);
         u.setLargePhoto(u.getUsername() + BIG_IMAGE_POSTFIX);
         u.setMediumPhoto(u.getUsername() + MEDIUM_IMAGE_POSTFIX);
@@ -72,7 +82,7 @@ public class AvatarBuilder implements Serializable{
         createImage(u.getUsername() + SMALL_IMAGE_POSTFIX, SMALL_WIDTH, SMALL_HEIGHT, im, multi);
     }
 
-   private void createImage(String fname, int width, int height,BufferedImage im,MultipartRequestWrapper multi) throws IOException{
+    private void createImage(String fname, int width, int height, BufferedImage im, HttpServletRequest multi) throws IOException {
         float k;
         k = (float) (im.getWidth() * 1.0 / width);
         int newHeight = (int) (im.getHeight() / k);
@@ -82,13 +92,13 @@ public class AvatarBuilder implements Serializable{
             int cr = (newHeight - height) / 2;
             img = img.getSubimage(0, cr, width, newHeight - cr * 2);
         }
-        File someFile = new File(multi.getRequest().getServletContext().getRealPath("/resources/userFiles/avatars/"+fname));
+        File someFile = new File(multi.getServletContext().getRealPath("/resources/userFiles/avatars/" + fname));
 //        if(!someFile.exists())
-            someFile.createNewFile();
+        someFile.createNewFile();
         ImageIO.write(img, "JPEG", someFile);
-   }
+    }
 
-   private BufferedImage resize(BufferedImage img, int newW, int newH) {
+    private BufferedImage resize(BufferedImage img, int newW, int newH) {
         int w = img.getWidth();
         int h = img.getHeight();
         BufferedImage dimg = new BufferedImage(newW, newH, img.getType());

@@ -33,9 +33,8 @@ public class StudentSettingsBean implements IBeanWithAvatarAdding{
     private static final long serialVersionUID = 156L;
 
     @Override
-    public String uploadAvatar(){
+    public void uploadAvatar(){
         avatarBuilder.addAvatar(studentSessionBean.getStudent());
-        return "?faces-redirect=true";
     }
 
     public Student getStudent(){
