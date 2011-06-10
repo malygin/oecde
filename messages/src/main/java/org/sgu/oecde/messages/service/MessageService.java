@@ -1,5 +1,6 @@
 package org.sgu.oecde.messages.service;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;
@@ -19,7 +20,7 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-public class MessageService {
+public class MessageService implements Serializable{
 
     @Resource (name="messageDao")
     IMessageDao messageDao;

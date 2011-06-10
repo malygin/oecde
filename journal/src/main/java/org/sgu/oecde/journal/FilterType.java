@@ -24,7 +24,6 @@ public enum FilterType {
                 EventType.HAND_WRITTEN_CONTROL_WORK,
                 EventType.POST_ANSWER,
                 EventType.OWN_MESSAGE,
-                EventType.NEW_NEWS,
                 EventType.UMK_CREATE,
                 EventType.UMK_EDIT,
                 EventType.UMK_DELETE,
