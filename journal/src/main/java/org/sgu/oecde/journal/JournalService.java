@@ -1,5 +1,6 @@
 package org.sgu.oecde.journal;
 
+import java.io.Serializable;
 import javax.annotation.Resource;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.journal.dao.IJournalDao;
@@ -11,7 +12,7 @@ import org.springframework.util.Assert;
  * @author ShihovMY
  */
 @Service
-public class JournalService {
+public class JournalService implements Serializable{
 
     @Resource
     private IJournalDao journalDao;
