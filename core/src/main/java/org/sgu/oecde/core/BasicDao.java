@@ -63,10 +63,11 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
         return  getSession().createCriteria(type).setCacheable(true).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
     
-    public List<T> getByPage(int OnPage, int numPage)  throws DataAccessException {
+    public List<T> getByPage(int OnPage, int numPage, String order)  throws DataAccessException {
 //        if (beginIndex < 0 || endIndex <= 0 || beginIndex > endIndex)
 //            throw new IllegalArgumentException("Неположительные аргументы");
-        return getSession().createCriteria(type).setFirstResult(OnPage * (numPage-1)).setMaxResults(OnPage).setCacheable(true).list();
+        if (order==null) getSession().createCriteria(type).setFirstResult(OnPage * (numPage-1)).setMaxResults(OnPage).setCacheable(true).list();
+        return getSession().createCriteria(type).addOrder(Order.asc(order)).setFirstResult(OnPage * (numPage-1)).setMaxResults(OnPage).setCacheable(true).list();
     }
     
      public int getCount() throws DataAccessException  {

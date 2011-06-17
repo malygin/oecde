@@ -7,8 +7,8 @@ package org.sgu.oecde.web.jsfbeans.chat;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.AbstractList;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,8 +24,12 @@ import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.users.UserType;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.core.util.SecurityContextHandler;
+import org.sgu.oecde.core.util.SwitchedUserCheker;
 import org.sgu.oecde.de.users.Student;
 import org.springframework.context.ApplicationContext;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.switchuser.SwitchUserGrantedAuthority;
 import org.springframework.util.StringUtils;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -71,7 +75,11 @@ public class ChatList extends HttpServlet {
 
             if(StringUtils.hasText(request.getParameter("message"))){
                   ChatMessage message=new ChatMessage();
-                  message.setAuthor(SecurityContextHandler.getUser());
+                  List<GrantedAuthority> authority = (List<GrantedAuthority>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+                  if(SwitchedUserCheker.check(authority)){
+                        Admin a =(Admin)(((SwitchUserGrantedAuthority)authority.get(1)).getSource().getPrincipal());                
+                        message.setAuthor(a);
+                  } else  message.setAuthor(SecurityContextHandler.getUser());
                   message.setDateMessage(DateConverter.convert(System.currentTimeMillis()));
                   message.setMessage(request.getParameter("message").replaceAll("////","").replaceAll("\\\\",""));
                   message.setRoom(new ChatRoom(Long.parseLong(request.getParameter("room"))));

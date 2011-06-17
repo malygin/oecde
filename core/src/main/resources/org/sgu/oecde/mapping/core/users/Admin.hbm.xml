@@ -3,7 +3,7 @@
 <hibernate-mapping schema="oecdo_test">
   <joined-subclass dynamic-update="true" extends="org.sgu.oecde.core.users.AbstractPerson" name="org.sgu.oecde.core.users.Admin" table="admin">
     <key column="id" foreign-key="fk_admin_user" not-null="true" on-delete="cascade"/>
-    <property insert="false" length="20" name="position" type="string"/>
-    <property insert="false" length="100" name="description" type="string"/>
+    <property insert="false" length="200" name="position" type="string"/>
+    <property insert="false" length="200" name="description" type="string"/>
   </joined-subclass>
 </hibernate-mapping>

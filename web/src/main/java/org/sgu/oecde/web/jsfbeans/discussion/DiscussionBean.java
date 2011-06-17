@@ -11,7 +11,9 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import org.sgu.oecde.core.users.AbstractUser;
+import org.sgu.oecde.core.users.Admin;
 import org.sgu.oecde.core.util.SecurityContextHandler;
+import org.sgu.oecde.core.util.SwitchedUserCheker;
 import org.sgu.oecde.discussion.ForumTypes;
 import org.sgu.oecde.discussion.Node;
 import org.sgu.oecde.discussion.Root;
@@ -21,6 +23,9 @@ import org.sgu.oecde.journal.EventType;
 import org.sgu.oecde.journal.JournalService;
 import org.sgu.oecde.news.NewsItem;
 import org.sgu.oecde.news.dao.INewsDao;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.switchuser.SwitchUserGrantedAuthority;
 
 /**
  * @author Andrey Malygin (mailto: anmalygin@gmail.com)
@@ -120,13 +125,19 @@ public class DiscussionBean {
      * @throws IOException
      */
      public void saveNodes() throws IOException{
-         Node node = discussionService.addNode(null, new Long(objectId), objectTypeEnum, 0L, nodeText , currentUser);
-         if(objectTypeEnum==ForumTypes.NEWS){
+          Node node;
+          List<GrantedAuthority> authority = (List<GrantedAuthority>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+          if(SwitchedUserCheker.check(authority)){
+                Admin a =(Admin)(((SwitchUserGrantedAuthority)authority.get(1)).getSource().getPrincipal());                
+                node = discussionService.addNode(null, new Long(objectId), objectTypeEnum, 0L, nodeText , a);       
+           }else node = discussionService.addNode(null, new Long(objectId), objectTypeEnum, 0L, nodeText , currentUser);
+       
+          if(objectTypeEnum==ForumTypes.NEWS){
                  NewsItem news=newsDao.getById(new Long(objectId));
                  news.setCommentNumber(news.getCommentNumber()+1);
                  newsDao.update(news);
                  journalService.save(EventType.POST_ADD, currentUser, news, node);
-         }else   journalService.save(EventType.POST_ADD, currentUser, node);
+          }else   journalService.save(EventType.POST_ADD, currentUser, node);
             HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
             String url=request.getRequestURI().split("/")[3];      
             FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId+"&type="+objectType);

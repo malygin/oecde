@@ -4,6 +4,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import org.sgu.oecde.core.users.Admin;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.web.AvatarBuilder;
 import org.sgu.oecde.web.IBeanWithAvatarAdding;
@@ -22,6 +23,8 @@ public class AdminSettingsBean extends UserViewBean implements IBeanWithAvatarAd
 
     @ManagedProperty(value="#{adminSessionBean}")
     private AdminSessionBean adminSessionBean;
+    
+
 
     private boolean saved;
 
@@ -35,7 +38,7 @@ public class AdminSettingsBean extends UserViewBean implements IBeanWithAvatarAd
 
     public void save(){
         try {
-            save();
+            super.save();
         } catch (Exception e) {
             e.fillInStackTrace();
             error = "При сохранении возникла ошибка";

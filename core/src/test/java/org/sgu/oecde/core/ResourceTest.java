@@ -39,13 +39,13 @@ public class ResourceTest extends BasicTest {
     }
     
     
-     @Ignore
+//     @Ignore
     @Test
     public void getUmkByPage(){
        setDao("umkDao");
        IBasicDao<Umk>umkDao = this.<IBasicDao>getDao();
-       List<Umk> list= dao.getByPage(10, 2);
+       List<Umk> list= dao.getByPage(10, 1,"name");
        for (Umk u: list)
-         System.out.println(""+u.getId());
+         System.out.println(""+u.getName());
     }
 }

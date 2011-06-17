@@ -393,10 +393,10 @@ public class TestPassingBean implements Serializable {
                StringBuilder str =new StringBuilder(s);
                String replaceString="";
                if (s.indexOf("$$")==-1)
-                   replaceString=str.substring(str.indexOf("$"), str.indexOf("$",str.indexOf("$")+1 )+1).replaceAll("\\+", "%2B");
+                    replaceString=str.substring(str.indexOf("$"), str.indexOf("$",str.indexOf("$")+1 )+1).replaceAll("\\+", "%2B");
                else replaceString=str.substring(str.indexOf("$"), str.indexOf("$",str.indexOf("$")+2 )+2).replaceAll("\\+", "%2B");
 
-               str=str.replace(str.indexOf("$"), str.indexOf("$",str.indexOf("$")+2 )+2, replaceString);
+              // str=str.replace(str.indexOf("$"), str.indexOf("$",str.indexOf("$")+2 )+2, replaceString);
                s=str.toString();
                // System.out.println("check "+s);
               s= s.replaceFirst("\\$+"," <img src='http://oec.sgu.ru/latex/latex.php?code=");

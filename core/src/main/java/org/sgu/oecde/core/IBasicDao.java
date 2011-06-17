@@ -33,7 +33,7 @@ public interface IBasicDao <T extends BasicItem> extends Serializable{
      * получение списка сущностей по номеру страницы, @todo - передавать параметр - поле по которому сортировать 
      */
     
-    List<T> getByPage(int OnPage, int numPage)  throws DataAccessException;
+    List<T> getByPage(int OnPage, int numPage, String order)  throws DataAccessException;
     /**
      * количество сущностей
      * @return

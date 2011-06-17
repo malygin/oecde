@@ -55,7 +55,7 @@ public class MessageWriteBean  implements Serializable{
     private  boolean renderSuccessSend=false;
 
     private MessageImpl message;
-    private String theme="theme";
+    private String theme="";
     private String fullText;
 
     public MessageWriteBean()  {

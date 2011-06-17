@@ -12,6 +12,13 @@
             </div>
             <set:addAvatar bean="#{adminSettingsBean}"/>
             <div class="floatDestroyer"></div>
+            <h:form>  
+                <h:outputText rendered="#{adminSettingsBean.saved}" value="Успешно сохранено"  /><br/>
+                Должность   <h:inputText size="60" value="#{adminSettingsBean.user.position}" /><br/>
+                Описание   <h:inputTextarea cols="70"  value="#{adminSettingsBean.user.description}" /><br/>
+                         <h:commandButton value="сохранить" action="#{adminSettingsBean.save()}"/>
+            </h:form>
+            
         </div>
     </ui:define>
 </ui:composition>

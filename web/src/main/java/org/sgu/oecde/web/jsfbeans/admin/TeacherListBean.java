@@ -8,6 +8,7 @@ import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.core.IBasicDao;
 import org.sgu.oecde.core.education.Umk;
 import org.sgu.oecde.core.education.resource.AbstractResource;
+import org.sgu.oecde.core.users.Teacher;
 
 /**
  *
@@ -15,12 +16,12 @@ import org.sgu.oecde.core.education.resource.AbstractResource;
  */
 @ManagedBean
 @ViewScoped
-public class UmkListBean {
+public class TeacherListBean {
 
-    @ManagedProperty(value="#{umkDao}")
-    private IBasicDao<Umk>umkDao;
+    @ManagedProperty(value="#{teacherDao}")
+    private IBasicDao<Teacher>teacherDao;
 
-    private List<Umk>umkList;
+    private List<Teacher>tList;
 
     private String page="1";
 
@@ -32,25 +33,15 @@ public class UmkListBean {
      * 
      * @return 
      */
-    public List<Umk> getUmkList() {
-        if(umkList==null){
-            umkList = umkDao.getByPage(maxNumber, Integer.parseInt(page),"name");
-             for (Umk u: umkList){ 
-               //  System.out.println(" "+u.getName()+" "+u.getId());
-                try{ 
-                    if(u.getResources()!=null){
-                      Iterator<AbstractResource> i = u.getResources().iterator();
-                      while (i.hasNext()) if (i.next()==null) i.remove();  }
-                 } catch(Exception e){
-                    u.setResources(null);
-                 }
-             }
+    public List<Teacher> getTeacherList() {
+        if(tList==null){
+            tList = teacherDao.getByPage(maxNumber, Integer.parseInt(page),"surname");             
         }
-        return umkList;
+        return tList;
     }
     
-     public int getCountUmk(){
-        return umkDao.getCount();
+     public int getCount(){
+        return teacherDao.getCount();
     }
 
 //    public int getCount(){
@@ -70,8 +61,10 @@ public class UmkListBean {
         this.page = page;
     }
 
- 
-    public void setUmkDao(IBasicDao<Umk> umkDao) {
-        this.umkDao = umkDao;
+    public void setTeacherDao(IBasicDao<Teacher> teacherDao) {
+        this.teacherDao = teacherDao;
     }
+
+ 
+   
 }
