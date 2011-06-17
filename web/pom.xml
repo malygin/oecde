@@ -114,7 +114,11 @@
             <version>2.4.0</version>
         </dependency>
 
-
+<!--     <dependency>
+	  <groupId>org.glassfish.web</groupId>
+	  <artifactId>el-impl</artifactId>
+	  <version>2.2</version>
+     </dependency>-->
      
         <dependency>
             <groupId>commons-fileupload</groupId>
@@ -126,7 +130,7 @@
             <artifactId>commons-io</artifactId>
             <version>1.1</version>
         </dependency>
-
+<!--   
         <dependency>
             <groupId>org.cometd.java</groupId>
             <artifactId>cometd-java-server</artifactId>
@@ -142,7 +146,7 @@
             <groupId>org.codehaus.jettison</groupId>
             <artifactId>jettison</artifactId>
             <version>1.1</version>
-        </dependency>
+        </dependency>-->
 
     <!--- jsf and richfaces-->
 
@@ -162,13 +166,13 @@
             <artifactId>standard</artifactId>
             <version>1.1.2</version>
         </dependency>
-
+<!--
         <dependency>
             <groupId>net.htmlparser.jericho</groupId>
             <artifactId>jericho-html</artifactId>
             <version>3.1</version>
             <type>jar</type>
-        </dependency>
+        </dependency>-->
         
         <dependency>
             <groupId>org.springframework.security</groupId>
@@ -176,11 +180,11 @@
             <version>0.5</version>
         </dependency>
               
-        <dependency>
+<!--        <dependency>
           <groupId>org.glassfish.web</groupId>
           <artifactId>el-impl</artifactId>
           <version>2.2</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>org.springframework.security.taglibs</artifactId>
@@ -247,6 +251,6 @@
         <finalName>web</finalName>
     </build>
     <properties>
-        <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
+        <netbeans.hint.deploy.server>Tomcat70</netbeans.hint.deploy.server>
     </properties>
 </project>

@@ -33,7 +33,7 @@ import org.springframework.util.CollectionUtils;
 import java.util.*;
 import java.io.*;
 import java.net.*;
-import org.sgu.oecde.web.jsfbeans.util.HTMLSanitiser;
+//import org.sgu.oecde.web.jsfbeans.util.HTMLSanitiser;
 
 /**
  * Unit test for simple App.
@@ -114,20 +114,20 @@ public class FilterTest extends BasicTest{
         setDao("resultDao");
         System.out.println(getItem(42L));
     }
-    @Ignore
-    @Test
-    public void htmlbyurl() throws MalformedURLException, UnsupportedEncodingException, IOException{
-      String str="";
-      URL url = new URL("http://oecdo.sgu.ru/textbooks/avtomat_offise/test.html");
-      StringBuffer strbuf = new StringBuffer();
-      BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
-      String str2;
-      while ((str2 = in.readLine()) != null) {strbuf.append(str2);}
-      str=strbuf.toString();
-      System.out.println("" +str);
-        System.out.println("ispr "+HTMLSanitiser.encodeInvalidMarkup(str));   
-
-    }
+//    @Ignore
+//    @Test
+//    public void htmlbyurl() throws MalformedURLException, UnsupportedEncodingException, IOException{
+//      String str="";
+//      URL url = new URL("http://oecdo.sgu.ru/textbooks/avtomat_offise/test.html");
+//      StringBuffer strbuf = new StringBuffer();
+//      BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
+//      String str2;
+//      while ((str2 = in.readLine()) != null) {strbuf.append(str2);}
+//      str=strbuf.toString();
+//      System.out.println("" +str);
+//        System.out.println("ispr "+HTMLSanitiser.encodeInvalidMarkup(str));   
+//
+//    }
       @Ignore
     @Test
     public void getResourses(){

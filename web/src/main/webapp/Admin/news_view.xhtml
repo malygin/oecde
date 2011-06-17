@@ -1,0 +1,42 @@
+    <ui:composition
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         template="../resources/adminTemplate.xhtml"
+         xmlns:util="http://java.sun.com/jsf/composite/components/util"
+         xmlns:discuss="http://java.sun.com/jsf/composite/components/discussion"
+         xmlns:news="http://java.sun.com/jsf/composite/components/news">
+        <f:metadata>
+             <f:viewParam name="id" value="#{NewsBean.currentNewId}"/>
+             <f:viewParam name="page" value="#{NavigationBean.page}"/>
+             <f:viewParam name="page" value="#{DiscussionBean.currentPage}"/>
+        </f:metadata>
+    
+        <ui:define name="contentHeader">
+            #{msgs.student_newsTitle}
+        </ui:define>
+        <ui:define name="content">
+           <h:outputLink value="news_list.xhtml"  styleClass="AdminNavigationLinks">
+                         назад к списку новостей
+             </h:outputLink>
+            <div class="interfaceContent">
+                <news:read n="#{NewsBean.currentNewItem}"/>
+            </div>        
+
+            <util:navigationList link="id=#{NewsBean.currentNewId}"  elementOnPage="#{DiscussionBean.nodesOnPage}"
+                                     numElements="#{DiscussionBean.getNumOfNodes(NewsBean.currentNewId,'NEWS')}"/>
+             <div class="interfaceContent">
+                    <div class="studentInterfaceStandartList forumTopBlock">
+                    
+                        <div class="forumDiscriptionText">
+                           Комментарии:
+                        </div>
+                        <div class="floatDestroyer"/>
+                    </div>
+
+                    <div class="interfaceContent">
+                        <discuss:list list="#{DiscussionBean.nodesByPage}"/>
+                    </div>
+              </div>
+        </ui:define>
+    </ui:composition>

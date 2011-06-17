@@ -7,6 +7,7 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 /**
  *
  * @author shihovmy
+ * супер класс для тестов
  */
 @ContextConfiguration(locations={"../applicationContext.xml"})
 public abstract class BasicTest extends AbstractJUnit4SpringContextTests{

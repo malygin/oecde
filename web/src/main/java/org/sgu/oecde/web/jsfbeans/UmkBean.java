@@ -25,7 +25,7 @@ import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.web.ResourceService;
 import org.sgu.oecde.web.jsfbeans.teacher.TeacherSessionBean;
-import org.sgu.oecde.web.jsfbeans.util.HTMLSanitiser;
+//import org.sgu.oecde.web.jsfbeans.util.HTMLSanitiser;
 import org.springframework.util.ObjectUtils;
 
 /**

@@ -28,7 +28,19 @@ public interface IBasicDao <T extends BasicItem> extends Serializable{
      */
     @SuppressWarnings("unchecked")
     List<T> getAll() throws DataAccessException;
-
+    
+    /*
+     * получение списка сущностей по номеру страницы, @todo - передавать параметр - поле по которому сортировать 
+     */
+    
+    List<T> getByPage(int OnPage, int numPage)  throws DataAccessException;
+    /**
+     * количество сущностей
+     * @return
+     * @throws DataAccessException 
+     */
+   
+    int getCount() throws DataAccessException;
    /**
      * возвращает коллекцию сущностей по образцу. 
      * берёт из образца параметры, которые не равные 0 и null, и подставляет в запрос.

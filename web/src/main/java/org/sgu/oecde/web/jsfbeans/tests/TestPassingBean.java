@@ -387,11 +387,15 @@ public class TestPassingBean implements Serializable {
      * проверяем есть в тексте формула или это хтмлка
      */
     private String checkForFormulaOrLink(String s)throws MalformedURLException, IOException {
-        if(s.indexOf("$")!=-1){          
+        if((s.indexOf("$")!=-1)&&(s.indexOf("$",s.indexOf("$")+1 ))!=-1){          
            // s=s.replaceAll("\\$+[*\\+*]\\$+", "$$%2B");
             while (s.indexOf("$")!=-1){
                StringBuilder str =new StringBuilder(s);
-               String replaceString=str.substring(str.indexOf("$"), str.indexOf("$",str.indexOf("$")+2 )+2).replaceAll("\\+", "%2B");
+               String replaceString="";
+               if (s.indexOf("$$")==-1)
+                   replaceString=str.substring(str.indexOf("$"), str.indexOf("$",str.indexOf("$")+1 )+1).replaceAll("\\+", "%2B");
+               else replaceString=str.substring(str.indexOf("$"), str.indexOf("$",str.indexOf("$")+2 )+2).replaceAll("\\+", "%2B");
+
                str=str.replace(str.indexOf("$"), str.indexOf("$",str.indexOf("$")+2 )+2, replaceString);
                s=str.toString();
                // System.out.println("check "+s);

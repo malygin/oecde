@@ -14,21 +14,18 @@
   <!-- IMPLEMENTATION -->
   <composite:implementation>
       <h:form>
-          <div style="padding: 5px;">
+         <span  class="previewColor">#{msgs.user_newsShotNews}</span><br/>
+          <div style="padding: 5px;">         
           <h:outputText  rendered="#{NewsBean.renderAddSuccess}" value="#{msgs.user_newsAdded}" styleClass="DisciplineText"/><br/>
           </div>
  
-          <div class="previewPadBott"> <span class="previewColor">#{msgs.user_newsTitle} </span>  <h:inputText value="#{NewsBean.header}"/></div>
-          <span  class="previewColor">#{msgs.user_newsShotNews}</span><br/><br/>
+          <div class="previewPadBott">
+          <span class="previewColor">#{msgs.user_newsTitle} </span><br/>
+          <h:inputText size="60"  value="#{NewsBean.header}"/></div>  
           <span  class="previewColor">#{msgs.user_newsNotice} </span>
-          <div class="previewPadLeft previewPadBott">
-          <util:editor value="#{NewsBean.anons}"/>
-          </div>
-
-         
-          <span  class="previewColor">#{mags.user_newsFullText} </span>
-          <div class="previewPadLeft"><util:editor value="#{NewsBean.fulltext}"/>
-          </div>
+          <div class="previewPadLeft previewPadBott"><util:editor value="#{NewsBean.anons}"/></div>         
+          <span  class="previewColor">#{msgs.user_newsFullText} </span>
+          <div class="previewPadLeft"><util:editor rows="10" cols="80" value="#{NewsBean.fulltext}"/></div>
           <h:commandButton styleClass="studentButton" action="#{NewsBean.save}" value="#{msgs.admin_mainContentAdd}" style="width: 75px;"/>
               
           <h:messages infoStyle="color:red;"/>

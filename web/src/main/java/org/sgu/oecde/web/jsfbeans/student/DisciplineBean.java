@@ -1,5 +1,7 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -48,13 +50,15 @@ public class DisciplineBean extends StudentCurriculumBean{
             else{
                 boolean available = resourceService.isConcludingTestAvailable(student, curriculum);
                 for(AdditionalSelfDependentWork w:l){
-                    tests.add(resourceService.getTestForStudent(w,student,available));
+                    tests.add(resourceService.getTestForStudent(w,student,available));                
                 }
+                Collections.sort(tests,new OrderByTestTitle() );
             }
         }
         
         return tests;
     }
+    
 
     public void setCurriculumId(Long curriculumId) {
         this.curriculumId = curriculumId;
@@ -82,4 +86,11 @@ public class DisciplineBean extends StudentCurriculumBean{
     public void setAccessDenied(boolean accessDenied) {
         this.accessDenied = accessDenied;
     }
+    
+     private  class OrderByTestTitle implements Comparator<Object[]>{
+        @Override
+        public int compare(Object[] o1, Object[] o2) {           
+            return ((AdditionalSelfDependentWork)o1[1]).getWork().getTitle().compareTo(((AdditionalSelfDependentWork)o2[1]).getWork().getTitle());
+        }
+     }
 }

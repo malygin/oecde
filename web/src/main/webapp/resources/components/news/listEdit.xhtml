@@ -21,7 +21,10 @@
                          <div style="margin-top: 8px; margin-bottom: 8px;">
                          <span class="chatPostUser" style="font-size: 8pt;"><h:outputText converter="dateConverter" value="#{n.time}"/></span>
                          <span>
-                        <span class="newsName"> #{n.header}</span>
+                        <span class="newsName"> #{n.header}</span> 
+                           <h:outputLink value="news_view.xhtml?id=#{n.id}" rendered="#{not NewsBean.renderDeleteSuccess}" styleClass="AdminNavigationLinks">
+                           посмотреть новость
+                           </h:outputLink>
                          </span>
                          </div>
                          <div style="margin-bottom: 8px;">

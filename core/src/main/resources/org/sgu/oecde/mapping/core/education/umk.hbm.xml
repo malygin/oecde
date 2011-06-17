@@ -13,13 +13,13 @@
       <index column="module_order" length="3" type="integer"/>
       <one-to-many class="org.sgu.oecde.core.education.Module"/>
     </list>
-    <list batch-size="25" cascade="none" fetch="select" lazy="true" mutable="false" name="resources" table="umk_resources">
+    <list batch-size="5" cascade="none" fetch="select" inverse="true" lazy="true" mutable="false" name="resources" table="umk_resources">
       <cache usage="read-only"/>
       <key column="umk" foreign-key="fk_umk_resource_umk" not-null="true"/>
       <index column="resource_order" length="3" type="integer"/>
       <many-to-many class="org.sgu.oecde.core.education.resource.AbstractResource" column="resource_id" foreign-key="fk_umk_res"/>
     </list>
-    <set batch-size="25" cascade="none" fetch="join" mutable="false" name="authors" table="umk_author">
+    <set batch-size="5" cascade="none" fetch="join" mutable="false" name="authors" table="umk_author">
       <cache usage="read-only"/>
       <key column="umk" foreign-key="fk_umk_author_umk" not-null="true"/>
       <many-to-many class="org.sgu.oecde.core.education.resource.Author" column="author" foreign-key="fk_umk_author"/>

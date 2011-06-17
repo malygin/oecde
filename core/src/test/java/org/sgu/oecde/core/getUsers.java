@@ -25,19 +25,19 @@ public class getUsers extends BasicTest{
     @Test
     public void getByName(){
         UserDetailsService uds = getBean("UserDetailsServiceImpl");
-        System.out.println(uds.loadUserByUsername("shihovmy"));
+        System.out.println(uds.loadUserByUsername("malyginav"));
     }
 
 //     @Ignore
     @Test
     public void getByName2(){
         IBasicDao<AbstractUser> userDao  = getBean("userDao");
-        AbstractUser example = AbstractUser.getUserWithName("shihovmy");
+        AbstractUser example = AbstractUser.getUserWithName("malyginav");
         List<AbstractUser> l = userDao.getByExample(example);
-        System.out.println(((Admin)l.get(0)).getPosition());
+        assertTrue(11L==((Admin)l.get(0)).getId());
     }
 
-  @Ignore
+   //@Ignore
     @Test
     public void getAllA(){
         this.setDao("adminDao");
@@ -47,13 +47,5 @@ public class getUsers extends BasicTest{
         System.out.println(l.size());
     }
 
-    @Ignore
-    @Test
-    public void getSpec(){
-        this.setDao("specialityDao");
-        List<Speciality> l = this.<Speciality>getAllItems();
-        for(Speciality t:l){
-            System.out.println(t.getName());
-        }
-    }
+  
 }

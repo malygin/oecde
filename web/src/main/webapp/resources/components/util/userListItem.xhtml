@@ -49,8 +49,8 @@
 <!--                    <tr><td></td><td><h:outputText rendered="#{cc.attrs.u.online}" value="On-line" style="color:#617F5F;"/></td></tr>-->
                 </h:panelGroup>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'admin'}">
-<!--                    <tr><td style="color:#808080;">Должность:</td><td>#{cc.attrs.u.position}</td></tr>
-                    <tr><td style="color:#808080;">Описание:</td><td>#{cc.attrs.u.description}</td></tr>-->
+                    <tr><td style="color:#808080;">Должность:</td><td>#{cc.attrs.u.position}</td></tr>
+                    <tr><td style="color:#808080;">Описание:</td><td>#{cc.attrs.u.description}</td></tr>
                 </h:panelGroup>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'teacher'}">
                     <tr>
@@ -78,7 +78,7 @@
                        <td colspan="2" class="controlWorksDisciplineNameLinkGrey enterPic">
                           <h:outputLink value="switch_user?j_username=#{cc.attrs.u.username}" >#{msgs.user_ComeIn}</h:outputLink>
                        </td>
-                    </sec:ifAnyGranted>
+                   </sec:ifAnyGranted>
                     
                 </tr>
             </table>

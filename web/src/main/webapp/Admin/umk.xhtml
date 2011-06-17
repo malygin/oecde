@@ -31,8 +31,9 @@
             <div class="toTestLink">
                #{msgs.admin_mainContentTests}
             </div>
-            <h:dataTable value="#{adminUmkBean.umk.resources}" var="test" style="margin-left: 10px;">
+            <h:dataTable value="#{adminUmkBean.tests}" var="test" style="margin-left: 10px;">
                 <h:column>
+                    <h:panelGroup rendered="#{test.id!=null}">  
                 <div class="studentInterfaceStandartList">
                     <div class="DisciplineTextlink" style="margin: 0;">
                     <h:outputLink value="test.xhtml?id=#{test.id}&amp;action=start">
@@ -50,6 +51,7 @@
                     </span>
                 </div>
                 </div>
+                    </h:panelGroup>
                 </h:column>
             </h:dataTable>
         </div>

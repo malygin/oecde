@@ -1,5 +1,6 @@
 package org.sgu.oecde.core.education.resource;
 
+import java.util.Comparator;
 import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
 
@@ -182,4 +183,10 @@ abstract public class AbstractResource extends BasicItem{
             sb.append("название: ").append(title).append("; ");
         return sb.toString();
     }
+     static public  class OrderByTitle implements Comparator<AbstractResource>{
+        @Override
+        public int compare(AbstractResource o1, AbstractResource o2) {           
+            return o1.getTitle().compareTo(o2.getTitle());
+        }
+     }
 }

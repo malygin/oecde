@@ -11,6 +11,9 @@
  <!-- INTERFACE -->
   <composite:interface>
       <composite:attribute name="value"/>
+      <composite:attribute name="rows" default="5" shortDescription="количество строк"/>
+      <composite:attribute name="cols" default="80" shortDescription="количество колонок"/>
+    
   
   </composite:interface>
 
@@ -20,6 +23,6 @@
            <script src="../resources/tiny_mce/tinymce_init.js"/>
 <!--<h:outputScript target="head" name="tiny_mce/tiny_mce.js"/>
               <h:outputScript  name="tiny_mce/tinymce_init.js"/>-->
-          <h:inputTextarea rows="5" cols="80" styleClass="tinymce" value="#{cc.attrs.value}"/>
+          <h:inputTextarea rows="#{cc.attrs.rows}" cols="#{cc.attrs.cols}" styleClass="tinymce" value="#{cc.attrs.value}"/>
   </composite:implementation>
 </html>

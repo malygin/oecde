@@ -39,7 +39,7 @@ public class NewsBean implements Serializable{
      private boolean renderAddSuccess=false;
 
      //Сообщений на странице
-     private int newsOnPage=3;
+     private int newsOnPage=20;
      private int currentPage=1;
 
      //поля для добавления новостей

@@ -5,9 +5,14 @@
     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
     template="../resources/adminTemplate.xhtml"
     >
+     <f:metadata>
+              <f:viewParam name="page" value="#{NavigationBean.page}"/>
+              <f:viewParam name="page" value="#{umkListBean.page}"/>
+         </f:metadata>
     <ui:define name="content">
         <div class="interfaceContent">
-            <ut:navigationList numElements="#{umkListBean.count}" elementOnPage="#{umkListBean.maxNumber}"/>
+            <ut:navigationList elementOnPage="#{umkListBean.maxNumber}"
+                               numElements="#{umkListBean.countUmk}"/>
             <div class="">
             <h:dataTable style="width: 100%; display: block;" value="#{umkListBean.umkList}" var="i" id="table" styleClass="controlWorksBorders"
                      columnClasses="controlWorksDisciplineNameLink">
@@ -38,7 +43,8 @@
             </h:column>
         </h:dataTable>
             </div>
-            <ut:navigationList numElements="#{umkListBean.count}" elementOnPage="#{umkListBean.maxNumber}"/>
+                 <ut:navigationList elementOnPage="#{umkListBean.maxNumber}"
+                                    numElements="#{umkListBean.countUmk}"/>    
         </div>
     </ui:define>
 </ui:composition>

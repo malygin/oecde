@@ -1,6 +1,7 @@
 
 package org.sgu.oecde.web.jsfbeans.tests;
 
+import java.io.Serializable;
 import org.sgu.oecde.tests.GivenAnswer;
 import org.sgu.oecde.tests.Question;
 
@@ -9,7 +10,7 @@ import org.sgu.oecde.tests.Question;
  * created 27.09.2010
  * 
  */
-public class QuestionImpl {
+public class QuestionImpl implements  Serializable {
     private Question question;
     private boolean answered=false;
     private GivenAnswer answer;

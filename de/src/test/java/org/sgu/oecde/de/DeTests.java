@@ -30,7 +30,7 @@ import org.springframework.test.context.ContextConfiguration;
  * @author ShihovMY
  */
 @ContextConfiguration(locations={"../applicationContext.xml","../spring/deBeans.xml"})
-public class getSimpleItem extends BasicTest{
+public class DeTests extends BasicTest{
 
     @Ignore
     @Test
@@ -61,11 +61,11 @@ public class getSimpleItem extends BasicTest{
     public void getResults(){
         this.setDao("resultDao");
         for(AbstractResult r: this.<AbstractResult>getAllItems()){
-            System.out.println(r.getCurriculum()+"   "+r);
+            System.out.println(r+"   "+r);
         }
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void getConsts(){
         SemesterGetter g = getBean("semesterGetter");
@@ -79,7 +79,7 @@ public class getSimpleItem extends BasicTest{
     public void getCurr(){
         setDao("curriculumDao");
         System.out.println(getByExample(new DeCurriculum()).size());
-//        List<DeCurriculum> l= this.<CurriculumDao>getDao().getCurriculumsByModSemester(new DeCurriculum(2008610834L), Semesters.summer());
+//       List<DeCurriculum> l= this.<CurriculumDao>getDao().getCurriculumsByModSemester(new DeCurriculum(2008610834L), Semesters.summer());
     }
 
 //    @Ignore

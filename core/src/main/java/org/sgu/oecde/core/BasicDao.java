@@ -13,6 +13,7 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Example;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.dao.DataAccessException;
@@ -61,7 +62,17 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
     public List<T> getAll() throws DataAccessException{
         return  getSession().createCriteria(type).setCacheable(true).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
-
+    
+    public List<T> getByPage(int OnPage, int numPage)  throws DataAccessException {
+//        if (beginIndex < 0 || endIndex <= 0 || beginIndex > endIndex)
+//            throw new IllegalArgumentException("Неположительные аргументы");
+        return getSession().createCriteria(type).setFirstResult(OnPage * (numPage-1)).setMaxResults(OnPage).setCacheable(true).list();
+    }
+    
+     public int getCount() throws DataAccessException  {
+        List<Long> list =  getSession().createCriteria(type).setProjection(Projections.rowCount()).setCacheable(true).list();
+        return !CollectionUtils.isEmpty(list)?Long.valueOf(list.get(0)).intValue():0;
+    }
     /**
      * {@inheritDoc}
      * @see #getCriteriaByParametrizedItem(item, Criteria)

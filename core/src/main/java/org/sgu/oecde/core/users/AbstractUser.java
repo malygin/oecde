@@ -11,7 +11,7 @@ import org.springframework.util.Assert;
  * @author ShihovMY
  * @see org.springframework.security.userdetails.UserDetails
  */
-public abstract class AbstractUser extends BasicItem implements UserDetails{
+public class AbstractUser extends BasicItem implements UserDetails{
     /**
      * пароль
      */
@@ -50,7 +50,7 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
     private Long originalId;
     private static final long serialVersionUID = 61L;
 
-    private AbstractUser(String userName){
+    public AbstractUser(String userName){
         this.username = userName;
         this.enabled = true;
     }
@@ -64,7 +64,7 @@ public abstract class AbstractUser extends BasicItem implements UserDetails{
      */
     public static final AbstractUser getUserWithName(String userName){
         Assert.notNull(userName,"user name is null");
-        return new AbstractUser(userName){};
+        return new AbstractUser(userName);
     }
 
     public AbstractUser() {

@@ -20,35 +20,39 @@ public class UmkListBean {
 
     private List<Umk>umkList;
 
-    private int page;
+    private String page="1";
 
     private final int maxNumber = 40;
 
     public List<Umk> getUmkList() {
         if(umkList==null){
-            umkList = umkDao.getAll();
+            umkList = umkDao.getByPage(maxNumber, Integer.parseInt(page) );
         }
         return umkList;
     }
-
-    public int getCount(){
-        List<Umk> l = getUmkList();
-        return l!=null?umkList.size():0;
+    
+     public int getCountUmk(){
+        return umkDao.getCount();
     }
+
+//    public int getCount(){
+//        List<Umk> l = getUmkList();
+//        return l!=null?umkList.size():0;
+//    }
 
     public int getMaxNumber() {
         return maxNumber;
     }
 
-    public int getPage() {
+    public String getPage() {
         return page;
     }
 
-    public void setPage(int page) {
+    public void setPage(String page) {
         this.page = page;
     }
 
-
+ 
     public void setUmkDao(IBasicDao<Umk> umkDao) {
         this.umkDao = umkDao;
     }

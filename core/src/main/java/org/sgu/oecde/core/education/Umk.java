@@ -1,5 +1,7 @@
 package org.sgu.oecde.core.education;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import org.sgu.oecde.core.education.resource.AbstractResource;
 import java.util.Set;
@@ -10,7 +12,7 @@ import org.sgu.oecde.core.education.resource.Author;
  * учебно-методический комплекс. умк
  * @author ShihovMY
  */
-public class Umk extends BasicItem{
+public class Umk extends BasicItem {
     /**
      * название
      */
@@ -96,6 +98,7 @@ public class Umk extends BasicItem{
      * @return
      */
     public <T extends AbstractResource> List<T> getResources() {
+        
         return (List<T>) resources;
     }
 
@@ -138,4 +141,5 @@ public class Umk extends BasicItem{
         sb.append("название: ").append(name).append("; ");
         return sb.toString();
     }
+  
 }

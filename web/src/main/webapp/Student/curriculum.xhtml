@@ -28,6 +28,7 @@
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_gradesTableHeadCWs}" />
                     </f:facet>
+                
                     <h:panelGroup rendered="#{m.gotControlWork}">
                         <div align="center" style="text-align: center !important;">
                             <img style="display: inline;" src="../resources/images/discipline_summ.gif"/>
@@ -44,8 +45,10 @@
                     <f:facet name="header">
                         <h:outputText value="#{msgs.student_controlMenuTitle}" />
                     </f:facet>
+                    
                     <h:outputText converter="enumConverter" value="#{m.examinationType}" />
                 </h:column>
+            
             </h:dataTable>
         </div>
     </ui:define>
