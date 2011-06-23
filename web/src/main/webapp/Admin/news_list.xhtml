@@ -12,7 +12,7 @@
               <f:viewParam name="page" value="#{NewsBean.currentPage}"/>
          </f:metadata>
         <ui:define name="contentHeader">
-            #{msgs.student_newsTitle}
+            #{msgs.student_newsTitle} / текущий язык - <b>#{userSessionBean.lang.name}</b>
         </ui:define>
         <ui:define name="content">
             

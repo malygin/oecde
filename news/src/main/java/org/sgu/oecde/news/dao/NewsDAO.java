@@ -3,7 +3,11 @@ package org.sgu.oecde.news.dao;
 import java.util.List;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Property;
+import org.hibernate.criterion.Restrictions;
 import org.sgu.oecde.core.BasicDao;
+import org.sgu.oecde.core.util.LangEnum;
+import org.sgu.oecde.news.NewTypeEnum;
 import org.sgu.oecde.news.NewsItem;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
@@ -12,7 +16,8 @@ import org.springframework.util.CollectionUtils;
 
 
 /**
- * {@inheritDoc }
+ * @author Andrey Malygin (mailto: anmalygin@gmail.com)
+ * @date 17.08.2010
  */
 @Repository("newsDao")
 public class NewsDAO extends BasicDao<NewsItem> implements INewsDao{
@@ -24,15 +29,47 @@ public class NewsDAO extends BasicDao<NewsItem> implements INewsDao{
     private static final long serialVersionUID = 160L;
 
    
-    public List<NewsItem> getNews(int messageOnPage, int numPage)  throws DataAccessException {
-//        if (beginIndex < 0 || endIndex <= 0 || beginIndex > endIndex)
-//            throw new IllegalArgumentException("Неположительные аргументы");
-        return getSession().createCriteria(type).addOrder(Order.desc("time")).setFirstResult(messageOnPage * (numPage-1)).setMaxResults(messageOnPage).setCacheable(true).list();
+    public List<NewsItem> getNewsForStudent(int messageOnPage, int numPage,  LangEnum lang)  throws DataAccessException {
+       if (messageOnPage < 0 || numPage <= 0 ) throw new IllegalArgumentException("Неположительные аргументы");
+        return getSession().createCriteria(type)
+                .add(Restrictions.in("newstype", new NewTypeEnum[] { NewTypeEnum.forStudent,NewTypeEnum.forStudentAndTeacher, NewTypeEnum.forAll}))              
+                .add(Restrictions.eq("lang", lang))
+                .addOrder(Order.desc("time")).setFirstResult(messageOnPage * (numPage-1)).setMaxResults(messageOnPage).setCacheable(true).list();
+    }
+    
+    public List<NewsItem> getNewsForTeacher(int messageOnPage, int numPage,  LangEnum lang)  throws DataAccessException {
+       if (messageOnPage < 0 || numPage <= 0 ) throw new IllegalArgumentException("Неположительные аргументы");
+        return getSession().createCriteria(type)
+                .add(Restrictions.in("newstype", new NewTypeEnum[] { NewTypeEnum.forTeacher,NewTypeEnum.forStudentAndTeacher, NewTypeEnum.forAll}))              
+                .add(Restrictions.eq("lang", lang))
+                .addOrder(Order.desc("time")).setFirstResult(messageOnPage * (numPage-1)).setMaxResults(messageOnPage).setCacheable(true).list();
+    }
+   
+    public List<NewsItem> getNews(int messageOnPage, int numPage,  LangEnum lang)  throws DataAccessException {
+       if (messageOnPage < 0 || numPage <= 0 ) throw new IllegalArgumentException("Неположительные аргументы");
+        return getSession().createCriteria(type)
+                .add(Restrictions.eq("lang", lang))
+                .addOrder(Order.desc("time")).setFirstResult(messageOnPage * (numPage-1)).setMaxResults(messageOnPage).setCacheable(true).list();
     }
 
-
-    public int getNewsCount() throws DataAccessException  {
-        List<Long> list =  getSession().createCriteria(type).setProjection(Projections.rowCount()).setCacheable(true).list();
+    public int getNewsStudentCount(LangEnum lang) throws DataAccessException  {
+        List<Long> list =  getSession().createCriteria(type)
+                .add(Restrictions.in("newstype", new NewTypeEnum[] { NewTypeEnum.forTeacher,NewTypeEnum.forStudentAndTeacher, NewTypeEnum.forAll}))              
+                .add(Restrictions.eq("lang", lang))
+                .setProjection(Projections.rowCount()).setCacheable(true).list();
+        return !CollectionUtils.isEmpty(list)?Long.valueOf(list.get(0)).intValue():0;
+    }
+     public int getNewsTeacherCount(LangEnum lang) throws DataAccessException  {
+        List<Long> list =  getSession().createCriteria(type)
+                .add(Restrictions.in("newstype", new NewTypeEnum[] { NewTypeEnum.forTeacher,NewTypeEnum.forStudentAndTeacher, NewTypeEnum.forAll}))              
+                .add(Restrictions.eq("lang", lang))
+                .setProjection(Projections.rowCount()).setCacheable(true).list();
+        return !CollectionUtils.isEmpty(list)?Long.valueOf(list.get(0)).intValue():0;
+    }
+    public int getNewsCount(LangEnum lang) throws DataAccessException  {
+        List<Long> list =  getSession().createCriteria(type)
+                .add(Restrictions.eq("lang", lang))
+                .setProjection(Projections.rowCount()).setCacheable(true).list();
         return !CollectionUtils.isEmpty(list)?Long.valueOf(list.get(0)).intValue():0;
     }
 

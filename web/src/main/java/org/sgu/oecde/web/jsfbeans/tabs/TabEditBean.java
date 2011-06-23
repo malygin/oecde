@@ -2,18 +2,21 @@ package org.sgu.oecde.web.jsfbeans.tabs;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.AjaxBehaviorEvent;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import org.sgu.oecde.tabs.Page;
 import org.sgu.oecde.tabs.PageFile;
 import org.sgu.oecde.tabs.Tab;
 import org.sgu.oecde.tabs.TabType;
 import org.sgu.oecde.tabs.dao.ITabsDao;
+import org.sgu.oecde.web.jsfbeans.UserSessionBean;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.FacesUtil;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.FileUploadUtil;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.MultipartRequestWrapper;
@@ -30,6 +33,9 @@ public class TabEditBean implements Serializable {
 
     @ManagedProperty(value = "#{tabsDao}")
     private ITabsDao tabsDao;
+    @ManagedProperty(value="#{userSessionBean}")
+    private UserSessionBean userSessionBean;
+    
     private Page page;
     private Tab tab;
     private Long id, pageId;
@@ -68,7 +74,7 @@ public class TabEditBean implements Serializable {
     }
 
     @Secured("ROLE_ADMIN")
-    public void addFile() throws IOException {
+    public void addFile() throws IOException, ServletException {
         HttpServletRequest multi = FacesUtil.getRequest();
         UploadFile uf = FileUploadUtil.findFile(multi, "file");
         if (uf != null) {
@@ -109,9 +115,7 @@ public class TabEditBean implements Serializable {
         }
     }
 
-    public List<TabType> getTypes() {
-        return TabType.getAllowedTypes();
-    }
+    
 
     public void setTab(Tab tab) {
         this.tab = tab;
@@ -120,7 +124,7 @@ public class TabEditBean implements Serializable {
     public Page getPage() {
         if (page == null) {
             page = new Page();
-            page.setFiles(new HashSet<PageFile>());
+            page.setFiles(new ArrayList<PageFile>());
         }
         return page;
     }
@@ -144,4 +148,10 @@ public class TabEditBean implements Serializable {
     public void setTabsDao(ITabsDao tabsDao) {
         this.tabsDao = tabsDao;
     }
+
+    public void setUserSessionBean(UserSessionBean userSessionBean) {
+        this.userSessionBean = userSessionBean;
+    }
+    
+    
 }

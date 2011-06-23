@@ -17,6 +17,7 @@
                 <div>
                     <div style="float: left; font-size: 10pt;" class="controlWorksDisciplineNameLink"><a href="news_read.xhtml?id=#{n.id}">#{n.header}</a></div>
                     <span class="chatPostDate" ><h:outputText converter="dateConverter" value="#{n.time}"></h:outputText></span>
+      <h:outputText converter="enumConverter" value="#{n.newstype}"/>
                     <div class="floatDestroyer"/>
                     <div class="newsListNewPreview">
 <!--                        <img src="../resources/images/image_news.jpg" alt="" style="width: 100px;"/>-->

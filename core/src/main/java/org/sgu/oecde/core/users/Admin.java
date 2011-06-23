@@ -40,7 +40,7 @@ public class Admin extends AbstractPerson{
      *
      * @return должность
      */
-    public String getPosition() {
+    public String getPosition() {       
         return position;
     }
 

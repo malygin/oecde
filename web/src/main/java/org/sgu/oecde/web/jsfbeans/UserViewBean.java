@@ -16,6 +16,7 @@ import org.springframework.security.access.annotation.Secured;
 /**
  *
  * @author ShihovMY
+ * 
  */
 @ManagedBean(name="userViewBean")
 @ViewScoped

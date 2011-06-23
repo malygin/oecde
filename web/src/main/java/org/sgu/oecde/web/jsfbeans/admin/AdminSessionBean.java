@@ -7,6 +7,7 @@ import javax.faces.bean.SessionScoped;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.Admin;
 import org.sgu.oecde.core.util.SecurityContextHandler;
+import org.sgu.oecde.web.jsfbeans.UserSessionBean;
 import org.springframework.util.Assert;
 
 /**
@@ -15,7 +16,7 @@ import org.springframework.util.Assert;
  */
 @ManagedBean(name="adminSessionBean")
 @SessionScoped
-public class AdminSessionBean implements Serializable{
+public class AdminSessionBean extends UserSessionBean implements Serializable{
 
     protected Admin admin;
 

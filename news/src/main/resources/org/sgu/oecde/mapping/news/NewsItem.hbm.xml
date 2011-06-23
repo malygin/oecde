@@ -14,6 +14,20 @@
     <property column="news_time" length="19" name="time" type="string"/>
     <property column="access_type" name="accessType" type="string"/>
     <property column="review_number" name="reviewNumber" scale="3" type="integer"/>
+    <property length="30" name="newstype">
+      <type name="org.sgu.oecde.core.GenericEnumUserType">
+        <param name="enumClass">org.sgu.oecde.news.NewTypeEnum</param>
+        <param name="identifierMethod">toName</param>
+        <param name="valueOfMethod">parse</param>
+      </type>
+    </property>
+    <property length="30" name="lang">
+      <type name="org.sgu.oecde.core.GenericEnumUserType">
+        <param name="enumClass">org.sgu.oecde.core.util.LangEnum</param>
+        <param name="identifierMethod">toName</param>
+        <param name="valueOfMethod">parse</param>
+      </type>
+    </property>
     <many-to-one class="org.sgu.oecde.core.users.Admin" fetch="join" foreign-key="fk_news_admin" name="author"/>
     <!--
     <set batch-size="15" cascade="none" fetch="join" name="tags">

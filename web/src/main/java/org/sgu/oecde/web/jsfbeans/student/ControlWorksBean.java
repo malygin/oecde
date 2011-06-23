@@ -13,7 +13,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.AjaxBehaviorEvent;
-import javax.faces.event.BehaviorEvent;
 import javax.servlet.http.HttpServletRequest;
 import org.sgu.oecde.controlworks.ControlWork;
 import org.sgu.oecde.controlworks.ControlWorkAttempt;
@@ -37,59 +36,66 @@ import org.springframework.util.CollectionUtils;
  *
  * @author ShihovMY
  */
-@ManagedBean(name = "controlWorksBean")
+@ManagedBean(name="controlWorksBean")
 @ViewScoped
-public class ControlWorksBean extends StudentCurriculumBean {
+public class ControlWorksBean extends StudentCurriculumBean{
 
-    @ManagedProperty(value = "#{controlWorkService}")
-    private ControlWorkService cwService;
-    @ManagedProperty(value = "#{controlWorkDao}")
+    @ManagedProperty(value="#{controlWorkService}")
+    private  ControlWorkService cwService;
+
+    @ManagedProperty(value="#{controlWorkDao}")
     private IControlWorkDao<ControlWork> controlWorkDao;
-    @ManagedProperty(value = "#{journalService}")
+
+    @ManagedProperty(value="#{journalService}")
     private JournalService journalService;
-    private List<Object[]> works;
-    @ManagedProperty(value = "#{cwDatesGetter}")
+
+    private List<Object[]>works;
+
+    @ManagedProperty(value="#{cwDatesGetter}")
     private StringConstantsGetter cwDatesGetter;
+
     private String controlWorksBeginDate;
     private String controlWorksEndDate;
     private String reExameBeginDate;
     private String reExameEndDate;
-    private ControlWorkAttempt controlWorkAttempt;
+
+    private ControlWork currentControlWorks;
+
     private static final long serialVersionUID = 105L;
 
-    public List<Object[]> getControlWorks() {
-        if (works == null) {
-            List<DeCurriculum> c = cwService.getCurriculumsWithControlWorks(curriculumBuilder.getInstanceByCurrentDate(student, semester));
-            Map<DeCurriculum, ControlWork> m = cwService.<DeCurriculum, ControlWork>getStudensControlWorks(student, c);
-            Iterator<DeCurriculum> cI = c.iterator();
+    public List<Object[]>getControlWorks(){
+        if(works==null){
+            List<DeCurriculum> c =  cwService.getCurriculumsWithControlWorks(curriculumBuilder.getInstanceByCurrentDate(student, semester));
+            Map<DeCurriculum,ControlWork> m = cwService.<DeCurriculum,ControlWork>getStudensControlWorks(student, c);
+            Iterator<DeCurriculum>cI = c.iterator();
             String currentDate = DateConverter.currentDate();
             works = new LinkedList();
-            while (cI.hasNext()) {
+            while(cI.hasNext()){
                 DeCurriculum cr = cI.next();
                 ControlWork w = m.get(cr);
-                boolean available = false;
+                boolean available=false;
                 Object[] data = new Object[5];
                 works.add(data);
                 data[0] = cr;
-                if (((currentDate.compareTo(controlWorksBeginDate) >= 0
-                        && currentDate.compareTo(controlWorksEndDate) < 0)
-                        || (currentDate.compareTo(reExameBeginDate) >= 0
-                        && currentDate.compareTo(reExameEndDate) < 0)) && (w == null || !ControlWorkProgress.passed.equals(w.getProgress()))
-                        && !cr.getControlWorksPaperOnly()
-                        && student.getFullAccess()) {
+                if(((currentDate.compareTo(controlWorksBeginDate)>=0
+                    &&currentDate.compareTo(controlWorksEndDate)<0)
+                    ||(currentDate.compareTo(reExameBeginDate)>=0
+                    &&currentDate.compareTo(reExameEndDate)<0)
+                    )&&(w==null||!ControlWorkProgress.passed.equals(w.getProgress()))
+                    &&!cr.getControlWorksPaperOnly()
+                    &&student.getFullAccess()){
                     available = true;
                 }
-                if (w == null) {
+                if(w == null){
                     w = new ControlWork(student, cr);
                 }
                 data[1] = w;
                 data[2] = available;
-                if (getCurriculumAndTeacher().containsKey(cr)) {
+                if(getCurriculumAndTeacher().containsKey(cr))
                     data[3] = getCurriculumAndTeacher().get(cr);
-                }
-                data[4] = (cr.getControlWorksPaperOnly() != null && cr.getControlWorksPaperOnly()) ? "в рукописном" : "";
+                data[4] = (cr.getControlWorksPaperOnly()!=null&&cr.getControlWorksPaperOnly())?"в рукописном":"";
             }
-            Collections.sort(works, new OrderByDisciplineName());
+            Collections.sort(works,new OrderByDisciplineName());
         }
         return works;
     }
@@ -103,43 +109,48 @@ public class ControlWorksBean extends StudentCurriculumBean {
     }
 
     @PostConstruct
-    public void postConstract() {
+    public void postConstract(){
         reExameBeginDate = semesterGetter.getConstant(CalendarConstantName.reExameBeginDate).toString();
         reExameEndDate = semesterGetter.getConstant(CalendarConstantName.reExameEndDate).toString();
         controlWorksBeginDate = cwDatesGetter.getConstant(ControlWorkCalendarConstantName.controlWorksBeginDate).toString();
         controlWorksEndDate = cwDatesGetter.getConstant(ControlWorkCalendarConstantName.controlWorksEndDate).toString();
     }
 
-    public String setCw(ControlWork currentControlWorks) {
-        if(controlWorkAttempt!=null&& currentControlWorks!=null){
-            List<ControlWorkAttempt> s = (List<ControlWorkAttempt>) currentControlWorks.getCwAttempt();
-            if (CollectionUtils.isEmpty(s)) {
-                s = new ArrayList<ControlWorkAttempt>(1);
-                currentControlWorks.setCwAttempt(s);
+    public void setCw(AjaxBehaviorEvent event){
+        currentControlWorks = (ControlWork) event.getComponent().getAttributes().get("cw");
+    }
+
+    public String saveCw() throws IOException{
+         HttpServletRequest req = FacesUtil.getRequest();
+         if(req instanceof MultipartRequestWrapper){
+            MultipartRequestWrapper multi = (MultipartRequestWrapper)req;
+            //CwFile -  имя файла в форме
+            UploadFile uf = multi.findFile("CwFile");
+            if(uf != null && currentControlWorks!=null){
+                ControlWorkAttempt a = new ControlWorkAttempt();
+                List<ControlWorkAttempt> s = (List<ControlWorkAttempt>) currentControlWorks.getCwAttempt();
+                if(CollectionUtils.isEmpty(s)){
+                    s = new ArrayList<ControlWorkAttempt>(1);
+                    currentControlWorks.setCwAttempt(s);
+                }
+                s.add(a);
+                a.setAttemptDate(DateConverter.convert(System.currentTimeMillis()));
+                a.setWork(currentControlWorks);
+                //controlWorks -  в данном случае имя папки и имя префикса в именах файлов
+                String name = FileUploadUtil.Upload(uf, multi, "controlWorks",true);
+                if(name!=null){
+                    a.setFilePath(name);
+                    if (currentControlWorks.getProgress()==null) currentControlWorks.setProgress(ControlWorkProgress.available);
+                    controlWorkDao.save(currentControlWorks);
+                    journalService.save(EventType.TASK_HAS_BEEN_SEND_TO_PREP, student, currentControlWorks.getCurriculum());
+                }
             }
-            s.add(controlWorkAttempt);
-            controlWorkAttempt.setAttemptDate(DateConverter.convert(System.currentTimeMillis()));
-            controlWorkAttempt.setWork(currentControlWorks);
-            controlWorkDao.save(currentControlWorks);
-            journalService.save(EventType.TASK_HAS_BEEN_SEND_TO_PREP, student, currentControlWorks.getCurriculum());
-            
         }
         return "controlWorks?faces-redirect=true&amp;s="+getSemester();
     }
 
-    public void saveCw() throws IOException {
-        HttpServletRequest multi = FacesUtil.getRequest();
-        //CwFile -  имя файла в форме
-            //controlWorks -  в данном случае имя папки и имя префикса в именах файлов
-        UploadFile uf = FileUploadUtil.findFile(multi, "CwFile");
-        if (uf != null) {
-            controlWorkAttempt = new ControlWorkAttempt();
-            String name = FileUploadUtil.Upload(uf, multi, "controlWorks", true);
-            if(name!=null){                
-                controlWorkAttempt.setFilePath(name);
-                multi.setAttribute("uploaded", true);
-            }
-        }
+    public ControlWork getCurrentControlWorks() {
+        return currentControlWorks;
     }
 
     public void setControlWorkDao(IControlWorkDao<ControlWork> controlWorkDao) {
@@ -150,22 +161,20 @@ public class ControlWorksBean extends StudentCurriculumBean {
         this.journalService = journalService;
     }
 
-    public ControlWorkAttempt getControlWorkAttempt() {
-        return controlWorkAttempt;
-    }
-
-    private class OrderByDisciplineName implements Comparator<Object[]> {
+    private class OrderByDisciplineName implements Comparator<Object[]>{
 
         @Override
         public int compare(Object[] o1, Object[] o2) {
             int discipline = 0;
-            if (o1 != null && o2 != null && o1[1] != null && o2[1] != null
-                    && ((ControlWork) o1[1]).getCurriculum() != null && ((ControlWork) o2[1]).getCurriculum() != null
-                    && ((ControlWork) o1[1]).<DeCurriculum>getCurriculum().getDiscipline() != null && ((ControlWork) o2[1]).<DeCurriculum>getCurriculum().getDiscipline() != null
-                    && ((ControlWork) o1[1]).<DeCurriculum>getCurriculum().getDiscipline().getName() != null) {
-                discipline = ((ControlWork) o1[1]).<DeCurriculum>getCurriculum().getDiscipline().getName().compareTo(((ControlWork) o2[1]).<DeCurriculum>getCurriculum().getDiscipline().getName());
+            if(o1!=null &&o2!=null &&o1[1]!=null&&o2[1]!=null&&
+                    ((ControlWork)o1[1]).getCurriculum()!=null&&((ControlWork)o2[1]).getCurriculum()!=null&&
+                    ((ControlWork)o1[1]).<DeCurriculum>getCurriculum().getDiscipline()!=null &&((ControlWork)o2[1]).<DeCurriculum>getCurriculum().getDiscipline()!=null &&
+                    ((ControlWork)o1[1]).<DeCurriculum>getCurriculum().getDiscipline().getName()!=null
+                ){
+                discipline = ((ControlWork)o1[1]).<DeCurriculum>getCurriculum().getDiscipline().getName().compareTo( ((ControlWork)o2[1]).<DeCurriculum>getCurriculum().getDiscipline().getName());
             }
             return discipline;
         }
+
     }
 }

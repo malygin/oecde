@@ -29,9 +29,9 @@ public class MultipartRequestFilter implements  Filter{
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
-//        if(isMultipartRequest(httpRequest)){
-//            request = new MultipartRequestWrapper(httpRequest);
-//        }
+        if(isMultipartRequest(httpRequest)){
+            request = new MultipartRequestWrapper(httpRequest);
+        }
         chain.doFilter(request, response);
     }
 

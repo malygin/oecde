@@ -5,6 +5,7 @@ import org.sgu.oecde.core.BasicItem;
 import org.sgu.oecde.core.users.Admin;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Size;
+import org.sgu.oecde.core.util.LangEnum;
 /**
  *
  * @author ShihovMY
@@ -15,6 +16,12 @@ public class NewsItem extends BasicItem{
      * заголовок
      */
     private String header;
+    /**
+     * тип новости - уровень доступа к ней
+     */
+    private NewTypeEnum newstype;
+    
+    private LangEnum lang= LangEnum.ru; 
     /**
      * анонс
      */
@@ -181,5 +188,23 @@ public class NewsItem extends BasicItem{
     public void setCommentNumber(Integer commentNumber) {
         this.commentNumber = commentNumber;
     }
+
+    public NewTypeEnum getNewstype() {
+        return newstype;
+    }
+
+    public void setNewstype(NewTypeEnum newstype) {
+        this.newstype = newstype;
+    }
+
+    public LangEnum getLang() {
+        return lang;
+    }
+
+    public void setLang(LangEnum lang) {
+        this.lang = lang;
+    }
+    
+    
     
 }

@@ -9,15 +9,24 @@
       </generator>
     </id>
     <property length="250" name="name" not-null="true" type="string"/>
+    <property length="10"  name="orderTab" not-null="false"  type="string"/>
+    <property length="250"  name="alias" not-null="false"  type="string"/>
     <property column="tab_type" name="type">
       <type name="org.sgu.oecde.core.GenericEnumUserType">
         <param name="enumClass">org.sgu.oecde.tabs.TabType</param>
       </type>
     </property>
-    <set batch-size="10" cascade="delete-orphan,merge,save-update" fetch="join" inverse="true" lazy="false" name="pages" table="tab_page">
-      <cache usage="read-write"/>
-      <key column="tab" foreign-key="fk_tab" not-null="true"/>
+     <list cascade="all" name="pages" table="tab_page">
+      <key column="tab" not-null="false" update="true"/>
+      <index column="id_tab_page"/>
       <one-to-many class="org.sgu.oecde.tabs.Page"/>
-    </set>
+    </list> 
+      <property length="30" name="lang">
+      <type name="org.sgu.oecde.core.GenericEnumUserType">
+        <param name="enumClass">org.sgu.oecde.core.util.LangEnum</param>
+        <param name="identifierMethod">toName</param>
+        <param name="valueOfMethod">parse</param>
+      </type>
+    </property>
   </class>
 </hibernate-mapping>

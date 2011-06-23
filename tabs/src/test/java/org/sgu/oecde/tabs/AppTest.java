@@ -1,5 +1,6 @@
 package org.sgu.oecde.tabs;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -22,12 +23,13 @@ public class AppTest extends BasicTest{
         setDao("tabsDao");
         Tab t = new Tab();
         Page p = new Page();
-        t.setName("12123qwedwe");
-        t.setType(TabType.STUDENT_HELP);
-        Set<Page>ps = new HashSet<Page>();
+        t.setName("первая страница");
+        t.setType(TabType.STUDENT_INFORMATION);
+        t.setOrderTab("1");
+        List<Page>ps = new ArrayList<Page>();
         ps.add(p);
         t.setPages(ps);
-        Set<PageFile>pfs = new HashSet<PageFile>();
+        List<PageFile>pfs = new ArrayList<PageFile>();
         PageFile f = new PageFile();
         f.setPage(p);
         f.setName("12123");
@@ -49,10 +51,10 @@ public class AppTest extends BasicTest{
         Page p = new Page();
         t.setName("555555555 5 5 5 55 ");
         t.setType(TabType.STUDENT_HELP);
-        Set<Page>ps = t.getPages();
+        List<Page>ps = t.getPages();
         ps.add(p);
         t.setPages(ps);
-        Set<PageFile>pfs = new HashSet<PageFile>();
+        List<PageFile>pfs = new ArrayList<PageFile>();
         PageFile f = new PageFile();
         f.setName("6 66 6 6 6 6 ");
         f.setVisible(true);
@@ -84,7 +86,7 @@ public class AppTest extends BasicTest{
         System.out.println(l);
     }
     
-//    @Ignore
+    @Ignore
     @Test
     public void delete2(){
         setDao("tabsDao");

@@ -3,6 +3,7 @@ package org.sgu.oecde.web.jsfbeans.util.fileUpload;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Enumeration;
 import java.util.Random;
 import javax.activation.MimetypesFileTypeMap;
 import javax.servlet.ServletException;
@@ -65,10 +66,12 @@ public class FileUploadUtil {
     private static final String CONTENT_DISPOSITION = "content-disposition";
     private static final String CONTENT_DISPOSITION_FILENAME = "filename";
 
-    public static UploadFile findFile(HttpServletRequest req, String name) {
+    public static UploadFile findFile(HttpServletRequest req, String name) throws ServletException {
         UploadFile uf = null;
         try {
-            Part p = (Part) req.getAttribute(name);
+            Part p = (Part) req.getPart(name);
+             
+
             if(p == null)
                 return uf;
             String fileName = getFilename(p);

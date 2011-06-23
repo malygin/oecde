@@ -18,10 +18,11 @@
         <h:dataTable value="#{cc.attrs.list}" var="n">
                 <h:column>
                     <h:form id="formList" styleClass="newsBlocks">
+                        новость выложил - <a href="admin.xhtml?id=#{n.id}">#{n.author.fio}</a>
                          <div style="margin-top: 8px; margin-bottom: 8px;">
-                         <span class="chatPostUser" style="font-size: 8pt;"><h:outputText converter="dateConverter" value="#{n.time}"/></span>
+                             <span class="chatPostUser" style="font-size: 8pt;"><h:outputText converter="dateConverter" value="#{n.time}"/> <font color="red"><h:outputText converter="enumConverter" value="#{n.newstype}"/></font></span>
                          <span>
-                        <span class="newsName"> #{n.header}</span> 
+                             <span class="newsName"> #{n.header}</span> 
                            <h:outputLink value="news_view.xhtml?id=#{n.id}" rendered="#{not NewsBean.renderDeleteSuccess}" styleClass="AdminNavigationLinks">
                            посмотреть новость
                            </h:outputLink>

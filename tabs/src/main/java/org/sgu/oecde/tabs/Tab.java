@@ -1,7 +1,9 @@
 package org.sgu.oecde.tabs;
 
+import java.util.List;
 import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
+import org.sgu.oecde.core.util.LangEnum;
 
 /**
  *
@@ -9,8 +11,13 @@ import org.sgu.oecde.core.BasicItem;
  */
 public class Tab extends BasicItem implements Comparable<Tab> {
     private String name;
-    private Set<Page>pages;
+    private String alias;    
+    private String orderTab;
+    private List<Page>pages;
     private TabType type;
+    private LangEnum lang;
+    
+    
     private static final long serialVersionUID = 158L;
 
     public Tab() {
@@ -28,13 +35,39 @@ public class Tab extends BasicItem implements Comparable<Tab> {
         this.name = name;
     }
 
-    public Set<Page> getPages() {
+    public List<Page> getPages() {
         return pages;
     }
 
-    public void setPages(Set<Page> pages) {
+    public void setPages(List<Page> pages) {
         this.pages = pages;
     }
+
+    public String getOrderTab() {
+        return orderTab;
+    }
+
+    public void setOrderTab(String orderTab) {
+        this.orderTab = orderTab;
+    }
+
+    public LangEnum getLang() {
+        return lang;
+    }
+
+    public void setLang(LangEnum lang) {
+        this.lang = lang;
+    }
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
+
+
 
     public TabType getType() {
         return type;

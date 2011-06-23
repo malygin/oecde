@@ -17,6 +17,17 @@
                 <li><a href="index.xhtml"> #{msgs.admin_eduMenuTeachersExcercises}</a></li>
                 <li><a href="index.xhtml">#{msgs.admin_eduMenuGroupProjects}</a></li>-->
             </ol>
+            
+            <div class="blueMenuTitle"><p class="sideBarTitle">Редактирование информации</p></div>
+            <ol class="leftSideMenuLinks">
+                <li><a href="tabsView.xhtml?type=STUDENT_HELP">Помощь для  студентов</a></li>
+                <li><a href="tabsView.xhtml?type=STUDENT_INFORMATION">информ. для студентов </a></li>
+                <li><a href="tabsView.xhtml?type=STUDENTS_TIPS">Подсказки студентов</a></li>
+                <li><a href="tabsView.xhtml?type=TEACHER_HELP">Помощь преподов</a></li>
+                <li><a href="tabsView.xhtml?type=TEACHER_INFORMATION">Информ. для преподов </a></li>
+                <li><a href="tabsView.xhtml?type=TEACHERS_TIPS">Подсказки преподов</a></li>
+            </ol>
+            
             <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.admin_messMenuTitle}</p></div>
              <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="messages_list.xhtml">#{msgs.admin_messMenuIn}
                     <h:panelGroup rendered="#{MessageCountNewBean.newMessages>0}" style="font-size: 15px; font-weight: bold; color: red;">#{MessageCountNewBean.newMessages}</h:panelGroup>
@@ -39,7 +50,6 @@
             <ol class="topMenuLinks">
                 <li class="topMenuLinkContainer"><a href="index.xhtml">#{msgs.admin_topMenuHome}</a></li>
                 <li class="topMenuLinkContainer"><a href="news_list.xhtml">#{msgs.admin_topMenuNews}</a></li>
-                <li class="topMenuLinkContainer"><a href="tabsView.xhtml">#{msgs.admin_editing}</a></li>
                 <li class="topMenuLinkContainer"><a href="constants.xhtml">#{msgs.admin_PortalSettings}</a></li>
                 <li class="topMenuLinkContainer"><a href="settings.xhtml">#{msgs.admin_topMenuSettings}</a></li>
                 <li class="topMenuLinkContainer"><a href="search.xhtml">#{msgs.admin_topSearchInputText}</a></li>

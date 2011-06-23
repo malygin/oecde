@@ -11,6 +11,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import org.sgu.oecde.core.UpdateDao;
 import org.sgu.oecde.core.users.AbstractUser;
@@ -95,7 +96,7 @@ public class MessageWriteBean  implements Serializable{
      * добавляем файл к списку файлов письма
      * @throws IOException
      */
-    public void addFile() throws IOException {    
+    public void addFile() throws IOException, ServletException {    
         HttpServletRequest multi = FacesUtil.getRequest();  
         //MessageFile -  имя файла в форме
         UploadFile uf = FileUploadUtil.findFile(multi,"MessageFile");

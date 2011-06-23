@@ -2,6 +2,7 @@ package org.sgu.oecde.news.dao;
 
 import java.util.List;
 import org.sgu.oecde.core.IBasicDao;
+import org.sgu.oecde.core.util.LangEnum;
 import org.sgu.oecde.news.NewsItem;
 import org.springframework.dao.DataAccessException;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,14 +20,18 @@ public interface INewsDao extends IBasicDao<NewsItem>{
      * @return новости
      * @throws DataAccessException
      */
-    public List<NewsItem> getNews(int messageOnPage, int numPage)  throws DataAccessException ;
+    public List<NewsItem> getNewsForStudent(int messageOnPage, int numPage,  LangEnum lang)  throws DataAccessException ;
+    public List<NewsItem> getNewsForTeacher(int messageOnPage, int numPage,  LangEnum lang)  throws DataAccessException ;
+    public List<NewsItem> getNews(int messageOnPage, int numPage,  LangEnum lang)  throws DataAccessException ;
 
     /**
      *
      * @return количество новостей
      * @throws DataAccessException
      */
-    public int getNewsCount()  throws DataAccessException ;
+    public int getNewsCount(LangEnum lang)  throws DataAccessException ;
+    public int getNewsStudentCount(LangEnum lang)  throws DataAccessException ;
+    public int getNewsTeacherCount(LangEnum lang)  throws DataAccessException ;
 
     /**
      * сохраняет или изменяет новость

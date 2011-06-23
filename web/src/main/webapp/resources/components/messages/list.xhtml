@@ -63,7 +63,10 @@
                         </div>
                         <div class="listMessagesShortMessage listMessagesShortMessageBlock">
                             <a href="messages_read.xhtml?id=#{message.message.id}"><div class="messBlockLink"><h:outputText value="#{message.shortText}"/></div></a>
-                            <div class="listMessagesAttachmentsIco"><r:if test="#{message.filesExist eq true}"><img title="#{msgs.message_iconFilesExistTitle}" src="../resources/images/isAttachment.png" alt=""/></r:if><r:if test="#{message.filesExist ne true}"><img title="#{msgs.message_iconFilesNotExistTitle}" src="../resources/images/isNotAttachment.png" alt=""/></r:if></div>
+                              <div class="listMessagesAttachmentsIco">
+                                  <h:graphicImage value="../resources/images/isAttachment.png" rendered="#{message.filesExist}"/>
+                                   <h:graphicImage value="../resources/images/isNotAttachment.png" rendered="#{not message.filesExist}" />
+                              </div>
                             <div class="floatDestroyer"/>
                         </div>
                             <div class="floatDestroyer"/>

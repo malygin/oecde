@@ -12,10 +12,17 @@
     <property length="250" name="title" type="string"/>
     <property name="visible" scale="1" type="true_false"/>
     <many-to-one fetch="join" foreign-key="fk_tab" lazy="no-proxy" name="tab" />
-    <set batch-size="10" fetch="join" cascade="delete-orphan" inverse="true" lazy="false" name="files" table="tab_page_file">
-      <cache usage="read-write"/>
-      <key  column="page" foreign-key="fk_tab_page" not-null="true"/>
+    <list cascade="all" name="files" table="tab_page_file">
+      <key column="page" not-null="false" update="true"/>
+      <index column="id_page_file"/>
       <one-to-many class="org.sgu.oecde.tabs.PageFile"/>
-    </set>
+    </list> 
+      <property length="30" name="lang">
+      <type name="org.sgu.oecde.core.GenericEnumUserType">
+        <param name="enumClass">org.sgu.oecde.core.util.LangEnum</param>
+        <param name="identifierMethod">toName</param>
+        <param name="valueOfMethod">parse</param>
+      </type>
+    </property>
   </class>
 </hibernate-mapping>

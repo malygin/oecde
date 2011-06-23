@@ -50,7 +50,7 @@
                 <span class="AdminTextGrey">
                 #{msgs.admin_mainContentFiles}
                 </span>
-                <h:dataTable rendered="#{tabEditBean.pageId ne null}" id="files" value="#{setToList.getList(tabEditBean.page.files)}" var="f" styleClass="pageEditTable">
+                <h:dataTable rendered="#{tabEditBean.pageId ne null}" id="files" value="#{tabEditBean.page.files}" var="f" styleClass="pageEditTable">
                     <h:column>
                         <f:facet name="header">
                             #{msgs.admin_mainContentFileName}
@@ -107,7 +107,7 @@
                 
                 </span>
             </form>
-            #{tabEditBean.addFile()}
+        
         </div>
     </ui:define>
 </ui:composition>

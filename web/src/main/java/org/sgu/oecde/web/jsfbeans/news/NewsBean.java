@@ -5,13 +5,19 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.model.SelectItem;
 import javax.validation.constraints.Size;
+import org.sgu.oecde.core.users.Admin;
+import org.sgu.oecde.core.users.UserType;
 import org.sgu.oecde.core.util.DateConverter;
+import org.sgu.oecde.core.util.LangEnum;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.journal.EventType;
 import org.sgu.oecde.journal.JournalService;
+import org.sgu.oecde.news.NewTypeEnum;
 import org.sgu.oecde.news.NewsItem;
 import org.sgu.oecde.news.dao.INewsDao;
+import org.sgu.oecde.web.jsfbeans.UserSessionBean;
 import org.springframework.security.access.annotation.Secured;
 
 /**
@@ -25,11 +31,15 @@ public class NewsBean implements Serializable{
      @ManagedProperty(value="#{newsDao}")
      private INewsDao newsDao;
 
-    @ManagedProperty(value="#{journalService}")
-    private JournalService journalService;
+     @ManagedProperty(value="#{journalService}")
+     private JournalService journalService;
+     
+     @ManagedProperty(value="#{userSessionBean}")
+     private UserSessionBean userSessionBean;
 
      private List<NewsItem> news;
-     private int countNews;
+     private int countNews=0;
+
 
      private NewsItem currentNewItem;
      private String currentNewId;
@@ -48,6 +58,7 @@ public class NewsBean implements Serializable{
      @Size(max=250,message="слишком длинный анонс")
      private String anons;
      private String fulltext;
+     private NewTypeEnum type;
 
 
 
@@ -70,6 +81,9 @@ public class NewsBean implements Serializable{
        n.setAnnouncement(anons);
        n.setHeader(header);
          n.setTime(DateConverter.currentDate());
+         n.setAuthor((Admin)SecurityContextHandler.getUser());
+         n.setNewstype(type);
+        n.setLang(LangEnum.ru);
          renderAddSuccess=true;
         Long id=newsDao.save(n);
         n.setId(id);
@@ -81,12 +95,27 @@ public class NewsBean implements Serializable{
          renderAddSuccess=true;
          newsDao.update(currentNewItem);
     }
+    
+    
     public List<NewsItem> getNews(){
-        if (news==null) news=newsDao.getNews(newsOnPage, currentPage);
+        if (news==null){
+            switch(UserType.toType(SecurityContextHandler.getUser())){
+                case STUDENT:news=newsDao.getNewsForStudent(newsOnPage, currentPage, LangEnum.ru); break;
+                case TEACHER:news=newsDao.getNewsForTeacher(newsOnPage, currentPage, LangEnum.ru);break;
+                case ADMIN:news=newsDao.getNews(newsOnPage, currentPage, LangEnum.ru);  break;
+               }
+         }   
          return news;
     }
     public int getCountNews(){
-        return newsDao.getNewsCount();
+         if (countNews==0){
+            switch(UserType.toType(SecurityContextHandler.getUser())){
+                case STUDENT:countNews=newsDao.getNewsStudentCount(LangEnum.ru);break;
+                case TEACHER:countNews=newsDao.getNewsTeacherCount(LangEnum.ru);break;
+                case ADMIN:countNews=newsDao.getNewsCount( LangEnum.ru);  break;
+               }
+         }          
+        return countNews;
     }
 
     public void  setCurrentNewId(String id){
@@ -191,4 +220,32 @@ public class NewsBean implements Serializable{
     public void setJournalService(JournalService journalService) {
         this.journalService = journalService;
     }
+
+    public NewTypeEnum getType() {
+        return type;
+    }
+
+    public void setType(NewTypeEnum type) {
+        this.type = type;
+    }
+    public SelectItem[] getNewTypeValues() {
+        SelectItem[] items = new SelectItem[NewTypeEnum.values().length];
+        int i = 0;
+        for(NewTypeEnum g: NewTypeEnum.values()) {
+          items[i++] = new SelectItem(g, g.getName());
+        }
+    return items;
+  }
+
+    public UserSessionBean getUserSessionBean() {
+        return userSessionBean;
+    }
+
+    public void setUserSessionBean(UserSessionBean userSessionBean) {
+        this.userSessionBean = userSessionBean;
+    }
+
+    
+    
+
 }

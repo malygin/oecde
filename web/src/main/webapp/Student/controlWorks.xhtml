@@ -15,8 +15,7 @@
         </f:metadata>
         <div class="interfaceContent interfaceContentForMyMarks">
             <est:changeSemester semester="#{controlWorksBean.semester}"/>
-        #{controlWorksBean.saveCw()}
-                            <h:form>
+                            <h:form enctype="multipart/form-data">
             <h:dataTable width="100%" value="#{controlWorksBean.controlWorks}" var="o" cellpadding="0" cellspacing="0">
                 <h:column>
                         <table cellpadding="2" cellspacing="2" class="${o[1].progress} controlWorksBorders leftMenuContainer">
@@ -25,8 +24,16 @@
                                 <td valign="top" class="controlWorksDisciplineNameLink studentPaddLeft" style="width: 25%;">
                                     <h:outputLink value="umk.xhtml?c=${o[0].id}">${o[0].discipline.name}</h:outputLink></td>
                         <td valign="top" class="controlWorksDisciplineNameLink">
-                        <h:commandLink rendered="#{controlWorksBean.controlWorkAttempt!=null}" id="updt" value="#{msgs.student_ChooseControlWork}" style="padding-left: 17px;" action="#{controlWorksBean.setCw(o[1])}">
-                        </h:commandLink>
+                                <h:commandLink id="updt" value="#{msgs.student_ChooseControlWork}" style="padding-left: 17px;">
+                                    <f:attribute value="#{o[1]}" name="cw"/>
+                                    <f:ajax execute="@form" render="@form" event="click" listener="#{controlWorksBean.setCw}"/>
+                                </h:commandLink>
+                                <h:panelGroup rendered="#{controlWorksBean.currentControlWorks!=null and controlWorksBean.currentControlWorks == o[1]}" id="addFile">
+                                    <input type="file" name="CwFile" style="background: white;"/>
+                                    <span class="studentButton chooseContrWorkButtonPosition">
+                                        <h:commandLink action="#{controlWorksBean.saveCw}" id="fileBtn" value="ОК"/>
+                                    </span>
+                                </h:panelGroup>
                                 </td>
                             </tr>
                             <tr>
@@ -72,14 +79,6 @@
                 </h:column>
             </h:dataTable>
             </h:form>
-            <h:panelGroup rendered="#{!empty controlWorksBean.controlWorks}">
-        <form method="post" enctype="multipart/form-data" action="UploadServlet">
-        <input type="file" name="CwFile" style="background: white;"/>
-        <span class="studentButton chooseContrWorkButtonPosition">
-            <button type="submit" styleClass="studentButton" >загрузить</button>
-        </span>
-        </form>
-                </h:panelGroup>
         </div>
     </ui:define>
 </ui:composition>

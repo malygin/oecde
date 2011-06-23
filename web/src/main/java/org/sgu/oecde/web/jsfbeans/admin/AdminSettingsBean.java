@@ -38,6 +38,7 @@ public class AdminSettingsBean extends UserViewBean implements IBeanWithAvatarAd
 
     public void save(){
         try {
+            this.setType("admin");
             super.save();
         } catch (Exception e) {
             e.fillInStackTrace();

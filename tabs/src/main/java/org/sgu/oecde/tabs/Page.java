@@ -1,7 +1,9 @@
 package org.sgu.oecde.tabs;
 
+import java.util.List;
 import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
+import org.sgu.oecde.core.util.LangEnum;
 
 /**
  *
@@ -10,9 +12,11 @@ import org.sgu.oecde.core.BasicItem;
 public class Page extends BasicItem{
     private String title;
     private String text;
+    private String alias;
     private Boolean visible = true;
-    private Set<PageFile>files;
+    private List<PageFile>files;
     private Tab tab;
+    private LangEnum lang;
     private static final long serialVersionUID = 157L;
 
     public Page() {
@@ -42,13 +46,14 @@ public class Page extends BasicItem{
         this.visible = visible;
     }
 
-    public Set<PageFile> getFiles() {
+    public List<PageFile> getFiles() {
         return files;
     }
 
-    public void setFiles(Set<PageFile> files) {
+    public void setFiles(List<PageFile> files) {
         this.files = files;
     }
+
 
     public Tab getTab() {
         return tab;
@@ -61,4 +66,22 @@ public class Page extends BasicItem{
     public String toString() {
         return  super.toString() + ", title:" + title;
     }
+
+    public LangEnum getLang() {
+        return lang;
+    }
+
+    public void setLang(LangEnum lang) {
+        this.lang = lang;
+    }
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
+    
+    
 }

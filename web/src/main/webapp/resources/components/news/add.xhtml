@@ -21,6 +21,9 @@
  
           <div class="previewPadBott">
           <span class="previewColor">#{msgs.user_newsTitle} </span><br/>
+        тип  <h:selectOneMenu  value="#{NewsBean.type}">
+            <f:selectItems value="#{NewsBean.newTypeValues}" />
+            </h:selectOneMenu>
           <h:inputText size="60"  value="#{NewsBean.header}"/></div>  
           <span  class="previewColor">#{msgs.user_newsNotice} </span>
           <div class="previewPadLeft previewPadBott"><util:editor value="#{NewsBean.anons}"/></div>         

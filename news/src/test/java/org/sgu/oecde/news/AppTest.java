@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.sgu.oecde.core.BasicTest;
 import org.sgu.oecde.core.users.Admin;
 import org.sgu.oecde.core.util.DateConverter;
+import org.sgu.oecde.core.util.LangEnum;
 import org.sgu.oecde.news.dao.INewsDao;
 import org.springframework.test.context.ContextConfiguration;
 
@@ -18,7 +19,7 @@ import org.springframework.test.context.ContextConfiguration;
 @ContextConfiguration(locations={"../applicationContext.xml"})
 public class AppTest extends BasicTest{
 
-    @Ignore
+   @Ignore
     @Test
     public void newsAdd(){
         String fullText = "qweeeeeeeee qwe      qwe qw aoksf[glsdkfn[ gofg ";
@@ -29,24 +30,26 @@ public class AppTest extends BasicTest{
         item.setAnnouncement(announcement);
         item.setFullText(fullText);
         item.setHeader(header);
+        item.setNewstype(NewTypeEnum.forAll);
+        item.setLang(LangEnum.ru);
         setDao("adminDao");
-        Admin author = this.<Admin>getItem(1L);
+        Admin author = this.<Admin>getItem(11L);
         System.out.println(author);
         item.setAuthor(author);
         setDao("newsDao");
         this.<INewsDao>getDao().save(item);
     }
 
-   @Ignore
+  @Ignore
     @Test
     public void listNews() {
     
         setDao("newsDao");
-        List<NewsItem> news = this.<INewsDao>getDao().getNews(2,3);
+        List<NewsItem> news = this.<INewsDao>getDao().getNewsForStudent(10, 1, LangEnum.ru);
         for(NewsItem n:news){
-            System.out.println(n.getId());
+          //  System.out.println(n.getId());
         }
-       System.out.println(""+news);
+       System.out.println(""+news.size());
     }
 
     @Ignore
@@ -99,11 +102,11 @@ public class AppTest extends BasicTest{
 
     }
 
-    @Ignore
+  //  @Ignore
     @Test
     public void getCoutn() {
           setDao("newsDao");
-        System.out.println("" +  this.<INewsDao>getDao().getNewsCount());
+        System.out.println("" +  this.<INewsDao>getDao().getNewsCount(LangEnum.ru));
 
 
     }
