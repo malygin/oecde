@@ -7,30 +7,24 @@
 
  <!-- INTERFACE -->
   <composite:interface>
-      <composite:attribute name="type" required="true" type="java.lang.String" shortDescription="тип вкладок"/>
+      <composite:attribute name="alias" required="true" type="java.lang.String" shortDescription="тип вкладок"/>
   </composite:interface>
 
   <!-- IMPLEMENTATION -->
    <composite:implementation>
-       <h:dataTable id="tabs" style="margin-left: 20px;" value="#{setToList.getList(tabsViewBean.getTab(cc.attrs.type).pages)}" var="p">
-            <h:column>
-                <span class="navigationLinks">
-                <div>
-                    <span class="contentsBlock"></span>
-                </div>
-                <div class="educ_umk_text_block">
+     
+       <div class="educ_umk_text_block">
                     <div class="controlWorksDisciplineName" style="margin-bottom: 5px;">
-                        <h:outputText id="title" value="#{p.title}"/>
+                        <h:outputText escape="false" value="#{tabEditBean.getPageByAlias(cc.attrs.alias).title}"/>
                     </div>
                     <div style="text-align: justify;">
-                        <h:outputText escape="false" id="page" value="#{p.text}"/>
+                        <h:outputText escape="false" id="page" value="#{tabEditBean.page.text}"/>
                     </div>
                     <div style="text-align: justify;">
                         <br/>
                         <hr/>
                         <br/>
-                    <h:outputText rendered="#{tabsViewBean.currentPage.files!=null}" value="Файлы"/> 
-                    <h:dataTable id="files" value="#{setToList.getList(tabsViewBean.currentPage.files)}" var="f">
+                         <h:dataTable id="files" value="#{tabEditBean.page.files}" var="f">
                         <h:column>
                             <h:panelGroup rendered="#{f.visible}">
                                 <h:graphicImage rendered="#{f.image}" value="../resources/userFiles/tabs/#{f.name}" alt="#{(f.description eq null||f.description eq '')?f.name:f.description}"/>
@@ -40,8 +34,5 @@
                     </h:dataTable>
                     </div>
                 </div>
-                </span>
-            </h:column>
-        </h:dataTable>
    </composite:implementation>
 </html>

@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute  name="ansQuest" shortDescription="передаем вопрос для вывода"/>
+    </composite:interface>
+
+    <!-- IMPLEMENTATION -->
+
+    <composite:implementation>             
+        
+        <div style="margin-top: 15px;"><h:outputText id="qTitle" title="qTitle" styleClass="qTitle" escape="false" value="#{testUtil.checkForFormulaOrLink(cc.attrs.ansQuest.question.title)}" style="display: block; font-size: 14px;"/></div>
+                    <div style="clear: left;">
+                        <h:outputText style="color:red;" rendered="#{cc.attrs.ansQuest.right}" value="правильный ответ!"/>                  
+                        <h:panelGroup  id="radioType" rendered="#{cc.attrs.ansQuest.question.type=='radio'}" styleClass="educ_umk_text_block">
+                            <div style="margin-left: 100px;">
+                             <ui:repeat value="#{setToList.getList(cc.attrs.ansQuest.givenAnswers)}" var="ans">
+                                  <h:panelGroup layout="block" rendered="#{ans.rightAnswer.rightAnswer==1}" styleClass="radioButtonActive">
+                                       <h:panelGroup layout="block" rendered="#{ans.givenAnswer eq '1'}" >
+                                            <label style="border: 1px solid #4593DF;"> <h:outputText value="#{ans.rightAnswer.title}"/></label>
+                                       </h:panelGroup>
+                                        <h:panelGroup layout="block" rendered="#{ans.givenAnswer eq '0'}" >
+                                            <label > <h:outputText value="#{ans.rightAnswer.title}"/></label>
+                                       </h:panelGroup>  
+                                  </h:panelGroup>
+                                  <h:panelGroup layout="block" rendered="#{ans.rightAnswer.rightAnswer!=1}" styleClass="radioButtonEnabled">
+                                       <h:panelGroup layout="block" rendered="#{ans.givenAnswer eq '1'}" >
+                                            <label style="border: 1px solid #4593DF;"> <h:outputText value="#{ans.rightAnswer.title}"/></label>
+                                       </h:panelGroup>
+                                        <h:panelGroup layout="block" rendered="#{ans.givenAnswer eq '0'}" >
+                                            <label > <h:outputText value="#{ans.rightAnswer.title}"/></label>
+                                       </h:panelGroup>  
+                                  </h:panelGroup>
+                             </ui:repeat>
+                              
+                            </div>
+                                 
+                         </h:panelGroup>
+                      </div>
+
+                      <div style="clear: left;">
+                          <h:panelGroup id="checkType" rendered="#{cc.attrs.ansQuest.question.type=='check'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
+                             <div style="margin-left: 100px;">
+                              <ui:repeat value="#{setToList.getList(cc.attrs.ansQuest.givenAnswers)}"  var="ans">
+                               
+                                <h:panelGroup rendered="#{ans.rightAnswer.rightAnswer==1}" styleClass="checkboxActive">
+                                      <h:panelGroup layout="block" rendered="#{ans.givenAnswer eq '1'}" >
+                                            <label style="border: 1px solid #4593DF;"> <h:outputText value="#{ans.rightAnswer.title}"/></label>
+                                       </h:panelGroup>
+                                        <h:panelGroup layout="block" rendered="#{ans.givenAnswer eq '0'}" >
+                                            <label > <h:outputText value="#{ans.rightAnswer.title}"/></label>
+                                       </h:panelGroup>  
+                                </h:panelGroup>
+                                 <h:panelGroup rendered="#{ans.rightAnswer.rightAnswer!=1}" styleClass="checkboxEnabled">
+                                    <h:panelGroup layout="block" rendered="#{ans.givenAnswer eq '1'}" >
+                                            <label style="border: 1px solid #4593DF;"> <h:outputText value="#{ans.rightAnswer.title}"/></label>
+                                       </h:panelGroup>
+                                        <h:panelGroup layout="block" rendered="#{ans.givenAnswer eq '0'}">
+                                            <label > <h:outputText value="#{ans.rightAnswer.title}"/></label>
+                                       </h:panelGroup>  
+                                </h:panelGroup>
+                              </ui:repeat>
+                             </div>
+                        
+                         </h:panelGroup>
+                       </div>
+
+                      <div style="clear: left;">
+                          <h:panelGroup id="textType" rendered="#{cc.attrs.ansQuest.question.type=='text'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
+                             <div style="margin-left: 100px;">
+                              <ui:repeat value="#{setToList.getList(cc.attrs.ansQuest.givenAnswers)}"  var="ans">
+                                  <br/>#{msgs.student_TestAnswer}  <b>#{ans.rightAnswer.title}</b> #{ans.givenAnswer}
+                             </ui:repeat>
+                             </div>
+                          
+                         </h:panelGroup>
+                      </div>
+
+                      <div style="clear: left;" align="left">
+                          <h:panelGroup id="comparisonType" rendered="#{cc.attrs.ansQuest.question.type=='comparison'}">
+                              <div style="margin-left: 100px;">
+                                  <ui:repeat value="#{setToList.getList(cc.attrs.ansQuest.givenAnswers)}"  var="ans">
+                                     <li> <label> #{ans.rightAnswer.title}</label> - <b>#{ans.rightAnswer.rightAnswer}</b>   - #{ans.givenAnswer} <br/></li>
+                                  </ui:repeat>
+                              </div>                               
+                         </h:panelGroup>
+                      </div>
+
+    </composite:implementation>
+</html>

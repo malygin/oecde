@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      >
+
+ <!-- INTERFACE -->
+  <composite:interface>
+     
+  
+  </composite:interface>
+
+  <!-- IMPLEMENTATION -->
+   <composite:implementation>
+         <div class="StudentMainPageTitles">
+                            <div class="navigationLinks indentionInNavigation test_results">Результаты итоговых тестов</div>
+                        </div>
+                        <div class="StudentTestsPadding">
+                        <h:dataTable cellpadding="0" cellspacing="0"
+                                     columnClasses="studentStandatrTableTd studentStandatrTableTdTests,
+                                      studentStandatrTableTdLastTdwithBorder" styleClass="studentStandatrTable studentStandatrTableBorder leftMenuContainer"
+                                     value="#{studentIndexBean.badPassedTests(true)}" var="r">
+                            <h:column>
+                            <div>
+                                <div class="controlWorksDisciplineNameLink">
+                                    <div>
+                                        <h:outputLink value="test.xhtml?c=#{r.curriculum.id}&amp;id=#{r.work.id}">#{r.work.title}</h:outputLink>
+                                    </div>
+                                </div>
+                                <div class="educ_content_title_activ">
+                                    <ol class="my_educ_disc_reason">
+                                        <li class="discipline_summ" style="padding-bottom: 3px;">набрано баллов<h:outputText rendered="#{r.pointsForWork!=0}" style="color:#373E3F; font-weight: bolder; margin-left: 3px;" value="#{r.pointsForWork}"></h:outputText>
+                                    <h:outputText rendered="#{r.pointsForWork==0}" styleClass="nullSign" style="margin-left: 3px;" value="#{r.pointsForWork}"></h:outputText></li>
+                                    </ol>
+                                </div>
+                            </div>
+                            </h:column>
+                        </h:dataTable>
+                        </div>
+  </composite:implementation>
+</html>

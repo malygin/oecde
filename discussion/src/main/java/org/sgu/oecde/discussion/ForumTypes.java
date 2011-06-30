@@ -72,11 +72,11 @@ public enum ForumTypes {
             case STUDENT_ORG:
                 return "Студенческий организационный форум";
             case TEACHER_FAQ:
-                return "преподовательский технический форум";
+                return "Преподавательский технический форум";
             case TEACHER_ORG:
-                return "преподовательский организационный форум";
+                return "Преподавательский организационный форум";
             case NEWS:
-                return "новостной форум";
+                return "Новостной форум";
             default:
                 //Заглушка. Недостижима.
                 throw new RuntimeException("No string representation found for " + this);

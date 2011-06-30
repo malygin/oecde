@@ -46,10 +46,16 @@ public class GroupPoints extends AbstractStudentsListBean{
     }
 
     public void save(){
-        for(PointsFacade p:points){
+        for(PointsFacade p:points){          
             Estimate e = p.getPoints().getWorkPoints(EstimateNames.estimate);
+            if (e==null){
+                e=new Estimate();
+                e.setStudent(p.getPoints().getStudent());
+                e.setCurriculum(p.getPoints().getCurriculum());
+            }
             e.setGradeCode(p.getGrade());
             e.setDate(DateConverter.currentDate());
+           
             try {
                 estimateDao.save(e);
             } catch (Exception ex) {
@@ -57,7 +63,7 @@ public class GroupPoints extends AbstractStudentsListBean{
                 error=true;
             }
         }
-        journalService.save(EventType.GRADING,teacher, getGroup(), getCurriculum());
+        journalService.save(EventType.GRADING,teacher, getGroup(), getCurriculum().getDiscipline());
         saved=true;
     }
 

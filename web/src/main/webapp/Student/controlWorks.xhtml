@@ -53,7 +53,7 @@
                                     <h:panelGroup rendered="${o[1].progress=='failed'}" styleClass="controlWorkResultStyle cross-circle">
                                    <h:outputText converter="enumConverter" value="${o[1].progress}"/>
                                    </h:panelGroup>
-                            <h:panelGroup rendered="${o[1].progress == 'notAvailable' or o[1].progress == 'available'}" styleClass="controlWorkResultStyle" style="background: none;">
+                            <h:panelGroup rendered="${o[1].progress == 'available'}" styleClass="controlWorkResultStyle" style="background: none;">
                                    <h:outputText converter="enumConverter" value="${o[1].progress}"/>
                                    </h:panelGroup>
                                     

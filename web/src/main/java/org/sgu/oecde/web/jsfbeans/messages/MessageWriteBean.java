@@ -9,14 +9,17 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import org.sgu.oecde.core.UpdateDao;
 import org.sgu.oecde.core.users.AbstractUser;
+import org.sgu.oecde.core.users.StudentGroup;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.core.util.SecurityContextHandler;
+import org.sgu.oecde.de.education.dao.IGroupDao;
+import org.sgu.oecde.journal.EventType;
+import org.sgu.oecde.journal.JournalService;
 import org.sgu.oecde.messages.Message;
 import org.sgu.oecde.messages.MessageFile;
 import org.sgu.oecde.messages.MessageRecipient;
@@ -24,7 +27,6 @@ import org.sgu.oecde.messages.MessageType;
 import org.sgu.oecde.messages.service.MessageImpl;
 import org.sgu.oecde.messages.service.MessageService;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.FacesUtil;
-import org.sgu.oecde.web.jsfbeans.util.fileUpload.MultipartRequestWrapper;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.UploadFile;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.FileUploadUtil;
 
@@ -44,9 +46,20 @@ public class MessageWriteBean  implements Serializable{
 
     @ManagedProperty(value="#{userDao}")
     private UpdateDao userDao;
- 
+    
+    
+    @ManagedProperty(value="#{groupDao}")
+    private IGroupDao groupDao;
+    
+    @ManagedProperty(value="#{journalService}")
+    private JournalService journalService;
+    
+    
     private List<MessageFile> files = new ArrayList();
     private List<MessageRecipient> recipients= new ArrayList();
+    private List<StudentGroup> groups = new ArrayList();
+    
+    private String groupId;
 
     private String messageNameForDelete="";
     private String recipientId="";
@@ -69,12 +82,26 @@ public class MessageWriteBean  implements Serializable{
         messageSave.setFullText(fullText);
         messageSave.setTheme(theme);
         messageSave.setType(MessageType.privateMessage);
+        if (! groups.isEmpty()){
+            for(StudentGroup gr:groups){
+                for(Object u: gr.getPersons()){
+                          MessageRecipient recipient= new MessageRecipient();
+                          recipient.setRecipient((AbstractUser)u);
+                          recipients.add(recipient);                                  
+                 }
+            }
+        }
         messageSave.setRecipients(recipients);
         recipientId=(recipients.get(0)).getRecipient().getId().toString();
         messageSave.setDateMessage(DateConverter.currentDate());
         messageSave.setAuthor(SecurityContextHandler.getUser());
         messageSave.setFiles(files);
-      messageService.save(messageSave);
+        messageService.save(messageSave);
+        if (!groups.isEmpty()){
+            recipients =new ArrayList<MessageRecipient> ();
+            journalService.save(EventType.SPAM_GROUP, SecurityContextHandler.getUser(),groups.get(0));
+        }
+             
      // recipients= new ArrayList();
       this.renderSuccessSend=true;
     //FacesContext.getCurrentInstance().getExternalContext().redirect("messages_write.xhtml?user="+user);
@@ -274,6 +301,31 @@ public class MessageWriteBean  implements Serializable{
     public void setCurrentRecipient(SelectItem currentRecipient) {
     //    System.out.println("set current!");
         this.currentRecipient = currentRecipient;
+    }
+
+    public String getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+        groups.add(groupDao.getById(new Long(groupId)));
+    }
+
+    public void setGroupDao(IGroupDao groupDao) {
+        this.groupDao = groupDao;
+    }
+
+    public List<StudentGroup> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<StudentGroup> groups) {
+        this.groups = groups;
+    }
+
+    public void setJournalService(JournalService journalService) {
+        this.journalService = journalService;
     }
 
   

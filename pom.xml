@@ -391,8 +391,7 @@
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
-            <version>6.0</version>
-            <scope>provided</scope>
+            <version>6.0</version>          
         </dependency>
       <!-- end java EE--> 
         </dependencies>

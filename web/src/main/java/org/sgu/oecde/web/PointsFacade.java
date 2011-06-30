@@ -34,6 +34,7 @@ public class PointsFacade implements Serializable{
 
     public PointsFacade(Points points) {
         this.points = points;
+      //  this.points.addNewWorkPoint(EstimateNames.estimate, "");
         testsCount = points.getWorkPoints(TestsCountEnum.TESTS_COUNT);
         concludingTestsCount = points.getWorkPoints(TestsCountEnum.CONCLUDING_TESTS_COUNT);
         testsMaxPoints = points.getWorkPoints(TestsCountEnum.TESTS_MAXIMUM_POINTS);

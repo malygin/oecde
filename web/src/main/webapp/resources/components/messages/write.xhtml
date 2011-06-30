@@ -48,6 +48,12 @@
                         </div>
                     </h:column>
                 </h:dataTable>
+                    
+                    <h:dataTable value="#{MessageWriteBean.groups}" var="gr">
+                        <h:column>
+                           <b> #{gr.name}</b> группа из #{gr.number} человек
+                        </h:column>
+                    </h:dataTable>
                     <table>
                          <tr>
                         

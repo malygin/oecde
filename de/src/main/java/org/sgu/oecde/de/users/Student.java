@@ -1,5 +1,6 @@
 package org.sgu.oecde.de.users;
 
+import java.util.Comparator;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.hibernate.validator.constraints.Email;
 import javax.validation.constraints.Digits;
@@ -115,5 +116,18 @@ public class Student extends AbstractStudent{
 
     public void setStudentPassId(Long studentPassId) {
         this.studentPassId = studentPassId;
+    }
+    static public class OrderByStudentName implements Comparator<Student>{
+
+        @Override
+        public int compare(Student o1, Student o2) {
+            int st = 0;
+            if(o1!=null &&o2!=null &&
+                    o1.getFio()!=null&&o2.getFio()!=null                ){
+                st = o1.getFio().compareTo(o2.getFio());
+            }
+            return st;
+        }
+
     }
 }

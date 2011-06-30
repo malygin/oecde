@@ -12,10 +12,10 @@
 
     <!-- IMPLEMENTATION -->
     <composite:implementation>
-        <h:outputLink rendered="#{cc.attrs.attempt.filePath ne 'empty'}" value="#{cc.attrs.attempt.filePath}" id="log">
+        <h:outputLink rendered="#{cc.attrs.attempt.filePath ne 'empty'}" value="../resources/userFiles/controlWorks/#{cc.attrs.attempt.filePath}" id="log">
             <f:ajax  event="mousedown" listener="#{groupControlWorksForTeacher.logWorkDownload}"/>
             <f:attribute name="attempt" value="#{cc.attrs.attempt}"/>
-            <h:outputText value="#{cc.attrs.attempt.attemptDate}"/>
+            <h:outputText converter="dateConverter" value="#{cc.attrs.attempt.attemptDate}"/>
         </h:outputLink>
         <h:outputText converter="dateConverter" rendered="#{cc.attrs.attempt.filePath eq 'empty'}" value="#{cc.attrs.attempt.attemptDate}"/>
     </composite:implementation>

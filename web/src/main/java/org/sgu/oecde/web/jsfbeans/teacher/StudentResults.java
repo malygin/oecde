@@ -8,10 +8,12 @@ import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.controlworks.ControlWork;
 import org.sgu.oecde.controlworks.ControlWorkService;
 import org.sgu.oecde.core.IBasicDao;
+import org.sgu.oecde.core.education.work.AbstractSelfDependentWorkResult;
 import org.sgu.oecde.core.education.work.AdditionalSelfDependentWork;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.de.users.Student;
+import org.sgu.oecde.tests.TestAttempt;
 import org.sgu.oecde.tests.TestAttemptService;
 import org.sgu.oecde.web.ResourceService;
 import org.springframework.util.CollectionUtils;
@@ -25,8 +27,12 @@ import org.springframework.util.CollectionUtils;
 public class StudentResults extends AbstractStudentsListBean{
     
     private Student student;
-
+    private String testId;
+    private String attemptId;
+    private TestAttempt attempt;
+    
     private List<ControlWork>works;
+    
 
     private List<AdditionalSelfDependentWork>tests;
 
@@ -102,4 +108,38 @@ public class StudentResults extends AbstractStudentsListBean{
     public void setResourceService(ResourceService resourceService) {
         this.resourceService = resourceService;
     }
+
+    public String getTestId() {
+        return testId;
+    }
+
+    public void setTestId(String testId) {
+        this.testId = testId;
+    }
+
+    public String getAttemptId() {
+        return attemptId;
+    }
+
+    public void setAttemptId(String attemptId) {
+        this.attemptId = attemptId;        
+        getResults();
+        for (AdditionalSelfDependentWork a:tests)
+            if (a.getWork().getId().equals(new Long(testId))){
+                  for(AbstractSelfDependentWorkResult ta:a.getResults())
+                      if (ta.getId().equals(new Long(attemptId))){
+                          attempt=(TestAttempt) ta;
+                          break;}
+            break;}
+    }
+
+    public TestAttempt getAttempt() {
+        return attempt;
+    }
+
+    public void setAttempt(TestAttempt attempt) {
+        this.attempt = attempt;
+    }
+    
+    
 }

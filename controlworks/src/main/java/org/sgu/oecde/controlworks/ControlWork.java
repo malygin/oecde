@@ -79,9 +79,13 @@ public class ControlWork extends AbstractResult{
     /**
      * баллы
      * @param points
+     * @todo не здесь должна быть првоверка на балы, не здесь..
      */
     public void setPoints(Integer points) {
-        this.points = points;
+        if (points==null) this.points = points;
+        else if (points>100) this.points=100;
+        else if(points<=0) this.points=0;        
+                else this.points = points;
     }
 
     @Override

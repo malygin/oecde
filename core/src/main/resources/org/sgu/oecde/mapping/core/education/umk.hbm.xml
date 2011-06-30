@@ -17,7 +17,7 @@
       <cache usage="read-only"/>
       <key column="umk" foreign-key="fk_umk_resource_umk" not-null="true"/>
       <index column="resource_order" length="3" type="integer"/>
-      <many-to-many class="org.sgu.oecde.core.education.resource.AbstractResource" column="resource_id" foreign-key="fk_umk_res"/>
+      <many-to-many not-found="ignore" class="org.sgu.oecde.core.education.resource.AbstractResource" column="resource_id" foreign-key="fk_umk_res"/>
     </list>
     <set batch-size="5" cascade="none" fetch="join" mutable="false" name="authors" table="umk_author">
       <cache usage="read-only"/>

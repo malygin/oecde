@@ -3,6 +3,7 @@ package org.sgu.oecde.web.jsfbeans.tabs;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -11,10 +12,12 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import org.sgu.oecde.core.IUpdateDao;
 import org.sgu.oecde.tabs.Page;
 import org.sgu.oecde.tabs.PageFile;
 import org.sgu.oecde.tabs.Tab;
 import org.sgu.oecde.tabs.TabType;
+import org.sgu.oecde.tabs.dao.IPageDao;
 import org.sgu.oecde.tabs.dao.ITabsDao;
 import org.sgu.oecde.web.jsfbeans.UserSessionBean;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.FacesUtil;
@@ -33,6 +36,10 @@ public class TabEditBean implements Serializable {
 
     @ManagedProperty(value = "#{tabsDao}")
     private ITabsDao tabsDao;
+    
+    @ManagedProperty(value = "#{pageDao}")
+    private IPageDao pageDao;
+   
     @ManagedProperty(value="#{userSessionBean}")
     private UserSessionBean userSessionBean;
     
@@ -46,6 +53,7 @@ public class TabEditBean implements Serializable {
         String redirect = null;
         if (pageId == null && page != null) {
             tab.getPages().add(page);
+            page.setOrderPage("0");
             page.setTab(tab);
             redirect = "tabEdit.xhtml?faces-redirect=true&id=" + tab.getId();
         } else {
@@ -57,6 +65,11 @@ public class TabEditBean implements Serializable {
             e.fillInStackTrace();
         }
         return redirect;
+    }
+    
+     @Secured("ROLE_ADMIN")
+    public void updatePage() {     
+        pageDao.update(page);
     }
 
     @Secured("ROLE_ADMIN")
@@ -88,12 +101,13 @@ public class TabEditBean implements Serializable {
                 tabsDao.update(tab);
             }
         }
-        FacesUtil.getResponse().sendRedirect("pageEdit.xhtml");
+        FacesUtil.getResponse().sendRedirect("tabEditPage.xhtml?id="+tab.getId()+"&p="+page.getId());
     }
 
     @Secured("ROLE_ADMIN")
     public void deleteFile(AjaxBehaviorEvent event) {
         PageFile f = (PageFile) event.getComponent().getAttributes().get("file");
+        page.getFiles().remove(f);
         tabsDao.removeFile(f);
     }
 
@@ -112,6 +126,7 @@ public class TabEditBean implements Serializable {
         if (id != null && !id.equals(0L)) {
             this.id = id;
             tab = tabsDao.getById(id);
+            Collections.sort(tab.getPages());
         }
     }
 
@@ -152,6 +167,18 @@ public class TabEditBean implements Serializable {
     public void setUserSessionBean(UserSessionBean userSessionBean) {
         this.userSessionBean = userSessionBean;
     }
+
+    public void setPageDao(IPageDao pageDao) {
+        this.pageDao = pageDao;
+    }
+
+    public Page getPageByAlias(String alias){
+         page=new Page();
+         page.setAlias(alias);
+         page=pageDao.getByExample(page).get(0);
+         return page;
+    }
+ 
     
     
 }

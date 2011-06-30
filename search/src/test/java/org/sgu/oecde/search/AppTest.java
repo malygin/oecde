@@ -1,6 +1,7 @@
 package org.sgu.oecde.search;
 
 import java.util.List;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.sgu.oecde.core.BasicTest;
 import org.sgu.oecde.core.users.Teacher;
@@ -13,7 +14,8 @@ import org.springframework.test.context.ContextConfiguration;
  */
 @ContextConfiguration(locations={"../applicationContext.xml"})
 public class AppTest  extends BasicTest{
-    
+   
+    @Ignore
     @Test
     public void search(){
         ISearchDao s = (ISearchDao) applicationContext.getBean("searchDao");

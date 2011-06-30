@@ -132,6 +132,7 @@ public class ResourceService implements Serializable{
                     data[4] = "Попытки переэкзаменовки исчерпаны";
                 }else
                     available = true;
+                   
             }else{
                 testBeginDate = e.getOpenDate();
                 testEndDate = e.getCloseDate();
@@ -162,12 +163,13 @@ public class ResourceService implements Serializable{
                 else{
                     data[2] = "Тест не доступен";
                 }
-            }
+            
             if(w.getTrialAttemptsUsedNumber()>=e.getTrialNumber())
                 data[3] = "Пробные попытки исчерпаны";
             if(w.getEstimateAttemptsUsedNumber()>=e.getEstimateAttemptsNumber()){
                 data[2] = "Попытки исчерпаны";
                 available = data[4]==null?false:available;
+            }
             }
             if(!student.getFullAccess()){
                 data[4] = "Тесты не доступны";

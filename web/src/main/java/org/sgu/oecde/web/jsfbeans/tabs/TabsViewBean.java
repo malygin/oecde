@@ -1,6 +1,7 @@
 package org.sgu.oecde.web.jsfbeans.tabs;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -19,6 +20,7 @@ import org.springframework.util.CollectionUtils;
 /**
  *
  * @author ShihovMY
+ * бин отвечающий за просмотр табов и добавление и удаление их
  */
 @ManagedBean(name="tabsViewBean")
 @ViewScoped
@@ -43,6 +45,7 @@ public class TabsViewBean implements Serializable{
    @Secured("ROLE_ADMIN")
     public void addTabs(){
        tab.setType(tabtype);
+       tab.setOrderTab("0");
        tabsDao.update(tab);
        isSaved=true;
         
@@ -61,37 +64,46 @@ public class TabsViewBean implements Serializable{
         if(tabs == null||isSaved){         
             Tab example = new Tab(tabtype);
             example.setOrderTab(null);
-            tabs = tabsDao.getByExample(example);
+            tabs = tabsDao.getByExampleAndOrder(example,"orderTab");
             isSaved=false;
-//            if(!CollectionUtils.isEmpty(tabs))
-//                if(!CollectionUtils.isEmpty(tabs.get(0).getPages()))
-//                    currentPage = tabs.get(0).getPages().iterator().next();
         }
         return tabs;
     }
     
-    
-
-    public Tab getTab(String t){
-        if(tab ==null){
-            TabType type = TabType.valueOf(t.toUpperCase());
-            if(type.isSingleton()){
-                Tab example = new Tab(type);
-                List<Tab>tabs = tabsDao.getByExample(example);
-                if(tabs.size()==1){
-                    tab = tabs.get(0);
-                }
-            }
-        }
-        return tab;
-    }
-
-    public List<Tab> getAll(){
-        if(tabs == null){
-            tabs = tabsDao.getAll();
+     public List<Tab> getTabs(String t){
+        if(tabs == null||isSaved){ 
+            tabtype = TabType.valueOf(t.toUpperCase());
+            Tab example = new Tab(tabtype);
+            example.setOrderTab(null);
+            tabs = tabsDao.getByExampleAndOrder(example,"orderTab");
+            for(Tab tab: tabs)
+                Collections.sort(tab.getPages());
+            isSaved=false;
         }
         return tabs;
     }
+    
+
+//    public Tab getTab(String t){
+//        if(tab ==null){
+//            tabtype = TabType.valueOf(t.toUpperCase());
+//            if(tabtype.isSingleton()){
+//                Tab example = new Tab(tabtype);
+//                List<Tab>tabs = tabsDao.getByExampleAndOrder(example,"orderTab");
+////                if(tabs.size()==1){
+////                    tab = tabs.get(0);
+////                }
+//            }
+//        }
+//        return tab;
+//    }
+
+//    public List<Tab> getAll(){
+//        if(tabs == null){
+//            tabs = tabsDao.getAll();
+//        }
+//        return tabs;
+//    }
 
     public String getType() {
         return type;

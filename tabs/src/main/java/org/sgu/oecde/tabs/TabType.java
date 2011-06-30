@@ -66,6 +66,30 @@ public enum TabType implements Serializable{
 
     @Override
     public String toString() {
-        return getName();
+        switch(this){
+            case INDEX_PAGE:
+                return "INDEX_PAGE";
+            case STUDENT_INFORMATION:
+                return "STUDENT_INFORMATION";
+            case STUDENT_HELP:
+                return "STUDENT_HELP";
+            case TEACHER_INFORMATION:
+                return "TEACHER_INFORMATION";
+            case TEACHER_HELP:
+                return "TEACHER_HELP";
+            case ADMIN_HELP:
+                return "ADMIN_HELP";
+            case SUPERVISOR_HELP:
+                return "SUPERVISOR_HELP";
+            case STUDENTS_TIPS:
+                return "STUDENTS_TIPS";
+            case TEACHERS_TIPS:
+                return "TEACHERS_TIPS";
+            case ADMIN_TIPS:
+                return "ADMIN_TIPS";
+
+            default:
+                throw new AssertionError();
+        }
     }
 }

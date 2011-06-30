@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
+      >
+
+ <!-- INTERFACE -->
+  <composite:interface>
+     
+  
+  </composite:interface>
+
+  <!-- IMPLEMENTATION -->
+   <composite:implementation>
+        
+         <h:dataTable styleClass="studentStandatrTable"
+                         columnClasses="studentStandatrTableTd,
+                         studentStandatrTableTd,
+                         studentStandatrTableTd,
+                         studentStandatrTableTd,
+                         studentStandatrTableTdLastTd" cellpadding="0" cellspacing="0" id="table" value="#{controlWorksAttemptsBean.attempts}" var="a">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
+                    </f:facet>
+                    <span class="controlWorksDisciplineName"><h:outputText value="#{a.work.curriculum.discipline.name}"/></span>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msgs.student_Student}" />
+                    </f:facet>
+                    <span class="linkToStudentsProfile"><h:outputLink value="student.xhtml?id=#{a.work.student.id}&amp;s=#{controlWorksAttemptsBean.semester}"><h:outputText value="#{a.work.student.fio}"/></h:outputLink></span>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msgs.admin_mainContentGroup}" />
+                    </f:facet>
+                    <h:outputLink value="groupControlWorks.xhtml?g=#{a.work.student.group.id}&amp;c=#{a.work.curriculum.id}&amp;s=#{controlWorksAttemptsBean.semester}"><h:outputText value="#{a.work.student.group.name} гр."/></h:outputLink>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msgs.student_testResultResult}" />
+                    </f:facet>
+                    <h:outputText converter="enumConverter" value="#{a.work.progress}"/>
+                    <h:outputText value="#{a.work.points}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msgs.message_downLoad}" />
+                    </f:facet>
+                    <h:outputText rendered="#{a.read}" value="скачана! "/> 
+                    <est:readCwAttempt attempt="#{a}"/>
+                </h:column>
+            </h:dataTable>
+  </composite:implementation>
+</html>

@@ -10,6 +10,8 @@
     </id>
     <property length="4000" name="text" not-null="true" type="string"/>
     <property length="250" name="title" type="string"/>
+    <property length="250"  name="alias" not-null="false"  type="string"/>
+    <property length="10"  name="orderPage" not-null="false"  type="string"/>
     <property name="visible" scale="1" type="true_false"/>
     <many-to-one fetch="join" foreign-key="fk_tab" lazy="no-proxy" name="tab" />
     <list cascade="all" name="files" table="tab_page_file">

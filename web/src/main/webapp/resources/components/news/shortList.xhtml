@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute  name="numberNews"  required="true" type="int" shortDescription="количество новостей что будет показано"/>
+    </composite:interface>
+
+    <!-- IMPLEMENTATION -->
+    <composite:implementation>     
+    <div style=" border-bottom: 1px solid silver; padding-top: 7px;">
+      <div class="navigationLinks indentionInNavigation"><a class="news_icon" href="news_list.xhtml">Новости</a></div>
+      </div>
+      <div style="padding: 5px;">
+       <h:dataTable value="#{NewsBean.getNewsForNumber(cc.attrs.numberNews)}" var="n" styleClass="leftMenuContainer">
+            <h:column>
+                <div style=" max-width: 60%; float: left;">
+                    <span class="controlWorksDisciplineNameLink"><a style="font-size: 9pt;" href="news_read.xhtml?id=#{n.id}">#{n.header}</a></span>
+                </div>
+                <span class="chatPostDate"><h:outputText converter="dateConverter" value="#{fn:substring(n.time,0,11)}"/></span>
+                <div class="floatDestroyer"></div>
+                <div class="previewText"><h:outputText escape="false" value="#{n.announcement}"/></div>
+                <br/>
+            </h:column>
+       </h:dataTable>
+      </div>   
+          
+    </composite:implementation>
+</html>

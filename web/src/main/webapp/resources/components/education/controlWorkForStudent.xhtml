@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      >
+
+ <!-- INTERFACE -->
+  <composite:interface>
+     
+  
+  </composite:interface>
+
+  <!-- IMPLEMENTATION -->
+   <composite:implementation>
+          <div class="StudentMainPageTitles">
+                            <div class="navigationLinks indentionInNavigation"><a class="control_works" href="controlWorks.xhtml">Мои контрольные </a></div>
+                        </div>
+                        <div class="StudentTestsPadding">
+                        <h:dataTable columnClasses="studentStandatrTableTd studentStandatrTableTdTests,
+                                      studentStandatrTableTdLastTdwithBorder " styleClass="studentStandatrTable studentStandatrTableBorder leftMenuContainer"
+                                     value="#{studentIndexBean.works}" var="w" cellpadding="0" cellspacing="0">
+                        <h:column>
+                            <div>
+                                <div class="controlWorksDisciplineNameLink">
+                                            <div>
+                                                <h:outputLink value="umk.xhtml?c=#{w.key.id}">#{w.key.discipline.name}</h:outputLink>
+                                            </div>
+                                </div>
+                                <div class="educ_content_title_activ" >
+                                    <ol class="my_educ_disc_reason">
+                                        <h:panelGroup rendered="#{w.value ne null}">
+                                            <li class="StudentMainPageImgPadd star">Контрольная
+                                            <h:outputText converter="enumConverter" value="#{w.value.progress}"/>
+                                            </li>
+                                            <li class="StudentMainPageImgPadd discipline_summ">Получено баллов <span class="testResultMarkNotNull">#{w.value.points}</span></li>
+                                        </h:panelGroup>
+                                        <h:panelGroup rendered="#{empty w.value}" >
+                                            <li class="StudentMainPageImgPadd discipline_summ">Контрольная работа не выполнена</li>
+                                        </h:panelGroup>
+                                    </ol>
+                                </div>
+                            </div>
+                            </h:column>
+                        </h:dataTable>
+                        </div>
+  </composite:implementation>
+</html>

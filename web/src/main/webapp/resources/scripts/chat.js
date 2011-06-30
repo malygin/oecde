@@ -1,7 +1,6 @@
       $(document).ready(function() {
                              chatAction(1)});
-      $(document).ready(function() {
-                             chatAction(2)});
+    
 
            function chatAction(roomId) {
                  update(roomId);

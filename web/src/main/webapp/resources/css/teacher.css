@@ -118,9 +118,11 @@
 }
 .mainStyle .opasityTableTestResult thead tr th{
     border-right: 1px solid silver;
+    border-bottom: 0px;
 }
 .mainStyle .opasityTableTestResult tbody tr td{
     border-right: 1px solid silver;
+    border-top: 1px solid silver;
     text-align:  center !important;
     padding: 2px;
 }

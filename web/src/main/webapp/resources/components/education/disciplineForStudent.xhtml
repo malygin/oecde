@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      >
+
+ <!-- INTERFACE -->
+  <composite:interface>
+     
+  
+  </composite:interface>
+
+  <!-- IMPLEMENTATION -->
+   <composite:implementation>
+           <div class="StudentMainPageTitles StudentTestsPadding">
+                            <div class="navigationLinks indentionInNavigation discipline">Дисциплины</div>
+                        </div>                        
+                        <div class="StudentTestsPadding">
+                        <h:dataTable columnClasses="studentStandatrTableTd studentStandatrTableTdTests,
+                                      studentStandatrTableTdLastTdwithBorder " styleClass="studentStandatrTable studentStandatrTableBorder leftMenuContainer"
+                                     value="#{studentIndexBean.lowGradedDisciplines}" var="p" cellpadding="0" cellspacing="0">
+                        <h:column>
+                            <div>
+                                <div class="controlWorksDisciplineNameLink">
+                                            <div>
+                                                <h:outputLink value="umk.xhtml?c=#{p.points.curriculum.id}" >#{p.points.curriculum.discipline.name} </h:outputLink> <span class="linkToTeachersProfile linkToTeachersProfileFromStudent"><h:outputLink value="teacher.xhtml?id=${p.teacher.id}">#{p.teacher.initials}</h:outputLink></span>
+
+                                            </div>
+                                </div>
+                                <div class="educ_content_title_activ" >
+                                    <ol class="my_educ_disc_reason">
+                                        <h:panelGroup rendered="#{p.grade!=null}">
+                                            <li class="StudentMainPageImgPadd star">итоговая оценка
+                                            <h:outputText converter="enumConverter" value="#{p.grade}"/>
+                                        </li>
+                                        </h:panelGroup>
+                                        <li class="StudentMainPageImgPadd discipline_summ">сумма баллов <h:outputText rendered="#{p.points.sum!=0}" styleClass="testResultMarkNotNull" value="#{p.points.sum}"/>
+                                        <h:outputText rendered="#{p.points.sum==0}" styleClass="nullSign" value="#{p.points.sum}"/>
+                                        </li>
+
+                                    </ol>
+                                </div>
+                            </div>
+                            </h:column>
+                        </h:dataTable>
+                        </div>
+  </composite:implementation>
+</html>

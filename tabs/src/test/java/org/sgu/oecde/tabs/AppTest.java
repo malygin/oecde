@@ -1,6 +1,8 @@
 package org.sgu.oecde.tabs;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -92,5 +94,24 @@ public class AppTest extends BasicTest{
         setDao("tabsDao");
         Tab t = getItem(16L);
         this.<ITabsDao>getDao().delete(t);
+    }
+    
+   @Ignore
+    @Test
+    public void getPage(){
+        setDao("pageDao");
+        Page t = getItem(13L);
+        System.out.println(""+t);
+       
+    }
+//      @Ignore
+    @Test
+    public void getTabsPage(){
+        setDao("tabsDao");
+        Tab t = getItem(13L);
+        Collections.sort(t.getPages());
+      for(Page page :t.getPages())
+            System.out.println("! "+page.getOrderPage());
+       
     }
 }

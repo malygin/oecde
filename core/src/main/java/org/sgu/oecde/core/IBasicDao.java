@@ -52,6 +52,11 @@ public interface IBasicDao <T extends BasicItem> extends Serializable{
      */
     @SuppressWarnings("unchecked")
     List<T> getByExample(final T item) throws DataAccessException;
+   
+    /**
+     * получает список по образцу и можно добавить строку для порядку
+     */
+    public List<T> getByExampleAndOrder(final T item, String order); 
 
     /**
      * получает лист объектов, по критерию, составленному из полей примитивов сущности образца

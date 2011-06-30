@@ -1,0 +1,17 @@
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs"
+    template="../resources/studentTemplate.xhtml">
+
+    <ui:define name="contentHeader">
+        Помощь
+    </ui:define>
+    <ui:define name="content">
+<!--         <f:metadata>
+             <f:viewParam name="type" value="#{tabsViewBean.type}"/>
+         </f:metadata>-->
+        <tabs:tabs type="STUDENT_INFORMATION"/>
+    </ui:define>
+</ui:composition>

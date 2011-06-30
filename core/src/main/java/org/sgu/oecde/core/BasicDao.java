@@ -83,6 +83,12 @@ public class BasicDao<T extends BasicItem> extends HibernateDaoSupport implement
         Criteria cr =  getSession().createCriteria(type);
         return getCriteriaByParametrizedItem(item,cr).list();
     }
+    
+      @Override
+     public List<T> getByExampleAndOrder(final T item, String order) throws DataAccessException{
+        Criteria cr =  getSession().createCriteria(type).addOrder(Order.desc(order));
+        return getCriteriaByParametrizedItem(item,cr).list();
+    }
 
     /**
      * {@inheritDoc}

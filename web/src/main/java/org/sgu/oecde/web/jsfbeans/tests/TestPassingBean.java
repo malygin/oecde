@@ -208,6 +208,7 @@ public class TestPassingBean implements Serializable {
                       GivenAnswer ga=new GivenAnswer();
                       ga.setAnsweredQuestion(answeredQuestion);
                       ga.setRightAnswer(a);
+                      ga.setGivenAnswer("0");
                       for(Answer aS:selectedAnswers){
                           if (a.getId().equals(aS.getId())){
                               checkFlag=true;
@@ -216,7 +217,7 @@ public class TestPassingBean implements Serializable {
                                   rightQuestion=false;
                               }
                           }else{                              
-                              ga.setGivenAnswer("0");
+                            //  ga.setGivenAnswer("0");
                           }
                       }
                        if ((a.getRightAnswer().equals("1"))&&(!checkFlag)){
@@ -386,7 +387,7 @@ public class TestPassingBean implements Serializable {
     /*
      * проверяем есть в тексте формула или это хтмлка
      */
-    private String checkForFormulaOrLink(String s)throws MalformedURLException, IOException {
+    static public String checkForFormulaOrLink(String s)throws MalformedURLException, IOException {
         if((s.indexOf("$")!=-1)&&(s.indexOf("$",s.indexOf("$")+1 ))!=-1){          
            // s=s.replaceAll("\\$+[*\\+*]\\$+", "$$%2B");
             while (s.indexOf("$")!=-1){

@@ -1,5 +1,7 @@
 package org.sgu.oecde.core.users;
 
+import java.util.Comparator;
+
 /**
  * абстрактный студент. имеет ссылку на реальную студенческую группу, в которой он
  * учится, но при этом может находиться в других StudentGroup
@@ -52,4 +54,6 @@ public abstract class AbstractStudent extends AbstractPerson {
     public void setTransfered(Boolean transfered) {
         this.transfered = transfered;
     }
+    
+    
 }

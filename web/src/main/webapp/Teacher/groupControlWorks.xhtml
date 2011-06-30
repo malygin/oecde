@@ -20,7 +20,7 @@
             <est:header bean="#{groupControlWorksForTeacher}" pageName="cw"/>
          <h:form id="form" rendered="#{not groupControlWorksForTeacher.accessDenied}">
            <h:dataTable rendered="#{not groupControlWorksForTeacher.accessDenied}"
-                        styleClass="studentStandatrTable ContrWorkAndTestTable"
+                         styleClass="studentStandatrTable ContrWorkAndTestTable"
                          columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
                          studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
                          studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
@@ -68,7 +68,7 @@
                 <f:facet name="header">
                  <h:outputText value="#{msgs.teacher_marks}" />
                 </f:facet>
-             <h:inputText id="points" size="3" maxlength="3" styleClass="inputTextCenter" value="#{w.value.points}"/>
+             <h:inputText id="points" size="3"  maxlength="3" styleClass="inputTextCenter" value="#{w.value.points}"/>
             </h:column>
 
             <h:column>
@@ -81,13 +81,13 @@
             </h:column>
            </h:dataTable>
               <div style="text-align: right; padding: 5px; ">
-              <h:commandButton id="btn" value="ОК" styleClass="studentButton">
-                  <f:ajax execute="@form" event="click" render="table:points table:progress error saved" listener="#{groupControlWorksForTeacher.save}"/>
+              <h:commandButton id="btn" value="Сохранить" styleClass="studentButton">
+                  <f:ajax execute="@form" event="click" render="@form" listener="#{groupControlWorksForTeacher.save}"/>
              </h:commandButton>
               </div>
 
-             <h:outputText id="error" rendered="#{groupControlWorksForTeacher.error}" value="ERROR"/>
-             <h:outputText id="saved" rendered="#{groupControlWorksForTeacher.saved}" value="saved"/>
+             <h:outputText id="error" rendered="#{groupControlWorksForTeacher.error}" value="возникла ошибка при сохранении!"/>
+             <h:outputText id="saved" rendered="#{groupControlWorksForTeacher.saved}" value="Сохранено успешно!"/>
                  <br/>
           </h:form>
             </div>

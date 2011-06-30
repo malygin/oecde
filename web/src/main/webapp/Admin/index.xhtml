@@ -3,7 +3,8 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/adminTemplate.xhtml"
-    xmlns:j="http://java.sun.com/jsf/composite/components/journal">
+    xmlns:j="http://java.sun.com/jsf/composite/components/journal"
+    xmlns:news="http://java.sun.com/jsf/composite/components/news">
 
      <ui:define name="contentHeader">
         #{msgs.student_index}
@@ -17,6 +18,7 @@
             <f:viewParam name="page" value="#{journalBean.pageNumber}"/>
             <f:viewParam name="page" value="#{NavigationBean.page}"/>
         </f:metadata>
+        <news:shortList numberNews="3"/>        
         <j:output type="adminEvents"/>
     </ui:define>
 </ui:composition>

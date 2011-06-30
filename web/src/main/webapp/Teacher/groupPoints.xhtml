@@ -17,7 +17,9 @@
                 <f:viewParam name="g" value="#{groupPoints.id}"/>
                 <f:viewParam name="c" value="#{groupPoints.curriculumId}"/>
             </f:metadata>
+            <a href="messages_write.xhtml?gr=#{groupPoints.id}">массовая рассылка всей группе</a>
             <est:header bean="#{groupPoints}" pageName="points"/>
+            
             <h:form rendered="#{not groupPoints.accessDenied}" id="form" prependId="false">
                 <h:dataTable styleClass="studentStandatrTable"
                          columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
@@ -97,7 +99,7 @@
 
                 <div style="text-align: right; padding: 5px; ">
                     <h:commandButton id="btn" value="#{msgs.teacher_saveButton}" styleClass="studentButton">
-                        <f:ajax execute="@form" render="table:grade error saved" listener="#{groupPoints.save}"/>
+                        <f:ajax execute="@form" render="@form" listener="#{groupPoints.save}"/>
                     </h:commandButton>
                 </div>
                 <h:outputText id="error" rendered="#{groupPoints.error}" value="#{msgs.teacher_errorMessage}"/>

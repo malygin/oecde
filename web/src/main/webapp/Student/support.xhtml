@@ -2,77 +2,16 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:t="http://java.sun.com/jsf/composite/components/tabs"
+    xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs"
     template="../resources/studentTemplate.xhtml">
 
     <ui:define name="contentHeader">
         Помощь
     </ui:define>
     <ui:define name="content">
-         <f:metadata>
+<!--         <f:metadata>
              <f:viewParam name="type" value="#{tabsViewBean.type}"/>
-         </f:metadata>
-        <div class="interfaceContent" style="padding-top: 10px;">
-        <table>
-            <tr>
-                <td class="studentHelp" valign="top">
-            <h:form>
-                <h:dataTable title="разделы" id="tabs" value="#{tabsViewBean.tabs}" var="t" border="0" cellpadding="0" cellspacing="0">
-                    <h:column>
-                        <f:facet name="header">
-                            <div class="contentsBlock">
-                                Оглавление:
-                            </div>
-                        </f:facet>
-                        <div class="educ_umk_text_block">
-                            <div class="controlWorksDisciplineName DisciplineText">
-                                <h:outputText value="#{t.name}"/>
-                            </div>
-                            <h:dataTable id="tabs" style="margin-left: 20px;" value="#{setToList.getList(t.pages)}" var="p">
-                                <h:column>
-                                    <span class="navigationLinks" >
-<!--                                        <img src="../resources/images/listMarker.png" alt=""/>-->
-                                        <h:commandLink id="link" rendered="#{p.visible}" value="#{p.title}" style="color: #8BB5DF;">
-                                            <f:attribute name="page" value="#{p}"/>
-                                            <f:ajax render=":page :files :title" listener="#{tabsViewBean.setCurrentPage}"/>
-                                        </h:commandLink>
-                                    </span>
-                                </h:column>
-                            </h:dataTable>
-                        </div>
-                    </h:column>
-                </h:dataTable>
-            </h:form>
-            </td>
-            <td valign="top" class="mainContentHelpPadding">
-                <div style="height: 30px;">
-                    <span class="contentsBlock"></span>
-                </div>
-                <div class="educ_umk_text_block">
-                    <div class="controlWorksDisciplineName DisciplineText" style="margin-bottom: 5px;">
-                        <h:outputText id="title" value="#{tabsViewBean.currentPage.title}"/>
-                    </div>
-                    <div style="text-align: justify;">
-                        <h:outputText escape="false" id="page" value="#{tabsViewBean.currentPage.text}"/>
-                    </div>
-                    <div style="text-align: justify;">
-                        <br/>
-                        <hr/>
-                        <br/>
-                        Файлы:
-                    <h:dataTable id="files" value="#{setToList.getList(tabsViewBean.currentPage.files)}" var="f">
-                        <h:column>
-                            <h:panelGroup rendered="#{f.visible}">
-                                <h:graphicImage rendered="#{f.image}" value="../resources/userFiles/tabs/#{f.name}" alt="#{(f.description eq null||f.description eq '')?f.name:f.description}"/>
-                                <h:outputLink rendered="#{!f.image}" value="../resources/userFiles/tabs/#{f.name}"><h:outputText value="#{(f.description eq null||f.description eq '')?f.name:f.description}"/></h:outputLink>
-                            </h:panelGroup>
-                        </h:column>
-                    </h:dataTable>
-                    </div>
-                </div>
-            </td>
-            </tr>
-        </table>
-        </div>
+         </f:metadata>-->
+        <tabs:tabs type="STUDENT_HELP"/>
     </ui:define>
 </ui:composition>

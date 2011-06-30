@@ -13,28 +13,30 @@
 
   <!-- IMPLEMENTATION -->
    <composite:implementation>
+         <h:form>
+       <div class="interfaceContent" style="padding-top: 10px;">
         <table>
-            <tr>
-                <td class="studentHelp" valign="top">
-            <h:form>
-                <h:dataTable title="разделы" id="tabs" value="#{tabsViewBean.getTabs(cc.attrs.type)}" var="t" border="0" cellpadding="0" cellspacing="0">
+            <tr>              
+                <td class="studentHelp" valign="top">          
+                    <h:dataTable title="разделы" id="tabs" value="#{tabsViewBean.getTabs(cc.attrs.type)}" var="t" border="0" cellpadding="0" cellspacing="0">
                     <h:column>
                         <f:facet name="header">
                             <div class="contentsBlock">
-                                #{msgs.user_title}
+                                Оглавление:
                             </div>
                         </f:facet>
                         <div class="educ_umk_text_block">
-                            <span class="controlWorksDisciplineName">
+                            <div class="controlWorksDisciplineName DisciplineText">
                                 <h:outputText value="#{t.name}"/>
-                            </span>
-                            <h:dataTable id="tabs" style="margin-left: 20px;" value="#{setToList.getList(t.pages)}" var="p">
+                            </div>
+                            <h:dataTable id="tabs" style="margin-left: 20px;" value="#{t.pages}" var="p">
                                 <h:column>
-                                    <span class="navigationLinks">
-                                        <img src="../resources/images/listMarker.png" alt=""/>
-                                        <h:commandLink id="link" rendered="#{p.visible}" value="#{p.title}">
+                                    <span class="navigationLinks" >
+<!--                                        <img src="../resources/images/listMarker.png" alt=""/>-->
+                                   
+                                        <h:commandLink id="link" rendered="#{p.visible}" value="#{p.title} " style="color: #8BB5DF;">
                                             <f:attribute name="page" value="#{p}"/>
-                                            <f:ajax render=":page :files :title" listener="#{tabsViewBean.setCurrentPage}"/>
+                                            <f:ajax render="@form" listener="#{tabsViewBean.setCurrentPage}"/>
                                         </h:commandLink>
                                     </span>
                                 </h:column>
@@ -42,25 +44,29 @@
                         </div>
                     </h:column>
                 </h:dataTable>
-            </h:form>
+           
             </td>
             <td valign="top" class="mainContentHelpPadding">
-                <div>
+                <div style="height: 30px;">
                     <span class="contentsBlock"></span>
                 </div>
                 <div class="educ_umk_text_block">
-                    <div class="controlWorksDisciplineName" style="margin-bottom: 5px;">
+                    <div class="controlWorksDisciplineName DisciplineText" style="margin-bottom: 5px;">
                         <h:outputText id="title" value="#{tabsViewBean.currentPage.title}"/>
                     </div>
                     <div style="text-align: justify;">
                         <h:outputText escape="false" id="page" value="#{tabsViewBean.currentPage.text}"/>
                     </div>
                     <div style="text-align: justify;">
-                    <h:dataTable id="files" value="#{setToList.getList(tabsViewBean.currentPage.files)}" var="f">
+                        <br/>
+                        <hr/>
+                        <br/>
+                        Файлы:
+                    <h:dataTable id="files" value="#{tabsViewBean.currentPage.files}" var="f">
                         <h:column>
                             <h:panelGroup rendered="#{f.visible}">
-                                <h:graphicImage rendered="#{f.image}" value="../resources/userFiles/tabs/#{f.name}" alt="#{f.description}"/>
-                                <h:outputLink rendered="#{!f.image}" value="../resources/userFiles/tabs/#{f.name}"><h:outputText value="#{f.description}"/></h:outputLink>
+                                <h:graphicImage rendered="#{f.image}" value="../resources/userFiles/tabs/#{f.name}" alt="#{(f.description eq null||f.description eq '')?f.name:f.description}"/>
+                                <h:outputLink rendered="#{!f.image}" value="../resources/userFiles/tabs/#{f.name}"><h:outputText value="#{(f.description eq null||f.description eq '')?f.name:f.description}"/></h:outputLink>
                             </h:panelGroup>
                         </h:column>
                     </h:dataTable>
@@ -69,5 +75,7 @@
             </td>
             </tr>
         </table>
+        </div>
+        </h:form>
    </composite:implementation>
 </html>

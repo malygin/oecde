@@ -22,19 +22,20 @@
             <h:form id="form">
                 <table  class="studentStandatrTable">
                     <tr>
-                        <td style="width: 200px;" class="AdminTextGrey">
+                         <td style="width: 200px;" class="AdminTextGrey">
                             #{msgs.admin_mainContentPageTitle}
-                        </td>
-                        <td>
-                    <h:inputText style="width: 99.5%;" id="pName" value="#{tabEditBean.page.title}"/>
-                        </td>
+                         </td>
+                         <td>
+                            <h:inputText style="width: 99.5%;" id="pName" value="#{tabEditBean.page.title}"/><br/>
+                            псевдоним <h:inputText value="#{tabEditBean.page.alias}"/>  порядок <h:inputText value="#{tabEditBean.page.orderPage}"/>
+                          </td>
                     </tr>
                     <tr>
                         <td valign="top" class="AdminTextGrey">
                             #{msgs.admin_mainContentPageContent}
                         </td>
                         <td>
-                    <h:inputTextarea value="#{tabEditBean.page.text}" cols="70" rows="10"/>
+                    <util:editor value="#{tabEditBean.page.text}" cols="70" rows="10"/>
                            
                         </td>
                     </tr>
@@ -88,26 +89,23 @@
                 </h:dataTable>
 
                 <div class="backLinkPosition">
-                    <span class="AdminNavigationLinksBold saveChanges">
-                    <h:commandLink rendered="#{tabEditBean.pageId eq null}" action="#{tabEditBean.updateTab}" id="newBtn" value="#{msgs.admin_mainContentSaveChanges}"/>
-                    <span><h:commandLink rendered="#{tabEditBean.pageId ne null}" id="updt" value="#{msgs.admin_mainContentSaveChanges}">
-                        <f:ajax execute="@form" render="@form" event="click" listener="#{tabEditBean.updateTab}"/>
-                        </h:commandLink>
-                    </span>
-                </span>
+                    <span class="AdminNavigationLinksBold saveChanges">  
+                        <span>
+                            <h:commandLink rendered="#{tabEditBean.pageId eq null}" action="#{tabEditBean.updateTab}" id="newBtn" value="#{msgs.admin_mainContentSaveChanges}"/>
+                            <h:commandLink rendered="#{tabEditBean.pageId ne null}" id="updt" value="#{msgs.admin_mainContentSaveChanges}">
+                                    <f:ajax execute="@form" render="@form" event="click" listener="#{tabEditBean.updatePage}"/>
+                             </h:commandLink>
+                      </span>
+                   </span>
                 </div>
             </h:form>
             <br/>
             <hr/>
             <br/>
-            <form method="post" enctype="multipart/form-data" action="UploadServlet">
-                    <input type="file" name="file"/><br/>
-                <span class="AdminNavigationLinksBold">
-                    <button type="submit" styleClass="studentButton" style="width: 150px;">OK</button>
-                
-                </span>
-            </form>
-        
+            <h:form rendered="#{tabEditBean.pageId ne null}" id="addFile" enctype="multipart/form-data">
+               <input type="file" name="file" />
+               <h:commandLink action="#{tabEditBean.addFile}" id="fileBtn" value="Загрузить"/>  
+           </h:form>
         </div>
     </ui:define>
 </ui:composition>

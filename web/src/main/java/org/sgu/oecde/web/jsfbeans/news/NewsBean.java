@@ -107,6 +107,15 @@ public class NewsBean implements Serializable{
          }   
          return news;
     }
+    
+   public List<NewsItem> getNewsForNumber(int number){
+        if (news==null){
+           newsOnPage=number;
+           news=getNews();
+         }   
+         return news;
+    }
+   
     public int getCountNews(){
          if (countNews==0){
             switch(UserType.toType(SecurityContextHandler.getUser())){

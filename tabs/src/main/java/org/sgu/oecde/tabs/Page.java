@@ -9,10 +9,11 @@ import org.sgu.oecde.core.util.LangEnum;
  *
  * @author ShihovMY
  */
-public class Page extends BasicItem{
+public class Page extends BasicItem implements Comparable<Page> {
     private String title;
     private String text;
     private String alias;
+    private String orderPage;
     private Boolean visible = true;
     private List<PageFile>files;
     private Tab tab;
@@ -81,6 +82,19 @@ public class Page extends BasicItem{
 
     public void setAlias(String alias) {
         this.alias = alias;
+    }
+
+    public String getOrderPage() {
+        return orderPage;
+    }
+
+    public void setOrderPage(String orderPage) {
+        this.orderPage = orderPage;
+    }
+
+    @Override
+    public int compareTo(Page t) {
+        return t.orderPage.compareTo(this.orderPage);
     }
     
     

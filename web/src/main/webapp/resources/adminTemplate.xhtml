@@ -6,8 +6,16 @@
 
         <ui:define name="userCSS">
             <h:outputStylesheet name="admin.css" library="css" rendered="true"/>
+            <script type="text/javascript" src="../resources/jquery/js/jquery-1.4.2.min.js"></script>
+        
+            <script>
+                 
+              $(document).ready(function() {
+                             chatAction(2)});
+            
+        </script>
         </ui:define>
-
+       
         <ui:define name="left">
             <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.admin_eduMenuTitle}</p></div>
             <ol class="leftSideMenuLinks iconMenu">

@@ -16,11 +16,11 @@ public enum ControlWorkProgress {
     /**
      * не зачтена
      */
-    failed,
+    failed;
     /**
      * нет в наличии
      */
-    notAvailable;
+//    notAvailable;
     private static final long serialVersionUID = 92L;
 
     @Override
@@ -29,12 +29,10 @@ public enum ControlWorkProgress {
             case passed:
                 return "зачтено";
             case failed:
-                return "не зачтено";
-            case notAvailable:
-                return "нет в наличии";
+                return "не зачтено";          
             default:
             case available:
-                return "в наличии";
+                return "не оценена";
         }
     }
 
@@ -44,8 +42,6 @@ public enum ControlWorkProgress {
                 return "passed";
             case failed:
                 return "failed";
-            case notAvailable:
-                return "notAvailable";
             default:
             case available:
                 return "available";

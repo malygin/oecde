@@ -3,6 +3,7 @@ package org.sgu.oecde.controlworks;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -92,6 +93,7 @@ public class ControlWorkService implements Serializable{
     @SuppressWarnings({"unchecked"})
     public <T extends AbstractStudent,V extends ControlWork>Map<T, V>getCurriculumControlWorks(Collection<? extends AbstractStudent> students, Curriculum curriculum){
         List<Curriculum>curriculums = ListUtil.oneItemList(curriculum);
+    
         return getAllControlWorks(students,curriculums);
     }
 

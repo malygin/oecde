@@ -2,10 +2,11 @@
          xmlns:ui="http://java.sun.com/jsf/facelets"
          xmlns:f="http://java.sun.com/jsf/core"
          xmlns:h="http://java.sun.com/jsf/html"
-         template="../resources/teacherTemplate.xhtml"
-         xmlns:ipsil="http://java.sun.com/jsf/composite/components/util"
+         template="../resources/teacherTemplate.xhtml"       
+         xmlns:news="http://java.sun.com/jsf/composite/components/news"
+         xmlns:edu="http://java.sun.com/jsf/composite/components/education"
          xmlns:ut="http://java.sun.com/jsf/composite/components/util"
-        xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
+         xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
          xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 
          <ui:define name="contentHeader">
@@ -39,60 +40,9 @@
                  </div>
                 <div class="floatDestroyer"></div>
             </div>
-         #{teacherIndexBean.estimatedGroupsCount} гр из #{teacherIndexBean.groupsCount}<br/>
-         #{teacherIndexBean.readCwAttempsCount} из #{teacherIndexBean.cwAttempsCount}
-
-           <h:dataTable value="#{NewsBean.news}" var="n" styleClass="leftMenuContainer">
-                                    <h:column>
-                                        <div style=" max-width: 60%; float: left;">
-                                            <span class="controlWorksDisciplineNameLink"><a style="font-size: 9pt;" href="news_read.xhtml?id=#{n.id}">#{n.header}</a></span>
-                                        </div>
-                                        <span class="chatPostDate"><h:outputText converter="dateConverter" value="#{fn:substring(n.time,0,11)}"/></span>
-                                        <div class="floatDestroyer"></div>
-                                        <div class="previewText"><h:outputText escape="false" value="#{n.announcement}"/></div>
-                                        <br/>
-                                    </h:column>
-                                </h:dataTable>
-         
-         <h:dataTable styleClass="studentStandatrTable"
-                         columnClasses="studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTdLastTd" cellpadding="0" cellspacing="0" id="table" value="#{controlWorksAttemptsBean.attempts}" var="a">
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
-                    </f:facet>
-                    <span class="controlWorksDisciplineName"><h:outputText value="#{a.work.curriculum.discipline.name}"/></span>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{msgs.student_Student}" />
-                    </f:facet>
-                    <span class="linkToStudentsProfile"><h:outputLink value="student.xhtml?id=#{a.work.student.id}&amp;s=#{controlWorksAttemptsBean.semester}"><h:outputText value="#{a.work.student.fio}"/></h:outputLink></span>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{msgs.admin_mainContentGroup}" />
-                    </f:facet>
-                    <h:outputLink value="groupControlWorks.xhtml?g=#{a.work.student.group.id}&amp;c=#{a.work.curriculum.id}&amp;s=#{controlWorksAttemptsBean.semester}"><h:outputText value="#{a.work.student.group.name} гр."/></h:outputLink>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{msgs.student_testResultResult}" />
-                    </f:facet>
-                    <h:outputText converter="enumConverter" value="#{a.work.progress}"/>
-                    <h:outputText value="#{a.work.points}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{msgs.message_downLoad}" />
-                    </f:facet>
-                    <h:outputText rendered="#{a.read}" value="downloaded"/>
-                    <est:readCwAttempt attempt="#{a}"/>
-                </h:column>
-            </h:dataTable>
+         <edu:statisticForTeacher/>
+         <news:shortList numberNews="3"/>
+         <edu:controlWorkForTeacher/>
         </ui:define>
       
     </ui:composition>
