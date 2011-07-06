@@ -1,13 +1,14 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:t="http://java.sun.com/jsf/composite/components/tabs"
+      xmlns:t="http://java.sun.com/jsf/composite/components/tabs"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="loginPageStyles.css" library="css" rendered="true"/>
         <h:outputStylesheet name="default.css" library="css" rendered="true"/>
+        <h:outputStylesheet name="base.css" library="css" rendered="true"/>
         <title>Центр Отрытого Образования</title>
     </h:head>
     <f:metadata>
@@ -18,29 +19,41 @@
         <div class="login_pageBackground" align="center">
             <div class="login_pageTopSpace"></div>
             <div class="login_pageFormBackground">
-                <img src="resources/images/ipsilon.png" class="login_pageBigIcon" alt=""/>
+                <div style="float: left;">
+                    <img src="resources/images/ipsilon_MAIN.png" class="login_pageBigIcon" style="float: none;" alt=""/>
+
+                    <div class="SDO_text">ipsilon-web
+                    </div>
+                </div>
                 <div class="login_pageFormContainer">
                     <table cellpadding="0" cellspacing="0">
                         <tr>
                             <td>
-                                <img src="resources/images/Ipsilon-web.png" alt=""/>
+                                <!--                               <img src="resources/images/Ipsilon-web.png" alt=""/>-->
+                                <p class="SDO_text"> Саратовский государственный университет им. Н.Г.Чернышевского</p>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <p class="SDO_text">#{msgs.login_Sytem_Name}</p>
+
+                                <p class="SDO_text SDO_text_UOE">Институт открытого образования</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="SDO_text SDO_text_SDE">#{msgs.login_Sytem_Name}</p>
                             </td>
                         </tr>
                     </table>
                     <form method="post" action="j_spring_security_check">
-                          <table cellpadding="0" cellspacing="4">
+                        <table cellpadding="0" cellspacing="4" class="login_loginTable">
                             <tr>
                                 <td width="50">
                                     <p class="login_pageFormInputsLabels">#{msgs.login_login}:</p>
                                 </td>
                                 <td>
                                     <h:inputText id="j_username"  required="true" styleClass="login_pageFormInputs"/>
-                                </td>
+                                </td>                            
                             </tr>
                             <tr>
                                 <td>
@@ -68,19 +81,115 @@
                                     <h:commandButton styleClass="login_pageFormButtons" type="button" id="VideoConfButton" value="#{msgs.login_VideoConfButton}"/>
                                 </td>
                             </tr>
-                        </table></form>
+                            <tr>
+                                <td colspan="2">
+                                    <p class="BoldBlackText login_pagePadding" style="padding-left: 0;">Доступен новый портал для тестирования. Вы можете посмотреть по <a class="login_pageLink">ссылке</a>.
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="Ipsilon_Picture">
+                            <img src="resources/images/ipsilon_picture.png"/>
+                        </div>
+                    </form>
                     <h:outputText rendered="#{loginBean.renderErrorEnter}" style="color: red;" value="#{msgs.login_Error}"/>
                 </div>
-            </div>
-            <div class="login_pageHelloText">
-                <t:singleTab alias="INDEX_PAGE"/>
-            </div>
-            <div class="login_pageBottomCorners">
-                <img src="resources/images/circul.png" alt="" class="login_pageLeftBottomCorner"/>
-                <img src="resources/images/circul.png" alt="" class="login_pageRightBottomCorner"/>
-                <div class="login_pageBetweenBottomCornersSpace"></div>
-                <div class="floatDestroyer"></div>
-            </div>
+                <div style="height: 43px;"></div>
+                <div class="login_pageFormBackgroundBottom login_pagePadding" style="padding-left: 30px;">
+                    <div style="margin-top: -30px;">
+                            <div class="navigationLinks">
+                                <div>
+                                    <span class="contentsBlock"></span>
+                                </div>
+                                <div class="login_pageFormInputsLabels">
+                                    <div>
+                                        <p class="login_pageFormInputsLabels login_pageMargins">
+                                            В 2008 году Саратовский Государственный университет начал реализовывать систему дистанционного обучения, которая делает возможным получение образования независимо от места проживания и удаленности от вуза.
+                                        </p>
+                                    </div>
+                                    <div style="text-align: justify;" class="login_pagePadding">
+                                        <p class="BoldBlackText login_pageTopBottomMargin">
+                                            Система дистанционного образования
+                                        </p>
+                                        <ul class="login_pageMarker" style="margin-left: 35px;">
+                                            <li>для тех, кто хочет получить высшее, второе высшее образование;</li>
+                                            <li>для тех, кто удален территориально от нашего вуза;</li>
+                                            <li> для тех, кто проводит большую часть времени дома;</li>
+                                            <li>для тех, кто бережно относится к своему времени;</li>
+                                            <li>для тех, у кого Интернет является «естественной средой обитания»; </li>
+                                            <li>для тех, кто хочет найти единомышленников в социально-образовательной сети СГУ;</li>
+                                            <li>для тех, кто желает обучаться сразу в нескольких местах; </li>
+                                            <li>для тех, у кого жесткий график работы.</li>
+                                        </ul>
+                                        <p class="login_pageMargins">подробнее...</p>
+                                    </div>
+                                    <div style="text-align: justify; " >
+                                        <p class="BoldBlackText">
+                                            Список направлений подготовки для обучения по заочной форме с применением дистанционных образовательных технологий:
+                                        </p>
+                                        <table class="login_pageMargins login_pageSpecialityList">
+                                            <tr>
+                                                <td>
+                                                    <p>Механико-математический факультет</p>
+                                                    <p>«230700 Прикладная информатика»</p>
+
+                                                </td>
+                                                <td>
+                                                    <p>Экономический факультет</p>
+                                                    <p>«080100 Экономика»</p>
+                                                    <p>«080200 Менеджмент»</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p>Факультет психологии</p>
+                                                    <p> «030300 Психология»</p>
+
+                                                </td>
+                                                <td>
+                                                    <p>Философский факультет</p>
+                                                    <p>«033300 Религиоведение»</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p>Социологический факультет</p>
+                                                    <p>«081100 Государственное и муниципальное управление»</p>
+                                                    <p>«040100 Социология»</p>
+
+                                                </td>
+                                                <td>
+                                                    <p>Педагогики, психологии и начального образования</p>
+                                                    <p>«050100 Педагогическое образование»</p>
+                                                    <p>«050400 Психолого-педагогическое образование»</p>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p>Юридический факультет</p>
+                                                    <p>«030900 Юриспруденция»</p>
+                                                </td>
+                                                <td>
+                                                    <p>Коррекционной педагогики и специальной психологии</p>
+                                                    <p> «050700 Специальное (дефектологическое) образование»</p>
+
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <p class="BoldBlackText login_pagePadding">
+                                            Связаться с нами можно по тел.: 8 (8452) 210-790, 210-791;  e-mail: oecdo@mail.ru. Наш сайт:  www.sgu.ru/structure/oec
+                                        </p>
+                                        <p class="login_pagePadding">
+                                            Для работы с этой системой рекомендуется использовать бесплатно распространяемые браузера <img alt="" class="browsersLogo" src="resources/images/mozilla.png"/>  Mozilla Firefox и <img alt="" src="resources/images/chrome.png" class="browsersLogo" /> Google Chrome
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="login_pageFormBackgroundBottomRoundCorners"></div>
+            </div>            
         </div>
     </h:body>
 </html>
