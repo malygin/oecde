@@ -9,8 +9,8 @@
         <h:outputStylesheet name="student.css" library="css" rendered="true"/>
     </ui:define>
     <ui:define name="left">
-        <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.student_eduMenuTitle}</p></div>
-        <ol class="leftSideMenuLinks">
+        <div  class="modulsTitles"><p class="sideBarTitle">#{msgs.student_eduMenuTitle}</p></div>
+        <ol class="leftSideMenuLinks leftSideList">
             <li><a href="controlWorks.xhtml"> #{msgs.student_eduMenuControlWorks}</a></li>
             <!--<li><a href="groupControlWorks.xhtml">#{msgs.student_eduMenuControlWorksResult}</a></li>-->
             <p>#{msgs.student_eduMenuControlWorksResult}</p>
@@ -25,35 +25,67 @@
             <li><a href="testResults.xhtml?r=true&amp;s=1"> #{msgs.student_eduMenuWinterReexamination}</a></li>
             <li><a href="testResults.xhtml?s=1"> #{msgs.student_eduMenuWinterTestsResults}</a></li>
         </ol>
-        <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_messMenuTitle}</p></div>
-        <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="messages_list.xhtml">#{msgs.student_messMenuIn}
+        <div class="modulsTitles"><p class="sideBarTitle">Общение</p></div>
+        <ol class="leftSideMenuLinks leftSideList">
+            <li>
+                <a href="#">Преподаватели</a>
+            </li>
+            <li>
+                <a href="#">Студенты</a>
+            </li>
+            <li>
+                <a href="#">Администраторы</a>
+            </li>
+            <li>
+                <a href="#">Ошибки и предложения</a>
+            </li>
+            <li>
+                <a href="#">Орг-форум</a>
+            </li>
+            <li>
+                <a href="#">Видеоконференции</a>
+            </li>
+        </ol>
+        <div class="sideBarUnderTitleText" style="display: none;"><div class="greenUnderTitleLink"><a href="messages_list.xhtml">#{msgs.student_messMenuIn}
                     <h:panelGroup rendered="#{MessageCountNewBean.newMessages>0}"  style="font-size: 15px; font-weight: bold; color: red;">#{MessageCountNewBean.newMessages}</h:panelGroup>
                     <h:panelGroup rendered="#{MessageCountNewBean.newMessages&lt;1}">#{MessageCountNewBean.newMessages}</h:panelGroup>
                     )</a></div></div>
-        <ol class="leftSideMenuLinks">
+        <ol class="leftSideMenuLinks" style="display: none;">
             <li><a href="messages_out.xhtml">#{msgs.student_messMenuOut}</a></li>
 
         </ol>
-        <div class="violMenuTitle"><p class="sideBarTitle">#{msgs.student_chatMenuTitle}</p></div>
-        <span class="linkToStudentsProfile"><a href="chat.xhtml">посмотреть историю чата</a></span>
+        <div class="modulsTitles"><p class="sideBarTitle">#{msgs.student_chatMenuTitle}</p></div>
+<!--        <span class="linkToStudentsProfile"><a href="chat.xhtml">посмотреть историю чата</a></span>-->
          <div id="chatShortHistory1" class="chatShortHistory">
 
         </div>
         <div class="smallChatTools">
-            <input id="message1"/><button id="button1"></button>
+            <input id="message1"/><button id="button1">OK</button>
             <div style="height:18px;"></div>
+        </div>
+        <div>
+            <ut:usersOnline/>
         </div>
     </ui:define>
 
     <ui:define name="top">
         <ol class="topMenuLinks">
             <h:form>
-            <li class="topMenuLinkContainer"><a href="index.xhtml">  #{msgs.student_topMenuHome}</a></li>
-            <li class="topMenuLinkContainer"><a href="support.xhtml">#{msgs.student_topMenuHelp}</a></li>
+            <li class="topMenuLinkContainer"><a href="index.xhtml">  #{msgs.admin_communicationMenuMain}</a></li>
+            <li class="topMenuLinkContainer"><a href="support.xhtml">#{msgs.user_help}</a></li>
             <li class="topMenuLinkContainer"><a href="info.xhtml">#{msgs.student_topMenuInfo}</a></li>
             <li class="topMenuLinkContainer"><a href="news_list.xhtml">#{msgs.student_topMenuNews}</a></li>
             <li class="topMenuLinkContainer"><a href="settings.xhtml">#{msgs.student_topMenuSettings}</a></li>
-            <li class="topMenuLinkContainer" style="border: 0px; float: right">
+            <li class="topMenuLinkContainer">
+                <div class="messagesMainStPage" style="float: left;">
+                    <a href="messages_list.xhtml">#{msgs.student_messMenuTitle}</a>
+                </div>
+                <div style="float: right; font-size: 15px; font-weight: bold; color: fbb35d; margin-left: 3px;">
+                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages>0}">#{MessageCountNewBean.newMessages}</h:panelGroup>
+                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages&lt;1}"></h:panelGroup>
+                </div>
+            </li>
+            <li class="StudentMainPageExit" style="border: 0px; float: right">
             <sec:ifAnyGranted roles="ROLE_PREVIOUS_ADMINISTRATOR">
                 <h:outputLink value="../Admin/exit_user" >#{msgs.student_back}</h:outputLink>
             </sec:ifAnyGranted>
@@ -88,7 +120,7 @@
             <li><a href="groupRating.xhtml"><h:graphicImage value="../resources/images/group.png" styleClass="iconInMenu" /><div>#{msgs.student_GroupRating}</div></a></li>
         </ol>
 
-        <ut:usersOnline/>
+        
     </ui:define>
     <ui:define name="bottom">
         <ol class="bottomMenu">

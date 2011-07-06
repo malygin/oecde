@@ -6,26 +6,35 @@
     >
     <ui:define name="contentHeader">
         #{msgs.student_oldGradesHeader}
+        
     </ui:define>
     <ui:define name="content">
         <div class="interfaceContent">
-            <f:metadata>
-             <f:viewParam name="s" value="#{oldGradesBean.semester}"/>
-             <f:viewParam name="w" value="#{oldGradesBean.winter}"/>
-         </f:metadata>
-            <h:outputLink id="handle" value="?s=#{oldGradesBean.semester+(oldGradesBean.winter?1:-1)}&amp;w=#{!oldGradesBean.winter}">
-            <h:outputText id="isWinter" value="#{oldGradesBean.winter?('зима'):('лето')}" style="color: #8BB5DF;font-weight: bold;font-size: 13pt;font-family: Arial; font-style: italic;text-decoration: underline;"/>
-            </h:outputLink>
-            <br/>
-            <ui:repeat id="years" value="#{oldGradesBean.years}" var="y">
-                <span style="margin-right: 10px;">
-                <h:outputLink id="year" disabled="#{oldGradesBean.semester eq y[1]}"  value="?w=#{oldGradesBean.winter}&amp;s=#{y[1]}" style="color: #8BB5DF;">
-                    <h:outputText  value="#{y[0]}"/>
-                </h:outputLink>
-               </span>
-            </ui:repeat>
-
-        <h:dataTable id="table" value="#{oldGradesBean.oldGrades}" var="p"
+            <div class="LeftInterfaceContent StudentMainPageTitlesBorders">
+                <div class="mainStudentPageTitlesGreen mainStudentPageTitles Ipsilon_Web_GreenText">
+                    <p class="floatLeft mainStudentPageTitles" style="width: 70%;padding: 0;">#{msgs.student_oldGradesHeader}</p>
+                    <div class="greyLinks">
+                    <f:metadata>
+                         <f:viewParam name="s" value="#{oldGradesBean.semester}"/>
+                         <f:viewParam name="w" value="#{oldGradesBean.winter}"/>
+                        </f:metadata>
+                        <h:outputLink id="handle" value="?s=#{oldGradesBean.semester+(oldGradesBean.winter?1:-1)}&amp;w=#{!oldGradesBean.winter}">
+                        <h:outputText id="isWinter" value="#{oldGradesBean.winter?('показать зимний семестр'):('показать летний семестр')}"/>
+                        </h:outputLink>
+                    </div>
+                </div>
+                <div>
+                    <div class="blocksMargins linkToTeachersProfile">
+                        <span style="margin-right: 20px;">Выберите курс: </span>
+                        <ui:repeat id="years" value="#{oldGradesBean.years}" var="y">
+                            <span>
+                                <h:outputLink id="year" disabled="#{oldGradesBean.semester eq y[1]}"  value="?w=#{oldGradesBean.winter}&amp;s=#{y[1]}" style="font-weight: bold;">
+                                <h:outputText  value="#{y[0]}"/>
+                            </h:outputLink>
+                           </span>
+                        </ui:repeat>
+                    </div>
+                    <h:dataTable id="table" value="#{oldGradesBean.oldGrades}" var="p" style="display: none;"
                      
                      columnClasses="studentStandatrTableTd,studentStandatrTableTd,
                      studentStandatrTableTdLastTd studentStandatrTableExamin" cellpadding="0" cellspacing="0" styleClass="studentStandatrTable leftMenuContainer">
@@ -48,6 +57,11 @@
                 <h:outputText converter="enumConverter" value="#{p.value.gradeCode}"/>
             </h:column>
         </h:dataTable>
+                </div>
+            </div>
+            <div class="RightInterfaceContent StudentMainPageTitlesBorders">
+                ghfhjgh
+            </div>
         </div>
     </ui:define>
 </ui:composition>

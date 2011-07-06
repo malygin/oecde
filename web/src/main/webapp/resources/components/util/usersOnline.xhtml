@@ -14,17 +14,22 @@
 
   <!-- IMPLEMENTATION -->
    <composite:implementation>
-
-        <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_studentsOnlineMenuTitle}</p></div>
-        <div class="sideBarUnderTitleText">
-            <div class="greenUnderTitleLink"><a href="usersOnlineList.xhtml?type=student">#{msgs.student_studentsOnlineUnderTitleText} (#{usersInCache.studentsNumber})</a></div></div>
+         <script type="text/javascript" src="../resources/scripts/usersOn-line.js"></script>
+<div class="modulsTitles">
+    <p class="sideBarTitle">Пользователи on-line</p>
+</div>
+       <ul class="dropdown">
+           <li>
+            <div class="sideBarUnderTitleText">
+                <div class="blueUnderTitleLink UnderTitleLink">#{msgs.student_studentsOnlineMenuTitle} <span style="color: #8DBEE0;">(#{usersInCache.studentsNumber})</span><a href="usersOnlineList.xhtml?type=student">picture</a></div>
+            </div>
 
 <div class="usersOnlineTableContainer">
     <table cellpadding="3" cellspacing="1" >
         <tr>
             <ui:repeat value="#{usersInCache.sixStudents}" var="st" varStatus="i">
                 <td style="max-width: 68px;">
-                    <div class="userOnlineLinkContainer">
+                    <div class="userOnlineLinkContainer"> 
                         <a href="student.xhtml?id=#{st.id}">
                             <div class="userOnlineImgContainer">
                                 <span class="userOnlineImgContainerHeightController"></span>
@@ -41,9 +46,9 @@
         </tr>
     </table>
 </div>
-
-        <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.student_teachersOnlineMenuTitle}</p></div>
-        <div class="sideBarUnderTitleText"><div class="blueUnderTitleLink"><a href="usersOnlineList.xhtml?type=teacher">#{msgs.student_teachersOnlineUnderTitleText} (#{usersInCache.teachersNumber})</a></div></div>
+           </li>
+           <li>
+               <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink UnderTitleLink">#{msgs.student_comMenuTeachers}<span style="color: #ACCC7A;"> (#{usersInCache.teachersNumber})</span><a href="usersOnlineList.xhtml?type=teacher">picture</a></div></div>
         <div class="usersOnlineTableContainer">
 <table cellpadding="3" cellspacing="1" >
     <tr>
@@ -66,5 +71,32 @@
     </tr>
             </table>
         </div>
+           </li>
+           <li>
+               <div class="sideBarUnderTitleText"><div class="orangeUnderTitleLink UnderTitleLink">#{msgs.admin_adminsOnlineMenuTitle} <span style="color: #fbb35d;">(#{usersInCache.adminsNumber})</span> <a href="usersOnlineList.xhtml?type=admin">picture</a></div></div>
+            <div class="usersOnlineTableContainer">
+            <table cellpadding="3" cellspacing="1" >
+                <tr>
+                <ui:repeat value="#{usersInCache.sixAdmins}" var="st" varStatus="i">
+                        <td style="max-width: 68px;">
+                            <div class="userOnlineLinkContainer">
+                                <a href="admin.xhtml?id=#{st.id}">
+                                    <div class="userOnlineImgContainer">
+                                        <span class="userOnlineImgContainerHeightController"></span>
+                                    <ut:showPhoto user="#{st}" size="small" styleClass=""/>
+                                    </div>
+                                    <span style=" text-align: center; font-size: 75%;">
+                                        <h:outputLink value="admin.xhtml?id=#{st.id}"><h:outputText value="#{st.initials}"/></h:outputLink>
+                                    </span>
+                                </a>
+                            </div>
+                        </td>
+                <h:outputText escape="false" rendered="#{i.index eq 2}" value="&lt;/tr>&lt;tr>"/>
+                    </ui:repeat>
+                </tr>
+            </table>
+        </div>
+           </li>
+       </ul>
    </composite:implementation>
 </html>

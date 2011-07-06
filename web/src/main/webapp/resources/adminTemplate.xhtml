@@ -114,30 +114,6 @@
         </div>
         <ut:usersOnline/>
             <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.admin_adminsOnlineMenuTitle}</p></div>
-            <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="usersOnlineList.xhtml?type=admin">#{msgs.admin_adminsOnlineUnderTitleText} (#{usersInCache.adminsNumber})</a></div></div>
-            <div class="usersOnlineTableContainer">
-            <table cellpadding="3" cellspacing="1" >
-                <tr>
-                <ui:repeat value="#{usersInCache.sixAdmins}" var="st" varStatus="i">
-                        <td style="max-width: 68px;">
-                            <div class="userOnlineLinkContainer">
-                                <a href="admin.xhtml?id=#{st.id}">
-                                    <div class="userOnlineImgContainer">
-                                        <span class="userOnlineImgContainerHeightController"></span>
-                                    <ut:showPhoto user="#{st}" size="small" styleClass=""/>
-                                    </div>
-                                    <span style=" text-align: center; font-size: 75%;">
-                                        <h:outputLink value="admin.xhtml?id=#{st.id}"><h:outputText value="#{st.initials}"/></h:outputLink>
-                                    </span>
-                                </a>
-                            </div>
-                        </td>
-                <h:outputText escape="false" rendered="#{i.index eq 2}" value="&lt;/tr>&lt;tr>"/>
-                    </ui:repeat>
-                </tr>
-            </table>
-        </div>
-            <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.admin_adminsOnlineMenuTitle}</p></div>
             <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="usersOnlineList.xhtml?type=supervisor">#{msgs.admin_adminsOnlineUnderTitleText} (#{usersInCache.supervisorsNumber})</a></div></div>
             <div class="usersOnlineTableContainer">
             <table cellpadding="3" cellspacing="1" >

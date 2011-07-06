@@ -12,71 +12,168 @@
    >
 
     <ui:define name="contentHeader">
-        #{msgs.student_index}
+        <div class="Ipsilon_Web_GreenText" style="position: relative; top: -33px;">
+           <p style="float: right;"> 
+             #{studentSessionBean.student.surname}
+            #{studentSessionBean.student.name}
+            #{studentSessionBean.student.secondName}
+         </p>
+        </div>
     </ui:define>
     <ui:define name="fio">
         <h:outputText value="#{studentSessionBean.student.fio}"/>
     </ui:define>
     <ui:define name="content">
-        <f:metadata>
+         <f:metadata>
                 <f:viewParam name="s" value="#{studentIndexBean.semester}"/>
          </f:metadata>
 
-        <div class="userFile">
-            <div style="width:60%">
-                <ut:showPhoto user="#{studentSessionBean.student}" size="small"/>
+        <div class="StudentMainPageTitlesBorders" style="width: 55%; float: left; height: 200px;">
+            <div class="mainStudentPageTitles mainStudentPageTitlesBlue"> Личная информация
             </div>
-            <div class="userData" style="width: 91%;">
-                <table class="leftMenuContainer">
+            <div class="userData">
+                <div>
+                <table class="leftMenuContainer blocksMargins">
                     <tr>
                         <td><p>#{msgs.student_mainContentUserInfoSpec}</p></td>
-                        <td><div>#{studentSessionBean.student.group.speciality.name}</div></td>
-                        <td colspan="3"><div>#{studentSessionBean.student.surname}
-                            #{studentSessionBean.student.name}
-                            #{studentSessionBean.student.secondName}
+                        <td><p>#{studentSessionBean.student.group.speciality.name}</p></td>
+                        <td rowspan="8">
+                             <div>
+                                <ut:showPhoto user="#{studentSessionBean.student}" size="medium"/>
                             </div>
-                        </td>                  
+                        </td>
                     </tr>
                     <tr>
-                        <td><p>#{msgs.student_mainContentUserInfoGroup}</p></td><td><div>#{studentSessionBean.student.group.name}</div></td>
+                        <td><p>#{msgs.student_mainContentUserInfoGroup}</p></td>
+                        <td><p>#{studentSessionBean.student.group.name}</p></td>
                     </tr>
                     <tr>
-                        <td><p>#{msgs.student_studentPassId}</p></td><td><div>#{studentSessionBean.student.studentPassId}</div></td>
+                        <td><p>#{msgs.student_studentPassId}</p></td>
+                        <td><p>#{studentSessionBean.student.studentPassId}</p></td>
                     </tr>
                     <tr>
                         <td><p>#{msgs.student_yourRating}</p></td>
                         <td class="reitingLink"><a href="groupRating.xhtml" style="">#{studentRatingBean.studentRating.sum}</a></td>
                     </tr>
+                    <tr>
+                        <td><p>Контакты
+                            </p>
+                        </td>
+                        <td><p>123456</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><p>Доп.информация
+                            </p>
+                        </td>
+                        <td><p>Староста</p>
+                        </td>
+                    </tr>
                 </table>
+                </div>
                 
                 <div class="floatDestroyer"></div>
             </div>
             <div class="floatDestroyer"></div>
         </div>
-        <div style="padding: 5px;">
-            <table class="leftMenuContainer">
+        <div class="StudentMainPageTitlesBorders" style=" margin-left: 61%; width: 35%; height: 200px;">
+            <div class="mainStudentPageTitles mainStudentPageTitlesOrange">
+                Оповещения
+            </div>
+            <div class="userData">
+                <div>
+                    
+                    <table style="margin: 10px; margin-left: 15px;" class="notificationTableTextOrange">
+                        <tr>
+                            <td><p>Открытие тестов</p>
+                            </td>
+                            <td><p class="mainStudentPageTitlesOrangeP"><h:outputText converter="dateConverter" value="#{resourceService.regularTestBeginDate}"/></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p>Открытие контрольных</p>
+                            </td>
+                            <td><p class="mainStudentPageTitlesOrangeP"> <h:outputText converter="dateConverter" value="#{studentIndexBean.getDate('controlWorksBeginDate')}"/></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p>Открытие итоговых тестов</p>
+                            </td>
+                            <td><p class="mainStudentPageTitlesOrangeP"> <h:outputText converter="dateConverter" value="#{resourceService.concludingTestBeginDate}"/></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p>Начало переэкзаменовки</p>
+                            </td>
+                            <td><p class="mainStudentPageTitlesOrangeP"> <h:outputText converter="dateConverter" value="#{resourceService.reExameBeginDate}"/></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p>Закрытие тестов</p>
+                            </td>
+                            <td><p class="mainStudentPageTitlesOrangeP"><h:outputText converter="dateConverter" value='#{resourceService.regularTestEndDate}'/></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p>Закрытие контрольных </p>
+                            </td>
+                            <td><p class="mainStudentPageTitlesOrangeP"> <h:outputText converter="dateConverter" value="#{studentIndexBean.getDate('controlWorksEndDate')}"/></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p>Закрытие итоговых тестов</p>
+                            </td>
+                            <td><p class="mainStudentPageTitlesOrangeP"> <h:outputText converter="dateConverter" value="#{resourceService.concludingTestEndDate}"/></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p>Окончание переэкзаменовки</p>
+                            </td>
+                            <td><p class="mainStudentPageTitlesOrangeP"> <h:outputText converter="dateConverter" value="#{resourceService.reExameEndDate}"/></p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="floatDestroyer">
+        </div>
+        <div>
+            <table class="leftMenuContainer" cellpadding="0" cellspacing="0">
                 <tr>
-                    <td colspan="2" class="StudentTimeTable">                       
+                    <td style="width: 58%;">                       
                         <edu:videoConfSchedule numberLessons="20"/>
+                    </td>
+                     <td valign="top">
+                        <div class="StudentMainPageTitlesBorders" style="padding: 0px 5px; margin-bottom: 0;margin-left: 32px;margin-right: 35px;">                         
+                          <news:shortList numberNews="4"/>                          
+                        </div>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" class="StudentTimeTable">
-                          <edu:calendareInfo/>
+                    <td colspan="2">
+<!--                          <edu:calendareInfo/>-->
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2" style="height: 1px;"></td>
                 </tr>
                 <tr>
-                    <td style=" border: 1px solid silver;" valign="top">
-                        <div style=" padding: 0px 5px;max-height: 300px; overflow-y: scroll;">                         
-                          <news:shortList numberNews="4"/>                          
-                        </div>
-                    </td>
-                    <td style="width: 50%;" class="StudentTimeTable" valign="top">
-                        <div class="StudentMainPageTitles">
-                            <div class="navigationLinks indentionInNavigation" style="font-size: 12pt;"><a class="events" href="journal.xhtml" >Лента событий</a></div>
+                    <td colspan="2" class="StudentTimeTable" valign="top">
+                        <div class="StudentMainPageTitlesBorders" style="margin-right: 32px;">
+                             <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
+                                 <a href="journal.xhtml" style="font-size: 12pt;" >Лента событий</a>
+                            </div>
+                            <div style="height: 200px;">
+                                <p class="blueUnderTitleLink UnderTitleLink" style="background: url('../resources/images/event1.png') no-repeat; padding-left: 10px; margin: 7px;"><a href="#">Студент Черкесова Наталья Валерьевна</a> прошел(прошла)
+Тест по курсу "Бухгалтерский учет", модуль 2
+                                </p>
+                                <p class="greenUnderTitleLink UnderTitleLink" style="background: url('../resources/images/event2.png') no-repeat; padding-left: 10px; margin: 7px;"><a href="#">Преподаватель Гусев Вячеслав Иванович</a> довыставил(а) оценки 
+группе 349 специальности "Прикладная информатика в экономике”
+                                </p>
+                                <p class="orangeUnderTitleLink UnderTitleLink" style="background: url('../resources/images/event3.png') no-repeat; padding-left: 10px; margin: 7px;"><a href="#">Администратор Головко Екатерина Михайловна</a> создала курс “Математический анализ (часть 3)”
+                                </p>
+                            </div>
                         </div>
                         <div class="StudentTestsPadding">
                             <j:eventsOnly  list="#{journalBean.events('studentEvents',studentSessionBean.student)}"/>

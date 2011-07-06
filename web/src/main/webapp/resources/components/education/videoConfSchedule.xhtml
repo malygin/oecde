@@ -16,10 +16,76 @@
 
   <!-- IMPLEMENTATION -->
    <composite:implementation>
-       <div style=" border-bottom: 1px solid silver;">
-                            <div class="navigationLinks indentionInNavigation"><a style="font-size: 12pt;" href="schedule.xhtml">Расписание видеоконференций</a></div>
-                        </div>                        
-                        <h:dataTable columnClasses="
+       <link type="text/css" href="../resources/jquery/css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" />	
+        <script type="text/javascript" src="../resources/jquery/js/jquery-1.5.1.min.js"></script>
+        <script type="text/javascript" src="../resources/jquery/js/jquery-ui-1.8.14.custom.min.js"></script>
+        <script type="text/javascript" src="../resources/jquery/js/jquery.ui.datepicker-ru.js"></script>
+        <script type="text/javascript">
+		$(function(){
+			$('#datepicker').datepicker({
+				inline: true,
+				onChangeMonthYear: function(year, month, inst) {
+					window.setTimeout('repaint()',1);
+				}
+			});
+			repaint();
+		});
+		
+		function repaint(){
+			//ajax-query для получения списка дней данного месяца
+			daysArray = ["1","2","3","4","5","11","12","21","25","26"];
+			for(day in daysArray){
+				$('a[href="#"][role!="nenada"]').each(function(){
+					if($(this).html() == daysArray[day]){
+						$(this).parent().attr('class',"lectures");
+						$(this).attr("role","nenada");
+					}
+				});
+				$('#datepicker td').each(function(){
+					$(this).removeAttr("onclick");
+				});
+			}
+		}
+	</script>
+       <div>
+            <div class="StudentMainPageTitlesBorders" style="margin: 0; margin-left: 25px;">
+                <div class="mainStudentPageTitlesGreen mainStudentPageTitles linkToTeachersProfile">
+                <a style="font-size: 12pt;" href="schedule.xhtml">Расписание видеоконференций</a>
+                </div>
+                <div class="floatLeft">
+                    <div id="datepicker" class="datepickerClass"></div>
+                </div>
+                <div class="Ipsilon_Web_GreenText videoConfSchedule">
+                    <table>
+                        <tr>
+                            <td valign="top"><p>10 января 17:20</p>
+                            </td>
+                            <td><p> Компьютерные системы. Бессонов Л.В. 1 комната</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>25 января 10:20</p>
+                            </td>
+                            <td><p>Философия. Никифорова Л.В. 2 комната</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>10 февраля 17:20</p>
+                            </td>
+                            <td><p> Компьютерные системы. Бессонов Л.В. 1 комната</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="videoConfSchedule greyLinks" style="height: 25px;" colspan="2">
+                                <a href="schedule.xhtml">Посмотреть все видеоконференции</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="floatDestroyer"/>
+            </div>
+        </div>                        
+<!--                        <h:dataTable columnClasses="
                                      studentStandatrTableTd studentStandatrTableTdWithBorder,
                                      studentStandatrTableTd studentStandatrTableTdWithBorder,
                                      studentStandatrTableTd studentStandatrTableTdWithBorder,
@@ -67,7 +133,7 @@
                                 <h:outputText converter="dateConverter" value="#{s.lessonDate}"/><br/> -<br/><h:outputText converter="dateConverter" value="#{s.lessonEndDate}"/>
                                 </div>
                             </h:column>
-                        </h:dataTable>
+                        </h:dataTable>-->
        
   </composite:implementation>
 </html>

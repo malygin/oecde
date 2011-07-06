@@ -7,11 +7,11 @@
 */
 
 /*стили для студент Темплэйт*/
-.mainStyle .userFile{
+/*.mainStyle .userFile{
     background: #A2DEF6;
     padding: 10px 15px;
     border-bottom: #57C3FF 1px solid;
-}
+}*/
 .StudentSecondLineBlocks{
     padding: 3px 3px 0px 3px; border: 1px solid silver;
 }
@@ -57,12 +57,11 @@
 }
 .StudentTimeTable{
     padding: 3px 3px 10px 3px;
-    border: 1px solid silver;
 }
-.mainStyle .userData{
+/*.mainStyle .userData{
     width: 85%;
     float: right;
-}
+}*/
 .mainStyle .userData p{
     color: #96A0A2;
     text-align: left;
@@ -211,6 +210,18 @@
     padding-left: 17px;
     padding-bottom: 3px;
 }
+.mainStyle .messagesMainStPage{
+    background: url('../resources/images/messagesMainStPage.png') no-repeat;
+    background-position: right center;
+    padding-right: 30px;
+}
+.mainStyle .StudentMainPageExit{
+    margin-top: -10px;
+}
+.mainStyle .StudentMainPageExit a:link {color: #838383; text-decoration: none; font-size: 10pt;font-weight: bold;}
+.mainStyle .StudentMainPageExit a:visited{color: #838383;text-decoration: none;font-size: 10pt;font-weight: bold;}
+.mainStyle .StudentMainPageExit a:hover{color: #b5a5a5; text-decoration: none;font-size: 10pt; font-weight: bold;}
+.mainStyle .StudentMainPageExit a:active{color: #838383;text-decoration: none;font-size: 10pt;font-weight: bold;}
 .mainStyle .test_results{
     font-family: Arial;
     color: #27587F;
@@ -271,4 +282,16 @@
 /*на главной странице переопределяет стиль таблицы studentStandatrTable*/
 .mainStyle .studentTableEvent th{
     border-bottom: 1px solid silver;
+}
+/*зачетная книжка студента*/
+.mainStyle .LeftInterfaceContent{
+    width: 66%;
+    float: left;
+}
+.mainStyle .RightInterfaceContent{
+    width: 27%;
+    margin-left: 72%;
+}
+.mainStyle .blocksMargins{
+    margin: 10px; margin-left: 15px;
 }
