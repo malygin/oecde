@@ -1,3 +1,4 @@
+
 /* 
     Document   : student
     Created on : 14.07.2010, 10:51:45
@@ -6,7 +7,7 @@
        стили для студента
 */
 
-@import "newForStudent.css";
+
 /*стили для студент Темплэйт*/
 /*.mainStyle .userFile{
     background: #A2DEF6;
@@ -90,10 +91,10 @@
     padding-left: 17px;
 }
 .materialInfo span{
-       color: #1D1F1F;
+       color: #64D359;
        /*font-weight: bolder;*/
 }
-.materialInfo p:nth-child(1){
+/*.materialInfo p:nth-child(1){
    background:  url("../resources/images/control_works_little.gif") no-repeat ;
 }
 .materialInfo p:nth-child(2){
@@ -105,7 +106,8 @@
 }
   .StudentTestMark{
  color: #1D1F1F;
-}
+}*/
+
 /*список администраторов*/
 .mainStyle .studentPaddBott{
     padding-bottom: 10px;

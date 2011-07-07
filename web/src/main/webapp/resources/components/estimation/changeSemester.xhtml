@@ -13,9 +13,7 @@
 
     <!-- IMPLEMENTATION -->
     <composite:implementation>
-        <div style="border: 1px solid silver;">
             <div class="changeSemestr">
-                <div class="navigationLinks">
                     <h:outputText value="#{changeSemesterBean.semesterName(cc.attrs.semester)}"/>
                     <h:outputText rendered="#{cc.attrs.semester eq semesterGetter.currentSemester}" value=" (#{msgs.user_currentSemester})"/>
                     #{msgs.teacher_semester}.
@@ -25,8 +23,6 @@
                 </h:outputLink>
                 <h:outputText rendered="#{cc.attrs.semester ne semesterGetter.currentSemester}" value=" (#{msgs.user_currentSemester})"/>
                 #{msgs.teacher_semester}.
-                </div>
             </div>
-        </div>
     </composite:implementation>
 </html>

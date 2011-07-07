@@ -8,8 +8,9 @@
 
 *{
     font-family: Arial;
-    color: #757D7F;
+    color: #838383;
     font-size: 10pt;
+    font-weight: normal;
 }
 
 /*стили для бэйзТемплэйт*/
@@ -61,9 +62,13 @@
 .mainStyle .notificationTableTextOrange td:nth-child(even) p{
     color: #FBB35D;
 }
+.mainStyle .notificationTableTextOrange2 td:nth-child(even) p{
+    color: #FBB35D;
+}
 .mainStyle .notificationTableTextOrange td:nth-child(odd) p{
     width: 232px;
 }
+
 .mainStyle .videoConfSchedule{
 /*    margin-left: 250px;*/
     margin-top: 20px;
@@ -119,36 +124,7 @@
 /*    margin-top: 5px;*/
     min-height: 1060px;
 }
-.mainStyle .mainStudentPageTitles{
-    font-size: 13pt;
-    text-align: left;
-    font-weight: bold;
-    padding: 4px;
-}
-.mainStyle .mainStudentPageTitlesBlue{
-    color: #0a81bd;
-    border-bottom: 3px solid #0a81bd;
-}
-.mainStyle .mainStudentPageTitlesOrange{
-    color: #fbb35d;
-    border-bottom: 3px solid #fbb35d;
-}
-.mainStyle .mainStudentPageTitlesGreen{
-    color: #5bbf5d;
-    border-bottom: 3px solid #5bbf5d;
-}
-.mainStyle .mainStudentPageTitlesSkyBlue{
-     color: #89c9f5;
-    border-bottom: 3px solid #89c9f5;
-}
-.mainStyle .mainStudentPageTitlesSkyBlue a,
-.mainStyle .mainStudentPageTitlesGreen a{
-    font-weight: bold !important;
-    text-decoration: none !important;
-}
-.mainStyle .floatLeft{
-    float: left;
-}
+
 /*temporary styles for page content part*/
 .mainStyle .content table *{
     text-align: left;
@@ -236,6 +212,49 @@
     margin-top: 2px;
     line-height: 11px;
 }
+
+
+/*стили для заголовков окон 7.07.11*/
+.mainStyle .mainStudentPageTitles{
+    font-size: 13pt;
+    text-align: left;
+    font-weight: bold;
+    padding: 4px;
+}
+
+.mainStyle .mainStudentPageTitles a:link{color: #838383; text-decoration: underline; font-weight: normal;}
+.mainStyle .mainStudentPageTitles a:visited{color: #838383; text-decoration: underline; font-weight: normal;}
+.mainStyle .mainStudentPageTitles a:active{color: #838383; text-decoration: underline; font-weight: normal;}
+.mainStyle .mainStudentPageTitles a:hover{color: #8; text-decoration: none; font-weight: normal;}
+
+
+.mainStyle .mainStudentPageTitlesBlue{
+    color: #0a81bd;
+    border-bottom: 3px solid #0a81bd;
+}
+.mainStyle .mainStudentPageTitlesOrange{
+    color: #fbb35d;
+    border-bottom: 3px solid #fbb35d;
+}
+.mainStyle .mainStudentPageTitlesGreen{
+    color: #5bbf5d;
+    border-bottom: 3px solid #5bbf5d;
+}
+.mainStyle .mainStudentPageTitlesSkyBlue{
+     color: #89c9f5;
+    border-bottom: 3px solid #89c9f5;
+}
+.mainStyle .mainStudentPageTitlesSkyBlue a,
+.mainStyle .mainStudentPageTitlesGreen a{
+    font-weight: bold;
+    text-decoration: none;
+}
+.mainStyle .floatLeft{
+    float: left;
+}
+
+
+
 
 /*левая и правая панели для всех пользователей*/
 /*.mainStyle .blueMenuTitle{
@@ -780,23 +799,24 @@ body:first-of-type .mainStyle .StudentWriteMess{
    padding-left: 10px;
 }
 .mainStyle .changeSemestr{
-    background: #e2f3fc;
-    color: #4593DF;
+    /*color: #4593DF;*/
+    float: right;
     padding: 4px 5px 3px 5px;
 }
 /*стили для текста*/
- .mainStyle .DisciplineText{
+
+/*.mainStyle .DisciplineText{
     font-size: 11pt;
     font-weight: normal !important;
     color: #27587F !important;
     font-family: Arial;
     padding-left: 12px;
- }
+ }*/
  .mainStyle .prosto_tekst {
     padding-top: 10px;
 }
 .mainStyle .prosto_tekst p {
-    color: black;
+    color: #838383;
     margin: 0;
     padding-left: 30px;
     padding-right: 30px;
@@ -960,13 +980,14 @@ body:first-of-type .mainStyle .StudentWriteMess{
 .mainStyle .linkToAdminsProfile a:hover {color: #fbb35d; text-decoration: underline; font-weight: normal; font-family: Tahoma; }
 
 .mainStyle .navigationLinks,.mainStyle .navigationLinks a{
-    font-size: 10pt;
+    font-size: 10pt; font-weight: normal;
 }
+/*
 .mainStyle .navigationLinks a:link{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
 .mainStyle .navigationLinks a:visited{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
-.mainStyle .navigationLinks a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinks a:active{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
 .mainStyle .navigationLinks a:hover{color: #8BB5DF; text-decoration: none; font-weight: normal;}
-
+*/
 .mainStyle .navigationLinksRed a:link{color: red; text-decoration: none; font-weight: normal;}
 .mainStyle .navigationLinksRed a:visited{color: red; text-decoration: none; font-weight: normal;}
 .mainStyle .navigationLinksRed a:active{color: #FF3F3F; text-decoration: none; font-weight: normal;}
@@ -975,20 +996,22 @@ body:first-of-type .mainStyle .StudentWriteMess{
 .mainStyle .navigationLinksSmall,.mainStyle .navigationLinksSmall a{
     font-size: 8pt;
 }
+
 .mainStyle .navigationLinksSmall a:link{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
 .mainStyle .navigationLinksSmall a:visited{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
 .mainStyle .navigationLinksSmall a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
 .mainStyle .navigationLinksSmall a:hover{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+
 
 .mainStyle .navigationLinksRedSmall a:link{color: red; text-decoration: underline; font-weight: normal;}
 .mainStyle .navigationLinksRedSmall a:visited{color: red; text-decoration: underline; font-weight: normal;}
 .mainStyle .navigationLinksRedSmall a:active{color: #FF3F3F; text-decoration: none; font-weight: normal;}
 .mainStyle .navigationLinksRedSmall a:hover{color: #FF3F3F; text-decoration: none; font-weight: normal;}
 
-.mainStyle .controlWorksDisciplineNameLink a:link{color: #89c9f5;}
-.mainStyle .controlWorksDisciplineNameLink a:visited{color: #89c9f5;}
-.mainStyle .controlWorksDisciplineNameLink a:active{color: #8DBEE0;}
-.mainStyle .controlWorksDisciplineNameLink a:hover{color: #8DBEE0;}
+.mainStyle .controlWorksDisciplineNameLink a:link{color: #89C9F5;}
+.mainStyle .controlWorksDisciplineNameLink a:visited{color: #89C9F5;}
+.mainStyle .controlWorksDisciplineNameLink a:active{color: #89C9F5;}
+.mainStyle .controlWorksDisciplineNameLink a:hover{color: #89C9F5; text-decoration: underline;}
 
 .mainStyle .controlWorksDisciplineNameLinkGrey a:link{color: #5F5F5F !important; font-weight: normal;}
 .mainStyle .controlWorksDisciplineNameLinkGrey a:visited{color: #5F5F5F !important;font-weight: normal;}
@@ -998,10 +1021,10 @@ body:first-of-type .mainStyle .StudentWriteMess{
 .mainStyle .reitingLink  a{color: green !important; font-weight: bolder !important; font-family: Verdana;}
 .mainStyle .reitingLink a:hover{text-decoration: underline;}
 
-.mainStyle div.navigationLinks a:link{color: #4593DF;}
-.mainStyle div.navigationLinks a:hover{color: #8DBEE0;}
-.mainStyle div.navigationLinks a:active{color: #8DBEE0;}
-.mainStyle div.navigationLinks a:visited{color: #8DBEE0;}
+.mainStyle div.navigationLinks a:link{/*color: #D4D4D4;*/  text-decoration: underline;}
+.mainStyle div.navigationLinks a:hover{/*color: #D4D4D4;*/ text-decoration: none;}
+.mainStyle div.navigationLinks a:active{/*color: #D4D4D4;*/ text-decoration: underline;}
+.mainStyle div.navigationLinks a:visited{/*color: #D4D4D4;*/ text-decoration: underline;}
 
 .mainStyle .navigationLinksMess a:link{color: #8BB5DF; text-decoration: none; font-weight: normal;}
 .mainStyle .navigationLinksMess a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
@@ -1692,12 +1715,9 @@ text-align: left;
     color: #EF5D0E;
 }
 .mainStyle .progressBarMaterials{
-    border: 1px solid #777F77;
-    width: 100px;
+    border: 1px solid #FBB35D;
+    width: 50%;
     height: 12px;
-    float: right;
-    position: relative;
-    right: 460px;
 }
 .mainStyle #progressbar{
         border:1px solid #00194F;

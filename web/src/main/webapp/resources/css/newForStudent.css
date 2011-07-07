@@ -1,0 +1,14 @@
+/*стили для оповещений*/
+.notificationTableTextOrange2{width: 90%; margin: 5%;}
+.notificationTableTextOrange2 tr td{padding: 2px 0px;}
+.mainStyle .notificationTableTextOrange2 td:nth-child(even) p{
+    color: #FBB35D;
+}
+/*стили для подсказки*/
+.textForPodskazka{
+    margin: 10px;
+}
+.textForPodskazka p{
+    margin: 5px 0px;
+    text-align: left;
+}
