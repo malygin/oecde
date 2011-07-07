@@ -6,6 +6,7 @@
        стили для студента
 */
 
+@import "newForStudent.css";
 /*стили для студент Темплэйт*/
 /*.mainStyle .userFile{
     background: #A2DEF6;
@@ -63,7 +64,6 @@
     float: right;
 }*/
 .mainStyle .userData p{
-    color: #96A0A2;
     text-align: left;
     margin-right: 10px;
     width: 200px;
