@@ -58,7 +58,7 @@
     border-right: 1px solid #D1E0EF;
 }
 .StudentTimeTable{
-    padding: 3px 3px 10px 3px;
+    padding-top: 10px;
 }
 /*.mainStyle .userData{
     width: 85%;
@@ -245,7 +245,7 @@
 }
 /*мои изучаемые материалы дисциплины*/
 
-.mainStyle .attemps{
+/*.mainStyle .attemps{
     color: grey;
     background: url('../resources/images/attemps.gif') 2px 1px no-repeat;
     padding-left: 18px;
@@ -261,9 +261,9 @@
     padding-left: 18px;
 }
 .mainStyle .star{
-/*    color: grey;*/
+    color: grey;
     background: url('../resources/images/star.gif') no-repeat;
-/*    padding-left: 18px;*/
+    padding-left: 18px;
 }
 .mainStyle .time{
     color: grey;
@@ -271,10 +271,10 @@
     padding-left: 18px;
 }
 .mainStyle .discipline_summ{
-/*    color: grey;*/
+    color: grey;
     background: url('../resources/images/discipline_summ.gif') no-repeat;
-/*    padding-left: 18px;*/
-}
+    padding-left: 18px;
+}*/
 /*.mainStyle.controlWorksBorders{
     border-bottom: 1px solid #D1E0EF;
      padding-bottom: 10px;

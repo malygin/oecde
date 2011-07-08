@@ -87,7 +87,63 @@
 
         <div style="width: 33%; margin-left: 68%">
         <edu:calendareInfo />
-        
+        <!--<div class="interfaceContent interfaceContentForMyMarks">
+            <div class="mainStudentPageTitles mainStudentPageTitlesOrange">
+            Оповещения
+            </div>
+         </div>
+         <div>
+            <table class="notificationTableTextOrange2" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td><p>Открытие тестов</p>
+                    </td>
+                    <td><p><h:outputText converter="dateConverter" value="#{resourceService.regularTestBeginDate}"/></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><p>Открытие контрольных</p>
+                    </td>
+                    <td><p> <h:outputText converter="dateConverter" value="#{studentIndexBean.getDate('controlWorksBeginDate')}"/></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><p>Открытие итоговых тестов</p>
+                    </td>
+                    <td><p> <h:outputText converter="dateConverter" value="#{resourceService.concludingTestBeginDate}"/></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><p>Начало переэкзаменовки</p>
+                    </td>
+                    <td><p> <h:outputText converter="dateConverter" value="#{resourceService.reExameBeginDate}"/></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><p>Закрытие тестов</p>
+                    </td>
+                    <td><p><h:outputText converter="dateConverter" value='#{resourceService.regularTestEndDate}'/></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><p>Закрытие контрольных </p>
+                    </td>
+                    <td><p> <h:outputText converter="dateConverter" value="#{studentIndexBean.getDate('controlWorksEndDate')}"/></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><p>Закрытие итоговых тестов</p>
+                    </td>
+                    <td><p> <h:outputText converter="dateConverter" value="#{resourceService.concludingTestEndDate}"/></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><p>Окончание переэкзаменовки</p>
+                    </td>
+                    <td><p> <h:outputText converter="dateConverter" value="#{resourceService.reExameEndDate}"/></p>
+                    </td>
+                </tr>
+            </table>
+        </div>-->
         </div>
     </ui:define>
 </ui:composition>

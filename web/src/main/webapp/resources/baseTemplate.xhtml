@@ -4,32 +4,32 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:c="http://java.sun.com/jsp/jstl/core">
-    
+
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="../resources/css/default.css"  rel="stylesheet" type="text/css" />
         <h:outputStylesheet name="base.css" library="css" rendered="true"/>  
         <ui:insert name="userCSS"/>
         <title>#{msgs.title}</title>
-    	<script type="text/javascript" src="../resources/jquery/js/jquery-1.4.2.min.js"></script>
+        <script type="text/javascript" src="../resources/jquery/js/jquery-1.4.2.min.js"></script>
         <script type="text/javascript" src="../resources/scripts/chat.js" ></script>
     </h:head>
-    
+
     <h:body>
         <div class="mainStyle">
             <div class="firstBorder">
                 <div>
                     <div class="leftPagePart">
                         <div class="leftMenu">
-<!--                            <img src="..rightMenu/resources/images/bannerOEC4.jpg" alt="" width="100%"/>-->
-                                <div class="Ipsilon_Web_GreenText">
-                                    <p style="font-size: 19pt;font-weight: bold;">
-                                        Ipsilon Web
-                                    </p>
-                                    <p>
-                                        Система дистанционного образования
-                                    </p>
-                                </div>
+                            <!--                            <img src="..rightMenu/resources/images/bannerOEC4.jpg" alt="" width="100%"/>-->
+                            <div class="Ipsilon_Web_GreenText">
+                                <p style="font-size: 19pt;font-weight: bold;">
+                                    Ipsilon Web
+                                </p>
+                                <p>
+                                    Система дистанционного образования
+                                </p>
+                            </div>
                             <div class="leftMenuContainer">
                                 <ui:insert name="left">
                                     LEft
@@ -45,20 +45,22 @@
                         </div>
                         <div>
                             <div class="contentArea">
-<!--                                <div class="FIOplace" style="display: none;">
-                                    <p class="sguLink"><a href="http://www.sgu.ru">#{msgs.sguLinkText}</a></p>
-                                    <p class="greenFIO"><ui:insert name="fio">#{msgs.userFIO}</ui:insert></p>
-                                </div>-->
+                                <!--                                <div class="FIOplace" style="display: none;">
+                                                                    <p class="sguLink"><a href="http://www.sgu.ru">#{msgs.sguLinkText}</a></p>
+                                                                    <p class="greenFIO"><ui:insert name="fio">#{msgs.userFIO}</ui:insert></p>
+                                                                </div>-->
                                 <div class="content">
                                     <div class="contentHeader">
                                         <p><ui:insert name="contentHeader">#{msgs.mainContentUserInfo}</ui:insert></p><div class="onlineStatus"><ui:insert name="online"></ui:insert></div><div class="floatDestroyer"></div>
                                     </div>
                                     <ui:insert name="content">Content</ui:insert>
                                 </div>
+
                             </div>
-                            <div class="rightMenu" >
-                                <ui:insert name="right">Right</ui:insert>
+                            <div class="rightMenu">
+                                <ui:insert name="right"></ui:insert>
                             </div>
+
                             <div class="floatDestroyer"></div>
                         </div>
                     </div>
@@ -70,5 +72,5 @@
             </div>
         </div>
     </h:body>
-    
+
 </html>

@@ -28,6 +28,11 @@
     z-index: 2;
     padding: 15px;
 }
+.mainStyle .Ipsilon_Web_GreenText{
+    color: #5bbf5d !important;
+    font-family: Arial;
+    text-align: left;
+}
 .mainStyle .Ipsilon_Web_GreenText p{
     color: #5bbf5d !important;
     font-family: Arial;
@@ -56,9 +61,6 @@
 .mainStyle div .StudentMainPageTitlesBorders{
     padding: 0px !important;
 }
-.mainStyle .mainStudentPageTitlesOrangeP{
-    width: 100px !important;
-}
 .mainStyle .notificationTableTextOrange td:nth-child(even) p{
     color: #FBB35D;
 }
@@ -78,7 +80,7 @@
     width: 125px;
 }
 .mainStyle .videoConfSchedule td:nth-child(even) p{
-    color: #96A0A2 !important;
+    color: #838383 !important;
 }
 .mainStyle .videoConfSchedule a:link{color:#838383; text-decoration: underline;}
 .mainStyle .videoConfSchedule a:visited{color:#838383;text-decoration: underline;}
@@ -160,15 +162,13 @@
     padding-left: 10px;
     padding-right: 10px;
 }
-.mainStyle div.interfaceContentForMyMarks{
-     padding: 0px !important;
-}
+
 .mainStyle .interfaceContentWithoutPadding{
     padding: 0px;
     text-align: left !important;
     text-indent: 10px;
 }
-.mainStyle .bottom{
+/*.mainStyle .bottom{
     border-color: white;
     border-image: url("../resources/images/bottomMenuBorder.png") 12 5 5 12 round round;
     -moz-border-image: url("../resources/images/bottomMenuBorder.png") 12 5 5 12 round round;
@@ -176,7 +176,7 @@
     border-width: 12px;
     border-right-width: 5px;
     border-style: solid;
-}
+}*/
 .mainStyle .bottomMenu{
     list-style: none;
     padding-left: 38%;
@@ -240,10 +240,20 @@
     color: #5bbf5d;
     border-bottom: 3px solid #5bbf5d;
 }
+.mainStyle .mainStudentPageTitlesGreen a:link{ color: #5bbf5d;text-decoration: none;font-weight: bold;}
+.mainStyle .mainStudentPageTitlesGreen a:visited{ color: #5bbf5d;text-decoration: none;font-weight: bold;}
+.mainStyle .mainStudentPageTitlesGreen a:hover{ color: #85C486;text-decoration: underline;font-weight: bold;}
+.mainStyle .mainStudentPageTitlesGreen a:active{ color: #85C486;text-decoration: underline;font-weight: bold;}
+
 .mainStyle .mainStudentPageTitlesSkyBlue{
      color: #89c9f5;
     border-bottom: 3px solid #89c9f5;
 }
+.mainStyle .mainStudentPageTitlesSkyBlue a:link{color: #89c9f5; text-decoration: none; font-weight: bold;}
+.mainStyle .mainStudentPageTitlesSkyBlue a:visited{color: #89c9f5;text-decoration: none;font-weight: bold;}
+.mainStyle .mainStudentPageTitlesSkyBlue a:active{color: #0A81BD; text-decoration: underline;font-weight: bold;}
+.mainStyle .mainStudentPageTitlesSkyBlue a:hover{color: #0A81BD;text-decoration: underline;font-weight: bold;}
+
 .mainStyle .mainStudentPageTitlesSkyBlue a,
 .mainStyle .mainStudentPageTitlesGreen a{
     font-weight: bold;
@@ -495,7 +505,7 @@ not all and (-webkit-min-device-pixel-ratio:0) {
      font-weight: bolder;
  }
  .mainStyle .backLink{
-     padding: 15px;
+     padding-top: 7px;
      float: right;
 }
 .mainStyle .numberField{
@@ -549,8 +559,8 @@ not all and (-webkit-min-device-pixel-ratio:0) {
 .mainStyle .studentInterfaceStandartList{
     margin-top: 3px;
     padding: 10px;
-    border-bottom: 1px solid #D4D4D4;
-    /*border-top: 1px solid silver;*/
+/*    border-bottom: 1px solid silver;
+    border-top: 1px solid silver;*/
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -564,16 +574,27 @@ not all and (-webkit-min-device-pixel-ratio:0) {
 }
 .mainStyle .studentStandatrTable th{
     font-weight: normal;
-    font-size: 8pt;
     text-align: center !important;
-    border: 1px solid silver;
-    border-left: 0px;
-    border-bottom: 3px double silver;
-    padding: 1px;
-    background: #EFEFEF;
-    padding: 7px 0px;
-    color: gray;
+    border-bottom: 1px solid #5BBF5D ;
+/*    border-bottom: 3px double silver;*/
+/*    background: #EFEFEF;*/
     padding: 3px 3px;
+    color: #5BBF5D;
+}
+.mainStyle .studentStandatrTable td{
+    height: 24px;
+}
+.mainStyle .studentStandatrTable th:last-child{
+    border:0;
+}
+.mainStyle .studentStandatrTable th{
+    border-right: 1px solid silver;
+}
+.mainStyle .diciplineTable th:last-child{
+    border-bottom: 1px solid #5BBF5D;
+}
+.mainStyle .diciplineTable td:last-child{
+    width: 15%;
 }
 .mainStyle .studentStandatrTableForChrome{
     font-weight: normal;
@@ -798,11 +819,11 @@ body:first-of-type .mainStyle .StudentWriteMess{
    font-weight: bolder;
    padding-left: 10px;
 }
-.mainStyle .changeSemestr{
+/*.mainStyle .changeSemestr{
     /*color: #4593DF;*/
     float: right;
     padding: 4px 5px 3px 5px;
-}
+}*/
 /*стили для текста*/
 
 /*.mainStyle .DisciplineText{
@@ -840,9 +861,7 @@ body:first-of-type .mainStyle .StudentWriteMess{
     text-align: center !important;
 }
 .mainStyle .controlWorksDisciplineNameLink a{font-size: 9pt !important;}
-.previewText{
-                font-size: 8pt;
-            }           
+      
  .indentionInNavigation{
                 padding-left: 10px; color: gray; font-size: 12pt !important;
                 height: 20px;
@@ -960,10 +979,10 @@ body:first-of-type .mainStyle .StudentWriteMess{
     font-weight: bolder;
     color: #EF596D;
 }
-.mainStyle .controlWorksDisciplineName{
+/*.mainStyle .controlWorksDisciplineName{
     font-weight: bolder;
     color: #4593DF;
-}
+}*/
 .mainStyle .linkToStudentsProfile a:link{color: #89C9F5; text-decoration: none; font-weight: normal;}
 .mainStyle .linkToStudentsProfile a:visited{color: #89C9F5; text-decoration: none; font-weight: normal;}
 .mainStyle .linkToStudentsProfile a:active{color:#89C9F5; text-decoration: underline; font-weight: normal;}
@@ -1031,10 +1050,10 @@ body:first-of-type .mainStyle .StudentWriteMess{
 .mainStyle .navigationLinksMess a:hover{color: #C2D9EF; text-decoration: none; font-weight: normal;}
 .mainStyle .navigationLinksMess a:visited{color:#C2D9EF; text-decoration: none; font-weight: normal;}
 
-.mainStyle .greyLinks a:link{color:#96A0A2; text-decoration: none; font-weight: normal !important;}
-.mainStyle .greyLinks a:active{color:#99AEB2; text-decoration: underline !important; font-weight: normal !important;}
-.mainStyle .greyLinks a:hover{color:#99AEB2; text-decoration: underline !important; font-weight: normal !important;}
-.mainStyle .greyLinks a:visited{color:#96A0A2; text-decoration: none; font-weight: normal !important;}
+.mainStyle .greyLinks a:link{color:#838383; text-decoration: none; font-weight: normal !important;}
+.mainStyle .greyLinks a:active{color:#838383; text-decoration: underline !important; font-weight: normal !important;}
+.mainStyle .greyLinks a:hover{color:#838383; text-decoration: underline !important; font-weight: normal !important;}
+.mainStyle .greyLinks a:visited{color:#838383; text-decoration: none; font-weight: normal !important;}
 
 .mainStyle .messTheme a:link{
     font-family: Verdana;
@@ -1149,6 +1168,10 @@ body:first-of-type .mainStyle .StudentWriteMess{
 .mainStyle .writeMessageInterfaceThemeMess{
     margin-left: 2%;
     width: 95.5%;
+}
+.mainStyle .writeMessageInterfaceThemeMess td{
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 .mainStyle .writeMessageInterfaceThemeMess:focus{
     border: 1px solid #AFAA2B;
@@ -1629,7 +1652,7 @@ body:first-of-type .mainStyle .StudentWriteMess{
 .userData td{
     vertical-align: top !important;
 }
- .mainStyle .userData div {
+ .mainStyle .userData.videoConfSchedule  div {
 color: white;
 text-align: left;
 /*font-weight: bold;*/
@@ -1729,16 +1752,16 @@ text-align: left;
         margin-top: 20px;
 
 }
-.mainStyle .toTestLink{
+/*.mainStyle .toTestLink{
     color: #27587F;
     font-family: Arial;
     font-size:12pt;
     margin-left: 10px;
     font-weight: bolder;
-}
-.mainStyle .moduls{
+}*/
+/*.mainStyle .moduls{
     background: url('../resources/images/moduls.gif') no-repeat; padding-left: 20px;
-}
+}*/
 .mainStyle .testUmk{
     background: url('../resources/images/testUmk.gif') no-repeat;
     padding-left: 14px;
@@ -1978,3 +2001,31 @@ list-style-type: none;
 list-style-image: none;
 cursor: default;
 }
+.mainStyle .oldGradesExamBlock{
+    margin-top: 10px;
+    margin-left: 8px;
+    
+}
+.mainStyle .orangeText{
+    color: #FBB35D;
+}
+/*.tableForBadMarkAndStatistik{
+    text-align: right;
+}*/
+.tableForBadMarkAndStatistik tbody td:first-child{
+	padding-left: 15%;
+        width: 85%;
+}
+/*.tableForBadMarkAndStatistik thead tr td{
+	padding-bottom: 10px;
+}*/
+.tableForBadMarkAndStatistik thead tr{
+	height: 30px;
+}
+.mainStyle .darkBlueText{
+	color: #0981bd;
+}
+.mainStyle .skyBlueText{
+    color: #89c9f5;
+}
+
