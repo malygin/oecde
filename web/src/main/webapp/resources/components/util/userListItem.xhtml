@@ -54,8 +54,9 @@
 <!--                    <tr><td></td><td><h:outputText rendered="#{cc.attrs.u.online}" value="On-line" style="color:#617F5F;"/></td></tr>-->
                 </h:panelGroup>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'admin'}">
-                    <tr><td style="color:#808080;">Должность:</td><td>#{cc.attrs.u.position}</td></tr>
-                    <tr><td style="color:#808080;">Описание:</td><td>#{cc.attrs.u.description}</td></tr>
+                    <tr><td class="userInfoItemColor">Должность:</td><td>#{cc.attrs.u.position}</td></tr>
+                    <tr><td class="userInfoItemColor">Описание:</td><td>#{cc.attrs.u.description}</td></tr>
+                    <tr><td class="userInfoItemColor">Контакты:</td><td>8-999-999-99-99</td></tr>
                 </h:panelGroup>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'teacher'}">
                     <tr>
