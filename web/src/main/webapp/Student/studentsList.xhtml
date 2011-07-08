@@ -10,17 +10,80 @@
         #{msgs.student_studentListHeader}
     </ui:define>
     <ui:define name="content">
-        <div class="interfaceContent">
-            <h:dataTable value="#{groupBean.students}" styleClass="leftMenuContainer" var="s">
-                <h:column>
-                <div class="studentInterfaceStandartList">
-                    <ut:userListItem type="student" u="#{s}"/>
-                    <div class="floatDestroyer"/>
+        <div class="StudentMainPageTitlesBorders" style="margin-left: 2%; width: 66%; float: left;">
+
+            <div class="interfaceContent interfaceContentForMyMarks">
+                <div class="mainStudentPageTitles  mainStudentPageTitlesBlue">
+                    Мои одногруппники
+
                 </div>
-                </h:column>
-            </h:dataTable>
+
+
+                <div class="interfaceContent">
+                    <h:dataTable value="#{groupBean.students}" styleClass="leftMenuContainer" var="s">
+                        <h:column>
+                            <div class="studentInterfaceStandartList">
+                                <ut:userListItem type="student" u="#{s}"/>
+                                <div class="floatDestroyer"/>
+                            </div>
+                        </h:column>
+                    </h:dataTable>
+                </div>
+
+            </div>
         </div>
-                    
-                    
+
+
+        <div class="StudentMainPageTitlesBorders" style="width: 28%; margin-left: 70%">
+            <div class="interfaceContent interfaceContentForMyMarks">
+                <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
+                    Рейтинг группы
+                </div>
+            </div>
+            <div class="textForPodskazka">
+                <ol class="listOfWinner">
+                    <li>Лукьянова А.Л.<span>876</span>
+                        <div class="progressBarRating">
+                            <div style="width:99%;">
+                            </div>
+                        </div>
+                    </li>
+                    <li>Зинченко А.Л.<span>798</span>
+                        <div class="progressBarRating">
+                            <div style="width:70%;">
+                            </div>
+                        </div>
+                    </li>
+                    <li>Борисов А.Л.<span>599</span>
+                        <div class="progressBarRating">
+                            <div style="width:50%;">
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+                <ol start="4" class="listOfAther">
+                    <li>Лукьянова А.Л.<span>53</span></li>
+                    <li>Лукьянова А.Л.<span>0</span></li>
+                </ol>
+            </div>
+        </div>
+
+
+
+        <div class="StudentMainPageTitlesBorders" style="width: 28%; margin-left: 70%">
+
+        <div class="interfaceContent interfaceContentForMyMarks">
+            <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
+            Подсказка
+            </div>
+         </div>
+            <div class="textForPodskazka">
+            <p>Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки
+            Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки</p>
+            <p>Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки
+            Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки</p>
+            </div>
+         </div>
+
     </ui:define>
 </ui:composition>

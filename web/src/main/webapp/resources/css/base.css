@@ -129,10 +129,10 @@
 .mainStyle .content table *{
     text-align: left;
 }
-.mainStyle .content a:link {color: #8BB5DF; text-decoration: none; font-size: 10pt; font-weight: bold;margin: 0px;font-family: Arial;}
-.mainStyle .content a:visited {color: #8BB5DF; text-decoration: none; font-size:10pt; font-weight: bold;margin: 0px; font-family: Arial;}
-.mainStyle .content a:active {color: #8BB5DF; text-decoration: none;font-size: 10pt;font-weight: bold;margin: 0px; font-family: Arial;}
-.mainStyle .content a:hover {color: #A3A3A3; text-decoration: none; font-size: 10pt; font-weight: bold; margin: 0px; font-family: Arial;}
+.mainStyle .content a:link {color: #838383; text-decoration: underline; font-size: 10pt; font-weight: normal;margin: 0px;font-family: Arial;}
+.mainStyle .content a:visited {color: #838383; text-decoration: underline; font-size:10pt; font-weight: normal;margin: 0px; font-family: Arial;}
+.mainStyle .content a:active {color: #838383; text-decoration: underline;font-size: 10pt;font-weight: normal;margin: 0px; font-family: Arial;}
+.mainStyle .content a:hover {color: #838383; text-decoration: none; font-size: 10pt; font-weight: normal; margin: 0px; font-family: Arial;}
 
 .mainStyle .contentHeader{
     width: 100%;
@@ -549,8 +549,8 @@ not all and (-webkit-min-device-pixel-ratio:0) {
 .mainStyle .studentInterfaceStandartList{
     margin-top: 3px;
     padding: 10px;
-    border-bottom: 1px solid silver;
-    border-top: 1px solid silver;
+    border-bottom: 1px solid #D4D4D4;
+    /*border-top: 1px solid silver;*/
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -939,10 +939,10 @@ body:first-of-type .mainStyle .StudentWriteMess{
 }
 /*ссылки*/
 .mainStyle .linkToStudentsProfile{
-    font-weight: bolder;
+    /*font-weight: bolder;*/
     XxXwidth: 70%;
     XxXfloat: left;
-    Xcolor: #89c9f4;
+    Xcolor: #89C9F5;
 }
 .mainStyle .linkToTeachersProfile{
     XxXwidth: 70%;
@@ -964,10 +964,10 @@ body:first-of-type .mainStyle .StudentWriteMess{
     font-weight: bolder;
     color: #4593DF;
 }
-.mainStyle .linkToStudentsProfile a:link{color: #85C6F2; text-decoration: none; font-weight: normal;}
-.mainStyle .linkToStudentsProfile a:visited{color: #89c9f4; text-decoration: none; font-weight: normal;}
-.mainStyle .linkToStudentsProfile a:active{color:#89c9f4; text-decoration: underline; font-weight: normal;}
-.mainStyle .linkToStudentsProfile a:hover{color: #89c9f4; text-decoration: underline; font-weight: normal;}
+.mainStyle .linkToStudentsProfile a:link{color: #89C9F5; text-decoration: none; font-weight: normal;}
+.mainStyle .linkToStudentsProfile a:visited{color: #89C9F5; text-decoration: none; font-weight: normal;}
+.mainStyle .linkToStudentsProfile a:active{color:#89C9F5; text-decoration: underline; font-weight: normal;}
+.mainStyle .linkToStudentsProfile a:hover{color: #89C9F5; text-decoration: underline; font-weight: normal;}
 
 .mainStyle .linkToTeachersProfile a:link{ color: #5bbf5d !important; text-decoration: none; font-weight: normal;vertical-align: top;}
 .mainStyle .linkToTeachersProfile a:visited{ color: #5bbf5d !important; text-decoration: none; font-weight: normal;vertical-align: top;}
@@ -1012,12 +1012,12 @@ body:first-of-type .mainStyle .StudentWriteMess{
 .mainStyle .controlWorksDisciplineNameLink a:visited{color: #89C9F5;}
 .mainStyle .controlWorksDisciplineNameLink a:active{color: #89C9F5;}
 .mainStyle .controlWorksDisciplineNameLink a:hover{color: #89C9F5; text-decoration: underline;}
-
+/*
 .mainStyle .controlWorksDisciplineNameLinkGrey a:link{color: #5F5F5F !important; font-weight: normal;}
 .mainStyle .controlWorksDisciplineNameLinkGrey a:visited{color: #5F5F5F !important;font-weight: normal;}
 .mainStyle .controlWorksDisciplineNameLinkGrey a:active{color: #B5CADF !important;font-weight: normal;}
 .mainStyle .controlWorksDisciplineNameLinkGrey a:hover{color: #B5CADF !important;font-weight: normal;}
-
+*/
 .mainStyle .reitingLink  a{color: green !important; font-weight: bolder !important; font-family: Verdana;}
 .mainStyle .reitingLink a:hover{text-decoration: underline;}
 
@@ -1322,7 +1322,7 @@ body:first-of-type .mainStyle .StudentWriteMess{
     padding-left: 18px;
 }
 .s2,.s1{
-    padding-left: 18px;
+    padding-left: 20px;
 }
 .s2{
     background: url("../resources/images/dialog.png") no-repeat left top;
@@ -1838,9 +1838,9 @@ text-align: left;
     margin-left: 3px;
     list-style-type: none;
 }
-.mainStyle .userInfoItemColor {
+/*.mainStyle .userInfoItemColor {
     color:#808080;
-}
+}*/
 .mainStyle  .chk_avlblty{margin: 10px 0 0 110px;width:110px;text-align:right;}
 .mainStyle .strength-text{font-size:12px; margin-left: 5px;}
 .mainStyle .chk_avlblty span.client-avail{display:block;}
