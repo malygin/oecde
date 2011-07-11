@@ -58,9 +58,11 @@
     -webkit-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
 /*    height: 200px;*/
 }
+
 .mainStyle div .StudentMainPageTitlesBorders{
     padding: 0px !important;
 }
+
 .mainStyle .notificationTableTextOrange td:nth-child(even) p{
     color: #FBB35D;
 }
@@ -861,7 +863,7 @@ body:first-of-type .mainStyle .StudentWriteMess{
     text-align: center !important;
 }
 .mainStyle .controlWorksDisciplineNameLink a{font-size: 9pt !important;}
-      
+
  .indentionInNavigation{
                 padding-left: 10px; color: gray; font-size: 12pt !important;
                 height: 20px;
@@ -968,10 +970,10 @@ body:first-of-type .mainStyle .StudentWriteMess{
     XxXfloat: left;
 /*    font-weight: bolder;*/
     color: #64D359;
-    padding-left: 20px;
+    /*padding-left: 20px;*/
     background: url("../resources/images/teacherIcon.png") no-repeat left bottom;
       background:none !IMPORTANT;
-      padding-left: 3px !IMPORTANT;
+      /*padding-left: 3px !IMPORTANT;*/
 }
 .mainStyle .linkToAdminsProfile{
     XxXwidth: 70%;
@@ -1027,9 +1029,9 @@ body:first-of-type .mainStyle .StudentWriteMess{
 .mainStyle .navigationLinksRedSmall a:active{color: #FF3F3F; text-decoration: none; font-weight: normal;}
 .mainStyle .navigationLinksRedSmall a:hover{color: #FF3F3F; text-decoration: none; font-weight: normal;}
 
-.mainStyle .controlWorksDisciplineNameLink a:link{color: #89C9F5;}
-.mainStyle .controlWorksDisciplineNameLink a:visited{color: #89C9F5;}
-.mainStyle .controlWorksDisciplineNameLink a:active{color: #89C9F5;}
+.mainStyle .controlWorksDisciplineNameLink a:link{color: #89C9F5; text-decoration: none;}
+.mainStyle .controlWorksDisciplineNameLink a:visited{color: #89C9F5; text-decoration: none;}
+.mainStyle .controlWorksDisciplineNameLink a:active{color: #89C9F5; text-decoration: none;}
 .mainStyle .controlWorksDisciplineNameLink a:hover{color: #89C9F5; text-decoration: underline;}
 /*
 .mainStyle .controlWorksDisciplineNameLinkGrey a:link{color: #5F5F5F !important; font-weight: normal;}

@@ -5,20 +5,57 @@
     template="../resources/studentTemplate.xhtml"
     xmlns:r="http://java.sun.com/jsp/jstl/core"
     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+    xmlns:edu="http://java.sun.com/jsf/composite/components/education"
     xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
     <ui:define name="contentHeader">Список преподавателей</ui:define>
     <ui:define name="content">
-        <f:metadata>
-            <f:viewParam name="s" value="#{teachersListBean.semester}"/>
-        </f:metadata>
-        <div class="interfaceContentWithoutPadding">
-            <est:changeSemester semester="#{teachersListBean.semester}"/>
-            <r:forEach items="#{teachersListBean.teachers}" var="t">
+
+        <div class="StudentMainPageTitlesBorders" style="margin-left: 2%; width: 66%; float: left;">
+
+            <div class="interfaceContentForMyMarks">
+                <div class="mainStudentPageTitles  mainStudentPageTitlesBlue">
+                    Мои преподаватели
+                    <div style="float: right;">
+                        <div>
+                            <f:metadata>
+                                <f:viewParam name="s" value="#{teachersListBean.semester}"/>
+                            </f:metadata>
+                            <est:changeSemester semester="#{teachersListBean.semester}"/>
+                        </div>
+                    </div>
+                    <div class="floatDestroyer"></div>
+                </div>
+                <div class="interfaceContentWithoutPadding">
+            
+                <r:forEach items="#{teachersListBean.teachers}" var="t">
                 <div class="studentInterfaceStandartList">
                     <ut:userListItem type="teacher" u="#{t.value}"/>
                     <div class="floatDestroyer"/>
                 </div>
-            </r:forEach>
+                </r:forEach>
+                </div>
+            </div>
         </div>
+
+
+         <div style="width: 28%; margin-left: 70%">
+            <div style="margin-left: -25px;"><edu:videoConfSchedule numberLessons="20" /></div>
+         </div>
+
+         <div class="StudentMainPageTitlesBorders" style="width: 28%; margin-left: 70%">
+
+        <div class="interfaceContentForMyMarks">
+            <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
+            Подсказка
+            </div>
+         </div>
+            <div class="textForPodskazka">
+            <p>Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки
+            Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки</p>
+            <p>Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки
+            Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки</p>
+            </div>
+         </div>
+
     </ui:define>
 </ui:composition>

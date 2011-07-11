@@ -10,6 +10,9 @@
  <!-- INTERFACE -->
   <composite:interface>
         <composite:attribute  name="numberLessons"  required="true" type="int" shortDescription="количество выводимых занятий"/>
+        <composite:attribute name="styleForShedule" default="" type="java.lang.String" shortDescription="обтекание слева или без него"/>
+        <composite:attribute name="deleteFloat" default="" type="java.lang.String" shortDescription="обтекание слева или без него"/>
+
  
   
   </composite:interface>
@@ -48,11 +51,11 @@
 		}
 	</script>
        <div>
-            <div class="StudentMainPageTitlesBorders" style="margin: 0; margin-left: 25px;">
+            <div class="StudentMainPageTitlesBorders" style="margin-right: 0px;">
                 <div class="mainStudentPageTitlesGreen mainStudentPageTitles">
                 <a style="font-size: 12pt;" href="schedule.xhtml">Расписание видеоконференций</a>
                 </div>
-                <div class="floatLeft">
+                <div class="#{cc.attrs.styleForShedule}">
                     <div id="datepicker" class="datepickerClass"></div>
                 </div>
                 <div class="Ipsilon_Web_GreenText videoConfSchedule">
@@ -82,7 +85,7 @@
                         </tr>
                     </table>
                 </div>
-                <div class="floatDestroyer"/>
+                <div class="#{cc.attrs.deleteFloat}"/>
             </div>
         </div>                        
 <!--                        <h:dataTable columnClasses="
