@@ -16,6 +16,16 @@
         </ui:define>
         
         <ui:define name="content">
+
+            <div class="StudentMainPageTitlesBorders">
+
+            <div>
+            <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
+                Входящие сообщения          
+            </div>
+
+
+
             <util:navigationList elementOnPage="#{MessageBean.messageOnPage}"
                                  numElements="#{MessageBean.numOfMessages}"/>
 
@@ -25,5 +35,9 @@
             
             <util:navigationList elementOnPage="#{MessageBean.messageOnPage}"
                                  numElements="#{MessageBean.numOfMessages}"/>
+        
+            
+            </div>
+            </div>
          </ui:define>
     </ui:composition>

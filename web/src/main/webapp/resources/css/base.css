@@ -126,7 +126,7 @@
 /*    border-left: 1px solid #9E9E9E;
     border-top: 1px solid #9E9E9E;*/
 /*    margin-top: 5px;*/
-    min-height: 1060px;
+   min-height: 760px;
 }
 
 /*temporary styles for page content part*/
@@ -524,13 +524,16 @@ not all and (-webkit-min-device-pixel-ratio:0) {
     margin-top: 10px;
 }
 .mainStyle .studentButton{
-    background: url('../resources/images/pic_for_Button_main.jpg');
-    color: #00194F;
+    background: #efefef/*url('../resources/images/pic_for_Button_main.jpg')*/;
+    /*color: #00194F;*/
     cursor: pointer;
     font-size: 10pt;
-    background-color: #EFF9FF;
-    border: 1px solid #7F9DB9;
+    /*background-color: #EFF9FF;*/
+    border: 1px solid #838383;
+    border-radius: 3px;
     margin-top: 10px;
+    text-decoration: none !important;
+    padding: 1px 2px;
 }
 .mainStyle .studentButtonRed{
     background: url('../resources/images/pic_for_Button_Red.jpg');
@@ -1096,7 +1099,7 @@ body:first-of-type .mainStyle .StudentWriteMess{
 }
 /*даты*/
 .mainStyle .chatPostDate{
-    color: #8F8F8F;
+    color: #d4d4d4;
     float: right;
     font-family: tahoma;
     font-size: 75%;
@@ -1185,10 +1188,10 @@ body:first-of-type .mainStyle .StudentWriteMess{
     padding-top: 5px;
 }
 .mainStyle .writeMessageInterfaceThemeMess:focus{
-    border: 1px solid #AFAA2B;
+    /*border: 1px solid #AFAA2B;*/
 }
 .mainStyle .writeMessageInterfaceMessBodyMess:focus{
-    border: 1px solid #AFAA2B;
+    /*border: 1px solid #AFAA2B;*/
 }
 .mainStyle .writeMessageInterfaceMessBody{
     width: 100%;
@@ -1209,7 +1212,7 @@ body:first-of-type .mainStyle .StudentWriteMess{
     width: 100%;
 }
 .mainStyle .messContentBlock{
-    border-top: 1px solid #DFDFDF;
+    /*border-top: 1px solid #DFDFDF;*/
     border-bottom: 1px solid #DFDFDF;
     margin-top: 3px;
     padding: 10px;
@@ -1227,7 +1230,7 @@ body:first-of-type .mainStyle .StudentWriteMess{
 .mainStyle .messBlockLink{
     float: left;
     width: 95%;
-    color: #333333;
+    /*color: #333333;*/
     cursor: pointer;
     font-family: Verdana;
     font-weight: normal;
@@ -1244,7 +1247,7 @@ body:first-of-type .mainStyle .StudentWriteMess{
 }
 .mainStyle .writeMessageInterfaceTableForm input,
 .mainStyle .writeMessageInterfaceTableForm textarea{
-    border: 1px solid #7F9DB9;
+    /*border: 1px solid #7F9DB9;*/
 }
 .mainStyle .writeMessageInterfaceTableForm input{
     color: gray;
@@ -1253,15 +1256,16 @@ body:first-of-type .mainStyle .StudentWriteMess{
     color: gray;
 }
 .mainStyle .listMessagesShortMessage{
-    min-height: 50px;
-    margin: 5px;
-    padding: 5px;
-     border: 1px solid #D1E0EF !important;
+    /*min-height: 50px;*/
+    margin: 5px; margin-left: 0px;
+    padding: 5px; padding-left: 0px;
+     /*border: 1px solid #D1E0EF !important;*/
 }
 .mainStyle .listMessagesText{
     min-height: 50px;
+    max-height: 200px;
     padding: 5px;
-     border: 1px solid #D1E0EF !important;
+     border: 1px solid #838383;
 }
 .mainStyle .FullTextMess{
     color:#3D3D3D;
@@ -1344,12 +1348,12 @@ body:first-of-type .mainStyle .StudentWriteMess{
     margin-left: 17%;
 }
 .mainStyle .answerMessPic{
-    background: url('../resources/images/answer.gif') no-repeat;
+    /*background: url('../resources/images/answer.gif') no-repeat;*/
     width: 65px;
 }
 .mainStyle .deleteMess{
     float: right;
-    background: url('../resources/images/deleteMess.gif') no-repeat;
+   /* background: url('../resources/images/deleteMess.gif') no-repeat;*/
 }
 .mainStyle .correspondenceMess{
     background: url('../resources/images/correspondence.gif') no-repeat;
@@ -2025,14 +2029,14 @@ cursor: default;
 /*.tableForBadMarkAndStatistik{
     text-align: right;
 }*/
-.tableForBadMarkAndStatistik tbody td:first-child{
+.mainStyle .tableForBadMarkAndStatistik tbody td:first-child{
 	padding-left: 15%;
         width: 85%;
 }
 /*.tableForBadMarkAndStatistik thead tr td{
 	padding-bottom: 10px;
 }*/
-.tableForBadMarkAndStatistik thead tr{
+.mainStyle .tableForBadMarkAndStatistik thead tr{
 	height: 30px;
 }
 .mainStyle .darkBlueText{

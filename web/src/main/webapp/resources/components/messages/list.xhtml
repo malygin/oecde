@@ -29,7 +29,7 @@
                             <ut:showPhoto user="#{message.message.author}" styleClass="#{message.message.author.classType}" size="small"/>
                         </div>
                         <div style="height: 30px;">
-                            <div style="float: left;">
+                            <div style="float: left; margin-right: 30px; margin-top: -3px;">
                                 <table>
                                     <tr>
                                         <td>
@@ -44,9 +44,9 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <!--                                    <td>
+                                                                            <td>
                                         #{msgs.message_theme}
-                                    </td>-->
+                                    </td>
                                         <td>
                                             <span class="controlWorksDisciplineNameLink">
                                                 <a href="messages_read.xhtml?id=#{message.message.id}"><h:outputText value="#{message.message.theme}"/></a>
@@ -56,22 +56,21 @@
                                 </table>
 
                             </div>
-                            <div class="chatPostDate" style="font-size: 8pt;">
+                            <div class="chatPostDate MessageDate">
                                 <h:outputText converter="dateConverter" value="#{message.message.dateMessage}"/>
                             </div>
                             <div class="floatDestroyer"/>
                         </div>
                         <div class="listMessagesShortMessage listMessagesShortMessageBlock">
-                            <a href="messages_read.xhtml?id=#{message.message.id}"><div class="messBlockLink"><h:outputText value="#{message.shortText}"/></div></a>
-                              <div class="listMessagesAttachmentsIco">
+                            <a href="messages_read.xhtml?id=#{message.message.id}" style="text-decoration: none !important;"><div class="messBlockLink"><h:outputText value="#{message.shortText}"/></div></a>
+                              <!--<div class="listMessagesAttachmentsIco">
                                   <h:graphicImage value="../resources/images/isAttachment.png" rendered="#{message.filesExist}"/>
                                    <h:graphicImage value="../resources/images/isNotAttachment.png" rendered="#{not message.filesExist}" />
-                              </div>
+                              </div>-->
                             <div class="floatDestroyer"/>
                         </div>
-                            <div class="floatDestroyer"/>
-                        <div align="right" class="leftMenuContainer" style="margin-left: 20px;">
-                            <table style="width: 20%; float: right;">
+                        <div class="floatDestroyer"/>
+                        <table style="width: 15%; margin-left: 83px; margin-top: -10px;">
                                 <tr>
                                     <td colspan="2">
                                         <h:panelGroup layout="block" rendered="#{MessageBean.renderDeleteSuccess}" styleClass="actionResultSuccessfull">
@@ -83,11 +82,11 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="controlWorksDisciplineNameLinkGrey" style="width: 80px;">
-                                        <h:outputLink rendered="#{not MessageBean.renderDeleteSuccess}" value="messages_read.xhtml?id=#{message.message.id}" styleClass="answerMess answerMessPic">#{msgs.message_answer}</h:outputLink>
+                                    <td class="messLinks">
+                                        <h:outputLink rendered="#{not MessageBean.renderDeleteSuccess}"  styleClass="messLinksMargins" value="messages_read.xhtml?id=#{message.message.id}">#{msgs.message_answer}</h:outputLink>
                                     </td>
-                                    <td class="controlWorksDisciplineNameLinkGrey" style="text-align: right; vertical-align: bottom;">
-                                        <h:commandLink   action="#{MessageBean.deleteMessage}" styleClass="answerMess deleteMess">
+                                    <td class="messLinks" style="text-align: right; vertical-align: bottom;">
+                                        <h:commandLink   action="#{MessageBean.deleteMessage}">
                                             <h:outputText rendered="#{not MessageBean.renderDeleteSuccess}" value="#{msgs.message_delete}"/>
                                             <f:setPropertyActionListener target="#{MessageBean.currentMessageId}" value="#{message.message.id}" />
                                             <f:ajax  execute="@this" render="@form" />
@@ -95,6 +94,11 @@
                                     </td>
                                 </tr>
                             </table>
+
+
+                            <div class="floatDestroyer"/>
+                        <div align="right" class="leftMenuContainer" style="margin-left: 20px;">
+                            
                             <div class="floatDestroyer"/>
                         </div>
                     </div>

@@ -16,39 +16,47 @@
 
     <!-- IMPLEMENTATION -->
     <cc:implementation>
+
+        <div class="StudentMainPageTitlesBorders" style="margin-left: 2%; width: 66%; float: left;">
+
+            <div>
+            <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
+                Новое сообщение
+            </div>
+
         <div class="interfaceContent">
             <h:form  id="formSend"   enctype="multipart/form-data" >
-                
+
 <!--                  <div style="float: left; margin-right: 20px; margin-top: 5px;">
-                      
+
                 </div>-->
                 <div style="padding-top:10px;">
                 <h:dataTable id="recipients" value="#{MessageWriteBean.recipients}" var="recipient">
                     <h:column>
-                       
+
                              <ut:showPhoto user="#{recipient.recipient}" styleClass="#{recipient.recipient.classType}" size="small"/>
-                        
+
                     </h:column>
                     <h:column>
-                        
+
                          <div class="greyMess" style="width: 48px; margin:  0; padding: 5px;">
                            #{msgs.message_forWhom}
                        </div>
-                             
+
                         <div class="greyMess" style="margin: 0; padding: 5px;">#{msgs.message_theme}
                         </div>
-                             
+
                         </h:column>
                     <h:column>
                         <div class="linkTo#{recipient.recipient.classType}sProfile linkTo#{recipient.recipient.classType}sProfileFromStudent" style="padding: 5px;"><a href="#{fn:toLowerCase(recipient.recipient.classType)}.xhtml?id=#{recipient.recipient.id}">
                         #{recipient.fioAuthor}</a>
                         </div>
                         <div style="padding: 5px;">
-                            <h:inputText  value="#{MessageWriteBean.theme}"  style="width: 338px; border: 1px solid #D1E0EF;  color: #6D869F;" />
+                            <h:inputText  value="#{MessageWriteBean.theme}"  style="width: 100%; border: 1px solid #838383;" />
                         </div>
                     </h:column>
                 </h:dataTable>
-                    
+
                     <h:dataTable value="#{MessageWriteBean.groups}" var="gr">
                         <h:column>
                            <b> #{gr.name}</b> группа из #{gr.number} человек
@@ -56,9 +64,9 @@
                     </h:dataTable>
                     <table>
                          <tr>
-                        
+
                         <td>
-                           
+
                         </td>
                     </tr>
                     </table>
@@ -70,40 +78,66 @@
 
                         </td>
                     </tr>
-                   
+
                     <tr>
-                        <td colspan="2" style="border-top: 1px solid #C0C0C0;">
-                            <h:inputTextarea styleClass="writeMessageInterfaceMessBodyMess listMessagesText" style="width: 95%;" value="#{MessageWriteBean.fullText}"/>
+                        <td colspan="2" style="text-align: center">
+                            <!--<div class="studentWriteMessage"><ut:editor value="#{tabEditBean.page.text}" cols="90" rows="10"/></div>-->
+                            <h:inputTextarea styleClass="writeMessageInterfaceMessBodyMess listMessagesText" style="width: 90%;" value="#{MessageWriteBean.fullText}"/>
                         </td>
                     </tr>
                 </table>
-                <h:dataTable value="#{MessageWriteBean.files}" var="file">
+
+
+                <div style="padding: 0px; padding-top: 10px; margin-left: 5%; margin-right: 5%;  text-align: right;">
+                    <p class="lightGreyText">Вы можете прикрепить к данному сообщению необходимые файлы (размер не более 4 мб)</p>
+                    <input type="file" name="MessageFile" style="background-color: #DFF1FE; font-size: 9pt; display: block; margin-left: 10px;" class="StudentWriteMess"/>
+                    <h:commandButton  action="#{MessageWriteBean.addFile}" value="Прикрепить" styleClass="studentButton"  />
+                    <h:panelGroup layout="block" rendered="#{MessageWriteBean.renderSuccessSend}" styleClass="actionResultSuccessfull">
+                        #{msgs.message_sentSuccess}
+                    </h:panelGroup>
+
+<br />
+                    <h:dataTable value="#{MessageWriteBean.files}" var="file">
                     <h:column>
                         #{file.name}
                         <span class="navigationLinks">
-                            <h:commandLink action="#{MessageWriteBean.removeFile}" value="#{msgs.message_delete}" >
+                            <h:commandLink action="#{MessageWriteBean.removeFile}" value="" >
+                                <img alt="" src="../resources/images/delete_file.png" style="margin-left: 10px;"/>
                                 <f:ajax execute="@form" render="@form"/>
                                 <f:setPropertyActionListener target="#{MessageWriteBean.messageNameForDelete}" value="#{file.name}"/>
                             </h:commandLink>
                         </span>
                     </h:column>
-                </h:dataTable>
-                
-                <div style="padding: 3px; border-top: 1px solid #C0C0C0; padding-top: 10px;">
-                    <input type="file" name="MessageFile" style="background-color: #DFF1FE; font-size: 9pt; display: block; margin-left: 10px;" class="StudentWriteMess"/>
-                    <h:commandButton  action="#{MessageWriteBean.addFile}" value="#{msgs.message_addFile}" styleClass="studentButton" style="margin-top: 7px; display: block; width: 220px; background-color:white; background-image: none;"/>
-                    <h:panelGroup layout="block" rendered="#{MessageWriteBean.renderSuccessSend}" styleClass="actionResultSuccessfull">
-                        #{msgs.message_sentSuccess}
-                    </h:panelGroup>
-                    <div class="leftMenuContainer" style="text-align: center; margin-top: 8px;">
-                        
-                        <h:commandLink  action="#{MessageWriteBean.save}" value="#{msgs.message_sendMess}" styleClass="studentButton" style="margin-left: 3px; width: 160px;">
+                    </h:dataTable>
+
+                    <div class="leftMenuContainer" style="text-align: right; margin-top: 8px;">
+
+                        <h:commandLink  action="#{MessageWriteBean.save}" value="Отправить" styleClass="studentButton" style="margin-left: 3px; width: 160px;">
                          <f:ajax execute="@form" render="@form"/>
                         </h:commandLink>
-                       
+
                         </div>
+<br />
                 </div>
             </h:form>
         </div>
+                </div>
+                </div>
+
+        <div class="StudentMainPageTitlesBorders" style="width: 28%; margin-left: 70%">
+        <div class="interfaceContentForMyMarks">
+            <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
+            Подсказка
+            </div>
+         </div>
+            <div class="textForPodskazka">
+            <p>Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки
+            Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки</p>
+            <p>Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки
+            Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки</p>
+            </div>
+         </div>
+
+
     </cc:implementation>
 </html>
