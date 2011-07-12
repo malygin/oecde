@@ -1369,13 +1369,13 @@ body:first-of-type .mainStyle .StudentWriteMess{
     background: url("../resources/images/write_new.png") no-repeat left top;
 }
 .mainStyle .actionResultSuccessfull{
-    color: #11628F;
+    color: #5BBF5D;
     text-align: center !important;
-    background: #E4FFDF;
+    background: #ecffec;
     width: 40%;
     margin: auto;
     padding: 10px;
-    border: 1px solid green;
+    border: 1px solid #5BBF5D;
 }
 .mainStyle .actionResultSuccessfullOutsideBlock{
     padding: 10px;
@@ -1604,11 +1604,11 @@ body:first-of-type .mainStyle .StudentWriteMess{
 /*.mainStyle .answerPic{
     background: url("../resources/images/answer.gif") no-repeat;
     padding-left: 15px;
- }
-.mainStyle .studentInterfaceStandartList a:link{color: #8BB5DF;}
-.mainStyle .studentInterfaceStandartList a:visited{color: #8BB5DF;}
-.mainStyle .studentInterfaceStandartList a:active{color:#8BB5DF;}
-.mainStyle .studentInterfaceStandartList a:hover{color: #A3A3A3;}*/
+ }*/
+.mainStyle .greenNewsLink a:link{color: #5BBF5D; text-decoration: none; font-size: 11pt;}
+.mainStyle .greenNewsLink a:visited{color: #5BBF5D; text-decoration: none; font-size: 11pt;}
+.mainStyle .greenNewsLink a:active{color:#5BBF5D; text-decoration: none; font-size: 11pt;}
+.mainStyle .greenNewsLink a:hover{color: #5BBF5D; text-decoration: underline; font-size: 11pt;}
 
 
 

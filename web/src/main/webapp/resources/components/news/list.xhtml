@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:composite="http://java.sun.com/jsf/composite"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:sec="http://www.springframework.org/security/facelets/tags"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
     <!-- INTERFACE -->
@@ -11,30 +12,52 @@
     </composite:interface>
 
     <!-- IMPLEMENTATION -->
-    <composite:implementation>         
+    <composite:implementation>
+
+
+        <div class="StudentMainPageTitlesBorders" >
+            <div>
+            <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
+               Новости
+                </div>
         <ui:repeat value="#{cc.attrs.list}" var="n">
+
             <div class="studentInterfaceStandartList">
                 <div>
-                    <div style="float: left; font-size: 10pt;" class="controlWorksDisciplineNameLink"><a href="news_read.xhtml?id=#{n.id}">#{n.header}</a></div>
-                    <span class="chatPostDate" ><h:outputText converter="dateConverter" value="#{n.time}"></h:outputText></span>
-      <h:outputText converter="enumConverter" value="#{n.newstype}"/>
-                    <div class="floatDestroyer"/>
-                    <div class="newsListNewPreview">
-<!--                        <img src="../resources/images/image_news.jpg" alt="" style="width: 100px;"/>-->
+                    <div><span class="greenNewsLink"><a href="news_read.xhtml?id=#{n.id}">#{n.header}</a></span>
+                        <span class="lightGreyText">
+                            <a href="news_read.xhtml?id=#{n.id}">(подробнее)</a>
+                        </span>
+                    </div>
+                    <div class="NewsInfo">
+                        <div>
+                            <span class="linkToAdminsProfile"><a href="admin.xhtml?id=#{n.id}">#{n.author.fio}</a></span>&nbsp;&nbsp;&nbsp;
+                            <span class="lightGreyText" ><h:outputText converter="dateConverter" value="#{n.time}"></h:outputText></span>
+                        </div>
+                        
+                    
+                        <div>
+                        <sec:ifAnyGranted roles="ROLE_ADMIN">
+                            <h:outputText converter="enumConverter" value="#{n.newstype}"/>
+                        </sec:ifAnyGranted>
+                        </div>
+
+                    <!--<div class="newsListNewPreview">
+                        <img src="../resources/images/image_news.jpg" alt="" style="width: 100px;"/>-->
                         <div>
                             <h:outputText escape="false" value="#{n.announcement}"/>
                             
                         </div>
-                        <div class="floatDestroyer"/>
-                    </div>
-                    <div>
-                        <span style="font-size: 8pt;">#{msgs.student_newsLooks}<span class="darkGreyColorBold"> #{n.reviewNumber}</span> #{msgs.user_newsNumberOfComment} <span class="darkGreyColorBold"> #{n.commentNumber}</span></span>
-                        <span class="navigationLinks" style="float: right;">
-                            <a href="news_read.xhtml?id=#{n.id}">#{msgs.student_newsMore}</a>
-                        </span>
+                       <!-- <div class="floatDestroyer"/>
+                    </div>-->
+                        <div>
+                            <span class="lightGreyText">#{msgs.student_newsLooks}</span>&nbsp; #{n.reviewNumber} &nbsp;&nbsp;&nbsp;<span class="lightGreyText">#{msgs.user_newsNumberOfComment} </span>&nbsp; #{n.commentNumber}
+                        </div>
+                        <img src="../resources/images/razdel.jpg" alt=""/>
                     </div>
                 </div>
             </div>
       </ui:repeat>
+                </div></div>
     </composite:implementation>
 </html>

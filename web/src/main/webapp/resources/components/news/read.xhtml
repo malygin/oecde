@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:composite="http://java.sun.com/jsf/composite"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:discuss="http://java.sun.com/jsf/composite/components/discussion"
       xmlns:f="http://java.sun.com/jsf/core">
 
     <!-- INTERFACE -->
@@ -12,20 +13,46 @@
 
     <!-- IMPLEMENTATION -->
     <composite:implementation>
-        <div style="margin-top: 10px;">
-            <span class="chatPostDate" style="font-size: 10pt;">
+        <div class="StudentMainPageTitlesBorders" >
+            <div>
+            <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
+               #{cc.attrs.n.header}
+               <div style="float: right;" class="greyLinks">
+                    <a href="news_list.xhtml" style="font-weight: normal">назад к списку новостей</a>
+                </div>
+            </div>
+
+            <div class="NewsInfo">
+            <div style="float: right;">
+                 <span class="lightGreyText">#{msgs.student_newsLooks}</span>&nbsp; #{cc.attrs.n.reviewNumber} &nbsp;&nbsp;&nbsp;
+            </div>
+            <div>
+                <span class="linkToAdminsProfile"><a href="admin.xhtml?id=#{cc.attrs.n.id}">#{cc.attrs.n.author.fio}</a></span>&nbsp;&nbsp;&nbsp;
+                <span class="lightGreyText" ><h:outputText converter="dateConverter" value="#{cc.attrs.n.time}"></h:outputText></span>
+            </div>
+            <div class="floatDestroyer"/>
+            
+
+        
+            <!--<span class="chatPostDate" style="font-size: 10pt;">
                 #{cc.attrs.n.time}
-            </span>
-            <span style="font-size: 12pt;" class="controlWorksDisciplineName floatLeft">
-                #{cc.attrs.n.header}
-            </span>
-            <div class="floatDestroyer"/>
-        </div>
-        <div class="newsListNewPreview">
-     
+            </span>-->
+
+
+        <div>
             <h:outputText escape="false" value="#{cc.attrs.n.fullText}"/>
-            <div class="floatDestroyer"/>
         </div>
-            <span style="font-size: 8pt;">#{msgs.student_newsLooks} <span class="darkGreyColorBold"> #{cc.attrs.n.reviewNumber}</span></span>
-    </composite:implementation>
+
+        
+
+            <!--<span style="font-size: 8pt;">#{msgs.student_newsLooks} <span class="darkGreyColorBold"> #{cc.attrs.n.reviewNumber}</span></span>-->
+
+      </div>
+
+        <div class="interfaceContent">
+             <discuss:list list="#{DiscussionBean.nodesByPage}"/>
+         </div>
+      </div>
+                </div>
+      </composite:implementation>
 </html>
