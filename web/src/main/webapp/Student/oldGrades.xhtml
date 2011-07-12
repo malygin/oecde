@@ -36,12 +36,12 @@
                         </ui:repeat>
                         <div class="oldGradesExamBlock"><span class="Ipsilon_Web_GreenText">Зачеты</span>
                             <h:dataTable id="table" value="#{oldGradesBean.oldGrades}" var="p" 
-                                         columnClasses=" ,Ipsilon_Web_GreenText" cellpadding="0" cellspacing="0" styleClass="writeMessageInterfaceThemeMess">
+                                         columnClasses=" ,Ipsilon_Web_GreenText" cellpadding="0" cellspacing="0" styleClass="writeMessageInterfaceThemeMess disciplineTable">
                                 <h:column>
                                     <!--                <f:facet name="header">
                                                         <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
                                                     </f:facet>-->
-                                    <span class="controlWorksDisciplineName controlWorksDisciplineNameLink" style="display: block;"><h:outputLink value="umk.xhtml?c=#{p.key.key.id}">#{p.key.key.discipline.name}</h:outputLink></span>
+                                    <span class="controlWorksDisciplineName linkToStudentsProfile" style="display: block;"><h:outputLink value="umk.xhtml?c=#{p.key.key.id}">#{p.key.key.discipline.name}</h:outputLink></span>
                                     <span class="greyLinks"><h:outputLink value="teacher.xhtml?id=${p.key.value.id}">#{p.key.value.initials}</h:outputLink></span>
                                 </h:column>
                                 <!--                <f:facet name="header">

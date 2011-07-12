@@ -34,7 +34,7 @@
                 <h:column>
                     <br />
                 <div>
-                    <span class="controlWorksDisciplineNameLink studentPaddLeft"><h:outputLink value="discipline.xhtml?c=#{m.curriculum.id}" style=" font-size: 11pt !important;">#{m.curriculum.umk.name}</h:outputLink><br/></span>
+                    <span class="linkToStudentsProfile studentPaddLeft"><h:outputLink value="discipline.xhtml?c=#{m.curriculum.id}" style=" font-size: 11pt !important;">#{m.curriculum.umk.name}</h:outputLink><br/></span>
 
                     <div class="materialInfo">
                         <table style="margin: 10px;">
@@ -85,6 +85,7 @@
             </div>
          </div>
 
+            <tabs:singleTab classStyle="fgh" alias="MATERIALS"/>
         <div style="width: 33%; margin-left: 68%">
         <edu:calendareInfo />
         

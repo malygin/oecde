@@ -7,6 +7,9 @@
                                numElements="#{DiscussionBean.getNumOfNodes('1','STUDENT_FAQ')}"/>
 
              <div class="interfaceContent">
+                 <div class="StudentMainPageTitlesBorders">
+                     <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">#{msgs.student_MistakesAndSuggestions}
+                     </div>
                     <div class="studentInterfaceStandartList forumTopBlock">
 
                         <div class="forumDiscriptionText">
@@ -18,6 +21,7 @@
                         <discuss:list list="#{DiscussionBean.nodesByPage}"/>
                     </div>
               </div>
+                 </div>
              <util:navigationList elementOnPage="#{DiscussionBean.nodesOnPage}" link="type=#{DiscussionBean.objectType}"
                                numElements="#{DiscussionBean.getNumOfNodes('1','STUDENT_FAQ')}"/>
 </ui:composition>

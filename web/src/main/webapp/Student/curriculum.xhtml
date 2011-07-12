@@ -17,51 +17,57 @@
                     <p class="floatLeft mainStudentPageTitles">#{msgs.student_curriculumHeader}
                     </p>
                     <div style="float: right;">
-            <est:changeSemester semester="#{studentCurriculumBean.semester}"/>
+                        <est:changeSemester semester="#{studentCurriculumBean.semester}"/>
                     </div>
                     <div class="floatDestroyer"/>
                 </div>
-            <h:dataTable
-                     columnClasses="studentStandatrTableTd,
-                     studentStandatrTableTd,
-                     studentStandatrTableTd studentStandatrTableExamin,
-                     studentStandatrTableTdLastTd studentStandatrTableExamin"  value="#{studentCurriculumBean.curriculums}" var="m" styleClass="studentStandatrTable StudentTablePadding leftMenuContainer diciplineTable" cellpadding="0" cellspacing="0">
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
-                    </f:facet>
-                    <span class="controlWorksDisciplineNameLink" style="font-size: 8pt; font-weight: normal !important; padding-left: 8px;"> <h:outputLink value="umk.xhtml?c=#{m.id}">#{m.discipline.name}</h:outputLink> </span>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{msgs.student_gradesTableHeadCWs}" />
-                    </f:facet>
-                
-                    <h:panelGroup rendered="#{m.gotControlWork}">
-                        <div align="center" style="text-align: center !important;">
-                            <img style="display: inline;" src="../resources/images/discipline_summ.gif"/>
-                        </div>
-                    </h:panelGroup>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{msgs.student_eduMenuCoursework}" />
-                    </f:facet>
-                    <h:outputText value="#{m.termPapersNumber}" />
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Форма отчетности" />
-                    </f:facet>
-                    
-                    <h:outputText converter="enumConverter" value="#{m.examinationType}" />
-                </h:column>
-            
-            </h:dataTable>
+                <h:dataTable
+                    columnClasses="studentStandatrTableTd,
+                    studentStandatrTableTd,
+                    studentStandatrTableTd studentStandatrTableExamin,
+                    studentStandatrTableTdLastTd studentStandatrTableExamin"  value="#{studentCurriculumBean.curriculums}" var="m" styleClass="studentStandatrTable StudentTablePadding leftMenuContainer diciplineTable" cellpadding="0" cellspacing="0">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
+                        </f:facet>
+                        <span class="linkToStudentsProfile" style="font-size: 8pt; font-weight: normal !important; padding-left: 8px;"> <h:outputLink value="umk.xhtml?c=#{m.id}">#{m.discipline.name}</h:outputLink> </span>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msgs.student_gradesTableHeadCWs}" />
+                        </f:facet>
+
+                        <h:panelGroup rendered="#{m.gotControlWork}">
+                            <div align="center" style="text-align: center !important;">
+                                <img style="display: inline;" src="../resources/images/discipline_summ.gif"/>
+                            </div>
+                        </h:panelGroup>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msgs.student_eduMenuCoursework}" />
+                        </f:facet>
+                        <h:outputText rendered="#{m.termPapersNumber == 0}"> 
+                            <div align="center" style="text-align: center !important;">
+                                <img style="display: inline;" src="../resources/images/discipline_summ.gif"/>
+
+                            </div>
+                        </h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Форма отчетности" />
+                            
+                        </f:facet>
+
+                        <h:outputText converter="enumConverter" value="#{m.examinationType}" />
+                    </h:column>
+
+                </h:dataTable>
             </div>
             <div>
             </div>
-       
+
             <div class="StudentMainPageTitlesBorders">
                 <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">
                     Подсказка
@@ -69,9 +75,9 @@
                 <div>Текст подсказки Текст подсказки Текст подсказки
                     Текст подсказки Текст подсказки Текст подсказки
                     Текст подсказки Текст подсказки Текст подсказки
-                    Текст подсказки Текст подсказки Текст подсказки                     
+                    Текст подсказки Текст подсказки Текст подсказки                 
                 </div>
             </div>
-                 </div>
+        </div>
     </ui:define>
 </ui:composition>

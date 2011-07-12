@@ -39,7 +39,7 @@
         <h:dataTable value="#{cc.attrs.list}" var="node" styleClass="leftMenuContainer">
             <h:column>
              <h:form>
-                <div class="discussionComment" style="margin-left: #{(node.level-2)*30}px;">
+                <div class="discussionComment messBackground#{node.user.classType}" style="margin-left: #{(node.level-2)*30}px;">
                     <a name="#{node.id}"></a>
                     <div style="float: left;">
                         <util:showPhoto user="#{node.user}" size="small" styleClass="#{node.user.classType}"/>
@@ -54,28 +54,28 @@
                         <h:inputTextarea value="#{DiscussionBean.nodeText}" style="width: 90%; height: 50px;" rendered="#{DiscussionBean.renderEdit}"/>
                         
                       
-                        <div class="controlWorksDisciplineNameLinkGrey answerPic" style="margin: 5px 0px 0px 15px; margin-top: 20px;">
-                            <h:commandLink rendered="#{!DiscussionBean.renderEdit}" style="margin-right: 10px; margin-top: 10px;" action="#{DiscussionBean.showReply}" value="#{msgs.message_answer}">
+                        <div class="messLinks" style="margin-top: 20px;">
+                            <h:commandLink rendered="#{!DiscussionBean.renderEdit}" styleClass="messLinksMargins" action="#{DiscussionBean.showReply}" value="#{msgs.message_answer}">
                                         <f:ajax  execute="@this" render="@form" />
                                         <f:setPropertyActionListener target="#{DiscussionBean.currentNode}" value="#{node}" />
                              </h:commandLink>
 
-                            <h:panelGroup rendered="#{DiscussionBean.currentUser.id==node.user.id || sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.authorities.get(0) eq 'ROLE_ADMIN'}" style="float: right;">
+                            <h:panelGroup rendered="#{DiscussionBean.currentUser.id==node.user.id || sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.authorities.get(0) eq 'ROLE_ADMIN'}">
 
-                                <h:commandLink rendered="#{!DiscussionBean.renderEdit}" style="margin-right: 10px;" action="#{DiscussionBean.showEdit}" value="#{msgs.admin_mainContentEdit}">
+                                <h:commandLink rendered="#{!DiscussionBean.renderEdit}" styleClass="messLinksMargins" action="#{DiscussionBean.showEdit}" value="#{msgs.admin_mainContentEdit}">
                                         <f:ajax  execute="@this" render="@form" />
                                         <f:setPropertyActionListener target="#{DiscussionBean.currentNode}" value="#{node}" />
                                </h:commandLink>
 
 
-                                <h:commandLink rendered="#{DiscussionBean.renderEdit}" action="#{DiscussionBean.editNodes}" value="#{msgs.user_change}"/>&nbsp;&nbsp;
-                                <h:commandLink rendered="#{DiscussionBean.renderEdit}" action="#{DiscussionBean.cancelNodes}" value="#{msgs.user_cancel}"/>&nbsp;&nbsp;
+                                <h:commandLink rendered="#{DiscussionBean.renderEdit}" styleClass="messLinksMargins" action="#{DiscussionBean.editNodes}" value="#{msgs.user_change}"/>
+                                <h:commandLink rendered="#{DiscussionBean.renderEdit}" action="#{DiscussionBean.cancelNodes}" value="#{msgs.user_cancel}"/>
 
-                                <span class="navigationLinksRed">
+                                
                                     <h:commandLink action="#{DiscussionBean.deleteNode}" value="#{msgs.message_delete}">
                                         <f:setPropertyActionListener target="#{DiscussionBean.nodeId}" value="#{node.id}" />                                     
                                    </h:commandLink>
-                                </span>
+                               
                             </h:panelGroup>
 
                             <h:panelGroup rendered="#{DiscussionBean.renderReply}">

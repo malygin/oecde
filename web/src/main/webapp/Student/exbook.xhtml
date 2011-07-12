@@ -1,10 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
-                  xmlns:f="http://java.sun.com/jsf/core"
-                  template="./../resources/umkTemplate.xhtml"
-                    xmlns:c="http://java.sun.com/jsp/jstl/core">
-     <f:metadata>
+                xmlns:f="http://java.sun.com/jsf/core"
+
+                template="./../resources/umkTemplate.xhtml"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                >
+    <f:metadata>
         <f:viewParam name="mId" value="#{umkBean.moduleId}"/>
         <f:viewParam name="tId" value="#{umkBean.taskId}"/>
         <f:viewParam name="cId" value="#{umkBean.cId}"/>
@@ -15,34 +17,34 @@
                 <b> занятие</b> -#{umkBean.currentTask.title}<br/>-->
         <div class="umkModuleName">#{msgs.student_ModuleName} - "#{umkBean.currentModule.name}"</div>
         <div  class="umkNavigationLinksContainer">
-        <ol class="umkNavigationLinksList">
-            <li class="umkNavigationLinkContainer" style="border-left: 1px solid silver; padding-left: 10px;">
-                <c:if test="${umkBean.prevTask.id==0}"><span>&larr;</span></c:if>
-                <c:if test="${umkBean.prevTask.id!=0}">
-                    <a  href="exbook.xhtml?cId=#{umkBean.cId}&amp;mId=#{umkBean.prevModule.id}&amp;tId=#{umkBean.prevTask.id}" title="перейти к разделу - ${umkBean.prevTask.title}.">&larr;</a>
-                </c:if>
-            </li>
-            <c:forEach items="#{umkBean.tasks}" var="task" varStatus="st">
-               <c:if test="${task.id!=umkBean.taskId}">
-                    <li class="umkNavigationLinkContainer"><a title="${task.title}" href="exbook.xhtml?cId=${umkBean.cId}&amp;mId=${umkBean.moduleId}&amp;tId=${task.id}">  ${st.count}</a></li>
-                </c:if>
-                <c:if test="${task.id==umkBean.taskId}">
-                    <li class="umkNavigationLinkContainer"><span>${st.count}</span></li>
-                </c:if>
-            </c:forEach>
-            <li class="umkNavigationLinkContainer">
-                <c:if test="${umkBean.nextTask.id==0}"><span>&rarr;</span></c:if>
-                <c:if test="${umkBean.nextTask.id!=0}">
-                    <a  href="exbook.xhtml?cId=#{umkBean.cId}&amp;mId=#{umkBean.nextModule.id}&amp;tId=#{umkBean.nextTask.id}" title="перейти к разделу - ${umkBean.nextTask.title}.">&rarr;</a>
-                </c:if>
-            </li>
-            <li style="padding-top: 0px; height: 25px;">
-                <a href="umk.xhtml?c=#{umkBean.curriculum.id}" title="">
-                    <img src="../resources/images/umkCourseTasksList.jpg" alt=""/>
-                </a>
-            </li>
-            <li class="floatDestroyer"></li>
-        </ol>
+            <ol class="umkNavigationLinksList">
+                <li class="umkNavigationLinkContainer" style="border-left: 1px solid silver; padding-left: 10px;">
+                    <c:if test="${umkBean.prevTask.id==0}"><span>&larr;</span></c:if>
+                    <c:if test="${umkBean.prevTask.id!=0}">
+                        <a  href="exbook.xhtml?cId=#{umkBean.cId}&amp;mId=#{umkBean.prevModule.id}&amp;tId=#{umkBean.prevTask.id}" title="перейти к разделу - ${umkBean.prevTask.title}.">&larr;</a>
+                    </c:if>
+                </li>
+                <c:forEach items="#{umkBean.tasks}" var="task" varStatus="st">
+                    <c:if test="${task.id!=umkBean.taskId}">
+                        <li class="umkNavigationLinkContainer"><a title="${task.title}" href="exbook.xhtml?cId=${umkBean.cId}&amp;mId=${umkBean.moduleId}&amp;tId=${task.id}">  ${st.count}</a></li>
+                    </c:if>
+                    <c:if test="${task.id==umkBean.taskId}">
+                        <li class="umkNavigationLinkContainer"><span>${st.count}</span></li>
+                    </c:if>
+                </c:forEach>
+                <li class="umkNavigationLinkContainer">
+                    <c:if test="${umkBean.nextTask.id==0}"><span>&rarr;</span></c:if>
+                    <c:if test="${umkBean.nextTask.id!=0}">
+                        <a  href="exbook.xhtml?cId=#{umkBean.cId}&amp;mId=#{umkBean.nextModule.id}&amp;tId=#{umkBean.nextTask.id}" title="перейти к разделу - ${umkBean.nextTask.title}.">&rarr;</a>
+                    </c:if>
+                </li>
+                <li style="padding-top: 0px; height: 25px;">
+                    <a href="umk.xhtml?c=#{umkBean.curriculum.id}" title="">
+                        <img src="../resources/images/umkCourseTasksList.jpg" alt=""/>
+                    </a>
+                </li>
+                <li class="floatDestroyer"></li>
+            </ol>
         </div>
         <div class="floatDestroyer"/>
     </ui:define>
@@ -51,7 +53,7 @@
         ${umkBean.currentTask.title}
     </ui:define>
     <ui:define name="content">
-         <iframe class="exbook" style="margin-top: 133px;" src="../TaskServlet?task=#{umkBean.url}" height="80%"  scrolling="auto"    width="100%"  frameborder="0" id="taskFrame">
-         </iframe>
+        <iframe class="exbook" style="margin-top: 133px;" src="../TaskServlet?task=#{umkBean.url}" height="80%"  scrolling="auto"    width="100%"  frameborder="0" id="taskFrame">
+        </iframe>
     </ui:define>
-   </ui:composition>
+</ui:composition>

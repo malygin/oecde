@@ -39,14 +39,14 @@
                     <sec:ifAnyGranted roles="ROLE_ADMIN">
                         <ui:repeat value="#{e.bodyForAdmin}" var="b">
                             <h:outputText  rendered="#{b.type eq null}" value="#{b.text}" styleClass="chatPostUser"/>
-                           <span class="controlWorksDisciplineNameLink"><h:outputLink styleClass="navigationLinks" rendered="#{b.type ne null}" value="#{b.type}#{b.id}" style="text-decoration: underline; margin-right: 2px;">#{b.text}</h:outputLink>
+                           <span class="linkToStudentsProfile"><h:outputLink rendered="#{b.type ne null}" value="#{b.type}#{b.id}" style="text-decoration: underline; margin-right: 2px;">#{b.text}</h:outputLink>
                            </span>
                         </ui:repeat>
                     </sec:ifAnyGranted>
                     <sec:ifNotGranted roles="ROLE_ADMIN">
                         <ui:repeat value="#{e.body}" var="b">
                             <h:outputText rendered="#{b.type eq null}" value="#{b.text}"/>
-                            <h:outputLink styleClass="navigationLinks" rendered="#{b.type ne null}" value="#{b.type}#{b.id}"> #{b.text}</h:outputLink>
+                            <h:outputLink rendered="#{b.type ne null}" value="#{b.type}#{b.id}"> #{b.text}</h:outputLink>
                             
                         </ui:repeat>
                     </sec:ifNotGranted>
