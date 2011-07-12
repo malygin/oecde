@@ -467,7 +467,7 @@ not all and (-webkit-min-device-pixel-ratio:0) {
   label {margin-left: 18px;}
 }
 .educ_umk_text_block{
-   margin-left: 10px;
+/*   margin-left: 10px;*/
    display: block;
 }
  .mainStyle .progressBarBorder{
@@ -2048,3 +2048,4 @@ cursor: default;
 .mainStyle .disciplineTable td:first-child{
     width: 90%;
 }
+

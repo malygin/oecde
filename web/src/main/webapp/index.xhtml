@@ -9,7 +9,7 @@
         <h:outputStylesheet name="loginPageStyles.css" library="css" rendered="true"/>
         <h:outputStylesheet name="default.css" library="css" rendered="true"/>
         <h:outputStylesheet name="base.css" library="css" rendered="true"/>
-        <title>Центр Отрытого Образования</title>
+        <title>  </title>
     </h:head>
     <f:metadata>
         <f:viewParam  name="error" value="#{loginBean.renderErrorEnter}"/>
@@ -26,11 +26,11 @@
                     </div>
                 </div>
                 <div class="login_pageFormContainer">
-                    <table cellpadding="0" cellspacing="0">
+                    <table cellpadding="0" cellspacing="0" style="padding-left: 100px;">
                         <tr>
                             <td>
                                 <!--                               <img src="resources/images/Ipsilon-web.png" alt=""/>-->
-                                <p class="SDO_text">ФГБОУ ВПО "СГУ имени Н.Г.Чернышевского"</p>
+                                <p class="SDO_text">ФГБОУ ВПО "СГУ имени Н.Г. Чернышевского"</p>
                             </td>
                         </tr>
                         <tr>
@@ -83,7 +83,8 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <p class="BoldBlackText login_pagePadding" style="padding-left: 0;">Доступен новый портал для тестирования. Вы можете посмотреть по <a class="login_pageLink">ссылке</a>.
+                                    <p class="BoldBlackText login_pagePadding" style="padding-left: 0; margin: 0;">  
+                                        <t:singleTab alias="index_page_new_welcome_to_new_ipsilon" haveNoFiles="no" classStyle="blackText"/>
                                     </p>
                                 </td>
                             </tr>
@@ -95,7 +96,30 @@
                     <h:outputText rendered="#{loginBean.renderErrorEnter}" style="color: red;" value="#{msgs.login_Error}"/>
                 </div>
                 <div style="height: 43px;"></div>
-                <t:singleTab alias="INDEX_PAGE_NEW"/>
+                <div class="login_pageFormBackgroundBottom login_pagePadding" style="padding-left: 30px;">
+                    <div style="margin-top: -30px;">
+                        <div class="navigationLinks">
+                            <div>
+                                <span class="contentsBlock"></span>
+                            </div>
+                            <div class="login_pageFormInputsLabels">
+                                <div>
+                                    <p class="login_pageFormInputsLabels">
+                                        <t:singleTab alias="INDEX_PAGE_NEW_TOP_TEXT" haveNoFiles="no" classStyle="login_pageMargins blackText"/>
+                                    </p>
+                                </div>
+                                <div style="text-align: justify;" class="login_pagePadding">
+                                    <t:singleTab alias="INDEX_PAGE_NEW_4_WHOM" titleStyle="BoldBlackText login_pageTopBottomMargin" haveNoFiles="no" classStyle="blackText"/>
+                                </div>
+                                <div style="text-align: justify; " >
+
+                                    <t:singleTab alias="INDEX_PAGE_NEW_EDU_WAYS" titleStyle="BoldBlackText" haveNoFiles="no" classStyle="blackText"/>
+                                    <t:singleTab alias="INDEX_PAGE_NEW_CONTACTS" titleStyle="BoldBlackText login_pagePadding" haveNoFiles="no" classStyle="blackText"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="login_pageFormBackgroundBottomRoundCorners"></div>
             </div>            
         </div>

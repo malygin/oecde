@@ -5,27 +5,27 @@
       xmlns:h="http://java.sun.com/jsf/html">
 
 
- <!-- INTERFACE -->
-  <composite:interface>
-      <composite:attribute name="alias" required="true" type="java.lang.String" shortDescription="тип вкладок"/>
-      <composite:attribute name="classStyle" type="java.lang.String"/>
-  </composite:interface>
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute name="alias" required="true" type="java.lang.String" shortDescription="тип вкладок"/>
+        <composite:attribute name="classStyle" default="" type="java.lang.String"/>
+        <composite:attribute name="titleStyle" default="" type="java.lang.String"/>
+        <composite:attribute name="haveNoFiles" default="" type="java.lang.String"/>
+    </composite:interface>
 
-  <!-- IMPLEMENTATION -->
-   <composite:implementation>
-     #{cc.attrs.classStyle}
-       <div class="educ_umk_text_block">
-                    <div class="controlWorksDisciplineName" style="margin-bottom: 5px;">
-                        <h:outputText escape="false" value="#{tabEditBean.getPageByAlias(cc.attrs.alias).title}"/>
-                    </div>
-                    <div style="text-align: justify;">
-                        <h:outputText escape="false" id="page" value="#{tabEditBean.page.text}"/>
-                    </div>
-                    <div style="text-align: justify;">
-                        <br/>
-                        <hr/>
-                        <br/>
-                         <h:dataTable id="files" value="#{tabEditBean.page.files}" var="f">
+    <!-- IMPLEMENTATION -->
+    <composite:implementation>
+        <div class="#{cc.attrs.classStyle}">
+            <div class="educ_umk_text_block">
+                <div class="controlWorksDisciplineName #{cc.attrs.titleStyle}" style="margin-bottom: 5px;">
+                    <h:outputText escape="false" value="#{tabEditBean.getPageByAlias(cc.attrs.alias).title}"/>
+                </div>
+                <div style="text-align: justify;">
+                    <h:outputText escape="false" id="page" value="#{tabEditBean.page.text}"/>
+                </div>
+                <h:panelGroup rendered="#{cc.attrs.haveNoFiles eq 'yes'}">
+                <div style="text-align: justify;">
+                    <h:dataTable id="files" value="#{tabEditBean.page.files}" var="f">
                         <h:column>
                             <h:panelGroup rendered="#{f.visible}">
                                 <h:graphicImage rendered="#{f.image}" value="../resources/userFiles/tabs/#{f.name}" alt="#{(f.description eq null||f.description eq '')?f.name:f.description}"/>
@@ -33,7 +33,9 @@
                             </h:panelGroup>
                         </h:column>
                     </h:dataTable>
-                    </div>
                 </div>
-   </composite:implementation>
+                </h:panelGroup>
+            </div>
+        </div>
+    </composite:implementation>
 </html>

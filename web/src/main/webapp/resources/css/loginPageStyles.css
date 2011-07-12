@@ -6,7 +6,6 @@
         Purpose of the stylesheet follows.
 */
 
-
 .browsersLogo{
     margin-bottom: -6px;
 }
@@ -60,11 +59,11 @@
 }
 .Ipsilon_Picture{
     position: absolute;
-    right: 270px;
+    right: 300px;
     top: 225px;
 }
 .login_loginTable{
-    padding-left: 130px;
+    padding-left: 65px;
     padding-top: 20px;
 }
 .login_pageFormInputsLabels{
@@ -124,9 +123,15 @@
     margin-top: 10px;
 }
 .login_pagePadding{
+    padding-bottom: 6px;
+    padding-top: 6px;
 }
 .login_pagePadding td{
    height: 50px;
+   vertical-align: top;
+}
+.login_pagePadding td:first-child{
+    width: 220px;
 }
 .login_pageLink{
     color: #1cb1db;
@@ -135,11 +140,12 @@
     list-style-image: url('../resources/images/markerStartPage.png');
 }
 .login_pageMargins{
-    margin-left: 35px;
-    margin-right: 50px;
+    margin-left: 20px;
+    padding-right: 50px;
 }
 .login_pageSpecialityList p+p{
     font-style: italic;
+    text-align: left;
 }
 
 /*.login_pageBottomCorners{
@@ -174,3 +180,13 @@
 .login_pageHelloTextLink:active{color:  #4AD4FF;text-decoration: underline;}
 .login_pageHelloTextLink:visited{color:  #4AD4FF;text-decoration: underline;}
 .login_pageHelloTextLink:hover{color:  #4AD4FF;text-decoration: none;}
+/*страница логинизации*/
+.indexPage .educ_umk_text_block{
+    margin: 0;
+}
+.blackText{
+    color: black;
+}
+.blackText div, .blackText p, .blackText a, .blackText li, .blackText span, .blackText label{
+    color: black !important;
+}
