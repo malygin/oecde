@@ -8,103 +8,24 @@
  <!-- INTERFACE -->
   <composite:interface>
       <composite:attribute name="alias" required="true" type="java.lang.String" shortDescription="тип вкладок"/>
-</composite:interface>
+      <composite:attribute name="classStyle" type="java.lang.String"/>
+  </composite:interface>
 
   <!-- IMPLEMENTATION -->
    <composite:implementation>
-       <h:dataTable style="margin-top: -40px;" id="tabs" value="#{setToList.getList(tabsViewBean.getTab(cc.attrs.type).pages)}" var="p" cellpadding="0" cellspacing="0">
-            <h:column>
-                <div class="navigationLinks">
-                <div>
-                    <span class="contentsBlock"></span>
-                </div>
-                <div class="login_pageFormInputsLabels">
-                    <div>
-<!--                        <h:outputText id="title" value="#{p.title}"/>-->
-                        <p class="login_pageFormInputsLabels login_pageMargins">
-                             В 2008 году Саратовский Государственный университет начал реализовывать систему дистанционного обучения, которая делает возможным получение образования независимо от места проживания и удаленности от вуза.
-                        </p>
+     #{cc.attrs.classStyle}
+       <div class="educ_umk_text_block">
+                    <div class="controlWorksDisciplineName" style="margin-bottom: 5px;">
+                        <h:outputText escape="false" value="#{tabEditBean.getPageByAlias(cc.attrs.alias).title}"/>
                     </div>
-                    <div style="text-align: justify;" class="login_pagePadding">
-<!--                        <h:outputText escape="false" id="page" value="#{p.text}"/>-->
-                        <p class="BoldBlackText login_pageTopBottomMargin">
-                            Система дистанционного образования
-                        </p>
-                        <ul class="login_pageMarker" style="margin-left: 35px;">
-                            <li>для тех, кто хочет получить высшее, второе высшее образование;</li>
-                            <li>для тех, кто удален территориально от нашего вуза;</li>
-                            <li> для тех, кто проводит большую часть времени дома;</li>
-                            <li>для тех, кто бережно относится к своему времени;</li>
-                            <li>для тех, у кого Интернет является «естественной средой обитания»; </li>
-                            <li>для тех, кто хочет найти единомышленников в социально-образовательной сети СГУ;</li>
-                            <li>для тех, кто желает обучаться сразу в нескольких местах; </li>
-                            <li>для тех, у кого жесткий график работы.</li>
-                        </ul>
-                        <p class="login_pageMargins">подробнее...</p>
+                    <div style="text-align: justify;">
+                        <h:outputText escape="false" id="page" value="#{tabEditBean.page.text}"/>
                     </div>
-                    <div style="text-align: justify; " >
-                        <p class="BoldBlackText">
-                           Список направлений подготовки для обучения по заочной форме с применением дистанционных образовательных технологий:
-                        </p>
-                        <table class="login_pageMargins login_pageSpecialityList">
-                            <tr>
-                                <td>
-                                    <p>Механико-математический факультет</p>
-                                    <p>«230700 Прикладная информатика»</p>
-
-                                </td>
-                                <td>
-                                    <p>Экономический факультет</p>
-                                    <p>«080100 Экономика»</p>
-                                    <p>«080200 Менеджмент»</p>
-                                </td>
-                            </tr>
-                             <tr>
-                                <td>
-                                    <p>Факультет психологии</p>
-                                    <p> «030300 Психология»</p>
-
-                                </td>
-                                <td>
-                                    <p>Философский факультет</p>
-                                    <p>«033300 Религиоведение»</p>
-                                </td>
-                            </tr>
-                             <tr>
-                                <td>
-                                    <p>Социологический факультет</p>
-                                    <p>«081100 Государственное и муниципальное управление»</p>
-                                    <p>«040100 Социология»</p>
-
-                                </td>
-                                <td>
-                                    <p>Педагогики, психологии и начального образования</p>
-                                    <p>«050100 Педагогическое образование»</p>
-                                    <p>«050400 Психолого-педагогическое образование»</p>
-
-                                </td>
-                            </tr>
-                             <tr>
-                                <td>
-                                    <p>Юридический факультет</p>
-                                    <p>«030900 Юриспруденция»</p>
-                                </td>
-                                <td>
-                                    <p>Коррекционной педагогики и специальной психологии</p>
-                                   <p> «050700 Специальное (дефектологическое) образование»</p>
-
-                                </td>
-                            </tr>
-                        </table>
-                        <p class="login_pageMargins login_pagePadding">подробнее...</p>
-                        <p class="BoldBlackText login_pagePadding">
-                            Связаться с нами можно по тел.: 8 (8452) 210-790, 210-791;  e-mail: oecdo@mail.ru. Наш сайт:  www.sgu.ru/structure/oec
-                        </p>
-                        <p class="login_pagePadding">
-                            Для работы с этой системой рекомендуется использовать бесплатно распространяемые браузера <img alt="" class="browsersLogo" src="resources/images/mozilla.png"/>  Mozilla Firefox и <img alt="" src="resources/images/chrome.png" class="browsersLogo" /> Google Chrome
-                        </p>
-                    <h:outputText rendered="#{tabsViewBean.currentPage.files!=null}" value="Файлы"/>
-                    <h:dataTable id="files" value="#{setToList.getList(tabsViewBean.currentPage.files)}" var="f">
+                    <div style="text-align: justify;">
+                        <br/>
+                        <hr/>
+                        <br/>
+                         <h:dataTable id="files" value="#{tabEditBean.page.files}" var="f">
                         <h:column>
                             <h:panelGroup rendered="#{f.visible}">
                                 <h:graphicImage rendered="#{f.image}" value="../resources/userFiles/tabs/#{f.name}" alt="#{(f.description eq null||f.description eq '')?f.name:f.description}"/>
@@ -114,8 +35,5 @@
                     </h:dataTable>
                     </div>
                 </div>
-                </div>
-            </h:column>
-        </h:dataTable>
    </composite:implementation>
 </html>
