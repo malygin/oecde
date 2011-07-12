@@ -524,16 +524,19 @@ not all and (-webkit-min-device-pixel-ratio:0) {
     margin-top: 10px;
 }
 .mainStyle .studentButton{
-    background: #efefef/*url('../resources/images/pic_for_Button_main.jpg')*/;
-    /*color: #00194F;*/
     cursor: pointer;
-    font-size: 10pt;
-    /*background-color: #EFF9FF;*/
-    border: 1px solid #838383;
-    border-radius: 3px;
     margin-top: 10px;
-    text-decoration: none !important;
     padding: 1px 2px;
+     background: #f0f0f0;
+    height: 18px;
+    border: 1px solid #929292;
+    float: right;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    color: #838383;
+    font-size: 9pt;
+    font-weight: bold;
 }
 .mainStyle .studentButtonRed{
     background: url('../resources/images/pic_for_Button_Red.jpg');
@@ -1904,6 +1907,7 @@ text-align: left;
     position: relative;
     left: 45%;
 }
+
 /*новости*/
 .mainStyle .previewColor{
     color: #6F6F6F;
@@ -2048,4 +2052,7 @@ cursor: default;
 .mainStyle .disciplineTable td:first-child{
     width: 90%;
 }
-
+/*inputs*/
+.mainStyle .greyInputs input{
+    border: 1px solid #838383;
+}

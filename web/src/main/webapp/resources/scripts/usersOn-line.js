@@ -1,5 +1,10 @@
 $(document).ready(function(){
-    $("ul.dropdown li").click(
+   sdfsdf("ul.dropdown li");
+});
+
+
+function sdfsdf(sdfsd){
+     $(sdfsd).click(
       function() {
           if ($(this).find(".usersOnlineTableContainer").css("display") == 'none') {
               $(this).css('list-style-image', 'url("../resources/images/greyMinus.png")');
@@ -9,6 +14,4 @@ $(document).ready(function(){
           $(this).find(".usersOnlineTableContainer").toggle();
       }
   );
-});
-
-
+}
