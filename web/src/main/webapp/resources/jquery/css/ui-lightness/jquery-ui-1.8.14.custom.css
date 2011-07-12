@@ -12,7 +12,7 @@
 
 /* Today
 ----------------------------------*/
-.ui-state-highlight, .ui-widget-content .ui-state-highlight{text-decoration: underline;}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight{text-decoration: underline !important;}
 
 /* Icons
 ----------------------------------*/
