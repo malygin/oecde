@@ -2000,14 +2000,14 @@ text-align: left;
     vertical-align: middle;
 }
 ul.dropdown {
-list-style-type: none;
+list-style: none;
 margin-left: 15px;
 }
 
 ul.dropdown li {
 cursor: pointer;
 margin-bottom: 5px;
-list-style-image: url('../resources/images/greyPlus.png');
+/*list-style-image: url('../resources/images/greyPlus.png');*/
 }
 
 ul.dropdown li ul {
@@ -2019,7 +2019,7 @@ list-style-image: none;
 }
 
 ul.dropdown li ul li {
-list-style-type: none;
+list-style: none;
 list-style-image: none;
 cursor: default;
 }
