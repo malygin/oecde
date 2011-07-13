@@ -8,19 +8,103 @@
         #{msgs.student_grades}
     </ui:define>
     <ui:define name="content">
-        <div class="interfaceContent interfaceContentForMyMarks">
+
+        <div class="StudentMainPageTitlesBorders" style="height: 100%;">
+        <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
+                    Мои оценки
+            <f:metadata>
+                <f:viewParam name="s" value="#{materialsBean.semester}"/>
+            </f:metadata>
+                <div style="float: right;">
+                    <est:changeSemester semester="#{materialsBean.semester}" />
+                </div>
+                <div class="floatDestroyer"/>
+            </div>
+            
+
             
             <f:metadata>
                 <f:viewParam name="s" value="#{gradesBean.semester}"/>
             </f:metadata>
-            <div class="changeSemWithoutBorder">
+            <!--<div class="changeSemWithoutBorder">
                 <est:changeSemester semester="#{gradesBean.semester}"/>
             </div>
             <div  class="controlWorksDisciplineNameLink helpLink">
                 <a href="#help" class="help_part_href">#{msgs.student_marksHelp}</a>
+            </div>-->
+
+
+
+            <table class="MyGradesBigTable">
+                <tr>
+                    <td><p  class="lightGreyText">Выберите дисциплину:</p></td>
+                    <td><p class="lightGreyText">Ваша успеваемость:</p></td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:dataTable  value="#{gradesBean.points}"
+                                      var="p"  cellpadding="0" cellspacing="0" styleClass="TableForGrades">
+
+                            <h:column>
+
+                                <span class="GreenLinkToDiscipline"><h:outputLink value="umk.xhtml?c=#{p.points.curriculum.id} ">#{p.points.curriculum.discipline.name}</h:outputLink></span>
+                            </h:column>
+                            <h:column>
+                              <span><h:outputText converter="enumConverter" value="#{p.grade}"/></span>
+                            </h:column>
+                        </h:dataTable>
+                </td>
+                <td>
+                    <p class="GreenLinkToDisciplineOpen"><a href="#">Дисциплина</a></p>
+                    <table class="GradesDiskription">
+                        <tr>
+                            <td>Преподаватель:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Тесты:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Переэкзаменовка:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Итоговые тесты:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Переэкзаменовка:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Самостоятельные работы:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Контрольная работа:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Активность:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Итоговая оценка:</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </td>
+                </tr>
+            </table>
+
+            
+
             </div>
-            <div>
-            <h:dataTable  value="#{gradesBean.points}"
+
+
+
+            <!--<h:dataTable  value="#{gradesBean.points}"
                          columnClasses="studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableTdFirstWidth,
                          studentStandatrTableTd studentStandatrTableTdWithBorderBrighter linkToTeachersProfileFromStudent studentStandatrTableCenter student_gradesTableHeadTeacherWidth,
                          studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter,
@@ -104,8 +188,6 @@
             <div class="prosto_tekst">
                 <a name="help"></a>
                 <p class="help_part">#{msgs.student_marksHelps}</p>
-                <p class="comment">Текст подсказки по этому разделу</p>
-            </div>
-            </div>
+                <p class="comment">Текст подсказки по этому разделу</p>-->
     </ui:define>
 </ui:composition>

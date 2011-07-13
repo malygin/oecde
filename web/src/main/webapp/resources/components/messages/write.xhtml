@@ -91,7 +91,7 @@
                 <div style="padding: 0px; padding-top: 10px; margin-left: 5%; margin-right: 5%;  text-align: right;">
                     <p class="lightGreyText">Вы можете прикрепить к данному сообщению необходимые файлы (размер не более 4 мб)</p>
                     <input type="file" name="MessageFile" style="background-color: #DFF1FE; font-size: 9pt; display: block; margin-left: 10px;" class="StudentWriteMess"/>
-                    <h:commandButton  action="#{MessageWriteBean.addFile}" value="Прикрепить" styleClass="studentButton"  />
+                    <h:commandButton  action="#{MessageWriteBean.addFile}" value="Прикрепить" styleClass="studentButton" style="height: 20px;"/>
                     <h:panelGroup layout="block" rendered="#{MessageWriteBean.renderSuccessSend}" styleClass="actionResultSuccessfull">
                         #{msgs.message_sentSuccess}
                     </h:panelGroup>
@@ -110,9 +110,9 @@
                     </h:column>
                     </h:dataTable>
 
-                    <div class="leftMenuContainer" style="text-align: right; margin-top: 8px;">
-
-                        <h:commandLink  action="#{MessageWriteBean.save}" value="Отправить" styleClass="studentButton" style="margin-left: 3px; width: 160px;">
+                    <div>
+<br />
+                        <h:commandLink  action="#{MessageWriteBean.save}" value="Отправить" styleClass="studentButton">
                          <f:ajax execute="@form" render="@form"/>
                         </h:commandLink>
 
@@ -120,7 +120,7 @@
 <br />
                 </div>
             </h:form>
-        </div>
+        </div><br />
                 </div>
                 </div>
 

@@ -527,16 +527,17 @@ not all and (-webkit-min-device-pixel-ratio:0) {
     cursor: pointer;
     margin-top: 10px;
     padding: 1px 2px;
-     background: #f0f0f0;
-    height: 18px;
-    border: 1px solid #929292;
+    background: #f0f0f0;
+    height: 16px;
+    border: 1px solid #838383;
     float: right;
     -moz-border-radius: 4px;
     -o-border-radius: 4px;
     -webkit-border-radius: 4px;
     color: #838383;
     font-size: 9pt;
-    font-weight: bold;
+    text-decoration: none !important;
+    font-weight: normal;
 }
 .mainStyle .studentButtonRed{
     background: url('../resources/images/pic_for_Button_Red.jpg');
