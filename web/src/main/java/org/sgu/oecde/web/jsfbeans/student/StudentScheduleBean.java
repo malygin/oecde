@@ -31,6 +31,8 @@ public class StudentScheduleBean extends AbstractStudentBean{
 
     private Long count;
 
+    private String currentDate;
+
     private static final long serialVersionUID = 151L;
 
     public List<Lesson> schedule(int maxResult, boolean byDate){
@@ -81,4 +83,14 @@ public class StudentScheduleBean extends AbstractStudentBean{
         beginDate = semesterGetter.getCurrentYear()+".09.01";
         endDate = semesterGetter.getCurrentYear()+1+".08.01";
     }
+
+    public String getCurrentDate() {
+        return currentDate;
+    }
+
+    public void setCurrentDate(String currentDate) {
+        this.currentDate = currentDate;
+    }
+
+   
 }

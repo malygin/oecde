@@ -3,18 +3,29 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/studentTemplate.xhtml"
-      xmlns:util="http://java.sun.com/jsf/composite/components/util"
+    xmlns:edu="http://java.sun.com/jsf/composite/components/education"
+    xmlns:util="http://java.sun.com/jsf/composite/components/util"
     >
-    <ui:define name="contentHeader">
+
+
+
+    <!--<ui:define name="contentHeader">
         #{msgs.student_controlMenuSchedule}
     </ui:define>
     <ui:define name="online">
             c <util:date_picker value="#{studentScheduleBean.beginDate}"/> по
             <util:date_picker value="#{studentScheduleBean.endDate}"/>
-    </ui:define>
-    <ui:define name="content">
+    </ui:define>-->
+ <ui:define name="content">
+ <div style="width: 96%;">
+            <div><edu:videoConfSchedule numberLessons="20"  styleForShedule="floatLeft"  renderBlock="allLessons"/></div>
+         </div>
 
-            <f:metadata>
+       
+
+
+
+           <!-- <f:metadata>
                 <f:viewParam name="pageNumber" value="#{studentScheduleBean.pageNumber}"/>
             </f:metadata>
         <div class="interfaceContent">
@@ -53,6 +64,6 @@
                 </h:column>
             </h:dataTable>
                <util:navigationList numElements="#{studentScheduleBean.count(true)}" elementOnPage="40"/>
-        </div>
+        </div>-->
     </ui:define>
 </ui:composition>

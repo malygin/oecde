@@ -4,6 +4,9 @@
       xmlns:composite="http://java.sun.com/jsf/composite"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:util="http://java.sun.com/jsf/composite/components/util"
+      xmlns:c="http://java.sun.com/jstl/core"
       >
 
 
@@ -11,7 +14,7 @@
   <composite:interface>
         <composite:attribute  name="numberLessons"  required="true" type="int" shortDescription="количество выводимых занятий"/>
         <composite:attribute name="styleForShedule" default="" type="java.lang.String" shortDescription="обтекание слева или без него"/>
-        <composite:attribute name="deleteFloat" default="" type="java.lang.String" shortDescription="обтекание слева или без него"/>
+        <composite:attribute name="renderBlock" default="" type="java.lang.String" shortDescription="что надо отобразить на странице"/>
 
  
   
@@ -36,21 +39,24 @@
 		
 		function repaint(){
 			//ajax-query для получения списка дней данного месяца
-			daysArray = ["1","2","3","4","5","11","12","21","25","26"];
-			for(day in daysArray){
-				$('a[href="#"][role!="nenada"]').each(function(){
-					if($(this).html() == daysArray[day]){
+			daysArray = [["2", 7, "discipline", "teacher"], ["5", 7, "discipline", "teacher"], ["17", 7, "discipline", "teacher"], ["29", 7, "discipline", "teacher"]];
+
+				$('a.ui-state-default[href="#"]').each(function(){
+					if($(this).html() == daysArray[0][0]){
 						$(this).parent().attr('class',"lectures");
-						$(this).attr("role","nenada");
+						daysArray=daysArray.slice(1);
+						if(daysArray.length==0) return false;
 					}
 				});
+
 				$('#datepicker td').each(function(){
 					$(this).removeAttr("onclick");
 				});
 			}
-		}
+
 	</script>
-       <div>
+        <div>
+
             <div class="StudentMainPageTitlesBorders" style="margin-right: 0px;">
                 <div class="mainStudentPageTitlesGreen mainStudentPageTitles">
                 <a style="font-size: 12pt;" href="schedule.xhtml">Расписание видеоконференций</a>
@@ -80,12 +86,110 @@
                         </tr>
                         <tr>
                             <td class="videoConfSchedule greyLinks" style="height: 25px;" colspan="2">
-                                <a href="schedule.xhtml">Посмотреть все видеоконференции</a>
+                                <h:panelGroup rendered="#{cc.attrs.renderBlock eq 'firstLessons'}"><a href="schedule.xhtml">Посмотреть все видеоконференции</a></h:panelGroup>
                             </td>
                         </tr>
                     </table>
+                
+                <h:panelGroup rendered="#{cc.attrs.renderBlock eq 'allLessons'}">
+                    <div class="StudentMainPageTitlesBorders" style="width: 25%; margin-left: 72%; margin-top: -90px;">
+                        <div class="interfaceContentForMyMarks">
+                            <div class="mainStudentPageTitles  mainStudentPageTitlesOrange">
+                            Текущая конференция
+                            </div>
+                         </div>
+                            <div style="float: right;" class="greyLinks">
+                                <a href="#" style="font-weight: normal">посетить</a>
+                            </div>
+                            <div class="textForPodskazka">
+                                <p>10:00-12:05</p>
+                                <p style="color:#838383">Компьютерные системы. Бессонов Л.В. 1 комната</p>
+                            </div>
+                         </div>
+
+
+                </h:panelGroup>
                 </div>
-                <div class="#{cc.attrs.deleteFloat}"/>
+
+                <div class="floatDestroyer"/>
+                
+
+
+                <h:panelGroup rendered="#{cc.attrs.renderBlock eq 'allLessons'}">
+                <f:metadata>
+                <f:viewParam name="pageNumber" value="#{studentScheduleBean.pageNumber}"/>
+                </f:metadata>
+                <div class="interfaceContent">
+                    <util:navigationList numElements="#{studentScheduleBean.count(true)}" elementOnPage="40"/>
+
+
+                    <div class="greenText">10 августа</div>
+                    <table class="tableForShedule">
+                        <tr>
+                            <td>10:00-12:05</td>
+                            <td><span class="linkToStudentsProfile"><a href="#">Компьютерные системы</a></span></td>
+                            <td><span class="linkToTeachersProfile linkToTeachersProfileFromStudent"><a href="#">Бессонов Л.В.</a></span></td>
+                            <td>1 комната</td>
+                        </tr>
+                    </table>
+                    <div class="greenText" style="display: none;">10 августа</div>
+                    <table class="tableForShedule">
+                        <tr>
+                            <td>10:00-12:05</td>
+                            <td><span class="linkToStudentsProfile"><a href="#">Интерактивные методы работы социального педагога (Социализация детей-подростков в общественных организациях, объединениях, субкультурах) </a></span></td>
+                            <td><span class="linkToTeachersProfile linkToTeachersProfileFromStudent"><a href="#">Никифорова Л.В.</a></span></td>
+                            <td>1 комната</td>
+                        </tr>
+                    </table>
+                    <div class="greenText">11 августа</div>
+                    <table class="tableForShedule">
+                        <tr>
+                            <td>10:00-12:05</td>
+                            <td><span class="linkToStudentsProfile"><a href="#">Компьютерные системы</a></span></td>
+                            <td><span class="linkToTeachersProfile linkToTeachersProfileFromStudent"><a href="#">Бессонов Л.В.</a></span></td>
+                            <td>1 комната</td>
+                        </tr>
+                    </table>
+
+
+
+
+
+        <!--
+        <h:dataTable columnClasses="
+                         studentStandatrTableTd,
+                         studentStandatrTableTd,
+                         studentStandatrTableTd,
+                        studentStandatrTableTdLastTd  studentStandatrTableExamin "
+                         value="#{studentScheduleBean.schedule(40,true)}" var="s" styleClass="studentStandatrTable studentStandatrTableExamin" cellpadding="0" cellspacing="0">
+                <h:column>
+
+                    <span class="linkToStudentProfile" style="font-size: 8pt; font-weight: normal;display:  block; padding-left: 8px;"><h:outputText value="#{s.discipline.name}"/></span>
+                </h:column>
+                <h:column>
+                    
+                    <span class="linkToTeachersProfile linkToTeachersProfileFromStudent" style="background: none;"><a href="teacher.xhtml?id=#{s.teacher.id}"><h:outputText value="#{s.teacher.initials}"/></a></span>
+                </h:column>
+                <h:column>
+                   
+                    <div style="text-align: center !important;">
+                        <h:outputText converter="roomConverter" value="#{s.room}" style="color: #{s.color}"/>
+                    </div>
+                </h:column>
+                <h:column>
+                    
+                    <span ><h:outputText converter="dateConverter" value="#{s.lessonDate}"/> - <h:outputText converter="dateConverter" value="#{s.lessonEndDate}"/></span>
+                </h:column>
+            </h:dataTable>-->
+
+
+               <util:navigationList numElements="#{studentScheduleBean.count(true)}" elementOnPage="40"/>
+        </div>
+                </h:panelGroup>
+
+
+
+
             </div>
         </div>                        
 <!--                        <h:dataTable columnClasses="

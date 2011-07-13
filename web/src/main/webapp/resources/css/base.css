@@ -34,7 +34,7 @@
     text-align: left;
 }
 .mainStyle .Ipsilon_Web_GreenText p{
-    color: #5bbf5d !important;
+    color: #5bbf5d /*!important*/;
     font-family: Arial;
     text-align: left;
 }
