@@ -8,6 +8,7 @@
     <ui:define name="userCSS">
         <h:outputStylesheet name="student.css" library="css" rendered="true"/>
         <h:outputStylesheet name="newForStudent.css" library="css" rendered="true"/>
+        <h:outputStylesheet name="base.css" library="css" rendered="true"/>  
     </ui:define>
     <ui:define name="left">
         <div  class="modulsTitles"><p class="sideBarTitle">#{msgs.student_eduMenuTitle}</p></div>
@@ -111,6 +112,7 @@
     </ui:define>
 
     <ui:define name="right">
+        <div style="display: none;">
         <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_comMenuTitle}</p></div>
         <ol class="leftSideMenuLinks iconMenu">
             <li><a href="teachersList.xhtml"><h:graphicImage value="../resources/images/teacher.png" styleClass="iconInMenu" /><div>#{msgs.student_comMenuTeachers}</div></a></li>
@@ -130,7 +132,7 @@
             <li><a href="oldGrades.xhtml"><h:graphicImage value="../resources/images/grade_book.png" styleClass="iconInMenu" /><div>#{msgs.student_controlMenuRecordBook}</div></a></li>
             <li><a href="groupRating.xhtml"><h:graphicImage value="../resources/images/group.png" styleClass="iconInMenu" /><div>#{msgs.student_GroupRating}</div></a></li>
         </ol>
-
+        </div>
         
     </ui:define>
     <ui:define name="bottom">

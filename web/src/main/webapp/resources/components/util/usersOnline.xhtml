@@ -14,22 +14,22 @@
 
   <!-- IMPLEMENTATION -->
    <composite:implementation>
-         <script type="text/javascript" src="../resources/scripts/usersOn-line.js"></script>
+         <script type="text/javascript" src="../resources/scripts/usersOn-line.js"></script>    
 <div class="modulsTitles">
     <p class="sideBarTitle">Пользователи on-line</p>
 </div>
        <ul class="dropdown">
            <li>
-            <div class="sideBarUnderTitleText">
-                <div class="blueUnderTitleLink UnderTitleLink">#{msgs.student_studentsOnlineMenuTitle} <span style="color: #8DBEE0;">(#{usersInCache.studentsNumber})</span><a href="usersOnlineList.xhtml?type=student">picture</a></div>
-            </div>
+            <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_studentsOnlineMenuTitle}</p></div>
+        <div class="sideBarUnderTitleText">
+            <div class="greenUnderTitleLink"><a href="usersOnlineList.xhtml?type=student">#{msgs.student_studentsOnlineUnderTitleText} (#{usersInCache.studentsNumber})</a></div></div>
 
 <div class="usersOnlineTableContainer">
     <table cellpadding="3" cellspacing="1" >
         <tr>
             <ui:repeat value="#{usersInCache.sixStudents}" var="st" varStatus="i">
                 <td style="max-width: 68px;">
-                    <div class="userOnlineLinkContainer"> 
+                    <div class="userOnlineLinkContainer">
                         <a href="student.xhtml?id=#{st.id}">
                             <div class="userOnlineImgContainer">
                                 <span class="userOnlineImgContainerHeightController"></span>
@@ -48,7 +48,8 @@
 </div>
            </li>
            <li>
-               <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink UnderTitleLink">#{msgs.student_comMenuTeachers}<span style="color: #ACCC7A;"> (#{usersInCache.teachersNumber})</span><a href="usersOnlineList.xhtml?type=teacher">picture</a></div></div>
+               <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.student_teachersOnlineMenuTitle}</p></div>
+        <div class="sideBarUnderTitleText"><div class="blueUnderTitleLink"><a href="usersOnlineList.xhtml?type=teacher">#{msgs.student_teachersOnlineUnderTitleText} (#{usersInCache.teachersNumber})</a></div></div>
         <div class="usersOnlineTableContainer">
 <table cellpadding="3" cellspacing="1" >
     <tr>
@@ -73,7 +74,8 @@
         </div>
            </li>
            <li>
-               <div class="sideBarUnderTitleText"><div class="orangeUnderTitleLink UnderTitleLink">#{msgs.admin_adminsOnlineMenuTitle} <span style="color: #fbb35d;">(#{usersInCache.adminsNumber})</span> <a href="usersOnlineList.xhtml?type=admin">picture</a></div></div>
+               <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.admin_adminsOnlineMenuTitle}</p></div>
+            <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="usersOnlineList.xhtml?type=admin">#{msgs.admin_adminsOnlineUnderTitleText} (#{usersInCache.adminsNumber})</a></div></div>
             <div class="usersOnlineTableContainer">
             <table cellpadding="3" cellspacing="1" >
                 <tr>
