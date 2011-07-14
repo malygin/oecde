@@ -1003,7 +1003,7 @@ body:first-of-type .mainStyle .StudentWriteMess{
     font-size: 85%;
 }
 /*пользователи он-лайн*/
-.mainStyle .usersOnlineTableContainer{
+.mainStyle .hiddenUsersOnlineTableContainer{
     text-align: center;
     width: 100%;
 }

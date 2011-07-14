@@ -116,7 +116,7 @@
         <ut:usersOnline/>
             <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.admin_adminsOnlineMenuTitle}</p></div>
             <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="usersOnlineList.xhtml?type=supervisor">#{msgs.admin_adminsOnlineUnderTitleText} (#{usersInCache.supervisorsNumber})</a></div></div>
-            <div class="usersOnlineTableContainer">
+            <div class="hiddenUsersOnlineTableContainer">
             <table cellpadding="3" cellspacing="1" >
                 <tr>
                     <ui:repeat value="#{usersInCache.sixSupervisors}" var="st" varStatus="i">

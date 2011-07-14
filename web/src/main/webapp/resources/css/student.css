@@ -18,9 +18,9 @@
     padding: 3px 3px 0px 3px; border: 1px solid silver;
 }
 /*стили для таблиц*/
- .mainStyle .StudentTablePadding{
-                padding: 10px;
-                margin: 0 !important;
+.mainStyle .StudentTablePadding{
+    padding: 10px;
+    margin: 0 !important;
 }
 
 /*главная страница студента*/
@@ -54,7 +54,7 @@
 }
 /*стили для границ блоков*/
 
- .studentStandatrTableBorder{
+.studentStandatrTableBorder{
     border-right: 1px solid #D1E0EF;
 }
 .StudentTimeTable{
@@ -86,13 +86,13 @@
 .mainStyle .materialInfo{
     margin-left: 25px;
 }
- .materialInfo p{
+.materialInfo p{
     padding-bottom: 5px;
     padding-left: 17px;
 }
 .materialInfo span{
-       color: #64D359;
-       /*font-weight: bolder;*/
+    color: #64D359;
+    /*font-weight: bolder;*/
 }
 /*.materialInfo p:nth-child(1){
    background:  url("../resources/images/control_works_little.gif") no-repeat ;
@@ -162,36 +162,36 @@
     position: relative;
     left: 40%;
 }
-  
+
 /*    input[type="radio"]+label{float: right;}*/
-    
+
 /*    input[type="checkbox"]+label{float: right;}*/
 
 
- .mainStyle .testQuestionTitle{
-     display: block;
-     font-size: 14px;
- }
+.mainStyle .testQuestionTitle{
+    display: block;
+    font-size: 14px;
+}
 
 
- .mainStyle .testFinish{
-     font-size: 14pt;
-     padding: 0;
-     margin: auto;
-     width: 180px;
- }
- .mainStyle .testResultMarkNotNull{
-     color: #373E3F;
-     font-weight: bolder;
- }
+.mainStyle .testFinish{
+    font-size: 14pt;
+    padding: 0;
+    margin: auto;
+    width: 180px;
+}
+.mainStyle .testResultMarkNotNull{
+    color: #373E3F;
+    font-weight: bolder;
+}
 
 /* результаты тестов*/
- .mainStyle .workTitle{
-     font-size: 8pt;
-     font-weight: normal;
-     display: block;
-     padding-left: 8px;
- }
+.mainStyle .workTitle{
+    font-size: 8pt;
+    font-weight: normal;
+    display: block;
+    padding-left: 8px;
+}
 /*рейтинг*/
 .mainStyle .ratingStyle{
     color: green;
@@ -216,6 +216,16 @@
     background: url('../resources/images/messagesMainStPage.png') no-repeat;
     background-position: right center;
     padding-right: 30px;
+}
+.mainStyle .messagesMainStPageNewMess{
+    background: url('../resources/images/message_active.jpg') no-repeat;
+    padding-left: 25px;
+    padding-top: 4px;
+}
+.mainStyle .messagesMainStPageIncomeMess{
+    background: url('../resources/images/messagesMainStPage.png') no-repeat;
+    padding-left: 25px;
+    padding-top: 4px;
 }
 .mainStyle .StudentMainPageExit{
     margin-top: -10px;
@@ -298,7 +308,7 @@
     margin: 10px; margin-left: 15px;
 }
 /*информация*/
-.mainStyle .markerListMainPage{
+.mainStyle .clickToHidMarkerListMainPage{
     background: url("../resources/images/markerListMainPage.png") no-repeat left center;
     padding-left: 12px;
 }

@@ -4,7 +4,8 @@
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/studentTemplate.xhtml"
     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
-    xmlns:set="http://java.sun.com/jsf/composite/components/settings">
+    xmlns:set="http://java.sun.com/jsf/composite/components/settings"
+    xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs">
 
     <ui:define name="content">
         <script type="text/javascript" src="../resources/jquery/js/jquery.maskedinput-1.2.2.js"></script>    
@@ -124,9 +125,8 @@
         <div class="StudentMainPageTitlesBorders" style="margin-left: 72%;">
             <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">#{msgs.student_marksHelp}
             </div>
-            <div>Текст подсказки Текст подсказки Текст подсказки
-                Текст подсказки Текст подсказки Текст подсказки
-                Текст подсказки Текст подсказки Текст подсказки
+            <div class="textForPodskazka">
+                <tabs:singleTab alias="STUDENT_SETTINGS"/>
             </div>
         </div>
         </div>

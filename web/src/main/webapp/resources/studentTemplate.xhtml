@@ -81,10 +81,12 @@
             <li class="topMenuLinkContainer"><a href="news_list.xhtml">#{msgs.student_topMenuNews}</a></li>
             <li class="topMenuLinkContainer"><a href="settings.xhtml">#{msgs.student_topMenuSettings}</a></li>
             <li class="topMenuLinkContainer">
-                <div class="messagesMainStPage" style="float: left;">
-                    <a href="messages_list.xhtml">#{msgs.student_messMenuTitle}</a>
+                <div class="" style="float: left;">
+                    <a href="messages_list.xhtml" style="margin-right: 5px;">#{msgs.student_messMenuTitle}</a>
+                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages>0}"><span class="messagesMainStPageNewMess"></span></h:panelGroup>
+                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages&lt;1}" styleClass="messagesMainStPageIncomeMess"></h:panelGroup>
                 </div>
-                <div style="float: right; font-size: 15px; font-weight: bold; color: fbb35d; margin-left: 3px;">
+                <div style="float: right; font-size: 15px; font-weight: bold; color: #fbb35d; margin-left: 3px;">
                     <h:panelGroup rendered="#{MessageCountNewBean.newMessages>0}">#{MessageCountNewBean.newMessages}</h:panelGroup>
                     <h:panelGroup rendered="#{MessageCountNewBean.newMessages&lt;1}"></h:panelGroup>
                 </div>

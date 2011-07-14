@@ -5,6 +5,7 @@
     template="../resources/studentTemplate.xhtml"
     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
     xmlns:r="http://java.sun.com/jsp/jstl/core"
+    xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs"
     >
     <ui:define name="contentHeader">
         #{msgs.student_studentListHeader}
@@ -78,10 +79,7 @@
             </div>
          </div>
             <div class="textForPodskazka">
-            <p>Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки
-            Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки</p>
-            <p>Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки
-            Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки</p>
+           <tabs:singleTab alias="STUDENT_STUDENTS_LIST"/>
             </div>
          </div>
 

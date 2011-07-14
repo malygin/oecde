@@ -3,7 +3,8 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/studentTemplate.xhtml"
-    xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
+    xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
+    xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs">
     <f:metadata>
         <f:viewParam name="s" value="#{studentCurriculumBean.semester}"/>
     </f:metadata>
@@ -72,10 +73,8 @@
                 <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">
                     Подсказка
                 </div>
-                <div>Текст подсказки Текст подсказки Текст подсказки
-                    Текст подсказки Текст подсказки Текст подсказки
-                    Текст подсказки Текст подсказки Текст подсказки
-                    Текст подсказки Текст подсказки Текст подсказки                 
+                <div class="textForPodskazka">
+                    <tabs:singleTab alias="STUDENT_CURRICULUM"/>
                 </div>
             </div>
         </div>

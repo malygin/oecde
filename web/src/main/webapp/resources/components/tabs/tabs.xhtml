@@ -13,6 +13,14 @@
 
     <!-- IMPLEMENTATION -->
     <composite:implementation>
+       <script type="text/javascript" src="../resources/scripts/usersOn-line.js"></script>    
+        <script type="text/javascript">
+          $(document).ready(function(){
+            toHidElements('.hidden')
+          });
+          
+       
+        </script>
         <h:form>
             <div class="interfaceContent" style="padding-top: 10px;">
                 <table>
@@ -26,15 +34,15 @@
                                         </div>
                                     </f:facet>
                                     <div class="educ_umk_text_block">
-                                        <div class="markerListMainPage">
+                                        <div class="clickToHidMarkerListMainPage">
                                             <h:outputText value="#{t.name}"/>
                                         </div>
-                                        <h:dataTable id="tabs" style="margin-left: 20px;" value="#{t.pages}" var="p">
+                                        <h:dataTable id="tabs" styleClass="hidden" style="margin-left: 20px; display: none;" value="#{t.pages}" var="p">
                                             <h:column>
-                                                <span class="navigationLinks" >
+                                                <span class="greyLinks" >
                                                     <!--                                        <img src="../resources/images/listMarker.png" alt=""/>-->
 
-                                                    <h:commandLink id="link" rendered="#{p.visible}" value="#{p.title} " style="color: #8BB5DF;">
+                                                    <h:commandLink id="link" rendered="#{p.visible}" value="#{p.title}">
                                                         <f:attribute name="page" value="#{p}"/>
                                                         <f:ajax render="@form" listener="#{tabsViewBean.setCurrentPage}"/>
                                                     </h:commandLink>

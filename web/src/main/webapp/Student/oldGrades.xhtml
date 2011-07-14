@@ -3,6 +3,7 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/studentTemplate.xhtml"
+    xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs"
     >
     <ui:define name="contentHeader">
         #{msgs.student_oldGradesHeader}
@@ -121,11 +122,8 @@
                 <div class="StudentMainPageTitlesBorders">
                     <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">Подсказка
                     </div>
-                    <div>
-                        Текст подсказки Текст подсказки Текст подсказки
-                        Текст подсказки Текст подсказки Текст подсказки
-                        Текст подсказки Текст подсказки Текст подсказки
-                        Текст подсказки Текст подсказки Текст подсказки
+                    <div class="textForPodskazka">
+                       <tabs:singleTab alias="STUDENT_OLD_GRADES"/>
                     </div>
                 </div>
             </div>
