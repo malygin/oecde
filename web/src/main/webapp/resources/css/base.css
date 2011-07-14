@@ -1831,7 +1831,7 @@ text-align: left;
     float: left;
 }
 .mainStyle .questionArea{
-    width: 50%;
+    width: 53%;
     margin: auto;
 }
 .mainStyle .questionAreaText{
@@ -1843,6 +1843,7 @@ text-align: left;
 .mainStyle .questionAreaBlock{
     max-width: 90%;
     margin-top: 10px;
+    width: 65%;
 }
 /*информация о пользователе*/
 .mainStyle .userPhotoPosition{
@@ -2056,4 +2057,8 @@ cursor: default;
 /*inputs*/
 .mainStyle .greyInputs input{
     border: 1px solid #838383;
+}
+.mainStyle .textAreaStyle{
+    border: 1px solid #89C9F5;
+    width: 467px;
 }

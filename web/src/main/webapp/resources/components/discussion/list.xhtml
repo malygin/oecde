@@ -23,12 +23,12 @@
                 margin: 1px 1px 0 1px;
             }
         </style>-->
-            <div class="usersOnlineTableContainer">
+            <div class="">
                 <div class="questionArea">
                     <h:form>
                         <p class="questionAreaText">#{msgs.user_questionText}</p>
-                        <h:inputTextarea value="#{DiscussionBean.nodeText}" rows="5" styleClass="leftMenuContainer"/>
-                        <div class="navigationLinks" style="text-align: right;">
+                        <h:inputTextarea value="#{DiscussionBean.nodeText}" rows="5" styleClass="textAreaStyle"/>
+                        <div class="messLinks" style="text-align: right;">
                             <h:commandLink action="#{DiscussionBean.saveNodes}" value="#{msgs.user_sent}"/>
                         </div>
                     </h:form>
@@ -80,7 +80,7 @@
 
                             <h:panelGroup rendered="#{DiscussionBean.renderReply}">
                                 <div class="questionAreaBlock">
-                                    <h:inputTextarea cols="30" rows="5"  value="#{DiscussionBean.nodeTextReply}" styleClass="leftMenuContainer" />
+                                    <h:inputTextarea cols="30" rows="5"  value="#{DiscussionBean.nodeTextReply}" styleClass="textAreaStyle" />
                                     <div class="navigationLinks" style="text-align: right;">
                                         <h:commandLink action="#{DiscussionBean.saveReply}" value="#{msgs.user_sent}">
                                             <f:setPropertyActionListener target="#{DiscussionBean.nodeId}" value="#{node.id}" />

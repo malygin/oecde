@@ -7,7 +7,7 @@
     xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
     xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs"
     xmlns:edu="http://java.sun.com/jsf/composite/components/education"
-    >
+>
 
     <ui:define name="contentHeader">
         #{msgs.student_myMaterials}
@@ -78,14 +78,11 @@
             </div>
          </div>
             <div class="textForPodskazka">
-            <p>Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки
-            Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки</p>
-            <p>Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки
-            Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки Текст подсказки</p>
+             <tabs:singleTab alias="STUDENT_MATERIALS"/>
             </div>
          </div>
 
-            <tabs:singleTab classStyle="fgh" alias="MATERIALS"/>
+           
         <div style="width: 33%; margin-left: 68%">
         <edu:calendareInfo />
         
