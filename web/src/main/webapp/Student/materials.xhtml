@@ -36,7 +36,7 @@
                                 <table style="margin: 10px;">
                                     <tr>
                                         <td>Преподаватель</td>
-                                        <td>
+                                        <td class="linkToTeachersProfile">
                                     <ui:repeat value="#{setToList.getList(m.curriculum.teacherToGroups)}" var="t">    
                                         <a href="teacher.xhtml?id=#{t.teacher.id}"> #{t.teacher.fio}</a>
                                     </ui:repeat>                                
@@ -56,8 +56,8 @@
                                     </tr>
                                 </table>
 
-                                <p>это 100 % - #{m.testsCount*100}<br/>
-                                    а это сколько он набрал #{m.testPoints+m.concludingTestPoints}</p>
+<!--                                <p>это 100 % - #{m.testsCount*100}<br/>
+                                    а это сколько он набрал #{m.testPoints+m.concludingTestPoints}</p>-->
 
                                 <div class="progressBarMaterials">
                                     <h:panelGroup layout="block" rendered="#{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) le 50}" style="background: #FBB35D; height: 12px; width: #{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100)}%;"/>
