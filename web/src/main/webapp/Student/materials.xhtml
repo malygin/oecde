@@ -40,22 +40,29 @@
                         <table style="margin: 10px;">
                             <tr>
                                 <td>Преподаватель</td>
-                                <td></td>
+                                <td> 
+                                    <ui:repeat value="#{setToList.getList(m.curriculum.teacherToGroups)}" var="t">    
+                                       <a href="teacher.xhtml?id=#{t.teacher.id}"> #{t.teacher.fio}</a>
+                                    </ui:repeat>                                
+                                </td>
                             </tr>
                             <tr>
                                 <td>#{msgs.student_finishedTests}</td>
-                                <td><span> #{m.passedTests}</span> #{msgs.student_fromWord} #{m.testsCount}</td>
+                                <td><span> #{m.passedTests}</span> #{msgs.student_fromWord} #{m.testsCount} (<a href="discipline.xhtml?c=#{m.curriculum.id}#toTests">перейти к тестам</a>)</td>
                             </tr>
                             <tr>
                                 <td>#{msgs.student_testResults}</td>
-                                <td><span> #{m.reTestPoints==0?m.testPoints:m.reTestPoints}</span></td>
+                                <td><span> #{m.reTestPoints==0?m.testPoints:m.reTestPoints}</span> баллов (<a href="testResults.xhtml">подробнее</a>)</td>
                             </tr>
                             <tr>
                                 <td>#{msgs.student_mainTest} </td>
-                                <td><span>#{m.concludingReTestPoints==0?m.concludingTestPoints:m.concludingReTestPoints}</span></td>
+                                <td><span>#{m.concludingReTestPoints==0?m.concludingTestPoints:m.concludingReTestPoints}</span> баллов </td>
                             </tr>
                         </table>
-
+                        
+                        это 100 % - #{m.testsCount*100}<br/>
+                        а это сколько он набрал #{m.testPoints+m.concludingTestPoints}
+                       
                         <div class="progressBarMaterials">
                             <div style="background: #FBB35D; height: 12px; width:#{m.passedTests/m.testsCount*100}%;">
                             </div>

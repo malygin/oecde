@@ -33,7 +33,7 @@
                        <h:outputText rendered="#{testBean.accessDenied}" value="Не найден или не доступен" />
                        <h:outputLink value="discipline.xhtml?c=#{testBean.curriculumId}" styleClass="navigationLinks backLinkPosition">назад</h:outputLink><br/>
                         <tests:showPreInfo t="#{testBean.test}" test="#{testBean.test[1].work}" work="#{testBean.test[1]}"/>
-                        <h:commandLink action="#{testBean.startTest}" rendered="#{not testBean.accessDenied}" styleClass="studentButton beginTest">Начать тест!
+                        <h:commandLink action="#{testBean.startTest}" rendered="#{not testBean.accessDenied}" >Начать тест!
                               <f:ajax render="@form" />
                         </h:commandLink>
                     </h:panelGroup>

@@ -4,13 +4,11 @@
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/studentTemplate.xhtml"
     >
-    <ui:define name="contentHeader">
-        #{disciplineBean.discipline.umk.name}
-    </ui:define>
+   
     <ui:define name="content">
         <div class="StudentMainPageTitlesBorders">
             <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
-                <p class="floatLeft mainStudentPageTitles skyBlueText">Автоматизированный офис
+                <p class="floatLeft mainStudentPageTitles skyBlueText">   #{disciplineBean.discipline.umk.name}
                 </p>
                 <div>
                     <div style="width: 32%;" class="backLink greyLinks">

@@ -42,6 +42,7 @@ public class Materials extends StudentCurriculumBean{
     private static final long serialVersionUID = 96L;
 
     public List<AdditionalCurriculum> getStudentsDisciplines(){
+        
         if(advCurriculums==null){
             List<Points>points = gradesService.getStudentGrades(getCurriculums(), student);
             if(CollectionUtils.isEmpty(points))
