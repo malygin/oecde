@@ -107,6 +107,7 @@
     background: #FFA69F;
     border-top: #EF483B 1px solid;
     border-bottom: #EF483B 1px solid;
+    height: 30px;
 }
 .mainStyle .contentHeader p{
     font-size: 150%;

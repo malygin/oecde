@@ -7,92 +7,89 @@
     xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
     xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs"
     xmlns:edu="http://java.sun.com/jsf/composite/components/education"
->
-
-    <ui:define name="contentHeader">
-        #{msgs.student_myMaterials}
-    </ui:define>
+    >
     <ui:define name="content">
         <div class="StudentMainPageTitlesBorders" style="margin-left: 2%; width: 66%; float: left;">
-        
+
             <div>
-            <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
-                <p class="floatLeft mainStudentPageTitles skyBlueText" style="width: 70%; padding: 0;">
-                    Мои изучаемые материалы
-                </p>
-            <f:metadata>
-                <f:viewParam name="s" value="#{materialsBean.semester}"/>
-            </f:metadata>
-                <div style="float: right;">
-                    <est:changeSemester semester="#{materialsBean.semester}" />
-                </div>
-                <div class="floatDestroyer"/>
-            </div>
-            <div class="floatDestroyer"></div>
-
-            <h:dataTable value="#{materialsBean.studentsDisciplines}" var="m" styleClass="leftMenuContainer">
-                <h:column>
-                    <br />
-                <div>
-                    <span class="linkToStudentsProfile studentPaddLeft"><h:outputLink value="discipline.xhtml?c=#{m.curriculum.id}" style=" font-size: 11pt !important;">#{m.curriculum.umk.name}</h:outputLink><br/></span>
-
-                    <div class="materialInfo">
-                        <table style="margin: 10px;">
-                            <tr>
-                                <td>Преподаватель</td>
-                                <td> 
-                                    <ui:repeat value="#{setToList.getList(m.curriculum.teacherToGroups)}" var="t">    
-                                       <a href="teacher.xhtml?id=#{t.teacher.id}"> #{t.teacher.fio}</a>
-                                    </ui:repeat>                                
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#{msgs.student_finishedTests}</td>
-                                <td><span> #{m.passedTests}</span> #{msgs.student_fromWord} #{m.testsCount} (<a href="discipline.xhtml?c=#{m.curriculum.id}#toTests">перейти к тестам</a>)</td>
-                            </tr>
-                            <tr>
-                                <td>#{msgs.student_testResults}</td>
-                                <td><span> #{m.reTestPoints==0?m.testPoints:m.reTestPoints}</span> баллов (<a href="testResults.xhtml">подробнее</a>)</td>
-                            </tr>
-                            <tr>
-                                <td>#{msgs.student_mainTest} </td>
-                                <td><span>#{m.concludingReTestPoints==0?m.concludingTestPoints:m.concludingReTestPoints}</span> баллов </td>
-                            </tr>
-                        </table>
-                        
-                        это 100 % - #{m.testsCount*100}<br/>
-                        а это сколько он набрал #{m.testPoints+m.concludingTestPoints}
-                       
-                        <div class="progressBarMaterials">
-                            <div style="background: #FBB35D; height: 12px; width:#{m.passedTests/m.testsCount*100}%;">
-                            </div>
-                        </div>
+                <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
+                    <p class="floatLeft mainStudentPageTitles skyBlueText" style="width: 70%; padding: 0;">
+                        Мои изучаемые материалы
+                    </p>
+                    <f:metadata>
+                        <f:viewParam name="s" value="#{materialsBean.semester}"/>
+                    </f:metadata>
+                    <div style="float: right;">
+                        <est:changeSemester semester="#{materialsBean.semester}" />
                     </div>
-                    <br />
+                    <div class="floatDestroyer"/>
                 </div>
+                <div class="floatDestroyer"></div>
+
+                <h:dataTable value="#{materialsBean.studentsDisciplines}" var="m" styleClass="leftMenuContainer">
+                    <h:column>
+                        <br />
+                        <div>
+                            <span class="linkToStudentsProfile studentPaddLeft"><h:outputLink value="discipline.xhtml?c=#{m.curriculum.id}" style=" font-size: 11pt !important;">#{m.curriculum.umk.name}</h:outputLink><br/></span>
+
+                            <div class="materialInfo">
+                                <table style="margin: 10px;">
+                                    <tr>
+                                        <td>Преподаватель</td>
+                                        <td>
+                                    <ui:repeat value="#{setToList.getList(m.curriculum.teacherToGroups)}" var="t">    
+                                        <a href="teacher.xhtml?id=#{t.teacher.id}"> #{t.teacher.fio}</a>
+                                    </ui:repeat>                                
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#{msgs.student_finishedTests}</td>
+                                        <td><span> #{m.passedTests}</span> #{msgs.student_fromWord} #{m.testsCount} (<a href="discipline.xhtml?c=#{m.curriculum.id}#toTests">перейти к тестам</a>)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#{msgs.student_testResults}</td>
+                                        <td><span> #{m.reTestPoints==0?m.testPoints:m.reTestPoints}</span> баллов (<a href="testResults.xhtml">подробнее</a>)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#{msgs.student_mainTest} </td>
+                                        <td><span>#{m.concludingReTestPoints==0?m.concludingTestPoints:m.concludingReTestPoints}</span> баллов </td>
+                                    </tr>
+                                </table>
+
+                                <p>это 100 % - #{m.testsCount*100}<br/>
+                                    а это сколько он набрал #{m.testPoints+m.concludingTestPoints}</p>
+
+                                <div class="progressBarMaterials">
+                                    <h:panelGroup layout="block" rendered="#{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) le 50}" style="background: #FBB35D; height: 12px; width: #{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100)}%;"/>
+                                    <h:panelGroup layout="block" rendered="#{((m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) gt 50) and ((m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) le 90)}" style="background: #0981bd; height: 12px; width: #{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100)}%;"/>
+                                    <h:panelGroup layout="block" rendered="#{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) gt 90}" style="background: #5bbf5d; height: 12px; width: #{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100)}%;"/>
+                                </div>
+                            </div>
+                            <br />
+                        </div>
                     </h:column>
-            </h:dataTable>
-           
-        </div>
+                </h:dataTable>
+
+            </div>
         </div>
 
 
         <div class="StudentMainPageTitlesBorders" style="width: 28%; margin-left: 70%">
 
-        <div class="interfaceContentForMyMarks">
-            <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
-            Подсказка
+            <div class="interfaceContentForMyMarks">
+                <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
+                    Подсказка
+                </div>
             </div>
-         </div>
             <div class="textForPodskazka">
-             <tabs:singleTab alias="STUDENT_MATERIALS"/>
+                <tabs:singleTab alias="STUDENT_MATERIALS"/>
             </div>
-         </div>
+        </div>
 
-           
+
         <div style="width: 33%; margin-left: 68%">
-        <edu:calendareInfo />
-        
+            <edu:calendareInfo />
+
         </div>
     </ui:define>
 </ui:composition>
