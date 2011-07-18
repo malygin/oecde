@@ -29,6 +29,7 @@ public class DateConverter implements Converter, Serializable {
 
   
     {
+        
           dateNow=org.sgu.oecde.core.util.DateConverter.convert(System.currentTimeMillis()).split(" ");
            Calendar cal = Calendar.getInstance();
            cal.add(Calendar.DATE, -1);

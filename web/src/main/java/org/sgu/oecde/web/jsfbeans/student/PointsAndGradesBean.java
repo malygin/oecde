@@ -18,6 +18,8 @@ public class PointsAndGradesBean extends StudentCurriculumBean{
     private GradesService gradesService;
 
     private List<PointsFacade>points;
+   
+    private PointsFacade currentsFacade=null;     
 
     private static final long serialVersionUID = 97L;
 
@@ -31,4 +33,14 @@ public class PointsAndGradesBean extends StudentCurriculumBean{
     public void setGradesService(GradesService gradesService) {
         this.gradesService = gradesService;
     }
+
+    public PointsFacade getCurrentsFacade() {
+        return currentsFacade;
+    }
+
+    public void setCurrentsFacade(PointsFacade currentsFacade) {
+        this.currentsFacade = currentsFacade;
+    }
+    
+    
 }

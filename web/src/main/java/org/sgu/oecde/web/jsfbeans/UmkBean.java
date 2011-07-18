@@ -201,13 +201,13 @@ public class UmkBean implements Serializable {
         this.tasks = tasks;
     }
 
-    public List<SelectItem> getModules() {
-        modules=new ArrayList<SelectItem>();
-         for(Module m:currentUmk.getModules()){
-             modules.add(new SelectItem(m, m.getName()));
-          }
+    public List<Module> getModules() {
+//        modules=new ArrayList<SelectItem>();
+//         for(Module m:currentUmk.getModules()){
+//             modules.add(new SelectItem(m, m.getName()));
+//          }
 
-        return modules;
+        return currentUmk.getModules();
     }
 
  public ResourceService getResourceService() {

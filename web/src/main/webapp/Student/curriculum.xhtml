@@ -39,21 +39,20 @@
                         </f:facet>
 
                         <h:panelGroup rendered="#{m.gotControlWork}">
-                            <div align="center" style="text-align: center !important;">
-                                <img style="display: inline;" src="../resources/images/discipline_summ.gif"/>
-                            </div>
+                            #{m.numberControlWork}
+                          
                         </h:panelGroup>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="#{msgs.student_eduMenuCoursework}" />
-                        </f:facet>
-                        <h:outputText rendered="#{m.termPapersNumber == 0}"> 
+                        </f:facet>                  
+                        <h:panelGroup rendered="#{m.termPapersNumber eq 1}">                  
                             <div align="center" style="text-align: center !important;">
                                 <img style="display: inline;" src="../resources/images/discipline_summ.gif"/>
 
                             </div>
-                        </h:outputText>
+                        </h:panelGroup>
                     </h:column>
                     <h:column>
                         <f:facet name="header">

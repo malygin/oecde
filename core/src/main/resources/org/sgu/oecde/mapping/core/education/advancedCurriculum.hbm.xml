@@ -3,6 +3,7 @@
 <hibernate-mapping schema="oecdo_test">
   <subclass discriminator-value="ADV" extends="org.sgu.oecde.core.education.Curriculum" name="org.sgu.oecde.core.education.AdvancedCurriculum">
     <property column="control_work" insert="false" name="gotControlWork" scale="1" type="true_false"/>
+    <property column="control_works_number" insert="false"  name="numberControlWork" scale="2" type="integer" update="false"/>    
     <many-to-one class="org.sgu.oecde.core.education.Discipline" fetch="join" foreign-key="fk_advanced_curriculum_discipline" insert="false" name="discipline" not-null="true" update="false"/>
     <many-to-one class="org.sgu.oecde.core.education.Speciality" fetch="select" foreign-key="fk_advanced_curriculum_speciality" insert="false" lazy="no-proxy" name="speciality" not-null="true" update="false"/>
   </subclass>

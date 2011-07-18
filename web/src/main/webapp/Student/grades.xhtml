@@ -4,37 +4,24 @@
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/studentTemplate.xhtml"
     xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
+     <f:metadata>
+                <f:viewParam name="s" value="#{gradesBean.semester}"/>
+     </f:metadata>
     <ui:define name="contentHeader">
         #{msgs.student_grades}
     </ui:define>
     <ui:define name="content">
-
         <div class="StudentMainPageTitlesBorders" style="height: 100%;">
         <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
                     Мои оценки
-            <f:metadata>
-                <f:viewParam name="s" value="#{materialsBean.semester}"/>
-            </f:metadata>
+           
                 <div style="float: right;">
-                    <est:changeSemester semester="#{materialsBean.semester}" />
+                    <est:changeSemester semester="#{gradesBean.semester}" />
                 </div>
                 <div class="floatDestroyer"/>
-            </div>
-            
-
-            
-            <f:metadata>
-                <f:viewParam name="s" value="#{gradesBean.semester}"/>
-            </f:metadata>
-            <!--<div class="changeSemWithoutBorder">
-                <est:changeSemester semester="#{gradesBean.semester}"/>
-            </div>
-            <div  class="controlWorksDisciplineNameLink helpLink">
-                <a href="#help" class="help_part_href">#{msgs.student_marksHelp}</a>
-            </div>-->
-
-
-
+            </div>                        
+         
+            <h:form>
             <table class="MyGradesBigTable">
                 <tr>
                     <td><p  class="lightGreyText">Выберите дисциплину:</p></td>
@@ -42,152 +29,72 @@
                 </tr>
                 <tr>
                     <td>
-                        <h:dataTable  value="#{gradesBean.points}"
-                                      var="p"  cellpadding="0" cellspacing="0" styleClass="TableForGrades">
-
+                        <h:dataTable  value="#{gradesBean.points}" var="p"  cellpadding="0" cellspacing="0" styleClass="TableForGrades">
                             <h:column>
-
-                                <span class="greyLinks"><h:outputLink value="umk.xhtml?c=#{p.points.curriculum.id} ">#{p.points.curriculum.discipline.name}</h:outputLink></span>
+                                <span class="greyLinks">
+                                    <h:commandLink   value="#{p.points.curriculum.discipline.name}">
+                                         <f:setPropertyActionListener target="#{gradesBean.currentsFacade}" value="#{p}" />
+                                         <f:ajax  render="@form"/>
+                                   </h:commandLink>
+                                </span>
                             </h:column>
                             <h:column>
-                              <span><h:outputText converter="enumConverter" value="#{p.grade}"/></span>
+                                <span><h:outputText converter="enumConverter" value="#{p.grade}"/></span>
                             </h:column>
                         </h:dataTable>
                 </td>
                 <td>
-                    <p class="GreenLinkToDisciplineOpen"><a href="#">Дисциплина</a></p>
+                <h:panelGroup id="gradeInfo" rendered="#{gradesBean.currentsFacade!=null}" >
+                    <p class="GreenLinkToDisciplineOpen"><h:outputLink value="umk.xhtml?c=#{gradesBean.currentsFacade.points.curriculum.id}">#{gradesBean.currentsFacade.points.curriculum.discipline.name}</h:outputLink></p>
                     <table class="GradesDiskription">
                         <tr>
                             <td>Преподаватель:</td>
-                            <td></td>
+                            <td>
+                                 <ui:repeat value="#{setToList.getList(gradesBean.currentsFacade.points.curriculum.teacherToGroups)}" var="t">    
+                                            <a href="teacher.xhtml?id=#{t.teacher.id}"> #{t.teacher.fio}</a>
+                                </ui:repeat>                                 
+                            </td>
                         </tr>
                         <tr>
                             <td>Тесты:</td>
-                            <td></td>
+                            <td> #{gradesBean.currentsFacade.test} <span style="color:#808080;">(#{gradesBean.currentsFacade.testsMaxPoints})</span></td>
                         </tr>
                         <tr>
                             <td>Переэкзаменовка:</td>
-                            <td></td>
+                            <td>#{gradesBean.currentsFacade.reTest} </td>
                         </tr>
                         <tr>
                             <td>Итоговые тесты:</td>
-                            <td></td>
+                            <td>#{gradesBean.currentsFacade.concludingTest} <span style="color:#808080;">(#{gradesBean.currentsFacade.concludingTestsMaxPoints})</span></td>
                         </tr>
                         <tr>
                             <td>Переэкзаменовка:</td>
-                            <td></td>
+                            <td>#{gradesBean.currentsFacade.concludingReTest}</td>
                         </tr>
                         <tr>
                             <td>Самостоятельные работы:</td>
-                            <td></td>
+                            <td>#{gradesBean.currentsFacade.controlWorkPoints}</td>
                         </tr>
                         <tr>
                             <td>Контрольная работа:</td>
-                            <td></td>
+                            <td><h:outputText converter="enumConverter" value="#{gradesBean.currentsFacade.controlWorkValue}"/></td>
                         </tr>
                         <tr>
-                            <td>Активность:</td>
-                            <td></td>
+                            <td>Сумма:</td>
+                            <td>#{gradesBean.currentsFacade.points.sum}</td>
                         </tr>
                         <tr>
                             <td>Итоговая оценка:</td>
-                            <td></td>
+                            <td><h:outputText converter="enumConverter" value="#{gradesBean.currentsFacade.grade}"/></td>
                         </tr>
                     </table>
+                </h:panelGroup>
                 </td>
                 </tr>
             </table>
-
-            
-
+         </h:form>  
             </div>
 
 
-
-            <!--<h:dataTable  value="#{gradesBean.points}"
-                         columnClasses="studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableTdFirstWidth,
-                         studentStandatrTableTd studentStandatrTableTdWithBorderBrighter linkToTeachersProfileFromStudent studentStandatrTableCenter student_gradesTableHeadTeacherWidth,
-                         studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter,
-                         studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter,
-                         studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter,
-                         studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter,
-                         studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter,
-                         studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter,
-                         studentStandatrTableTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter,
-                         studentStandatrTableTdLastTd studentStandatrTableTdWithBorderBrighter studentStandatrTableCenter" var="p" styleClass=" StudentTablePadding studentStandatrTable " cellpadding="0" cellspacing="0" style="margin: 0px;">
-
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
-                    </f:facet>
-                    <span class="controlWorksDisciplineName studentStandatrTableCenter controlWorksDisciplineNameLink"><h:outputLink value="umk.xhtml?c=#{p.points.curriculum.id} ">#{p.points.curriculum.discipline.name}</h:outputLink></span>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:graphicImage value='../resources/images/teacherTable.png'/>
-                    </f:facet>
-                        <span class="linkToTeachersProfile studentStandatrTableCenter" style="background: none; padding: 0;"><h:outputLink value="teacher.xhtml?id=${p.teacher.id}">#{p.teacher.initials}</h:outputLink></span>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:graphicImage value='../resources/images/testTable.png'/>
-                    </f:facet>
-                    #{p.test} <span style="color:#808080;">(#{p.testsMaxPoints})</span>
-                </h:column>
-
-                <h:column>
-                    <f:facet name="header">
-                       <h:graphicImage value='../resources/images/reexTable.png'/>
-                    </f:facet>
-                    #{p.reTest}
-                </h:column>
-
-                <h:column>
-                    <f:facet name="header">
-                       <h:graphicImage value='../resources/images/resultTestsTable.png'/>
-                    </f:facet>
-                   #{p.concludingTest} <span style="color:#808080;">(#{p.concludingTestsMaxPoints})</span>
-                </h:column>
-
-                <h:column>
-                    <f:facet name="header">
-                       <h:graphicImage value='../resources/images/resultTestExam.png'/>
-                    </f:facet>
-                    #{p.concludingReTest}
-                </h:column>
-
-                <h:column>
-                    <f:facet name="header">
-                        <h:graphicImage value='../resources/images/contrMarksTable.png'/>
-                    </f:facet>
-                    #{p.controlWorkPoints}
-                </h:column>
-
-                <h:column>
-                    <f:facet name="header">
-                        <h:graphicImage value='../resources/images/contrWorksTable.png'/>
-                    </f:facet>
-                    <h:outputText converter="enumConverter" value="#{p.controlWorkValue}"/>
-                </h:column>
-
-                <h:column>
-                    <f:facet name="header">
-                       <h:graphicImage value='../resources/images/summTable.png'/>
-                    </f:facet>
-                    #{p.points.sum}
-                </h:column>
-
-                <h:column>
-                    <f:facet name="header">
-                       <h:graphicImage value='../resources/images/resultTable.png'/>
-                    </f:facet>
-                    <h:outputText converter="enumConverter" value="#{p.grade}"/>
-                </h:column>
-            </h:dataTable>
-            </div>
-            <div class="prosto_tekst">
-                <a name="help"></a>
-                <p class="help_part">#{msgs.student_marksHelps}</p>
-                <p class="comment">Текст подсказки по этому разделу</p>-->
     </ui:define>
 </ui:composition>

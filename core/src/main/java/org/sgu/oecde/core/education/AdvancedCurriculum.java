@@ -23,6 +23,13 @@ public class AdvancedCurriculum extends Curriculum{
      * есть ли контрольные рабоы
      */
     private Boolean gotControlWork;
+    
+    /*
+     * количество контрольных работ 
+     */
+    
+    private int numberControlWork;
+    
     private static final long serialVersionUID = 46L;
 
     public AdvancedCurriculum() {
@@ -76,6 +83,16 @@ public class AdvancedCurriculum extends Curriculum{
     public void setSpeciality(Speciality speciality) {
         this.speciality = speciality;
     }
+
+    public int getNumberControlWork() {
+        return numberControlWork;
+    }
+
+    public void setNumberControlWork(int numberControlWork) {
+        this.numberControlWork = numberControlWork;
+    }
+    
+    
 
     @Override
     public String toString() {
