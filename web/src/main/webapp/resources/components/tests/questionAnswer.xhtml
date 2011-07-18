@@ -14,16 +14,11 @@
     <!-- IMPLEMENTATION -->
 
     <composite:implementation>
-        <table>
-            <tr>
-                <td style="vertical-align: top;">
-        <div class="testQuestionBlock">  #{msgs.student_TestQuestionNumberQ} #{testPassingBean.iterQ+1}</div>
-                </td>
-                <td>
-        <div style="margin-top: 10px;"><h:outputText id="qTitle" title="qTitle" styleClass="qTitle" escape="false" value="#{testPassingBean.questionTitle}" /></div>
-                </td>
-            </tr>
-        </table>
+  
+      
+              
+        <div style="margin-top: 10px; margin-left: 25px; text-align: left;"><span class="Ipsilon_Web_GreenText">#{testPassingBean.iterQ+1}.</span> <h:outputText id="qTitle" title="qTitle" styleClass="qTitle" escape="false" value="#{testPassingBean.questionTitle}" /></div>
+               
               <h:panelGroup  id="radioType" rendered="#{cc.attrs.question.type=='radio'}" styleClass="educ_umk_text_block">
                  <h:selectOneRadio   converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}" styleClass="testSelectPadding" style="margin-top: 10px;">
                      <f:selectItems   value="#{testPassingBean.answers}" />
@@ -69,17 +64,18 @@
                   </div>
 
              </h:panelGroup>
-
-             <h:commandButton value="#{msgs.student_TestNext}" action="#{testPassingBean.next}" styleClass="studentButton testButtons">
-                 <f:ajax render="@form"/>
-             </h:commandButton>
-
-             <h:commandButton value="#{msgs.student_Testanswer}" action="#{testPassingBean.answer}" styleClass="studentButton testButtons">
+        <div class="floatDestroyer"/>
+        <div class="testsMargins">
+            <h:commandButton value="#{msgs.student_Testanswer}" action="#{testPassingBean.answer}" styleClass="studentButton testButtons" style="float: none;">
                   <f:ajax execute="@form" render="@form"/>
              </h:commandButton>
 
-             <h:commandButton id="completeTest" onclick="removeCounter();" value="#{msgs.student_TestCompleted}" action="#{testPassingBean.completeTest}" styleClass="studentButtonRed testButtons">
+            <h:commandButton value="пропустить" action="#{testPassingBean.next}" styleClass="studentButton testButtons" style="float: none;">
                  <f:ajax render="@form"/>
              </h:commandButton>
+              <h:commandButton id="completeTest" onclick="removeCounter();" value="#{msgs.student_TestCompleted}" action="#{testPassingBean.completeTest}" styleClass="studentButton testButtons" style="float: none; width: 100px;">
+                 <f:ajax render="@form"/>
+             </h:commandButton>
+</div>
     </composite:implementation>
 </html>

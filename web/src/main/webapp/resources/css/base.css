@@ -402,22 +402,17 @@
 }
 /*тесты для студентов*/
 .mainStyle .StudentTestStartPages td:nth-child(1){
-    color: gray !important;
-}
-.mainStyle .StudentTestStartPages td:nth-child(2){
-    color: #373E3F !important;
-    font-weight: bolder !important;
-    text-indent: 3px;
+     width: 200px;
 }
 .mainStyle .TestCounter {
     color: #EF5D0E;
     font-size: 11pt;
     font-weight: bold;
     margin-top: 10px;
-    margin-right: 25px;
-    padding: 5px;
+    margin-right: 50px;
     text-align: center;
     width: 50px;
+    margin-left: 10px;
 }
 .StudentTestsPadding{
     padding-left: 10px;
@@ -438,7 +433,6 @@
     margin-left: 100px;
     margin-bottom: 10px;
     width: 80%;
-    border-bottom: 1px solid #E3F1FC;
 }
 .mainStyle .testSelectPadding iframe{
     /*     border-bottom: 1px solid #E3F1FC;
@@ -447,9 +441,6 @@
     margin-bottom: 5px;
     margin-top: 5px;
 
-}
-.mainStyle .testSelectPadding td{
-    border-top: 1px solid #E3F1FC;
 }
 .mainStyle .testButtons{
     margin: 8px;
@@ -528,7 +519,7 @@ not all and (-webkit-min-device-pixel-ratio:0) {
     margin-top: 10px;
     padding: 1px 2px;
     background: #f0f0f0;
-    height: 16px;
+  height: 23px;
     border: 1px solid #838383;
     float: right;
     -moz-border-radius: 4px;
@@ -537,7 +528,7 @@ not all and (-webkit-min-device-pixel-ratio:0) {
     color: #838383;
     font-size: 9pt;
     text-decoration: none !important;
-    font-weight: normal;
+    font-weight: bold;
 }
 .mainStyle .studentButtonRed{
     background: url('../resources/images/pic_for_Button_Red.jpg');
@@ -949,7 +940,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .smallChatTools button{
     background: #f0f0f0;
     width: 24px;
-    height: 18px;
+   height: 23px;
     border: 1px solid #929292;
     float: right;
     -moz-border-radius: 4px;
@@ -1752,10 +1743,11 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 
 .mainStyle #counter{
     color: #EF5D0E;
+    font-size: 15pt;
 }
 .mainStyle .progressBarMaterials{
     border: 1px solid #D6D8D8;
-    width: 50%;
+    width: 85%;
     height: 12px;
 }
 .mainStyle #progressbar{
@@ -1768,6 +1760,15 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     margin-top: 20px;
 
 }
+.mainStyle .testsMargins{
+    text-align: left;
+    margin-left: 25px;
+    margin-bottom: 15px;
+}
+.mainStyle .testButtons{
+     margin: 8px;
+     width: 80px;
+ }
 /*.mainStyle .toTestLink{
     color: #27587F;
     font-family: Arial;
@@ -1869,7 +1870,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .changePasswordButtonSaveAdminPosition{
     margin-right: 0;
     margin-top: 10px;
-    width: 100px;
+    width: 90px;
 }
 .mainStyle .changePasswordMessStyle{
     color: red;

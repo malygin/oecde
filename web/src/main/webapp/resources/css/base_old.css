@@ -80,6 +80,7 @@
 
 .mainStyle .contentHeader{
     width: 100%;
+     height: 30px;
     background: #79CEFF;
     border-top: #0E96FF 1px solid;
     border-bottom: #0E96FF 1px solid;

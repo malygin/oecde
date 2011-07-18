@@ -150,11 +150,9 @@
 }
 .mainStyle .testItemsDiv{
     text-align: left;
-    width: 50%;
-    position: relative;
-    left: 35%;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 25px;
 }
 .mainStyle .beginTest{
     display: block;

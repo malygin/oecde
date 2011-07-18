@@ -29,9 +29,9 @@
                         <table cellpadding="2" cellspacing="2" class="${o[1].progress} controlWorksBorders leftMenuContainer">
                             <tr>
                                 <td valign="top" class="columnNames" style="text-align: justify;">#{msgs.student_DiciplineName}: </td>
-                                <td valign="top" class="controlWorksDisciplineNameLink studentPaddLeft" style="width: 25%;">
+                                <td valign="top" class="linkToStudentsProfile studentPaddLeft" style="width: 25%;">
                                     <h:outputLink value="umk.xhtml?c=${o[0].id}">${o[0].discipline.name}</h:outputLink></td>
-                        <td valign="top" class="controlWorksDisciplineNameLink">
+                        <td valign="top" class="linkToStudentsProfile">
                                 <h:commandLink id="updt" value="#{msgs.student_ChooseControlWork}" style="padding-left: 17px;">
                                     <f:attribute value="#{o[1]}" name="cw"/>
                                     <f:ajax execute="@form" render="@form" event="click" listener="#{controlWorksBean.setCw}"/>
