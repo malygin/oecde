@@ -11,9 +11,9 @@
         </div>-->
  <div class="StudentMainPageTitlesBorders">
       <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
-                <p class="floatLeft mainStudentPageTitles skyBlueText">   #{disciplineBean.discipline.umk.name}
+          <p class="floatLeft mainStudentPageTitles skyBlueText" style="max-width: 66%;">   #{disciplineBean.discipline.umk.name}
                 </p>
-                <div>
+                <div style="vertical-align: top;">
                     <div style="width: 32%;" class="backLink greyLinks">
                         <div style="float: left;"><a href="materials.xhtml" style="margin-right: 10px;">вернуться к изучаемым материалам</a></div>
                         <div><a href="#toTests">#{msgs.student_ToTests}</a></div>
@@ -30,7 +30,7 @@
                 <div class="studentInterfaceStandartList">
                    <div class="mainStudentPageTitles skyBlueText" style="font-weight: normal;font-size: 11pt;">#{m.name}</div>
                     <ui:repeat value="#{m.resources}" var="r" varStatus="i">
-                        <div class="navigationLinks" style="margin-left: 20px;">
+                        <div class="greyLinks" style="margin-left: 20px;">
                             <span>#{i.index+1}</span> <a href="exbook.xhtml?cId=#{disciplineBean.curriculumId}&amp;mId=#{m.id}&amp;tId=#{r.id}" style="text-decoration: none;">#{r.title}</a>
                         </div>
                     </ui:repeat>

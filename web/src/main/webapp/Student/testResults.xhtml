@@ -14,7 +14,13 @@
     </ui:define>
 
     <ui:define name="content">
+        <script type="text/javascript">
+            $(document).ready(function(){
+                toHidElements(".hiddenTestsResults")
+            });
 
+
+        </script>
 
         <div class="StudentMainPageTitlesBorders">
             <f:metadata>
@@ -27,75 +33,124 @@
                     Мои результаты тестов
                 </p>
                 <div style="float: right;">
-                    <est:changeSemester semester="#{controlWorksBean.semester}"/>
+                    <h:outputText rendered="#{testResultsBean.semester == 0 and !testResultsBean.reExame}" value="#{msgs.student_eduMenuTestsResults}"/>
+        <h:outputText rendered="#{testResultsBean.semester == 0 and testResultsBean.reExame}" value="#{msgs.student_eduMenuReexamination}"/>
+        <h:outputText rendered="#{testResultsBean.semester == 1 and !testResultsBean.reExame}" value="#{msgs.student_eduMenuWinterTestsResults}"/>
+        <h:outputText rendered="#{testResultsBean.semester == 1 and testResultsBean.reExame}" value="#{msgs.student_eduMenuWinterReexamination}"/>
+                    <h:outputLink rendered="#{testResultsBean.semester == 0 and !testResultsBean.reExame}" value="#{msgs.student_eduMenuTestsResults}"></h:outputLink>
+                    <h:outputLink rendered="#{testResultsBean.semester == 0 and testResultsBean.reExame}" value="#{msgs.student_eduMenuReexamination}"></h:outputLink>
+                    <h:outputLink rendered="#{testResultsBean.semester == 1 and !testResultsBean.reExame}" value="#{msgs.student_eduMenuWinterTestsResults}"></h:outputLink>
+
+<!--                    <a href="#">#{msgs.student_TestReexamin}</a>-->
+<!--                    <est:changeSemester semester="#{controlWorksBean.semester}"/>-->
                 </div>
                 <div class="floatDestroyer"/>
             </div>
-            <div>
-                <h:dataTable value="#{testResultsBean.attempts}" cellpadding="0" cellspacing="0"
-                             columnClasses="studentStandatrTableTd,
-                             studentStandatrTableExamin studentStandatrTableTd,
-                             studentStandatrTableExamin studentStandatrTableSubtableTd,
-                             studentStandatrTableExamin studentStandatrTableTd,
-                             studentStandatrTableExamin studentStandatrTableTdLastTd" styleClass="studentStandatrTable leftMenuContainer"  var="r">
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="#{msgs.student_testResultName}" />
-                        </f:facet>
-                        <span class="controlWorksDisciplineName workTitle">#{r.work.title}</span>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="#{msgs.student_testResultAttempt}" />
-                        </f:facet>
-                        #{testResultsBean.reExame?r.reExameAttemptsUsedNumber:r.estimateAttemptsUsedNumber} #{msgs.student_fromWord}
-                        #{testResultsBean.reExame?
-                          ((r.work.type eq 'concluding')?testResultsBean.concludingAttemtpsCount:testResultsBean.regularAttemtpsCount)
-                          :r.work.estimateAttemptsNumber}
-                    </h:column>
+            <div class="studentPaddLeft" style="padding-top: 10px;">
+                <table class="testResultsTable">
+                    <tr>
+                        <td><p class="lightGreyText">Выберите дисциплину</p>
+                        </td>
+                        <td><p class="lightGreyText">Пройдено тестов</p>
+                        </td>
+                        <td><p class="lightGreyText">Общий балл</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                    <h:dataTable value="#{materialsBean.studentsDisciplines}" var="m" styleClass="leftMenuContainer" style="width: 100%;">
+                        <h:column>
+                            <div>
+                                <br/>
+                                <h:outputText value="#{m.curriculum.umk.name}" styleClass="clickToHid">#{m.curriculum.umk.name}</h:outputText>
+                                <br/>
+                                <h:dataTable value="#{testResultsBean.attempts}" cellpadding="0" cellspacing="0"
+                                             columnClasses="studentStandatrTableTd,
+                                             studentStandatrTableTd studentStandatrTableExamin,
+                                             studentStandatrTableTd studentStandatrTableExamin,
+                                             studentStandatrTableTd studentStandatrTableExamin,
+                                             studentStandatrTableTd studentStandatrTableExamin,
+                                             studentStandatrTableTdLastTd studentStandatrTableExamin" styleClass="studentStandatrTable leftMenuContainer hiddenTestsResults" style="display: none;" var="r">
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{msgs.student_testResultName}" />
+                                        </f:facet>
+                                        <span class="controlWorksDisciplineName workTitle">#{r.work.title}</span>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{msgs.student_testResultAttempt}" />
+                                        </f:facet>
+                                        #{testResultsBean.reExame?r.reExameAttemptsUsedNumber:r.estimateAttemptsUsedNumber} #{msgs.student_fromWord}
+                                        #{testResultsBean.reExame?
+                                          ((r.work.type eq 'concluding')?testResultsBean.concludingAttemtpsCount:testResultsBean.regularAttemtpsCount)
+                                          :r.work.estimateAttemptsNumber}
+                                    </h:column>
 
-                    <h:column>
-                        <h:dataTable value="#{r.results}"
-                                     headerClass=" studentTabInStandartTableTh"
-                                     columnClasses="studentStandatrTableExamin studentTabInStandartTableLeftTd, studentTabInStandartTableRightTd"
-                                     styleClass="studentStandatrTableExamin studentTabInStandartTable" cellpadding="0" cellspacing="0" var="a" id="rowId">
-                            <h:column>
-                                <f:facet name="header">
-                                    <div class="studentStandatrTableExamin studentTabInStandartTableThContainer">
-                                        <h:outputText value="#{msgs.student_testResultCorrectAnswers}" />
-                                    </div>
-                                </f:facet>
-                                #{a.rightAnswers} #{msgs.student_fromWord} #{r.work.quantity}
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">
-                                    <div class="studentStandatrTableExamin studentTabInStandartTableThContainer" style="border: 0px;">
-                                        <h:outputText value="#{msgs.student_testResultDate}" />
-                                    </div>
-                                </f:facet>
-                                <h:outputText converter="dateConverter" value="#{a.date}"/>
-                            </h:column>
-                        </h:dataTable>
-                    </h:column>
+                                   
+                                    <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="#{msgs.student_testResultDate}" />
+                                        </f:facet>
 
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="#{msgs.student_testResultResult}" />
-                        </f:facet>
-                        <h:panelGroup  rendered="#{r.pointsForWork>80}" styleClass="testResultMarkNotNull">
-                            #{r.pointsForWork}
-                        </h:panelGroup>
-                        <h:panelGroup rendered="#{r.pointsForWork&lt;80}" styleClass="testResultMarkNull">
-                            #{r.pointsForWork}
-                        </h:panelGroup>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="#{msgs.student_testResultEstimationMethod}" />
-                        </f:facet>
-                        <h:outputText converter="enumConverter" value="#{r.work.estimation}" />
-                    </h:column>
-                </h:dataTable>
+                                        <ui:repeat value="#{r.results}" var="a">
+                                            <table class="hiddenTestsResultsInnerTable" style="width: 100%;">
+                                                <tr>
+                                                    <td>
+                                                <h:outputText converter="dateConverter" value="#{a.date}"/>
+                                                </td>
+                                                </tr>
+                                            </table>
+                                        </ui:repeat>
+
+                                    </h:column>
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="#{msgs.student_testResultCorrectAnswers}" />
+                                        </f:facet>
+                                        <h:column>
+                                            <ui:repeat value="#{r.results}" var="a">
+                                                <table class="hiddenTestsResultsInnerTable" style="width: 100%;">
+                                                    <tr>
+                                                        <td>
+                                                            #{a.rightAnswers} #{msgs.student_fromWord} #{r.work.quantity}
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </ui:repeat>
+
+                                        </h:column>
+                                    </h:column>
+                                     <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{msgs.student_testResultEstimationMethod}" />
+                                        </f:facet>
+                                        <h:outputText converter="enumConverter" value="#{r.work.estimation}" />
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{msgs.student_testResultResult}" />
+                                        </f:facet>
+                                        <h:panelGroup  rendered="#{r.pointsForWork&gt;80}" styleClass="testResultMarkNotNull">
+                                            #{r.pointsForWork}
+                                        </h:panelGroup>
+                                        <h:panelGroup rendered="#{r.pointsForWork&lt;80}" styleClass="testResultMarkNull">
+                                            #{r.pointsForWork}
+                                        </h:panelGroup>
+                                    </h:column>
+                                   
+                                </h:dataTable>
+                            </div>
+                        </h:column>
+                    </h:dataTable>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    </tr>
+                </table>
+
             </div>
         </div>
     </ui:define>

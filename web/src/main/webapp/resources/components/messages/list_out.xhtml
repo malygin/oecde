@@ -7,7 +7,8 @@
       xmlns:r="http://java.sun.com/jsp/jstl/core"
       xmlns:cm="http://java.sun.com/jsf/composite/components/messages"
       xmlns:ut="http://java.sun.com/jsf/composite/components/util"
-      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 
     <!-- INTERFACE -->
     <composite:interface>
@@ -16,67 +17,67 @@
 
     <!-- IMPLEMENTATION -->
     <composite:implementation>
-         <h:panelGroup rendered="#{empty cc.attrs.list}" styleClass="DisciplineText">
-          <span class="MessNothing">#{msgs.message_messNone}</span>
+        <h:panelGroup rendered="#{empty cc.attrs.list}" styleClass="DisciplineText">
+            <span class="MessNothing">#{msgs.message_messNone}</span>
         </h:panelGroup>
-        <h:dataTable value="#{cc.attrs.list}"  var="message"  style="width:100%;">
+        <h:dataTable value="#{cc.attrs.list}"  var="message"  style="width:98%;">
             <h:column>
-            <h:form id="formList">
-                <div class="messContentBlock">
-                    <div style="float:left; margin-right: 20px;">
-                       
-                    </div>
-                    <div style="height: 100%;">
-                        <div>
-                            <table style="width: 100%;">
-                                <tr>                                 
-                                    <td>
-                                        <h:dataTable value="#{message.message.recipients}" var="rec" styleClass="leftMenuContainer"
-                                                     columnClasses="outMessStudFirstTd,
-                                                     outMessStudSecTd">
-                                            <h:column>
-                                               <ut:showPhoto user="#{rec.recipient}" styleClass="#{rec.recipient.classType}" size="small"/>
-                                            </h:column>
-                                            <h:column>
-                                               <div class="linkTo#{rec.recipient.classType}sProfile"> <span class="greyMess">
-                                                #{msgs.message_forWhom}
-                                            </span><a href="#{fn:toLowerCase(message.message.author.classType)}.xhtml?id=#{rec.recipient.id}"><h:outputText value="#{rec.fioAuthor}"/></a> <h:panelGroup rendered="#{message.readed}"><span style="padding-left: 20px;" class="DisciplineText">#{msgs.messade_Read}</span></h:panelGroup>
-                                                <div class="chatPostDate" style="font-size: 8pt;position: relative;">
-                                                     <h:outputText converter="dateConverter" value="#{message.message.dateMessage}"/>
-                                                </div></div>
-                                               <div>
+                <h:form id="formList">
+                    <ui:repeat  value="#{message.message.recipients}" var="rec">
+                        <div class="messContentBlock">
+                            <div  class="messContentBlockPhotoBlock">
+                                <ut:showPhoto user="#{rec.recipient}" styleClass="#{rec.recipient.classType}" size="small"/>
+                            </div>
+                            <div style="height: 30px;">
+                                <div style="float: left; margin-right: 30px; margin-top: -3px;">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <span class="greyMess">
+                                                    #{msgs.message_forWhom}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <div class="linkTo#{rec.recipient.classType}sProfile">
+                                                    <a href="#{fn:toLowerCase(message.message.author.classType)}.xhtml?id=#{rec.recipient.id}"><h:outputText value="#{rec.fioAuthor}"/></a>
+                                                    <h:panelGroup rendered="#{message.readed}"><span style="padding-left: 20px;" class="sideBarTitle">#{msgs.messade_Read}</span></h:panelGroup>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span  style="color: grey; margin-right: 7px; margin-bottom: 10px;">#{msgs.message_theme}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span class="controlWorksDisciplineNameLink"><a href="messages_read.xhtml?id=#{message.message.id}&amp;type=false"><h:outputText value="#{message.message.theme}"/></a>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    </div>
+                                    <div class="chatPostDate MessageDate">
+                                        <h:outputText converter="dateConverter" value="#{message.message.dateMessage}"/>
+                                    </div>
 
-<!--                                                   <span  style="color: grey; margin-right: 7px; margin-bottom: 10px;">#{msgs.message_theme}
-                                                   </span>-->
-                                                   <span class="controlWorksDisciplineNameLink"><a href="messages_read.xhtml?id=#{message.message.id}&amp;type=false"><h:outputText value="#{message.message.theme}"/></a>
-                                                   </span>
-                                               </div>
-                                               <a href="messages_read.xhtml?id=#{message.message.id}&amp;type=false" class="listMessagesShortMessage" style="width: 95%; float: left; position: relative; top: 10px; right: 3px;">
-                                                    <div class="messBlockLink" style="color: #3F3E3B;"><h:outputText value="#{message.shortText}"/></div>
-                                                    <div class="listMessagesAttachmentsIco"><r:if test="#{message.filesExist eq true}"><img title="#{msgs.message_iconFilesExistTitle}" src="../resources/images/isAttachment.png" alt=""/></r:if><r:if test="#{message.filesExist ne true}"><img title="#{msgs.message_iconFilesNotExistTitle}" src="../resources/images/isNotAttachment.png" alt=""/></r:if></div>
-                                                    <div class="floatDestroyer"/>
-                                                </a>
-                                            </h:column>
-                                        </h:dataTable>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="controlWorksDisciplineNameLinkGrey" style="margin-top: 10px;  float: right;">
-                                           <h:outputLink rendered="#{not MessageBean.renderDeleteSuccess}" value="messages_read.xhtml?id=#{message.message.id}" 
-                                                         styleClass="answerMess"  style=" background: url('../resources/images/answer.gif') no-repeat;">#{msgs.message_answer}</h:outputLink>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-
+                                
+                                <div class="floatDestroyer"/>
+                            </div>
+                                <div class="listMessagesShortMessage listMessagesShortMessageBlock">
+                                <a href="messages_read.xhtml?id=#{message.message.id}&amp;type=false" class="listMessagesShortMessage" style="width: 95%; float: left; position: relative; top: 10px; right: 3px;">
+                                    <div class="messBlockLink"><h:outputText value="#{message.shortText}"/></div>
+                                    <div class="listMessagesAttachmentsIco"><r:if test="#{message.filesExist eq true}"><img title="#{msgs.message_iconFilesExistTitle}" src="../resources/images/isAttachment.png" alt=""/></r:if><r:if test="#{message.filesExist ne true}"><img title="#{msgs.message_iconFilesNotExistTitle}" src="../resources/images/isNotAttachment.png" alt=""/></r:if></div>
+                                    <div class="floatDestroyer"/>
+                                </a>
+                            </div>
+                            <div class="messLinks" style="margin-left: 83px;margin-top: -10px;width: 15%;">
+                                <h:outputLink rendered="#{not MessageBean.renderDeleteSuccess}" value="messages_read.xhtml?id=#{message.message.id}">#{msgs.message_answer}</h:outputLink>
+                            </div>
+                           
                         </div>
-                       
-                        <div class="floatDestroyer"/>
-                    </div>
-                </div>
-            </h:form>
-           </h:column>
+                    </ui:repeat>
+                </h:form>
+            </h:column>
         </h:dataTable>
 
     </composite:implementation>

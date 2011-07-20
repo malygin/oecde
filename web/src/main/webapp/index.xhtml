@@ -51,9 +51,14 @@
                                 <td width="50">
                                     <p class="login_pageFormInputsLabels">#{msgs.login_login}:</p>
                                 </td>
-                                <td>
+                                <td width="150">
                                     <h:inputText id="j_username"  required="true" styleClass="login_pageFormInputs"/>
-                                </td>                            
+                                </td>
+                                <td rowspan="3">
+                                    <div class="Ipsilon_Picture">
+                                        <img src="resources/images/ipsilon_picture.png"/>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>
@@ -73,7 +78,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">
+                                <td colspan="3">
                                     <h:inputHidden id="faces-redirect" value="true"/>
                                     <button class="login_pageFormButtons" type="submit">#{msgs.login_EnterButton}</button>
                                     <h:commandButton styleClass="login_pageFormButtons" type="reset" id="resetButton" value="#{msgs.login_CancelButton}"/>
@@ -82,18 +87,20 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">
+                                <tr>
+                                    <td colspan="3">
+                                        <h:outputText rendered="#{loginBean.renderErrorEnter}" style="color: red;" value="#{msgs.login_Error}"/>
+                                    </td>
+                                </tr>
+                                <td colspan="3">
                                     <p class="BoldBlackText login_pagePadding" style="padding-left: 0; margin: 0;">  
                                         <t:singleTab alias="index_page_new_welcome_to_new_ipsilon" haveNoFiles="no" classStyle="blackText"/>
                                     </p>
                                 </td>
                             </tr>
                         </table>
-                        <div class="Ipsilon_Picture">
-                            <img src="resources/images/ipsilon_picture.png"/>
-                        </div>
+
                     </form>
-                    <h:outputText rendered="#{loginBean.renderErrorEnter}" style="color: red;" value="#{msgs.login_Error}"/>
                 </div>
                 <div style="height: 43px;"></div>
                 <div class="login_pageFormBackgroundBottom login_pagePadding" style="padding-left: 30px;">

@@ -24,7 +24,7 @@
         -webkit-3order-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;*/
     border-width: 4px;
     border-style: solid;
-    margin: 23px 40px 0px 2StudentMainPageTitlesBorders0px;
+    margin: 23px 40px 0px 20px;
     z-index: 2;
     padding: 15px;
 }
@@ -107,6 +107,9 @@
 .mainStyle .rightMenu{
     margin-left: 80%;
     margin-right:  -1px;
+}
+.mainStyle input, .mainStyle textarea{
+   border: 1px solid #D1E0EF;
 }
 @-moz-document url-prefix(){
     .mainStyle .rightMenu{
@@ -417,6 +420,25 @@
 .StudentTestsPadding{
     padding-left: 10px;
 }
+.mainStyle .hiddenTestsResults{
+    border: 1px solid silver;
+    border-bottom: none;
+}
+.mainStyle .hiddenTestsResultsInnerTable td{
+    text-align: center !important;
+}
+.mainStyle .hiddenTestsResultsInnerTable td{
+     border-bottom: 1px solid silver;
+}
+.mainStyle .studentStandatrTableTd table:nth-last-child(1) td{
+     border: none;
+}
+.mainStyle .testResultsTable td:nth-child(1){
+    width: 85%;
+}
+.mainStyle .hiddenTestsResults td:nth-child(1){
+    width: 50%;
+}
 .mainStyle .testQuestionBlock{
     width: 100px;
     float: left;
@@ -521,7 +543,7 @@ not all and (-webkit-min-device-pixel-ratio:0) {
     background: #f0f0f0;
   height: 23px;
     border: 1px solid #838383;
-    float: right;
+/*    float: right;*/
     -moz-border-radius: 4px;
     -o-border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -585,7 +607,7 @@ not all and (-webkit-min-device-pixel-ratio:0) {
     height: 24px;
 }
 .mainStyle .studentStandatrTable th:last-child{
-    border:0;
+/*    border:0;*/
 }
 .mainStyle .studentStandatrTable th{
     border-right: 1px solid silver;
@@ -954,7 +976,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .smallChatTools input{
     border: 1px solid #3491c8;
     float: left;
-    width: 180px;
+    width: 80%;
 }
 /*ссылки*/
 .mainStyle .linkToStudentsProfile{
@@ -1260,7 +1282,6 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     min-height: 50px;
     max-height: 200px;
     padding: 5px;
-    border: 1px solid #838383;
 }
 .mainStyle .FullTextMess{
     color:#3D3D3D;
@@ -1340,7 +1361,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 }
 .mainStyle  .writeMessAndWatchCorrespondence{
     width: 50%;
-    margin-left: 17%;
+    margin-left: 3%;
 }
 .mainStyle .answerMessPic{
     /*background: url('../resources/images/answer.gif') no-repeat;*/
@@ -1369,6 +1390,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     background: #ecffec;
     width: 40%;
     margin: auto;
+    margin-top: 40px;
     padding: 10px;
     border: 1px solid #5BBF5D;
 }
@@ -1904,6 +1926,9 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     display: block;
     position: relative;
     left: 45%;
+}
+.mainStyle .changePasswordBlock p{
+    width: 190px;
 }
 
 /*новости*/

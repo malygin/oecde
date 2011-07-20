@@ -9,11 +9,9 @@
 
 
 /*стили для студент Темплэйт*/
-/*.mainStyle .userFile{
-    background: #A2DEF6;
+.mainStyle .userFile{
     padding: 10px 15px;
-    border-bottom: #57C3FF 1px solid;
-}*/
+}
 .StudentSecondLineBlocks{
     padding: 3px 3px 0px 3px; border: 1px solid silver;
 }
@@ -67,7 +65,7 @@
 .mainStyle .userData p{
     text-align: left;
     margin-right: 10px;
-    width: 200px;
+    width: 65%;
 }
 /*.mainStyle .userData div{
     color: white;
@@ -179,8 +177,7 @@
     width: 180px;
 }
 .mainStyle .testResultMarkNotNull{
-    color: #373E3F;
-    font-weight: bolder;
+    color: #FBB35D;
 }
 /* результаты тестов*/
 .mainStyle .workTitle{

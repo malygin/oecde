@@ -33,7 +33,12 @@
 //                $(this).parent().css('list-style', 'none');
             }
                }
-           }
-        )};
+               if(hiddenElement == '.hiddenTestsResults'){
+                   $(this).toggleClass('Ipsilon_Web_GreenText');
+               }
+
+               })
+           };
+       
 
 

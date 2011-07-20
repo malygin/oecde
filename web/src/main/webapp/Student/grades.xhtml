@@ -45,11 +45,11 @@
                 </td>
                 <td>
                 <h:panelGroup id="gradeInfo" rendered="#{gradesBean.currentsFacade!=null}" >
-                    <p class="GreenLinkToDisciplineOpen"><h:outputLink value="umk.xhtml?c=#{gradesBean.currentsFacade.points.curriculum.id}">#{gradesBean.currentsFacade.points.curriculum.discipline.name}</h:outputLink></p>
+                    <p class="GreenLinkToDisciplineOpen linkToTeachersProfile"><h:outputLink value="umk.xhtml?c=#{gradesBean.currentsFacade.points.curriculum.id}">#{gradesBean.currentsFacade.points.curriculum.discipline.name}</h:outputLink></p>
                     <table class="GradesDiskription">
                         <tr>
                             <td>Преподаватель:</td>
-                            <td>
+                            <td class="linkToTeachersProfile">
                                  <ui:repeat value="#{setToList.getList(gradesBean.currentsFacade.points.curriculum.teacherToGroups)}" var="t">    
                                             <a href="teacher.xhtml?id=#{t.teacher.id}"> #{t.teacher.fio}</a>
                                 </ui:repeat>                                 
