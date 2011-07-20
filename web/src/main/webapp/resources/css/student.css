@@ -127,9 +127,14 @@
     margin-top: 4px;
     margin-right: 50px;
 }
-.mainStyle .controlWorkResultStyle{
-    color:#0F3F00;
-    padding-left: 17px;
+.mainStyle .controlWorkResultStylePassed{
+    color: #5bbf5d;
+}
+.mainStyle .controlWorkResultStyleFailed{
+     color: #FBB35D;
+}
+.mainStyle .controlWorkResultStyleAvailable{
+    color: #D4D4D4;
 }
 /*тесты*/
 

@@ -59,18 +59,19 @@
 <!--                                <p>это 100 % - #{m.testsCount*100}<br/></p>-->
 <!--                                    а это сколько он набрал #{m.testPoints+m.concludingTestPoints}</p>-->
 
-                                <div class="progressBarMaterials floatLeft">
-                                    <h:panelGroup layout="block" rendered="#{(m.testsCount*100) le 0}" style="width: 0;"/>
-                                    <h:panelGroup layout="block" rendered="#{((m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) gt 0) and ((m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) le 50)}" style="background: #FBB35D; height: 12px; width: #{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100)}%;"/>
-                                    <h:panelGroup layout="block" rendered="#{((m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) gt 50) and ((m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) le 90)}" style="background: #0981bd; height: 12px; width: #{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100)}%;"/>
-                                    <h:panelGroup layout="block" rendered="#{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) gt 90}" style="background: #5bbf5d; height: 12px; width: #{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100)}%;"/>
-                                    
-                                </div>
-                                <div style="float: right;">
-                                    <h:panelGroup layout="block" rendered="#{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) le 50}" style="color: #FBB35D; margin-right: 50px; width: 20px;">#{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100)}%;</h:panelGroup>
-                                    <h:panelGroup layout="block" rendered="#{((m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) gt 50) and ((m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) le 90)}" style="color: #0981bd; margin-right: 50px; width: 20px;"> #{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100)}%;</h:panelGroup>
-                                    <h:panelGroup layout="block" rendered="#{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) gt 90}" style="color: #5bbf5d; margin-right: 50px;  width: 20px;">#{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100)}%;</h:panelGroup>
-                                </div>
+                                <h:panelGroup rendered="#{m.testsCount ne 0}">
+                                    <div class="progressBarMaterials floatLeft">
+                                        <h:panelGroup layout="block" rendered="#{((m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) gt 0) and ((m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) le 50)}" style="background: #FBB35D; height: 12px; width: #{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100)}%;"/>
+                                        <h:panelGroup layout="block" rendered="#{((m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) gt 50) and ((m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) le 90)}" style="background: #0981bd; height: 12px; width: #{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100)}%;"/>
+                                        <h:panelGroup layout="block" rendered="#{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) gt 90}" style="background: #5bbf5d; height: 12px; width: #{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100)}%;"/>
+
+                                    </div>
+                                    <div style="float: right;">
+                                        <h:panelGroup layout="block" rendered="#{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) le 50}" style="color: #FBB35D; margin-right: 50px; width: 20px;">#{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100)}%;</h:panelGroup>
+                                        <h:panelGroup layout="block" rendered="#{((m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) gt 50) and ((m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) le 90)}" style="color: #0981bd; margin-right: 50px; width: 20px;"> #{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100)}%;</h:panelGroup>
+                                        <h:panelGroup layout="block" rendered="#{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) gt 90}" style="color: #5bbf5d; margin-right: 50px;  width: 20px;">#{(m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100)}%;</h:panelGroup>
+                                    </div>
+                                </h:panelGroup>
                             </div>
                             <br />
                         </div>
