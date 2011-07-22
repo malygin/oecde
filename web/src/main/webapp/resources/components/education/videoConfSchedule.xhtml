@@ -64,22 +64,20 @@
                 <div class="#{cc.attrs.styleForShedule}">
                     <div id="datepicker" class="datepickerClass"></div>
                 </div>
-                <div class="Ipsilon_Web_GreenText videoConfSchedule">
-                    
-                    
+                <div class="videoConfSchedule" style="min-height: 212px;">
                     <table>
                     
                         <ui:repeat var="s" value="#{studentScheduleBean.schedule(40,true)}" size="2">
                         <tr>
-                            <td valign="top"><p><h:outputText value="#{s.lessonDate}" converter="dateConverter"/></p>
+                            <td valign="top" class="Ipsilon_Web_GreenText"><p><h:outputText value="#{s.lessonDate}" converter="dateConverter"/></p>
                             </td>
-                            <td><p> #{s.discipline.name}   #{s.teacher.initials} <h:outputText converter="roomConverter" value="#{s.room}"/> комната</p>
+                            <td><p><p class="skyBlueText">#{s.discipline.name}</p> <p  class="Ipsilon_Web_GreenText">#{s.teacher.initials}</p> <h:outputText converter="roomConverter" value="#{s.room}"/> комната</p>
                             </td>
                         </tr>
                         
                     </ui:repeat>
                     </table>
-                    <p class="videoConfSchedule greyLinks" style="height: 25px;" colspan="2">
+                    <p class="videoConfSchedule greyLinks" style="height: 25px; width: 50%; float: left;">
                                 <h:panelGroup rendered="#{cc.attrs.renderBlock eq 'firstLessons'}"><a href="schedule.xhtml">Посмотреть все видеоконференции</a></h:panelGroup>
                             </p>
                 
@@ -88,14 +86,14 @@
                         <div class="interfaceContentForMyMarks">
                             <div class="mainStudentPageTitles  mainStudentPageTitlesOrange">
                             Текущая конференция
-                            </div>
+                            </div>videoConfSchedule greyLinks
                          </div>
                             <div style="float: right;" class="greyLinks">
                                 <a href="#" style="font-weight: normal">посетить</a>
                             </div>
                             <div class="textForPodskazka">
-                                <p>10:00-12:05</p>
-                                <p style="color:#838383">Компьютерные системы. Бессонов Л.В. 1 комната</p>
+                                <p>&nbsp;</p>
+                                <p style="color:#838383">&nbsp;</p>
                             </div>
                          </div>
 
