@@ -79,10 +79,11 @@
     /*    height: 400px;*/
 }
 .mainStyle .videoConfSchedule td:nth-child(odd){
-    width: 125px;
+    min-width: 125px;
 }
 .mainStyle .videoConfSchedule td:nth-child(even) p{
     color: #838383 !important;
+    max-width: 315px;    
 }
 .mainStyle .videoConfSchedule a:link{color:#838383; text-decoration: underline;}
 .mainStyle .videoConfSchedule a:visited{color:#838383;text-decoration: underline;}

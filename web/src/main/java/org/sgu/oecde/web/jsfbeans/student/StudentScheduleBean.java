@@ -31,7 +31,7 @@ public class StudentScheduleBean extends AbstractStudentBean{
 
     private Long count;
 
-    private String currentDate;
+    private String currentDate = null;
 
     private static final long serialVersionUID = 151L;
 
@@ -91,6 +91,19 @@ public class StudentScheduleBean extends AbstractStudentBean{
     public void setCurrentDate(String currentDate) {
         this.currentDate = currentDate;
     }
+    
+    public boolean IsCurrentDate(String lessonDate){
+        if((currentDate!=null)&&(currentDate.equals(lessonDate))) currentDate=null;
+        if(currentDate==null){
+            currentDate =lessonDate;            
+            return true;
+        } else if(currentDate.substring(0, 11).equals(lessonDate.substring(0, 11))){
+             return false;                    
+             } else{
+                currentDate =lessonDate;            
+                return true;
+             }   
+   }
 
    
 }

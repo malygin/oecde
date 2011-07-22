@@ -6,7 +6,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:util="http://java.sun.com/jsf/composite/components/util"
-      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
       >
 
 
@@ -65,34 +65,26 @@
                     <div id="datepicker" class="datepickerClass"></div>
                 </div>
                 <div class="Ipsilon_Web_GreenText videoConfSchedule">
+                    
+                    
                     <table>
+                    
+                        <ui:repeat var="s" value="#{studentScheduleBean.schedule(40,true)}" size="2">
                         <tr>
-                            <td valign="top"><p>10 января 17:20</p>
+                            <td valign="top"><p><h:outputText value="#{s.lessonDate}" converter="dateConverter"/></p>
                             </td>
-                            <td><p> Компьютерные системы. Бессонов Л.В. 1 комната</p>
+                            <td><p> #{s.discipline.name}   #{s.teacher.initials} <h:outputText converter="roomConverter" value="#{s.room}"/> комната</p>
                             </td>
                         </tr>
-                        <tr>
-                            <td valign="top"><p>25 января 10:20</p>
-                            </td>
-                            <td><p>Философия. Никифорова Л.В. 2 комната</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td valign="top"><p>10 февраля 17:20</p>
-                            </td>
-                            <td><p> Компьютерные системы. Бессонов Л.В. 1 комната</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="videoConfSchedule greyLinks" style="height: 25px;" colspan="2">
-                                <h:panelGroup rendered="#{cc.attrs.renderBlock eq 'firstLessons'}"><a href="schedule.xhtml">Посмотреть все видеоконференции</a></h:panelGroup>
-                            </td>
-                        </tr>
+                        
+                    </ui:repeat>
                     </table>
+                    <p class="videoConfSchedule greyLinks" style="height: 25px;" colspan="2">
+                                <h:panelGroup rendered="#{cc.attrs.renderBlock eq 'firstLessons'}"><a href="schedule.xhtml">Посмотреть все видеоконференции</a></h:panelGroup>
+                            </p>
                 
                 <h:panelGroup rendered="#{cc.attrs.renderBlock eq 'allLessons'}">
-                    <div class="StudentMainPageTitlesBorders" style="width: 25%; margin-left: 74%; margin-top: -90px;">
+                    <div class="StudentMainPageTitlesBorders" style="width: 25%; margin-left: 74%; margin-top: -150px;">
                         <div class="interfaceContentForMyMarks">
                             <div class="mainStudentPageTitles  mainStudentPageTitlesOrange">
                             Текущая конференция
@@ -122,34 +114,21 @@
                 <div class="interfaceContent">
                     <util:navigationList numElements="#{studentScheduleBean.count(true)}" elementOnPage="40"/>
 
-
-                    <div class="greenText">10 августа</div>
+                    
+                    <ui:repeat var="s" value="#{studentScheduleBean.schedule(40,true)}">
+                    <h:panelGroup rendered="#{studentScheduleBean.IsCurrentDate(s.lessonDate)}">
+                        <div class="greenText"><h:outputText value="#{fn:substring(s.lessonDate,0,10)}" converter="dateConverter"/></div>
+                    </h:panelGroup>
                     <table class="tableForShedule">
                         <tr>
-                            <td>10:00-12:05</td>
-                            <td><span class="linkToStudentsProfile"><a href="#">Компьютерные системы</a></span></td>
-                            <td><span class="linkToTeachersProfile linkToTeachersProfileFromStudent"><a href="#">Бессонов Л.В.</a></span></td>
-                            <td>1 комната</td>
+                            <td>${fn:substring(s.lessonDate,11,16)}-${fn:substring(s.lessonEndDate,11,16)}</td>
+                            <td><span class="linkToStudentsProfile"><h:outputLink value="umk.xhtml?c=#{s.id}" style="margin-left: 10px;">#{s.discipline.name}
+                                    </h:outputLink></span></td>
+                            <td><span class="linkToTeachersProfile linkToTeachersProfileFromStudent"><a href="teacher.xhtml?id=#{s.teacher.id}"><h:outputText value="#{s.teacher.initials}"/></a></span></td>
+                            <td><h:outputText converter="roomConverter" value="#{s.room}"/> комната</td>
                         </tr>
                     </table>
-                    <div class="greenText" style="display: none;">10 августа</div>
-                    <table class="tableForShedule">
-                        <tr>
-                            <td>10:00-12:05</td>
-                            <td><span class="linkToStudentsProfile"><a href="#">Интерактивные методы работы социального педагога (Социализация детей-подростков в общественных организациях, объединениях, субкультурах) </a></span></td>
-                            <td><span class="linkToTeachersProfile linkToTeachersProfileFromStudent"><a href="#">Никифорова Л.В.</a></span></td>
-                            <td>1 комната</td>
-                        </tr>
-                    </table>
-                    <div class="greenText">11 августа</div>
-                    <table class="tableForShedule">
-                        <tr>
-                            <td>10:00-12:05</td>
-                            <td><span class="linkToStudentsProfile"><a href="#">Компьютерные системы</a></span></td>
-                            <td><span class="linkToTeachersProfile linkToTeachersProfileFromStudent"><a href="#">Бессонов Л.В.</a></span></td>
-                            <td>1 комната</td>
-                        </tr>
-                    </table>
+                     </ui:repeat>   
 
 
 
