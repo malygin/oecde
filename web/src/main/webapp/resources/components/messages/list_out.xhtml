@@ -40,7 +40,6 @@
                                             <td>
                                                 <div class="linkTo#{rec.recipient.classType}sProfile">
                                                     <a href="#{fn:toLowerCase(message.message.author.classType)}.xhtml?id=#{rec.recipient.id}"><h:outputText value="#{rec.fioAuthor}"/></a>
-                                                    <h:panelGroup rendered="#{message.readed}"><span style="padding-left: 20px;" class="sideBarTitle">#{msgs.messade_Read}</span></h:panelGroup>
                                                 </div>
                                             </td>
                                         </tr>
@@ -58,6 +57,12 @@
                                     </div>
                                     <div class="chatPostDate MessageDate">
                                         <h:outputText converter="dateConverter" value="#{message.message.dateMessage}"/>
+<!--                                    <div class="listMessagesAttachmentsIco"><r:if test="#{message.filesExist eq true}"><img title="#{msgs.message_iconFilesExistTitle}" src="../resources/images/isAttachment.png" alt=""/></r:if><r:if test="#{message.filesExist ne true}"><img title="#{msgs.message_iconFilesNotExistTitle}" src="../resources/images/isNotAttachment.png" alt=""/></r:if></div>-->
+                                        <h:panelGroup rendered="#{message.readed}"><r:if test="#{message.filesExist ne true}"><div style="padding: 10px;" class="sideBarTitle readed_message"></div></r:if></h:panelGroup>
+                                        <h:panelGroup rendered="#{message.readed}"><r:if test="#{message.filesExist eq true}"><div style="padding: 10px;" class="sideBarTitle read_mes_with_file"></div></r:if></h:panelGroup>
+                                        <h:panelGroup rendered="#{!message.readed}"><r:if test="#{message.filesExist ne true}"><div style="padding: 10px;" class="sideBarTitle new_message"></div></r:if></h:panelGroup>
+                                        <h:panelGroup rendered="#{!message.readed}"><r:if test="#{message.filesExist eq true}"><div style="padding: 10px;" class="sideBarTitle message_with_file"></div></r:if></h:panelGroup>
+
                                     </div>
 
                                 
@@ -66,7 +71,7 @@
                                 <div class="listMessagesShortMessage listMessagesShortMessageBlock">
                                 <a href="messages_read.xhtml?id=#{message.message.id}&amp;type=false" class="listMessagesShortMessage" style="width: 95%; float: left; position: relative; top: 10px; right: 3px;">
                                     <div class="messBlockLink"><h:outputText value="#{message.shortText}"/></div>
-                                    <div class="listMessagesAttachmentsIco"><r:if test="#{message.filesExist eq true}"><img title="#{msgs.message_iconFilesExistTitle}" src="../resources/images/isAttachment.png" alt=""/></r:if><r:if test="#{message.filesExist ne true}"><img title="#{msgs.message_iconFilesNotExistTitle}" src="../resources/images/isNotAttachment.png" alt=""/></r:if></div>
+                                    
                                     <div class="floatDestroyer"/>
                                 </a>
                             </div>

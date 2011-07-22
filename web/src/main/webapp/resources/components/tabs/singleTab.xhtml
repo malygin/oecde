@@ -17,11 +17,9 @@
     <composite:implementation>
         <div class="#{cc.attrs.classStyle}">
             <div class="educ_umk_text_block">
-                <div class="controlWorksDisciplineName #{cc.attrs.titleStyle}" style="margin-bottom: 5px;">
-                    <h:outputText escape="false" value="#{tabEditBean.getPageByAlias(cc.attrs.alias).title}"/>
-                </div>
+               
                 <div style="text-align: justify;">
-                    <h:outputText escape="false" id="page" value="#{tabEditBean.page.text}"/>
+                    <h:outputText escape="false" id="page" value="#{tabEditBean.getPageByAlias(cc.attrs.alias).text}"/>
                 </div>
                 <h:panelGroup rendered="#{cc.attrs.haveNoFiles eq 'yes'}">
                 <div style="text-align: justify;">

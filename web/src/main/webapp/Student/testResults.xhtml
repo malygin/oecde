@@ -32,17 +32,17 @@
                 <p class="floatLeft mainStudentPageTitles">
                     Мои результаты тестов
                 </p>
-                <div style="float: right;">
+                <div style="float: right;" class="greyLinks">
                     <h:outputText rendered="#{testResultsBean.semester == 0 and !testResultsBean.reExame}" value="#{msgs.student_eduMenuTestsResults}"/>
         <h:outputText rendered="#{testResultsBean.semester == 0 and testResultsBean.reExame}" value="#{msgs.student_eduMenuReexamination}"/>
         <h:outputText rendered="#{testResultsBean.semester == 1 and !testResultsBean.reExame}" value="#{msgs.student_eduMenuWinterTestsResults}"/>
         <h:outputText rendered="#{testResultsBean.semester == 1 and testResultsBean.reExame}" value="#{msgs.student_eduMenuWinterReexamination}"/>
-                    <h:outputLink rendered="#{testResultsBean.semester == 0 and !testResultsBean.reExame}" value="#{msgs.student_eduMenuTestsResults}"></h:outputLink>
-                    <h:outputLink rendered="#{testResultsBean.semester == 0 and testResultsBean.reExame}" value="#{msgs.student_eduMenuReexamination}"></h:outputLink>
-                    <h:outputLink rendered="#{testResultsBean.semester == 1 and !testResultsBean.reExame}" value="#{msgs.student_eduMenuWinterTestsResults}"></h:outputLink>
 
-<!--                    <a href="#">#{msgs.student_TestReexamin}</a>-->
-<!--                    <est:changeSemester semester="#{controlWorksBean.semester}"/>-->
+<!--                    <h:outputLink rendered="#{testResultsBean.semester == 0 and !testResultsBean.reExame}" value="">#{msgs.student_eduMenuWinterTestsResults}</h:outputLink>
+                    <h:outputLink rendered="#{testResultsBean.semester == 1 and !testResultsBean.reExame}" value="testResults.xhtml">#{msgs.student_eduMenuTestsResults}</h:outputLink>
+                    <h:outputLink rendered="#{testResultsBean.semester == 0 and testResultsBean.reExame}" value="testResults.xhtml?r=true&s=1">#{msgs.student_eduMenuWinterReexamination}</h:outputLink>
+                    <h:outputLink rendered="#{testResultsBean.semester == 1 and testResultsBean.reExame}" value="">#{msgs.student_eduMenuReexamination}</h:outputLink>-->
+
                 </div>
                 <div class="floatDestroyer"/>
             </div>

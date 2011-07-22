@@ -20,7 +20,9 @@
     padding: 10px;
     margin: 0 !important;
 }
-
+.mainStyle .studentControlWorksTable td:nth-child(1){
+    width: 10%;
+}
 /*главная страница студента*/
 .my_educ_text ol {
     margin-left: 0;
@@ -121,20 +123,27 @@
 }
 .mainStyle .chooseContrWorkButtonPosition{
     display: block;
-    width: 50px;
     text-align: center !important;
     float: right;
-    margin-top: 4px;
-    margin-right: 50px;
+    height: 17px !important;
+    margin-left: 10px !important;
+    width: 31px;
 }
 .mainStyle .controlWorkResultStylePassed{
     color: #5bbf5d;
 }
 .mainStyle .controlWorkResultStyleFailed{
-     color: #FBB35D;
+    color: #FBB35D;
 }
 .mainStyle .controlWorkResultStyleAvailable{
     color: #D4D4D4;
+}
+.mainStyle .save_control_work{
+    background: url('../resources/images/save_control_work.png') no-repeat right;
+    padding-right: 15px;
+}
+.mainStyle .add_cont_work{
+    background: url('../resources/images/add_cont_work.png') no-repeat right;
 }
 /*тесты*/
 

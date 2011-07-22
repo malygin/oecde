@@ -13,22 +13,22 @@
     <ui:define name="left">
         <div  class="modulsTitles"><p class="sideBarTitle">#{msgs.student_eduMenuTitle}</p></div>
         <ol class="leftSideMenuLinks leftSideList">
-             <li><a href="materials.xhtml">#{msgs.student_eduMenuLearningCourses}</a></li>
+            <li><a href="materials.xhtml">#{msgs.student_eduMenuLearningCourses}</a></li>
             <li><a href="controlWorks.xhtml"> #{msgs.student_eduMenuControlWorks}</a></li>
-             <li><a href="grades.xhtml">  #{msgs.student_eduMenuMarks}</a></li>
-            <!--<li><a href="groupControlWorks.xhtml">#{msgs.student_eduMenuControlWorksResult}</a></li>-->
+            <li><a href="grades.xhtml">  #{msgs.student_eduMenuMarks}</a></li>
+           <!--<li><a href="groupControlWorks.xhtml">#{msgs.student_eduMenuControlWorksResult}</a></li>-->
 <!--            <p>#{msgs.student_eduMenuControlWorksResult}</p>-->
-<!--            <li>
-            <h:outputLink rendered="#{termPaperBean.gotTermPaper}" value="http://oecdo.sgu.ru/files/KR/#{termPaperBean.path}">#{msgs.student_eduMenuCoursework}</h:outputLink>
-            <h:panelGroup rendered="#{!termPaperBean.gotTermPaper}" ><p>#{msgs.student_eduMenuCoursework}</p></h:panelGroup>
-            </li>-->
-           <li><a href="testResults.xhtml">  #{msgs.student_eduMenuTestsResults}</a></li>
+            <!--            <li>
+                        <h:outputLink rendered="#{termPaperBean.gotTermPaper}" value="http://oecdo.sgu.ru/files/KR/#{termPaperBean.path}">#{msgs.student_eduMenuCoursework}</h:outputLink>
+                        <h:panelGroup rendered="#{!termPaperBean.gotTermPaper}" ><p>#{msgs.student_eduMenuCoursework}</p></h:panelGroup>
+                        </li>-->
+            <li><a href="testResults.xhtml">  #{msgs.student_eduMenuTestsResults}</a></li>
             <li><a href="testResults.xhtml?s=1"> #{msgs.student_eduMenuWinterTestsResults}</a></li>
-           
+
             <li style="margin-top: 15px;"><a href="testResults.xhtml?r=true"> #{msgs.student_eduMenuReexamination}</a></li>
-            
+
             <li><a href="testResults.xhtml?r=true&amp;s=1"> #{msgs.student_eduMenuWinterReexamination}</a></li>
-           
+
             <li style="margin-top: 15px;"><a href="oldGrades.xhtml">#{msgs.student_controlMenuRecordBook}</a></li>
             <li><a href="curriculum.xhtml">#{msgs.student_controlMenuCurriculum}</a></li>
         </ol>
@@ -61,9 +61,13 @@
             <li><a href="messages_out.xhtml">#{msgs.student_messMenuOut}</a></li>
 
         </ol>
-        <div class="modulsTitles"><p class="sideBarTitle">#{msgs.student_chatMenuTitle}</p></div>
-        <span class="greyLinks"><a href="chat.xhtml">посмотреть историю чата</a></span>
-         <div id="chatShortHistory1" class="chatShortHistory">
+        <div class="modulsTitles"><p class="sideBarTitle" style="float: left;">#{msgs.student_chatMenuTitle}</p>
+            <div style="text-align: right;"><a href="chat.xhtml" title="история чата" style="background: url('../resources/images/chat_history.png') no-repeat; padding-left: 20px;"></a>
+            </div>
+            <div class="floatDestroyer"/>
+        </div>
+
+        <div id="chatShortHistory1" class="chatShortHistory">
 
         </div>
         <div class="smallChatTools">
@@ -78,82 +82,82 @@
     <ui:define name="top">
         <ol class="topMenuLinks" style="height: 100%;">
             <h:form style="height: 100%;">
-            <li class="topMenuLinkContainer"><a href="index.xhtml">  #{msgs.admin_communicationMenuMain}</a></li>
-            <li class="topMenuLinkContainer"><a href="support.xhtml">#{msgs.user_help}</a></li>
-            <li class="topMenuLinkContainer"><a href="info.xhtml">#{msgs.student_topMenuInfo}</a></li>
-            <li class="topMenuLinkContainer"><a href="news_list.xhtml">#{msgs.student_topMenuNews}</a></li>
-            <li class="topMenuLinkContainer"><a href="settings.xhtml">#{msgs.student_topMenuSettings}</a></li>
-            <li class="topMenuLinkContainer">
-                <div class="" style="float: left;">
-                    <a href="messages_list.xhtml" style="margin-right: 5px;">#{msgs.student_messMenuTitle}</a>
-                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages>0}"><span class="messagesMainStPageNewMess"></span></h:panelGroup>
-                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages&lt;1}" styleClass="messagesMainStPageIncomeMess"></h:panelGroup>
-                </div>
-                <div style="float: right; font-size: 15px; font-weight: bold; color: #fbb35d; margin-left: 3px;">
-                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages>0}">#{MessageCountNewBean.newMessages}</h:panelGroup>
-                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages&lt;1}"></h:panelGroup>
-                </div>
-            </li>
-            <li class="topMenuLinkContainer">
-                <a href="messages_out.xhtml">#{msgs.admin_messMenuOut}</a>
-            </li>
-            <li class="StudentMainPageExit" style="border: 0px; float: right">
-            <sec:ifAnyGranted roles="ROLE_PREVIOUS_ADMINISTRATOR">
-                <h:outputLink value="../Admin/exit_user" >#{msgs.student_back}</h:outputLink>
-            </sec:ifAnyGranted>
-             <sec:ifNotGranted roles="ROLE_PREVIOUS_ADMINISTRATOR">
-                 <h:outputLink value="../j_spring_security_logout" >#{msgs.student_topMenuExit}</h:outputLink>
-             </sec:ifNotGranted>            
-            </li>
+                <li class="topMenuLinkContainer"><a href="index.xhtml">  #{msgs.admin_communicationMenuMain}</a></li>
+                <li class="topMenuLinkContainer"><a href="support.xhtml">#{msgs.user_help}</a></li>
+                <li class="topMenuLinkContainer"><a href="info.xhtml">#{msgs.student_topMenuInfo}</a></li>
+                <li class="topMenuLinkContainer"><a href="news_list.xhtml">#{msgs.student_topMenuNews}</a></li>
+                <li class="topMenuLinkContainer"><a href="settings.xhtml">#{msgs.student_topMenuSettings}</a></li>
+                <li class="topMenuLinkContainer">
+                    <div class="" style="float: left;">
+                        <a href="messages_list.xhtml" style="margin-right: 5px;">#{msgs.student_messMenuTitle}</a>
+                        <h:panelGroup rendered="#{MessageCountNewBean.newMessages>0}"><span class="messagesMainStPageNewMess"></span></h:panelGroup>
+                        <h:panelGroup rendered="#{MessageCountNewBean.newMessages&lt;1}" styleClass="messagesMainStPageIncomeMess"></h:panelGroup>
+                    </div>
+                    <div style="float: right; font-size: 15px; font-weight: bold; color: #fbb35d; margin-left: 3px;">
+                        <h:panelGroup rendered="#{MessageCountNewBean.newMessages>0}">#{MessageCountNewBean.newMessages}</h:panelGroup>
+                        <h:panelGroup rendered="#{MessageCountNewBean.newMessages&lt;1}"></h:panelGroup>
+                    </div>
+                </li>
+                <li class="topMenuLinkContainer">
+                    <a href="messages_out.xhtml">#{msgs.admin_messMenuOut}</a>
+                </li>
+                <li class="StudentMainPageExit" style="border: 0px; float: right">
+                <sec:ifAnyGranted roles="ROLE_PREVIOUS_ADMINISTRATOR">
+                    <h:outputLink value="../Admin/exit_user" >#{msgs.student_back}</h:outputLink>
+                </sec:ifAnyGranted>
+                <sec:ifNotGranted roles="ROLE_PREVIOUS_ADMINISTRATOR">
+                    <h:outputLink value="../j_spring_security_logout" >#{msgs.student_topMenuExit}</h:outputLink>
+                </sec:ifNotGranted>
+                </li>
 
-            <li style="clear: both;"></li>
+                <li style="clear: both;"></li>
             </h:form>
         </ol>
-         <div class="Ipsilon_Web_GreenText">
-             <p style="font-size: 13pt; font-weight: bold; text-align: right;"> 
-             #{studentSessionBean.student.surname}
-            #{studentSessionBean.student.name}
-            #{studentSessionBean.student.secondName}
-         </p>
+        <div class="Ipsilon_Web_GreenText">
+            <p style="font-size: 13pt; font-weight: bold; text-align: right;">
+                #{studentSessionBean.student.surname}
+                #{studentSessionBean.student.name}
+                #{studentSessionBean.student.secondName}
+            </p>
         </div>
         <div class="floatDestroyer"/>
     </ui:define>
 
     <ui:define name="right">
         <div style="display: none;">
-        <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_comMenuTitle}</p></div>
-        <ol class="leftSideMenuLinks iconMenu">
-            <li><a href="teachersList.xhtml"><h:graphicImage value="../resources/images/teacher.png" styleClass="iconInMenu" /><div>#{msgs.student_comMenuTeachers}</div></a></li>
-            <li><a href="studentsList.xhtml"><h:graphicImage value="../resources/images/student.png" styleClass="iconInMenu" /><div>#{msgs.student_comMenuStudents}</div></a></li>
-            <li><a href="adminsList.xhtml"><h:graphicImage value="../resources/images/admin.png" styleClass="iconInMenu" /><div>#{msgs.student_templateAdmins}</div></a></li>
-            <li><a href="forum.xhtml?type=STUDENT_FAQ"><h:graphicImage value="../resources/images/advise.png" styleClass="iconInMenu" /><div>#{msgs.student_MistakesAndSuggestions}</div></a></li>
-            <li><a href="forum.xhtml?type=STUDENT_ORG"><h:graphicImage value="../resources/images/org_forum_student.png" styleClass="iconInMenu" /><div>#{msgs.student_comMenuForumOrg}</div></a></li>
-            <li><a target="_blank" href="http://oecdo.sgu.ru/client/"><h:graphicImage value="../resources/images/video.png" styleClass="iconInMenu" /><div>#{msgs.student_comMenuVideoconferencing}</div></a></li>
-        
-        </ol>
+            <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_comMenuTitle}</p></div>
+            <ol class="leftSideMenuLinks iconMenu">
+                <li><a href="teachersList.xhtml"><h:graphicImage value="../resources/images/teacher.png" styleClass="iconInMenu" /><div>#{msgs.student_comMenuTeachers}</div></a></li>
+                <li><a href="studentsList.xhtml"><h:graphicImage value="../resources/images/student.png" styleClass="iconInMenu" /><div>#{msgs.student_comMenuStudents}</div></a></li>
+                <li><a href="adminsList.xhtml"><h:graphicImage value="../resources/images/admin.png" styleClass="iconInMenu" /><div>#{msgs.student_templateAdmins}</div></a></li>
+                <li><a href="forum.xhtml?type=STUDENT_FAQ"><h:graphicImage value="../resources/images/advise.png" styleClass="iconInMenu" /><div>#{msgs.student_MistakesAndSuggestions}</div></a></li>
+                <li><a href="forum.xhtml?type=STUDENT_ORG"><h:graphicImage value="../resources/images/org_forum_student.png" styleClass="iconInMenu" /><div>#{msgs.student_comMenuForumOrg}</div></a></li>
+                <li><a target="_blank" href="http://oecdo.sgu.ru/client/"><h:graphicImage value="../resources/images/video.png" styleClass="iconInMenu" /><div>#{msgs.student_comMenuVideoconferencing}</div></a></li>
 
-        <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.student_controlMenuTitle}</p></div>
-        <ol class="leftSideMenuLinks iconMenu">
-            <li><a href="curriculum.xhtml"><h:graphicImage value="../resources/images/uch_plan.png" styleClass="iconInMenu" /><div>#{msgs.student_controlMenuCurriculum}</div></a></li>
-            <li><a href="schedule.xhtml"><h:graphicImage value="../resources/images/shedule.png" styleClass="iconInMenu" /><div>#{msgs.student_controlMenuSchedule}</div></a></li>
-            <li><a href="libraryMaterials.xhtml">#{msgs.student_controlMenuLibrary}</a></li>
-            <li><a href="oldGrades.xhtml"><h:graphicImage value="../resources/images/grade_book.png" styleClass="iconInMenu" /><div>#{msgs.student_controlMenuRecordBook}</div></a></li>
-            <li><a href="groupRating.xhtml"><h:graphicImage value="../resources/images/group.png" styleClass="iconInMenu" /><div>#{msgs.student_GroupRating}</div></a></li>
-        </ol>
+            </ol>
+
+            <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.student_controlMenuTitle}</p></div>
+            <ol class="leftSideMenuLinks iconMenu">
+                <li><a href="curriculum.xhtml"><h:graphicImage value="../resources/images/uch_plan.png" styleClass="iconInMenu" /><div>#{msgs.student_controlMenuCurriculum}</div></a></li>
+                <li><a href="schedule.xhtml"><h:graphicImage value="../resources/images/shedule.png" styleClass="iconInMenu" /><div>#{msgs.student_controlMenuSchedule}</div></a></li>
+                <li><a href="libraryMaterials.xhtml">#{msgs.student_controlMenuLibrary}</a></li>
+                <li><a href="oldGrades.xhtml"><h:graphicImage value="../resources/images/grade_book.png" styleClass="iconInMenu" /><div>#{msgs.student_controlMenuRecordBook}</div></a></li>
+                <li><a href="groupRating.xhtml"><h:graphicImage value="../resources/images/group.png" styleClass="iconInMenu" /><div>#{msgs.student_GroupRating}</div></a></li>
+            </ol>
         </div>
-        
+
     </ui:define>
     <ui:define name="bottom">
         <ol class="bottomMenu">
-<!--            <li class="bottomMenuLinkContainer">
-                <a href="support.xhtml">#{msgs.student_bottMenuHelp}</a>
-            </li>
-            <li class="bottomMenuLinkContainer">
-                <a href="support.xhtml?i=true">#{msgs.student_bottMenuInfo}</a>
-            </li>
-            <li class="bottomMenuLinkContainer" style="border: 0px;">
-                <a href="settings.xhtml">#{msgs.student_bottMenuSettings}</a>
-            </li>-->
+            <!--            <li class="bottomMenuLinkContainer">
+                            <a href="support.xhtml">#{msgs.student_bottMenuHelp}</a>
+                        </li>
+                        <li class="bottomMenuLinkContainer">
+                            <a href="support.xhtml?i=true">#{msgs.student_bottMenuInfo}</a>
+                        </li>
+                        <li class="bottomMenuLinkContainer" style="border: 0px;">
+                            <a href="settings.xhtml">#{msgs.student_bottMenuSettings}</a>
+                        </li>-->
             <li class="copyrightCOO">
                 <p>
                     #{msgs.copyright}

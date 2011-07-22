@@ -39,7 +39,7 @@
                                         </td>
                                         <td>
                                             <div class="linkTo#{message.message.author.classType}sProfile"><a href="#{fn:toLowerCase(message.message.author.classType)}.xhtml?id=#{message.message.author.id}"><h:outputText value="#{message.fioAuthor}"/></a>
-                                                <h:panelGroup rendered="#{not message.readed}"><span class="sideBarTitle" style="padding-left: 20px;">Новое</span></h:panelGroup>
+                                               
                                             </div>
                                         </td>
                                     </tr>
@@ -58,6 +58,8 @@
                             </div>
                             <div class="chatPostDate MessageDate">
                                 <h:outputText converter="dateConverter" value="#{message.message.dateMessage}"/>
+                                <h:panelGroup layout="block" rendered="#{not message.readed}"><div class="sideBarTitle new_message" style="padding: 10px;"></div></h:panelGroup>
+                                <h:panelGroup layout="block" rendered="#{message.readed}"><div class="sideBarTitle readed_message" style="padding: 10px;"></div></h:panelGroup>
                             </div>
                             <div class="floatDestroyer"/>
                         </div>
