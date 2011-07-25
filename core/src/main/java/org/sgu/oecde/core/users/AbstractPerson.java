@@ -21,6 +21,13 @@ public abstract class AbstractPerson extends AbstractUser implements Comparable<
      * фамилия
      */
     private String surname;
+    
+    private String birthday;
+    
+    private String contacts;
+    
+    private String info;
+    
 
     public AbstractPerson() {
     }
@@ -71,6 +78,32 @@ public abstract class AbstractPerson extends AbstractUser implements Comparable<
     public void setSurname(String surname) {
         this.surname = surname;
     }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(String contacts) {
+        this.contacts = contacts;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+    
+    
 
     /**
      * возвращает полные фио
