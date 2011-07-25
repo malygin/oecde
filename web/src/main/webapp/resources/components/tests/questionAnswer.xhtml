@@ -17,7 +17,7 @@
   
       
               
-        <div style="margin-top: 10px; margin-left: 25px; text-align: left;"><span class="Ipsilon_Web_GreenText">#{testPassingBean.iterQ+1}.</span> <h:outputText id="qTitle" title="qTitle" styleClass="qTitle" escape="false" value="#{testPassingBean.questionTitle}" /></div>
+        <div class="testQuestion" style="margin-top: 10px; margin-left: 25px; text-align: left;"><span class="Ipsilon_Web_GreenText testQuestionNumber" style="position: relative;">#{testPassingBean.iterQ+1}.</span> <h:outputText id="qTitle" title="qTitle" styleClass="qTitle" escape="false" value="#{testPassingBean.questionTitle}" /></div>
                
               <h:panelGroup  id="radioType" rendered="#{cc.attrs.question.type=='radio'}" styleClass="educ_umk_text_block">
                  <h:selectOneRadio   converter="testConverter" id="selectRadio"  layout="pageDirection" value="#{testPassingBean.selectedAnswer}" styleClass="testSelectPadding" style="margin-top: 10px;">

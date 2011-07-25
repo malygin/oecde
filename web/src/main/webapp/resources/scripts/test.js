@@ -74,6 +74,8 @@ $(function(){
             c = d.children();
             h = (h/2)-6;
             c[0].setAttribute('style','margin-top:'+h+'px');
+           
+//            $('.Ipsilon_Web_GreenText').attr('style','position: relative; bottom:'+ h/2+'px;')
 
         });
     }else{
@@ -89,6 +91,7 @@ $(function(){
                 c = d.children();
                 h = (h/2)-6;
                 c[0].setAttribute('style','margin-top:'+h+'px');
+//                $('.Ipsilon_Web_GreenText').attr('style','position: relative; bottom:'+ h/2+'px;')
 
             });
         //        for (i = 0; i < iFrames.length; i++){
@@ -106,8 +109,11 @@ $(function(){
                 h = d.height();
                 c = d.children();
                 h = (h/2)-6;
+                n = $('.testQuestion').height()/2 - 5;
                 c[0].setAttribute('style','margin-top:'+h+'px');
+                $('.testQuestionNumber').attr('style','position: relative; bottom:'+ n+'px;')
             });
+            
         }
     }
 });

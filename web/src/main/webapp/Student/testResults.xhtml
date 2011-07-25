@@ -16,8 +16,8 @@
     <ui:define name="content">
         <script type="text/javascript">
             $(document).ready(function(){
-                toHidElements(".hiddenTestsResults")
-            });
+                toHidElements(".hiddenTestsResults");
+                });
 
 
         </script>
@@ -59,7 +59,7 @@
                                 <br/>
                                 <h:outputText value="#{m.curriculum.umk.name}" styleClass="clickToHid Ipsilon_Web_GreenText">#{m.curriculum.umk.name}</h:outputText>
                                 <br/>
-                                
+
                                 <h:dataTable value="#{testResultsBean.attempts}" cellpadding="0" cellspacing="0" rendered="#{testResultsBean.attempts ne '[]'}"
                                              columnClasses="studentStandatrTableTd,
                                              studentStandatrTableTd studentStandatrTableExamin,
@@ -68,7 +68,7 @@
                                              studentStandatrTableTd studentStandatrTableExamin,
                                              studentStandatrTableTdLastTd studentStandatrTableExamin" styleClass="studentStandatrTable leftMenuContainer hiddenTestsResults" var="r">
                                     <h:column>
-                                        
+
                                         <f:facet name="header">
                                             <h:outputText value="#{msgs.student_testResultName}" />
                                         </f:facet>
@@ -84,10 +84,10 @@
                                           :r.work.estimateAttemptsNumber}
                                     </h:column>
 
-                                   
+
                                     <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="#{msgs.student_testResultDate}" />
+                                            <h:outputText value="#{msgs.student_testResultDate}" />
                                         </f:facet>
 
                                         <ui:repeat value="#{r.results}" var="a">
@@ -101,9 +101,9 @@
                                         </ui:repeat>
 
                                     </h:column>
-                                     <h:column>
+                                    <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="#{msgs.student_testResultCorrectAnswers}" />
+                                            <h:outputText value="#{msgs.student_testResultCorrectAnswers}" />
                                         </f:facet>
                                         <h:column>
                                             <ui:repeat value="#{r.results}" var="a">
@@ -118,7 +118,7 @@
 
                                         </h:column>
                                     </h:column>
-                                     <h:column>
+                                    <h:column>
                                         <f:facet name="header">
                                             <h:outputText value="#{msgs.student_testResultEstimationMethod}" />
                                         </f:facet>
@@ -135,7 +135,7 @@
                                             #{r.pointsForWork}
                                         </h:panelGroup>
                                     </h:column>
-                                   
+
                                 </h:dataTable>
 
                             </div>
@@ -145,6 +145,9 @@
                     <td>
                     </td>
                     <td>
+                    <ui:repeat value="#{testResultsBean.attempts}" var="r">
+
+                    </ui:repeat>
                     </td>
                     </tr>
                 </table>

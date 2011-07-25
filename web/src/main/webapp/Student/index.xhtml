@@ -11,28 +11,36 @@
     xmlns:edu="http://java.sun.com/jsf/composite/components/education"
     >
 
-   
+
     <ui:define name="fio">
         <h:outputText value="#{studentSessionBean.student.fio}"/>
     </ui:define>
     <ui:define name="content">
+<!--        <script type="text/javascript">
+            $(document).ready(function(){
+                if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
+                    console.debug($(".BorderTd"));
+                    $(".BorderTd").attr('style','-o-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;-moz-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round; -webkit-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;');
+                }
+            });
+        </script>-->
         <f:metadata>
             <f:viewParam name="s" value="#{studentIndexBean.semester}"/>
         </f:metadata>
-        <table style="width: 100%; margin-bottom: 25px;" cellpadding="0" cellspacing="0">
+        <table class="Border" style="width: 100%; margin: auto;" cellpadding="0" cellspacing="20px">
             <tr>
-                <td style="width: 66.5%; height: 213px; vertical-align: top;">
-                    <div class="StudentMainPageTitlesBorders" style="margin-right: 0; margin-left: 25px; height: 100%; margin-bottom: 0;">
+                <td style="width: 70%;  vertical-align: top;" class="BorderTd">
+                    <div>
                         <div class="mainStudentPageTitles mainStudentPageTitlesBlue"> Личная информация
                         </div>
                         <div class="userData">
                             <div>
-                                <table class="leftMenuContainer blocksMargins">
+                                <table class="leftMenuContainer blocksMargins BorderNone">
                                     <tr>
                                         <td><p>#{msgs.student_mainContentUserInfoSpec}</p></td>
                                         <td><p>#{studentSessionBean.student.group.speciality.name}</p></td>
                                         <td rowspan="8">
-                                            <div>
+                                            <div style="margin-left: 80px;">
                                                 <ut:showPhoto user="#{studentSessionBean.student}" size="medium"/>
                                             </div>
                                         </td>
@@ -53,14 +61,14 @@
                                         <td><p>Контакты
                                             </p>
                                         </td>
-                                        <td><p>123456</p>
+                                        <td><p>#{AbstractPerson.contacts}</p>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td><p>Доп.информация
                                             </p>
                                         </td>
-                                        <td><p>Староста</p>
+                                        <td><p>#{AbstractPerson.info}</p>
                                         </td>
                                     </tr>
                                 </table>
@@ -71,7 +79,7 @@
                         <div class="floatDestroyer"></div>
                     </div>
                 </td>
-                <td style="vertical-align: top;">
+                <td style="vertical-align: top;" class="BorderTd">
                     <div style="height: 100%;">
                         <edu:calendareInfo/>
                     </div>
@@ -81,49 +89,33 @@
         <div class="floatDestroyer">
         </div>
         <div>
-            <table class="leftMenuContainer" cellpadding="0" cellspacing="0">
+            <table class="Border" cellpadding="0" cellspacing="20px">
                 <tr>
-                    <td style="width: 66.5%;">                       
-                <edu:videoConfSchedule numberLessons="20" styleForShedule="floatLeft"  renderBlock="firstLessons"/>
+                    <td style="width: 70%; vertical-align: top;" class="BorderTd">
+
+                <edu:videoConfSchedule numberLessons="20" styleForShedule="floatLeft"  renderBlock="firstLessons" ClassStyle="BorderNone"/>
+
                 </td>
-                <td valign="top">
-                    <div class="StudentMainPageTitlesBorders" style="margin-bottom: 0;">                         
+                <td valign="top" class="BorderTd">
+                    <div class="BorderNone" style="margin-bottom: 0;">
                         <news:shortList numberNews="4"/>                          
                     </div>
                 </td>
                 </tr>
                 <tr>
-                    <td colspan="2">
-                        <!--                          <edu:calendareInfo/>-->
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="height: 1px;"></td>
-                </tr>
-                <tr>
-                    <td colspan="2" class="StudentTimeTable" valign="top">
-                        <div class="StudentMainPageTitlesBorders">
+                    <td colspan="2" valign="top" class="BorderTd">
+                        <div>
                             <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
                                 <a href="journal.xhtml" style="font-size: 12pt;" >Лента событий</a>
                             </div>
                             <!--                            <div style="height: 200px;">-->
-                            <div class="StudentTestsPadding">
+                            <div class="StudentTestsPadding BorderNone">
                                 <j:eventsOnly list="#{journalBean.events('studentEvents',studentSessionBean.student)}"/>
                             </div>
-                            <!--                                <p class="blueUnderTitleLink UnderTitleLink" style="background: url('../resources/images/event1.png') no-repeat; padding-left: 10px; margin: 7px;"><a href="#">Студент Черкесова Наталья Валерьевна</a> прошел(прошла)
-                            Тест по курсу "Бухгалтерский учет", модуль 2
-                                                            </p>
-                                                            <p class="greenUnderTitleLink UnderTitleLink" style="background: url('../resources/images/event2.png') no-repeat; padding-left: 10px; margin: 7px;"><a href="#">Преподаватель Гусев Вячеслав Иванович</a> довыставил(а) оценки 
-                            группе 349 специальности "Прикладная информатика в экономике”
-                                                            </p>
-                                                            <p class="orangeUnderTitleLink UnderTitleLink" style="background: url('../resources/images/event3.png') no-repeat; padding-left: 10px; margin: 7px;"><a href="#">Администратор Головко Екатерина Михайловна</a> создала курс “Математический анализ (часть 3)”
-                                                            </p>-->
-                            <!--                            </div>-->
                         </div>
-
                     </td>
                 </tr>
-                <h:panelGroup rendered="#{studentIndexBean.exame}">
+<!--                <h:panelGroup rendered="#{studentIndexBean.exame}">
                     <tr>
                         <td colspan="2" class="indexChangeSemestrPanel">
                     <est:changeSemester semester="#{studentIndexBean.semester}"/>
@@ -136,7 +128,8 @@
                     <td class="tdStudentMainPage" valign="top">
                     <edu:testForStudent/>
                     </td>
-                </tr><tr>
+                </tr>
+                <tr>
                 <td class="tdStudentMainPage" valign="top">
             <edu:finalTestsForStudent/>
             </td>                   
@@ -145,8 +138,8 @@
             <edu:controlWorkForStudent/> 
             </td>
             </tr>
-        </h:panelGroup>
-    </table>
-</div>
-</ui:define>
+        </h:panelGroup>-->
+            </table>
+        </div>
+    </ui:define>
 </ui:composition>

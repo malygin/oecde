@@ -117,10 +117,28 @@
     margin-right:  0px;
 }
 }
+.mainStyle .Border td{
+     -o-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
+    -moz-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
+    -webkit-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
+}
+.mainStyle .Border td table td{
+     -o-border-image: none;
+    -moz-border-image: none;
+    -webkit-border-image: none;
+}
+.mainStyle .BorderNone td{
+    border: none;
+    border-image: none;
+}
+.mainStyle .BorderTd{
+     -o-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
+    -moz-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
+    -webkit-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
+}
 .mainStyle .contentArea{
     width: 100%;
     float: left;
-    /*    border-right: 1px solid #9E9E9E;*/
     -o-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
     -moz-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
     -webkit-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
@@ -412,7 +430,7 @@
     font-size: 11pt;
     font-weight: bold;
     margin-top: 10px;
-    margin-right: 50px;
+    margin-right: 60px;
     text-align: center;
     width: 50px;
     margin-left: 10px;
