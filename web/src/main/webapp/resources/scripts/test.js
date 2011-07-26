@@ -1,8 +1,8 @@
 
 
-      $(window).bind('beforeunload', function(){
-		return 'Ваша попытка не будет засчитана, вы уверены?';
-         });
+$(window).bind('beforeunload', function(){
+    return 'Ваша попытка не будет засчитана, вы уверены?';
+});
 
 function checkTime() {
     document.getElementById('mainForm:completeTest').click();
@@ -32,7 +32,7 @@ $(function(){
         if($(this).text().indexOf("link:")!=-1){
             str=$(this).text();
             //console.log(str);
-        //    console.log(str.indexOf(":"))
+            //    console.log(str.indexOf(":"))
             $(this).html("");
             $('<iframe height="70px"   frameborder="0"  width="300px" name="myFrame"/>').attr('src', '../TestServlet?task='+str.substring(str.indexOf(":")+1)).appendTo($(this));
         }
@@ -49,6 +49,20 @@ $(function(){
             iFrames[i].style.height = h +3+'px';
         }
     }
+    if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
+        $('iframe').load(function(){
+            var tagP = this.contentWindow.document.body;
+            tagP.setAttribute('style','margin: 0; padding: 0;');
+            tagP.innerHTML = '<div>'+ tagP.innerHTML +'</div>';
+            tagPHeight =  tagP.firstChild.offsetHeight;
+            $(this).attr('style','height:'+tagPHeight+'px');
+
+//            $('.testQuestion .Ipsilon_Web_GreenText').attr('style','position:relative; bottom:' + (($(this).parent('.qTitle').children().height() - 3)/2) + 'px');
+//     var textQuestion = ($(this).parent('.qTitle').children().height() - 3)/2;
+//         console.debug(($(this).parent('.qTitle').children().first().height() - 3)/2);
+        });
+
+    }
     if ($.browser.safari){
         $('iframe').load(function(){
             var tagP = this.contentWindow.document.body;
@@ -63,7 +77,6 @@ $(function(){
                 }
             }
             $(this).attr('style','height:'+tagPHeight+'px');
-            //       console.debug(this.contentWindow.document.firstChild.tagName);
             this.contentWindow.document.firstChild.style.height = tagPHeight + 'px';
 
             style = this.contentWindow.document.createElement('style');
@@ -74,9 +87,6 @@ $(function(){
             c = d.children();
             h = (h/2)-6;
             c[0].setAttribute('style','margin-top:'+h+'px');
-           
-//            $('.Ipsilon_Web_GreenText').attr('style','position: relative; bottom:'+ h/2+'px;')
-
         });
     }else{
         if($.browser.opera){
@@ -91,14 +101,8 @@ $(function(){
                 c = d.children();
                 h = (h/2)-6;
                 c[0].setAttribute('style','margin-top:'+h+'px');
-//                $('.Ipsilon_Web_GreenText').attr('style','position: relative; bottom:'+ h/2+'px;')
 
             });
-        //        for (i = 0; i < iFrames.length; i++){
-        //            iSource = iFrames[i].src;
-        //            iFrames[i].src = '';
-        //            iFrames[i].src = iSource;
-        //        }
         }else{
             $('iframe').load(function(){
                 style = this.contentWindow.document.createElement('style');
@@ -120,20 +124,18 @@ $(function(){
 
 $(function(){
     $('iframe').load(function(){
-    iframEWidth = ($(this).width())/2;
-    picture = this.contentWindow.document.getElementsByClassName('imG')[0];
-    pictureWidth = ($(picture).width())/2;
-    margiN = iframEWidth - pictureWidth -42;
-    pictureParent = $(picture).parent();
-    pictureParent.attr('style', 'margin-left:'+ margiN+ 'px;');
-//    vd=$('.testComparVariants').children()[0];
-   
+        iframEWidth = ($(this).width())/2;
+        picture = this.contentWindow.document.getElementsByClassName('imG')[0];
+        pictureWidth = ($(picture).width())/2;
+        margiN = iframEWidth - pictureWidth -42;
+        pictureParent = $(picture).parent();
+        pictureParent.attr('style', 'margin-left:'+ margiN+ 'px;');
     });
 });
 
 $(function(){
-     vd = document.getElementsByClassName('testComparVariants');
-     console.log($(vd).children().children().attr('style','width: 170px;'));
+    vd = document.getElementsByClassName('testComparVariants');
+    console.log($(vd).children().children().attr('style','width: 170px;'));
    
 });
 

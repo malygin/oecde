@@ -26,82 +26,81 @@
                 <h:form enctype="multipart/form-data">
                     <table style="width: 100%;">
                         <tr>
-                            <td><p class="lightGreyText">Выберите дисциплину</p>
+                            <td style="width: 80%;"><p class="lightGreyText">Выберите дисциплину</p>
                             </td>
                             <td><p class="lightGreyText">Общий итог</p>
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td colspan="2">
                         <ui:repeat value="#{controlWorksBean.controlWorks}" var="o" >
                             <div>
-                                <h:outputText value="${o[0].discipline.name}">${o[0].discipline.name}</h:outputText>
-                                <span class="linkToStudentsProfile skyBlueText" style="margin-left: 10px;">(<h:outputLink value="teacher.xhtml?id=${o[3].id}">${o[3].initials}</h:outputLink>)</span>
-                                <div class="messLinksMargins testsMargins">
-                                    <div style="width: 60%;"><span class="Ipsilon_Web_GreenText">Контрольная 1</span>
-                                        <span style="margin-left: 5px; margin-right: 5px;">
-                                            <h:commandLink id="updt" style="padding-left: 17px;" styleClass="add_cont_work">
-                                                <f:attribute value="#{o[1]}" name="cw"/>
-                                                <f:ajax execute="@form" render="@form" event="click" listener="#{controlWorksBean.setCw}"/>
-                                            </h:commandLink>
-                                        </span>
-                                        <h:panelGroup layout="block" rendered="#{controlWorksBean.currentControlWorks!=null and controlWorksBean.currentControlWorks == o[1]}" id="addFile" style="float: right;">
-                                            <input type="file" name="CwFile" style="background: white;"/>
-                                            <span class="chooseContrWorkButtonPosition studentButton greyLinksWithoutUnderline" style="margin: 0px;padding-top: 4px;">
-                                                <h:commandLink action="#{controlWorksBean.saveCw}" id="fileBtn" value="ОК"/>
+                                <div class="floatLeft" style="width: 80%;">
+                                    <h:outputText value="${o[0].discipline.name}">${o[0].discipline.name}</h:outputText>
+                                    <span class="linkToStudentsProfile skyBlueText" style="margin-left: 10px;"><h:panelGroup layout="span" rendered="${o[3].initials ne null}">(<h:outputLink value="teacher.xhtml?id=${o[3].id}">${o[3].initials}</h:outputLink>)</h:panelGroup></span>
+                                    <div class="messLinksMargins testsMargins">
+                                        <div style="width: 60%;"><span class="Ipsilon_Web_GreenText">Контрольная 1</span>
+                                            <span style="margin-left: 5px; margin-right: 5px;">
+                                                <h:commandLink id="updt" style="padding-left: 17px;" styleClass="add_cont_work">
+                                                    <f:attribute value="#{o[1]}" name="cw"/>
+                                                    <f:ajax execute="@form" render="@form" event="click" listener="#{controlWorksBean.setCw}"/>
+                                                </h:commandLink>
                                             </span>
-                                        </h:panelGroup>
-                                    </div>
-                                    <table style="width: 100%;" class="studentControlWorksTable testsMargins">
-                                        <tr>
-                                            <td>Состояние
-                                            </td>
-                                            <td>
-                                        <h:panelGroup rendered="${o[1].progress=='passed'}" styleClass="controlWorkResultStylePassed">
-                                            <h:outputText converter="enumConverter" value="${o[1].progress}"/>
-                                        </h:panelGroup>
-                                        <h:panelGroup rendered="${o[1].progress=='failed'}" styleClass="controlWorkResultStyleFailed">
-                                            <h:outputText converter="enumConverter" value="${o[1].progress}"/>
-                                        </h:panelGroup>
-                                        <h:panelGroup rendered="${o[1].progress == 'available'}" styleClass="controlWorkResultStyleAvailable">
-                                            <h:outputText converter="enumConverter" value="${o[1].progress}"/>
-                                        </h:panelGroup>
-                                        </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">
-                                                <div style="width: 100%;">
-                                                    <ui:repeat value="#{o[1].cwAttempt}"  var="a" varStatus="i">
-                                                        <div style="float: left; margin-right: 10px;">Попытка #{i.index+1}</div>
-                                                        <h:outputText rendered="#{a.filePath eq 'empty'}" value="#{a.attemptDate}">в рукописном</h:outputText>
-                                                        <div class="greyLinks">
-                                                            <h:outputLink rendered="#{a.filePath ne 'empty'}" value="../resources/userFiles/controlWorks/#{a.filePath}" id="log" styleClass="save_control_work">
-                                                                <h:outputText converter="dateConverter" value="#{a.attemptDate}"/> в электронном
-                                                            </h:outputLink>
-                                                        </div>
-                                                    </ui:repeat>
+                                            <h:panelGroup layout="block" rendered="#{controlWorksBean.currentControlWorks!=null and controlWorksBean.currentControlWorks == o[1]}" id="addFile" style="float: right;">
+                                                <input type="file" name="CwFile" style="background: white; float: left;"/>
+                                                <div class="chooseContrWorkButtonPosition studentButton greyLinksWithoutUnderline" style="margin: 0px;padding-top: 4px; float: right;">
+                                                    <h:commandLink action="#{controlWorksBean.saveCw}" id="fileBtn" value="ОК"/>
                                                 </div>
+                                            </h:panelGroup>
+                                            <div class="floatDestroyer"/>
+                                        </div>
+                                        <table style="width: 100%;" class="studentControlWorksTable testsMargins">
+                                            <tr>
+                                                <td>Состояние
+                                                </td>
+                                                <td>
+                                            <h:panelGroup rendered="${o[1].progress=='passed'}" styleClass="controlWorkResultStylePassed">
+                                                <h:outputText converter="enumConverter" value="${o[1].progress}"/>
+                                            </h:panelGroup>
+                                            <h:panelGroup rendered="${o[1].progress=='failed'}" styleClass="controlWorkResultStyleFailed">
+                                                <h:outputText converter="enumConverter" value="${o[1].progress}"/>
+                                            </h:panelGroup>
+                                            <h:panelGroup rendered="${o[1].progress == 'available'}" styleClass="controlWorkResultStyleAvailable">
+                                                <h:outputText converter="enumConverter" value="${o[1].progress}"/>
+                                            </h:panelGroup>
                                             </td>
-                                        </tr>
-                                    </table>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div style="width: 100%;">
+                                                        <ui:repeat value="#{o[1].cwAttempt}"  var="a" varStatus="i">
+                                                            <div style="float: left; margin-right: 10px;">Попытка #{i.index+1}</div>
+                                                            <h:outputText rendered="#{a.filePath eq 'empty'}" value="#{a.attemptDate}">в рукописном</h:outputText>
+                                                            <div class="greyLinks">
+                                                                <h:outputLink rendered="#{a.filePath ne 'empty'}" value="../resources/userFiles/controlWorks/#{a.filePath}" id="log" styleClass="save_control_work">
+                                                                    <h:outputText converter="dateConverter" value="#{a.attemptDate}"/> в электронном
+                                                                </h:outputLink>
+                                                            </div>
+                                                        </ui:repeat>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
-
+                                <div style="float: right; margin-right: 12%;">
+                                    <h:panelGroup rendered="${o[1].progress=='passed'}" styleClass="controlWorkResultStylePassed">
+                                        <h:outputText converter="enumConverter" value="${o[1].progress}"/>
+                                    </h:panelGroup>
+                                    <h:panelGroup rendered="${o[1].progress=='failed'}" styleClass="controlWorkResultStyleFailed">
+                                        <h:outputText converter="enumConverter" value="${o[1].progress}"/>
+                                    </h:panelGroup>
+                                    <h:panelGroup rendered="${o[1].progress == 'available'}" styleClass="controlWorkResultStyleAvailable">
+                                        <h:outputText converter="enumConverter" value="${o[1].progress}"/>
+                                    </h:panelGroup>
+                                </div>
+                                <div class="floatDestroyer"/>
                             </div>
-                        </ui:repeat>
-                        </td>
-                        <td>
-                        <ui:repeat value="#{controlWorksBean.controlWorks}" var="o">
-                            <!--                            <div style="height: 17px;">
-                                                            <h:panelGroup rendered="${o[1].progress=='passed'}" styleClass="controlWorkResultStylePassed">
-                                                                <h:outputText converter="enumConverter" value="${o[1].progress}"/>
-                                                            </h:panelGroup>
-                                                            <h:panelGroup rendered="${o[1].progress=='failed'}" styleClass="controlWorkResultStyleFailed">
-                                                                <h:outputText converter="enumConverter" value="${o[1].progress}"/>
-                                                            </h:panelGroup>
-                                                            <h:panelGroup rendered="${o[1].progress == 'available'}" styleClass="controlWorkResultStyleAvailable">
-                                                                <h:outputText converter="enumConverter" value="${o[1].progress}"/>
-                                                            </h:panelGroup>
-                                                        </div>-->
                         </ui:repeat>
                         </td>
                         </tr>

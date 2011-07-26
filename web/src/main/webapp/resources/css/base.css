@@ -448,27 +448,30 @@
 .mainStyle .hiddenTestsResultsInnerTable td{
      border-bottom: 1px solid silver;
 }
+.mainStyle .hiddenTestsResultsInnerTableRightBorder{
+    border-right: 1px solid silver !important;
+}
 .mainStyle .studentStandatrTableTd table:nth-last-child(1) td{
      border: none;
 }
 .mainStyle .testResultsTable td:nth-child(1){
-    width: 85%;
+    width: 80%;
 }
-.mainStyle .hiddenTestsResults td:nth-child(1){
+/*.mainStyle .hiddenTestsResults td:nth-child(1){
     width: 50%;
-}
-.mainStyle .testQuestionBlock{
+}*/
+/*.mainStyle .testQuestionBlock{
     width: 100px;
     float: left;
     color: #27587F;
     font-size: 14px;
-    /*     margin-right: 10px;*/
+         margin-right: 10px;
     text-align: center !important;
     border: 1px solid #27587F;
     margin-left: 5px;
     margin-top: 10px;
     margin-right: 8px;
-}
+}*/
 .mainStyle .testSelectPadding{
     margin-left: 100px;
     margin-bottom: 10px;

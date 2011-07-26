@@ -72,27 +72,24 @@
                                         <f:facet name="header">
                                             <h:outputText value="#{msgs.student_testResultName}" />
                                         </f:facet>
-                                        <span class="controlWorksDisciplineName workTitle">#{r.work.title}</span>
+                                        <span class="controlWorksDisciplineName workTitle">#{r.work.title}
+                                            <span class="discussionCommentDate">#{testResultsBean.reExame?r.reExameAttemptsUsedNumber:r.estimateAttemptsUsedNumber} #{msgs.student_fromWord}
+                                                #{testResultsBean.reExame?
+                                                  ((r.work.type eq 'concluding')?testResultsBean.concludingAttemtpsCount:testResultsBean.regularAttemtpsCount)
+                                                  :r.work.estimateAttemptsNumber}
+                                            </span>
+                                        </span>
                                     </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="#{msgs.student_testResultAttempt}"/>
-                                        </f:facet>
-                                        #{testResultsBean.reExame?r.reExameAttemptsUsedNumber:r.estimateAttemptsUsedNumber} #{msgs.student_fromWord}
-                                        #{testResultsBean.reExame?
-                                          ((r.work.type eq 'concluding')?testResultsBean.concludingAttemtpsCount:testResultsBean.regularAttemtpsCount)
-                                          :r.work.estimateAttemptsNumber}
-                                    </h:column>
-
-
                                     <h:column>
                                         <f:facet name="header">
                                             <h:outputText value="#{msgs.student_testResultDate}" />
                                         </f:facet>
 
-                                        <ui:repeat value="#{r.results}" var="a">
+                                        <ui:repeat value="#{r.results}" var="a" varStatus="i">
                                             <table class="hiddenTestsResultsInnerTable" style="width: 100%;">
                                                 <tr>
+                                                    <td class="hiddenTestsResultsInnerTableRightBorder">#{i.index+1}
+                                                    </td>
                                                     <td>
                                                 <h:outputText converter="dateConverter" value="#{a.date}"/>
                                                 </td>

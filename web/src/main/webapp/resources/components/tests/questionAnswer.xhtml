@@ -38,8 +38,8 @@
                   <br/> <h:inputText value="#{testPassingBean.selectedAnswerText}"/>
              </h:panelGroup>
               <h:panelGroup id="comparisonType" rendered="#{cc.attrs.question.type=='comparison'}">
-                  <div  style="margin-top: 10px; margin-bottom: 10px;margin-left: 20px;">
-                      <table style="margin-left: 100px;">
+                  <div  style="margin: 10px 30px 10px 20px;">
+                      <table style="">
                   <ui:repeat value="#{testPassingBean.answerComparisnView}"  var="a" varStatus="i">
                      <tr>
                          <td valign="middle">
