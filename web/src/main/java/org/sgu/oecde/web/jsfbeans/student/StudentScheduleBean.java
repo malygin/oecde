@@ -32,7 +32,7 @@ public class StudentScheduleBean extends AbstractStudentBean{
     private Long count;
 
     private String currentDate = null;
-
+    
     private static final long serialVersionUID = 151L;
 
     public List<Lesson> schedule(int maxResult, boolean byDate){
@@ -105,5 +105,5 @@ public class StudentScheduleBean extends AbstractStudentBean{
              }   
    }
 
-   
-}
+
+    }

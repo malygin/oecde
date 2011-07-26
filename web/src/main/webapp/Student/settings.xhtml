@@ -16,6 +16,7 @@
                     Настройки аккаунта
                 </div>
                 <div class="userinfoContent">
+                    <h:form>
                     <div class="floatLeft greyInputs" style="width: 60%;">
                         <p class="Ipsilon_Web_GreenText login_pagePadding previewPadBott">Информация на главной странице
                         </p>
@@ -25,26 +26,30 @@
                                     <td>Контакты:
                                     </td>
                                     <td>
-                                <h:inputText/>
+                                <h:inputText value="#{studentSettingsBean.student.contacts}"/>
                                 </td>
                                 </tr>
                                 <tr>
                                     <td>Дополнительная информация:
                                     </td>
                                     <td> 
-                                <h:inputText value=""/>
+                                <h:inputText value="#{studentSettingsBean.student.info}"/>
                                 </td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">
+                                          <h:outputText id="saved2" rendered="#{studentSettingsBean.saved}" value="Сохранено"/>
                                         <div class="smallChatTools">
-                                            <button style="width: 90px; text-align: center;">#{msgs.admin_mainContentSave}</button>
+                                            <h:commandButton value="Сохранить" styleClass="studentButton" style="margin-right: 0; margin-top: 10px; width: 90px;">
+                                                <f:ajax execute="@form" render="@form  saved2 " listener="#{studentSettingsBean.save}"/>
+                                            </h:commandButton> 
                                         </div>
                                     </td>
                                 </tr>
                             </table>
                         </div>
                     </div>
+                    </h:form>
                     <div style="width: 35%; margin-left: 60%;">
                         <set:addAvatar bean="#{studentSettingsBean}"/>
                     </div>
