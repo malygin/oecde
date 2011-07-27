@@ -104,7 +104,7 @@ public class AppTest extends BasicTest{
         System.out.println(""+t);
        
     }
-//      @Ignore
+    @Ignore
     @Test
     public void getTabsPage(){
         setDao("tabsDao");

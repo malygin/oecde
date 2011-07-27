@@ -190,6 +190,11 @@
             <artifactId>org.springframework.security.taglibs</artifactId>
             <version>3.0.0.RELEASE</version>
         </dependency>
+        <dependency>
+           <groupId>com.sun.xml.ws</groupId>
+           <artifactId>jaxws-rt</artifactId>
+           <version>2.1.4</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -251,6 +256,6 @@
         <finalName>web</finalName>
     </build>
     <properties>
-        <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
+        <netbeans.hint.deploy.server>Tomcat70</netbeans.hint.deploy.server>
     </properties>
 </project>

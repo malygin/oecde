@@ -13,6 +13,21 @@
                      classpath:/org/sgu/oecde/webSecurity.xml
         </param-value>
     </context-param>
+    
+     <listener>
+        <listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>jax-ws</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+        </servlet>
+    <servlet-mapping>
+        <servlet-name>jax-ws</servlet-name>
+        <url-pattern>/ConferenceWebService</url-pattern>
+    </servlet-mapping>
+ 
+    
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>

@@ -9,23 +9,15 @@ package org.sgu.oecde.web;
 
 import org.sgu.oecde.web.TaskServlet;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.URL;
-import javax.activation.MimetypesFileTypeMap;
-import javax.faces.context.FacesContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import org.sgu.oecde.web.jsfbeans.tests.TestPassingBean;
-import org.sgu.oecde.web.jsfbeans.util.FacesUtil;
-import org.sgu.oecde.web.jsfbeans.util.fileUpload.FileUploadUtil;
-import org.springframework.util.ObjectUtils;
 
 /**
  *
