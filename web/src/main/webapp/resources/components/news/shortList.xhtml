@@ -16,7 +16,7 @@
         <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">
        <a href="news_list.xhtml" style="font-size: 12pt;">Новости</a>
       </div>
-      <div style="padding: 5px; overflow-y: scroll;">
+      <div style="padding: 5px;">
        <h:dataTable value="#{NewsBean.getNewsForNumber(cc.attrs.numberNews)}" var="n" styleClass="leftMenuContainer">
             <h:column>
                 <div style=" max-width: 60%; float: left;">

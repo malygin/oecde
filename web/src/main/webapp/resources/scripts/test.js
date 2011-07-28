@@ -57,9 +57,9 @@ $(function(){
             tagPHeight =  tagP.firstChild.offsetHeight;
             $(this).attr('style','height:'+tagPHeight+'px');
 
-//            $('.testQuestion .Ipsilon_Web_GreenText').attr('style','position:relative; bottom:' + (($(this).parent('.qTitle').children().height() - 3)/2) + 'px');
-//     var textQuestion = ($(this).parent('.qTitle').children().height() - 3)/2;
-//         console.debug(($(this).parent('.qTitle').children().first().height() - 3)/2);
+        //            $('.testQuestion .Ipsilon_Web_GreenText').attr('style','position:relative; bottom:' + (($(this).parent('.qTitle').children().height() - 3)/2) + 'px');
+        //     var textQuestion = ($(this).parent('.qTitle').children().height() - 3)/2;
+        //         console.debug(($(this).parent('.qTitle').children().first().height() - 3)/2);
         });
 
     }
@@ -113,7 +113,7 @@ $(function(){
                 h = d.height();
                 c = d.children();
                 h = (h/2)-6;
-                n = $('.testQuestion').height()/2 - 5;
+                n = $('.testQuestion').height() - 19;
                 c[0].setAttribute('style','margin-top:'+h+'px');
                 $('.testQuestionNumber').attr('style','position: relative; bottom:'+ n+'px;')
             });
@@ -124,12 +124,15 @@ $(function(){
 
 $(function(){
     $('iframe').load(function(){
-        iframEWidth = ($(this).width())/2;
-        picture = this.contentWindow.document.getElementsByClassName('imG')[0];
-        pictureWidth = ($(picture).width())/2;
-        margiN = iframEWidth - pictureWidth -42;
-        pictureParent = $(picture).parent();
-        pictureParent.attr('style', 'margin-left:'+ margiN+ 'px;');
+//        iframEWidth = ($(this).width())/2;
+//        picture = this.contentWindow.document.getElementsByClassName('imG')[0];
+//        pictureWidth = ($(picture).width())/2;
+//        margiN = iframEWidth - pictureWidth -42;
+//        pictureParent = $(picture).parent();
+//        pictureParent.attr('style', 'margin-left:'+ margiN+ 'px;');
+        n = $('.testQuestion').height() - 19;
+        c[0].setAttribute('style','margin-top:'+h+'px');
+        $('.testQuestionNumber').attr('style','position: relative; bottom:'+ n+'px;')
     });
 });
 

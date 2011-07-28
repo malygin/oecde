@@ -35,7 +35,7 @@
                             var object = $.parseJSON(data);
                             $('#chatShortHistory'+roomId).empty();
                             $.each(object.Super, function() {                           
-                                     $('#chatShortHistory'+roomId).prepend( '<div class="chatPost"><span><span class="'+this.type+'" ><a href="'+this.link+'.xhtml?id='+this.id+'" title="'+this.fio+'">'+this.fio+'</a></span><span class="chatPostDate">'+this.date+'</span><div class="floatDestroyer"/></span><span class="chatPostText">'+this.message+'</span><div class="floatDestroyer"/></div>');
+                                     $('#chatShortHistory'+roomId).prepend( '<div class="chatPost"><span><div class="'+this.type+'" style="float: left; width: 70%;" ><a href="'+this.link+'.xhtml?id='+this.id+'" title="'+this.fio+'">'+this.fio+'</a></div><span class="chatPostDate">'+this.date+'</span><div class="floatDestroyer"/></span><span class="chatPostText">'+this.message+'</span><div class="floatDestroyer"/></div>');
                             });
                             $('#chatShortHistory'+roomId).scrollTop(8000);
                                 });

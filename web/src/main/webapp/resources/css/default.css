@@ -12,18 +12,20 @@ img{
 body {
     background-color: #ffffff;
     font-size: 12px;
-    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
-    color: #000000;  
-    text-align: center;
+    font-family:   Arial, "Arial CE", Verdana, "Verdana CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    color: #838383;
+    text-align: left;
+    padding: 10px;
 }
 h1 {
     font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
-    border-bottom: 1px solid #AFAFAF; 
     font-size:  16px;
     font-weight: bold;
     margin: 0px;
     padding: 0px;
-    color: #D20005;
+    padding-bottom: 10px;
+    color: #89C9F5;
+    text-align: center;
 }
 p{
     margin: 0px;

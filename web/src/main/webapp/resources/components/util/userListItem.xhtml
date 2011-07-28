@@ -49,8 +49,14 @@
                     <tr><td class="userInfoItemColor">#{msgs.student_mainContentUserInfoGroup}</td><td><h:outputLink value="group.xhtml?id=#{cc.attrs.u.group.id}">#{cc.attrs.u.group.name}</h:outputLink></td></tr>
                     <tr><td class="userInfoItemColor">#{msgs.student_mainContentUserInfoCourse}</td><td>#{cc.attrs.u.group.year}</td></tr>
                     </sec:ifAnyGranted>
-                    <tr><td class="userInfoItemColor">Контакты:</td><td>8-999-999-99-99</td></tr>
-                    <tr><td class="userInfoItemColor">Дополнительная информация:</td><td>староста</td></tr>
+                    <tr>
+                        <td class="userInfoItemColor">Контакты:</td>
+                        <td>#{AbstractPerson.contacts}</td>
+                    </tr>
+                    <tr>
+                        <td class="userInfoItemColor">Дополнительная информация:</td>
+                        <td>#{AbstractPerson.info}</td>
+                    </tr>
 <!--                    <tr><td></td><td><h:outputText rendered="#{cc.attrs.u.online}" value="On-line" style="color:#617F5F;"/></td></tr>-->
                 </h:panelGroup>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'admin'}">
@@ -80,10 +86,10 @@
                     <tr><td class="userInfoItemColor">Контакты:</td><td></td></tr>
                 </h:panelGroup>
                 <tr>
-                    <td class="controlWorksDisciplineNameLinkGrey" style="vertical-align: bottom; height: 30px;">
+                    <td class="greyLinks" style="vertical-align: bottom; height: 30px;">
                       <a class="s1" href="messages_write.xhtml?user=${cc.attrs.u.id}">#{msgs.student_studentListWriteMessage}</a>
                     </td>
-                    <td class="controlWorksDisciplineNameLinkGrey" style="vertical-align: bottom; height: 30px;">
+                    <td class="greyLinks" style="vertical-align: bottom; height: 30px;">
                       <span class="s2" ><a href="messages_dialog.xhtml?user=${cc.attrs.u.id}">#{msgs.student_studentLestShowDialog}</a></span>
                     </td>
                     

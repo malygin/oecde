@@ -78,7 +78,12 @@
                                    $(window).unbind('beforeunload');
                                });
                         </script>
-                        <a href="discipline.xhtml?c=#{testBean.curriculumId}"> Вернуться к курсу</a><br/>
+
+                        <br/>
+                        <div class="greyLinks">
+                        <a href="discipline.xhtml?c=#{testBean.curriculumId}"> Вернуться к курсу</a>
+                        </div>
+                        <br/>
                         <tests:showResult countQuestions="#{testPassingBean.countQuestions}" countRight="#{testPassingBean.countRight}" points="#{testPassingBean.points}"/>
                     </h:panelGroup>
                 </h:panelGroup>

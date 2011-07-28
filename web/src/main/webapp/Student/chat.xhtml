@@ -11,7 +11,18 @@
          <ui:define name="content">
              <div align="left">
              <ui:repeat value="#{chatBean.listMessages}" var="mess">
-                 <div class="chatPost"><span><span class="linkTo#{mess.person.classType}sProfile" ><a href="#{mess.person.classTypeLowerCase}.xhtml?id=#{mess.author.id}" title="#{mess.person.fio}">#{mess.person.initials}</a></span><span class="chatPostDate"> <h:outputText value="#{mess.dateMessage}" converter="dateConverter"/></span><div class="floatDestroyer"/></span><span class="chatPostText">#{mess.message}</span><div class="floatDestroyer"/></div>
+                 <div class="chatPost">
+                     <span>
+                         <span class="linkTo#{mess.person.classType}sProfile" >
+                             <a href="#{mess.person.classTypeLowerCase}.xhtml?id=#{mess.author.id}" title="#{mess.person.fio}">#{mess.person.initials}
+                             </a>
+                         </span>
+                         <span class="chatPostDate">
+                             <h:outputText value="#{mess.dateMessage}" converter="dateConverter"/>
+                         </span>
+                         <div class="floatDestroyer"/></span><span class="chatPostText">#{mess.message}
+                         </span>
+                     <div class="floatDestroyer"/></div>
              </ui:repeat>
              </div>
          </ui:define>
