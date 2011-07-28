@@ -1,6 +1,9 @@
 *{
     margin: 0px;
     padding: 0px;
+    color: #838383;
+font-family: Arial;
+font-size: 10pt;
 }
 img{
     border: 0px;
@@ -24,6 +27,7 @@ h1 {
 }
 p{
     margin: 0px;
+   
 }
 .floatDestroyer{
     clear: both !important;
@@ -32,4 +36,8 @@ p{
     width: 1px !important;
     height: 1px !important;
     border: 0px !important;
+}
+label{
+display: block;
+padding-left: 12px;
 }

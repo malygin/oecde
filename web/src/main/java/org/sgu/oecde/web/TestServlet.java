@@ -42,7 +42,7 @@ public class TestServlet extends HttpServlet {
                  s= s.replaceFirst("\\$+"," <img src='http://oec.sgu.ru/latex/latex.php?code=");
                  s= s.replaceFirst("\\$+"," '/> ");
               }
-                  out.print("<meta http-equiv='Content-Type' content='text/htm; charset=utf-8'>"+s);
+                  out.print("<meta http-equiv='Content-Type' content='text/htm; charset=utf-8'><link href=\"resources/css/default.css\" rel=\"stylesheet\" type=\"text/css\" /> "+s);
               return;
           }
           String str="";
@@ -57,7 +57,8 @@ public class TestServlet extends HttpServlet {
              str=str.replaceAll("src=\"", "src=\""+TaskServlet.urlServer+urlTask[0]+"/"+urlTask[1]+"/"+urlTask[2]+"/");
            }else{
              str=strbuf.toString().replaceAll("src=\"../textbooks/", "src=\""+TaskServlet.urlServer);;
-          }            
+          }  
+          str=str.replaceFirst("<html>", "<html><link href=\"resources/css/default.css\" rel=\"stylesheet\" type=\"text/css\" /> ");
           out.print(str);}
 
   

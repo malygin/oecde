@@ -53,7 +53,7 @@ public class TaskServlet extends HttpServlet {
               str=strbuf.toString().replaceAll("src='", "src='"+urlServer+"/"+urlTask[0]+"/"+((urlTask.length>2)?urlTask[1]:"")+"/");
               str=str.replaceAll("src=\"", "src=\""+urlServer+"/"+urlTask[0]+"/"+((urlTask.length>2)?urlTask[1]:"")+"/");
             //  System.out.println(str);
-              out.print("<link href=\"../resources/css/default.css\" rel=\"stylesheet\" type=\"text/css\" /> "+str);}
+              out.print("<link href=\"resources/css/default.css\" rel=\"stylesheet\" type=\"text/css\" /> "+str);}
           else out.print("Вы можете скачать этот файл! <br/>"
               + "<a href=\""+url+"\"> скачать файл</a>"); 
         } finally { 
