@@ -28,32 +28,43 @@
         <script type="text/javascript" src="../resources/jquery/js/jquery-ui-1.8.14.custom.min.js"></script>
         <script type="text/javascript" src="../resources/jquery/js/jquery.ui.datepicker-ru.js"></script>
         <script type="text/javascript">
+                var lessons = new Object();
+                var day = new Date();
+		var year=day.getFullYear(); 
+                var month=day.getMonth()+1;
+                
                 $(function(){
-                        $('#datepicker').datepicker({
-                                inline: true,
-                                onChangeMonthYear: function(year, month, inst) {
-                                        window.setTimeout('repaint()',1);
-                                }
-                        });
-                        repaint();
-                });
+			$('#datepicker').datepicker({
+				inline: true,
+				onChangeMonthYear: function(year, month, inst) {
+                                        repaint(year, month);
+				}
+			});
+                        repaint(year, month);
+		});
 		
-                function repaint(){
-                        //ajax-query для получения списка дней данного месяца
-                        daysArray = [["2", 7, "discipline", "teacher"], ["5", 7, "discipline", "teacher"], ["17", 7, "discipline", "teacher"], ["29", 7, "discipline", "teacher"]];
-
-                                $('a.ui-state-default[href="#"]').each(function(){
-                                        if($(this).html() == daysArray[0][0]){
-                                                $(this).parent().attr('class',"lectures");
-                                                daysArray=daysArray.slice(1);
-                                                if(daysArray.length==0) return false;
-                                        }
-                                });
+		function repaint(year, month){
+			 $.post("../SheduleServlet", 
+                                {month: month, year: year}, 
+                                function(lessonData){
+                                        lessons = eval(lessonData);                             
+                                        $('a.ui-state-default[href="#"]').each(function(){
+                                                                            while($(this).html() == lessons.Super[0].day){
+                                                                                    $(this).parent().attr('class',"lectures");
+                                                                                    $(this).parent().attr('title',function() {
+                                                                                                                  return this.title + lessons.Super[0].day+" "+lessons.Super[0].time+" "+lessons.Super[0].teacherFIO+" "+lessons.Super[0].discipline+" "+lessons.Super[0].room;
+                                                                                                                });
+                                                                                    lessons.Super=lessons.Super.slice(1);
+                                                                                    if(lessons.Super.length==0) return false;
+                                                                             }
+                                                                    });
 
                                 $('#datepicker td').each(function(){
                                         $(this).removeAttr("onclick");
                                 });
-                        }
+                         }); //alert(month);   
+                    }
+                        
 
         </script>
 
