@@ -32,6 +32,12 @@ public class SheduleServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
                StringBuffer str=new StringBuffer();
+               String month = request.getParameter("month");
+               String year = request.getParameter("year");
+               int monthNumber = Integer.parseInt(month);
+               int yearNumber = Integer.parseInt(year);
+               
+               if ((monthNumber==7)&&(yearNumber==2011)){
                str.append("{\"Super\": [").
                    append("{\"teacherFIO\": \"").append("Амелин Р.В.").
                    append("\", \"discipline\": \"").append("Политология").
@@ -49,7 +55,24 @@ public class SheduleServlet extends HttpServlet {
                    append("\", \"discipline\": \"").append("Политология").
                    append("\", \"day\": \"").append("14").
                    append("\", \"time\": \"").append("14:30").
+                   append("\", \"room\": \"").append("2").append("\"},").
+                   
+                   append("{\"teacherFIO\": \"").append("Бочкарева Р.В.").
+                   append("\", \"discipline\": \"").append("Практикум по постановке голоса и выразительности чтения ").
+                   append("\", \"day\": \"").append("15").
+                   append("\", \"time\": \"").append("14:30").
                    append("\", \"room\": \"").append("2").append("\"}").
+                 
+                 append(" ]}");
+                 out.println(str);
+                 }
+               else{
+                  str.append("{\"Super\": [").
+                   append("{\"teacherFIO\": \"").append("Патралова З.С.").
+                   append("\", \"discipline\": \"").append("Единицы языка и их функционирование").
+                   append("\", \"day\": \"").append("16").
+                   append("\", \"time\": \"").append("14:30").
+                   append("\", \"room\": \"").append("2").append("\"},").
                    
                    append("{\"teacherFIO\": \"").append("Иванов В.А.").
                    append("\", \"discipline\": \"").append("Политология").
@@ -60,6 +83,7 @@ public class SheduleServlet extends HttpServlet {
                        
                        append(" ]}");
                  out.println(str);
+               }
         } finally {            
             out.close();
         }
