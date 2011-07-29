@@ -6,48 +6,52 @@
       xmlns:util="http://java.sun.com/jsf/composite/components/util"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:sec="http://www.springframework.org/security/facelets/tags"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:r="http://java.sun.com/jsp/jstl/core">
 
 
- <!-- INTERFACE -->
-  <composite:interface>
-      <composite:attribute name="list" required="true" type="java.util.List" shortDescription="коллекция событий"/>
-<!--      <composite:attribute name="classStyle" type="java.lang.String" default="admin"/>-->
-  </composite:interface>
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute name="list" required="true" type="java.util.List" shortDescription="коллекция событий"/>
+        <!--      <composite:attribute name="classStyle" type="java.lang.String" default="admin"/>-->
+    </composite:interface>
 
-  <!-- IMPLEMENTATION -->
-   <composite:implementation>
-<!--       <div class="#{cc.attrs.classStyle}">-->
-       <h:dataTable id="events" value="#{cc.attrs.list}" var="e" style="width: 100%;">
+    <!-- IMPLEMENTATION -->
+    <composite:implementation>
+        <h:panelGroup rendered="#{cc.attrs.list eq '[]'}">
+            <div style="margin: 15px;">
+                Событий нет
+            </div>
+        </h:panelGroup>
+
+        <h:dataTable id="events" value="#{cc.attrs.list}" var="e" style="width: 100%;">
             <h:column>
                 <table class="controlWorksDisciplineNameLink eventAdminColor" cellpadding="0" cellspacing="0"  style="padding-left: 5px; width: 100%;">
                     <tr>
                         <td style="background: url('../resources/images/event#{e.eventType}.gif') no-repeat top left; padding-left: 25px;">
-                    
-                    <div class="floatDestroyer"></div>
-                    <sec:ifAnyGranted roles="ROLE_ADMIN">
-                        <ui:repeat value="#{e.bodyForAdmin}" var="b">
-                            <h:outputText  rendered="#{b.type eq null}" value="#{b.text}" styleClass="chatPostUser"/>
-                           <span class="linkToStudentsProfile"><h:outputLink rendered="#{b.type ne null}" value="#{b.type}#{b.id}" style="text-decoration: underline; margin-right: 2px;">#{b.text}</h:outputLink>
-                           </span>
-                        </ui:repeat>
-                    </sec:ifAnyGranted>
-                    <sec:ifNotGranted roles="ROLE_ADMIN">
-                        <ui:repeat value="#{e.body}" var="b">
-                            <h:outputText rendered="#{b.type eq null}" value="#{b.text}"/>
-                            <h:outputLink rendered="#{b.type ne null}" value="#{b.type}#{b.id}"> #{b.text}</h:outputLink>
-                            
-                        </ui:repeat>
-                    </sec:ifNotGranted>
+                            <div class="floatDestroyer"></div>
+                            <sec:ifAnyGranted roles="ROLE_ADMIN">
+                                <ui:repeat value="#{e.bodyForAdmin}" var="b">
+                                    <h:outputText  rendered="#{b.type eq null}" value="#{b.text}" styleClass="chatPostUser"/>
+                                    <span class="linkToStudentsProfile"><h:outputLink rendered="#{b.type ne null}" value="#{b.type}#{b.id}" style="text-decoration: underline; margin-right: 2px;">#{b.text}</h:outputLink>
+                                    </span>
+                                </ui:repeat>
+                            </sec:ifAnyGranted>
+                            <sec:ifNotGranted roles="ROLE_ADMIN">
+                                <ui:repeat value="#{e.body}" var="b">
+                                    <h:outputText rendered="#{b.type eq null}" value="#{b.text}"/>
+                                    <h:outputLink rendered="#{b.type ne null}" value="#{b.type}#{b.id}"> #{b.text}</h:outputLink>
+
+                                </ui:repeat>
+                            </sec:ifNotGranted>
                         </td>
                         <td style="width: 100px; text-align: center;">
                             <div class="chatPostDate chatPostDateEvents">
-                   <h:outputText converter="dateConverter" value="#{e.time}."/></div>
+                                <h:outputText converter="dateConverter" value="#{e.time}."/></div>
                         </td>
                     </tr>
                 </table>
             </h:column>
         </h:dataTable>
-<!--       </div>-->
-   </composite:implementation>
+    </composite:implementation>
 </html>

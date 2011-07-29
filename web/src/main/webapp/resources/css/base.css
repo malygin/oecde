@@ -175,9 +175,7 @@ label{
     border-image: none;
 }
 .mainStyle .BorderTd{
-     -o-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
-    -moz-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
-    -webkit-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
+    border: 3px solid #EDEDED;
 }
 .mainStyle .contentArea{
     width: 100%;
@@ -1216,6 +1214,11 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     font-size: 85%;
 }
 /*пользователи он-лайн*/
+.mainStyle .online{
+    color: #3491C8;
+    padding-top: 5px;
+    font-size: 12pt;
+}
 .mainStyle .hiddenUsersOnlineTableContainer{
     text-align: center;
     width: 100%;

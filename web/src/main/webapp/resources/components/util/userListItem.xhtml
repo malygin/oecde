@@ -20,10 +20,10 @@
    <composite:implementation>
        <style type="text/css">
        </style>
-       <div style="float: left; margin-right: 20px;">
+       <div style="float: left; margin-right: 20px; text-align: center;">
            <ut:showPhoto user="#{cc.attrs.u}" styleClass="#{cc.attrs.u.classType}" size="medium"/>
            <div class="floatDestroyer"/>
-           <h:outputText rendered="#{cc.attrs.u.online}" value="On-line" style="color:#89C9F5;"/>
+           <h:outputText rendered="#{cc.attrs.u.online}" value="On-line" styleClass="online"/>
        </div>
        <div>
         
@@ -31,7 +31,7 @@
         <div style="padding-top: 5px;" class="Search">
             <table style="height:100%; text-indent: 0px;">
                 <tr>
-                    <td class="userInfoItemColor" style="width: 35%;">
+                    <td class="userInfoItemColor" style="width: 14%;">
                         #{msgs.student_studentListFIO}
                     </td>
                     <td>
@@ -85,11 +85,13 @@
                     </tr>
                     <tr><td class="userInfoItemColor">Контакты:</td><td></td></tr>
                 </h:panelGroup>
+            </table>
+            <table>
                 <tr>
-                    <td class="greyLinks" style="vertical-align: bottom; height: 30px;">
+                    <td class="greyLinks" style="width: 30%; height: 30px;">
                       <a class="s1" href="messages_write.xhtml?user=${cc.attrs.u.id}">#{msgs.student_studentListWriteMessage}</a>
                     </td>
-                    <td class="greyLinks" style="vertical-align: bottom; height: 30px;">
+                    <td class="greyLinks" style="height: 30px;">
                       <span class="s2" ><a href="messages_dialog.xhtml?user=${cc.attrs.u.id}">#{msgs.student_studentLestShowDialog}</a></span>
                     </td>
                     
