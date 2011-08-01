@@ -22,7 +22,7 @@ function repaint(year, month){
                                                         var title="";
                                                         while($(this).html() == lessons.Super[0].day){
                                                                 $(this).parent().attr('class',"lectures");
-                                                                title += lessons.Super[0].time+" "+lessons.Super[0].teacherFIO+" "+lessons.Super[0].discipline+" "+lessons.Super[0].room+" комната"+"<br />";
+                                                                title += "<span style='color:#5BBF5D; display: inline;'>"+lessons.Super[0].time+"</span>"+" "+"<span style='color:#89C9F5; display: inline;'>"+lessons.Super[0].discipline+"</span>"+" "+"<span style='color:#5BBF5D; display: inline;'>"+lessons.Super[0].teacherFIO+"</span>"+" "+lessons.Super[0].room+" комната"+"<br />";
                                                                 lessons.Super=lessons.Super.slice(1);
                                                                 if(lessons.Super.length==0) {
                                                                     $(this).simpletip({ content: title});
