@@ -16,58 +16,16 @@
         <composite:attribute name="styleForShedule" default="" type="java.lang.String" shortDescription="обтекание слева или без него"/>
         <composite:attribute name="renderBlock" default="" type="java.lang.String" shortDescription="что надо отобразить на странице"/>
         <composite:attribute name="ClassStyle" default="" type="java.lang.String" shortDescription="граница на главной странице"/>
-
-
-
     </composite:interface>
-
+    
     <!-- IMPLEMENTATION -->
     <composite:implementation>
         <link type="text/css" href="../resources/jquery/css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" />
         <script type="text/javascript" src="../resources/jquery/js/jquery-1.5.1.min.js"></script>
         <script type="text/javascript" src="../resources/jquery/js/jquery-ui-1.8.14.custom.min.js"></script>
+        <script type="text/javascript" src="../resources/jquery/js/jquery.simpletip-1.3.1.js"></script>
         <script type="text/javascript" src="../resources/jquery/js/jquery.ui.datepicker-ru.js"></script>
-        <script type="text/javascript">
-                var lessons = new Object();
-                var day = new Date();
-		var year=day.getFullYear(); 
-                var month=day.getMonth()+1;
-                
-                $(function(){
-			$('#datepicker').datepicker({
-				inline: true,
-				onChangeMonthYear: function(year, month, inst) {
-                                        repaint(year, month);
-				}
-			});
-                        repaint(year, month);
-		});
-		
-		function repaint(year, month){
-			 $.post("../SheduleServlet", 
-                                {month: month, year: year}, 
-                                function(lessonData){
-                                        lessons = eval(lessonData);                             
-                                        $('a.ui-state-default[href="#"]').each(function(){
-                                                                            while($(this).html() == lessons.Super[0].day){
-                                                                                    $(this).parent().attr('class',"lectures");
-                                                                                    $(this).parent().attr('title',function() {
-                                                                                                                  return this.title + lessons.Super[0].day+" "+lessons.Super[0].time+" "+lessons.Super[0].teacherFIO+" "+lessons.Super[0].discipline+" "+lessons.Super[0].room;
-                                                                                                                });
-                                                                                    lessons.Super=lessons.Super.slice(1);
-                                                                                    if(lessons.Super.length==0) return false;
-                                                                             }
-                                                                    });
-
-                                $('#datepicker td').each(function(){
-                                        $(this).removeAttr("onclick");
-                                });
-                         }); //alert(month);   
-                    }
-                        
-
-        </script>
-
+        <script type="text/javascript" src="../resources/scripts/shedule.js"></script>
 
         <div>
             <div class="mainStudentPageTitlesGreen mainStudentPageTitles">
@@ -139,96 +97,11 @@
                         </table>
                     </ui:repeat>
 
-
-
-
-
-                    <!--
-                    <h:dataTable columnClasses="
-                                     studentStandatrTableTd,
-                                     studentStandatrTableTd,
-                                     studentStandatrTableTd,
-                                    studentStandatrTableTdLastTd  studentStandatrTableExamin "
-                                     value="#{studentScheduleBean.schedule(40,true)}" var="s" styleClass="studentStandatrTable studentStandatrTableExamin" cellpadding="0" cellspacing="0">
-                            <h:column>
-
-                                <span class="linkToStudentProfile" style="font-size: 8pt; font-weight: normal;display:  block; padding-left: 8px;"><h:outputText value="#{s.discipline.name}"/></span>
-                            </h:column>
-                            <h:column>
-
-                                <span class="linkToTeachersProfile linkToTeachersProfileFromStudent" style="background: none;"><a href="teacher.xhtml?id=#{s.teacher.id}"><h:outputText value="#{s.teacher.initials}"/></a></span>
-                            </h:column>
-                            <h:column>
-
-                                <div style="text-align: center !important;">
-                                    <h:outputText converter="roomConverter" value="#{s.room}" style="color: #{s.color}"/>
-                                </div>
-                            </h:column>
-                            <h:column>
-
-                                <span ><h:outputText converter="dateConverter" value="#{s.lessonDate}"/> - <h:outputText converter="dateConverter" value="#{s.lessonEndDate}"/></span>
-                            </h:column>
-                        </h:dataTable>-->
-
-
                     <util:navigationList numElements="#{studentScheduleBean.count(true)}" elementOnPage="40"/>
                 </div>
             </h:panelGroup>
 
-
-
-
         </div>
-
-        <!--                        <h:dataTable columnClasses="
-                                             studentStandatrTableTd studentStandatrTableTdWithBorder,
-                                             studentStandatrTableTd studentStandatrTableTdWithBorder,
-                                             studentStandatrTableTd studentStandatrTableTdWithBorder,
-                                             studentStandatrTableTd studentStandatrTableTdWithBorder,
-                                             studentStandatrTableTdLastTd studentStandatrTableTdLastTdwithBorder"
-                                             value="#{studentScheduleBean.schedule(cc.attrs.numberLessons,false)}" var="s" styleClass="studentStandatrTable studentTableEvent" cellpadding="0" cellspacing="0">
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="#{msgs.student_Dicipline}"/>
-                                        </f:facet>
-                                        <span class="controlWorksDisciplineNameLink" >
-                                            <h:outputLink value="umk.xhtml?c=#{s.id}" style="margin-left: 10px;">#{s.discipline.name}
-                                            </h:outputLink>
-                                         </span>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="#{msgs.student_Teacher}"/>
-                                        </f:facet>
-                                        <div style="text-align: center !important;">
-                                            <span class="linkToTeachersProfile linkToTeachersProfileFromStudent"><a href="teacher.xhtml?id=#{s.teacher.id}" style="text-indent: 22px;"><h:outputText value="#{s.teacher.initials}"/></a></span>
-                                        </div>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="#{msgs.student_Room}"/>
-                                        </f:facet>
-                                        <div class="centerAlignText">
-                                            <h:outputText converter="roomConverter" value="#{s.room}" style="color: #{s.color}"/>
-                                        </div>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="#{msgs.student_lessonType}"/>
-                                        </f:facet>
-                                        <div class="centerAlignText">
-                                            <h:outputText converter="enumConverter" value="#{s.lessonType}" />
-                                        </div>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="#{msgs.student_Data}"/>
-                                        </f:facet>
-                                        <div class="centerAlignText" style="font-size: 7pt;">
-                                        <h:outputText converter="dateConverter" value="#{s.lessonDate}"/><br/> -<br/><h:outputText converter="dateConverter" value="#{s.lessonEndDate}"/>
-                                        </div>
-                                    </h:column>
-                                </h:dataTable>-->
 
     </composite:implementation>
 </html>
