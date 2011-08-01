@@ -2169,3 +2169,12 @@ ul.dropdown li ul li {
     border: 1px solid #89C9F5;
     width: 467px;
 }
+/*стиль для подсказок в расписании*/
+.tooltip{ 
+    position: absolute; 
+    top: 0; left: 0; z-index: 3; 
+    display: none; 
+    background: white;
+    padding: 3px;
+    border: 1px solid #d4d4d4;
+}
