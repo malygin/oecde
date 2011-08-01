@@ -36,7 +36,7 @@
             </div>
             <div class="videoConfSchedule floatLeft" style="min-height: 212px; width: 50%;">
                 <table class="#{cc.attrs.ClassStyle}">
-                    <ui:repeat var="s" value="#{studentScheduleBean.schedule(40,true)}" >
+                    <ui:repeat var="s" value="#{studentScheduleBean.schedule(40,true)}" size="2">
                         <tr>
                             <td valign="top" class="Ipsilon_Web_GreenText"><p><h:outputText value="#{s.lessonDate}" converter="dateConverter"/></p>
                             </td>
