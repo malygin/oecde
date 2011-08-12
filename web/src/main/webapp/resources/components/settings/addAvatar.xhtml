@@ -15,7 +15,7 @@
     <composite:implementation>
         <div style="">
             <form method="post" enctype="multipart/form-data" action="UploadServlet">
-                    <ut:showPhoto user="#{cc.attrs.bean.user}" size="medium"/>
+                    <ut:showPhoto user="#{cc.attrs.bean.user}" size="large"/>
                 <div class="downloadPhoto">
                     <input type="file" name="avatar" class="AdminAddAvatar downloadPhotoInputStyle" /><br/>
                     <button type="submit" styleClass="studentButton" style="width: 150px;">#{msgs.photoLoaderButton}</button>

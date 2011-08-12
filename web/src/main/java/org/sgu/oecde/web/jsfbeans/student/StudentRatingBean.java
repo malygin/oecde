@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -38,14 +39,39 @@ public class StudentRatingBean extends StudentCurriculumBean{
     private IResultDao<AbstractResult>resultDao;
 
     private List<Points>rating;
+    private List<Points>leadersRating;
+    private List<Points>otherRating;
 
     private Points points;
+    
+    private int maxpoints;
 
     public List<Points>  getGroupRating() {
         if(rating==null){
             rating = getStudentsRating(student.<Group>getGroup().getPersons());
-        }
+          }
         return rating;
+     }
+           
+    public List<Points> getLeadersRating(){
+         if(leadersRating==null){
+            otherRating = getStudentsRating(student.<Group>getGroup().getPersons());
+            maxpoints=otherRating.get(0).getSum();
+            int i=0;
+            leadersRating=new ArrayList<Points>();            
+            for(Iterator<Points> p=otherRating.iterator();  p.hasNext();){
+                if (i++>=3) break; 
+                leadersRating.add(p.next());
+                p.remove();                     
+                
+            }
+            
+        }
+        return leadersRating;
+    }
+    
+    public List<Points>getOtherRaiting(){
+        return otherRating;
     }
 
     public Points getStudentRating(){
@@ -100,4 +126,14 @@ public class StudentRatingBean extends StudentCurriculumBean{
 
         }
     }
+
+    public int getMaxpoints() {
+        return maxpoints;
+    }
+
+    public void setMaxpoints(int maxpoints) {
+        this.maxpoints = maxpoints;
+    }
+    
+    
 }

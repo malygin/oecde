@@ -32,11 +32,13 @@ public class getLessonItem extends BasicTest{
 
 
     IBasicDao<Teacher>  teacherDao;
+    IBasicDao<Student>  studentDao;
     ICurriculumDao<DeCurriculum> sdsyDao;
 
     @Before
     public void setBean(){
         teacherDao = (IBasicDao) getBean("teacherDao");
+        studentDao = (IBasicDao) getBean("studentDao");
         sdsyDao = (ICurriculumDao<DeCurriculum>) getBean("curriculumDao");
     }
 
@@ -93,10 +95,22 @@ public class getLessonItem extends BasicTest{
 //    @Ignore
     @Test
     public void getLesson(){
-        Teacher t = teacherDao.getById(46103l);
-        List<Group>cssIs = sdsyDao.getGroupsForTeacher(Semesters.summer(), 2010, t,new Discipline(2l));
+       Student student = studentDao.getById(320412l);
         setDao("lessonDao");
-        this.<ILessonDao>getDao().getLessonsFroStudent(false, cssIs.get(0), ((Student)cssIs.get(0).getPersons().iterator().next()).getCity(), 20, 0, null, null);
+        List<Lesson> l=this.<ILessonDao>getDao().getLessonsForStudent(false,student.<Group>getGroup(),student.getCity(),30,1,"2011.07.01","2011.08.01");
+        System.out.println(""+l.size());
+    }
+   
+    
+    @Ignore
+    @Test
+    public void getLessonByDate(){
+        Lesson l=new Lesson();
+        l.setLessonDate("2011.08.04");
+      //  List<Group>cssIs = sdsyDao.getGroupsForTeacher(Semesters.summer(), 2010, t,new Discipline(2l));
+        setDao("lessonDao");
+        List<Lesson> list= this.<ILessonDao>getDao().getLessonsByDate(l);
+        System.out.println("result "+list);
 
     }
 
@@ -154,7 +168,7 @@ public class getLessonItem extends BasicTest{
         }
     }
 
-//      @Ignore
+      @Ignore
     @Test
     public void getByGroups() throws DataAccessException, ParseException{
         List gs = new ArrayList();

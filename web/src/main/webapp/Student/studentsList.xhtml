@@ -43,28 +43,19 @@
             </div>
             <div class="textForPodskazka">
                 <ol class="listOfWinner">
-                    <li>Лукьянова А.Л.<span>876</span>
+                    <ui:repeat value="#{studentRatingBean.leadersRating}" var="p">
+                        <li>#{p.student.initials}<span>#{p.sum}</span>
                         <div class="progressBarRating">
-                            <div style="width:99%;">
+                            <div style="width:#{(p.sum*100)/studentRatingBean.maxpoints}%;">
                             </div>
                         </div>
-                    </li>
-                    <li>Зинченко А.Л.<span>798</span>
-                        <div class="progressBarRating">
-                            <div style="width:70%;">
-                            </div>
-                        </div>
-                    </li>
-                    <li>Борисов А.Л.<span>599</span>
-                        <div class="progressBarRating">
-                            <div style="width:50%;">
-                            </div>
-                        </div>
-                    </li>
+                        </li>                   
+                    </ui:repeat>
                 </ol>
                 <ol start="4" class="listOfAther">
-                    <li>Лукьянова А.Л.<span>53</span></li>
-                    <li>Лукьянова А.Л.<span>0</span></li>
+                   <ui:repeat value="#{studentRatingBean.otherRaiting}" var="p">
+                    <li>#{p.student.initials}<span>#{p.sum}</span></li>                
+                   </ui:repeat>
                 </ol>
             </div>
         </div>

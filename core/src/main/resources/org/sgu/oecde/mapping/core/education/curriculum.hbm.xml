@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <class discriminator-value="main" name="org.sgu.oecde.core.education.Curriculum" table="curriculum">
-    <cache usage="read-only"/>
+ 
     <id name="id" type="long"/>
     <discriminator column="discriminator" insert="false" length="15"/>
     <property insert="false" name="semester" scale="2" type="integer" update="false"/>
@@ -15,7 +15,7 @@
       </type>
     </property>
     <set batch-size="5" cascade="none" fetch="select" lazy="true" mutable="false" name="teacherToGroups" table="teacher_to_group">
-      <cache usage="read-only"/>
+   
       <key column="curriculum" foreign-key="fk_teacher_2_group_curriculum"/>
       <composite-element class="org.sgu.oecde.core.education.TeacherToGroup">
         <parent name="curriculum"/>

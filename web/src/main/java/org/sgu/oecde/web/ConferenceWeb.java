@@ -19,7 +19,7 @@ import org.springframework.web.context.support.SpringBeanAutowiringSupport;
  * @author ShihovMY
  */
 @WebService
-public class ConferenceWebService extends SpringBeanAutowiringSupport implements Serializable{
+public class ConferenceWeb extends SpringBeanAutowiringSupport implements Serializable{
 
     @Autowired
     IBasicDao<AbstractUser> userDao;

@@ -6,6 +6,7 @@ import org.sgu.oecde.core.IBasicDao;
 import org.sgu.oecde.core.users.StudentGroup;
 import org.sgu.oecde.de.education.City;
 import org.sgu.oecde.de.users.Group;
+import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.schedule.Lesson;
 import org.springframework.dao.DataAccessException;
 
@@ -40,9 +41,13 @@ public interface ILessonDao extends IBasicDao<Lesson>{
     public void deleteLesson(final Lesson lesson) throws DataAccessException;
 
     public Long getLessonsCountByCity(City c, boolean isWinter, int year, String beginDate, String endDate) throws DataAccessException ;
+    
     public List<Lesson>getLessonsByCity(City c, boolean isWinter, int year, int maxResult, int firtsResult, String beginDate, String endDate)throws DataAccessException;
     
-    public List<Lesson>getLessonsFroStudent( boolean isWinter,  Group g,City c, int maxResult, int firtsResult,String beginDate, String endDate) throws DataAccessException;
+    public List<Lesson>getLessonsForStudent( boolean isWinter,  Group g,City c, int maxResult, int firtsResult,String beginDate, String endDate) throws DataAccessException;
+    
+
+    public List<Lesson>getLessonsByDate(Lesson l) throws DataAccessException;
 
     /**
      * получает количество занятий по критериям, что берутся из параметров lesson

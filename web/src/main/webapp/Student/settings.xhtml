@@ -41,7 +41,7 @@
                                           <h:outputText id="saved2" rendered="#{studentSettingsBean.saved}" value="Сохранено"/>
                                         <div class="smallChatTools">
                                             <h:commandButton value="Сохранить" styleClass="studentButton" style="margin-right: 0; margin-top: 10px; width: 90px;">
-                                                <f:ajax execute="@form" render="@form  saved2 " listener="#{studentSettingsBean.save}"/>
+                                                <f:ajax execute="@form" render="@form"  listener="#{studentSettingsBean.save}"/>
                                             </h:commandButton> 
                                         </div>
                                     </td>

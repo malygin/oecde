@@ -7,6 +7,8 @@ import java.io.File;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Resource;
@@ -14,6 +16,9 @@ import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
+import org.im4java.core.ConvertCmd;
+import org.im4java.core.IM4JavaException;
+import org.im4java.core.IMOperation;
 import org.sgu.oecde.core.IUpdateDao;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.journal.EventType;
@@ -22,6 +27,7 @@ import org.sgu.oecde.web.jsfbeans.util.fileUpload.FacesUtil;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.MultipartRequestWrapper;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
+import sun.awt.image.BufferedImageGraphicsConfig;
 
 /**
  * Класс, изменяющий размеры изображения.
@@ -98,14 +104,16 @@ public class AvatarBuilder implements Serializable {
         ImageIO.write(img, "JPEG", someFile);
     }
 
-    private BufferedImage resize(BufferedImage img, int newW, int newH) {
-        int w = img.getWidth();
-        int h = img.getHeight();
-        BufferedImage dimg = new BufferedImage(newW, newH, img.getType());
-        Graphics2D g = dimg.createGraphics();
-        g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-        g.drawImage(img, 0, 0, newW, newH, 0, 0, w, h, null);
-        g.dispose();
-        return dimg;
+    private BufferedImage resize(BufferedImage image, int width, int height) {
+            int type = image.getType() == 0? BufferedImage.TYPE_INT_ARGB : image.getType();
+            BufferedImage resizedImage = new BufferedImage(width, height, type);
+            Graphics2D g = resizedImage.createGraphics();
+            g.setComposite(AlphaComposite.Src); 
+            g.setRenderingHint(RenderingHints.KEY_INTERPOLATION,RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+            g.setRenderingHint(RenderingHints.KEY_RENDERING,RenderingHints.VALUE_RENDER_QUALITY);
+            g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
+            g.drawImage(image, 0, 0, width, height, null);
+            g.dispose();
+            return resizedImage; 
+         }
     }
-}

@@ -24,7 +24,7 @@ public class TermPaper extends StudentCurriculumBean{
             setSemester(0);
             List<DeCurriculum> list = getCurriculums();
             for(DeCurriculum s:list){
-                if(s.getTermPapersNumber()>0){
+                if((s.getTermPapersNumber()!=null) && (s.getTermPapersNumber()>0)){
                     gotTermPaper=true;
                     break;
                 }

@@ -6,11 +6,22 @@ package org.sgu.oecde.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.sgu.oecde.core.users.AbstractUser;
+import org.sgu.oecde.core.users.StudentGroup;
+import org.sgu.oecde.de.users.Student;
+import org.sgu.oecde.de.users.Group;
+import org.sgu.oecde.schedule.Lesson;
+import org.sgu.oecde.schedule.dao.LessonDao;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 /**
  *
@@ -33,57 +44,36 @@ public class SheduleServlet extends HttpServlet {
         try {
                StringBuffer str=new StringBuffer();
                String month = request.getParameter("month");
+               String monthEnd="";
                String year = request.getParameter("year");
                int monthNumber = Integer.parseInt(month);
                int yearNumber = Integer.parseInt(year);
                
-               if ((monthNumber==7)&&(yearNumber==2011)){
-               str.append("{\"Super\": [").
-                   append("{\"teacherFIO\": \"").append("Амелин Р.В.").
-                   append("\", \"discipline\": \"").append("Политология").
-                   append("\", \"day\": \"").append("4").
-                   append("\", \"time\": \"").append("14:30").
-                   append("\", \"room\": \"").append("4").append("\"},").
-                       
-                   append("{\"teacherFIO\": \"").append("Петров Р.В.").
-                   append("\", \"discipline\": \"").append("Социология").
-                   append("\", \"day\": \"").append("4").
-                   append("\", \"time\": \"").append("17:30").
-                   append("\", \"room\": \"").append("4").append("\"},").
+               if (monthNumber<10) month="0"+month;
+               if (++monthNumber<10)  monthEnd="0"+monthNumber;
+                   else monthEnd=monthNumber+"";
+               
+               AbstractUser user = (AbstractUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+               ServletContext context = getServletContext();
+               WebApplicationContext applicationContext =WebApplicationContextUtils.getWebApplicationContext(context);
+               LessonDao dao = (LessonDao) applicationContext.getBean("lessonDao");
+               List<Lesson> list=dao.getLessonsForStudent(false,(Group)((Student)user).getGroup(),((Student)user).getCity(),40,1, year+"."+month+".01",year+"."+monthEnd+".01");
+            //  List<Lesson> list=dao.getLessonsForStudent(false,(org.sgu.oecde.de.users.Group)((Student)user).getGroup(),((Student)user).getCity(),40,1,year+".0"+month+".01", year+".0"+ ++monthNumber+".01");
+
+               if (!list.isEmpty()){
+                     str.append("{\"Super\": [");
+                   for(Lesson l:list){
                    
-                   append("{\"teacherFIO\": \"").append("Амелин Р.В.").
-                   append("\", \"discipline\": \"").append("Политология").
-                   append("\", \"day\": \"").append("14").
-                   append("\", \"time\": \"").append("14:30").
-                   append("\", \"room\": \"").append("2").append("\"},").
-                   
-                   append("{\"teacherFIO\": \"").append("Бочкарева Р.В.").
-                   append("\", \"discipline\": \"").append("Практикум по постановке голоса и выразительности чтения ").
-                   append("\", \"day\": \"").append("15").
-                   append("\", \"time\": \"").append("14:30").
-                   append("\", \"room\": \"").append("2").append("\"}").
-                 
-                 append(" ]}");
-                 out.println(str);
-                 }
-               else{
-                  str.append("{\"Super\": [").
-                   append("{\"teacherFIO\": \"").append("Патралова З.С.").
-                   append("\", \"discipline\": \"").append("Единицы языка и их функционирование").
-                   append("\", \"day\": \"").append("16").
-                   append("\", \"time\": \"").append("14:30").
-                   append("\", \"room\": \"").append("2").append("\"},").
-                   
-                   append("{\"teacherFIO\": \"").append("Иванов В.А.").
-                   append("\", \"discipline\": \"").append("Политология").
-                   append("\", \"day\": \"").append("22").
-                   append("\", \"time\": \"").append("14:30").
-                   append("\", \"room\": \"").append("2").append("\"}").
-                       
-                       
-                       append(" ]}");
-                 out.println(str);
+                              str.append("{\"teacherFIO\": \"").append(l.getTeacher().getInitials()).
+                              append("\", \"discipline\": \"").append(l.getDiscipline().getName()).
+                              append("\", \"day\": \"").append(Integer.parseInt(l.getLessonDate().substring(8, 10))).
+                              append("\", \"time\": \"").append(l.getLessonDate().substring(11, 16)).
+                              append("\", \"room\": \"").append(l.getRoom()/13 +1).append("\"},");
+                   }
+                     str.append(" ]}");
                }
+               out.print(str);
+             
         } finally {            
             out.close();
         }

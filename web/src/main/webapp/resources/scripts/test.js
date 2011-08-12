@@ -5,8 +5,8 @@ $(window).bind('beforeunload', function(){
 });
 
 function checkTime() {
-    document.getElementById('mainForm:completeTest').click();
-    console.log("dsdsd");
+    document.getElementById('mainForm:j_idt101:completeTest').click();
+   // console.log("dsdsd");
 
 }
 function removeCounter() {
@@ -138,7 +138,7 @@ $(function(){
 
 $(function(){
     vd = document.getElementsByClassName('testComparVariants');
-    console.log($(vd).children().children().attr('style','width: 170px;'));
+   // console.log($(vd).children().children().attr('style','width: 170px;'));
    
 });
 

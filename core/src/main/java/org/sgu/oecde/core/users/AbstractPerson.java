@@ -122,6 +122,7 @@ public abstract class AbstractPerson extends AbstractUser implements Comparable<
      * @return
      */
     public String getInitials(){
+        if (getName().equals("Default")) return"";
         StringBuilder sb = new StringBuilder();
         sb.append(getSurname()).append(" ");
         if(StringUtils.hasText(getName()))

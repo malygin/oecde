@@ -11,6 +11,7 @@ import org.hibernate.criterion.Property;
 import org.sgu.oecde.core.UpdateDao;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.Discipline;
+import org.sgu.oecde.core.education.Speciality;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.users.StudentGroup;
 import org.sgu.oecde.core.util.HqlConstructor;
@@ -69,6 +70,7 @@ public class CurriculumDao<T extends Curriculum> extends UpdateDao<T> implements
         while(result.next()){
             map.put((K)(((Object[])result.get(0))[0]), (V)(((Object[])result.get(0))[1]));
         }
+        
         return map;
     }
     

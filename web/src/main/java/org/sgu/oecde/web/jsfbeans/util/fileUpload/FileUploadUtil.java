@@ -69,8 +69,7 @@ public class FileUploadUtil {
     public static UploadFile findFile(HttpServletRequest req, String name) throws ServletException {
         UploadFile uf = null;
         try {
-            Part p = (Part) req.getPart(name);
-             
+            Part p = (Part) req.getPart(name);           
 
             if(p == null)
                 return uf;

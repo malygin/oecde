@@ -3,6 +3,7 @@ package org.sgu.oecde.web.jsfbeans.student;
 import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import org.sgu.oecde.core.education.Speciality;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.education.DeCurriculum;

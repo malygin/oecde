@@ -54,12 +54,12 @@
                              if (flag){
                                  //идем в первый раз
                                     $("#counter").counter({
-                                              min:'#{testPassingBean.timeTest}',
+                                              min:'1',
                                               sec:'0',
                                               message: 'Время вышло!',
                                                   finish_function: 'checkTime()' });
                                      setInterval(function() {
-                                            $("#progressbar div.progress").css("width",pct*100/(#{testPassingBean.timeTest}*60)+"%");
+                                            $("#progressbar div.progress").css("width",pct*100/(1*60)+"%");
                                             pct++;
                                         }, 1000);
                                      flag=false;}

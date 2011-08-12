@@ -7,7 +7,7 @@
     <property column="second_name" insert="false" length="50" name="secondName" type="string" update="false"/>
     <property insert="false" length="50" name="surname" type="string" update="false"/>
     <property insert="false" length="20" name="birthday" type="string" update="false"/>
-    <property insert="false" length="200" name="contacts" type="string" update="false"/>
-    <property insert="false" length="2000" name="info" type="string" update="false"/>
+    <property length="200" name="contacts" type="string" />
+    <property length="2000" name="info" type="string" />
   </joined-subclass>
 </hibernate-mapping>

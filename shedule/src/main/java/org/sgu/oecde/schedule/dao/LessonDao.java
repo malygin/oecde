@@ -8,6 +8,7 @@ import org.sgu.oecde.core.BasicDao;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.de.education.City;
 import org.sgu.oecde.de.users.Group;
+import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.schedule.Lesson;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
@@ -91,12 +92,15 @@ public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
         return !l.isEmpty()?(Long)l.get(0):0l;
     }
 
-    public List<Lesson>getLessonsFroStudent( boolean isWinter, Group g,City c, int maxResult, int firtsResult,String beginDate, String endDate) throws DataAccessException{
+    public List<Lesson>getLessonsForStudent( boolean isWinter, Group g,City c, int maxResult, int firtsResult,String beginDate, String endDate) throws DataAccessException{
+       // String query = "select distinct l "+GET_LESSONS_FOR_STUDENT_QUERY+insertParameters(beginDate, endDate)+ORDER_BY;
         String query = "select distinct l "+GET_LESSONS_FOR_STUDENT_QUERY+insertParameters(beginDate, endDate)+ORDER_BY;
         Query q = getSession().createQuery(query);
         q.setBoolean("w", isWinter).setParameter("g", g).setParameter("c", c).setFirstResult(getFirstResult(maxResult, firtsResult)).setMaxResults(maxResult);
         return q.list();
     }
+    
+
 
     private String insertParameters( String beginDate, String endDate){
         String query = " and l.lessonDate ";
@@ -107,8 +111,26 @@ public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
         }
         return query;
     }
+     private String insertParametersDate( String date){
+        String query = " and l.lessonDate like '%"+date+"%' ";
+//        if(beginDate == null && endDate == null){
+//            query+= " > '"+DateConverter.currentDate()+"'";
+//        } else{
+//            query+=" between '"+beginDate +" 00:00:00' and '"+endDate+" 00:00:00'";
+//        }
+        return query;
+    }
 
     private int getFirstResult(int maxResult, int pageNumber){
         return maxResult * (pageNumber-1) ;
     }
+    
+    public List<Lesson>getLessonsByDate(Lesson l) throws DataAccessException{
+       String query = "select l from Lesson as l where l.lessonDate like :d";
+       Query q = getSession().createQuery(query);
+       
+       q.setString("d", "%"+l.getLessonDate()+"%");
+       return q.list();
+    }
+
 }

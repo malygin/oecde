@@ -5,6 +5,7 @@ import java.util.Map;
 import org.sgu.oecde.core.IUpdateDao;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.Discipline;
+import org.sgu.oecde.core.education.Speciality;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.users.StudentGroup;
 import org.springframework.dao.DataAccessException;
