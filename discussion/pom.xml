@@ -15,26 +15,22 @@
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>core</artifactId>
-      <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>de</artifactId>
-      <version>${project.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>core</artifactId>
-      <version>${project.version}</version>
       <scope>test</scope>
       <classifier>tests</classifier>
     </dependency>
-      <dependency>
+     <dependency>
         <groupId>${project.groupId}</groupId>
-        <artifactId>resources</artifactId>
-        <version>${project.version}</version>
+        <artifactId>resources</artifactId>   
         <classifier>resources</classifier>
         <type>zip</type>
         <scope>provided</scope>
