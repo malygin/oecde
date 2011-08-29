@@ -27,7 +27,7 @@
                 <div class="floatDestroyer"></div>
 
                 <h:dataTable value="#{materialsBean.studentsDisciplines}" var="m" styleClass="leftMenuContainer" style="width: 100%;">
-                    <h:column>
+                    <h:column rendered="#{ m.curriculum.umk.id != 5276}" >
                         <br />
                         <div>
                             <span class="linkToStudentsProfile studentPaddLeft"><h:outputLink value="discipline.xhtml?c=#{m.curriculum.id}" style=" font-size: 11pt !important;">#{m.curriculum.umk.name}</h:outputLink><br/></span>
@@ -38,7 +38,7 @@
                                         <td>Преподаватель</td>
                                         <td class="linkToTeachersProfile">
                                     <ui:repeat value="#{setToList.getList(m.curriculum.teacherToGroups)}" var="t">    
-                                        <a href="teacher.xhtml?id=#{t.teacher.id}"> #{t.teacher.fio}</a>
+                                       <h:panelGroup rendered="#{t.teacher.id != 1}"> <a href="teacher.xhtml?id=#{t.teacher.id}"> #{t.teacher.fio}</a></h:panelGroup>
                                     </ui:repeat>                                
                                     </td>
                                     </tr>

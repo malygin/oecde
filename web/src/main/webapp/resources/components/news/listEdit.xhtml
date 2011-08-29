@@ -23,7 +23,7 @@
                              <span class="chatPostUser" style="font-size: 8pt;"><h:outputText converter="dateConverter" value="#{n.time}"/> <font color="red"><h:outputText converter="enumConverter" value="#{n.newstype}"/></font></span>
                          <span>
                              <span class="newsName"> #{n.header}</span> 
-                           <h:outputLink value="news_view.xhtml?id=#{n.id}" rendered="#{not NewsBean.renderDeleteSuccess}" styleClass="AdminNavigationLinks">
+                           <h:outputLink value="news_read.xhtml?id=#{n.id}" rendered="#{not NewsBean.renderDeleteSuccess}" styleClass="AdminNavigationLinks">
                            посмотреть новость
                            </h:outputLink>
                          </span>
@@ -40,7 +40,7 @@
                          </h:commandLink>
                           </span>
                          <span class="controlWorksDisciplineNameLinkGrey news_edit">
-                         <h:outputLink value="news_read.xhtml?id=#{n.id}" rendered="#{not NewsBean.renderDeleteSuccess}" styleClass="AdminNavigationLinks">
+                         <h:outputLink value="news_view.xhtml?id=#{n.id}" rendered="#{not NewsBean.renderDeleteSuccess}" styleClass="AdminNavigationLinks">
                             #{msgs.admin_mainContentEdit}
                         </h:outputLink>
                          </span>
