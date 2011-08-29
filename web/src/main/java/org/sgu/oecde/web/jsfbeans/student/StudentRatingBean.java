@@ -54,18 +54,22 @@ public class StudentRatingBean extends StudentCurriculumBean{
      }
            
     public List<Points> getLeadersRating(){
-         if(leadersRating==null){
-            otherRating = getStudentsRating(student.<Group>getGroup().getPersons());
-            maxpoints=otherRating.get(0).getSum();
-            int i=0;
-            leadersRating=new ArrayList<Points>();            
-            for(Iterator<Points> p=otherRating.iterator();  p.hasNext();){
-                if (i++>=3) break; 
-                leadersRating.add(p.next());
-                p.remove();                     
-                
-            }
-            
+        try{
+             if(leadersRating==null){
+                otherRating = getStudentsRating(student.<Group>getGroup().getPersons());
+                maxpoints=otherRating.get(0).getSum();
+                int i=0;
+                leadersRating=new ArrayList<Points>();            
+                for(Iterator<Points> p=otherRating.iterator();  p.hasNext();){
+                    if (i++>=3) break; 
+                    leadersRating.add(p.next());
+                    p.remove();                     
+
+                }
+
+            }}
+        catch(Exception e){
+            return null;
         }
         return leadersRating;
     }

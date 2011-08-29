@@ -31,10 +31,10 @@
                     Мои результаты тестов
                 </p>
                 <div style="float: right;" class="greyLinks">
-                    <h:outputLink rendered="#{testResultsBean.semester == 0 and !testResultsBean.reExame}" value="testResults.xhtml?s=1">#{msgs.student_eduMenuWinterTestsResults}</h:outputLink>
-                    <h:outputLink rendered="#{testResultsBean.semester == 1 and !testResultsBean.reExame}" value="testResults.xhtml">#{msgs.student_eduMenuTestsResults}</h:outputLink>
+<!--                    <h:outputLink rendered="#{testResultsBean.semester == 1 and !testResultsBean.reExame}" value="testResults.xhtml?s=0">#{msgs.student_eduMenuTestsResults}</h:outputLink>
+                    <h:outputLink rendered="#{testResultsBean.semester == 0 and !testResultsBean.reExame}" value="testResults.xhtml">#{msgs.student_eduMenuWinterTestsResults}</h:outputLink>
                     <h:outputLink rendered="#{testResultsBean.semester == 0 and testResultsBean.reExame}" value="testResults.xhtml?r=true&amp;s=1">#{msgs.student_eduMenuWinterReexamination}</h:outputLink>
-                    <h:outputLink rendered="#{testResultsBean.semester == 1 and testResultsBean.reExame}" value="testResults.xhtml?r=true">#{msgs.student_eduMenuReexamination}</h:outputLink>
+                    <h:outputLink rendered="#{testResultsBean.semester == 1 and testResultsBean.reExame}" value="testResults.xhtml?r=true">#{msgs.student_eduMenuReexamination}</h:outputLink>-->
 
                 </div>
                 <div class="floatDestroyer"/>
@@ -48,7 +48,7 @@
                                 <h:outputText value="#{m.curriculum.umk.name}" styleClass="clickToHid Ipsilon_Web_GreenText">#{m.curriculum.umk.name}</h:outputText>
                                 <br/>
 
-                                <h:dataTable value="#{testResultsBean.attempts}" cellpadding="0" cellspacing="0" rendered="#{testResultsBean.attempts ne '[]'}"
+                                <h:dataTable value="#{testResultsBean.getAttemptsByCID(m.curriculum.id)}" cellpadding="0" cellspacing="0" rendered="#{testResultsBean.getAttemptsByCID(m.curriculum.id) ne '[]'}"
                                              columnClasses="studentStandatrTableTd,
                                              studentStandatrTableTd studentStandatrTableExamin,
                                              studentStandatrTableTd studentStandatrTableExamin,

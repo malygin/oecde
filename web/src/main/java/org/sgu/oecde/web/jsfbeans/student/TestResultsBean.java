@@ -1,5 +1,7 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -28,6 +30,8 @@ public class TestResultsBean extends StudentCurriculumBean{
     boolean reExame;
     
     private List<AdditionalSelfDependentWork>attempts;
+    private List<AdditionalSelfDependentWork>attemptsByCID;
+    private String currentCID="";
 
     private static final long serialVersionUID = 98L;
 
@@ -40,6 +44,23 @@ public class TestResultsBean extends StudentCurriculumBean{
             }
         }
         return attempts;
+    }
+    
+    public List<AdditionalSelfDependentWork>getAttemptsByCID(String id){
+        if(!currentCID.equals(id) && !"".equals(id)){
+            
+            attemptsByCID= new ArrayList<AdditionalSelfDependentWork>(getAttempts());        
+            Iterator<AdditionalSelfDependentWork> i=attemptsByCID.iterator();
+            while (i.hasNext()){
+                AdditionalSelfDependentWork asw=i.next();
+               // System.out.println("id="+id+" cid="+asw.getCurriculum().getId());
+                if (asw.getCurriculum().getId().equals(new Long(id))) continue;
+                i.remove();            
+            }
+            currentCID=id;
+           // System.out.println("");
+        }
+        return attemptsByCID;
     }
 
     public void setTestAttemptService(TestAttemptService testAttemptService) {

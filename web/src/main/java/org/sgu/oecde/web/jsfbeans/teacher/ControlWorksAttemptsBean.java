@@ -51,6 +51,7 @@ public class ControlWorksAttemptsBean extends AbstractStudentsListBean{
                     groups.add(g);
             }
             int first = page*elementsOnPage;
+            if (curriculums.isEmpty()) return null;
             attempts = controlWorkAttemptDao.getAttemptsList(first, elementsOnPage, groups, curriculums);
         }
         return attempts;

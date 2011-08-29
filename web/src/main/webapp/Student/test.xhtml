@@ -21,6 +21,8 @@
                 var pct=1;
                 //блокатор на повторное создание счетчик
                  var flag=true;
+                 //метка что это студент
+                 var user="student";
         </script>
         <div class="counterPosition"><div class="TestCounter">
                 <span id="counter"></span>
@@ -54,12 +56,12 @@
                              if (flag){
                                  //идем в первый раз
                                     $("#counter").counter({
-                                              min:'1',
+                                              min: #{testPassingBean.timeTest},
                                               sec:'0',
                                               message: 'Время вышло!',
                                                   finish_function: 'checkTime()' });
                                      setInterval(function() {
-                                            $("#progressbar div.progress").css("width",pct*100/(1*60)+"%");
+                                            $("#progressbar div.progress").css("width",pct*100/(#{testPassingBean.timeTest}*60)+"%");
                                             pct++;
                                         }, 1000);
                                      flag=false;}

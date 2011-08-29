@@ -37,12 +37,17 @@ public class StudentCurriculumBean extends AbstractStudentBean{
             curriculums = curriculumDao.getByExample(curriculumBuilder.getInstanceByCurrentDate(student, semester));
           
            Iterator<DeCurriculum> i = curriculums.iterator();
-            //удалим те дисциплины где нет умк
-            while (i.hasNext()){
-               if (i.next().getExaminationType()==ExaminationType.empty){
+           while(i.hasNext()){
+               DeCurriculum next=i.next();
+               if((next.getExaminationType()==ExaminationType.empty)&&(next.getNumberControlWork()==0))
                    i.remove();
-               }
            }
+            //удалим те дисциплины где нет умк
+//            while (i.hasNext()){
+//               if (i.next().getExaminationType()==ExaminationType.empty){
+//                   i.remove();
+//               }
+   //        }
             if(sort)
                 Collections.sort(curriculums, new OrderByDisciplineName());
         }

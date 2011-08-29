@@ -8,7 +8,7 @@
     template="baseTemplate.xhtml">
     <ui:define name="userCSS">
         <h:outputStylesheet name="teacher.css" library="css" rendered="true"/>
-         <h:outputStylesheet name="base_old.css" library="css" rendered="true"/>  
+        <h:outputStylesheet name="base_old.css" library="css" rendered="true"/>  
     </ui:define>
     <ui:define name="left">
         <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.teacher_groupsMenuTitle}</p></div>
@@ -17,15 +17,16 @@
                 <tr>
                     <td>#{msgs.teacher_CurrentSemester}:</td>
                     <td><h:outputText id="sName" value="#{changeSemesterBean.semesterName(teachersGroups.semester)}"/>
-                    </td>
-                    </tr>
-                    <tr>
-                        <td>#{msgs.teacher_ShowSemester}:</td>
-                    <td><h:commandLink id="handle" style="text-decoration: none;">
-                    <f:ajax event="click" render="table sName next" listener="#{teachersGroups.changeSemester}"/>
-                    <f:attribute name="semester" value="#{teachersGroups.semester==0?1:0}"/>
-                    <h:outputText id="next" value="#{changeSemesterBean.inversedSemesterName(teachersGroups.semester)}"/>
-                </h:commandLink>
+                </td>
+                </tr>
+                <tr>
+                    <td>#{msgs.teacher_ShowSemester}:</td>
+                    <td>
+                        <h:commandLink id="handle" style="text-decoration: none;">
+                            <f:ajax event="click" render="table sName next" listener="#{teachersGroups.changeSemester}"/>
+                            <f:attribute name="semester" value="#{teachersGroups.semester==0?1:0}"/>
+                            <h:outputText id="next" value="#{changeSemesterBean.inversedSemesterName(teachersGroups.semester)}"/>
+                        </h:commandLink>
                     </td>
                 </tr>
             </table>
@@ -82,7 +83,7 @@
             <li><a href="forum.xhtml?type=TEACHER_ORG"><h:graphicImage value="../resources/images/org_forum_teacher.png" styleClass="iconInMenu" />#{msgs.student_comMenuForumOrg}</a></li>
             <li><p><h:graphicImage value="../resources/images/video.png" styleClass="iconInMenu" />#{msgs.student_comMenuVideoconferencing}</p></li>
         </ol>
-          <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_messMenuTitle}</p></div>
+        <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_messMenuTitle}</p></div>
         <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="messages_list.xhtml">#{msgs.student_messMenuIn}
                     <h:panelGroup rendered="#{MessageCountNewBean.newMessages>0}"  style="font-size: 15px; font-weight: bold; color: red;">#{MessageCountNewBean.newMessages}</h:panelGroup>
                     <h:panelGroup rendered="#{MessageCountNewBean.newMessages&lt;1}">#{MessageCountNewBean.newMessages}</h:panelGroup>
@@ -92,7 +93,7 @@
 
         </ol>
         <div class="violMenuTitle"><p class="sideBarTitle">#{msgs.student_chatMenuTitle}</p></div>
-         <div id="chatShortHistory1" class="chatShortHistory">
+        <div id="chatShortHistory1" class="chatShortHistory">
         </div>
         <div class="smallChatTools">
             <input id="message1"/><button id="button1"></button>

@@ -80,7 +80,7 @@ public class OldGrades extends AbstractStudentBean{
 
             Iterator<Map.Entry<DeCurriculum,Teacher>>setI = map.entrySet().iterator();
 
-            while(setI.hasNext()){
+            while(setI.hasNext()){ 
                 Map.Entry<DeCurriculum,Teacher> entry = setI.next();
                 Iterator<Estimate>i = l.iterator();
                 while(i.hasNext()){
@@ -112,7 +112,12 @@ public class OldGrades extends AbstractStudentBean{
         int countExams=0;
         int sumExams=0;
         while(it.hasNext()){
+          
             NewEntry<NewEntry<DeCurriculum,Teacher>,Estimate> i=it.next();
+            if(i.getKey().getKey().getExaminationType()==ExaminationType.empty){
+                it.remove();
+                continue;
+            }
             if(i.getKey().getKey().getExaminationType()==ExaminationType.exame){ 
               if(i.getValue()!=null && !i.getValue().getGradeCode().equals("")){
                 switch(i.getValue().getGradeCode()){
@@ -144,7 +149,7 @@ public class OldGrades extends AbstractStudentBean{
             };            
         }
         
-        if (countExams!=0) average=sumExams/countExams;
+        if (countExams!=0) average=(float)sumExams/countExams;
     }
     public int[][] getYears(){
         int end = 6;

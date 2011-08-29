@@ -3,11 +3,12 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
-     xmlns:mess="http://java.sun.com/jsf/composite/components/messages"
+    xmlns:mess="http://java.sun.com/jsf/composite/components/messages"
     template="../resources/teacherTemplate.xhtml"
     xmlns:c="http://java.sun.com/jsp/jstl/core"
-    xmlns:est="http://java.sun.com/jsf/composite/components/estimation"        
-     xmlns:util="http://java.sun.com/jsf/composite/components/util">
+ 
+    xmlns:edu="http://java.sun.com/jsf/composite/components/education"    
+    xmlns:util="http://java.sun.com/jsf/composite/components/util">
 
     <ui:define name="online">
         #{userViewBean.setType('STUDENT')}
@@ -15,8 +16,8 @@
     </ui:define>
     <ui:define name="content">
         <f:metadata>
-            <f:viewParam name="id" value="#{userViewBean.id}"/>
-             <f:viewParam name="id" value="#{messageDialogBean.recipientId}"/>
+                <f:viewParam name="id" value="#{userViewBean.id}"/>
+  
                 <f:viewParam name="s" value="#{studentResults.semester}"/>
                 <f:viewParam name="id" value="#{studentResults.studentId}"/>
         </f:metadata>
@@ -73,71 +74,14 @@
             <div class="floatDestroyer"></div>
         </div>
 
-  <mess:dialog list="#{messageDialogBean.messagesDialog}"/>
+ 
             <h:dataTable styleClass="studentStandatrTable"
                          columnClasses="studentStandatrTableTd,studentStandatrTableSubtableTd" cellpadding="0" cellspacing="0" value="#{studentResults.disciplines}" var="d">
                 <h:column>
                     #{d.discipline.name}<br/>
- <h:outputLink value="groupControlWorks.xhtml?g=#{userViewBean.user.group.id}&amp;s=#{studentResults.semester}" >контрольные </h:outputLink>
-                    <h:dataTable style="width: 100%;" cellpadding="0" cellspacing="0"  value="#{studentResults.controlWorks}" var="w">
-                        <h:column>
-                            <div style="text-align: center;">#{w.points}| #{w.progress}</div>
-                            <h:dataTable value="#{w.cwAttempt}" var="a">
-                                <h:column>
-                                    <est:readCwAttempt attempt="#{a}"/>
-                                </h:column>
-                            </h:dataTable>
-                        </h:column>
-                    </h:dataTable>
- <h:outputLink value="groupTestResults.xhtml?g=#{userViewBean.user.group.id}&amp;s=#{studentResults.semester}" >тесты </h:outputLink>
-                     <h:dataTable
-                         columnClasses="studentStandatrTableTd,studentStandatrTableTd, studentStandatrTableSubtableTd,studentStandatrTableTd,
-                         studentStandatrTableTdLastTd" cellpadding="0" cellspacing="0"  value="#{studentResults.results}" var="r">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Название" />
-                            </f:facet>
-                            #{r.work.title} #{r.work.id}
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Попыток" />
-                            </f:facet>
-                            с #{r.estimateAttemptsUsedNumber} из #{r.work.estimateAttemptsNumber}<br/>
-                            п: #{r.reExameAttemptsUsedNumber} из #{(r.work.type eq 'concluding')?groupTestResults.concludingAttemtpsCount:groupTestResults.regularAttemtpsCount}
-                        </h:column>
-                        <h:column>
-                            <h:dataTable
-                                 headerClass="studentTabInStandartTableTh"
-                                 columnClasses="studentTabInStandartTableLeftTd, studentTabInStandartTableRightTd"
-                                 styleClass="studentTabInStandartTable"  cellpadding="0" cellspacing="0" value="#{r.results}" var="a" id="rowId">
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="Правильных ответов" />
-                                    </f:facet>
-                                    #{a.rightAnswers} #{msgs.student_fromWord} #{r.work.quantity}
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="Дата" />
-                                    </f:facet>
-                                    #{a.date}
-                                </h:column>
-                            </h:dataTable>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Результат" />
-                            </f:facet>
-                            #{r.pointsForWork}
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Способ оценивания" />
-                            </f:facet>
-                    <h:outputText converter="enumConverter" value="#{r.work.estimation}" />                        
-                        </h:column>
-                    </h:dataTable></h:column>
+                    <edu:oneStudentCWForTeacher />
+                    <edu:oneStudentTestsForTeacher studentId="#{studentResults.studentId}" tests="#{studentResults.results}"/>
+                 </h:column>
                 <hr/>
             </h:dataTable>
     </ui:define>

@@ -48,6 +48,7 @@ public class Umk extends BasicItem {
      * @return
      */
     public String getName() {
+        if (name.equals("default")) return "Курс в процессе подготовки";
         return name;
     }
 

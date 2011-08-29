@@ -34,7 +34,7 @@ public class DeCurriculumBuilder extends CurriculumBuilder<DeCurriculum>{
     }
 
     /**
-     *
+     * 
      * @param student
      * @return DeCurriculum по конкретной дате и курсу обучения студента
      */

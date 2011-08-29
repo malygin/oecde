@@ -15,6 +15,7 @@ public class EventBodyElement implements Serializable{
     public static String forumStudentOrgPage;
     public static String forumTeacherTechPage;
     public static String forumTeacherOrgPage;
+    public static String forumAdminBagPage;
 
     public static String testPage;
     public static String studentPage;

@@ -141,7 +141,11 @@ public class ResourceService implements Serializable{
                         case concluding:
                             testBeginDate = concludingTestBeginDate;
                             testEndDate = concludingTestEndDate;
-                            break;
+                            break;                            
+                        case trial:
+                             testBeginDate = regularTestBeginDate;
+                             testEndDate = regularTestEndDate;
+                             break;
                         case regular:
                             if(student.getGroup().getYear()==1
                                     ||(student.getGroup().getYear()==2

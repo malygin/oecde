@@ -49,6 +49,7 @@ abstract class AbstractTeacherBean implements Serializable{
 
     public void setSemesterGetter(SemesterGetter semesterGetter) {
         this.semesterGetter = semesterGetter;
+        semester=this.semesterGetter.getCurrentSemester();
     }
 
     public void setTeacher(Teacher teacher) {

@@ -98,10 +98,12 @@
             </ol>
             <div class="violMenuTitle"><p class="sideBarTitle">#{msgs.admin_forumMenuTitle}</p></div>
             <ol class="leftSideMenuLinks iconMenu">
-                <li><a href="forum.xhtml?type=STUDENT_FAQ"><h:graphicImage value="../resources/images/teh_forum_student.png" styleClass="iconInMenu" />#{msgs.admin_forumMenuStTechForum}</a></li>
-                <li><a href="forum.xhtml?type=STUDENT_ORG"><h:graphicImage value="../resources/images/org_forum_student.png" styleClass="iconInMenu" />#{msgs.admin_forumMenuStOrgForum}</a></li>
-                <li><a href="forum.xhtml?type=TEACHER_FAQ"><h:graphicImage value="../resources/images/teh_forum_teacher.png" styleClass="iconInMenu" />#{msgs.admin_forumMenuTeachTechForum}</a></li>
-                <li><a href="forum.xhtml?type=TEACHER_ORG"><h:graphicImage value="../resources/images/org_forum_teacher.png" styleClass="iconInMenu" />#{msgs.admin_forumMenuTeachOrgForum}</a></li>
+                <li><a href="forum.xhtml?type=adminbags"><h:graphicImage value="../resources/images/teh_forum_student.png" styleClass="iconInMenu" />Баги и предложения</a></li>
+             
+                <li><a href="forum.xhtml?type=stfaq"><h:graphicImage value="../resources/images/teh_forum_student.png" styleClass="iconInMenu" />#{msgs.admin_forumMenuStTechForum}</a></li>
+                <li><a href="forum.xhtml?type=storg"><h:graphicImage value="../resources/images/org_forum_student.png" styleClass="iconInMenu" />#{msgs.admin_forumMenuStOrgForum}</a></li>
+                <li><a href="forum.xhtml?type=teachfaq"><h:graphicImage value="../resources/images/teh_forum_teacher.png" styleClass="iconInMenu" />#{msgs.admin_forumMenuTeachTechForum}</a></li>
+                <li><a href="forum.xhtml?type=teachorg"><h:graphicImage value="../resources/images/org_forum_teacher.png" styleClass="iconInMenu" />#{msgs.admin_forumMenuTeachOrgForum}</a></li>
 <!--                <li><a href="index.xhtml">#{msgs.admin_forumMenuCityForums}</a></li>-->
             </ol>
        <div class="violMenuTitle"><p class="sideBarTitle">#{msgs.admin_AdminChat}</p></div>
@@ -114,7 +116,7 @@
             <div style="height:18px;"></div>
         </div>
         <ut:usersOnline/>
-            <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.admin_adminsOnlineMenuTitle}</p></div>
+            <div class="greenMenuTitle"><p class="sideBarTitle">Представители</p></div>
             <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="usersOnlineList.xhtml?type=supervisor">#{msgs.admin_adminsOnlineUnderTitleText} (#{usersInCache.supervisorsNumber})</a></div></div>
             <div class="hiddenUsersOnlineTableContainer">
             <table cellpadding="3" cellspacing="1" >
@@ -133,7 +135,7 @@
                                 </a>
                             </div>
                         </td>
-                <h:outputText escape="false" rendered="#{i.index eq 2}" value="&lt;/tr>&lt;tr>"/>
+                       <h:outputText escape="false" rendered="#{i.index eq 2}" value="&lt;/tr>&lt;tr>"/>
                     </ui:repeat>
                 </tr>
             </table>

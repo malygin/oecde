@@ -39,12 +39,23 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
  * получение листа сообщений в чат, все это хозяйство можно заменить бином с видимостью приложение, но пока не хочется
  * @todo разобраться с экранированием
  */
-@WebServlet(value="/ChatList", loadOnStartup=1)
+@WebServlet(value="/ChatList", loadOnStartup=1,asyncSupported=true)
 public class ChatList extends HttpServlet {
     private static final int number=25;
     private List<ChatMessage> listGeneralChat;
     private List<ChatMessage> listAdminChat;
 
+    @Override
+    public void init() throws ServletException {
+       ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+       IChatDao myDao = (IChatDao) context.getBean("chatDao");
+       listGeneralChat= myDao.getChatList(new ChatRoom(1L), number);
+       listAdminChat= myDao.getChatList(new ChatRoom(2L), number);
+
+    }
+
+    
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
@@ -59,14 +70,17 @@ public class ChatList extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
           //  System.out.println("!" +list);
-            if ((listGeneralChat == null) || (listAdminChat == null) ){
-              ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
-              IChatDao myDao = (IChatDao) context.getBean("chatDao");
-              listGeneralChat= myDao.getChatList(new ChatRoom(1L), number);
-              listAdminChat= myDao.getChatList(new ChatRoom(2L), number);
-
-            }
-
+//            if ((listGeneralChat == null) || (listAdminChat == null) ){
+//             
+//            }
+        List<GrantedAuthority> authority = (List<GrantedAuthority>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+         Admin a= new Admin();        
+         if(SwitchedUserCheker.check(authority)){
+              a =(Admin)(((SwitchUserGrantedAuthority)authority.get(1)).getSource().getPrincipal());             
+         }else if(SecurityContextHandler.getUser()==null){
+             return;
+         }
+                
             List<ChatMessage> list= new ArrayList<ChatMessage>();
             switch(Integer.parseInt(request.getParameter("room"))){
                      case 1:  list = listGeneralChat; break;
@@ -75,9 +89,7 @@ public class ChatList extends HttpServlet {
 
             if(StringUtils.hasText(request.getParameter("message"))){
                   ChatMessage message=new ChatMessage();
-                  List<GrantedAuthority> authority = (List<GrantedAuthority>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();
-                  if(SwitchedUserCheker.check(authority)){
-                        Admin a =(Admin)(((SwitchUserGrantedAuthority)authority.get(1)).getSource().getPrincipal());                
+                 if(SwitchedUserCheker.check(authority)){                          
                         message.setAuthor(a);
                   } else  message.setAuthor(SecurityContextHandler.getUser());
                   message.setDateMessage(DateConverter.convert(System.currentTimeMillis()));

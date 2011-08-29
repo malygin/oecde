@@ -94,7 +94,7 @@ public class Page extends BasicItem implements Comparable<Page> {
 
     @Override
     public int compareTo(Page t) {
-        return t.orderPage.compareTo(this.orderPage);
+        return this.orderPage.compareTo(t.orderPage);
     }
     
     

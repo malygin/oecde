@@ -135,7 +135,7 @@ public class MessageWriteBean  implements Serializable{
              mfile.setName(name);
              files.add(mfile);
          }
-        }
+      }
     }
 
    /** 

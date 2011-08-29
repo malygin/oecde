@@ -20,9 +20,10 @@
        <h:dataTable value="#{NewsBean.getNewsForNumber(cc.attrs.numberNews)}" var="n" styleClass="leftMenuContainer">
             <h:column>
                 <div style=" max-width: 60%; float: left;">
-                    <span class="linkToStudentsProfile"><a style="font-size: 9pt;" href="news_read.xhtml?id=#{n.id}">#{n.header}</a></span>
+                    <h:outputText value="new" style="font-weight: bold;" rendered="#{n.new}"/><span class="linkToStudentsProfile"><a style="font-size: 9pt;" href="news_read.xhtml?id=#{n.id}">#{n.header}</a></span>
                 </div>
-                <span class="chatPostDate"><h:outputText converter="dateConverter" value="#{fn:substring(n.time,0,11)}"/></span>
+                <span class="chatPostDate">
+     <h:outputText converter="dateConverter" value="#{fn:substring(n.time,0,11)}"/></span>
                 <div class="floatDestroyer"></div>
                 <div class="previewText"><h:outputText escape="false" value="#{n.announcement}"/></div>
                 <br/>

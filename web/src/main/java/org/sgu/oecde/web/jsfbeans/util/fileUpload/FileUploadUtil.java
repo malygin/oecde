@@ -24,6 +24,7 @@ public class FileUploadUtil {
     public final static String[]mimetypes = new String[]{"application/pdf"
                                                     ,"application/vnd.ms-powerpoint"
                                                     ,"text/rtf"
+                                                    ,"image/jpeg"
                                                     ,"text/plain"
                                                     ,"application/zip"
                                                     ,"application/msword"

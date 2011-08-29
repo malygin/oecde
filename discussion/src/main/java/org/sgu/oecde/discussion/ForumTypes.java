@@ -25,6 +25,10 @@ public enum ForumTypes {
      * преподавательский организационный
      */
     TEACHER_ORG,
+   /**
+     * преподавательский организационный
+     */
+    ADMIN_BAGS,
     /**
      * новость
      */
@@ -43,6 +47,8 @@ public enum ForumTypes {
                 return "teachfaq";
             case TEACHER_ORG:
                 return "teachorg";
+            case ADMIN_BAGS:
+                return "adminbags";
             case NEWS:
                 return "news";
             default:
@@ -75,6 +81,8 @@ public enum ForumTypes {
                 return "Преподавательский технический форум";
             case TEACHER_ORG:
                 return "Преподавательский организационный форум";
+            case ADMIN_BAGS:
+                return "Баг-Трекер";
             case NEWS:
                 return "Новостной форум";
             default:

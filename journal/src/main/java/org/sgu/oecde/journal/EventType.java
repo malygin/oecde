@@ -956,6 +956,10 @@ public enum EventType {
                     el[0] = new EventBodyElement(str[3]+" ответил(а) на ваш пост ");
                     el[1] = new EventBodyElement("&amp;page="+str[2]+"#"+str[1], "на организационном форуме", EventBodyElement.forumTeacherOrgPage);
                     break;
+              case ADMIN_BAGS:
+                    el[0] = new EventBodyElement(str[3]+" ответил(а) на ваш пост ");
+                    el[1] = new EventBodyElement("&amp;page="+str[2]+"#"+str[1], "на баг-трекере", EventBodyElement.forumAdminBagPage);
+                    break;
                 case NEWS:
                     el[0] = new EventBodyElement("К вашему комментарию к новости ");
                     el[1] = new EventBodyElement("&amp;id="+item.getMultiId()+"&amp;page="+str[3]+"#"+str[2], str[1], EventBodyElement.newsPage);
@@ -1042,6 +1046,10 @@ public enum EventType {
               case TEACHER_ORG:
                     el[3] = new EventBodyElement("добавил(а) комментарий на ");
                     el[4] = new EventBodyElement("", "на организационном форуме преподавателей", EventBodyElement.forumTeacherOrgPage);
+                    break;
+               case ADMIN_BAGS:
+                    el[3] = new EventBodyElement("добавил(а) комментарий на ");
+                    el[4] = new EventBodyElement("", "на баг-трекере", EventBodyElement.forumAdminBagPage);
                     break;
                 case NEWS:
                     el[3] = new EventBodyElement("добавил(а) комментарий к новости ");

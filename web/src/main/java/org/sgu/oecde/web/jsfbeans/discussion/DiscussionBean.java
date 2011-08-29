@@ -274,7 +274,7 @@ public class DiscussionBean {
 
     public void setObjectType(String objectType) {       
         this.objectType=objectType;
-        objectTypeEnum=ForumTypes.valueOf(objectType);
+        objectTypeEnum=ForumTypes.parse(objectType);
     }
 
     public String getNodeText() {

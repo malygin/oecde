@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:est="http://java.sun.com/jsf/composite/components/estimation"        
+      >
+
+
+ <!-- INTERFACE -->
+  <composite:interface>
+     
+  
+  </composite:interface>
+
+  <!-- IMPLEMENTATION -->
+   <composite:implementation>
+ <h:outputLink value="groupControlWorks.xhtml?g=#{userViewBean.user.group.id}&amp;s=#{studentResults.semester}" >контрольные </h:outputLink>
+                    <h:dataTable style="width: 100%;" cellpadding="0" cellspacing="0"  value="#{studentResults.controlWorks}" var="w">
+                        <h:column>
+                            <div style="text-align: center;">#{w.points}| #{w.progress}</div>
+                            <h:dataTable value="#{w.cwAttempt}" var="a">
+                                <h:column>
+                                    <est:readCwAttempt attempt="#{a}"/>
+                                </h:column>
+                            </h:dataTable>
+                        </h:column>
+                    </h:dataTable>
+       
+  </composite:implementation>
+</html>

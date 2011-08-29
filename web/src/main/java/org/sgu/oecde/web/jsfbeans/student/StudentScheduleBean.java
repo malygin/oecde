@@ -1,6 +1,8 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -9,6 +11,7 @@ import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.schedule.Lesson;
 import org.sgu.oecde.schedule.dao.ILessonDao;
+import org.sgu.oecde.web.jsfbeans.util.NumberUtil;
 import org.springframework.util.Assert;
 
 /**
@@ -80,8 +83,10 @@ public class StudentScheduleBean extends AbstractStudentBean{
     @PostConstruct
     public void postConstract(){
         Assert.notNull(semesterGetter);
-        beginDate = semesterGetter.getCurrentYear()+".09.01";
-        endDate = semesterGetter.getCurrentYear()+1+".12.01";
+        Calendar cal = Calendar.getInstance();
+        
+        beginDate = semesterGetter.getCurrentYear()+"."+NumberUtil.NumberToDateFormat(cal.get(Calendar.MONTH) +1)+".01";
+        endDate = semesterGetter.getCurrentYear()+1+"."+NumberUtil.NumberToDateFormat(cal.get(Calendar.MONTH) +3)+".01";
     }
 
     public String getCurrentDate() {

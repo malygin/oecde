@@ -15,10 +15,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.StudentGroup;
+import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.schedule.Lesson;
 import org.sgu.oecde.schedule.dao.LessonDao;
+import org.sgu.oecde.web.jsfbeans.admin.ConstantsFormBean;
+import org.sgu.oecde.web.jsfbeans.util.NumberUtil;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -47,17 +50,18 @@ public class SheduleServlet extends HttpServlet {
                String monthEnd="";
                String year = request.getParameter("year");
                int monthNumber = Integer.parseInt(month);
-               int yearNumber = Integer.parseInt(year);
+              // int yearNumber = Integer.parseInt(year);
                
-               if (monthNumber<10) month="0"+month;
-               if (++monthNumber<10)  monthEnd="0"+monthNumber;
-                   else monthEnd=monthNumber+"";
+//               if (monthNumber<10) month="0"+month;
+//               if (++monthNumber<10)  monthEnd="0"+monthNumber;
+//                   else monthEnd=monthNumber+"";
                
                AbstractUser user = (AbstractUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
                ServletContext context = getServletContext();
                WebApplicationContext applicationContext =WebApplicationContextUtils.getWebApplicationContext(context);
                LessonDao dao = (LessonDao) applicationContext.getBean("lessonDao");
-               List<Lesson> list=dao.getLessonsForStudent(false,(Group)((Student)user).getGroup(),((Student)user).getCity(),40,1, year+"."+month+".01",year+"."+monthEnd+".01");
+               SemesterGetter calendareConstant = (SemesterGetter) applicationContext.getBean("semesterGetter");
+               List<Lesson> list=dao.getLessonsForStudent(calendareConstant.getCurrentSemester()==1,(Group)((Student)user).getGroup(),((Student)user).getCity(),40,1, year+"."+NumberUtil.NumberToDateFormat(monthNumber)+".01",year+"."+NumberUtil.NumberToDateFormat(++monthNumber)+".01");
             //  List<Lesson> list=dao.getLessonsForStudent(false,(org.sgu.oecde.de.users.Group)((Student)user).getGroup(),((Student)user).getCity(),40,1,year+".0"+month+".01", year+".0"+ ++monthNumber+".01");
 
                if (!list.isEmpty()){

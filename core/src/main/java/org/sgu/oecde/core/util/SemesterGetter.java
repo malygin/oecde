@@ -61,12 +61,14 @@ public class SemesterGetter extends StringConstantsGetter{
     }
 
     /**
-     *
+     * вытаскиваем год для планов по текущему году 
+     * @TODO разобраться откуда берется год
      * @param semester
      * @return год по semester, который равено 0 или 1
      */
     public int getCalendarYear(int semester){
-        return getCurrentYear()-getCurrentSemester()*semester;
+        //return getCurrentYear()-getCurrentSemester()*semester;
+        return getCurrentYear();
     }
 
     /**

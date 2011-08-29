@@ -3,7 +3,9 @@
  xmlns:f="http://java.sun.com/jsf/core"
  xmlns:h="http://java.sun.com/jsf/html"
  template="../resources/teacherTemplate.xhtml"
- xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
+ xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
+ xmlns:edu="http://java.sun.com/jsf/composite/components/education"
+ >
 
     <ui:define name="contentHeader">
         #{msgs.teacher_groupInfo}
@@ -47,64 +49,7 @@
       <f:facet name="header">
        <h:outputText value="#{msgs.teacher_results}" />
       </f:facet>       
-         <h:dataTable rendered="#{w.value!=null}" value="#{w.value}" var="r" styleClass="opasityTableTestResult" cellpadding="0" cellspacing="0">
-             <h:column>
-                <f:facet name="header">
-                    <h:outputText value="#{msgs.student_testResultName}" />
-                </f:facet>
-                 <div class="TestNameDiv">
-                     <h:outputText value="#{r.work.title}" />
-                 </div>
-               </h:column>
-               <h:column>
-                <f:facet name="header">
-                    <div class="DivWidth70"><h:outputText value="#{msgs.student_testResultAttempt}" /></div>
-                </f:facet><small>
-               сессия: #{r.estimateAttemptsUsedNumber} #{msgs.student_fromWord} #{r.work.estimateAttemptsNumber}<br/>
-               пере: #{r.reExameAttemptsUsedNumber} #{msgs.student_fromWord} #{(r.work.type eq 'concluding')?groupTestResults.concludingAttemtpsCount:groupTestResults.regularAttemtpsCount}
-                </small>
-               </h:column>
-
-               <h:column>
-                   
-                   <f:facet name="header">
-                       <div class="RightAnswerDiv">
-                       <h:outputText value="#{msgs.student_testResultCorrectAnswers}"/>
-                       </div>
-                   </f:facet>
-                   <f:facet name="header">
-                       <div class="DateAnswerDiv">
-                            <h:outputText  value="#{msgs.student_testResultDate}"  />
-                       </div>
-                   </f:facet>
-                   
-                   <h:dataTable value="#{r.results}" var="a" id="rowId" styleClass="litleTabContrWorks" cellpadding="0" cellspacing="0">
-                      <h:column>
-                           <div class="DivWidth70">
-                               <h:outputLink value="showStudentTest.xhtml?id=#{w.key.id}&amp;s=#{groupTestResults.semester}&amp;test=#{r.work.id}&amp;attempt=#{a.id}&amp;c=#{groupTestResults.curriculumId}">#{a.rightAnswers} #{msgs.student_fromWord} #{r.work.quantity}</h:outputLink>
-                           </div>
-                       </h:column>
-                       <h:column>
-                           <div style="width:95px;">
-                               <h:outputText  converter="dateConverter" value="#{a.date}" />
-                           </div>
-                       </h:column>
-                  </h:dataTable>
-               </h:column>
-
-               <h:column>
-                <f:facet name="header">
-                 <h:outputText value="#{msgs.student_testResultResult}" />
-                </f:facet>
-                   <h:outputText styleClass="resultRedText" value="#{r.pointsForWork}" />
-               </h:column>
-               <h:column>
-                <f:facet name="header">
-                 <h:outputText value="#{msgs.teacher_wayOfEvaluation}" />
-                </f:facet>
-                    <h:outputText converter="enumConverter" value="#{r.work.estimation}" />
-               </h:column>
-         </h:dataTable>
+         <edu:oneStudentTestsForTeacher tests="#{w.value}" studentId="#{w.key.id}"/>
      </h:column>
  </h:dataTable>
     </div>

@@ -23,8 +23,8 @@
                         <h:panelGroup rendered="#{!termPaperBean.gotTermPaper}" ><p>#{msgs.student_eduMenuCoursework}</p></h:panelGroup>
                         </li>-->
             <li><a href="schedule.xhtml">Расписание видеоконференций</a></li>
-            <li><a href="testResults.xhtml">  #{msgs.student_eduMenuTestsResults}</a></li>
-            <li><a href="testResults.xhtml?s=1"> #{msgs.student_eduMenuWinterTestsResults}</a></li>
+            <li><a href="testResults.xhtml"> #{msgs.student_eduMenuWinterTestsResults}</a></li>
+<!--            <li><a href="testResults.xhtml?s=1"> #{msgs.student_eduMenuWinterTestsResults}</a></li>-->
 
             <li style="margin-top: 15px;"><a href="testResults.xhtml?r=true"> #{msgs.student_eduMenuReexamination}</a></li>
 
@@ -45,10 +45,10 @@
                 <a href="adminsList.xhtml">Администраторы</a>
             </li>
             <li style="margin-top: 15px;">
-                <a href="forum.xhtml?type=STUDENT_FAQ">Ошибки и предложения</a>
+                <a href="forum.xhtml?type=stfaq">Ошибки и предложения</a>
             </li>
             <li>
-                <a href="forum.xhtml?type=STUDENT_ORG">Орг-форум</a>
+                <a href="forum.xhtml?type=storg">Орг-форум</a>
             </li>
             <li>
                 <a target="_blank" href="http://oecdo.sgu.ru/client/">Видеоконференции</a>
@@ -131,8 +131,8 @@
                 <li><a href="teachersList.xhtml"><h:graphicImage value="../resources/images/teacher.png" styleClass="iconInMenu" /><div>#{msgs.student_comMenuTeachers}</div></a></li>
                 <li><a href="studentsList.xhtml"><h:graphicImage value="../resources/images/student.png" styleClass="iconInMenu" /><div>#{msgs.student_comMenuStudents}</div></a></li>
                 <li><a href="adminsList.xhtml"><h:graphicImage value="../resources/images/admin.png" styleClass="iconInMenu" /><div>#{msgs.student_templateAdmins}</div></a></li>
-                <li><a href="forum.xhtml?type=STUDENT_FAQ"><h:graphicImage value="../resources/images/advise.png" styleClass="iconInMenu" /><div>#{msgs.student_MistakesAndSuggestions}</div></a></li>
-                <li><a href="forum.xhtml?type=STUDENT_ORG"><h:graphicImage value="../resources/images/org_forum_student.png" styleClass="iconInMenu" /><div>#{msgs.student_comMenuForumOrg}</div></a></li>
+                <li><a href="forum.xhtml?type=stfaq"><h:graphicImage value="../resources/images/advise.png" styleClass="iconInMenu" /><div>#{msgs.student_MistakesAndSuggestions}</div></a></li>
+                <li><a href="forum.xhtml?type=storg"><h:graphicImage value="../resources/images/org_forum_student.png" styleClass="iconInMenu" /><div>#{msgs.student_comMenuForumOrg}</div></a></li>
                 <li><a target="_blank" href="http://oecdo.sgu.ru/client/"><h:graphicImage value="../resources/images/video.png" styleClass="iconInMenu" /><div>#{msgs.student_comMenuVideoconferencing}</div></a></li>
 
             </ol>

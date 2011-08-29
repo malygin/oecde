@@ -1,8 +1,8 @@
 
-
+if(user=="student"){
 $(window).bind('beforeunload', function(){
     return 'Ваша попытка не будет засчитана, вы уверены?';
-});
+})};
 
 function checkTime() {
     document.getElementById('mainForm:j_idt101:completeTest').click();

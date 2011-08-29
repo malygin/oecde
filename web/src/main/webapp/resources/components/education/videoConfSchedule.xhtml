@@ -82,7 +82,7 @@
                     <util:navigationList numElements="#{studentScheduleBean.count(true)}" elementOnPage="40"/>
 
 
-                    <ui:repeat var="s" value="#{studentScheduleBean.schedule(40,true)}">
+                    <ui:repeat var="s" value="#{studentScheduleBean.schedule(cc.attrs.numberLessons,true)}">
                         <h:panelGroup rendered="#{studentScheduleBean.IsCurrentDate(s.lessonDate)}">
                             <div class="greenText"><h:outputText value="#{fn:substring(s.lessonDate,0,10)}" converter="dateConverter"/></div>
                         </h:panelGroup>

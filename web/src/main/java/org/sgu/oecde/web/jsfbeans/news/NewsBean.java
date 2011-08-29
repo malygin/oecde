@@ -25,116 +25,121 @@ import org.springframework.security.access.annotation.Secured;
  * created 19.07.2010
  *
  */
-@ManagedBean(name="NewsBean")
+@ManagedBean(name = "NewsBean")
 @ViewScoped
-public class NewsBean implements Serializable{
-     @ManagedProperty(value="#{newsDao}")
-     private INewsDao newsDao;
+public class NewsBean implements Serializable {
 
-     @ManagedProperty(value="#{journalService}")
-     private JournalService journalService;
-     
-     @ManagedProperty(value="#{userSessionBean}")
-     private UserSessionBean userSessionBean;
-
-     private List<NewsItem> news;
-     private int countNews=0;
-
-
-     private NewsItem currentNewItem;
-     private String currentNewId;
-     private int NewIdDelete;
-
-     private boolean renderDeleteSuccess=false;
-     private boolean renderAddSuccess=false;
-
-     //Сообщений на странице
-     private int newsOnPage=20;
-     private int currentPage=1;
-
-     //поля для добавления новостей
-     private String header;
-
-     @Size(max=250,message="слишком длинный анонс")
-     private String anons;
-     private String fulltext;
-     private NewTypeEnum type;
-
-
-
+    @ManagedProperty(value = "#{newsDao}")
+    private INewsDao newsDao;
+    @ManagedProperty(value = "#{journalService}")
+    private JournalService journalService;
+    @ManagedProperty(value = "#{userSessionBean}")
+    private UserSessionBean userSessionBean;
+    private List<NewsItem> news;
+    private int countNews = 0;
+    private NewsItem currentNewItem;
+    private String currentNewId;
+    private int NewIdDelete;
+    private boolean renderDeleteSuccess = false;
+    private boolean renderAddSuccess = false;
+    //Сообщений на странице
+    private int newsOnPage = 20;
+    private int currentPage = 1;
+    //поля для добавления новостей
+    private String header;
+    @Size(max = 250, message = "слишком длинный анонс")
+    private String anons;
+    private String fulltext;
+    private NewTypeEnum type;
 
     public NewsBean() {
     }
 
     @Secured("ROLE_ADMIN")
-    public void delete (){
-        NewsItem n=new NewsItem();
+    public void delete() {
+        NewsItem n = new NewsItem();
         n.setId(new Long(NewIdDelete));
         newsDao.delete(n);
-        renderDeleteSuccess=true;
+        renderDeleteSuccess = true;
     }
 
     @Secured("ROLE_ADMIN")
-    public void save(){
-        NewsItem n=new NewsItem();
-       n.setFullText(fulltext);
-       n.setAnnouncement(anons);
-       n.setHeader(header);
-         n.setTime(DateConverter.currentDate());
-         n.setAuthor((Admin)SecurityContextHandler.getUser());
-         n.setNewstype(type);
+    public void save() {
+      
+        NewsItem n = new NewsItem();
+        n.setFullText(fulltext);
+        n.setAnnouncement(anons);
+        n.setHeader(header);
+        n.setTime(DateConverter.currentDate());
+        n.setAuthor((Admin) SecurityContextHandler.getUser());
+        n.setNewstype(type);
         n.setLang(LangEnum.ru);
-         renderAddSuccess=true;
-        Long id=newsDao.save(n);
+        renderAddSuccess = true;
+        if (fulltext.equals("")){
+            journalService.save(EventType.OWN_MESSAGE, SecurityContextHandler.getUser(), n);
+            return;
+        }
+        Long id = newsDao.save(n);
         n.setId(id);
 
     }
 
     @Secured("ROLE_ADMIN")
-    public void edit(){
-         renderAddSuccess=true;
-         newsDao.update(currentNewItem);
+    public void edit() {
+        renderAddSuccess = true;
+        newsDao.update(currentNewItem);
     }
-    
-    
-    public List<NewsItem> getNews(){
-        if (news==null){
-            switch(UserType.toType(SecurityContextHandler.getUser())){
-                case STUDENT:news=newsDao.getNewsForStudent(newsOnPage, currentPage, LangEnum.ru); break;
-                case TEACHER:news=newsDao.getNewsForTeacher(newsOnPage, currentPage, LangEnum.ru);break;
-                case ADMIN:news=newsDao.getNews(newsOnPage, currentPage, LangEnum.ru);  break;
-               }
-         }   
-         return news;
+
+    public List<NewsItem> getNews() {
+        if (news == null) {
+            switch (UserType.toType(SecurityContextHandler.getUser())) {
+                case STUDENT:
+                    news = newsDao.getNewsForStudent(newsOnPage, currentPage, LangEnum.ru);
+                    break;
+                case TEACHER:
+                    news = newsDao.getNewsForTeacher(newsOnPage, currentPage, LangEnum.ru);
+                    break;
+                case ADMIN:
+                    news = newsDao.getNews(newsOnPage, currentPage, LangEnum.ru);
+                    break;
+            }
+        }
+        return news;
     }
-    
-   public List<NewsItem> getNewsForNumber(int number){
-        if (news==null){
-           newsOnPage=number;
-           news=getNews();
-         }   
-         return news;
+
+    public List<NewsItem> getNewsForNumber(int number) {
+        if (news == null) {
+            newsOnPage = number;
+            news = getNews();
+        }
+        return news;
     }
-   
-    public int getCountNews(){
-         if (countNews==0){
-            switch(UserType.toType(SecurityContextHandler.getUser())){
-                case STUDENT:countNews=newsDao.getNewsStudentCount(LangEnum.ru);break;
-                case TEACHER:countNews=newsDao.getNewsTeacherCount(LangEnum.ru);break;
-                case ADMIN:countNews=newsDao.getNewsCount( LangEnum.ru);  break;
-               }
-         }          
+
+    public int getCountNews() {
+        if (countNews == 0) {
+            switch (UserType.toType(SecurityContextHandler.getUser())) {
+                case STUDENT:
+                    countNews = newsDao.getNewsStudentCount(LangEnum.ru);
+                    break;
+                case TEACHER:
+                    countNews = newsDao.getNewsTeacherCount(LangEnum.ru);
+                    break;
+                case ADMIN:
+                    countNews = newsDao.getNewsCount(LangEnum.ru);
+                    break;
+            }
+        }
         return countNews;
     }
 
-    public void  setCurrentNewId(String id){
-        if (!id.equals("0")){
-              this.currentNewId=id;
-              currentNewItem= newsDao.getById(new Long(this.currentNewId));
-              currentNewItem.setReviewNumber(currentNewItem.getReviewNumber()+1);
+    public void setCurrentNewId(String id) {
+        if (!id.equals("0")) {
+            this.currentNewId = id;
+            currentNewItem = newsDao.getById(new Long(this.currentNewId));
+            currentNewItem.setReviewNumber(currentNewItem.getReviewNumber() + 1);
 
-              newsDao.update(currentNewItem);
-              journalService.save(EventType.NEWS_VIEW, SecurityContextHandler.getUser(), currentNewItem);
+            newsDao.update(currentNewItem);
+            journalService.save(EventType.NEWS_VIEW, SecurityContextHandler.getUser(), currentNewItem);
         }
     }
 
@@ -153,7 +158,6 @@ public class NewsBean implements Serializable{
     public INewsDao getNewsDao() {
         return newsDao;
     }
-    
 
     public int getCurrentPage() {
         return currentPage;
@@ -184,7 +188,9 @@ public class NewsBean implements Serializable{
     }
 
     public String getAnons() {
-         if (currentNewItem!=null) anons=currentNewItem.getAnnouncement();
+        if (currentNewItem != null) {
+            anons = currentNewItem.getAnnouncement();
+        }
         return anons;
     }
 
@@ -193,7 +199,9 @@ public class NewsBean implements Serializable{
     }
 
     public String getFulltext() {
-          if (currentNewItem!=null) fulltext=currentNewItem.getFullText();
+        if (currentNewItem != null) {
+            fulltext = currentNewItem.getFullText();
+        }
         return fulltext;
     }
 
@@ -202,7 +210,9 @@ public class NewsBean implements Serializable{
     }
 
     public String getHeader() {
-        if (currentNewItem!=null) header=currentNewItem.getHeader();
+        if (currentNewItem != null) {
+            header = currentNewItem.getHeader();
+        }
         return header;
     }
 
@@ -237,14 +247,15 @@ public class NewsBean implements Serializable{
     public void setType(NewTypeEnum type) {
         this.type = type;
     }
+
     public SelectItem[] getNewTypeValues() {
         SelectItem[] items = new SelectItem[NewTypeEnum.values().length];
         int i = 0;
-        for(NewTypeEnum g: NewTypeEnum.values()) {
-          items[i++] = new SelectItem(g, g.getName());
+        for (NewTypeEnum g : NewTypeEnum.values()) {
+            items[i++] = new SelectItem(g, g.getName());
         }
-    return items;
-  }
+        return items;
+    }
 
     public UserSessionBean getUserSessionBean() {
         return userSessionBean;
@@ -253,8 +264,4 @@ public class NewsBean implements Serializable{
     public void setUserSessionBean(UserSessionBean userSessionBean) {
         this.userSessionBean = userSessionBean;
     }
-
-    
-    
-
 }
