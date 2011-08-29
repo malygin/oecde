@@ -129,9 +129,10 @@
 .login_pagePadding td{
    height: 50px;
    vertical-align: top;
+   width: 220px;
 }
 .login_pagePadding td:first-child{
-    width: 220px;
+    width: 250px;
 }
 .login_pageLink{
     color: #1cb1db;
@@ -187,6 +188,9 @@
 .blackText{
     color: black;
 }
-.blackText div, .blackText p, .blackText a, .blackText li, .blackText span, .blackText label{
+.blackText div, .blackText p, .blackText a, .blackText li, .blackText span, .blackText label, .blackText td{
     color: black !important;
+}
+.listMarker{
+    padding-left: 24px;
 }

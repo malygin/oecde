@@ -17,7 +17,7 @@
        <a href="news_list.xhtml" style="font-size: 12pt;">Новости</a>
       </div>
       <div style="padding: 5px;">
-       <h:dataTable value="#{NewsBean.getNewsForNumber(cc.attrs.numberNews)}" var="n" styleClass="leftMenuContainer">
+       <h:dataTable value="#{NewsBean.getNewsForNumber(cc.attrs.numberNews)}" var="n" styleClass="leftMenuContainer" width="100%">
             <h:column>
                 <div style=" max-width: 60%; float: left;">
                     <h:outputText value="new" style="font-weight: bold;" rendered="#{n.new}"/><span class="linkToStudentsProfile"><a style="font-size: 9pt;" href="news_read.xhtml?id=#{n.id}">#{n.header}</a></span>
