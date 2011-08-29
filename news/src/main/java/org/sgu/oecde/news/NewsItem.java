@@ -1,9 +1,10 @@
 package org.sgu.oecde.news;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
 import org.sgu.oecde.core.users.Admin;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Size;
 import org.sgu.oecde.core.util.LangEnum;
 /**
@@ -182,6 +183,7 @@ public class NewsItem extends BasicItem{
     }
 
     public Integer getCommentNumber() {
+        if (commentNumber==null) return 0;
         return commentNumber;
     }
 
@@ -205,6 +207,11 @@ public class NewsItem extends BasicItem{
         this.lang = lang;
     }
     
-    
+    public boolean isNew(){
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    return sdf.format(cal.getTime()).equals(this.time.substring(0,10));
+
+    }
     
 }

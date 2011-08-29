@@ -14,6 +14,7 @@
     <property column="news_time" length="19" name="time" type="string"/>
     <property column="access_type" name="accessType" type="string"/>
     <property column="review_number" name="reviewNumber" scale="3" type="integer"/>
+    <property column="commentNumber" name="commentNumber" scale="3" type="integer"/>
     <property length="30" name="newstype">
       <type name="org.sgu.oecde.core.GenericEnumUserType">
         <param name="enumClass">org.sgu.oecde.news.NewTypeEnum</param>
