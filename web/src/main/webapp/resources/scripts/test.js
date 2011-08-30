@@ -1,16 +1,16 @@
 try{
 
     if(user=="student"){
-    $(window).bind('beforeunload', function(){
-        return 'Ваша попытка не будет засчитана, вы уверены?';
-    })
+        $(window).bind('beforeunload', function(){
+            return 'Ваша попытка не будет засчитана, вы уверены?';
+        })
     }
 } catch(e) {
-    }
+}
 
 function checkTime() {
     document.getElementById('mainForm:j_idt101:completeTest').click();
-   // console.log("dsdsd");
+// console.log("dsdsd");
 
 }
 function removeCounter() {
@@ -109,17 +109,42 @@ $(function(){
             });
         }else{
             $('iframe').load(function(){
+                var commonHeight = 0;
                 style = this.contentWindow.document.createElement('style');
-                style.innerHTML = '*{margin: 0px; }';
+                style.innerHTML = '*{margin: 0px; padding: 0px !important;}';
                 this.contentWindow.document.head.appendChild(style);
-                this.style.height = this.contentWindow.document.body.offsetHeight + 'px';
+                //                this.style.height = this.contentWindow.document.body.offsetHeight + 'px';
+                bodyElem = this.contentWindow.document.body;
+//                var deti = bodyElem.getElementsByTagName('*');
+               
+                for(i = 0; i < bodyElem.childElementCount; i++){
+//                     if(deti[i].className == "imG"){
+//                         console.debug("ураааа!!!!!");
+//                         commonHeight += deti[i].clientHeight;
+//                     }
+                    commonHeight += bodyElem.children[i].offsetHeight;
+                //                    if(bodyElem.children[i].childNodes != null){
+                //                        ch = bodyElem.children[i];
+                //                        ch1 = ch.children[0];
+                //                        commonHeight += ch1.clientHeight;
+                //                        if(ch1.childNodes != null){
+                //                            ch2 = ch1.children[0];
+                //                            commonHeight += ch2.clientHeight;
+                //                        }
+                //                    }
+                    
+                    
+                }
+                
+                //                bodyElem.offsetHeight = commonHeight + 'px';
+                this.style.height = commonHeight + 'px';
+               
                 d = $(this).parent().parent();
                 h = d.height();
                 c = d.children();
                 h = (h/2)-6;
-                n = $('.testQuestion').height() - 19;
                 c[0].setAttribute('style','margin-top:'+h+'px');
-                $('.testQuestionNumber').attr('style','position: relative; bottom:'+ n+'px;')
+                console.debug(bodyElem.children);
             });
             
         }
@@ -128,21 +153,25 @@ $(function(){
 
 $(function(){
     $('iframe').load(function(){
-//        iframEWidth = ($(this).width())/2;
-//        picture = this.contentWindow.document.getElementsByClassName('imG')[0];
-//        pictureWidth = ($(picture).width())/2;
-//        margiN = iframEWidth - pictureWidth -42;
-//        pictureParent = $(picture).parent();
-//        pictureParent.attr('style', 'margin-left:'+ margiN+ 'px;');
-        n = $('.testQuestion').height() - 19;
-        c[0].setAttribute('style','margin-top:'+h+'px');
-        $('.testQuestionNumber').attr('style','position: relative; bottom:'+ n+'px;')
-    });
+        //        iframEWidth = ($(this).width())/2;
+        //        picture = this.contentWindow.document.getElementsByClassName('imG')[0];
+        //        pictureWidth = ($(picture).width())/2;
+        //        margiN = iframEWidth - pictureWidth -42;
+        //        pictureParent = $(picture).parent();
+        //        pictureParent.attr('style', 'margin-left:'+ margiN+ 'px;');
+        //        n = $('.testQuestion').height() - 19;
+        //        c[0].setAttribute('style','margin-top:'+h+'px');
+        //        $('.testQuestionNumber').attr('style','position: relative; bottom:'+ n+'px;')
+       
+        });
 });
 
 $(function(){
     vd = document.getElementsByClassName('testComparVariants');
-   // console.log($(vd).children().children().attr('style','width: 170px;'));
-   
+// console.log($(vd).children().children().attr('style','width: 170px;'));
+//    n = $('.testQuestion').height() - 19;
+//    c[0].setAttribute('style','margin-top:'+h+'px');
+//    $('.testQuestionNumber').attr('style','position: relative; bottom:'+ n+'px;')
+
 });
 
