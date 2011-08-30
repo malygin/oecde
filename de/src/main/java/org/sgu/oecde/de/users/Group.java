@@ -18,6 +18,8 @@ public class Group extends StudentGroup<Student>implements Comparable<Group>{
      */
     private String faculty;
 
+
+
     private static final long serialVersionUID = 60L;
 
     public Group(Long id) {
@@ -72,4 +74,6 @@ public class Group extends StudentGroup<Student>implements Comparable<Group>{
         }
         return speciality==0?group:speciality;
     }
+    
+    
 }

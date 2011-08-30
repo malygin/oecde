@@ -15,6 +15,6 @@ import org.springframework.dao.DataAccessException;
 public interface IGroupDao extends IUpdateDao<Group>{
     
     public Group getTeachersAndCurriculumsByOldGroup(int year, Student student) throws DataAccessException;
-    public List<Object[]> getAllGroupsAndCities() throws DataAccessException;
+    public List<Object[]> getAllGroupsAndCities(int year) throws DataAccessException;
     public List<Group> getGroupsByCity(City city) throws DataAccessException;
 }

@@ -36,9 +36,9 @@ public class GroupDao extends UpdateDao<Group> implements IGroupDao{
     }
 
     @Override
-    public List<Object[]> getAllGroupsAndCities() throws DataAccessException{
+    public List<Object[]> getAllGroupsAndCities(int year) throws DataAccessException{
         List<Object[]>m = new ArrayList<Object[]>();
-        ScrollableResults r = getSession().createQuery("select distinct g,c from Student st join st.city c join st.group g join fetch g.speciality s order by c.name,s.name").scroll();
+        ScrollableResults r = getSession().createQuery("select distinct g,c from Student st join st.city c join st.group g join fetch g.speciality s  where g.calendarYear=:year order by c.name,s.name").setParameter("year",year).scroll();
         while(r.next()){
             m.add(r.get());
         }
