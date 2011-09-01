@@ -220,28 +220,7 @@
     padding-left: 17px;
     padding-bottom: 3px;
 }
-.mainStyle .messagesMainStPage{
-    background: url('../resources/images/messagesMainStPage.png') no-repeat;
-    background-position: right center;
-    padding-right: 30px;
-}
-.mainStyle .messagesMainStPageNewMess{
-    background: url('../resources/images/message_active.jpg') no-repeat;
-    padding-left: 25px;
-    padding-top: 4px;
-}
-.mainStyle .messagesMainStPageIncomeMess{
-    background: url('../resources/images/messagesMainStPage.png') no-repeat;
-    padding-left: 25px;
-    padding-top: 4px;
-}
-.mainStyle .StudentMainPageExit{
-    margin-top: -10px;
-}
-.mainStyle .StudentMainPageExit a:link {color: #838383; text-decoration: none; font-size: 10pt;font-weight: bold;}
-.mainStyle .StudentMainPageExit a:visited{color: #838383;text-decoration: none;font-size: 10pt;font-weight: bold;}
-.mainStyle .StudentMainPageExit a:hover{color: #b5a5a5; text-decoration: none;font-size: 10pt; font-weight: bold;}
-.mainStyle .StudentMainPageExit a:active{color: #838383;text-decoration: none;font-size: 10pt;font-weight: bold;}
+
 .mainStyle .test_results{
     font-family: Arial;
     color: #27587F;

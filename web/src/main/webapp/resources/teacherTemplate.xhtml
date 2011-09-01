@@ -158,26 +158,36 @@
         <h:outputStylesheet name="base_old.css" library="css" rendered="true"/>  
     </ui:define>
     <ui:define name="left">
-        <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.teacher_groupsMenuTitle}</p></div>
+        <div  class="modulsTitles"><p class="sideBarTitle">#{msgs.student_eduMenuTitle}</p></div>
+        <ol class="leftSideMenuLinks leftSideList">
+            <li><a href="curriculums.xhtml">#{msgs.teacher_communicationMenuMyCources}</a></li>
+            <li><a href="controlWorksAttempts.xhtml">#{msgs.teacher_communicationMenuAllCw}</a></li>
+            <li><a href="schedule.xhtml">#{msgs.teacher_communicationSchedule}</a></li>
+        </ol>
+        <div class="modulsTitles"><p class="sideBarTitle">#{msgs.teacher_groupsMenuTitle}</p></div>
         <h:form>
-            <table  style="width: 100%;border-bottom: #5EBED9 1px solid; text-align: left; padding-left: 8px; font-size: 9pt !important;"  class="controlWorksDisciplineNameLink DisciplineText">
-                <tr>
-                    <td>#{msgs.teacher_CurrentSemester}:</td>
-                    <td><h:outputText id="sName" value="#{changeSemesterBean.semesterName(teachersGroups.semester)}"/>
-                </td>
-                </tr>
-                <tr>
-                    <td>#{msgs.teacher_ShowSemester}:</td>
-                    <td>
-                        <h:commandLink id="handle" style="text-decoration: none;">
-                            <f:ajax event="click" render="table sName next" listener="#{teachersGroups.changeSemester}"/>
-                            <f:attribute name="semester" value="#{teachersGroups.semester==0?1:0}"/>
-                            <h:outputText id="next" value="#{changeSemesterBean.inversedSemesterName(teachersGroups.semester)}"/>
-                        </h:commandLink>
-                    </td>
-                </tr>
-            </table>
-            <div style="font-size: 8pt;border: 1px solid silver; margin: 5px; padding: 5px; height: 450px; overflow-x: hidden;">
+            <div style="position: relative; top: -22px; text-align: right;">
+                <h:outputText id="sName"/>
+                <h:commandLink id="handle">
+                    <f:ajax event="click" render="table sName next" listener="#{teachersGroups.changeSemester}"/>
+                    <f:attribute name="semester" value="#{teachersGroups.semester==0?1:0}"/>
+                    <h:outputText id="next" value="#{changeSemesterBean.inversedSemesterName(teachersGroups.semester)} семестр"/>
+                </h:commandLink>
+            </div>
+            <!--            <table  style="width: 100%; text-align: left;">
+                            <tr>
+                                <td>#{msgs.teacher_CurrentSemester}:</td>
+                                <td>
+                            </td>
+                            </tr>
+                            <tr>
+                                <td>#{msgs.teacher_ShowSemester}:</td>
+                                <td>
+
+                            </td>
+                            </tr>
+                        </table>-->
+            <div style="border: 1px solid silver; height: 50px; overflow-x: hidden;">
                 <h:dataTable cellpadding="0" cellspacing="0" id="table" value="#{teachersGroups.teachersGroups}" var="w">
                     <h:column>
                         <div style="width: 100%; text-align: left;" class="groupsLinks controlWorksDisciplineNameLink">
@@ -195,16 +205,57 @@
                 </h:dataTable>
             </div>
         </h:form>
+        <div class="modulsTitles"><p class="sideBarTitle">Общение</p></div>
+        <ol class="leftSideMenuLinks leftSideList">
+            <li>
+                <a href="teachersList.xhtml">Преподаватели</a>
+            </li>
+            <li>
+                <a href="adminsList.xhtml">Администраторы</a>
+            </li>
+            <li><a href="forum.xhtml?type=TEACHER_FAQ">#{msgs.student_comMenuForumTech}</a></li>
+            <li><a href="forum.xhtml?type=TEACHER_ORG">#{msgs.student_comMenuForumOrg}</a></li>
+        </ol>
+        <div class="modulsTitles"><p class="sideBarTitle" style="float: left;">#{msgs.student_chatMenuTitle}</p>
+            <div style="text-align: right;"><a href="chat.xhtml" title="история чата" style="background: url('../resources/images/chat_history.png') no-repeat; padding-left: 20px;"></a>
+            </div>
+            <div class="floatDestroyer"/>
+        </div>
+
+        <div id="chatShortHistory1" class="chatShortHistory">
+
+        </div>
+        <div class="smallChatTools">
+            <input id="message1"/><button id="button1" style="height: 19px;">OK</button>
+            <div style="height:18px;"></div>
+        </div>
+        <div>
+            <ut:usersOnline/>
+        </div>
     </ui:define>
 
     <ui:define name="top">
         <ol class="topMenuLinks">
-            <li class="topMenuLinkContainer"><a href="index.xhtml">#{msgs.student_topMenuHome}</a></li>
-            <li class="topMenuLinkContainer"><a href="support.xhtml">#{msgs.student_topMenuHelp}</a></li>
+            <li class="topMenuLinkContainer"><a href="index.xhtml"> #{msgs.admin_communicationMenuMain}</a></li>
+            <li class="topMenuLinkContainer"><a href="support.xhtml">#{msgs.user_help}</a></li>
             <li class="topMenuLinkContainer"><a href="info.xhtml">#{msgs.student_topMenuInfo}</a></li>
             <li class="topMenuLinkContainer"><a href="news_list.xhtml">#{msgs.student_topMenuNews}</a></li>
             <li class="topMenuLinkContainer"><a href="settings.xhtml">#{msgs.student_topMenuSettings}</a></li>
-            <li class="topMenuLinkContainer" style="border: 0px; float: right">
+            <li class="topMenuLinkContainer">
+                <div class="" style="float: left;">
+                    <a href="messages_list.xhtml" style="margin-right: 5px;">#{msgs.student_messMenuTitle}</a>
+                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages>0}"><span class="messagesMainStPageNewMess"></span></h:panelGroup>
+                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages&lt;1}" styleClass="messagesMainStPageIncomeMess"></h:panelGroup>
+                </div>
+                <div style="float: right; font-size: 15px; font-weight: bold; color: #fbb35d; margin-left: 3px;">
+                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages>0}">#{MessageCountNewBean.newMessages}</h:panelGroup>
+                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages&lt;1}"></h:panelGroup>
+                </div>
+            </li>
+            <li class="topMenuLinkContainer">
+                <a href="messages_out.xhtml">#{msgs.admin_messMenuOut}</a>
+            </li>
+            <li class="StudentMainPageExit" style="border: 0px; float: right">
 
             <sec:ifAnyGranted roles="ROLE_PREVIOUS_ADMINISTRATOR">
                 <h:outputLink value="../Admin/exit_user" >Назад</h:outputLink>
@@ -221,44 +272,9 @@
         #{msgs.teacher_StudentContent}
     </ui:define>
     <ui:define name="right">
-        <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_comMenuTitle}</p></div>
-        <ol class="leftSideMenuLinks iconMenu">
-            <li><a href="curriculums.xhtml"><h:graphicImage value="../resources/images/materials.png" styleClass="iconInMenu" />#{msgs.teacher_communicationMenuMyCources}</a></li>
-            <li><a href="controlWorksAttempts.xhtml"><h:graphicImage value="../resources/images/control_work.png" styleClass="iconInMenu" />#{msgs.teacher_communicationMenuAllCw}</a></li>
-            <li><a href="schedule.xhtml"><h:graphicImage value="../resources/images/shedule.png" styleClass="iconInMenu" />#{msgs.teacher_communicationSchedule}</a></li>
-            <li><a href="forum.xhtml?type=TEACHER_FAQ"><h:graphicImage value="../resources/images/teh_forum_teacher.png" styleClass="iconInMenu" />#{msgs.student_comMenuForumTech}</a></li>
-            <li><a href="forum.xhtml?type=TEACHER_ORG"><h:graphicImage value="../resources/images/org_forum_teacher.png" styleClass="iconInMenu" />#{msgs.student_comMenuForumOrg}</a></li>
-            <li><p><h:graphicImage value="../resources/images/video.png" styleClass="iconInMenu" />#{msgs.student_comMenuVideoconferencing}</p></li>
-        </ol>
-        <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.student_messMenuTitle}</p></div>
-        <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="messages_list.xhtml">#{msgs.student_messMenuIn}
-                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages>0}"  style="font-size: 15px; font-weight: bold; color: red;">#{MessageCountNewBean.newMessages}</h:panelGroup>
-                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages&lt;1}">#{MessageCountNewBean.newMessages}</h:panelGroup>
-                    )</a></div></div>
-        <ol class="leftSideMenuLinks">
-            <li><a href="messages_out.xhtml">#{msgs.student_messMenuOut}</a></li>
-
-        </ol>
-        <div class="violMenuTitle"><p class="sideBarTitle">#{msgs.student_chatMenuTitle}</p></div>
-        <div id="chatShortHistory1" class="chatShortHistory">
-        </div>
-        <div class="smallChatTools">
-            <input id="message1"/><button id="button1"></button>
-            <div style="height:18px;"></div>
-        </div>
-        <ut:usersOnline/>
     </ui:define>
     <ui:define name="bottom">
         <ol class="bottomMenu">
-            <li class="bottomMenuLinkContainer">
-                <a href="support.xhtml">#{msgs.student_bottMenuHelp}</a>
-            </li>
-            <li class="bottomMenuLinkContainer">
-                <a href="support.xhtml?i=true">#{msgs.student_bottMenuInfo}</a>
-            </li>
-            <li class="bottomMenuLinkContainer" style="border: 0px;">
-                <a href="settings.xhtml">#{msgs.student_bottMenuSettings}</a>
-            </li>
             <li class="copyrightCOO">
                 <p>
                     #{msgs.copyright}

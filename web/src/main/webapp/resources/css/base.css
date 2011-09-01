@@ -1070,6 +1070,11 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     font-weight: bolder;
     color: #4593DF;
 }*/
+.mainStyle .StudentMainPageExit a:link {color: #838383; text-decoration: none; font-size: 10pt;font-weight: bold;}
+.mainStyle .StudentMainPageExit a:visited{color: #838383;text-decoration: none;font-size: 10pt;font-weight: bold;}
+.mainStyle .StudentMainPageExit a:hover{color: #b5a5a5; text-decoration: none;font-size: 10pt; font-weight: bold;}
+.mainStyle .StudentMainPageExit a:active{color: #838383;text-decoration: none;font-size: 10pt;font-weight: bold;}
+
 .mainStyle .linkToStudentsProfile a:link{color: #89C9F5; text-decoration: none; font-weight: normal;}
 .mainStyle .linkToStudentsProfile a:visited{color: #89C9F5; text-decoration: none; font-weight: normal;}
 .mainStyle .linkToStudentsProfile a:active{color:#89C9F5; text-decoration: underline; font-weight: normal;}
@@ -2067,6 +2072,25 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     background: url('../resources/images/news_edit.gif') no-repeat 0 0;
     padding-left: 17px;
 }
+.mainStyle .messagesMainStPageNewMess{
+    background: url('../resources/images/message_active.jpg') no-repeat;
+    padding-left: 25px;
+    padding-top: 4px;
+}
+.mainStyle .messagesMainStPage{
+    background: url('../resources/images/messagesMainStPage.png') no-repeat;
+    background-position: right center;
+    padding-right: 30px;
+}
+
+.mainStyle .messagesMainStPageIncomeMess{
+    background: url('../resources/images/messagesMainStPage.png') no-repeat;
+    padding-left: 25px;
+    padding-top: 4px;
+}
+.mainStyle .StudentMainPageExit{
+    margin-top: -10px;
+}
 /*списки юзеров*/
 .mainStyle .enterPic{
     vertical-align: bottom !important;
@@ -2167,7 +2191,6 @@ ul.dropdown li ul li {
 }
 .mainStyle .textAreaStyle{
     border: 1px solid #89C9F5;
-    width: 667px;
 }
 /*стиль для подсказок в расписании*/
 .tooltip{ 
