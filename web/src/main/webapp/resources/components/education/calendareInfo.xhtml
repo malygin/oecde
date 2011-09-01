@@ -30,27 +30,15 @@
                 </td>
                 </tr>
                 <tr>
-                    <td><p>Открытие контрольных</p>
-                    </td>
-                    <td><p> <h:outputText converter="dateConverter" value="#{studentIndexBean.getDate('controlWorksBeginDate')}"/></p>
-                </td>
-                </tr>
-                <tr>
-                    <td><p>Открытие итоговых тестов</p>
-                    </td>
-                    <td><p> <h:outputText converter="dateConverter" value="#{resourceService.concludingTestBeginDate}"/></p>
-                </td>
-                </tr>
-                <tr>
-                    <td><p>Начало переэкзаменовки</p>
-                    </td>
-                    <td><p> <h:outputText converter="dateConverter" value="#{resourceService.reExameBeginDate}"/></p>
-                </td>
-                </tr>
-                <tr>
                     <td><p>Закрытие тестов</p>
                     </td>
                     <td><p><h:outputText converter="dateConverter" value='#{resourceService.regularTestEndDate}'/></p>
+                </td>
+                </tr>
+                <tr>
+                    <td><p>Открытие контрольных</p>
+                    </td>
+                    <td><p> <h:outputText converter="dateConverter" value="#{studentIndexBean.getDate('controlWorksBeginDate')}"/></p>
                 </td>
                 </tr>
                 <tr>
@@ -60,9 +48,21 @@
                 </td>
                 </tr>
                 <tr>
+                    <td><p>Открытие итоговых тестов</p>
+                    </td>
+                    <td><p> <h:outputText converter="dateConverter" value="#{resourceService.concludingTestBeginDate}"/></p>
+                </td>
+                </tr>
+                <tr>
                     <td><p>Закрытие итоговых тестов</p>
                     </td>
                     <td><p> <h:outputText converter="dateConverter" value="#{resourceService.concludingTestEndDate}"/></p>
+                </td>
+                </tr>
+                <tr>
+                    <td><p>Начало переэкзаменовки</p>
+                    </td>
+                    <td><p> <h:outputText converter="dateConverter" value="#{resourceService.reExameBeginDate}"/></p>
                 </td>
                 </tr>
                 <tr>
