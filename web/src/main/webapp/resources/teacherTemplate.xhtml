@@ -8,6 +8,153 @@
     template="baseTemplate.xhtml">
     <ui:define name="userCSS">
         <h:outputStylesheet name="teacher.css" library="css" rendered="true"/>
+        <h:outputStylesheet name="base.css" library="css" rendered="true"/>  
+    </ui:define>
+    <ui:define name="left">
+        <div  class="modulsTitles"><p class="sideBarTitle">#{msgs.student_eduMenuTitle}</p></div>
+        <ol class="leftSideMenuLinks leftSideList">
+            <li><a href="curriculums.xhtml">#{msgs.teacher_communicationMenuMyCources}</a></li>
+            <li><a href="controlWorksAttempts.xhtml">#{msgs.teacher_communicationMenuAllCw}</a></li>
+            <li><a href="schedule.xhtml">#{msgs.teacher_communicationSchedule}</a></li>
+        </ol>
+        <div class="modulsTitles"><p class="sideBarTitle">#{msgs.teacher_groupsMenuTitle}</p></div>
+        <h:form>
+            <div style="position: relative; top: -22px; text-align: right;">
+                <h:outputText id="sName"/>
+                <h:commandLink id="handle">
+                    <f:ajax event="click" render="table sName next" listener="#{teachersGroups.changeSemester}"/>
+                    <f:attribute name="semester" value="#{teachersGroups.semester==0?1:0}"/>
+                    <h:outputText id="next" value="#{changeSemesterBean.inversedSemesterName(teachersGroups.semester)} семестр"/>
+                </h:commandLink>
+            </div>
+            <!--            <table  style="width: 100%; text-align: left;">
+                            <tr>
+                                <td>#{msgs.teacher_CurrentSemester}:</td>
+                                <td>
+                            </td>
+                            </tr>
+                            <tr>
+                                <td>#{msgs.teacher_ShowSemester}:</td>
+                                <td>
+
+                            </td>
+                            </tr>
+                        </table>-->
+            <div style="border: 1px solid silver; height: 50px; overflow-x: hidden;">
+                <h:dataTable cellpadding="0" cellspacing="0" id="table" value="#{teachersGroups.teachersGroups}" var="w">
+                    <h:column>
+                        <div style="width: 100%; text-align: left;" class="groupsLinks controlWorksDisciplineNameLink">
+                            <h:outputText value="#{w.key.name}"/>
+                            <h:outputText value="#{w.key.rusShort}"/>
+                        </div>
+                        <h:dataTable id="groups" value="#{w.value}" style="margin: 0px; padding: 0px; text-align: left; margin-left: 20px;" cellpadding="0" cellspacing="0" var="g">
+                            <h:column>
+                                <span class="groupsLinks" style="width: 100%;">
+                                    <h:outputLink value="groupPoints.xhtml?g=#{g.id}&amp;s=#{teachersGroups.semester}">#{g.name}</h:outputLink>
+                                </span>
+                            </h:column>
+                        </h:dataTable>
+                    </h:column>
+                </h:dataTable>
+            </div>
+        </h:form>
+        <div class="modulsTitles"><p class="sideBarTitle">Общение</p></div>
+        <ol class="leftSideMenuLinks leftSideList">
+            <li>
+                <a href="teachersList.xhtml">Преподаватели</a>
+            </li>
+            <li>
+                <a href="adminsList.xhtml">Администраторы</a>
+            </li>
+            <li><a href="forum.xhtml?type=TEACHER_FAQ">#{msgs.student_comMenuForumTech}</a></li>
+            <li><a href="forum.xhtml?type=TEACHER_ORG">#{msgs.student_comMenuForumOrg}</a></li>
+        </ol>
+        <div class="modulsTitles"><p class="sideBarTitle" style="float: left;">#{msgs.student_chatMenuTitle}</p>
+            <div style="text-align: right;"><a href="chat.xhtml" title="история чата" style="background: url('../resources/images/chat_history.png') no-repeat; padding-left: 20px;"></a>
+            </div>
+            <div class="floatDestroyer"/>
+        </div>
+
+        <div id="chatShortHistory1" class="chatShortHistory">
+
+        </div>
+        <div class="smallChatTools">
+            <input id="message1"/><button id="button1" style="height: 19px;">OK</button>
+            <div style="height:18px;"></div>
+        </div>
+        <div>
+            <ut:usersOnline/>
+        </div>
+    </ui:define>
+
+    <ui:define name="top">
+        <ol class="topMenuLinks">
+            <li class="topMenuLinkContainer"><a href="index.xhtml"> #{msgs.admin_communicationMenuMain}</a></li>
+            <li class="topMenuLinkContainer"><a href="support.xhtml">#{msgs.user_help}</a></li>
+            <li class="topMenuLinkContainer"><a href="info.xhtml">#{msgs.student_topMenuInfo}</a></li>
+            <li class="topMenuLinkContainer"><a href="news_list.xhtml">#{msgs.student_topMenuNews}</a></li>
+            <li class="topMenuLinkContainer"><a href="settings.xhtml">#{msgs.student_topMenuSettings}</a></li>
+            <li class="topMenuLinkContainer">
+                <div class="" style="float: left;">
+                    <a href="messages_list.xhtml" style="margin-right: 5px;">#{msgs.student_messMenuTitle}</a>
+                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages>0}"><span class="messagesMainStPageNewMess"></span></h:panelGroup>
+                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages&lt;1}" styleClass="messagesMainStPageIncomeMess"></h:panelGroup>
+                </div>
+                <div style="float: right; font-size: 15px; font-weight: bold; color: #fbb35d; margin-left: 3px;">
+                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages>0}">#{MessageCountNewBean.newMessages}</h:panelGroup>
+                    <h:panelGroup rendered="#{MessageCountNewBean.newMessages&lt;1}"></h:panelGroup>
+                </div>
+            </li>
+            <li class="topMenuLinkContainer">
+                <a href="messages_out.xhtml">#{msgs.admin_messMenuOut}</a>
+            </li>
+            <li class="StudentMainPageExit" style="border: 0px; float: right">
+
+            <sec:ifAnyGranted roles="ROLE_PREVIOUS_ADMINISTRATOR">
+                <h:outputLink value="../Admin/exit_user" >Назад</h:outputLink>
+            </sec:ifAnyGranted>
+            <sec:ifNotGranted roles="ROLE_PREVIOUS_ADMINISTRATOR">
+                <h:outputLink value="../j_spring_security_logout" >#{msgs.student_topMenuExit}</h:outputLink>
+            </sec:ifNotGranted>
+            </li>
+
+            <li style="clear: both;"></li>
+        </ol>
+    </ui:define>
+    <ui:define name="content">
+        #{msgs.teacher_StudentContent}
+    </ui:define>
+    <ui:define name="right">
+    </ui:define>
+    <ui:define name="bottom">
+        <ol class="bottomMenu">
+            <li class="copyrightCOO">
+                <p>
+                    #{msgs.copyright}
+                </p>
+            </li>
+            <li class="floatDestroyer"></li>
+        </ol>
+    </ui:define>
+</ui:composition>
+
+
+
+
+
+
+
+<!--
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:r="http://java.sun.com/jsp/jstl/core"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+    xmlns:sec="http://www.springframework.org/security/facelets/tags"
+    template="baseTemplate.xhtml">
+    <ui:define name="userCSS">
+        <h:outputStylesheet name="teacher.css" library="css" rendered="true"/>
         <h:outputStylesheet name="base_old.css" library="css" rendered="true"/>  
     </ui:define>
     <ui:define name="left">
@@ -121,3 +268,5 @@
         </ol>
     </ui:define>
 </ui:composition>
+
+-->
