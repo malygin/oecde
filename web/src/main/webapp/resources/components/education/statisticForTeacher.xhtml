@@ -17,5 +17,51 @@
    <composite:implementation>
         #{teacherIndexBean.estimatedGroupsCount} гр из #{teacherIndexBean.groupsCount}<br/>
          #{teacherIndexBean.readCwAttempsCount} из #{teacherIndexBean.cwAttempsCount}
+         
+         
+         <div class="" style="margin-bottom: 0px;">
+    <div class="mainStudentPageTitles mainStudentPageTitlesOrange">
+        Статистика
+    </div>
+    <div>
+        <div>
+
+            <table style="margin: 10px; margin-left: 15px;" class="notificationTableTextOrange2 BorderNone" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td><p>Оценено групп</p>
+                    </td>
+                    <td><p><h:outputText converter="dateConverter" value="#{resourceService.regularTestBeginDate}"/></p>
+                </td>
+                </tr>
+                <tr>
+                    <td><p>Прочитано занятий</p>
+                    </td>
+                    <td><p><h:outputText converter="dateConverter" value='#{resourceService.regularTestEndDate}'/></p>
+                </td>
+                </tr>
+                <tr>
+                    <td><p>Открытие контрольных</p>
+                    </td>
+                    <td><p> <h:outputText converter="dateConverter" value="#{studentIndexBean.getDate('controlWorksBeginDate')}"/></p>
+                </td>
+                </tr>
+                <tr>
+                    <td><p>Прочитано контрольных </p>
+                    </td>
+                    <td><p> <h:outputText converter="dateConverter" value="#{studentIndexBean.getDate('controlWorksEndDate')}"/></p>
+                </td>
+                </tr>
+                <tr>
+                    <td><p>Прохождение тестов</p>
+                    </td>
+                    <td><p> <h:outputText converter="dateConverter" value="#{resourceService.concludingTestBeginDate}"/></p>
+                </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+         
+         
   </composite:implementation>
 </html>

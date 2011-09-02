@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:util="http://java.sun.com/jsf/composite/components/util"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      >
+
+
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute  name="numberLessons"  required="true" type="int" shortDescription="количество выводимых занятий"/>
+        <composite:attribute name="styleForShedule" default="" type="java.lang.String" shortDescription="обтекание слева или без него"/>
+        <composite:attribute name="renderBlock" default="" type="java.lang.String" shortDescription="что надо отобразить на странице"/>
+        <composite:attribute name="ClassStyle" default="" type="java.lang.String" shortDescription="граница на главной странице"/>
+    </composite:interface>
+    
+    <!-- IMPLEMENTATION -->
+    <composite:implementation>
+       <link type="text/css" href="../resources/jquery/css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" />
+        <script type="text/javascript" src="../resources/jquery/js/jquery-1.5.1.min.js"></script>
+        <script type="text/javascript" src="../resources/jquery/js/jquery-ui-1.8.14.custom.min.js"></script>
+        <script type="text/javascript" src="../resources/jquery/js/jquery.simpletip-1.3.1.js"></script>
+        <script type="text/javascript" src="../resources/jquery/js/jquery.ui.datepicker-ru.js"></script>
+        <script type="text/javascript" src="../resources/scripts/shedule.js"></script> 
+
+        <div>
+            <div class="mainStudentPageTitlesGreen mainStudentPageTitles">
+                <a style="font-size: 12pt;" href="schedule.xhtml">Расписание видеоконференций</a>
+            </div>
+            <div class="#{cc.attrs.styleForShedule}">
+                <div id="datepicker" class="datepickerClass"></div>
+            </div>
+            <div class="videoConfSchedule floatLeft" style="min-height: 212px; width: 50%;">
+                <table class="#{cc.attrs.ClassStyle}">
+                    <ui:repeat var="s" value="#{teacherScheduleBean.schedule}" size="2">
+                        <tr>
+                            <td valign="top" class="Ipsilon_Web_GreenText"><p><h:outputText value="#{s.lessonDate}" converter="dateConverter"/></p>
+                            </td>
+                            <td>
+                                <p>
+                                    <p class="skyBlueText">#{s.discipline.name}</p> 
+                                    <p  class="Ipsilon_Web_GreenText"><h:outputText value="#{cwg.group.name}"/>(<h:outputText value="#{cwg.group.speciality.engShort}"/>)</p> 
+                                    <h:outputText converter="roomConverter" value="#{s.room}"/> комната
+                                </p>
+                            </td>
+                        </tr>
+                    </ui:repeat>
+                    <tr>
+                        <td colspan="2">
+                            <p class="videoConfSchedule" style="height: 25px;">
+                                <h:panelGroup rendered="#{cc.attrs.renderBlock eq 'firstLessons'}"><a href="schedule.xhtml">Посмотреть все видеоконференции</a></h:panelGroup>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+            <h:panelGroup layout="block" rendered="#{cc.attrs.renderBlock eq 'allLessons'}" style="float: right; width: 25%; margin: 0; margin-right: 10px; margin-top: 20px;" styleClass="StudentMainPageTitlesBorders">
+                    <div class="interfaceContentForMyMarks">
+                        <div class="mainStudentPageTitles  mainStudentPageTitlesOrange">
+                            Текущая конференция
+                        </div>
+                    </div>
+                    <div>
+                        <div style="text-align: right;">
+                            <a href="#" style="margin-right: 10px;">посетить</a>
+                        </div>
+                        <div>
+                        </div>
+                        
+                    </div>
+                    <div class="textForPodskazka">
+                        <p>&nbsp;</p>
+                        <p style="color:#838383">&nbsp;</p>
+                    </div>
+            </h:panelGroup>
+            <div class="floatDestroyer"/>
+           
+            
+            
+        </div>
+
+    </composite:implementation>
+</html>
