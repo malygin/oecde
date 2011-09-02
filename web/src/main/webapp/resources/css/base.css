@@ -1249,9 +1249,9 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     width: 100%;
     min-height: 68px;
 }
-.mainStyle .userOnlineImgContainer img{
+/*.mainStyle .userOnlineImgContainer img{
     width: 100%;
-}
+}*/
 .mainStyle .userOnlineLinkContainer a:link {color: #505050; text-decoration: none; font-weight: normal; font-size: 8pt; }
 .mainStyle .userOnlineLinkContainer a:visited {color: #505050; text-decoration: none; font-weight: normal; font-size: 8pt;}
 .mainStyle .userOnlineLinkContainer a:active {color: #505050; text-decoration: none; font-weight: normal;font-size: 8pt;}

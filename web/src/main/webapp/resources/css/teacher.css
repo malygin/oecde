@@ -58,9 +58,9 @@
     color: green;
     text-align: left;
 }
-.mainStyle .contentHeader{
+/*.mainStyle .contentHeader{
     width: 100%;
-}
+}*/
 .mainStyle .contentHeader p{
     font-size: 150%;
     padding: 5px 0 5px 15px;

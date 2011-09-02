@@ -11,50 +11,57 @@
         #{msgs.student_myMaterials}
     </ui:define>
     <ui:define name="content">
-        <div class="interfaceContent">
+        <div>
             <f:metadata>
                 <f:viewParam name="s" value="#{teacherCurriculumsEditBean.semester}"/>
             </f:metadata>
-            <h:form>
-                <h:dataTable styleClass="studentStandatrTable"
-                             columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
-                             studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
-                             studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
-                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                             studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher" cellpadding="0" cellspacing="0" value="#{teacherCurriculumsEditBean.curriculums}" var="c">
-                    <h:column>
-                        <f:facet name="header">#{msgs.student_Dicipline}</f:facet>
-                        <span class="DisciplineTextTeacher"><h:outputText value="#{c.discipline.name}"/></span>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">#{msgs.student_mainContentUserInfoSpec_}</f:facet>
-                        <span><h:outputText value="#{c.speciality.name}"/></span>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">#{msgs.user_UMK}</f:facet>
-                        <span class="controlWorksDisciplineNameLink">
-                            <h:outputLink value="discipline.xhtml?id=#{c.id}&amp;s=#{teacherCurriculumsEditBean.semester}">#{c.umk.name}</h:outputLink>
-                        </span>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">#{msgs.admin_mainContentYear}</f:facet>
-                         <span><h:outputText value="#{c.calendarYear}"/> </span>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">#{msgs.teacher_semester}</f:facet>
-                         <span><h:outputText value="#{c.semester}"/> </span>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">#{msgs.teacher_contrWorksInWriting}</f:facet>
-                        <h:selectBooleanCheckbox  value="#{c.controlWorksPaperOnly}" style="display: inline; float: none;"/>
-                    </h:column>
-                </h:dataTable>
-
-                <div style="text-align: right; padding: 5px;" >
-                    <h:commandButton value="#{msgs.teacher_saveButton}" action="#{teacherCurriculumsEditBean.save}" styleClass="studentButton"/>
+            <div class="StudentMainPageTitlesBorders">
+                <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">
+                    #{msgs.teacher_curriculumAndCourses}
                 </div>
-            </h:form>
+                <div>
+                    <h:form>
+                        <h:dataTable styleClass="studentStandatrTable"
+                                     columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
+                                     studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
+                                     studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
+                                     studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                                     studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                                     studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher" cellpadding="0" cellspacing="0" value="#{teacherCurriculumsEditBean.curriculums}" var="c">
+                            <h:column>
+                                <f:facet name="header">#{msgs.student_Dicipline}</f:facet>
+                                <span class="DisciplineTextTeacher"><h:outputText value="#{c.discipline.name}"/></span>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">#{msgs.student_mainContentUserInfoSpec_}</f:facet>
+                                <span><h:outputText value="#{c.speciality.name}"/></span>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">#{msgs.user_UMK}</f:facet>
+                                <span class="controlWorksDisciplineNameLink">
+                                    <h:outputLink value="discipline.xhtml?id=#{c.id}&amp;s=#{teacherCurriculumsEditBean.semester}">#{c.umk.name}</h:outputLink>
+                                </span>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">#{msgs.admin_mainContentYear}</f:facet>
+                                <span><h:outputText value="#{c.calendarYear}"/> </span>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">#{msgs.teacher_semester}</f:facet>
+                                <span><h:outputText value="#{c.semester}"/> </span>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">#{msgs.teacher_contrWorksInWriting}</f:facet>
+                                <h:selectBooleanCheckbox  value="#{c.controlWorksPaperOnly}" style="display: inline; float: none;"/>
+                            </h:column>
+                        </h:dataTable>
+
+                        <div style="text-align: right; padding: 5px;" >
+                            <h:commandButton value="#{msgs.teacher_saveButton}" action="#{teacherCurriculumsEditBean.save}" styleClass="studentButton"/>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
         </div>
     </ui:define>
 </ui:composition>

@@ -33,7 +33,7 @@
                     <table cellpadding="3" cellspacing="1" >
                         <tr>
                             <ui:repeat value="#{usersInCache.sixStudents}" var="st" varStatus="i">
-                                <td style="max-width: 68px;">
+                                <td style="max-width: 68px; vertical-align: top;">
                                     <div class="userOnlineLinkContainer">
                                         <a href="student.xhtml?id=#{st.id}">
                                             <div class="userOnlineImgContainer">
@@ -59,7 +59,7 @@
                     <table cellpadding="3" cellspacing="1" >
                         <tr>
                             <ui:repeat value="#{usersInCache.sixTeachers}" var="st" varStatus="i">
-                                <td style="max-width: 68px;">
+                                <td style="max-width: 68px; vertical-align: top;">
                                     <div class="userOnlineLinkContainer">
                                         <a href="student.xhtml?id=#{st.id}">
                                             <div class="userOnlineImgContainer">
@@ -85,7 +85,7 @@
                     <table cellpadding="3" cellspacing="1" >
                         <tr>
                             <ui:repeat value="#{usersInCache.sixAdmins}" var="st" varStatus="i">
-                                <td style="max-width: 68px;">
+                                <td style="max-width: 68px; vertical-align: top;">
                                     <div class="userOnlineLinkContainer">
                                         <a href="admin.xhtml?id=#{st.id}">
                                             <div class="userOnlineImgContainer">
