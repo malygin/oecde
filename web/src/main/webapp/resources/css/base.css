@@ -958,6 +958,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .topMenuLinks{
     list-style: none;
     width: 100%;
+    height: 35px;
 }
 .mainStyle .topMenuLinkContainer{
     float: left;
