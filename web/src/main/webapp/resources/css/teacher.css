@@ -60,9 +60,6 @@
 }
 .mainStyle .contentHeader{
     width: 100%;
-    background: #8BDFA6;
-    border-top: #4F9F69 1px solid;
-    border-bottom: #4F9F69 1px solid;
 }
 .mainStyle .contentHeader p{
     font-size: 150%;
