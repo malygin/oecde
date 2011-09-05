@@ -5,10 +5,12 @@
     template="../resources/teacherTemplate.xhtml"
     xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
-    xmlns:edu="http://java.sun.com/jsf/composite/components/education">
+    xmlns:edu="http://java.sun.com/jsf/composite/components/education"
+     >
     <ui:define name="content">
-        <ui:define name="contentHeader">
-        </ui:define>
+         <!--<ui:define name="contentHeader">
+            Присланные контрольные работы
+         </ui:define>
         <div class="interfaceContent">
             <f:metadata>
                 <f:viewParam name="s" value="#{teachersGroups.semester}"/>
@@ -73,11 +75,17 @@
                 </div>
             </div>
             <div class="textForPodskazka">
-<!--                <tabs:singleTab alias="STUDENT_MATERIALS"/>-->
-            </div>
-        </div>
+                <tabs:singleTab alias="STUDENT_MATERIALS"/>-->
+         <!--   </div>
+        <div>
             <ut:navigationList elementOnPage="#{controlWorksAttemptsBean.elementsOnPage}" numElements="#{controlWorksAttemptsBean.readCwAttempsCount}" link="s=#{controlWorksAttemptsBean.semester}"/>
+        </div>-->
+         
+         <div class="StudentMainPageTitlesBorders"  style="margin-left: 2%; width: 75%; float: left;">
+           <edu:controlWorkForTeacher numberLessons="20"  styleForShedule="floatLeft"  renderBlock="allLessons"/>
         </div>
-
+         
+         
+         
     </ui:define>
 </ui:composition>
