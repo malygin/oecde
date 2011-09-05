@@ -27,7 +27,8 @@
                 <div class="floatDestroyer"></div>
 
                 <h:dataTable value="#{materialsBean.studentsDisciplines}" var="m" styleClass="leftMenuContainer" style="width: 100%;">
-                    <h:column rendered="#{ m.curriculum.umk.id != 5276}" >
+                    <h:column>
+                        <h:panelGroup rendered="#{ m.curriculum.umk.id != 5276}"> 
                         <br />
                         <div>
                             <span class="linkToStudentsProfile studentPaddLeft"><h:outputLink value="discipline.xhtml?c=#{m.curriculum.id}" style=" font-size: 11pt !important;">#{m.curriculum.umk.name}</h:outputLink><br/></span>
@@ -90,6 +91,7 @@
                             </div>
                             <br />
                         </div>
+                       </h:panelGroup>
                     </h:column>
                 </h:dataTable>
 

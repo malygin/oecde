@@ -21,8 +21,8 @@
            тип  <h:selectOneMenu  value="#{NewsBean.currentNewItem.newstype}">
             <f:selectItems value="#{NewsBean.newTypeValues}" />
             </h:selectOneMenu>
-        <div style="margin-left: 80px;"><util:editor cols="100" value="#{NewsBean.currentNewItem.announcement}"/></div>
-        <div style="margin-left: 80px;"><util:editor cols="100" rows="30" value="#{NewsBean.currentNewItem.fullText}"/></div>
+           <div style="margin-left: 80px;"><h:inputTextarea cols="100" value="#{NewsBean.currentNewItem.announcement}"/></div>
+           <div style="margin-left: 80px;"><h:inputTextarea cols="100" rows="30" value="#{NewsBean.currentNewItem.fullText}"/></div>
     
         <h:commandButton styleClass="studentButton" action="#{NewsBean.edit}" value="#{msgs.admin_maincontentedit}">
         </h:commandButton>

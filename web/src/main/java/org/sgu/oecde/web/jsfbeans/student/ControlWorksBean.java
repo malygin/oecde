@@ -65,6 +65,7 @@ public class ControlWorksBean extends StudentCurriculumBean{
 
     public List<Object[]>getControlWorks(){
         if(works==null){
+          
             List<DeCurriculum> c =  cwService.getCurriculumsWithControlWorks(curriculumBuilder.getInstanceByCurrentDate(student, semester));
             Map<DeCurriculum,ControlWork> m = cwService.<DeCurriculum,ControlWork>getStudensControlWorks(student, c);
             Iterator<DeCurriculum>cI = c.iterator();
@@ -114,6 +115,7 @@ public class ControlWorksBean extends StudentCurriculumBean{
         reExameEndDate = semesterGetter.getConstant(CalendarConstantName.reExameEndDate).toString();
         controlWorksBeginDate = cwDatesGetter.getConstant(ControlWorkCalendarConstantName.controlWorksBeginDate).toString();
         controlWorksEndDate = cwDatesGetter.getConstant(ControlWorkCalendarConstantName.controlWorksEndDate).toString();
+        semester=semesterGetter.getCurrentSemester();
     }
 
     public void setCw(AjaxBehaviorEvent event){

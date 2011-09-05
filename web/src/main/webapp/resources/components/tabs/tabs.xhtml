@@ -65,6 +65,7 @@
                                 <div style="text-align: justify;">
                                     <h:outputText escape="false" id="page" value="#{tabsViewBean.currentPage.text}"/>
                                 </div>
+                                <h:panelGroup rendered="#{not empty tabsViewBean.currentPage.files}">                                  
                                 <div style="text-align: justify;">
                                     <br/>
                                     <hr/>
@@ -79,6 +80,7 @@
                                         </h:column>
                                     </h:dataTable>
                                 </div>
+                                </h:panelGroup>
                             </div>
                         </td>
                     </tr>

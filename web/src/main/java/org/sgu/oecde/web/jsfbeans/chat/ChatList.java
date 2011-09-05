@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.SingleThreadModel;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -40,7 +41,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
  * @todo разобраться с экранированием
  */
 @WebServlet(value="/ChatList", loadOnStartup=1,asyncSupported=true)
-public class ChatList extends HttpServlet {
+public class ChatList extends HttpServlet{
     private static final int number=25;
     private List<ChatMessage> listGeneralChat;
     private List<ChatMessage> listAdminChat;
