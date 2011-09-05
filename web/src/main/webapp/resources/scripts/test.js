@@ -63,7 +63,6 @@ $(function(){
 
         //            $('.testQuestion .Ipsilon_Web_GreenText').attr('style','position:relative; bottom:' + (($(this).parent('.qTitle').children().height() - 3)/2) + 'px');
         //     var textQuestion = ($(this).parent('.qTitle').children().height() - 3)/2;
-        //         console.debug(($(this).parent('.qTitle').children().first().height() - 3)/2);
         });
 
     }
@@ -119,7 +118,6 @@ $(function(){
                
                 for(i = 0; i < bodyElem.childElementCount; i++){
 //                     if(deti[i].className == "imG"){
-//                         console.debug("ураааа!!!!!");
 //                         commonHeight += deti[i].clientHeight;
 //                     }
                     commonHeight += bodyElem.children[i].offsetHeight;
@@ -144,7 +142,6 @@ $(function(){
                 c = d.children();
                 h = (h/2)-6;
                 c[0].setAttribute('style','margin-top:'+h+'px');
-                console.debug(bodyElem.children);
             });
             
         }
