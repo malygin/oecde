@@ -16,7 +16,7 @@
   <!-- IMPLEMENTATION -->
    <composite:implementation>
         
-         <h:dataTable styleClass="studentStandatrTable"
+         <!--<h:dataTable styleClass="studentStandatrTable"
                          columnClasses="studentStandatrTableTd,
                          studentStandatrTableTd,
                          studentStandatrTableTd,
@@ -27,6 +27,13 @@
                         <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
                     </f:facet>
                     <span class="controlWorksDisciplineName"><h:outputText value="#{a.work.curriculum.discipline.name}"/></span>
+             </h:column>
+             <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msgs.message_downLoad}" />
+                    </f:facet>
+                    <h:outputText rendered="#{a.read}" value="скачана! "/> 
+                    <est:readCwAttempt attempt="#{a}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
@@ -47,13 +54,70 @@
                     <h:outputText converter="enumConverter" value="#{a.work.progress}"/>
                     <h:outputText value="#{a.work.points}"/>
                 </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{msgs.message_downLoad}" />
-                    </f:facet>
-                    <h:outputText rendered="#{a.read}" value="скачана! "/> 
-                    <est:readCwAttempt attempt="#{a}"/>
-                </h:column>
-            </h:dataTable>
+                
+            </h:dataTable>-->
+       
+    <div class="" style="margin-bottom: 0px;">
+    <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">
+        <a href="controlWorksAttempts.xhtml" style="font-size: 12pt;">Контрольные работы</a>
+            <div style="float: right;">
+                    <div>
+                        <div class="greyLinks">
+                        <div>
+                        Показать:
+                        &nbsp;&nbsp;<a href=" ">все</a>
+                        &nbsp;&nbsp;<a href=" ">не зачтеные</a>
+                        &nbsp;&nbsp;<a href=" ">по дате</a>
+                        &nbsp;&nbsp;<a href=" ">не прочитанные</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+    </div>
+       <p class="linkToStudentsProfile disciplineName"><a href=" "><h:outputText value="Дисциплина"/></a></p>
+       <table class="blocksMargins controlWorkTable" style="margin-top: 0px;">
+                <tr>                  
+                    <td>
+                        <span class="controlWorksDisciplineName"><h:outputText value="Работа № 1"/></span>
+                        <a href=" "><img src="../resources/images/save_control_work.png"/></a>
+                    </td>
+                    <td><span class="linkToStudentsProfile"><a href=" "><h:outputText value="Лавренова Марина Геннадиевна"/></a></span></td>
+                    <td class="linkToTeachersProfile"><a href=" "><h:outputText value="233 гр."/></a></td>
+                    <td><h:outputText value="12 мая 2011"/></td>
+                    <td class="Ipsilon_Web_GreenText"><h:outputText value="зачтено"/></td>
+                </tr> 
+                <tr>                  
+                    <td>
+                        <span class="controlWorksDisciplineName"><h:outputText value="Работа № 1"/></span>
+                        <a href=" "><img src="../resources/images/save_control_work.png"/></a>
+                    </td>
+                    <td><span class="linkToStudentsProfile"><a href=" "><h:outputText value="Иванов Иван Иванович"/></a></span></td>
+                    <td class="linkToTeachersProfile"><a href=" "><h:outputText value="233 гр."/></a></td>
+                    <td><h:outputText value="1 сентября 2011"/></td>
+                    <td><h:outputText value="непрочитано"/></td>
+                </tr>
+                <tr>                  
+                    <td>
+                        <span class="controlWorksDisciplineName"><h:outputText value="Работа № 1"/></span>
+                        <a href=" "><img src="../resources/images/save_control_work.png"/></a>
+                    </td>
+                    <td><span class="linkToStudentsProfile"><a href=" "><h:outputText value="Голованова Анна Игоревна"/></a></span></td>
+                    <td class="linkToTeachersProfile"><a href=" "><h:outputText value="233 гр."/></a></td>
+                    <td><h:outputText value="12 сентября 2011"/></td>
+                    <td class="Ipsilon_Web_GreenText"><h:outputText value="зачтено"/></td>
+                </tr> 
+                <tr>                  
+                    <td>
+                        <span class="controlWorksDisciplineName"><h:outputText value="Работа № 1"/></span>
+                        <a href=" "><img src="../resources/images/save_control_work.png"/></a>
+                    </td>
+                    <td><span class="linkToStudentsProfile"><a href=" "><h:outputText value="Ленгерт Владимир Владимирович"/></a></span></td>
+                    <td class="linkToTeachersProfile"><a href=" "><h:outputText value="233 гр."/></a></td>
+                    <td><h:outputText value="12 февраля 2011"/></td>
+                    <td class="orangeText"><h:outputText value="незачтено"/></td>
+                </tr> 
+            </table>
+       </div>
+       
   </composite:implementation>
 </html>
