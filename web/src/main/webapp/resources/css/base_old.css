@@ -70,9 +70,9 @@ label{
     float: left;
     padding-top: 20px;
 }
-.mainStyle .leftMenuContainer{
+/*.mainStyle .leftMenuContainer{
     width: 100%;
-}
+}*/
 .mainStyle .rightPagePart{
     margin-left: 16%;
     width: 84%;
@@ -1095,6 +1095,18 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
                                   font-weight: normal;
 }
 /*сообщения*/
+.mainStyle .new_message{
+    background: url('../resources/images/new_message.png') no-repeat right;
+}
+.mainStyle .readed_message{
+    background: url('../resources/images/message_read.png') no-repeat right;
+}
+.mainStyle .read_mes_with_file{
+    background: url('../resources/images/read_mes_with_file.png') no-repeat right;
+}
+.mainStyle .message_with_file{
+    background: url('../resources/images/message_with_file.png') no-repeat right;
+}
 .mainStyle .writeMessageInterfaceTheme{
     width: 100%;
 }

@@ -4,14 +4,6 @@
 .mainStyle .notificationTableTextOrange2 td:nth-child(even) p{
     color: #FBB35D;
 }
-/*стили для подсказки*/
-.mainStyle .textForPodskazka{
-    margin: 10px;
-}
-.mainStyle .textForPodskazka p{
-    margin: 5px 0px;
-    text-align: left;
-}
 
 /*стили для рейтинга группы*/
 .mainStyle .listOfWinner li, .listOfWinner li span{

@@ -2202,3 +2202,16 @@ ul.dropdown li ul li {
     padding: 3px;
     border: 1px solid #d4d4d4;
 }
+/*страница ошибки*/
+.mainStyle .Error{
+    background: url("../resources/images/error.png") no-repeat bottom left;
+    padding-top: 20px;
+}
+/*стили для подсказки*/
+.mainStyle .textForPodskazka{
+    margin: 10px;
+}
+.mainStyle .textForPodskazka p{
+    margin: 5px 0px;
+    text-align: left;
+}
