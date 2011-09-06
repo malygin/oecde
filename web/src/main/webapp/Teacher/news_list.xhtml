@@ -20,6 +20,10 @@
 
         <util:navigationList elementOnPage="#{NewsBean.newsOnPage}"
                              numElements="#{NewsBean.countNews}"/>
-        <news:listEdit list="#{NewsBean.news}"/>
+        <div class="interfaceContent">
+            <news:listEdit list="#{NewsBean.news}"/>
+        </div>
+        <util:navigationList elementOnPage="#{NewsBean.newsOnPage}"
+                             numElements="#{NewsBean.countNews}"/>
      </ui:define>
 </ui:composition>
