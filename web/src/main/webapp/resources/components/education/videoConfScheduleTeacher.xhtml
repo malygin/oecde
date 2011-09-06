@@ -69,16 +69,54 @@
                         <div style="text-align: right;">
                             <a href="#" style="margin-right: 10px;">посетить</a>
                         </div>
+                        <div style="margin-left: 5px;">
+                            <p class="Ipsilon_Web_GreenText">10:00-11:35</p>
+                            <div class="testsMargins">
+                                    <p class="skyBlueText">Дисциплина</p> 
+                                    <p><!--<span  class="skyBlueText Ipsilon_Web_GreenText">--><h:outputText value="434 гр."/><!--</span>-->1 комната</p>
+                            </div>
+                        </div>
                         <div>
                         </div>
                         
                     </div>
-                    <div class="textForPodskazka">
-                        <p>&nbsp;</p>
-                        <p style="color:#838383">&nbsp;</p>
-                    </div>
+                    
             </h:panelGroup>
             <div class="floatDestroyer"/>
+            
+            
+            <h:panelGroup rendered="#{cc.attrs.renderBlock eq 'allLessons'}">
+                
+                <div class="interfaceContent">
+                    
+                        <h:panelGroup >
+                            <div class="Ipsilon_Web_GreenText"><h:outputText value="3 марта"/></div>
+                        </h:panelGroup>
+                        <table class="tableForShedule">
+                            <tr>
+                                <td>10:00-11:35</td>
+                                <td><span class="linkToStudentsProfile"><a href=" ">Дисциплина
+                                        </a></span></td>
+                                <td><span class="linkToTeachersProfile linkToTeachersProfileFromStudent"><a href=" "><h:outputText value="342"/></a></span></td>
+                                <td>1 комната</td>
+                            </tr>
+                            <tr>
+                                <td>10:00-11:35</td>
+                                <td><span class="linkToStudentsProfile"><a href=" ">Адаптационный потенциал личности и его психокоррекция
+                                        </a></span></td>
+                                <td><span class="linkToTeachersProfile linkToTeachersProfileFromStudent"><a href=" "><h:outputText value="342"/></a></span></td>
+                                <td>2 комната</td>
+                            </tr>
+                            <tr>
+                                <td>10:00-11:35</td>
+                                <td><span class="linkToStudentsProfile"><a href=" ">Дисциплина
+                                        </a></span></td>
+                                <td><span class="linkToTeachersProfile linkToTeachersProfileFromStudent"><a href=" "><h:outputText value="342, 452, 565"/></a></span></td>
+                                <td>1 комната</td>
+                            </tr>
+                        </table>
+                </div>
+            </h:panelGroup>
            
             
             
