@@ -3,7 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:composite="http://java.sun.com/jsf/composite"
     xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core">
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:sec="http://www.springframework.org/security/facelets/tags"
+    >
 
  <!-- INTERFACE -->
   <composite:interface>
@@ -14,41 +17,50 @@
  </style>
   <!-- IMPLEMENTATION -->
     <composite:implementation>
-        <div style="margin-left: 20px;">
-        <h:dataTable value="#{cc.attrs.list}" var="n">
-                <h:column>
-                    <h:form id="formList" styleClass="newsBlocks">
-                        новость выложил - <a href="admin.xhtml?id=#{n.id}">#{n.author.fio}</a>
-                         <div style="margin-top: 8px; margin-bottom: 8px;">
-                             <span class="chatPostUser" style="font-size: 8pt;"><h:outputText converter="dateConverter" value="#{n.time}"/> <font color="red"><h:outputText converter="enumConverter" value="#{n.newstype}"/></font></span>
-                         <span>
-                             <span class="newsName"> #{n.header}</span> 
-                           <h:outputLink value="news_read.xhtml?id=#{n.id}" rendered="#{not NewsBean.renderDeleteSuccess}" styleClass="AdminNavigationLinks">
-                           посмотреть новость
+       
+        <div class="StudentMainPageTitlesBorders" >
+            <div>
+            <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
+               Новости
+                </div>
+        <ui:repeat value="#{cc.attrs.list}" var="n">
+            <h:form id="formList">
+            <div class="studentInterfaceStandartList">
+                <div>
+                    <div><span class="greenNewsLink"><a href="news_read.xhtml?id=#{n.id}">#{n.header}</a></span>
+                        <span class="lightGreyText">
+                            <h:outputLink value="news_read.xhtml?id=#{n.id}" rendered="#{not NewsBean.renderDeleteSuccess}">
+                           (подробнее)
                            </h:outputLink>
-                         </span>
-                         </div>
-                         <div style="margin-bottom: 8px;">
-                         <h:outputText escape="false" value="#{n.announcement}" />
-                         </div>
-                         <div class="reviewNumber">#{msgs.user_newsNumberOfReview}<span class="reviewNumberNumber">#{n.reviewNumber}</span></div>
-                          <h:outputText  rendered="#{NewsBean.renderDeleteSuccess}" value="#{msgs.user_newsDeleted}"/>
-                         <span class="controlWorksDisciplineNameLinkGrey news_delete">
-                         <h:commandLink rendered="#{not NewsBean.renderDeleteSuccess}"  action="#{NewsBean.delete}" value="#{msgs.message_delete}">
-                            <f:setPropertyActionListener target="#{NewsBean.newIdDelete}" value="#{n.id}" />
-                            <f:ajax  execute="@this" render="@form" />
-                         </h:commandLink>
-                          </span>
-                         <span class="controlWorksDisciplineNameLinkGrey news_edit">
-                         <h:outputLink value="news_view.xhtml?id=#{n.id}" rendered="#{not NewsBean.renderDeleteSuccess}" styleClass="AdminNavigationLinks">
-                            #{msgs.admin_mainContentEdit}
-                        </h:outputLink>
-                         </span>
-                  
-                 
-                    </h:form>
-                </h:column>
-            </h:dataTable>
-          </div>
+                        </span>
+                    </div>
+                    <div class="NewsInfo">
+                        <div>
+                            <span class="linkToAdminsProfile"><a href="admin.xhtml?id=#{n.id}">#{n.author.fio}</a></span>&nbsp;&nbsp;&nbsp;
+                            <span class="lightGreyText" ><h:outputText converter="dateConverter" value="#{n.time}"></h:outputText></span>
+                        </div>
+                        <div>
+                        <sec:ifAnyGranted roles="ROLE_ADMIN">
+                            <h:outputText converter="enumConverter" value="#{n.newstype}"/>
+                        </sec:ifAnyGranted>
+                        </div>
+                        <div>
+                            <h:outputText escape="false" value="#{n.announcement}"/>  
+                        </div>
+                        <div>
+                            <span class="lightGreyText">#{msgs.student_newsLooks}</span>&nbsp; #{n.reviewNumber} &nbsp;&nbsp;&nbsp;<span class="lightGreyText">#{msgs.user_newsNumberOfComment} </span>&nbsp; #{n.commentNumber}
+                        </div>
+                        <img src="../resources/images/razdel.jpg" alt=""/>
+                    </div>
+                </div>
+            </div>
+                
+            </h:form>    
+      </ui:repeat>
+                </div></div>
+        
+        
+        
+        
   </composite:implementation>
 </html>
