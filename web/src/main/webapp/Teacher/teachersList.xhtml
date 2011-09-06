@@ -1,0 +1,36 @@
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+    template="../resources/teacherTemplate.xhtml"
+    >
+    <f:metadata>
+        <f:viewParam name="page" value="#{NavigationBean.page}"/>
+        <f:viewParam name="page" value="#{teacherListBean.page}"/>
+    </f:metadata>
+    <ui:define name="content">
+        <div class="StudentMainPageTitlesBorders">
+            <div class="interfaceContentForMyMarks">
+                <div class="mainStudentPageTitles  mainStudentPageTitlesBlue">
+                    Преподаватели
+                </div>
+                <div class="interfaceContentWithoutPadding">
+                    <ut:navigationList elementOnPage="#{teacherListBean.maxNumber}"
+                                       numElements="#{teacherListBean.count}"/>
+                    <div class="">
+                        <h:dataTable style="width: 100%; display: block;" value="#{teacherListBean.teacherList}" var="i" id="table" styleClass="controlWorksBorders"
+                                     columnClasses="studentInterfaceStandartList">
+                            <h:column>
+                                <ut:userListItem type="teacher" u="#{i}"/>
+
+                            </h:column>
+                        </h:dataTable>
+                    </div>
+                    <ut:navigationList elementOnPage="#{teacherListBean.maxNumber}"
+                                       numElements="#{teacherListBean.count}"/>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

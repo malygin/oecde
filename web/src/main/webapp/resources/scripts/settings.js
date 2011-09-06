@@ -35,19 +35,19 @@ $(document).ready(function() {
                    switch( howStrong ) {
                case 'Strong' :
                             howStrong = 'Сильный';
-                   $('#passLevel').attr('style','color: darkgreen; background-color:#EDF9FC;height: 20px;line-height: 18px;  text-align: center;font-weight: normal;');
+                   $('#passLevel').attr('style','color: darkgreen;height: 20px;line-height: 18px;font-weight: normal;');
                    break;
                case 'Weak' :
 			   howStrong = 'Средний';
-                   $( '#passLevel').attr('style', 'color: #F79C09; background-color:#EDF9FC;height: 20px;line-height: 18px; text-align: center;font-weight: normal;');
+                   $( '#passLevel').attr('style', 'color: #F79C09;height: 20px;line-height: 18px;font-weight: normal;');
                    break;
                case 'Short' :
 			   howStrong = 'Слабый';
-                           $('#passLevel').attr('style','color: red; background-color: #EDF9FC;height: 20px;line-height: 18px; text-align: center;font-weight: normal;');
+                           $('#passLevel').attr('style','color: red;height: 20px;line-height: 18px;font-weight: normal;');
                            break;
                default :
 			   howStrong = 'Введите пароль'
-                   $('#passLevel').attr('style','color: #555; background-color: #EDF9FC;height: 20px;line-height: 18px; text-align: center;font-weight: normal;');
+                   $('#passLevel').attr('style','color: #555;height: 20px;line-height: 18px; text-align: center;font-weight: normal;');
                    }
            $( '.strength-text').text( howStrong );
                    }).focusout( function() {

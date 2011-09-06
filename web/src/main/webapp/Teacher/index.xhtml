@@ -1,66 +1,64 @@
-    <ui:composition
-         xmlns:ui="http://java.sun.com/jsf/facelets"
-         xmlns:f="http://java.sun.com/jsf/core"
-         xmlns:h="http://java.sun.com/jsf/html"
-         template="../resources/teacherTemplate.xhtml"       
-         xmlns:news="http://java.sun.com/jsf/composite/components/news"
-         xmlns:edu="http://java.sun.com/jsf/composite/components/education"
-         xmlns:ut="http://java.sun.com/jsf/composite/components/util"
-         xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
-         xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-         xmlns:j="http://java.sun.com/jsf/composite/components/journal">
-        
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/teacherTemplate.xhtml"
+    xmlns:news="http://java.sun.com/jsf/composite/components/news"
+    xmlns:edu="http://java.sun.com/jsf/composite/components/education"
+    xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+    xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
+    xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+    xmlns:j="http://java.sun.com/jsf/composite/components/journal">
 
-         <ui:define name="contentHeader">
-            #{msgs.student_index}
-        </ui:define>
+
+    <ui:define name="contentHeader">
+        #{msgs.student_index}
+    </ui:define>
 
     <ui:define name="fio">
         <h:outputText value="#{teacherIndexBean.teacher.fio}"/>
     </ui:define>
-        
-        <ui:define name="content">
-         <table  class="Border" style="width: 100%; margin: auto;" cellpadding="0" cellspacing="20px">
-             <tr>
-                 <td style="width: 70%;  vertical-align: top;" class="BorderTd">
-                     <div>
+
+    <ui:define name="content">
+        <table  class="Border" style="width: 100%; margin: auto;" cellpadding="0" cellspacing="20px">
+            <tr>
+                <td style="width: 70%;  vertical-align: top;" class="BorderTd">
+                    <div>
                         <div class="mainStudentPageTitles mainStudentPageTitlesBlue"> Личная информация
                         </div>
-                        <div class="userData">
-                            <div>
-                                <table class="leftMenuContainer blocksMargins BorderNone">
-                                    <tr>
-                                        <td><p>#{msgs.teacher_mainContentUserInfoDepartment}</p></td>
-                                        <td><p></p></td>
-                                        <td rowspan="8">
-                                            <div style="margin-left: 0px;">
-                                                <ut:showPhoto user="#{teacherIndexBean.teacher}" size="medium"/>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><p>#{msgs.teacher_mainContentUserInfoPost}</p></td>
-                                        <td><p></p></td>
-                                    </tr>
-                                    <tr>
-                                        <td><p>Научные интересы</p></td>
-                                        <td><p></p></td>
-                                    </tr>
-                                    <tr>
-                                        <td><p>Контакты</p></td>
-                                        <td><p></p></td>
-                                    </tr>
-                                    </table>
-                            </div>
+                        <div>
+                            <table class="leftMenuContainer blocksMargins BorderNone">
+                                <tr>
+                                    <td><p>#{msgs.teacher_mainContentUserInfoDepartment}</p></td>
+                                    <td><p></p></td>
+                                    <td rowspan="8">
+                                        <div style="margin-left: 80px;">
+                                            <ut:showPhoto user="#{teacherIndexBean.teacher}" size="medium"/>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><p>#{msgs.teacher_mainContentUserInfoPost}</p></td>
+                                    <td><p></p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>Научные интересы</p></td>
+                                    <td><p></p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>Контакты</p></td>
+                                    <td><p></p></td>
+                                </tr>
+                            </table>
                         </div>
-                     </div>
-                     <div class="floatDestroyer"></div>
-         </td>
-         <td  style="vertical-align: top;" class="BorderTd">
-             <div>
-                 <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
+                    </div>
+                    <div class="floatDestroyer"></div>
+                </td>
+                <td  style="vertical-align: top;" class="BorderTd">
+                    <div>
+                        <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
                             <a href=" " style="font-size: 12pt;" >Лента событий</a>
-                  </div>
+                        </div>
 
                         <div class="StudentTestsPadding BorderNone">
 
@@ -79,20 +77,20 @@
                             
                             
                         </div>
-              </div>
-         </td>
-         </tr>
-         </table>   
-             <div class="floatDestroyer"></div>
-         
-         <table class="Border" cellpadding="0" cellspacing="20px"  style="width: 100%; margin: auto;">
-             <tr>
-             <td style="width: 70%; vertical-align: top;" class="BorderTd" colspan="2">
-                <edu:videoConfScheduleTeacher numberLessons="20" styleForShedule="floatLeft"  renderBlock="firstLessons" ClassStyle="BorderNone"/>
-             </td>
-             </tr>
-             <tr>
-                 <td style="vertical-align: top;" class="BorderTd">
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="floatDestroyer"></div>
+
+        <table class="Border" cellpadding="0" cellspacing="20px"  style="width: 100%; margin: auto;">
+            <tr>
+                <td style="width: 70%; vertical-align: top;" class="BorderTd" colspan="2">
+            <edu:videoConfScheduleTeacher numberLessons="20" styleForShedule="floatLeft"  renderBlock="firstLessons" ClassStyle="BorderNone"/>
+            </td>
+            </tr>
+            <tr>
+                <td style="vertical-align: top;" class="BorderTd">
                     <div style="height: 100%;">
                         <edu:controlWorkForTeacher/>
                     </div>
@@ -102,13 +100,13 @@
                         <edu:statisticForTeacher/>
                     </div>
                 </td>
-             </tr>
-         </table>
-             
-             
-         <!--<news:shortList numberNews="3"/>-->
-        
-        
-       </ui:define>
-      
-    </ui:composition>
+            </tr>
+        </table>
+
+
+        <!--<news:shortList numberNews="3"/>-->
+
+
+    </ui:define>
+
+</ui:composition>

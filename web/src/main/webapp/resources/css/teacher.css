@@ -10,12 +10,6 @@
    TODO customize this sample style
    Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
-
-.mainStyle .userFile{
-    background: #D8F7E2;
-    padding: 10px 15px;
-    border-bottom: #74CF91 1px solid;
-}
 .mainStyle .userPhoto {
     float: left;
 /*    width: 15%;*/
@@ -48,11 +42,6 @@
 .mainStyle .userData{
     width: 85%;
     /*float: right;*/
-}
-.mainStyle .userData p{
-    color: #96A0A2;
-    text-align: left;
-    width: 200px;
 }
 .mainStyle .userData div{
     color: green;

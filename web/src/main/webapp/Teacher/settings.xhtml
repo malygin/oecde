@@ -12,12 +12,54 @@
     </ui:define>
 
     <ui:define name="content">
-    <script type="text/javascript" src="../resources/jquery/js/jquery.maskedinput-1.2.2.js"></script>
-        <div class="userFile">
-            <div style="float: right; width: 78%; text-align: left;">
+        <script type="text/javascript" src="../resources/jquery/js/jquery.maskedinput-1.2.2.js"></script>
+        <div class="StudentMainPageTitlesBorders floatLeft" style="width: 94%;">
+            <div class="mainStudentPageTitles mainStudentPageTitlesGreen">
+                Настройки аккаунта
+            </div>
+            <div class="userinfoContent">
                 <h:form>
-                    <div class="userData" style="float: none; width: 60%;">
-                        <table>
+                    <div class="floatLeft greyInputs" style="width: 60%;">
+                        <p class="Ipsilon_Web_GreenText login_pagePadding previewPadBott">Информация на главной странице
+                        </p>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td>Контакты:
+                                    </td>
+                                    <td>
+                                <h:inputText value="#{studentSettingsBean.student.contacts}"/>
+                                </td>
+                                </tr>
+                                <tr>
+                                    <td>Дополнительная информация:
+                                    </td>
+                                    <td>
+                                <h:inputText value="#{studentSettingsBean.student.info}"/>
+                                </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                <h:outputText id="saved2" rendered="#{studentSettingsBean.saved}" value="Сохранено"/>
+                                <div class="smallChatTools">
+                                    <h:commandButton value="Сохранить" styleClass="studentButton" style="margin-right: 0; margin-top: 10px; width: 90px;text-align: center;">
+                                        <f:ajax execute="@form" render="@form"  listener="#{studentSettingsBean.save}"/>
+                                    </h:commandButton>
+                                </div>
+                                </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </h:form>
+                <div style="width: 35%; margin-left: 60%;">
+                    <set:addAvatar bean="#{teacherSettingsBean}"/>
+                </div>
+                <div class="floatDestroyer"/>
+                <h:form>
+                    <div class="greyInputs" style="float: none; width: 60%;">
+                        <p class="Ipsilon_Web_GreenText login_pagePadding previewPadBott">Информация для администратора</p>
+                        <table class="changePasswordBlock" style="width: 95%;">
                             <tr>
                                 <td>
                                     <p>#{msgs.user_eMailAddress}</p>
@@ -26,36 +68,36 @@
                                     <table cellpadding="0" cellspacing="0">
                                         <tr>
                                             <td>
-                                                <h:inputText id="eMail" size="19" value="#{teacherSettingsBean.teacher.email}" styleClass="settingInputWidth"/>
-                                            </td>
-                                            <td>
-                                                <div class="settingErrDiv">
-                                                    <div id="validEmail">
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>#{msgs.user_mobilePhone}</p>
+                                        <h:inputText id="eMail" size="19" value="#{teacherSettingsBean.teacher.email}" styleClass="settingInputWidth"/>
                                 </td>
                                 <td>
-                                    <h:inputText id="cellPhone" maxlength="10" size="10" value="#{teacherSettingsBean.teacher.cellPhone}" styleClass="settingInputWidth"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>#{msgs.user_officePhone}</p>
-                                </td>
-                                <td>
-                                    <h:inputText id="officePhoneNumber" maxlength="10" size="10" value="#{teacherSettingsBean.teacher.officePhoneNumber}" styleClass="settingInputWidth"/>
+                                    <div class="settingErrDiv">
+                                        <div id="validEmail">
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         </table>
-                        <div style="text-align:right;">
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>#{msgs.user_mobilePhone}</p>
+                            </td>
+                            <td>
+                        <h:inputText id="cellPhone" maxlength="10" size="10" value="#{teacherSettingsBean.teacher.cellPhone}" styleClass="settingInputWidth"/>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>#{msgs.user_officePhone}</p>
+                            </td>
+                            <td>
+                        <h:inputText id="officePhoneNumber" maxlength="10" size="10" value="#{teacherSettingsBean.teacher.officePhoneNumber}" styleClass="settingInputWidth"/>
+                        </td>
+                        </tr>
+                        </table>
+                        <div style="text-align: right; width: 65%;margin-bottom: 35px;">
                             <h:commandButton value="#{msgs.teacher_saveButton}" styleClass="studentButton changePasswordButtonSaveAdminPosition #{fn:toLowerCase(cc.attrs.user.classType)}Button">
                                 <f:ajax execute="@form" render="@form mess saved error" listener="#{teacherSettingsBean.save}"/>
                             </h:commandButton>
@@ -64,11 +106,13 @@
                         <h:outputText id="error" rendered="#{teacherSettingsBean.error ne null}" value="#{teacherSettingsBean.error}"/>
                         <h:messages id="mess"/>
                     </div>
-                </h:form><br/>
-                <set:changePassword user="#{teacherSettingsBean.teacher}"/>
+                </h:form>
+                <div class="greyInputs">
+                    <p class="Ipsilon_Web_GreenText login_pagePadding previewPadBott">Смена пароля</p>
+                    <set:changePassword user="#{teacherSettingsBean.teacher}"/>
+                </div>
             </div>
-            <set:addAvatar bean="#{teacherSettingsBean}"/>
-            <div class="floatDestroyer"></div>
+            <div class="floatDestroyer"/>
         </div>
     </ui:define>
 </ui:composition>

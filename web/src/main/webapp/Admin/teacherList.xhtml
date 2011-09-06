@@ -5,25 +5,25 @@
     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
     template="../resources/adminTemplate.xhtml"
     >
-     <f:metadata>
-              <f:viewParam name="page" value="#{NavigationBean.page}"/>
-              <f:viewParam name="page" value="#{teacherListBean.page}"/>
-         </f:metadata>
+    <f:metadata>
+        <f:viewParam name="page" value="#{NavigationBean.page}"/>
+        <f:viewParam name="page" value="#{teacherListBean.page}"/>
+    </f:metadata>
     <ui:define name="content">
         <div class="interfaceContent">
             <ut:navigationList elementOnPage="#{teacherListBean.maxNumber}"
                                numElements="#{teacherListBean.count}"/>
             <div class="">
                 <h:dataTable style="width: 100%; display: block;" value="#{teacherListBean.teacherList}" var="i" id="table" styleClass="controlWorksBorders"
-                     columnClasses="controlWorksDisciplineNameLink">
-            <h:column>
-                 <ut:userListItem type="teacher" u="#{i}"/>
-                
-            </h:column>
-        </h:dataTable>
+                             columnClasses="controlWorksDisciplineNameLink">
+                    <h:column>
+                        <ut:userListItem type="teacher" u="#{i}"/>
+
+                    </h:column>
+                </h:dataTable>
             </div>
-                 <ut:navigationList elementOnPage="#{teacherListBean.maxNumber}"
-                                    numElements="#{teacherListBean.count}"/>    
+            <ut:navigationList elementOnPage="#{teacherListBean.maxNumber}"
+                               numElements="#{teacherListBean.count}"/>
         </div>
     </ui:define>
 </ui:composition>

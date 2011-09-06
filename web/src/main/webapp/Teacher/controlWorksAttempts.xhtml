@@ -6,86 +6,97 @@
     xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
     xmlns:edu="http://java.sun.com/jsf/composite/components/education"
-     >
+    xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs"
+    >
     <ui:define name="content">
-         <!--<ui:define name="contentHeader">
-            Присланные контрольные работы
-         </ui:define>
-        <div class="interfaceContent">
-            <f:metadata>
-                <f:viewParam name="s" value="#{teachersGroups.semester}"/>
-                <f:viewParam name="s" value="#{controlWorksAttemptsBean.semester}"/>
-                <f:viewParam name="p" value="#{controlWorksAttemptsBean.page}"/>
-            </f:metadata>
-            <ut:navigationList elementOnPage="#{controlWorksAttemptsBean.elementsOnPage}" numElements="#{controlWorksAttemptsBean.readCwAttempsCount}" link="s=#{controlWorksAttemptsBean.semester}"/>
-            <div class="StudentMainPageTitlesBorders floatLeft" style="width: 68%;">
-                <div class="mainStudentPageTitlesSkyBlue mainStudentPageTitles">
-                    #{msgs.student_gradesTableHeadCWs}
-                </div>
-                <div>
-                    <h:dataTable styleClass="studentStandatrTable"
-                                 columnClasses="studentStandatrTableTd,
-                                 studentStandatrTableTd,
-                                 studentStandatrTableTd,
-                                 studentStandatrTableTd,
-                                 studentStandatrTableTdLastTd" cellpadding="0" cellspacing="0" id="table" value="#{controlWorksAttemptsBean.attempts}" var="a">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
-                            </f:facet>
-                            <span class="controlWorksDisciplineName"><h:outputText value="#{a.work.curriculum.discipline.name}"/></span>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{msgs.student_Student}" />
-                            </f:facet>
-                            <span class="linkToStudentsProfile"><h:outputLink value="student.xhtml?id=#{a.work.student.id}&amp;s=#{controlWorksAttemptsBean.semester}"><h:outputText value="#{a.work.student.fio}"/></h:outputLink></span>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{msgs.admin_mainContentGroup}" />
-                            </f:facet>
-                            <h:outputLink value="groupControlWorks.xhtml?g=#{a.work.student.group.id}&amp;c=#{a.work.curriculum.id}&amp;s=#{controlWorksAttemptsBean.semester}"><h:outputText value="#{a.work.student.group.name} гр."/></h:outputLink>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{msgs.student_testResultResult}" />
-                            </f:facet>
-                            <h:outputText converter="enumConverter" value="#{a.work.progress}"/>
-                            <h:outputText value="#{a.work.points}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{msgs.message_downLoad}" />
-                            </f:facet>
-                            <h:outputText rendered="#{a.read}" value="downloaded"/>
-                            <est:readCwAttempt attempt="#{a}"/>
-                        </h:column>
-                    </h:dataTable>
-                </div>
-            </div>
-            <div class="StudentMainPageTitlesBorders" style="width: 25%; margin-left: 73%">
-            <edu:statisticForTeacher/>
-            </div>
-            <div class="StudentMainPageTitlesBorders" style="width: 25%; margin-left: 73%">
+        <!--<ui:define name="contentHeader">
+           Присланные контрольные работы
+        </ui:define>
+       <div class="interfaceContent">
+           <f:metadata>
+               <f:viewParam name="s" value="#{teachersGroups.semester}"/>
+               <f:viewParam name="s" value="#{controlWorksAttemptsBean.semester}"/>
+               <f:viewParam name="p" value="#{controlWorksAttemptsBean.page}"/>
+           </f:metadata>
+           <ut:navigationList elementOnPage="#{controlWorksAttemptsBean.elementsOnPage}" numElements="#{controlWorksAttemptsBean.readCwAttempsCount}" link="s=#{controlWorksAttemptsBean.semester}"/>
+           <div class="StudentMainPageTitlesBorders floatLeft" style="width: 68%;">
+               <div class="mainStudentPageTitlesSkyBlue mainStudentPageTitles">
+        #{msgs.student_gradesTableHeadCWs}
+    </div>
+    <div>
+        <h:dataTable styleClass="studentStandatrTable"
+                     columnClasses="studentStandatrTableTd,
+                     studentStandatrTableTd,
+                     studentStandatrTableTd,
+                     studentStandatrTableTd,
+                     studentStandatrTableTdLastTd" cellpadding="0" cellspacing="0" id="table" value="#{controlWorksAttemptsBean.attempts}" var="a">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
+                </f:facet>
+                <span class="controlWorksDisciplineName"><h:outputText value="#{a.work.curriculum.discipline.name}"/></span>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{msgs.student_Student}" />
+                </f:facet>
+                <span class="linkToStudentsProfile"><h:outputLink value="student.xhtml?id=#{a.work.student.id}&amp;s=#{controlWorksAttemptsBean.semester}"><h:outputText value="#{a.work.student.fio}"/></h:outputLink></span>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{msgs.admin_mainContentGroup}" />
+                </f:facet>
+                <h:outputLink value="groupControlWorks.xhtml?g=#{a.work.student.group.id}&amp;c=#{a.work.curriculum.id}&amp;s=#{controlWorksAttemptsBean.semester}"><h:outputText value="#{a.work.student.group.name} гр."/></h:outputLink>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{msgs.student_testResultResult}" />
+                </f:facet>
+                <h:outputText converter="enumConverter" value="#{a.work.progress}"/>
+                <h:outputText value="#{a.work.points}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{msgs.message_downLoad}" />
+                </f:facet>
+                <h:outputText rendered="#{a.read}" value="downloaded"/>
+                <est:readCwAttempt attempt="#{a}"/>
+            </h:column>
+        </h:dataTable>
+    </div>
+</div>
+<div class="StudentMainPageTitlesBorders" style="width: 25%; margin-left: 73%">
+<edu:statisticForTeacher/>
+</div>
+<div class="StudentMainPageTitlesBorders" style="width: 25%; margin-left: 73%">
 
+<div class="interfaceContentForMyMarks">
+    <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
+        Подсказка
+    </div>
+</div>
+<div class="textForPodskazka">
+    <tabs:singleTab alias="STUDENT_MATERIALS"/>-->
+        <!--   </div>
+       <div>
+           <ut:navigationList elementOnPage="#{controlWorksAttemptsBean.elementsOnPage}" numElements="#{controlWorksAttemptsBean.readCwAttempsCount}" link="s=#{controlWorksAttemptsBean.semester}"/>
+       </div>-->
+
+        <div class="StudentMainPageTitlesBorders"  style="margin-left: 2%; width: 72%; float: left;">
+            <edu:controlWorkForTeacher numberLessons="20"  styleForShedule="floatLeft"  renderBlock="allLessons"/>
+        </div>
+        <div class="StudentMainPageTitlesBorders" style="width: 22%; margin-left: 76%;">
+            <edu:statisticForTeacher/>
+        </div>
+        <div class="StudentMainPageTitlesBorders" style="width: 22%; margin-left: 76%">
             <div class="interfaceContentForMyMarks">
                 <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
                     Подсказка
                 </div>
             </div>
             <div class="textForPodskazka">
-                <tabs:singleTab alias="STUDENT_MATERIALS"/>-->
-         <!--   </div>
-        <div>
-            <ut:navigationList elementOnPage="#{controlWorksAttemptsBean.elementsOnPage}" numElements="#{controlWorksAttemptsBean.readCwAttempsCount}" link="s=#{controlWorksAttemptsBean.semester}"/>
-        </div>-->
-         
-         <div class="StudentMainPageTitlesBorders"  style="margin-left: 2%; width: 75%; float: left;">
-           <edu:controlWorkForTeacher numberLessons="20"  styleForShedule="floatLeft"  renderBlock="allLessons"/>
+                <tabs:singleTab alias=""/>
+            </div>
         </div>
-         
-         
-         
     </ui:define>
 </ui:composition>
