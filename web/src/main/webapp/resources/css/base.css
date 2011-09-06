@@ -2215,3 +2215,23 @@ ul.dropdown li ul li {
     margin: 5px 0px;
     text-align: left;
 }
+
+.mainStyle .tableForShedule{
+    width: 100%;
+    margin-bottom: 15px;
+}
+.mainStyle .tableForShedule tr td{
+    padding: 5px 10px;
+}
+.mainStyle .tableForShedule tr td:first-child{
+    width: 10%;
+}
+.mainStyle .tableForShedule tr td:nth-child(2){
+    width: 60%;
+}
+.mainStyle .tableForShedule tr td:nth-child(3){
+    width: 20%;
+}
+.mainStyle .tableForShedule tr td:nth-child(4){
+    width: 10%;
+}
