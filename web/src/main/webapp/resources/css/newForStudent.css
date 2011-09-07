@@ -117,28 +117,10 @@ a.mainStyle .lightGreyText a:hover{
 .NewsInfo div{margin: 3px 0px;}
 
 /*стили для расписания конференций*/
-.mainStyle .tableForShedule{
-    width: 94%;
-    margin-left: 3%;
-}
-.mainStyle .tableForShedule tr td{
-    vertical-align: top;
-    padding: 1px 2px;
-}
-.mainStyle .tableForShedule tr td:first-child{
-    width: 10%;
-}
-.mainStyle .tableForShedule tr td:nth-child(2){
-    width: 65%;
-}
 .mainStyle .tableForShedule tr td:nth-child(3){
-    width: 15%;
     text-align: center;
 }
-.mainStyle .tableForShedule tr td:nth-child(4){
-    width: 10%;
-    text-align: center;
-}
+
 .mainStyle .greenText{
     color:#5BBF5D;
     margin-top: 10px;
