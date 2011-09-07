@@ -50,6 +50,23 @@
                         <div>
                             <span class="lightGreyText">#{msgs.student_newsLooks}</span>&nbsp; #{n.reviewNumber} &nbsp;&nbsp;&nbsp;<span class="lightGreyText">#{msgs.user_newsNumberOfComment} </span>&nbsp; #{n.commentNumber}
                         </div>
+                        <br />
+                        <div>
+                            <span class="controlWorksDisciplineNameLinkGrey news_delete">
+                         <h:commandLink rendered="#{not NewsBean.renderDeleteSuccess}"  action="#{NewsBean.delete}" value="#{msgs.message_delete}">
+                            <f:setPropertyActionListener target="#{NewsBean.newIdDelete}" value="#{n.id}" />
+                            <f:ajax  execute="@this" render="@form" />
+                         </h:commandLink>
+                          </span>
+                            &nbsp;&nbsp;&nbsp;
+                         <span class="controlWorksDisciplineNameLinkGrey news_edit">
+                         <h:outputLink value="news_view.xhtml?id=#{n.id}" rendered="#{not NewsBean.renderDeleteSuccess}" styleClass="AdminNavigationLinks">
+                            #{msgs.admin_mainContentEdit}
+                        </h:outputLink>
+                         </span>
+                        </div>
+                        
+                        
                         <img src="../resources/images/razdel.jpg" alt=""/>
                     </div>
                 </div>
