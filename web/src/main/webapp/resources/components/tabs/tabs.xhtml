@@ -13,14 +13,12 @@
 
     <!-- IMPLEMENTATION -->
     <composite:implementation>
-       <script type="text/javascript" src="../resources/scripts/usersOn-line.js"></script>    
-        <script type="text/javascript">
-          $(document).ready(function(){
-            toHidElements('.hidden')
-          });
-          
-       
-        </script>
+        <script type="text/javascript" src="../resources/scripts/usersOn-line.js"></script>
+        <!--        <script type="text/javascript">
+                  $(document).ready(function(){
+                    toHidElements('.hidden')
+                  });
+                </script>-->
         <h:form>
             <div class="interfaceContent" style="padding-top: 10px;">
                 <table>
@@ -39,9 +37,7 @@
                                         </div>
                                         <h:dataTable id="tabs" styleClass="hidden" style="margin-left: 20px;" value="#{t.pages}" var="p">
                                             <h:column>
-                                                <span class="greyLinks" >
-                                                    <!--                                        <img src="../resources/images/listMarker.png" alt=""/>-->
-
+                                                <span class="greyLinks" style="padding-bottom: 3px; display: block;">
                                                     <h:commandLink id="link" rendered="#{p.visible}" value="#{p.title}">
                                                         <f:attribute name="page" value="#{p}"/>
                                                         <f:ajax render="@form" listener="#{tabsViewBean.setCurrentPage}"/>
@@ -66,20 +62,20 @@
                                     <h:outputText escape="false" id="page" value="#{tabsViewBean.currentPage.text}"/>
                                 </div>
                                 <h:panelGroup rendered="#{not empty tabsViewBean.currentPage.files}">                                  
-                                <div style="text-align: justify;">
-                                    <br/>
-                                    <hr/>
-                                    <br/>
-                                    Файлы:
-                                    <h:dataTable id="files" value="#{tabsViewBean.currentPage.files}" var="f">
-                                        <h:column>
-                                            <h:panelGroup rendered="#{f.visible}">
-                                                <h:graphicImage rendered="#{f.image}" value="../resources/userFiles/tabs/#{f.name}" alt="#{(f.description eq null||f.description eq '')?f.name:f.description}"/>
-                                                <h:outputLink rendered="#{!f.image}" value="../resources/userFiles/tabs/#{f.name}"><h:outputText value="#{(f.description eq null||f.description eq '')?f.name:f.description}"/></h:outputLink>
-                                            </h:panelGroup>
-                                        </h:column>
-                                    </h:dataTable>
-                                </div>
+                                    <div style="text-align: justify;">
+                                        <br/>
+                                        <hr/>
+                                        <br/>
+                                        Файлы:
+                                        <h:dataTable id="files" value="#{tabsViewBean.currentPage.files}" var="f">
+                                            <h:column>
+                                                <h:panelGroup rendered="#{f.visible}">
+                                                    <h:graphicImage rendered="#{f.image}" value="../resources/userFiles/tabs/#{f.name}" alt="#{(f.description eq null||f.description eq '')?f.name:f.description}"/>
+                                                    <h:outputLink rendered="#{!f.image}" value="../resources/userFiles/tabs/#{f.name}"><h:outputText value="#{(f.description eq null||f.description eq '')?f.name:f.description}"/></h:outputLink>
+                                                </h:panelGroup>
+                                            </h:column>
+                                        </h:dataTable>
+                                    </div>
                                 </h:panelGroup>
                             </div>
                         </td>

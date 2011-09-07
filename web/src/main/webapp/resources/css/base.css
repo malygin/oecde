@@ -152,7 +152,7 @@ label{
     margin-right:  -1px;
 }
 .mainStyle input, .mainStyle textarea{
-   border: 1px solid #D1E0EF;
+    border: 1px solid #D1E0EF;
 }
 @-moz-document url-prefix(){
     .mainStyle .rightMenu{
@@ -161,12 +161,12 @@ label{
 }
 }
 .mainStyle .Border td{
-     -o-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
+    -o-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
     -moz-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
     -webkit-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
 }
 .mainStyle .Border td table td{
-     -o-border-image: none;
+    -o-border-image: none;
     -moz-border-image: none;
     -webkit-border-image: none;
 }
@@ -464,7 +464,7 @@ label{
 }
 /*тесты для студентов*/
 .mainStyle .StudentTestStartPages td:nth-child(1){
-     width: 200px;
+    width: 200px;
 }
 .mainStyle .TestCounter {
     color: #EF5D0E;
@@ -487,13 +487,13 @@ label{
     text-align: center !important;
 }
 .mainStyle .hiddenTestsResultsInnerTable td{
-     border-bottom: 1px solid silver;
+    border-bottom: 1px solid silver;
 }
 .mainStyle .hiddenTestsResultsInnerTableRightBorder{
     border-right: 1px solid silver !important;
 }
 .mainStyle .studentStandatrTableTd table:nth-last-child(1) td{
-     border: none;
+    border: none;
 }
 .mainStyle .testResultsTable td:nth-child(1){
     width: 80%;
@@ -603,9 +603,9 @@ not all and (-webkit-min-device-pixel-ratio:0) {
     margin-top: 10px;
     padding: 1px 2px;
     background: #f0f0f0;
-  height: 23px;
+    height: 23px;
     border: 1px solid #838383;
-/*    float: right;*/
+    /*    float: right;*/
     -moz-border-radius: 4px;
     -o-border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -669,7 +669,7 @@ not all and (-webkit-min-device-pixel-ratio:0) {
     height: 24px;
 }
 .mainStyle .studentStandatrTable th:last-child{
-/*    border:0;*/
+    /*    border:0;*/
 }
 .mainStyle .studentStandatrTable th{
     border-right: 1px solid silver;
@@ -1028,7 +1028,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .smallChatTools button{
     background: #f0f0f0;
     width: 24px;
-   height: 23px;
+    height: 23px;
     border: 1px solid #929292;
     float: right;
     -moz-border-radius: 4px;
@@ -1099,17 +1099,6 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .greyLinksWithoutUnderline a:active{text-decoration: none;}
 .mainStyle .greyLinksWithoutUnderline a:hover{text-decoration: none;}
 
-/*
-.mainStyle .navigationLinks a:link{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
-.mainStyle .navigationLinks a:visited{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
-.mainStyle .navigationLinks a:active{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
-.mainStyle .navigationLinks a:hover{color: #8BB5DF; text-decoration: none; font-weight: normal;}
-*/
-/*.mainStyle .navigationLinksRed a:link{color: red; text-decoration: none; font-weight: normal;}
-.mainStyle .navigationLinksRed a:visited{color: red; text-decoration: none; font-weight: normal;}
-.mainStyle .navigationLinksRed a:active{color: #FF3F3F; text-decoration: none; font-weight: normal;}
-.mainStyle .navigationLinksRed a:hover{color: #FF3F3F; text-decoration: none; font-weight: normal;}*/
-
 .mainStyle .navigationLinksSmall,.mainStyle .navigationLinksSmall a{
     font-size: 8pt;
 }
@@ -1125,23 +1114,13 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .navigationLinksRedSmall a:active{color: #FF3F3F; text-decoration: none; font-weight: normal;}
 .mainStyle .navigationLinksRedSmall a:hover{color: #FF3F3F; text-decoration: none; font-weight: normal;}
 
-/*.mainStyle .controlWorksDisciplineNameLink a:link{color: #89C9F5; text-decoration: none;}
-.mainStyle .controlWorksDisciplineNameLink a:visited{color: #89C9F5;text-decoration: none;}
-.mainStyle .controlWorksDisciplineNameLink a:active{color: #89C9F5;text-decoration:underline;}
-.mainStyle .controlWorksDisciplineNameLink a:hover{color: #89C9F5; text-decoration: underline;}*/
-/*
-.mainStyle .controlWorksDisciplineNameLinkGrey a:link{color: #5F5F5F !important; font-weight: normal;}
-.mainStyle .controlWorksDisciplineNameLinkGrey a:visited{color: #5F5F5F !important;font-weight: normal;}
-.mainStyle .controlWorksDisciplineNameLinkGrey a:active{color: #B5CADF !important;font-weight: normal;}
-.mainStyle .controlWorksDisciplineNameLinkGrey a:hover{color: #B5CADF !important;font-weight: normal;}
-*/
 .mainStyle .reitingLink  a{color: green !important; font-weight: bolder !important; font-family: Verdana;}
 .mainStyle .reitingLink a:hover{text-decoration: underline;}
 
-.mainStyle div.navigationLinks a:link{/*color: #D4D4D4;*/  text-decoration: underline;}
-.mainStyle div.navigationLinks a:hover{/*color: #D4D4D4;*/ text-decoration: none;}
-.mainStyle div.navigationLinks a:active{/*color: #D4D4D4;*/ text-decoration: underline;}
-.mainStyle div.navigationLinks a:visited{/*color: #D4D4D4;*/ text-decoration: underline;}
+/*.mainStyle div.navigationLinks a:link{color: #D4D4D4;  text-decoration: underline;}
+.mainStyle div.navigationLinks a:hover{color: #D4D4D4; text-decoration: none;}
+.mainStyle div.navigationLinks a:active{ text-decoration: underline;}
+.mainStyle div.navigationLinks a:visited{ text-decoration: underline;}*/
 
 .mainStyle .navigationLinksMess a:link{color: #8BB5DF; text-decoration: none; font-weight: normal;}
 .mainStyle .navigationLinksMess a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
@@ -1208,7 +1187,6 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .chatPostUser{
     font-family: tahoma;
     margin-right: 10px;
-    /*    color: grey;*/
 }
 .mainStyle .chatPost{
     margin-top: 3px;
@@ -1249,9 +1227,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     width: 100%;
     min-height: 68px;
 }
-/*.mainStyle .userOnlineImgContainer img{
-    width: 100%;
-}*/
+
 .mainStyle .userOnlineLinkContainer a:link {color: #505050; text-decoration: none; font-weight: normal; font-size: 8pt; }
 .mainStyle .userOnlineLinkContainer a:visited {color: #505050; text-decoration: none; font-weight: normal; font-size: 8pt;}
 .mainStyle .userOnlineLinkContainer a:active {color: #505050; text-decoration: none; font-weight: normal;font-size: 8pt;}
@@ -1284,12 +1260,6 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     padding-bottom: 5px;
     padding-top: 5px;
 }
-.mainStyle .writeMessageInterfaceThemeMess:focus{
-    /*border: 1px solid #AFAA2B;*/
-}
-.mainStyle .writeMessageInterfaceMessBodyMess:focus{
-    /*border: 1px solid #AFAA2B;*/
-}
 .mainStyle .writeMessageInterfaceMessBody{
     width: 100%;
     height: 300px;
@@ -1309,7 +1279,6 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     width: 100%;
 }
 .mainStyle .messContentBlock{
-    /*border-top: 1px solid #DFDFDF;*/
     border-bottom: 1px solid #DFDFDF;
     margin-top: 3px;
     padding: 10px;
@@ -1327,7 +1296,6 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .messBlockLink{
     float: left;
     width: 95%;
-    /*color: #333333;*/
     cursor: pointer;
     font-family: Verdana;
     font-weight: normal;
@@ -1342,10 +1310,6 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     text-decoration: none !important;
     text-align: center;
 }
-.mainStyle .writeMessageInterfaceTableForm input,
-.mainStyle .writeMessageInterfaceTableForm textarea{
-    /*border: 1px solid #7F9DB9;*/
-}
 .mainStyle .writeMessageInterfaceTableForm input{
     color: gray;
 }
@@ -1353,10 +1317,8 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     color: gray;
 }
 .mainStyle .listMessagesShortMessage{
-    /*min-height: 50px;*/
     margin: 5px; margin-left: 0px;
     padding: 5px; padding-left: 0px;
-    /*border: 1px solid #D1E0EF !important;*/
 }
 .mainStyle .listMessagesText{
     min-height: 50px;
@@ -1461,7 +1423,6 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 }
 .mainStyle .deleteMess{
     float: right;
-    /* background: url('../resources/images/deleteMess.gif') no-repeat;*/
 }
 .mainStyle .correspondenceMess{
     background: url('../resources/images/correspondence.gif') no-repeat;
@@ -1475,6 +1436,10 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 }
 .s1{
     background: url("../resources/images/write_new.png") no-repeat left top;
+}
+.mainStyle .massSending{
+     background: url("../resources/images/write_new.png") no-repeat 0px 6px;
+     padding-left: 20px;
 }
 .mainStyle .actionResultSuccessfull{
     color: #5BBF5D;
@@ -1526,52 +1491,6 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     padding-right: 60px;
 }
 .mainStyle .writeAndWatchMessProfile{width: 50%; margin-left: 10%;}
-/*.mainStyle .standartContainerForTeacherMediumAvatar{
-    border: 1px #64D359 solid;
-    padding: 3px;
-    background: white;
-    width: 100px;
-    float: left;
-    margin-right: 20px;
-    overflow: hidden;
-    text-align: center;
-}
-.mainStyle .standartContainerForTeacherMediumAvatar img{
-    margin: auto;
-    padding: 0px;
-    vertical-align: top;
-}
-.mainStyle .standartContainerForStudentMediumAvatar{
-    padding: 3px;
-    background: white;
-    width: 100px;
-    float: left;
-    overflow: hidden;
-    text-align: center;
-}
-.mainStyle .standartContainerForStudentMediumAvatar img{
-    margin: auto;
-    padding: 0px;
-    vertical-align: top;
-}
-.mainStyle .standartContainerForAdminMediumAvatar{
-    border: 1px #FF0000 solid;
-    padding: 3px;
-    background: white;
-    width: 100px;
-    float: left;
-    margin-right: 20px;
-    overflow: hidden;
-    text-align: center;
-}
-.mainStyle .standartContainerForAdminMediumAvatar img{
-    margin: auto;
-    padding: 0px;
-    vertical-align: top;
-}
-.mainStyle .standartContainerForTeacherInfoInTeachersList{
-    width: 100%;
-}*/
 .mainStyle .newsListNewPreview{
     min-height: 50px;
     margin: 5px;
@@ -1705,16 +1624,10 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     padding-bottom: 10px;
     padding-top: 10px;
 }
-/*.mainStyle .answerPic{
-    background: url("../resources/images/answer.gif") no-repeat;
-    padding-left: 15px;
- }*/
 .mainStyle .greenNewsLink a:link{color: #5BBF5D; text-decoration: none; font-size: 11pt;}
 .mainStyle .greenNewsLink a:visited{color: #5BBF5D; text-decoration: none; font-size: 11pt;}
 .mainStyle .greenNewsLink a:active{color:#5BBF5D; text-decoration: none; font-size: 11pt;}
 .mainStyle .greenNewsLink a:hover{color: #5BBF5D; text-decoration: underline; font-size: 11pt;}
-
-
 
 .mainStyle .controlWorksBordersAdmin tr{
     border-bottom: 1px solid #D1E0EF;
@@ -1730,37 +1643,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .controlWorksBordersAdminNon{
     margin-bottom: 2px;
 }
-.mainStyle .umkTaskContentContainer{
-    /*    padding: 108px 10px 0px 10px;
-        margin: 0px 50px;
-        border-left: 1px solid silver;
-        border-right: 1px solid silver;
-        color: #777777;*/
-}
-/*.mainStyle .umkTaskContentContainer p,
-.mainStyle .umkTaskContentContainer li{
-    text-align: justify;
-    margin-top: 10px;
-    margin-left: 10px;
-    color: #777777 !important;
-}
-.mainStyle .umkTaskContentContainer li{
-    margin-left: 40px;
-}
-.mainStyle .umkTaskContentContainer h2{
-    color: #777777 !important;
-}
-.mainStyle .umkTaskContentContainer h1,
-.mainStyle .umkTaskContentContainer h2{
-    margin-top: 20px !important;
-    font-family: "Arial" !important;
-    font-weight: normal !important;
-}
-.mainStyle .umkTaskContentContainer *{
-    border: 0px;
-}
-.mainStyle .umkTaskContentContainer a:link{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
-.mainStyle .umkTaskContentContainer a:hover{color: #8BB5DF; text-decoration: underline; font-weight: normal;}*/
+
 .mainStyle .umkNavigationLinkContainer a:visited{color: #8BB5DF; text-decoration: none; font-weight: normal;}
 .mainStyle .umkNavigationLinkContainer a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
 
@@ -1776,16 +1659,11 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .userData.videoConfSchedule  div {
     color: white;
     text-align: left;
-    /*font-weight: bold;*/
-
 }
 .userData tr:nth-child(1) td:nth-child(3) div{
     text-align: right !important;
     font-size: 150%;
     font-family: Arial;
-    /*    position: relative;
-        top: -8px;
-        left: 10px;*/
     font-weight: normal;
 }
 .mainStyle .InfoAboutUser p{
@@ -1847,14 +1725,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     color: #373E3F;
     font-weight: bold;
 }
-
-/*iframe:first-child{
-    margin:0; padding:0; height:100%; 
-}*/
-/*html, body{ margin:0; padding:0; height:100%;}*/
-
 /*тесты секундомер прогрессбар*/
-
 .mainStyle #counter{
     color: #EF5D0E;
     font-size: 15pt;
@@ -1880,19 +1751,9 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     margin-bottom: 15px;
 }
 .mainStyle .testButtons{
-     margin: 8px;
-     width: 80px;
- }
-/*.mainStyle .toTestLink{
-    color: #27587F;
-    font-family: Arial;
-    font-size:12pt;
-    margin-left: 10px;
-    font-weight: bolder;
-}*/
-/*.mainStyle .moduls{
-    background: url('../resources/images/moduls.gif') no-repeat; padding-left: 20px;
-}*/
+    margin: 8px;
+    width: 80px;
+}
 .mainStyle .testUmk{
     background: url('../resources/images/testUmk.gif') no-repeat;
     padding-left: 14px;
@@ -1905,9 +1766,6 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .DisciplineTextlink{
     margin-left: 30px;
 }
-/*.mainStyle .sizeFont a{
-    font-size: 1pt;
-}*/
 /* color bar */
 .mainStyle #progressbar div.progress{
     position:absolute;
@@ -1919,9 +1777,6 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .imG_span img{
     display: inline !important;
 }
-/*.mainStyle .imG_span {
-    margin-left: 130px;
-}*/
 /*форум*/
 .mainStyle .forumDiscriptionText {
     text-align: justify;
@@ -1993,9 +1848,6 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     margin-left: 3px;
     list-style-type: none;
 }
-/*.mainStyle .userInfoItemColor {
-    color:#808080;
-}*/
 .mainStyle  .chk_avlblty{margin: 10px 0 0 110px;width:110px;text-align:right;}
 .mainStyle .strength-text{font-size:12px; margin-left: 5px;}
 .mainStyle .chk_avlblty span.client-avail{display:block;}
@@ -2140,7 +1992,6 @@ ul.dropdown {
 ul.dropdown li {
     cursor: pointer;
     margin-bottom: 5px;
-    /*list-style-image: url('../resources/images/greyPlus.png');*/
 }
 
 ul.dropdown li ul {
@@ -2150,7 +2001,6 @@ ul.dropdown li ul {
     list-style-type: none;
     list-style-image: none;
 }
-
 ul.dropdown li ul li {
     list-style: none;
     list-style-image: none;
@@ -2159,21 +2009,14 @@ ul.dropdown li ul li {
 .mainStyle .oldGradesExamBlock{
     margin-top: 10px;
     margin-left: 8px;
-
 }
 .mainStyle .orangeText{
     color: #FBB35D;
 }
-/*.tableForBadMarkAndStatistik{
-    text-align: right;
-}*/
 .mainStyle .tableForBadMarkAndStatistik tbody td:first-child{
     padding-left: 15%;
     width: 85%;
 }
-/*.tableForBadMarkAndStatistik thead tr td{
-	padding-bottom: 10px;
-}*/
 .mainStyle .tableForBadMarkAndStatistik thead tr{
     height: 30px;
 }
@@ -2239,7 +2082,18 @@ ul.dropdown li ul li {
     width: 10%;
     text-align: center;
 }
-
+/*информация*/
+.mainStyle .clickToHidMarkerListMainPage{
+    background: url("../resources/images/markerListMainPage.png") no-repeat 0px 2px;
+    padding-left: 12px;
+    color: #3A6484;
+}
+/*тичер*/
+.mainStyle .groupInfo{
+    margin: 10px;
+    margin-bottom: 0;
+    border-bottom: 1px solid #C0C0C0;
+}
 /*стили для новостей*/
 .NewsInfo{ margin: 10px 20px;}
 .NewsInfo div{margin: 3px 0px;}

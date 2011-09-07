@@ -289,8 +289,3 @@
 .mainStyle .blocksMargins{
     margin: 10px; margin-left: 15px;
 }
-/*информация*/
-.mainStyle .clickToHidMarkerListMainPage{
-    background: url("../resources/images/markerListMainPage.png") no-repeat left center;
-    padding-left: 12px;
-}

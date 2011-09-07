@@ -5,13 +5,13 @@
     template="../resources/studentTemplate.xhtml"
     >
     <ui:define name="content">
-<!--         <div style="padding: 15px;width: 130px; float: right;" class="controlWorksDisciplineNameLink">
-             <div style="float: left;"><a href="#toTests" style="font-size: 10pt !important; margin-right: 10px;">#{msgs.student_ToTests}</a></div>
-             <div> <a href="materials.xhtml" style="font-size: 10pt !important;">#{msgs.student_back}</a></div>
-        </div>-->
- <div class="StudentMainPageTitlesBorders">
-      <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
-          <p class="floatLeft mainStudentPageTitles skyBlueText" style="max-width: 66%;">   #{disciplineBean.discipline.umk.name}
+        <!--         <div style="padding: 15px;width: 130px; float: right;" class="controlWorksDisciplineNameLink">
+                     <div style="float: left;"><a href="#toTests" style="font-size: 10pt !important; margin-right: 10px;">#{msgs.student_ToTests}</a></div>
+                     <div> <a href="materials.xhtml" style="font-size: 10pt !important;">#{msgs.student_back}</a></div>
+                </div>-->
+        <div class="StudentMainPageTitlesBorders">
+            <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
+                <p class="floatLeft mainStudentPageTitles skyBlueText" style="max-width: 66%;">   #{disciplineBean.discipline.umk.name}
                 </p>
                 <div style="vertical-align: top;">
                     <div style="width: 32%;" class="backLink greyLinks">
@@ -21,32 +21,32 @@
                 </div>
                 <div class="floatDestroyer"></div>
             </div>
-        <div class="interfaceContent">
-            <f:metadata>
-                <f:viewParam name="c" value="#{disciplineBean.curriculumId}"/>
-            </f:metadata>
-            <h:outputText rendered="#{disciplineBean.accessDenied}" value="#{msgs.student_TestIsNotFoundOrNotAvail}" />
-            <ui:repeat value="#{disciplineBean.discipline.umk.modules}" var="m" varStatus="k">
-                <div class="studentInterfaceStandartList">
-                   <div class="mainStudentPageTitles skyBlueText" style="font-weight: normal;font-size: 11pt;">#{m.name}</div>
-                    <ui:repeat value="#{m.resources}" var="r" varStatus="i">
-                        <div class="greyLinks" style="margin-left: 20px;">
-                            <span>#{i.index+1}</span> <a href="exbook.xhtml?cId=#{disciplineBean.curriculumId}&amp;mId=#{m.id}&amp;tId=#{r.id}" style="text-decoration: none;">#{r.title}</a>
-                        </div>
-                    </ui:repeat>
-                </div>
-            </ui:repeat>
-        </div>
-     </div>
- <div class="StudentMainPageTitlesBorders">
-            <a name="toTests">
-             <div class="toTestLink mainStudentPageTitles  mainStudentPageTitlesGreen">
-                        Тесты по курсу
+            <div class="interfaceContent">
+                <f:metadata>
+                    <f:viewParam name="c" value="#{disciplineBean.curriculumId}"/>
+                </f:metadata>
+                <h:outputText rendered="#{disciplineBean.accessDenied}" value="#{msgs.student_TestIsNotFoundOrNotAvail}" />
+                <ui:repeat value="#{disciplineBean.discipline.umk.modules}" var="m" varStatus="k">
+                    <div class="studentInterfaceStandartList">
+                        <div class="mainStudentPageTitles skyBlueText" style="font-weight: normal;font-size: 11pt;">#{m.name}</div>
+                        <ui:repeat value="#{m.resources}" var="r" varStatus="i">
+                            <div class="greyLinks" style="margin-left: 20px;">
+                                <span>#{i.index+1}</span> <a href="exbook.xhtml?cId=#{disciplineBean.curriculumId}&amp;mId=#{m.id}&amp;tId=#{r.id}" style="text-decoration: none;">#{r.title}</a>
+                            </div>
+                        </ui:repeat>
                     </div>
-             </a>
+                </ui:repeat>
+            </div>
+        </div>
+        <div class="StudentMainPageTitlesBorders">
+            <a name="toTests">
+                <div class="toTestLink mainStudentPageTitles  mainStudentPageTitlesGreen">
+                    Тесты по курсу
+                </div>
+            </a>
             <h:dataTable value="#{disciplineBean.tests}" var="t">
                 <h:column>
-                <div class="studentInterfaceStandartList">
+                    <div class="studentInterfaceStandartList">
                         <h:panelGroup rendered="#{t[0]}">
                             <div class="linkToTeachersProfile">
                                 <h:outputLink value="test.xhtml?c=#{disciplineBean.discipline.id}&amp;id=#{t[1].work.id}" style=" font-size: 11pt !important;" >
@@ -58,35 +58,35 @@
                             <div class="controlWorksDisciplineName">
 <!--                                <h:outputText rendered="#{t[2]==null}" style="color: grey;" value="#{t[1].work.title}"/>-->
 <!--                                 <h:outputText rendered="#{t[3]==null}" style="color: grey;" value="#{t[1].work.title}"/>-->
-                                  <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="#{t[1].work.title}"/>
+                                <h:outputText rendered="#{t[4]==null}" style="color: grey;" value="#{t[1].work.title}"/>
                             </div>
                         </h:panelGroup>
-                    <div style="margin-left: 20px; margin-top: 5px;">
-                        <h:outputText rendered="#{t[2]!=null}" styleClass="notPassedTest" value="#{t[2]}"/>
-                        <h:outputText rendered="#{t[3]!=null}" styleClass="notPassedTest" value="#{t[3]}"/>
-                        <h:outputText rendered="#{t[4]!=null}" styleClass="notPassedTest" value="#{t[4]}"/>
-<!--                         <h:outputText rendered="#{t[2]==null}" style="margin-top: -40px; display: block;"/>-->
-<!--                          <h:outputText rendered="#{t[3]==null}" style="margin-top: -40px; display: block;"/>-->
-<!--                        <h:outputText rendered="#{t[4]==null}" style="margin-top: -40px; display: block;"/><br/>-->
-                        <h:outputText rendered="#{t[4]==null}" value="#{msgs.student_TestAttemps}: #{t[1].estimateAttemptsUsedNumber} #{msgs.student_From} #{t[1].work.estimateAttemptsNumber}"/>
-                        <h:outputText rendered="#{t[4]!=null}" >#{msgs.student_TestAttemps}: <span>#{t[1].estimateAttemptsUsedNumber} #{msgs.student_From} #{t[1].work.estimateAttemptsNumber}</span></h:outputText><br/>
-                        <h:outputText rendered="#{t[4]==null}"  value="#{msgs.student_TestTryingAttemps}:#{t[1].trialAttemptsUsedNumber} #{msgs.student_From} #{t[1].work.trialNumber}"/>
-                        <h:outputText rendered="#{t[4]!=null}" >#{msgs.student_TestTryingAttemps}: <span>#{t[1].trialAttemptsUsedNumber} #{msgs.student_From} #{t[1].work.trialNumber}</span></h:outputText><br/>
-                       <h:outputText rendered="#{t[4]==null}"  value="#{msgs.student_TestReexamin}: #{t[1].reExameAttemptsUsedNumber}" />
-                        <h:outputText rendered="#{t[4]!=null}" >#{msgs.student_TestReexamin}: <span>#{t[1].reExameAttemptsUsedNumber}</span></h:outputText><br/>
-                        #{msgs.student_TestAlailFrom} <h:outputText converter="dateConverter" rendered="#{t[1].work.openDate ne null}" value="#{t[1].work.openDate}" /> #{msgs.student_TestTo}
- <h:outputText converter="dateConverter" rendered="#{t[1].work.closeDate ne null}" value="#{t[1].work.closeDate}" /> <br/>
-                        <h:outputText rendered="#{t[4]==null}" value="#{msgs.student_TestQuestionNumber}: #{t[1].work.quantity}"/>
-                        <h:outputText rendered="#{t[4]!=null}" >#{msgs.student_TestQuestionNumber}:  <span>#{t[1].work.quantity}</span></h:outputText><br/>
-                        <h:outputText rendered="#{t[4]==null}" value="#{msgs.student_TestTime}: #{t[1].work.duration}"/>
-                        <h:outputText rendered="#{t[4]!=null}" >#{msgs.student_TestTime}:  <span>#{t[1].work.duration}</span></h:outputText><br/>
-                        <h:outputText rendered="#{t[4]==null}"  value="#{msgs.student_TestResults}: #{t[1].pointsForWork}"/>
-                        <h:outputText rendered="#{t[4]!=null}" >#{msgs.student_TestResults}: <span>#{t[1].pointsForWork}</span></h:outputText><br/>
+                        <div style="margin-left: 20px; margin-top: 5px;">
+                            <h:outputText rendered="#{t[2]!=null}" styleClass="notPassedTest" value="#{t[2]}"/>
+                            <h:outputText rendered="#{t[3]!=null}" styleClass="notPassedTest" value="#{t[3]}"/>
+                            <h:outputText rendered="#{t[4]!=null}" styleClass="notPassedTest" value="#{t[4]}"/>
+    <!--                         <h:outputText rendered="#{t[2]==null}" style="margin-top: -40px; display: block;"/>-->
+    <!--                          <h:outputText rendered="#{t[3]==null}" style="margin-top: -40px; display: block;"/>-->
+    <!--                        <h:outputText rendered="#{t[4]==null}" style="margin-top: -40px; display: block;"/><br/>-->
+                            <h:outputText rendered="#{t[4]==null}" value="#{msgs.student_TestAttemps}: #{t[1].estimateAttemptsUsedNumber} #{msgs.student_From} #{t[1].work.estimateAttemptsNumber}"/>
+                            <h:outputText rendered="#{t[4]!=null}" >#{msgs.student_TestAttemps}: <span>#{t[1].estimateAttemptsUsedNumber} #{msgs.student_From} #{t[1].work.estimateAttemptsNumber}</span></h:outputText><br/>
+                            <h:outputText rendered="#{t[4]==null}"  value="#{msgs.student_TestTryingAttemps}:#{t[1].trialAttemptsUsedNumber} #{msgs.student_From} #{t[1].work.trialNumber}"/>
+                            <h:outputText rendered="#{t[4]!=null}" >#{msgs.student_TestTryingAttemps}: <span>#{t[1].trialAttemptsUsedNumber} #{msgs.student_From} #{t[1].work.trialNumber}</span></h:outputText><br/>
+                            <h:outputText rendered="#{t[4]==null}"  value="#{msgs.student_TestReexamin}: #{t[1].reExameAttemptsUsedNumber}" />
+                            <h:outputText rendered="#{t[4]!=null}" >#{msgs.student_TestReexamin}: <span>#{t[1].reExameAttemptsUsedNumber}</span></h:outputText><br/>
+                            #{msgs.student_TestAlailFrom} <h:outputText converter="dateConverter" rendered="#{t[1].work.openDate ne null}" value="#{t[1].work.openDate}" /> #{msgs.student_TestTo}
+                            <h:outputText converter="dateConverter" rendered="#{t[1].work.closeDate ne null}" value="#{t[1].work.closeDate}" /> <br/>
+                            <h:outputText rendered="#{t[4]==null}" value="#{msgs.student_TestQuestionNumber}: #{t[1].work.quantity}"/>
+                            <h:outputText rendered="#{t[4]!=null}" >#{msgs.student_TestQuestionNumber}:  <span>#{t[1].work.quantity}</span></h:outputText><br/>
+                            <h:outputText rendered="#{t[4]==null}" value="#{msgs.student_TestTime}: #{t[1].work.duration}"/>
+                            <h:outputText rendered="#{t[4]!=null}" >#{msgs.student_TestTime}:  <span>#{t[1].work.duration}</span></h:outputText><br/>
+                            <h:outputText rendered="#{t[4]==null}"  value="#{msgs.student_TestResults}: #{t[1].pointsForWork}"/>
+                            <h:outputText rendered="#{t[4]!=null}" >#{msgs.student_TestResults}: <span>#{t[1].pointsForWork}</span></h:outputText><br/>
+                        </div>
                     </div>
-                </div>
                 </h:column>
             </h:dataTable>
- </div>
-       
+        </div>
+
     </ui:define>
 </ui:composition>

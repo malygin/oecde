@@ -20,23 +20,20 @@
                         <h:outputLink rendered="#{d ne cc.attrs.bean.curriculum}" value="?c=#{d.id}&amp;g=#{cc.attrs.bean.id}&amp;s=#{cc.attrs.bean.semester}">
                             <h:outputText value="#{d.discipline.name}"/>
                         </h:outputLink>
-                    <h:outputText rendered="#{d eq cc.attrs.bean.curriculum}"  value="#{d.discipline.name}"/>
+                        <h:outputText rendered="#{d eq cc.attrs.bean.curriculum}"  value="#{d.discipline.name}"/>
                     </span>
                 </h:column>
             </h:dataTable>
             <h:outputText rendered="#{cc.attrs.bean.accessDenied}" value="#{msgs.teacher_disiplineNotFoundOrNotAvailable}" />
 <!--            <h:outputText value="#{cc.attrs.bean.curriculum.discipline.name}"  styleClass="DisciplineText"/>&nbsp;-->
-            <div class="DisciplineTextBig"><h:outputText value="#{msgs.student_mainContentUserInfoGroup} #{cc.attrs.bean.group.name}" /> (<h:outputText value="#{cc.attrs.bean.group.speciality.name}" />)</div>
- <br/>
- <div>
- <h:outputText rendered="#{cc.attrs.pageName eq 'points'}" value="оценки  | " />
- <h:outputLink rendered="#{cc.attrs.pageName ne 'points'}" value="groupPoints.xhtml?g=#{cc.attrs.bean.group.id}&amp;s=#{cc.attrs.bean.semester}&amp;c=#{cc.attrs.bean.curriculumId}" >оценки | </h:outputLink>
- <h:outputText rendered="#{cc.attrs.pageName eq 'cw'}" value="контрольные | " />
- <h:outputLink rendered="#{cc.attrs.pageName ne 'cw'}" value="groupControlWorks.xhtml?g=#{cc.attrs.bean.group.id}&amp;s=#{cc.attrs.bean.semester}&amp;c=#{cc.attrs.bean.curriculumId}" >контрольные | </h:outputLink>
- <h:outputText rendered="#{cc.attrs.pageName eq 'tests'}" value="результаты тестов" />
- <h:outputLink rendered="#{cc.attrs.pageName ne 'tests'}" value="groupTestResults.xhtml?g=#{cc.attrs.bean.group.id}&amp;s=#{cc.attrs.bean.semester}&amp;c=#{cc.attrs.bean.curriculumId}" >результаты тестов</h:outputLink>
- </div>
-
+            <div style="text-align: right;">             
+                <h:outputText rendered="#{cc.attrs.pageName eq 'points'}" value="оценки" style="margin-right: 10px; color: #FBB35D;"/>
+                <h:outputLink rendered="#{cc.attrs.pageName ne 'points'}" value="groupPoints.xhtml?g=#{cc.attrs.bean.group.id}&amp;s=#{cc.attrs.bean.semester}&amp;c=#{cc.attrs.bean.curriculumId}" style="margin-right: 10px;">оценки</h:outputLink>
+                <h:outputText rendered="#{cc.attrs.pageName eq 'cw'}" value="контрольные" style="margin-right: 10px; color: #FBB35D;"/>
+                <h:outputLink rendered="#{cc.attrs.pageName ne 'cw'}" value="groupControlWorks.xhtml?g=#{cc.attrs.bean.group.id}&amp;s=#{cc.attrs.bean.semester}&amp;c=#{cc.attrs.bean.curriculumId}" style="margin-right: 10px;">контрольные</h:outputLink>
+                <h:outputText rendered="#{cc.attrs.pageName eq 'tests'}" value="результаты тестов" style="margin-right: 10px; color: #FBB35D;"/>
+                <h:outputLink rendered="#{cc.attrs.pageName ne 'tests'}" value="groupTestResults.xhtml?g=#{cc.attrs.bean.group.id}&amp;s=#{cc.attrs.bean.semester}&amp;c=#{cc.attrs.bean.curriculumId}" style="margin-right: 10px;">результаты тестов</h:outputLink>
+            </div>
         </h:panelGroup>
         <br/>
     </composite:implementation>
