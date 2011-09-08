@@ -1924,3 +1924,69 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     width: 159px;
     vertical-align: middle;
 }
+/*из base.css*/
+.mainStyle .StudentMainPageTitlesBorders{
+    margin-bottom: 25px; margin-left: 25px; margin-right: 25px;
+    -o-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
+    -moz-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
+    -webkit-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
+    /*    height: 200px;*/
+}
+
+.mainStyle div .StudentMainPageTitlesBorders{
+    padding: 0px !important;
+}
+.mainStyle .mainStudentPageTitles{
+    font-size: 13pt;
+    text-align: left;
+    font-weight: bold;
+    padding: 4px;
+}
+
+.mainStyle .mainStudentPageTitles a:link{color: #838383; text-decoration: underline; font-weight: normal;}
+.mainStyle .mainStudentPageTitles a:visited{color: #838383; text-decoration: underline; font-weight: normal;}
+.mainStyle .mainStudentPageTitles a:active{color: #838383; text-decoration: underline; font-weight: normal;}
+.mainStyle .mainStudentPageTitles a:hover{color: #8; text-decoration: none; font-weight: normal;}
+
+
+.mainStyle .mainStudentPageTitlesBlue{
+    color: #0a81bd;
+    border-bottom: 3px solid #0a81bd;
+}
+.mainStyle .mainStudentPageTitlesOrange{
+    color: #fbb35d;
+    border-bottom: 3px solid #fbb35d;
+}
+.mainStyle .mainStudentPageTitlesGreen{
+    color: #5bbf5d;
+    border-bottom: 3px solid #5bbf5d;
+}
+.mainStyle .mainStudentPageTitlesGreen a:link{ color: #5bbf5d;text-decoration: none;font-weight: bold;}
+.mainStyle .mainStudentPageTitlesGreen a:visited{ color: #5bbf5d;text-decoration: none;font-weight: bold;}
+.mainStyle .mainStudentPageTitlesGreen a:hover{ color: #85C486;text-decoration: underline;font-weight: bold;}
+.mainStyle .mainStudentPageTitlesGreen a:active{ color: #85C486;text-decoration: underline;font-weight: bold;}
+
+.mainStyle .mainStudentPageTitlesSkyBlue{
+    color: #89c9f5;
+    border-bottom: 3px solid #89c9f5;
+}
+.mainStyle .mainStudentPageTitlesSkyBlue a:link{color: #89c9f5; text-decoration: none; font-weight: bold;}
+.mainStyle .mainStudentPageTitlesSkyBlue a:visited{color: #89c9f5;text-decoration: none;font-weight: bold;}
+.mainStyle .mainStudentPageTitlesSkyBlue a:active{color: #0A81BD; text-decoration: underline;font-weight: bold;}
+.mainStyle .mainStudentPageTitlesSkyBlue a:hover{color: #0A81BD;text-decoration: underline;font-weight: bold;}
+
+.mainStyle .mainStudentPageTitlesSkyBlue a,
+.mainStyle .mainStudentPageTitlesGreen a{
+    font-weight: bold;
+    text-decoration: none;
+}
+.mainStyle .studentInterfaceStandartList{
+    margin-top: 3px;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.mainStyle .interfaceContent {
+    text-align: left;
+    padding: 0px;
+}

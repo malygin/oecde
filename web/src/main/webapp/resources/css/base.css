@@ -643,8 +643,6 @@ not all and (-webkit-min-device-pixel-ratio:0) {
 .mainStyle .studentInterfaceStandartList{
     margin-top: 3px;
     padding: 10px;
-    /*    border-bottom: 1px solid silver;
-        border-top: 1px solid silver;*/
     margin-left: 10px;
     margin-right: 10px;
 }
