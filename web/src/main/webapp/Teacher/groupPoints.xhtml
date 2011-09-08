@@ -66,7 +66,7 @@
                     <h:column>
                         <f:facet name="header">
                             <!--                            <h:graphicImage value='../resources/images/resultTestsTable.png'/>-->
-                            <span class="Ipsilon_Web_GreenText">Итоговые <br/> тесты</span>
+                            <span class="Ipsilon_Web_GreenText">Итоговые <br/>тесты</span>
                         </f:facet>
                         #{p.concludingTest} <span style="color:#808080;">(#{p.concludingTestsMaxPoints})</span>
                     </h:column>
@@ -83,7 +83,7 @@
                     <h:column>
                         <f:facet name="header">
                             <!--                            <h:graphicImage value='../resources/images/contrMarksTable.png'/>-->
-                            <span class="Ipsilon_Web_GreenText">К/р,<br/> баллы
+                            <span class="Ipsilon_Web_GreenText">#{msgs.teacher_control_works},<br/> баллы
                             </span>
                         </f:facet>
                         #{p.controlWorkPoints}
@@ -92,7 +92,7 @@
                     <h:column>
                         <f:facet name="header">
                             <!--                            <h:graphicImage value='../resources/images/contrWorksTable.png'/>-->
-                            <span class="Ipsilon_Web_GreenText">К/р,<br/> оценка
+                            <span class="Ipsilon_Web_GreenText">#{msgs.teacher_control_works},<br/> оценка
                             </span>
                         </f:facet>
                         <h:outputText converter="enumConverter" value="#{p.controlWorkValue}" />

@@ -1,95 +1,125 @@
-    <ui:composition
-         xmlns:ui="http://java.sun.com/jsf/facelets"
-         xmlns:f="http://java.sun.com/jsf/core"
-         xmlns:h="http://java.sun.com/jsf/html"
-         template="../resources/teacherTemplate.xhtml"
-         xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/teacherTemplate.xhtml"
+    xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
+    xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs">
 
-        <ui:define name="contentHeader">
+    <ui:define name="contentHeader">
         #{msgs.teacher_groupInfo}
-        </ui:define>
+    </ui:define>
 
-        <ui:define name="content">
-         <div class="interfaceContent">
-         <f:metadata>
-             <f:viewParam name="s" value="#{teachersGroups.semester}"/>
-             <f:viewParam name="s" value="#{groupControlWorksForTeacher.semester}"/>
-             <f:viewParam name="g" value="#{groupControlWorksForTeacher.id}"/>
-             <f:viewParam name="c" value="#{groupControlWorksForTeacher.curriculumId}"/>
-         </f:metadata>
-            <est:header bean="#{groupControlWorksForTeacher}" pageName="cw"/>
-         <h:form id="form" rendered="#{not groupControlWorksForTeacher.accessDenied}">
-           <h:dataTable rendered="#{not groupControlWorksForTeacher.accessDenied}"
-                         styleClass="studentStandatrTable ContrWorkAndTestTable"
-                         columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
-                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                         studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdWidthTeacher,
-                         studentStandatrTableTdPaddingTeacher"
-                         cellpadding="0" cellspacing="0"
-                        id="table" value="#{groupControlWorksForTeacher.groupControlWorks}" var="w">
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText  value="#{msgs.student_Student}" />
-                </f:facet>
-                <span class="linkToStudentsProfile"><h:outputLink value="student.xhtml?id=#{w.key.id}&amp;s=#{groupControlWorksForTeacher.semester}"><h:outputText value="#{w.key.fio}"/></h:outputLink></span>
-            </h:column>
-
-            <h:column>
-                <f:facet name="header">
-                    
-                    <h:outputText value="#{msgs.teacher_attemps}" />
-                </f:facet>
-
-                <h:dataTable  id="attempts" value="#{w.value.cwAttempt}" var="a" styleClass="TableCenter">
+    <ui:define name="content">
+        <div class="interfaceContent StudentMainPageTitlesBorders">
+            <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
+                <p class="floatLeft mainStudentPageTitles Ipsilon_Web_GreenText">
+                    Информация о группе <h:outputText value="#{groupControlWorksForTeacher.group.name}"/> (<h:outputText value="#{groupControlWorksForTeacher.group.speciality.name}" />)
+                </p>
+                <div class="backLink greyLinks massSending">
+                    <a href="messages_write.xhtml?gr=#{groupControlWorksForTeacher.id}">Массовая рассылка</a>
+                </div>
+                <div class="floatDestroyer"></div>
+            </div>
+            <f:metadata>
+                <f:viewParam name="s" value="#{teachersGroups.semester}"/>
+                <f:viewParam name="s" value="#{groupControlWorksForTeacher.semester}"/>
+                <f:viewParam name="g" value="#{groupControlWorksForTeacher.id}"/>
+                <f:viewParam name="c" value="#{groupControlWorksForTeacher.curriculumId}"/>
+            </f:metadata>
+            <div class="groupInfo">
+                <est:header bean="#{groupControlWorksForTeacher}" pageName="cw"/>
+            </div>
+            <h:form id="form" rendered="#{not groupControlWorksForTeacher.accessDenied}"  style="margin: 10px; margin-top: 0;">
+                <h:dataTable rendered="#{not groupControlWorksForTeacher.accessDenied}"
+                             styleClass="studentStandatrTable ContrWorkAndTestTable"
+                             columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdWidthTeacher,
+                             studentStandatrTableTdPaddingTeacher"
+                             cellpadding="0" cellspacing="0" style="margin: 0;"
+                             id="table" value="#{groupControlWorksForTeacher.groupControlWorks}" var="w">
                     <h:column>
-                        <est:readCwAttempt attempt="#{a}"/>
+                        <f:facet name="header">
+                            <h:outputText  value="#{msgs.student_Student}" />
+                        </f:facet>
+                        <span class="linkToStudentsProfile"><h:outputLink value="student.xhtml?id=#{w.key.id}&amp;s=#{groupControlWorksForTeacher.semester}"><h:outputText value="#{w.key.fio}"/></h:outputLink></span>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+
+                            <h:outputText value="#{msgs.teacher_attemps}" />
+                        </f:facet>
+
+                        <h:dataTable  id="attempts" value="#{w.value.cwAttempt}" var="a" styleClass="TableCenter">
+                            <h:column>
+                                <est:readCwAttempt attempt="#{a}"/>
+                            </h:column>
+                        </h:dataTable>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msgs.student_testResultDate}"/>
+                        </f:facet>
+                        <span>
+                        </span>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <span class="Ipsilon_Web_GreenText">#{msgs.teacher_control_works}<br/>#{msgs.teacher_inWriting}
+                            </span>
+                        </f:facet>
+                        <span class="linkToStudentsProfile"><h:commandLink id="handle">
+                                <f:ajax execute="@this" event="click" render="attempts" listener="#{groupControlWorksForTeacher.saveEmpty}"/>
+                                <f:attribute name="work" value="#{w.value}"/>
+                                <h:outputText value="#{msgs.teacher_toNote}"/>
+                            </h:commandLink></span>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msgs.teacher_marks}" />
+                        </f:facet>
+                        <h:inputText id="points" size="3"  maxlength="3" styleClass="inputTextCenter" value="#{w.value.points}"/>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msgs.student_Mark}" />
+                        </f:facet>
+                        <h:selectOneMenu id="progress" value="#{w.value.progress}">
+                            <f:selectItems value="#{groupControlWorksForTeacher.values}" />
+                        </h:selectOneMenu>
                     </h:column>
                 </h:dataTable>
-            </h:column>
+                <div style="text-align: right; padding: 5px; ">
+                    <h:commandButton id="btn" value="Сохранить" styleClass="studentButton">
+                        <f:ajax execute="@form" event="click" render="@form" listener="#{groupControlWorksForTeacher.save}"/>
+                    </h:commandButton>
+                </div>
 
-            <h:column>
-                <f:facet name="header">
-                 <h:outputText value="#{msgs.teacher_inWriting}" />
-                </f:facet>
-                <span class="linkToStudentsProfile"><h:commandLink id="handle">
-                    <f:ajax execute="@this" event="click" render="attempts" listener="#{groupControlWorksForTeacher.saveEmpty}"/>
-                    <f:attribute name="work" value="#{w.value}"/>
-                    <h:outputText value="#{msgs.teacher_toNote}"/>
-                    </h:commandLink></span>
-            </h:column>
-
-            <h:column>
-                <f:facet name="header">
-                 <h:outputText value="#{msgs.teacher_marks}" />
-                </f:facet>
-             <h:inputText id="points" size="3"  maxlength="3" styleClass="inputTextCenter" value="#{w.value.points}"/>
-            </h:column>
-
-            <h:column>
-                <f:facet name="header">
-                 <h:outputText value="#{msgs.student_Mark}" />
-                </f:facet>
-               <h:selectOneMenu id="progress" value="#{w.value.progress}">
-                   <f:selectItems value="#{groupControlWorksForTeacher.values}" />
-               </h:selectOneMenu>
-            </h:column>
-           </h:dataTable>
-              <div style="text-align: right; padding: 5px; ">
-              <h:commandButton id="btn" value="Сохранить" styleClass="studentButton">
-                  <f:ajax execute="@form" event="click" render="@form" listener="#{groupControlWorksForTeacher.save}"/>
-             </h:commandButton>
-              </div>
-
-             <h:outputText id="error" rendered="#{groupControlWorksForTeacher.error}" value="возникла ошибка при сохранении!"/>
-             <h:outputText id="saved" rendered="#{groupControlWorksForTeacher.saved}" value="Сохранено успешно!"/>
-                 <br/>
-          </h:form>
+                <h:outputText id="error" rendered="#{groupControlWorksForTeacher.error}" value="возникла ошибка при сохранении!"/>
+                <h:outputText id="saved" rendered="#{groupControlWorksForTeacher.saved}" value="Сохранено успешно!"/>
+                <br/>
+            </h:form>
+        </div>
+        <div class="StudentMainPageTitlesBorders">
+            <div class="interfaceContentForMyMarks">
+                <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
+                    Подсказка
+                </div>
             </div>
-        </ui:define>
-    </ui:composition>
+            <div class="textForPodskazka">
+                <tabs:singleTab alias=""/>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

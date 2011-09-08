@@ -1,35 +1,41 @@
 <ui:composition
- xmlns:ui="http://java.sun.com/jsf/facelets"
- xmlns:f="http://java.sun.com/jsf/core"
- xmlns:h="http://java.sun.com/jsf/html"
- template="../resources/teacherTemplate.xhtml"
- xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
- xmlns:edu="http://java.sun.com/jsf/composite/components/education"
- >
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/teacherTemplate.xhtml"
+    xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
+    xmlns:edu="http://java.sun.com/jsf/composite/components/education"
+    >
 
     <ui:define name="contentHeader">
         #{msgs.teacher_groupInfo}
     </ui:define>
 
     <ui:define name="content">
-         <ui:define name="contentHeader">
-            Результаты тестов
-         </ui:define>
- <div class="interfaceContent">
- <f:metadata>
-     <f:viewParam name="s" value="#{teachersGroups.semester}"/>
-     <f:viewParam name="s" value="#{groupTestResults.semester}"/>
-     <f:viewParam name="g" value="#{groupTestResults.id}"/>
-     <f:viewParam name="c" value="#{groupTestResults.curriculumId}"/>
- </f:metadata>
- 
-    <est:header bean="#{groupTestResults}" pageName="tests"/>
+        <div class="interfaceContent StudentMainPageTitlesBorders">
+            <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
+                <p class="floatLeft mainStudentPageTitles Ipsilon_Web_GreenText">
+                    Информация о группе <h:outputText value="#{groupTestResults.group.name}"/> (<h:outputText value="#{groupTestResults.group.speciality.name}" />)
+                </p>
+                <div class="backLink greyLinks massSending">
+                    <a href="messages_write.xhtml?gr=#{groupTestResults.id}">Массовая рассылка</a>
+                </div>
+                <div class="floatDestroyer"></div>
+            </div>
+            <f:metadata>
+                <f:viewParam name="s" value="#{teachersGroups.semester}"/>
+                <f:viewParam name="s" value="#{groupTestResults.semester}"/>
+                <f:viewParam name="g" value="#{groupTestResults.id}"/>
+                <f:viewParam name="c" value="#{groupTestResults.curriculumId}"/>
+            </f:metadata>
+
+            <est:header bean="#{groupTestResults}" pageName="tests"/>
 
 
- <h:dataTable rendered="#{not groupTestResults.accessDenied}" value="#{groupTestResults.groupTestResults}" var="w"
-              cellpadding="0" cellspacing="0"
-              styleClass="studentStandatrTable ContrWorkAndTestTable"
-              columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
+            <h:dataTable rendered="#{not groupTestResults.accessDenied}" value="#{groupTestResults.groupTestResults}" var="w"
+                         cellpadding="0" cellspacing="0"
+                         styleClass="studentStandatrTable ContrWorkAndTestTable"
+                         columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
                          studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
                          studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
                          studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
@@ -39,19 +45,19 @@
                          studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
                          studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdWidthTeacher,
                          studentStandatrTableTdPaddingTeacher">
-       <h:column>
-        <f:facet name="header">
-         <h:outputText value="#{msgs.student_Student}" />
-        </f:facet>
-           <span class="linkToStudentsProfile"><h:outputLink value="student.xhtml?id=#{w.key.id}&amp;s=#{groupTestResults.semester}">#{w.key.fio}</h:outputLink></span>
-       </h:column>
-     <h:column>
-      <f:facet name="header">
-       <h:outputText value="#{msgs.teacher_results}" />
-      </f:facet>       
-         <edu:oneStudentTestsForTeacher tests="#{w.value}" studentId="#{w.key.id}"/>
-     </h:column>
- </h:dataTable>
-    </div>
-</ui:define>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msgs.student_Student}" />
+                    </f:facet>
+                    <span class="linkToStudentsProfile"><h:outputLink value="student.xhtml?id=#{w.key.id}&amp;s=#{groupTestResults.semester}">#{w.key.fio}</h:outputLink></span>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msgs.teacher_results}" />
+                    </f:facet>
+                    <edu:oneStudentTestsForTeacher tests="#{w.value}" studentId="#{w.key.id}"/>
+                </h:column>
+            </h:dataTable>
+        </div>
+    </ui:define>
 </ui:composition>

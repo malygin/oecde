@@ -30,34 +30,28 @@
                     <div class="chatPostDate" style="font-size: 8pt;margin-right: 10px;">
                         <h:outputText converter="dateConverter" value="#{message.message.dateMessage}"/>
                     </div>
-                    <table>
-                        <tr>
-                            <td>
-                                <h:panelGroup rendered="#{message.fioAuthor==messageDialogBean.recipient.fioAuthor}">
-                                    <span class="linkTo#{messageDialogBean.recipient.recipient.classType}sProfile">
-                                        <a href="#{fn:toLowerCase(messageDialogBean.recipient.recipient.classType)}.xhtml?id=#{messageDialogBean.recipient.recipient.id}">#{messageDialogBean.recipient.fioAuthor}</a>
-                                    </span>
-                                </h:panelGroup>
-                              <h:panelGroup rendered="#{message.fioAuthor!=messageDialogBean.recipient.fioAuthor}"><b style="color: #67737F; font-weight: bold; font-size: 10pt;">#{msgs.message_historyFromYouMess}</b></h:panelGroup>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="messTheme">
-                                <span class="controlWorksDisciplineNameLink">
-                                  <a href="messages_read.xhtml?id=#{message.message.id}"><h:outputText value="#{message.message.theme}"/></a>
-                                </span>
-                            </td>
-                        </tr>
-                    </table>
+
+
+                    <h:panelGroup layout="block" rendered="#{message.fioAuthor==messageDialogBean.recipient.fioAuthor}">
+                        <div class="floatLeft linkTo#{messageDialogBean.recipient.recipient.classType}sProfile">
+                            <a href="#{fn:toLowerCase(messageDialogBean.recipient.recipient.classType)}.xhtml?id=#{messageDialogBean.recipient.recipient.id}">#{messageDialogBean.recipient.fioAuthor}</a>
+                        </div>
+                    </h:panelGroup>
+                    <h:panelGroup layout="block" styleClass="floatLeft" rendered="#{message.fioAuthor!=messageDialogBean.recipient.fioAuthor}"><span class="Ipsilon_Web_GreenText">#{msgs.message_historyFromYouMess}</span></h:panelGroup>
+                    <div class="messTheme" style="float: left; margin-left: 20px;">
+                        <span class="controlWorksDisciplineNameLink">
+                            <a href="messages_read.xhtml?id=#{message.message.id}"><h:outputText value="#{message.message.theme}"/></a>
+                        </span>
+                    </div>
                     <div class="floatDestroyer"/>
                     <a href="messages_read.xhtml?id=#{message.message.id}">
-                    <div class="FullTextMess">
-                        <h:outputText value="#{message.message.fullText}"/>
-                    </div>
+                        <div class="FullTextMess">
+                            <h:outputText value="#{message.message.fullText}"/>
+                        </div>
                     </a>
                 </div>
             </ui:repeat>
-           
+
             <h:form id="formSend">
                 <div align="center" style="padding: 13px; text-align: center;">
                     <h:outputText rendered="#{MessageWriteBean.renderSuccessSend}" value="#{msgs.message_sentSuccess}"/>
@@ -75,12 +69,12 @@
                             </tr>
                             <tr>
                                 <td colspan="2" style="text-align: center; padding-top: 10px;">
-                                    
+
                                     <h:commandButton action="#{MessageWriteBean.save}" value="#{msgs.message_sendMess}" styleClass="studentButton">
                                         <f:setPropertyActionListener target="#{MessageWriteBean.recipient_id}" value="#{messageDialogBean.recipientId}"/>
                                         <f:ajax execute="@form" render="@form" />
                                     </h:commandButton>
-                                    
+
                                 </td>
                             </tr>
                         </table>

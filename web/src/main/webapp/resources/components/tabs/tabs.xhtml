@@ -37,7 +37,7 @@
                                         </div>
                                         <h:dataTable id="tabs" styleClass="hidden" style="margin-left: 20px;" value="#{t.pages}" var="p">
                                             <h:column>
-                                                <span class="greyLinks" style="padding-bottom: 3px; display: block;">
+                                                <span class="greyLinks" style="padding-bottom: 3px; display: block; background: url('../resources/images/blueLine.png') no-repeat bottom;">
                                                     <h:commandLink id="link" rendered="#{p.visible}" value="#{p.title}">
                                                         <f:attribute name="page" value="#{p}"/>
                                                         <f:ajax render="@form" listener="#{tabsViewBean.setCurrentPage}"/>

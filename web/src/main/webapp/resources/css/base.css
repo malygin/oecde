@@ -102,9 +102,9 @@ label{
     /*    height: 200px;*/
 }
 
-.mainStyle div .StudentMainPageTitlesBorders{
+/*.mainStyle div .StudentMainPageTitlesBorders{
     padding: 0px !important;
-}
+}*/
 
 .mainStyle .notificationTableTextOrange td:nth-child(even) p{
     color: #FBB35D;
@@ -206,14 +206,14 @@ label{
     /*    border-top: #0E96FF 1px solid;
         border-bottom: #0E96FF 1px solid;*/
 }
-.mainStyle .contentHeader p{
+/*.mainStyle .contentHeader p{
     font-size: 150%;
     padding: 5px 0 5px 15px;
     text-align: left;
     color: white;
     font-family: Arial;
     float: left;
-}
+}*/
 .mainStyle .interfaceContent{
     text-align: left;
     padding: 0px;
@@ -678,34 +678,6 @@ not all and (-webkit-min-device-pixel-ratio:0) {
 .mainStyle .diciplineTable td:last-child{
     width: 15%;
 }
-/*.mainStyle .studentStandatrTableForChrome{
-    font-weight: normal;
-    font-size: 8pt;
-    text-align: center !important;
-    border: 1px solid silver;
-    border-left: 0px;
-    border-bottom: 3px double silver;
-    padding: 1px;
-    background: #EFEFEF;
-    padding: 7px 0px;
-    color: gray;
-    padding: 3px 3px;
-}
-.mainStyle .studentStandatrTableTdLastTdForChrome{
-    text-align: center;
-    border: 1px solid silver;
-    border-left: 0px;
-    border-right: 0px;
-    border-top: 0px;
-    font-size: 8pt;
-}
-.mainStyle .studentStandatrTableTdForChrome{
-    text-align: center;
-    border: 1px solid silver;
-    border-left: 0px;
-    border-top: 0px;
-    font-size: 8pt;
-}*/
 .mainStyle .controlWorksTable td:nth-child(1){
     width: 85%;
 }
@@ -1324,12 +1296,10 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     padding: 5px;
 }
 .mainStyle .FullTextMess{
-    color:#3D3D3D;
-    margin-top: 3px;
+    margin-top: 7px;
+    padding-bottom: 7px;
     margin-left: 8px;
-    color: #3F3E3B;
     cursor: pointer;
-    font-family: Verdana;
     font-weight: normal;
     text-align: left;
     border-bottom: 1px solid #EFF2F4;
@@ -1666,6 +1636,9 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 }
 .mainStyle .InfoAboutUser p{
     width: 100px !important;
+}
+.mainStyle .PaddingUserProfile{
+    padding: 10px;
 }
 /*.save{
     background: url("../resources/images/buttonBlue.jpg") repeat-x scroll center transparent;

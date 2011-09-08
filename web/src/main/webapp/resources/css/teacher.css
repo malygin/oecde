@@ -39,14 +39,6 @@
     cursor: pointer;
     padding: 0px 10px;
 }
-.mainStyle .userData{
-    width: 85%;
-    /*float: right;*/
-}
-.mainStyle .userData div{
-    color: green;
-    text-align: left;
-}
 /*.mainStyle .contentHeader{
     width: 100%;
 }*/
