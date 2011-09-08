@@ -83,7 +83,7 @@ public class AdvancedCurriculum extends Curriculum{
     public void setSpeciality(Speciality speciality) {
         this.speciality = speciality;
     }
-
+// пока контрольная может быть только одна
     public int getNumberControlWork() {
         return numberControlWork;
     }

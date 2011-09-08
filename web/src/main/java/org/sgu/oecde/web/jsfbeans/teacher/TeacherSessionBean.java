@@ -27,6 +27,7 @@ public class TeacherSessionBean extends AbstractTeacherBean{
     private static final long serialVersionUID = 110L;
 
     public List<DeCurriculum> getDisciplines(int semester){
+        semester=this.semesterGetter.getCurrentSemester();
         if(((summerCurriculums==null&&semester==SemesterGetter.SUMMER_SEMESTER)||(winterCurriculums==null&&semester==SemesterGetter.WINTER_SEMESTER))){
             setSemester(semester);
             List<DeCurriculum> l = curriculumDao.getBySemesterYearAndParameters(semesters(), year(),teacher);
@@ -40,7 +41,7 @@ public class TeacherSessionBean extends AbstractTeacherBean{
     
        public DeCurriculum getCurriculumById(Long cId){
             DeCurriculum d=null;
-            for (DeCurriculum c:summerCurriculums!=null?summerCurriculums:winterCurriculums)
+            for (DeCurriculum c:(summerCurriculums!=null&&!summerCurriculums.isEmpty())?summerCurriculums:winterCurriculums)
                 if (c.getId().equals(cId))  d=c;
             return d;
     }

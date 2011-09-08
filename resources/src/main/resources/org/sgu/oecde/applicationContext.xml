@@ -51,4 +51,5 @@
 
   <import resource="spring/daoBeans.xml"/>
   <import resource="spring/dbBeans.xml"/>
+
 </beans>

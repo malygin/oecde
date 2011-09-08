@@ -32,7 +32,7 @@ public class GroupViewBean implements Serializable{
 
     public List<Student>getStudents(){
         if(students==null){
-            if(group!=null)
+                                                  if(group!=null)
                 students = new ArrayList<Student>(group.getPersons());
         }
         return students;

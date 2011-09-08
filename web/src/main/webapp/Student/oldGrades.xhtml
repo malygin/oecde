@@ -3,6 +3,7 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/studentTemplate.xhtml"
+     xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
     xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs"
     >
     <ui:define name="contentHeader">
@@ -20,7 +21,7 @@
                             <f:viewParam name="w" value="#{oldGradesBean.winter}"/>
                         </f:metadata>
                         <h:outputLink id="handle" value="?s=#{oldGradesBean.semester+(oldGradesBean.winter?1:-1)}&amp;w=#{!oldGradesBean.winter}">
-                            <h:outputText id="isWinter" value="#{oldGradesBean.winter?('показать зимний семестр'):('показать летний семестр')}"/>
+                            <h:outputText id="isWinter" value="#{oldGradesBean.winter?('показать летний семестр'):('показать зимний семестр')}"/>
                         </h:outputLink>
                     </div>
                     <div class="floatDestroyer"/>

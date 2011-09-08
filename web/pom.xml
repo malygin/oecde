@@ -186,6 +186,12 @@
            <groupId>com.sun.xml.ws</groupId>
            <artifactId>jaxws-rt</artifactId>
            <version>2.1.4</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>stax-api</artifactId>
+                    <groupId>javax.xml.stream</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>im4java</groupId>
@@ -193,6 +199,12 @@
             <version>1.1.0</version>
             <type>jar</type>
         </dependency>
+      	<dependency>
+		<groupId>org.jvnet.jax-ws-commons.spring</groupId>
+		<artifactId>jaxws-spring</artifactId>
+		<version>1.8</version>		
+	</dependency>
+ 
     </dependencies>
     <build>
         <plugins>
@@ -254,6 +266,6 @@
         <finalName>web</finalName>
     </build>
     <properties>
-        <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
+        <netbeans.hint.deploy.server>Tomcat70</netbeans.hint.deploy.server>
     </properties>
 </project>

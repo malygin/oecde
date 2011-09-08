@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://oecdo.sgu.ru/ConferenceWebService?wsdl" uri="wsdl/oecdo.sgu.ru/ConferenceWebService.wsdl"/>
+    <system systemId="http://oecdo.sgu.ru:80/oecde/ConferenceWebServiceService?xsd=1" uri="wsdl/oecdo.sgu.ru_80/oecde/ConferenceWebServiceService.xsd_1.xsd"/>
+</catalog>

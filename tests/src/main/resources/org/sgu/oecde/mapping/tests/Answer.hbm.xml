@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <class dynamic-update="true" name="org.sgu.oecde.tests.Answer" mutable="false" table="answers">
-    <cache usage="read-only"/>
+
     <id name="id" type="long"/>
     <property insert="false" name="title" type="string" length="1000"/>
     <property column="right_answer" insert="false" name="rightAnswer" length="1000" type="string"/>

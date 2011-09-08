@@ -39,6 +39,6 @@
                             });
                             $('#chatShortHistory'+roomId).scrollTop(8000);
                                 });
-             setTimeout('update('+roomId+')', 8000);
+             setTimeout('update('+roomId+')', 16000);
          }
 

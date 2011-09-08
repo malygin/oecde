@@ -18,10 +18,10 @@ import org.springframework.web.context.support.SpringBeanAutowiringSupport;
  *
  * @author ShihovMY
  */
-@WebService
+@WebService(serviceName = "ConferenceWebService" )
 public class ConferenceWeb extends SpringBeanAutowiringSupport implements Serializable{
 
-    @Autowired
+
     IBasicDao<AbstractUser> userDao;
 
     private static final long serialVersionUID = 218L;
@@ -30,28 +30,38 @@ public class ConferenceWeb extends SpringBeanAutowiringSupport implements Serial
      * Web service operation
      */
     @WebMethod(operationName = "getByUsernameAndPassword")
-    public HashMap<String,String>getByUsernameAndPassword(@WebParam(name = "username")
+    public String getByUsernameAndPassword(@WebParam(name = "username")
     String username, @WebParam(name = "password")
     String password) {
         List<AbstractUser> list = userDao.getByExample(AbstractUser.getUserWithName(username));
-        HashMap<String,String>parameters = null;
+        StringBuffer parameters = new StringBuffer();
         if(list.size()==1){
             AbstractUser u = list.get(0);
             if(u.getPassword().equals(password)){
-                parameters = new HashMap<String, String>();
-                parameters.put("username", u.getUsername());
-                parameters.put("id", u.getId().toString());
-                parameters.put("type", UserType.toType(u).toEngString());
+                //parameters = new HashMap<String, String>();
+                parameters.append(u.getUsername()).append(";");
+                parameters.append(u.getId().toString()).append(";");
+                parameters.append(UserType.toType(u).toEngString()).append(";");
                 if(u instanceof AbstractPerson){
-                    parameters.put("initials", ((AbstractPerson)u).getInitials());
-                    parameters.put("fio", ((AbstractPerson)u).getFio());
+                    parameters.append(((AbstractPerson)u).getInitials()).append(";");
+                    parameters.append(((AbstractPerson)u).getFio()).append(";");
                 }else if(u instanceof DeSupervisor){
-                    parameters.put("initials", ((DeSupervisor)u).getCity().getRusShort());
-                    parameters.put("fio", ((DeSupervisor)u).getCity().getName());
+                    parameters.append(((DeSupervisor)u).getCity().getRusShort()).append(";");
+                    parameters.append(((DeSupervisor)u).getCity().getName()).append(";");
                 }
             }
         }
-        return parameters;
+        return parameters.toString();
     }
 
+
+
+ @WebMethod(exclude=true)
+    public void setUserDao(IBasicDao<AbstractUser> userDao) {
+        this.userDao = userDao;
+    }
+        
+        
+
+    
 }

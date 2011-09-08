@@ -331,8 +331,10 @@ public enum EventType {
         public EventBodyElement[] parseEvent(EventItem item) {
             if(checkEventItem(item, this))
                 return null;
-
-            EventBodyElement[] el = SYSTEM_LOGIN.parseEvent(item);
+            EventBodyElement[] el = new EventBodyElement[3];
+            el[0] = new EventBodyElement(userType(item.getUser()));
+            el[1] = new EventBodyElement(item.getUser().getId(),fioFromUser(item.getUser()));
+            setPageTypeByUser(el[1],item.getUser());
             el[2] = new EventBodyElement("добавил(а) фотографию");
             return el;
         }
@@ -946,7 +948,7 @@ public enum EventType {
                     break;
               case STUDENT_ORG:
                     el[0] = new EventBodyElement(str[3]+" ответил(а) на ваш пост ");
-                    el[1] = new EventBodyElement("&amp;page="+str[2]+"#"+str[1], "на организационном форуме", EventBodyElement.forumStudentTechPage);
+                    el[1] = new EventBodyElement("&amp;page="+str[2]+"#"+str[1], "на организационном форуме", EventBodyElement.forumStudentOrgPage);
                     break;
                case TEACHER_FAQ:
                     el[0] = new EventBodyElement(str[3]+" ответил(а) на ваш пост ");

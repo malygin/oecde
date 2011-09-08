@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping schema="oecdo_test">
   <class abstract="true" dynamic-update="true" name="org.sgu.oecde.core.users.AbstractUser" select-before-update="false" table="abstract_user">
-    <cache usage="read-write"/>
+   
     <id name="id" type="long"/>
     <property insert="false" length="30" name="username" not-null="true" type="string" unique="true" unique-key="uk_abs_user" update="false"/>
     <property insert="false" length="20" name="password" not-null="true" type="string"/>
@@ -13,7 +13,7 @@
     <property column="small_photo" insert="false" name="smallPhoto" type="string"/>
     <property column="original_id" insert="false" name="originalId" type="long" update="false"/>
     <list cascade="delete" fetch="select" inverse="true" lazy="true" name="authorities" table="users_roles">
-      <cache usage="read-write"/>
+  
       <key column="user_id" foreign-key="fk_users_roles_user" not-null="true"/>
       <list-index column="role_order"/>
       <composite-element class="org.sgu.oecde.core.authentication.RoleItem">

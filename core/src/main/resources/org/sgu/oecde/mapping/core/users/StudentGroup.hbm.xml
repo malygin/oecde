@@ -6,7 +6,7 @@
     <property column="education_year" name="year" scale="1" type="integer"/>
     <property column="calendar_year" name="calendarYear" scale="4" type="integer"/>
     <set cascade="none" fetch="select" lazy="true" mutable="false" name="teacherToGroups" schema="oecdo_test" table="teacher_to_group">
-      <cache usage="read-only"/>
+   
       <key column="student_group" foreign-key="fk_teacher_2_group_group"/>
       <composite-element class="org.sgu.oecde.core.education.TeacherToGroup">
         <parent name="group"/>

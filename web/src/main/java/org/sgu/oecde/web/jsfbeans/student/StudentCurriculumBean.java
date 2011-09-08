@@ -39,7 +39,7 @@ public class StudentCurriculumBean extends AbstractStudentBean{
            Iterator<DeCurriculum> i = curriculums.iterator();
            while(i.hasNext()){
                DeCurriculum next=i.next();
-               if((next.getExaminationType()==ExaminationType.empty)&&(next.getNumberControlWork()==0))
+               if((next.getExaminationType()==ExaminationType.empty)&&(!next.getGotControlWork()))
                    i.remove();
            }
             //удалим те дисциплины где нет умк

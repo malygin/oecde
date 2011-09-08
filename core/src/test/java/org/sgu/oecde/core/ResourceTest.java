@@ -39,7 +39,7 @@ public class ResourceTest extends BasicTest {
     }
     
     
-//     @Ignore
+     @Ignore
     @Test
     public void getUmkByPage(){
        setDao("umkDao");

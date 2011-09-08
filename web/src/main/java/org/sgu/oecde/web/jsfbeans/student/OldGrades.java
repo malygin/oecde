@@ -62,11 +62,11 @@ public class OldGrades extends AbstractStudentBean{
             Map<DeCurriculum,Teacher>map = null;
             points = new ArrayList<NewEntry<NewEntry<DeCurriculum,Teacher>,Estimate>>();
 
-            if(semester != semesterGetter.getCurrentSemester()){
+          //  if(semester != semesterGetter.getCurrentSemester()){
                 int year = student.getGroup().getYear()-group.getYear();
                 map = curriculumDao.<DeCurriculum,Teacher>getTeachersByGroup(semester, semesterGetter.getCurrentYear()-year, group);
-            }else
-                map = studentSessionBean.getCurriculumAndTeacher(semester%2);
+//            }else
+//                map = studentSessionBean.getCurriculumAndTeacher(0);
 
             if(CollectionUtils.isEmpty(map))
                 return points;
