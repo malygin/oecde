@@ -5,47 +5,62 @@
     xmlns:r="http://java.sun.com/jsp/jstl/core"
     template="../resources/teacherTemplate.xhtml"
     >
-    <ui:define name="contentHeader">
-        #{teacherCurriculumBean.curriculum.umk.name}
-    </ui:define>
     <ui:define name="content">
-        <div class="backLink controlWorksDisciplineNameLink" style="margin-right: 8px;"><h:outputLink value="curriculums.xhtml?s=#{teacherCurriculumBean.semester}"><h:outputText value="#{msgs.teacher_toAllCourses}" /></h:outputLink></div>
-        <div class="interfaceContent">
-            <f:metadata>
-                <f:viewParam name="id" value="#{teacherCurriculumBean.curriculumId}"/>
-                <f:viewParam name="s" value="#{teacherCurriculumBean.semester}"/>
-            </f:metadata>
-           
-            <h:outputText rendered="#{teacherCurriculumBean.accessDenied}" value="#{msgs.student_TestIsNotFoundOrNotAvail}" />
-            <r:forEach items="#{teacherCurriculumBean.curriculum.umk.modules}" var="m" varStatus="k">
-                <div class="studentInterfaceStandartList">
-                    <div class="controlWorksDisciplineName moduls">#{k.index+1} ${m.name}</div>
-                    <r:forEach items="${m.resources}" var="r" varStatus="i">
-                        <div class="navigationLinks" style="margin-left: 20px;">
-                            <span style="color: #4593DF;">#{i.index+1}</span> <a href="exbook.xhtml?cId=${teacherCurriculumBean.curriculumId}&amp;mId=${m.id}&amp;tId=${r.id}" style="text-decoration: none;">${r.title}</a>
+        <div class="StudentMainPageTitlesBorders">
+            <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
+                <p class="floatLeft mainStudentPageTitles skyBlueText"> #{teacherCurriculumBean.curriculum.umk.name}</p>
+                <div>
+                    <div class="backLink greyLinks" style="width: 28%;">
+                        <div style="float: left;"><h:outputLink value="curriculums.xhtml?s=#{teacherCurriculumBean.semester}" style="margin-right: 14px;"><h:outputText value="вернуться к учебному плану" /></h:outputLink></div>
+                        <div><a href="#toTests">#{msgs.student_ToTests}</a></div>
+                    </div>
+                </div>
+                <div class="floatDestroyer"></div>
+            </div>
+            <div class="interfaceContent">
+                <f:metadata>
+                    <f:viewParam name="id" value="#{teacherCurriculumBean.curriculumId}"/>
+                    <f:viewParam name="s" value="#{teacherCurriculumBean.semester}"/>
+                </f:metadata>
+
+                <h:outputText rendered="#{teacherCurriculumBean.accessDenied}" value="#{msgs.student_TestIsNotFoundOrNotAvail}" />
+                <r:forEach items="#{teacherCurriculumBean.curriculum.umk.modules}" var="m">
+                    <div class="studentInterfaceStandartList">
+                        <div class="mainStudentPageTitles skyBlueText" style="font-weight: normal;font-size: 11pt;"> ${m.name}</div>
+                        <r:forEach items="${m.resources}" var="r" varStatus="i">
+                            <div class="greyLinks" style="margin-left: 20px;">
+                                <span>#{i.index+1}</span> <a href="exbook.xhtml?cId=${teacherCurriculumBean.curriculumId}&amp;mId=${m.id}&amp;tId=${r.id}" style="text-decoration: none;">${r.title}</a>
+                            </div>
+                        </r:forEach>
+                    </div>
+                </r:forEach>
+            </div>
+        </div>
+        <div class="StudentMainPageTitlesBorders">
+            <div>
+                <a name="toTests">
+                    <div class="toTestLink mainStudentPageTitles  mainStudentPageTitlesGreen">
+                        Тесты по курсу
+                    </div>
+                </a>
+                <div>
+                    <r:forEach items="#{teacherCurriculumBean.tests}" var="test">
+                        <div class="studentInterfaceStandartList">
+                            <div class="DisciplineTextlink testUmk" style="background-position: 0px 2px; margin: 0;">
+                                <h:outputLink value="test.xhtml?c=#{teacherCurriculumBean.curriculumId}&amp;id=#{test.id}&amp;s=#{teacherCurriculumBean.semester}">
+                                    #{test.title}
+                                </h:outputLink>
+                                <span class="controlWorksDisciplineNameLinkGrey news_edit" style="margin-left: 20px;">
+                                    <h:outputLink value="testEdit.xhtml?c=#{teacherCurriculumBean.curriculumId}&amp;id=#{test.id}&amp;s=#{teacherCurriculumBean.semester}" >
+                                        #{msgs.admin_mainContentEdit}
+                                    </h:outputLink>
+                                </span>
+
+                            </div>
                         </div>
                     </r:forEach>
                 </div>
-            </r:forEach>
-            <br/>
-            <div class="toTestLink">
-                #{msgs.admin_mainContentTests}
             </div>
-            <r:forEach items="#{teacherCurriculumBean.tests}" var="test">
-                <div class="studentInterfaceStandartList">
-                    <div class="DisciplineTextlink testUmk" style="background-position: 0px 2px; margin: 0;">
-                    <h:outputLink value="test.xhtml?c=#{teacherCurriculumBean.curriculumId}&amp;id=#{test.id}&amp;s=#{teacherCurriculumBean.semester}">
-                        #{test.title}
-                    </h:outputLink>
-                    <span class="controlWorksDisciplineNameLinkGrey news_edit" style="margin-left: 20px;">
-                       <h:outputLink value="testEdit.xhtml?c=#{teacherCurriculumBean.curriculumId}&amp;id=#{test.id}&amp;s=#{teacherCurriculumBean.semester}" >
-                            #{msgs.admin_mainContentEdit}
-                        </h:outputLink>
-                    </span>
-                   
-                </div>
-                </div>
-            </r:forEach>
         </div>
     </ui:define>
 </ui:composition>

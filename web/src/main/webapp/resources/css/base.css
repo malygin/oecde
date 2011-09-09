@@ -633,10 +633,10 @@ not all and (-webkit-min-device-pixel-ratio:0) {
     display: block;
 }
 /*стили для таблиц*/
-.mainStyle .studentStandatrTable *{
+/*.mainStyle .studentStandatrTable *{
     text-align: left !important;
 
-}
+}*/
 .mainStyle .studentStandatrTable .studentStandatrTableExamin{
     text-align: center !important;
 }
