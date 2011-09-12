@@ -78,9 +78,10 @@ public class NewsBean implements Serializable {
         if (fulltext.equals("")){
             journalService.save(EventType.OWN_MESSAGE, SecurityContextHandler.getUser(), n);
             return;
-        }
+        }      
         Long id = newsDao.save(n);
         n.setId(id);
+        journalService.save(EventType.NEW_NEWS, SecurityContextHandler.getUser(), n);
 
     }
 

@@ -16,7 +16,8 @@
         <ui:define name="contentHeader">
             #{msgs.student_newsTitle}
         </ui:define>
-        <ui:define name="content">          
+        <ui:define name="content">
+              <c:set target="#{DiscussionBean}" property="objectType" value="news"/> 
             <div class="interfaceContent">
                 <news:read n="#{NewsBean.currentNewItem}"/>
             </div>        

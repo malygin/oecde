@@ -280,9 +280,15 @@ public enum EventType {
 
             EventBodyElement[] el = new EventBodyElement[2];
             el[0] = new EventBodyElement("Добавлена новость "+item.getEventBody());
-            el[1] = new EventBodyElement(item.getMultiId(), "подбобнее", EventBodyElement.newsPage);
+            el[1] = new EventBodyElement(item.getMultiId(), "подробнее", EventBodyElement.newsPage);
             return el;
         }
+
+        @Override
+        protected boolean addConditionByStudent(StringBuilder sb, AbstractStudent user) {
+            return false;
+        }
+        
 
     },
     /**
@@ -963,9 +969,9 @@ public enum EventType {
                     el[1] = new EventBodyElement("&amp;page="+str[2]+"#"+str[1], "на баг-трекере", EventBodyElement.forumAdminBagPage);
                     break;
                 case NEWS:
-                    el[0] = new EventBodyElement("К вашему комментарию к новости ");
-                    el[1] = new EventBodyElement("&amp;id="+item.getMultiId()+"&amp;page="+str[3]+"#"+str[2], str[1], EventBodyElement.newsPage);
-                    el[2] = new EventBodyElement(" "+ str[4]+"  добавил(а) ответ.");
+                    el[0] = new EventBodyElement(str[4]+" вашему комментарию к новости ");
+                    el[1] = new EventBodyElement("?id="+item.getMultiId()+"&amp;page="+str[3]+"#"+str[2], str[1]+" ", EventBodyElement.newsPage);
+                    el[2] = new EventBodyElement("   "+"  добавил(а) ответ.");
                     break;
             }
             return el;
