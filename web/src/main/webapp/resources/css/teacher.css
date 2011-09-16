@@ -77,8 +77,9 @@
 .mainStyle .controlWorksDisciplineNameLink a:hover{color: #8DBEE0;}
 
 /*стили для таблиц*/
-.mainStyle .studentStandatrTableTdPaddingTeacher{
+.mainStyle .studentStandatrTable .studentStandatrTableTdPaddingTeacher{
     padding: 4px;
+    text-align: left;
 }
 .mainStyle .studentStandatrTableTdWidthTeacher, .studentStandatrTableTdWidthTeacher select{
     width: 100px;

@@ -28,36 +28,47 @@
                 <f:viewParam name="g" value="#{groupTestResults.id}"/>
                 <f:viewParam name="c" value="#{groupTestResults.curriculumId}"/>
             </f:metadata>
+            <div class="groupInfo">
+                <est:header bean="#{groupTestResults}" pageName="tests"/>
+            </div>
 
-            <est:header bean="#{groupTestResults}" pageName="tests"/>
-
-
-            <h:dataTable rendered="#{not groupTestResults.accessDenied}" value="#{groupTestResults.groupTestResults}" var="w"
-                         cellpadding="0" cellspacing="0"
-                         styleClass="studentStandatrTable ContrWorkAndTestTable"
-                         columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
-                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                         studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                         studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdWidthTeacher,
-                         studentStandatrTableTdPaddingTeacher">
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{msgs.student_Student}" />
-                    </f:facet>
-                    <span class="linkToStudentsProfile"><h:outputLink value="student.xhtml?id=#{w.key.id}&amp;s=#{groupTestResults.semester}">#{w.key.fio}</h:outputLink></span>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{msgs.teacher_results}" />
-                    </f:facet>
-                    <edu:oneStudentTestsForTeacher tests="#{w.value}" studentId="#{w.key.id}"/>
-                </h:column>
-            </h:dataTable>
+            <div style="margin: 10px; margin-top: 0;">
+                <h:dataTable rendered="#{not groupTestResults.accessDenied}" value="#{groupTestResults.groupTestResults}" var="w" style="margin: 0;"
+                             cellpadding="0" cellspacing="0"
+                             styleClass="studentStandatrTable ContrWorkAndTestTable"
+                             columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdWidthTeacher,
+                             studentStandatrTableTdPaddingTeacher">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msgs.student_Student}" />
+                        </f:facet>
+                        <span class="linkToStudentsProfile"><h:outputLink value="student.xhtml?id=#{w.key.id}&amp;s=#{groupTestResults.semester}">#{w.key.fio}</h:outputLink></span>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msgs.teacher_results}" />
+                        </f:facet>
+                        <edu:oneStudentTestsForTeacher tests="#{w.value}" studentId="#{w.key.id}"/>
+                        <h:dataTable styleClass="studentStandatrTable"
+                                     columnClasses="studentStandatrTableTd,studentStandatrTableSubtableTd" cellpadding="0" cellspacing="0" value="#{groupTestResults.disciplines}" var="d">
+                            <h:column>
+                                #{d.discipline.name}<br/>
+                                <edu:oneStudentCWForTeacher/>
+                                <edu:oneStudentTestsForTeacher studentId="#{groupTestResults.studentId}" tests="#{studentResults.results}"/>
+                            </h:column>
+                            <hr/>
+                        </h:dataTable>
+                    </h:column>
+                </h:dataTable>
+            </div>
         </div>
     </ui:define>
 </ui:composition>

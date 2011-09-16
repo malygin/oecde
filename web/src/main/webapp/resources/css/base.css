@@ -697,7 +697,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     }
 }
 .mainStyle .studentStandatrTable .studentStandatrTableTd{
-    text-align: center;
+/*    text-align: center;*/
     border: 1px solid silver;
     border-left: 0px;
     border-top: 0px;
@@ -1767,7 +1767,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     float: left;
 }
 .mainStyle .questionArea{
-    width: 53%;
+    width: 50%;
     margin: auto;
 }
 .mainStyle .questionAreaText{

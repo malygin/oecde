@@ -4,7 +4,8 @@
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/teacherTemplate.xhtml"
     xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
-    xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs">
+    xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs"
+    xmlns:edu="http://java.sun.com/jsf/composite/components/education" >
 
     <ui:define name="contentHeader">
         #{msgs.teacher_groupInfo}
@@ -110,6 +111,7 @@
                 <h:outputText id="saved" rendered="#{groupControlWorksForTeacher.saved}" value="Сохранено успешно!"/>
                 <br/>
             </h:form>
+           
         </div>
         <div class="StudentMainPageTitlesBorders">
             <div class="interfaceContentForMyMarks">
