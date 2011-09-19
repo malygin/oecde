@@ -50,7 +50,7 @@
                    <h:dataTable value="#{r.results}" var="a" id="rowId" styleClass="litleTabContrWorks" cellpadding="0" cellspacing="0">
                       <h:column>
                            <div class="DivWidth70">
-                               <h:outputLink value="showStudentTest.xhtml?id=#{cc.attrs.studentId}&amp;s=#{groupTestResults.semester}&amp;test=#{r.work.id}&amp;attempt=#{a.id}&amp;c=#{groupTestResults.curriculumId}">#{a.rightAnswers} #{msgs.student_fromWord} #{r.work.quantity}</h:outputLink>
+                               <h:outputLink value="showStudentTest.xhtml?id=#{cc.attrs.studentId}&amp;s=#{groupTestResults.semester}&amp;test=#{r.work.id}&amp;attempt=#{a.id}&amp;c=#{groupTestResults.curriculumId}"> #{a.rightAnswers} #{msgs.student_fromWord} #{r.work.quantity}</h:outputLink>
                            </div>
                        </h:column>
                        <h:column>

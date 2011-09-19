@@ -57,15 +57,7 @@
                             <h:outputText value="#{msgs.teacher_results}" />
                         </f:facet>
                         <edu:oneStudentTestsForTeacher tests="#{w.value}" studentId="#{w.key.id}"/>
-                        <h:dataTable styleClass="studentStandatrTable"
-                                     columnClasses="studentStandatrTableTd,studentStandatrTableSubtableTd" cellpadding="0" cellspacing="0" value="#{groupTestResults.disciplines}" var="d">
-                            <h:column>
-                                #{d.discipline.name}<br/>
-                                <edu:oneStudentCWForTeacher/>
-                                <edu:oneStudentTestsForTeacher studentId="#{groupTestResults.studentId}" tests="#{studentResults.results}"/>
-                            </h:column>
-                            <hr/>
-                        </h:dataTable>
+                     
                     </h:column>
                 </h:dataTable>
             </div>
