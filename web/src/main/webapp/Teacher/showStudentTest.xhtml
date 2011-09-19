@@ -1,46 +1,82 @@
 <ui:composition
- xmlns:ui="http://java.sun.com/jsf/facelets"
- xmlns:f="http://java.sun.com/jsf/core"
- xmlns:h="http://java.sun.com/jsf/html"
- template="../resources/teacherTemplate.xhtml"
- xmlns:test="http://java.sun.com/jsf/composite/components/tests">
-        <f:metadata>    
-            <f:viewParam name="c" value="#{studentResults.curriculumId}"/>
-            <f:viewParam name="s" value="#{studentResults.semester}"/>
-            <f:viewParam name="id" value="#{studentResults.studentId}"/>
-            <f:viewParam name="test" value="#{studentResults.testId}"/>
-            <f:viewParam name="attempt" value="#{studentResults.attemptId}"/>
-        
-        </f:metadata>
-    <ui:define name="contentHeader">
-        Результат тестирования  -  #{studentResults.student.fio}
-    </ui:define> 
-    <ui:define name="content"> 
-        
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/teacherTemplate.xhtml"
+    xmlns:test="http://java.sun.com/jsf/composite/components/tests">
+    <f:metadata>
+        <f:viewParam name="c" value="#{studentResults.curriculumId}"/>
+        <f:viewParam name="s" value="#{studentResults.semester}"/>
+        <f:viewParam name="id" value="#{studentResults.studentId}"/>
+        <f:viewParam name="test" value="#{studentResults.testId}"/>
+        <f:viewParam name="attempt" value="#{studentResults.attemptId}"/>
+
+    </f:metadata>
+    <!--    <ui:define name="contentHeader">
+            Результат тестирования  -  #{studentResults.student.fio}
+        </ui:define> -->
+    <ui:define name="content">  
         <script type="text/javascript" src="../resources/scripts/test.js"></script>
-    <div class="interfaceContent">
-        
-        <a href="groupTestResults.xhtml?g=#{studentResults.student.group.id}&amp;s=#{studentResults.semester}&amp;c=#{studentResults.curriculumId}"> вернуться назад </a><br/>
-      <b> тест -</b> #{studentResults.attempt.work.title}<br/>
-      <b> попытка: </b><br/>
-
-     правильных ответов - #{studentResults.attempt.rightAnswers} из #{studentResults.attempt.work.quantity}<br/>
-     баллов набрано - #{studentResults.attempt.points} из 100<br/>  
-     потрачено - #{studentResults.attempt.duration} минут<br/>
-     дата <h:outputText converter="dateConverter" value="#{studentResults.attempt.date}"/><bt/>
-<!--     тип <h:outputText  value="#{studentsResults.attempt.type}"/><br/>-->
-     <b>Вопросы на которые студент ответил</b>
-     <h:dataTable value="#{setToList.getList(studentResults.attempt.answeredQuestions)}"  var="a">
-         <h:column>
-             <test:questionViewWithAttempt ansQuest="#{a}" />
-         </h:column>
-    </h:dataTable>
-     
-     
-     
-     
-
- 
-      </div>
-</ui:define>
+        <div class="interfaceContent">
+            <div class="StudentMainPageTitlesBorders">
+                <div class="mainStudentPageTitlesGreen mainStudentPageTitles Ipsilon_Web_GreenText">
+                    <p class="floatLeft mainStudentPageTitles"> #{studentResults.attempt.work.title}
+                    </p>
+                    <div style="float: right;" class="greyLinks">
+                        <a href="groupTestResults.xhtml?g=#{studentResults.student.group.id}&amp;s=#{studentResults.semester}&amp;c=#{studentResults.curriculumId}"> вернуться назад </a>
+                    </div>
+                    <div class="floatDestroyer"/>
+                </div>
+                <div class="testItemsDiv">
+                    <table class="studentsTestsResultsForTeacher">
+                        <tr>
+                            <td>
+                                попытка:
+                            </td>
+                            <td>
+                                <span class="Ipsilon_Web_GreenText"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                правильных ответов
+                            </td>
+                            <td>
+                                <span class="Ipsilon_Web_GreenText">#{studentResults.attempt.rightAnswers}</span> из #{studentResults.attempt.work.quantity}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                баллов набрано
+                            </td>
+                            <td><span class="Ipsilon_Web_GreenText">#{studentResults.attempt.points}</span> из 100
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                потрачено
+                            </td>
+                            <td><span class="Ipsilon_Web_GreenText">#{studentResults.attempt.duration}</span> минут
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                дата
+                            </td>
+                            <td><h:outputText converter="dateConverter" value="#{studentResults.attempt.date}"/>
+                        </td>
+                        </tr>
+                    </table>
+                    <div style="margin-top: 20px;">
+                    <p class="Ipsilon_Web_GreenText">Вопросы на которые студент ответил</p>
+                    <h:dataTable value="#{setToList.getList(studentResults.attempt.answeredQuestions)}"  var="a">
+                        <h:column>
+                            <test:questionViewWithAttempt ansQuest="#{a}" />
+                        </h:column>
+                    </h:dataTable>
+                    </div>
+                </div>            
+            </div>
+        </div>
+    </ui:define>
 </ui:composition>

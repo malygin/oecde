@@ -466,6 +466,12 @@ label{
 .mainStyle .StudentTestStartPages td:nth-child(1){
     width: 200px;
 }
+.mainStyle .testItemsDiv{
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 25px;
+}
 .mainStyle .TestCounter {
     color: #EF5D0E;
     font-size: 11pt;
@@ -588,7 +594,17 @@ not all and (-webkit-min-device-pixel-ratio:0) {
 .mainStyle .numberField{
     width: 50px;
 }
+/* результаты тестов*/
+.mainStyle .workTitle{
+    font-size: 9pt;
+    font-weight: normal;
+    display: block;
+    padding-left: 8px;
+}
+.mainStyle .studentsTestsResultsForTeacher td:nth-child(1){
+    width: 150px;
 
+}
 /*кнопки*/
 .mainStyle .adminButton{
     color: #6F1B1B;
@@ -1153,6 +1169,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     font-size: 8pt;
     margin-bottom: 5px;
     margin-right: 10px;
+    text-align: right;
 }
 .mainStyle .chatPostUser{
     font-family: tahoma;
@@ -1725,7 +1742,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     margin: 8px;
     width: 80px;
 }
-.mainStyle .testUmk{
+/*.mainStyle .testUmk{
     background: url('../resources/images/testUmk.gif') no-repeat;
     padding-left: 14px;
 }
@@ -1736,7 +1753,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 
 .mainStyle .DisciplineTextlink{
     margin-left: 30px;
-}
+}*/
 /* color bar */
 .mainStyle #progressbar div.progress{
     position:absolute;
@@ -1892,10 +1909,10 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     background: url('../resources/images/delete_news.png') no-repeat 0 0;
     padding-left: 19px;
 }
-.mainStyle .news_edit{
+/*.mainStyle .news_edit{
     background: url('../resources/images/redact_news.png') no-repeat 0 0;
     padding-left: 19px;
-}
+}*/
 .mainStyle .messagesMainStPageNewMess{
     background: url('../resources/images/message_active.jpg') no-repeat;
     padding-left: 25px;
@@ -2072,4 +2089,132 @@ ul.dropdown li ul li {
 /*страницы пользователей*/
 .mainStyle .userFile{
     padding: 10px 15px;
+}
+/*из файла new for student*/
+/*стили для оповещений*/
+.mainStyle .notificationTableTextOrange2{width: 90%; margin: 5%;}
+.mainStyle .notificationTableTextOrange2 tr td{padding: 2px 0px;}
+.mainStyle .notificationTableTextOrange2 td:nth-child(even) p{
+    color: #FBB35D;
+}
+
+/*стили для рейтинга группы*/
+.mainStyle .listOfWinner li, .listOfWinner li span{
+	color: #FBB35D;
+}
+.mainStyle .listOfAther, .listOfWinner{
+	width: 90%;
+        text-align: left;
+        margin-left: 8%;
+}
+.mainStyle .listOfWinner li{
+	margin-top: 4%;
+}
+.mainStyle .listOfAther li{
+	margin-top: 2%;
+}
+.mainStyle .listOfWinner li span,.listOfAther li span{
+	float:right;
+	list-style: none !important;
+        list-style-type: none !important;
+}
+/*styles for progressbar*/
+.mainStyle .progressBarRating { border: 1px solid #FBB35D; height:6px; text-align: left; width:95%; margin-top: 3px;}
+.mainStyle .progressBarRating div{height: 4px;  border: 1px solid #FBB35D; border-right: 1px solid #fbb35e; background: #fbb35e; color: #ffffff; font-weight: bold; }
+
+
+/*список администраторов*/
+.mainStyle .questionDiv{
+	text-align: left;
+        padding: 5%;
+}
+.mainStyle .listOfQuestion{
+	width: 90%;
+	margin-top: 5%;
+	padding-left: 20px;
+}
+.mainStyle .listOfQuestion li{
+	color: #5bbf5d;
+}
+.mainStyle .listOfQuestion li a:link,
+.mainStyle .listOfQuestion li a:active,
+.mainStyle .listOfQuestion li a:visited{
+	text-decoration:none !important;
+}
+.mainStyle .listOfQuestion li a:hover{
+	text-decoration:underline  !important;
+}
+.mainStyle .lightGreyText{
+    text-align: left;
+    color: #d4d4d4;
+    margin-bottom: 10px;
+}
+.mainStyle .lightGreyText span{
+    color: #d4d4d4;
+}
+.mainStyle .lightGreyText a:link,
+.mainStyle .lightGreyText a:visited,
+a.mainStyle .lightGreyText a:active,
+a.mainStyle .lightGreyText a:hover{
+    color: #d4d4d4;
+}
+
+.mainStyle .GreenLinkToDiscipline a:link,
+.mainStyle .GreenLinkToDiscipline a:link,
+.mainStyle .GreenLinkToDiscipline a:visited{
+    color: #838383; text-decoration: none;
+}
+
+.mainStyle .GreenLinkToDiscipline a:hover{
+    color: #5BBF5D; text-decoration: none;
+}
+
+.mainStyle .TableForGrades tr td{
+    padding: 5px;
+}
+.mainStyle .TableForGrades{
+    width: 95%;
+    display: block;
+    border-right: 1px solid #838383;
+}
+.mainStyle .TableForGrades tr td:last-child{
+    text-align: right;
+    width: 10%;
+}
+.mainStyle .MyGradesBigTable{
+    padding: 10px; width: 100%; vertical-align: top; text-align: left;
+
+}
+.mainStyle .MyGradesBigTable tr td{
+    width: 50%;
+    vertical-align: top;
+}
+.mainStyle .GradesDiskription{
+    margin-top: 20px;
+}
+.mainStyle .GreenLinkToDisciplineOpen a:link,
+.mainStyle .GreenLinkToDisciplineOpen a:active,
+.mainStyle .GreenLinkToDisciplineOpen a:visited{
+    color: #5BBF5D; text-decoration: none; font-size: 11pt;
+}
+
+.mainStyle .GreenLinkToDisciplineOpen a:hover{
+    color: #5BBF5D; text-decoration: underline; font-size: 11pt;
+}
+.mainStyle .MessageDate{
+    float: none;
+    font-size: 9pt;
+    margin-bottom: -6px;
+}
+.NewsInfo{ margin: 10px 20px;}
+.NewsInfo div{margin: 3px 0px;}
+
+/*стили для расписания конференций*/
+.mainStyle .tableForShedule tr td:nth-child(3){
+    text-align: center;
+}
+
+.mainStyle .greenText{
+    color:#5BBF5D;
+    margin-top: 10px;
 }

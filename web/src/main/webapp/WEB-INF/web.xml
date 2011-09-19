@@ -20,7 +20,7 @@
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSSpringServlet</servlet-class>
     </servlet>
   
-    <servlet-mapping>
+<!--    <servlet-mapping>
         <servlet-name>jaxws-servlet</servlet-name>
         <url-pattern>/ConferenceWebService</url-pattern>
     </servlet-mapping>
@@ -33,7 +33,7 @@
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Extension</param-value>
-    </context-param>
+    </context-param>-->
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>

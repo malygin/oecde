@@ -14,13 +14,16 @@
     <composite:implementation>
         <h:outputText rendered="#{cc.attrs.bean.accessDenied}" value="#{msgs.teacher_groupNotFoundOrNotAvailable}" />
         <h:panelGroup id="group" rendered="#{not cc.attrs.bean.accessDenied}">
+            <div>
+                <p class="lightGreyText">Выберите дисциплину</p>
+            </div>
             <h:dataTable id="disciplines" value="#{cc.attrs.bean.disciplines}" var="d">
                 <h:column>
-                    <span class="groupsLinksBig controlWorksDisciplineNameLink" style="font-size: 11pt;">
+                    <span class="greyLinks">
                         <h:outputLink rendered="#{d ne cc.attrs.bean.curriculum}" value="?c=#{d.id}&amp;g=#{cc.attrs.bean.id}&amp;s=#{cc.attrs.bean.semester}">
                             <h:outputText value="#{d.discipline.name}"/>
                         </h:outputLink>
-                        <h:outputText rendered="#{d eq cc.attrs.bean.curriculum}"  value="#{d.discipline.name}"/>
+                        <h:outputText rendered="#{d eq cc.attrs.bean.curriculum}"  value="#{d.discipline.name}" styleClass="Ipsilon_Web_GreenText"/>
                     </span>
                 </h:column>
             </h:dataTable>

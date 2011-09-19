@@ -155,12 +155,6 @@
     text-align: right;
     float: right;
 }
-.mainStyle .testItemsDiv{
-    text-align: left;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-left: 25px;
-}
 .mainStyle .beginTest{
     display: block;
     width: 150px;
@@ -187,13 +181,6 @@
 }
 .mainStyle .testResultMarkNotNull{
     color: #FBB35D;
-}
-/* результаты тестов*/
-.mainStyle .workTitle{
-    font-size: 8pt;
-    font-weight: normal;
-    display: block;
-    padding-left: 8px;
 }
 /*рейтинг*/
 .mainStyle .ratingStyle{

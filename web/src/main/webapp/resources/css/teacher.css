@@ -90,7 +90,7 @@
 }
 
 /*стили таблиц со страниц groupControlWorks и groupTestResults*/
-.mainStyle .opasityTableTestResult th{
+/*.mainStyle .opasityTableTestResult th{
     border: none;
     background: none;
     border-bottom: 1px solid silver;
@@ -112,8 +112,8 @@
 .mainStyle .opasityTableTestResult tbody tr td:last-child{
     border-right: none;
     width:50px;
-}
-.mainStyle .litleTabContrWorks tbody tr td{
+}*/
+/*.mainStyle .litleTabContrWorks tbody tr td{
     border: none;
     border-bottom: 1px solid silver;
     padding: 3px;
@@ -123,34 +123,34 @@
 }
 .mainStyle .litleTabContrWorks tbody tr:last-child td{
     border-bottom: none;
-}
+}*/
 .mainStyle .resultRedText{
     color: red;
     font-size: 10pt;
 }
-.mainStyle .TestNameDiv{
+/*.mainStyle .TestNameDiv{
     min-width: 50px;
     max-width: 390px;
-}
-.mainStyle .RightAnswerDiv{
+}*/
+/*.mainStyle .RightAnswerDiv{
     width: 80px;
     float: left;
     text-align: center !important;
     height: 30px;
     padding-top: 4px;
     border-right: 1px solid silver;
-}
-.mainStyle .DateAnswerDiv{
+}*/
+/*.mainStyle .DateAnswerDiv{
     width: 95px;
     float: right;
     padding-left: 5px;
     padding-top: 6px;
     text-align: center !important;
-}
-.mainStyle .DivWidth70{
+}*/
+/*.mainStyle .DivWidth70{
     width: 74px;
     text-align: center !important;
-}
+}*/
 .mainStyle .DivWidth50{
     width: 50px;
 }

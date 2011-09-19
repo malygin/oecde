@@ -43,19 +43,18 @@
                         Тесты по курсу
                     </div>
                 </a>
-                <div>
+                <div style="text-align: left;">
                     <r:forEach items="#{teacherCurriculumBean.tests}" var="test">
                         <div class="studentInterfaceStandartList">
-                            <div class="DisciplineTextlink testUmk" style="background-position: 0px 2px; margin: 0;">
+                            <div>
                                 <h:outputLink value="test.xhtml?c=#{teacherCurriculumBean.curriculumId}&amp;id=#{test.id}&amp;s=#{teacherCurriculumBean.semester}">
                                     #{test.title}
                                 </h:outputLink>
-                                <span class="controlWorksDisciplineNameLinkGrey news_edit" style="margin-left: 20px;">
+                                <span class="news_edit" style="margin-left: 20px;">
                                     <h:outputLink value="testEdit.xhtml?c=#{teacherCurriculumBean.curriculumId}&amp;id=#{test.id}&amp;s=#{teacherCurriculumBean.semester}" >
                                         #{msgs.admin_mainContentEdit}
                                     </h:outputLink>
                                 </span>
-
                             </div>
                         </div>
                     </r:forEach>

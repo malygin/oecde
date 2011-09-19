@@ -1,24 +1,27 @@
-    <ui:composition
-         xmlns:ui="http://java.sun.com/jsf/facelets"
-         xmlns:f="http://java.sun.com/jsf/core"
-         xmlns:h="http://java.sun.com/jsf/html"
-         xmlns:tests="http://java.sun.com/jsf/composite/components/tests"
-         template="../resources/teacherTemplate.xhtml">
-           <f:metadata>
-             <f:viewParam name="c" value="#{testForTeacher.curriculumId}"/>
-             <f:viewParam name="id" value="#{testForTeacher.id}"/>
-             <f:viewParam name="s" value="#{testForTeacher.semester}"/>
-         </f:metadata>
-
-        <ui:define name="contentHeader">
-             Прохождение теста
-        </ui:define>
-        <ui:define name="content">
-            <a href="discipline.xhtml?id=#{testForTeacher.curriculumId}&amp;s=0">назад к курсу</a>
-            <h:form id="mainForm">        
-               <script type="text/javascript" src="../resources/scripts/test.js"></script>
-               <tests:questionView question="#{testPassingBean.currentQustionView.question}"/>
-               <tests:questionTips type="#{testPassingBean.currentQustionView.question.type}"/> 
-           </h:form>
-       </ui:define>
-    </ui:composition>
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:tests="http://java.sun.com/jsf/composite/components/tests"
+    template="../resources/teacherTemplate.xhtml">
+    <f:metadata>
+        <f:viewParam name="c" value="#{testForTeacher.curriculumId}"/>
+        <f:viewParam name="id" value="#{testForTeacher.id}"/>
+        <f:viewParam name="s" value="#{testForTeacher.semester}"/>
+    </f:metadata>
+    <ui:define name="content">
+        <div class="StudentMainPageTitlesBorders">
+            <div class="mainStudentPageTitles mainStudentPageTitlesGreen">
+                <div style="float: right;" class="greyLinks">
+                    <a href="discipline.xhtml?id=#{testForTeacher.curriculumId}&amp;s=0">назад к курсу</a>
+                </div>
+                <div class="floatDestroyer"/>
+            </div>
+            <h:form id="mainForm">
+                <script type="text/javascript" src="../resources/scripts/test.js"></script>
+                <tests:questionView question="#{testPassingBean.currentQustionView.question}"/>
+                <tests:questionTips type="#{testPassingBean.currentQustionView.question.type}"/>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>

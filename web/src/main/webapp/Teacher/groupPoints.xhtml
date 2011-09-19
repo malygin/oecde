@@ -12,7 +12,7 @@
     <ui:define name="content">
         <div class="interfaceContent StudentMainPageTitlesBorders">
             <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
-                <p class="floatLeft mainStudentPageTitles Ipsilon_Web_GreenText">
+                <p class="mainStudentPageTitles Ipsilon_Web_GreenText">
                     Информация о группе <h:outputText value="#{groupPoints.group.name}"/> (<h:outputText value="#{groupPoints.group.speciality.name}" />)
                 </p>
                 <div class="backLink greyLinks massSending">
@@ -52,7 +52,7 @@
                             <!--                            <h:graphicImage value='../resources/images/resultTestsTable.png'/>-->
                             <h:outputText value="Тесты" />
                         </f:facet>
-                        #{p.test} <span style="color:#808080;">(#{p.testsMaxPoints})</span>
+                        <span>#{p.test}</span> <span style="color:#808080;">(#{p.testsMaxPoints})</span>
                     </h:column>
 
                     <h:column>
@@ -60,7 +60,7 @@
                             <!--                            <h:graphicImage value='../resources/images/reexTable.png'/>-->
                             <h:outputText value="Переэкз." />
                         </f:facet>
-                        #{p.reTest}
+                        <span>#{p.reTest}</span>
                     </h:column>
 
                     <h:column>
@@ -68,7 +68,7 @@
                             <!--                            <h:graphicImage value='../resources/images/resultTestsTable.png'/>-->
                             <span class="Ipsilon_Web_GreenText">Итоговые <br/>тесты</span>
                         </f:facet>
-                        #{p.concludingTest} <span style="color:#808080;">(#{p.concludingTestsMaxPoints})</span>
+                       <span> #{p.concludingTest}</span> <span style="color:#808080;">(#{p.concludingTestsMaxPoints})</span>
                     </h:column>
 
                     <h:column>
@@ -77,7 +77,7 @@
                             <span class="Ipsilon_Web_GreenText">Переэкз.<br/>итоговых<br/>тестов
                             </span>
                         </f:facet>
-                        #{p.concludingReTest}
+                        <span>#{p.concludingReTest}</span>
                     </h:column>
 
                     <h:column>
@@ -86,7 +86,7 @@
                             <span class="Ipsilon_Web_GreenText">#{msgs.teacher_control_works},<br/> баллы
                             </span>
                         </f:facet>
-                        #{p.controlWorkPoints}
+                        <span>#{p.controlWorkPoints}</span>
                     </h:column>
 
                     <h:column>
@@ -95,7 +95,7 @@
                             <span class="Ipsilon_Web_GreenText">#{msgs.teacher_control_works},<br/> оценка
                             </span>
                         </f:facet>
-                        <h:outputText converter="enumConverter" value="#{p.controlWorkValue}" />
+                        <span><h:outputText converter="enumConverter" value="#{p.controlWorkValue}" /></span>
                     </h:column>
 
                     <h:column>
@@ -103,7 +103,7 @@
                             <!--                            <h:graphicImage value='../resources/images/summTable.png'/>-->
                             <h:outputText value="Сумма" />
                         </f:facet>
-                        #{p.points.sum}
+                        <span>#{p.points.sum}</span>
                     </h:column>
 
                     <h:column>

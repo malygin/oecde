@@ -15,7 +15,7 @@
 
     <composite:implementation>
 
-                <div style="width: 100px; float: left; color: #27587F; font-size: 14px; margin-left: 10px;">  #{msgs.student_TestQuestionNumberQ} #{testPassingBean.iterQ+1} (#{testPassingBean.countQuestions})
+        <div style="width: 100px; float: left; margin-left: 10px;">  <span class="Ipsilon_Web_GreenText"> #{msgs.student_TestQuestionNumberQ}#{testPassingBean.iterQ+1}</span> <span class="lightGreyText">(#{testPassingBean.countQuestions})</span>
                      <h:commandButton value="следующий" action="#{testPassingBean.next}" styleClass="studentButton" style="margin: 8px; width: 90px;">
                          <f:ajax render="@form"/>
                      </h:commandButton>
