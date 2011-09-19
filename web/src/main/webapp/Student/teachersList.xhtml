@@ -27,13 +27,15 @@
                     <div class="floatDestroyer"></div>
                 </div>
                 <div class="interfaceContentWithoutPadding">
-
-                    <r:forEach items="#{teachersListBean.teachers}" var="t">
-                        <div class="studentInterfaceStandartList">
-                            <ut:userListItem type="teacher" u="#{t.value}"/>
-                            <div class="floatDestroyer"/>
-                        </div>
-                    </r:forEach>
+            
+                <r:forEach items="#{teachersListBean.teachers}" var="t">
+                <div class="studentInterfaceStandartList">
+                    <h:panelGroup rendered="#{t.value.id ne 1}">
+                       <ut:userListItem  type="teacher" u="#{t.value}"/>
+                    </h:panelGroup>
+                    <div class="floatDestroyer"/>
+                </div>
+                </r:forEach>
                 </div>
             </div>
         </div>

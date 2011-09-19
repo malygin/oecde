@@ -279,8 +279,8 @@ public enum EventType {
                 return null;
 
             EventBodyElement[] el = new EventBodyElement[2];
-            el[0] = new EventBodyElement("Добавлена новость "+item.getEventBody());
-            el[1] = new EventBodyElement(item.getMultiId(), "подробнее", EventBodyElement.newsPage);
+            el[0] = new EventBodyElement("Добавлена новость ");
+            el[1] = new EventBodyElement(item.getMultiId(),item.getEventBody()+"", EventBodyElement.newsPage);
             return el;
         }
 

@@ -93,6 +93,7 @@ public class ResourceService implements Serializable{
                 }
             }
         DeCurriculum curriculum = curriculumBuilder.getInstance(student,id);
+        curriculum.setSelected(null);
         List<DeCurriculum> l = curriculumDao.getByExample(curriculum);
         if(CollectionUtils.isEmpty(l))
             return null;

@@ -6,28 +6,19 @@ import java.awt.image.*;
 import java.io.File;
 import java.io.InputStream;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
-import org.im4java.core.ConvertCmd;
-import org.im4java.core.IM4JavaException;
-import org.im4java.core.IMOperation;
 import org.sgu.oecde.core.IUpdateDao;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.journal.EventType;
 import org.sgu.oecde.journal.JournalService;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.FacesUtil;
-import org.sgu.oecde.web.jsfbeans.util.fileUpload.MultipartRequestWrapper;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
-import sun.awt.image.BufferedImageGraphicsConfig;
 
 /**
  * Класс, изменяющий размеры изображения.

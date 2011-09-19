@@ -48,7 +48,7 @@ public class TaskServlet extends HttpServlet {
           BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
           String mime = new MimetypesFileTypeMap().getContentType(new File(request.getParameter("task")));
           if(!ObjectUtils.containsElement(FileUploadUtil.mimetypes, mime)){
-              while ((str = in.readLine()) != null) {strbuf.append(str);}
+              while ((str = in.readLine()) != null) {strbuf.append(" ").append(str);}
            //   System.out.println(strbuf);
               str=strbuf.toString().replaceAll("src='", "src='"+urlServer+"/"+urlTask[0]+"/"+((urlTask.length>2)?urlTask[1]:"")+"/");
               str=str.replaceAll("src=\"", "src=\""+urlServer+"/"+urlTask[0]+"/"+((urlTask.length>2)?urlTask[1]:"")+"/");

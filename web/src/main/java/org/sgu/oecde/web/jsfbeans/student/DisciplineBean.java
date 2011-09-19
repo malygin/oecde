@@ -7,6 +7,8 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import org.sgu.oecde.core.IBasicDao;
+import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.work.AdditionalSelfDependentWork;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.tests.TestAttemptService;
@@ -34,6 +36,9 @@ public class DisciplineBean extends StudentCurriculumBean{
 
     @ManagedProperty(value="#{resourceService}")
     private ResourceService resourceService;
+    
+   @ManagedProperty(value="#{curriculumDao}")
+    private IBasicDao<Curriculum>cDao;
 
     private static final long serialVersionUID = 102L;
     
@@ -64,7 +69,9 @@ public class DisciplineBean extends StudentCurriculumBean{
         this.curriculumId = curriculumId;
         tests = null;
         curriculum = resourceService.getDisciplineForStudent(student,curriculumId,getCurriculums());
+        if (curriculum==null) curriculum=(DeCurriculum) cDao.getById(curriculumId);
         accessDenied = (curriculum==null);
+        
     }
 
     public Long getCurriculumId() {
@@ -93,4 +100,10 @@ public class DisciplineBean extends StudentCurriculumBean{
             return ((AdditionalSelfDependentWork)o1[1]).getWork().getTitle().compareTo(((AdditionalSelfDependentWork)o2[1]).getWork().getTitle());
         }
      }
+
+    public void setcDao(IBasicDao<Curriculum> cDao) {
+        this.cDao = cDao;
+    }
+     
+     
 }

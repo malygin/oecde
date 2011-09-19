@@ -9,6 +9,8 @@ import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import org.sgu.oecde.core.IBasicDao;
+import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.ExaminationType;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.de.education.DeCurriculum;
@@ -27,6 +29,7 @@ public class StudentCurriculumBean extends AbstractStudentBean{
 
     @ManagedProperty(value="#{studentSessionBean}")
     private StudentSessionBean studentSessionBean;
+
 
     private boolean sort = false;
     

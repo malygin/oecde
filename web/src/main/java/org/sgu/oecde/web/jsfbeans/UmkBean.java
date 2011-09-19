@@ -14,6 +14,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.model.SelectItem;
 import org.sgu.oecde.core.IBasicDao;
+import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.Module;
 import org.sgu.oecde.core.education.Umk;
 import org.sgu.oecde.core.education.resource.Task;
@@ -37,6 +38,10 @@ import org.springframework.util.ObjectUtils;
 @ManagedBean(name="umkBean")
 @ViewScoped
 public class UmkBean implements Serializable {
+    
+        
+   @ManagedProperty(value="#{curriculumDao}")
+    private IBasicDao<Curriculum>cDao;
 
     @ManagedProperty(value="#{resourceService}")
     private ResourceService resourceService;
@@ -92,8 +97,11 @@ public class UmkBean implements Serializable {
           this.cId = cId;
           user=SecurityContextHandler.getUser();
           if ( user instanceof Student){
-             curriculum = resourceService.getDisciplineForStudent((Student) SecurityContextHandler.getUser(),new Long(cId),null);
+            //curriculum= (DeCurriculum) cDao.getById(new Long(cId));
+            
+            curriculum = resourceService.getDisciplineForStudent((Student) SecurityContextHandler.getUser(),new Long(cId),null);
              currentUmk=curriculum.getUmk();
+            
           }else if(user instanceof Admin){
               currentUmk=umkDao.getById(new Long(this.cId));             
           }else if(user instanceof Teacher){
@@ -278,6 +286,10 @@ public class UmkBean implements Serializable {
 
     public void setTeacherSessionBean(TeacherSessionBean teacherSessionBean) {
         this.teacherSessionBean = teacherSessionBean;
+    }
+
+    public void setcDao(IBasicDao<Curriculum> cDao) {
+        this.cDao = cDao;
     }
 
 

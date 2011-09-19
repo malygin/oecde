@@ -13,6 +13,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.AjaxBehaviorEvent;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import org.sgu.oecde.controlworks.ControlWork;
 import org.sgu.oecde.controlworks.ControlWorkAttempt;
@@ -122,12 +123,12 @@ public class ControlWorksBean extends StudentCurriculumBean{
         currentControlWorks = (ControlWork) event.getComponent().getAttributes().get("cw");
     }
 
-    public String saveCw() throws IOException{
-         HttpServletRequest req = FacesUtil.getRequest();
-         if(req instanceof MultipartRequestWrapper){
-            MultipartRequestWrapper multi = (MultipartRequestWrapper)req;
+    public String saveCw() throws IOException, ServletException{
+         HttpServletRequest multi = FacesUtil.getRequest();
+        // if(req instanceof MultipartRequestWrapper){
+          //  MultipartRequestWrapper multi = FacesUtil.getRequest();;
             //CwFile -  имя файла в форме
-            UploadFile uf = multi.findFile("CwFile");
+            UploadFile uf = FileUploadUtil.findFile(multi,"CwFile");
             if(uf != null && currentControlWorks!=null){
                 ControlWorkAttempt a = new ControlWorkAttempt();
                 List<ControlWorkAttempt> s = (List<ControlWorkAttempt>) currentControlWorks.getCwAttempt();
@@ -147,7 +148,7 @@ public class ControlWorksBean extends StudentCurriculumBean{
                     journalService.save(EventType.TASK_HAS_BEEN_SEND_TO_PREP, student, currentControlWorks.getCurriculum());
                 }
             }
-        }
+      //  }
         return "controlWorks?faces-redirect=true&amp;s="+getSemester();
     }
 
