@@ -205,6 +205,7 @@ public class TestPassingBean implements Serializable {
               case check:
                     rightQuestion=true;
                     for(Answer a:currentQustionView.getQuestion().getAnswers()){
+                      checkFlag=false;
                       GivenAnswer ga=new GivenAnswer();
                       ga.setAnsweredQuestion(answeredQuestion);
                       ga.setRightAnswer(a);
@@ -289,7 +290,7 @@ public class TestPassingBean implements Serializable {
     public void completeTest(){
             if (attempt!=null){
                  renderCompleteTest=true;
-                 points=(100*countRight)/questions.size();
+                 points=(100*countRight)/countQuestions;
                  attempt.setPoints(points);
                  attempt.setRightAnswers(countRight);             
                  attempt.setAnsweredQuestions(answeredQuestions);

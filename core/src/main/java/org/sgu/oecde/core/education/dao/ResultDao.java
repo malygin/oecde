@@ -42,6 +42,7 @@ public class ResultDao<T extends AbstractResult> extends BasicDao<T> implements 
             getCriteriaByParametrizedItem(result, cr);
         }
         cr.add(Property.forName("curriculum").in(curriculums)).add(Property.forName("student").in(students));
+        cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
         return cr.setCacheable(false).list();
     }
 
