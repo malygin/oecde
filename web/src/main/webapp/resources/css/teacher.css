@@ -236,6 +236,9 @@
 .mainStyle .blocksMargins{
     margin: 10px; margin-left: 15px;
 }
+.mainStyle .InfoAboutTeacher tr td{
+    height: 26px;
+}
 /*контрольные работы*/
 .mainStyle .controlWorkTable tr td{
     padding: 3px 10px;
