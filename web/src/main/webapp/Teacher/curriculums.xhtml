@@ -20,7 +20,7 @@
                     #{msgs.teacher_curriculumAndCourses}
                 </div>
                 <div>
-                    <h:form>
+                    <h:form styleClass="teacherCurriculum">
                         <h:dataTable styleClass="studentStandatrTable"
                                      columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
                                      studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
@@ -29,7 +29,8 @@
                                      studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
                                      studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
                                      studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                                     studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher" cellpadding="0" cellspacing="0" value="#{teacherCurriculumsEditBean.curriculums}" var="c">
+                                     studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher"
+                                     style="margin: 0;" cellpadding="0" cellspacing="0" value="#{teacherCurriculumsEditBean.curriculums}" var="c">
                             <h:column>
                                 <f:facet name="header">#{msgs.student_Dicipline}</f:facet>
                                 <span class="DisciplineTextTeacher"><h:outputText value="#{c.discipline.name}"/></span>

@@ -1,35 +1,91 @@
 <ui:composition
-     xmlns:ui="http://java.sun.com/jsf/facelets"
-     xmlns:f="http://java.sun.com/jsf/core"
-     xmlns:h="http://java.sun.com/jsf/html"
-     xmlns:util="http://java.sun.com/jsf/composite/components/util"
-     template="../resources/teacherTemplate.xhtml"
-     >
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:util="http://java.sun.com/jsf/composite/components/util"
+    template="../resources/teacherTemplate.xhtml"
+    >
     <ui:define name="content">
-     <f:metadata>
-         <f:viewParam name="c" value="#{testForTeacher.curriculumId}"/>
-         <f:viewParam name="id" value="#{testForTeacher.id}"/>
-                <f:viewParam name="s" value="#{testForTeacher.semester}"/>
-     </f:metadata>
-        <h:outputLink value="discipline.xhtml?id=#{testForTeacher.curriculumId}&amp;s=#{testForTeacher.semester}">#{msgs.teacher_backToUMK}}#{testForTeacher.curriculum.umk.name}</h:outputLink><br/>
-     <h:outputText rendered="#{testForTeacher.accessDenied}" value="Не найден или не доступен" />
-     <h:form rendered="#{not testForTeacher.accessDenied}">
-        <table>
-            <tr><td><h:inputText maxlength="3" size="3" value="#{testForTeacher.test.duration}"/></td><td>длительность</td></tr>
-            <tr><td><h:inputText maxlength="1" size="1" value="#{testForTeacher.test.estimateAttemptsNumber}"/></td><td>количество попыток в зачёт</td></tr>
-            <tr><td><h:outputText value="#{testForTeacher.test.title}"/></td><td>название</td></tr>
-            <tr><td><h:inputText maxlength="1" size="1" value="#{testForTeacher.test.trialNumber}"/></td><td>количество пробных попыток</td></tr>
-            <tr><td><h:outputText converter="enumConverter" value="#{testForTeacher.test.type}" /></td><td>тип</td></tr>
-            <tr><td><h:selectOneMenu id="estimationType" value="#{testForTeacher.test.estimation}">
-               <f:selectItems value="#{testForTeacher.estimation}" />
-            </h:selectOneMenu></td><td>способ оценивания</td></tr>
-            <tr><td><util:date_picker value="#{testForTeacher.test.closeDate}"/></td><td>дата закрытия</td></tr>
-            <tr><td><util:date_picker value="#{testForTeacher.test.openDate}"/></td><td>дата открытия</td></tr>
-            <tr><td><h:inputText maxlength="3" size="3" value="#{testForTeacher.test.quantity}"/></td><td>количество выводимых вопросов</td></tr>
-            <tr><td><h:selectBooleanCheckbox  value="#{testForTeacher.test.shuffle}"/></td><td>перемешиваются ли вопросы </td></tr>
-            <tr><td><h:selectBooleanCheckbox  value="#{testForTeacher.test.writable}"/></td><td>записывается ли прохождение</td></tr>
-            <tr><td><h:commandButton action="#{testForTeacher.save}" value="ОКЭ"/></td></tr>
-        </table>
-    </h:form>
-   </ui:define>
+        <f:metadata>
+            <f:viewParam name="c" value="#{testForTeacher.curriculumId}"/>
+            <f:viewParam name="id" value="#{testForTeacher.id}"/>
+            <f:viewParam name="s" value="#{testForTeacher.semester}"/>
+        </f:metadata>
+        <div class="interfaceContent">
+            <div class="StudentMainPageTitlesBorders">
+                <div class="mainStudentPageTitlesGreen mainStudentPageTitles Ipsilon_Web_GreenText">
+                    <p class="floatLeft mainStudentPageTitles" style="width: 60%;">
+                    <h:outputText value="#{testForTeacher.test.title}"/>
+                    </p>
+                    <div style="float: right; margin-top: 4px;" class="greyLinks">
+                        <h:outputLink value="discipline.xhtml?id=#{testForTeacher.curriculumId}&amp;s=#{testForTeacher.semester}">#{msgs.teacher_backToUMK} <span style="color: #89C9F5; font-size: 10pt;">#{testForTeacher.curriculum.umk.name}</span></h:outputLink><br/>
+                        <h:outputText rendered="#{testForTeacher.accessDenied}" value="Не найден или не доступен" />
+                    </div>
+                    <div class="floatDestroyer"/>
+                </div>
+                    <h:form rendered="#{not testForTeacher.accessDenied}">
+                    <table class="teacherTestEdit">
+                        <tr>
+                            <td>длительность</td>
+                            <td><h:inputText maxlength="3" size="3" value="#{testForTeacher.test.duration}" style="width: 37px;"/></td>
+                        </tr>
+                        <tr>
+                            <td>количество попыток в зачёт</td>
+                            <td>
+                        <h:inputText maxlength="1" size="1" value="#{testForTeacher.test.estimateAttemptsNumber}" style="width: 37px;"/>
+                        </td>
+
+                        </tr>
+<!--                        <tr>
+                            <td>название</td>
+                            <td>
+                        <h:outputText value="#{testForTeacher.test.title}"/></td>
+
+                        </tr>-->
+                        <tr>
+                            <td>количество пробных попыток</td>
+                            <td>
+                        <h:inputText maxlength="1" size="1" value="#{testForTeacher.test.trialNumber}" style="width: 37px;"/></td>
+                        </tr>
+                        <tr>
+                            <td>тип</td>
+                            <td>
+                        <h:outputText converter="enumConverter" value="#{testForTeacher.test.type}" /></td>
+                        </tr>
+                        <tr>
+                            <td>способ оценивания</td>
+                            <td><h:selectOneMenu id="estimationType" value="#{testForTeacher.test.estimation}">
+                            <f:selectItems value="#{testForTeacher.estimation}" />
+                        </h:selectOneMenu></td>
+                        </tr>
+                        <tr>
+                            <td>дата закрытия</td>
+                            <td><util:date_picker value="#{testForTeacher.test.closeDate}"/></td>
+                        </tr>
+                        <tr>
+                            <td>дата открытия</td>
+                            <td><util:date_picker value="#{testForTeacher.test.openDate}"/></td>
+                        </tr>
+                        <tr>
+                            <td>количество выводимых вопросов</td>
+                            <td>
+                        <h:inputText maxlength="3" size="3" value="#{testForTeacher.test.quantity}" style="width: 37px;"/></td>
+                        </tr>
+                        <tr>
+                            <td>перемешиваются ли вопросы </td>
+                            <td>
+                        <h:selectBooleanCheckbox  value="#{testForTeacher.test.shuffle}"/></td>
+                        </tr>
+                        <tr>
+                            <td>записывается ли прохождение</td>
+                            <td>
+                        <h:selectBooleanCheckbox  value="#{testForTeacher.test.writable}"/></td>
+                        </tr>
+                        <tr>
+                            <td></td><td><h:commandButton action="#{testForTeacher.save}" value="ОК" styleClass="studentButton" style="width: 40px;text-align: center;"/></td></tr>
+                    </table>
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
 </ui:composition>

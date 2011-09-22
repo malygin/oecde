@@ -182,6 +182,7 @@ label{
     float: left;
     -o-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
     -moz-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
+    border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
     -webkit-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
 }
 .mainStyle .content{
@@ -713,7 +714,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     }
 }
 .mainStyle .studentStandatrTable .studentStandatrTableTd{
-/*    text-align: center;*/
+    /*    text-align: center;*/
     border: 1px solid silver;
     border-left: 0px;
     border-top: 0px;
@@ -874,6 +875,11 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .student_gradesTableHeadTeacherWidth{
     width: 50px;
 }
+.mainStyle .teacherCurriculum{
+    margin: 10px;
+    border-top: 1px solid silver;
+}
+
 /*блок изменить семестр*/
 .mainStyle .changeSemestrBlock div{
     margin: 3px 0px;
@@ -1423,8 +1429,8 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     background: url("../resources/images/write_new.png") no-repeat left top;
 }
 .mainStyle .massSending{
-     background: url("../resources/images/write_new.png") no-repeat 0px 6px;
-     padding-left: 20px;
+    background: url("../resources/images/write_new.png") no-repeat 0px 6px;
+    padding-left: 20px;
 }
 .mainStyle .actionResultSuccessfull{
     color: #5BBF5D;
@@ -1742,6 +1748,13 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     margin: 8px;
     width: 80px;
 }
+.mainStyle .teacherTestEdit{
+    margin: 10px;
+}
+.mainStyle .teacherTestEdit td:nth-child(1){
+    width: 225px;
+    height: 22px;
+}
 /*.mainStyle .testUmk{
     background: url('../resources/images/testUmk.gif') no-repeat;
     padding-left: 14px;
@@ -1822,7 +1835,8 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 }
 .mainStyle .downloadPhotoInputStyle{
     font-size: 9pt;
-    background-color: #DFF1FE;
+    background-color: #ffffff;
+    border: 1px solid #838383;
 }
 .mainStyle .changePasswordButtonSaveAdminPosition{
     margin-right: 0;
@@ -2072,8 +2086,8 @@ ul.dropdown li ul li {
 }
 /*информация*/
 .mainStyle .clickToHidMarkerListMainPage{
-    background: url("../resources/images/markerListMainPage.png") no-repeat 0px 2px;
-    padding-left: 12px;
+    /*background: url("../resources/images/markerListMainPage.png") no-repeat 0px 2px;*/
+    /*padding-left: 12px;*/
     color: #3A6484;
 }
 /*тичер*/
@@ -2100,23 +2114,23 @@ ul.dropdown li ul li {
 
 /*стили для рейтинга группы*/
 .mainStyle .listOfWinner li, .listOfWinner li span{
-	color: #FBB35D;
+    color: #FBB35D;
 }
 .mainStyle .listOfAther, .listOfWinner{
-	width: 90%;
-        text-align: left;
-        margin-left: 8%;
+    width: 90%;
+    text-align: left;
+    margin-left: 8%;
 }
 .mainStyle .listOfWinner li{
-	margin-top: 4%;
+    margin-top: 4%;
 }
 .mainStyle .listOfAther li{
-	margin-top: 2%;
+    margin-top: 2%;
 }
 .mainStyle .listOfWinner li span,.listOfAther li span{
-	float:right;
-	list-style: none !important;
-        list-style-type: none !important;
+    float:right;
+    list-style: none !important;
+    list-style-type: none !important;
 }
 /*styles for progressbar*/
 .mainStyle .progressBarRating { border: 1px solid #FBB35D; height:6px; text-align: left; width:95%; margin-top: 3px;}
@@ -2125,24 +2139,24 @@ ul.dropdown li ul li {
 
 /*список администраторов*/
 .mainStyle .questionDiv{
-	text-align: left;
-        padding: 5%;
+    text-align: left;
+    padding: 5%;
 }
 .mainStyle .listOfQuestion{
-	width: 90%;
-	margin-top: 5%;
-	padding-left: 20px;
+    width: 90%;
+    margin-top: 5%;
+    padding-left: 20px;
 }
 .mainStyle .listOfQuestion li{
-	color: #5bbf5d;
+    color: #5bbf5d;
 }
 .mainStyle .listOfQuestion li a:link,
 .mainStyle .listOfQuestion li a:active,
 .mainStyle .listOfQuestion li a:visited{
-	text-decoration:none !important;
+    text-decoration:none !important;
 }
 .mainStyle .listOfQuestion li a:hover{
-	text-decoration:underline  !important;
+    text-decoration:underline  !important;
 }
 .mainStyle .lightGreyText{
     text-align: left;
