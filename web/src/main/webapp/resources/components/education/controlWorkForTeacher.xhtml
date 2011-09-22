@@ -5,7 +5,8 @@
       xmlns:composite="http://java.sun.com/jsf/composite"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
-      >
+      
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 
  <!-- INTERFACE -->
   <composite:interface>
@@ -15,47 +16,7 @@
 
   <!-- IMPLEMENTATION -->
    <composite:implementation>
-        
-         <!--<h:dataTable styleClass="studentStandatrTable"
-                         columnClasses="studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTd,
-                         studentStandatrTableTdLastTd" cellpadding="0" cellspacing="0" id="table" value="#{controlWorksAttemptsBean.attempts}" var="a">
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
-                    </f:facet>
-                    <span class="controlWorksDisciplineName"><h:outputText value="#{a.work.curriculum.discipline.name}"/></span>
-             </h:column>
-             <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{msgs.message_downLoad}" />
-                    </f:facet>
-                    <h:outputText rendered="#{a.read}" value="скачана! "/> 
-                    <est:readCwAttempt attempt="#{a}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{msgs.student_Student}" />
-                    </f:facet>
-                    <span class="linkToStudentsProfile"><h:outputLink value="student.xhtml?id=#{a.work.student.id}&amp;s=#{controlWorksAttemptsBean.semester}"><h:outputText value="#{a.work.student.fio}"/></h:outputLink></span>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{msgs.admin_mainContentGroup}" />
-                    </f:facet>
-                    <h:outputLink value="groupControlWorks.xhtml?g=#{a.work.student.group.id}&amp;c=#{a.work.curriculum.id}&amp;s=#{controlWorksAttemptsBean.semester}"><h:outputText value="#{a.work.student.group.name} гр."/></h:outputLink>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{msgs.student_testResultResult}" />
-                    </f:facet>
-                    <h:outputText converter="enumConverter" value="#{a.work.progress}"/>
-                    <h:outputText value="#{a.work.points}"/>
-                </h:column>
-                
-            </h:dataTable>-->
+    
        
     <div class="" style="margin-bottom: 0px;">
     <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">
@@ -76,46 +37,23 @@
     </div>
        <p class="linkToStudentsProfile disciplineName"><a href=" "><h:outputText value="Дисциплина"/></a></p>
        <table class="blocksMargins controlWorkTable" style="margin-top: 0px;">
-                <tr>                  
+                
+           <ui:repeat value="#{controlWorksAttemptsBean.attempts}" var="a">
+                 <tr>                  
                     <td>
-                        <span class="controlWorksDisciplineName"><h:outputText value="Работа № 1"/></span>
-                        <a href=" "><img src="../resources/images/save_control_work.png"/></a>
+                        <span class="controlWorksDisciplineName"><h:outputText value="#{a.work.curriculum.discipline.name}"/></span>
+                        <h:outputLink value="../resources/userFiles/controlWorks/#{a.filePath}"><img src="../resources/images/save_control_work.png"/></h:outputLink>
+                          <br/><h:outputText rendered="#{a.read}" value="скачана! "/> 
+                          
                     </td>
-                    <td><span class="linkToStudentsProfile"><a href=" "><h:outputText value="Лавренова Марина Геннадиевна"/></a></span></td>
-                    <td class="linkToTeachersProfile"><a href=" "><h:outputText value="233 гр."/></a></td>
+                    <td><span class="linkToStudentsProfile"><h:outputLink value="student.xhtml?id=#{a.work.student.id}&amp;s=#{controlWorksAttemptsBean.semester}"><h:outputText value="#{a.work.student.initials}"/></h:outputLink></span></td>
+                    <td class="linkToTeachersProfile"> <h:outputLink value="groupControlWorks.xhtml?g=#{a.work.student.group.id}&amp;c=#{a.work.curriculum.id}&amp;s=#{controlWorksAttemptsBean.semester}"><h:outputText value="#{a.work.student.group.name} гр."/></h:outputLink>
+                    </td>
                     <td><h:outputText value="12 мая 2011"/></td>
-                    <td class="Ipsilon_Web_GreenText"><h:outputText value="зачтено"/></td>
+                    <td class="Ipsilon_Web_GreenText"> <h:outputText converter="enumConverter" value="#{a.work.progress}"/> <br/>   <h:outputText value="#{a.work.points}"/> баллов</td>
                 </tr> 
-                <tr>                  
-                    <td>
-                        <span class="controlWorksDisciplineName"><h:outputText value="Работа № 1"/></span>
-                        <a href=" "><img src="../resources/images/save_control_work.png"/></a>
-                    </td>
-                    <td><span class="linkToStudentsProfile"><a href=" "><h:outputText value="Иванов Иван Иванович"/></a></span></td>
-                    <td class="linkToTeachersProfile"><a href=" "><h:outputText value="233 гр."/></a></td>
-                    <td><h:outputText value="1 сентября 2011"/></td>
-                    <td><h:outputText value="непрочитано"/></td>
-                </tr>
-                <tr>                  
-                    <td>
-                        <span class="controlWorksDisciplineName"><h:outputText value="Работа № 1"/></span>
-                        <a href=" "><img src="../resources/images/save_control_work.png"/></a>
-                    </td>
-                    <td><span class="linkToStudentsProfile"><a href=" "><h:outputText value="Голованова Анна Игоревна"/></a></span></td>
-                    <td class="linkToTeachersProfile"><a href=" "><h:outputText value="233 гр."/></a></td>
-                    <td><h:outputText value="12 сентября 2011"/></td>
-                    <td class="Ipsilon_Web_GreenText"><h:outputText value="зачтено"/></td>
-                </tr> 
-                <tr>                  
-                    <td>
-                        <span class="controlWorksDisciplineName"><h:outputText value="Работа № 1"/></span>
-                        <a href=" "><img src="../resources/images/save_control_work.png"/></a>
-                    </td>
-                    <td><span class="linkToStudentsProfile"><a href=" "><h:outputText value="Ленгерт Владимир Владимирович"/></a></span></td>
-                    <td class="linkToTeachersProfile"><a href=" "><h:outputText value="233 гр."/></a></td>
-                    <td><h:outputText value="12 февраля 2011"/></td>
-                    <td class="orangeText"><h:outputText value="незачтено"/></td>
-                </tr> 
+               
+           </ui:repeat>
             </table>
        </div>
        

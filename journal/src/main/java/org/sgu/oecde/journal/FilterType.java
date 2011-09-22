@@ -27,7 +27,7 @@ public enum FilterType {
                 EventType.UMK_CREATE,
                 EventType.UMK_EDIT,
                 EventType.UMK_DELETE,
-                   EventType.NEW_NEWS,
+                EventType.NEW_NEWS,
                 EventType.GRADING
             };
             return studentEventsList;
@@ -79,7 +79,7 @@ public enum FilterType {
             return umkEventsList;
         }
 
-    };
+            };
 
     private FilterType() {
         availableEvents = new ArrayList<EventForChoise>();

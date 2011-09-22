@@ -29,7 +29,7 @@
                         <div>
                             <table class="leftMenuContainer blocksMargins BorderNone InfoAboutTeacher">
                                 <tr>
-                                    <td><p>#{msgs.teacher_mainContentUserInfoDepartment}</p></td>
+                                    <td></td>
                                     <td><p></p></td>
                                     <td rowspan="8">
                                         <div style="margin-left: 80px;">
@@ -37,12 +37,9 @@
                                         </div>
                                     </td>
                                 </tr>
+                            
                                 <tr>
-                                    <td><p>#{msgs.teacher_mainContentUserInfoPost}</p></td>
-                                    <td><p></p></td>
-                                </tr>
-                                <tr>
-                                    <td><p>Научные интересы:</p></td>
+                                    <td><p>Дополнительная информация:</p></td>
                                     <td><p></p></td>
                                 </tr>
                                 <tr>
@@ -56,27 +53,8 @@
                 </td>
                 <td  style="vertical-align: top;" class="BorderTd">
                     <div>
-                        <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
-                            <a href=" " style="font-size: 12pt;" >Лента событий</a>
-                        </div>
-
-                        <div class="StudentTestsPadding BorderNone">
-
-                           
-                            <table class="controlWorksDisciplineNameLink eventAdminColor" cellpadding="0" cellspacing="0"  style="padding: 5px; width: 100%;">
-                                <tr>
-                                    <td style="background: url('../resources/images/eventTEST_END.gif') no-repeat top left; padding-left: 25px;">
-                                        <div class="floatDestroyer"></div>
-                                                <h:outputText value="Студент" styleClass="chatPostUser"/>
-                                                <span class="linkToStudentsProfile"><h:outputLink value="Черкасова Юлия Викторовна" style="text-decoration: underline; margin-right: 2px;">Черкасова Юлия Викторовна</h:outputLink>
-                                                </span>
-                                                <h:outputText value="отправил(а) на проверку задание по дисциплине Разработка и стандартизация программных средств и информационных технологий"/>
-                                    </td>
-                                </tr>
-                            </table>
-                            
-                            
-                        </div>
+                      
+                        <news:shortList numberNews="3"/>                            
                     </div>
                 </td>
             </tr>

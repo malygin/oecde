@@ -1174,7 +1174,7 @@ public enum EventType {
     public EventBodyElement[]parseEventForAdmin(EventItem item){
         return parseEvent(item);
     }
-
+    
     /**
      * если метод переопределён у события, то добавляет условие в запрос, содержащийся в {@code StringBuilder}
      * по умолчанию, метод возвращает {@code true} для обозначения, что условие не было добавлено и запрос
