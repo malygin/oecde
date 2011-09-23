@@ -29,23 +29,25 @@
             </div></div>
 
         <div class="StudentMainPageTitlesBorders">
-            <div class="mainStudentPageTitles mainStudentPageTitlesGreen">
-                <!--                здесь должно быть название курса и модуль-->
-                <div style="float: right;" class="greyLinks">
+            <div class="mainStudentPageTitlesGreen mainStudentPageTitles Ipsilon_Web_GreenText">
+                <p class="floatLeft mainStudentPageTitles" style="width: 75%;">
+                    #{testBean.test[1].work.title}
+                </p>
+                <div style="float: right; margin-top: 4px;" class="greyLinks">
                     <h:outputLink value="discipline.xhtml?c=#{testBean.curriculumId}" styleClass="navigationLinks backLinkPosition">вернуться к просмотру УМК</h:outputLink>
                 </div>
                 <div class="floatDestroyer"/>
             </div>
-                <h:form id="mainForm">
+            <h:form id="mainForm">
                 <script type="text/javascript" src="../resources/scripts/test.js"></script>
                 <h:panelGroup rendered="#{not testBean.renderTestPassing}">
                     <h:outputText rendered="#{testBean.accessDenied}" value="Не найден или не доступен" />
 
                     <tests:showPreInfo t="#{testBean.test}" test="#{testBean.test[1].work}" work="#{testBean.test[1]}"/>
                     <div class="linkToTeachersProfile testsMargins">
-                    <h:commandLink action="#{testBean.startTest}" rendered="#{not testBean.accessDenied}" >Начать тестирование
-                        <f:ajax render="@form" />
-                    </h:commandLink>
+                        <h:commandLink action="#{testBean.startTest}" rendered="#{not testBean.accessDenied}" >Начать тестирование
+                            <f:ajax render="@form" />
+                        </h:commandLink>
                     </div>
                 </h:panelGroup>
 
@@ -83,7 +85,7 @@
 
                         <br/>
                         <div class="greyLinks">
-                        <a href="discipline.xhtml?c=#{testBean.curriculumId}"> Вернуться к курсу</a>
+                            <a href="discipline.xhtml?c=#{testBean.curriculumId}"> Вернуться к курсу</a>
                         </div>
                         <br/>
                         <tests:showResult countQuestions="#{testPassingBean.countQuestions}" countRight="#{testPassingBean.countRight}" points="#{testPassingBean.points}"/>

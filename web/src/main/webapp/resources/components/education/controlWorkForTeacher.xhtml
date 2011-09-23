@@ -5,57 +5,60 @@
       xmlns:composite="http://java.sun.com/jsf/composite"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
-      
+
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
- <!-- INTERFACE -->
-  <composite:interface>
-     
-  
-  </composite:interface>
+    <!-- INTERFACE -->
+    <composite:interface>
 
-  <!-- IMPLEMENTATION -->
-   <composite:implementation>
-    
-       
-    <div class="" style="margin-bottom: 0px;">
-    <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">
-        <a href="controlWorksAttempts.xhtml" style="font-size: 12pt;">Контрольные работы</a>
-            <div style="float: right;">
+
+    </composite:interface>
+
+    <!-- IMPLEMENTATION -->
+    <composite:implementation>
+
+
+        <div class="" style="margin-bottom: 0px;">
+            <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">
+                <a href="controlWorksAttempts.xhtml" style="font-size: 12pt;">Контрольные работы</a>
+                <div style="float: right;">
                     <div>
                         <div class="greyLinks">
-                        <div>
-                        Показать:
-                        &nbsp;&nbsp;<a href=" ">все</a>
-                        &nbsp;&nbsp;<a href=" ">не зачтеные</a>
-                        &nbsp;&nbsp;<a href=" ">по дате</a>
-                        &nbsp;&nbsp;<a href=" ">не прочитанные</a>
+                            <div>
+                                Показать:
+                                &nbsp;&nbsp;<a href=" ">все</a>
+                                &nbsp;&nbsp;<a href=" ">не зачтеные</a>
+                                &nbsp;&nbsp;<a href=" ">по дате</a>
+                                &nbsp;&nbsp;<a href=" ">не прочитанные</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                </div>
-    </div>
-       <p class="linkToStudentsProfile disciplineName"><a href=" "><h:outputText value="Дисциплина"/></a></p>
-       <table class="blocksMargins controlWorkTable" style="margin-top: 0px;">
-                
-           <ui:repeat value="#{controlWorksAttemptsBean.attempts}" var="a">
-                 <tr>                  
-                    <td>
-                        <span class="controlWorksDisciplineName"><h:outputText value="#{a.work.curriculum.discipline.name}"/></span>
-                        <h:outputLink value="../resources/userFiles/controlWorks/#{a.filePath}"><img src="../resources/images/save_control_work.png"/></h:outputLink>
-                          <br/><h:outputText rendered="#{a.read}" value="скачана! "/> 
-                          
-                    </td>
-                    <td><span class="linkToStudentsProfile"><h:outputLink value="student.xhtml?id=#{a.work.student.id}&amp;s=#{controlWorksAttemptsBean.semester}"><h:outputText value="#{a.work.student.initials}"/></h:outputLink></span></td>
-                    <td class="linkToTeachersProfile"> <h:outputLink value="groupControlWorks.xhtml?g=#{a.work.student.group.id}&amp;c=#{a.work.curriculum.id}&amp;s=#{controlWorksAttemptsBean.semester}"><h:outputText value="#{a.work.student.group.name} гр."/></h:outputLink>
-                    </td>
-                    <td><h:outputText value="12 мая 2011"/></td>
-                    <td class="Ipsilon_Web_GreenText"> <h:outputText converter="enumConverter" value="#{a.work.progress}"/> <br/>   <h:outputText value="#{a.work.points}"/> баллов</td>
-                </tr> 
-               
-           </ui:repeat>
+            </div>
+            <p class="linkToStudentsProfile disciplineName"><h:outputText styleClass="mainStudentPageTitles skyBlueText" style="font-weight: normal;font-size: 11pt;" value="Дисциплина"/></p>
+            <table class="controlWorkTable" style="margin-top: 0px;" width="100%" cellpadding="0" cellspacing="0">
+
+                <ui:repeat value="#{controlWorksAttemptsBean.attempts}" var="a">
+                    <tr>
+                        <td>
+                            <span class="controlWorksDisciplineName"><h:outputText value="#{a.work.curriculum.discipline.name}"/></span>
+                            <h:outputLink value="../resources/userFiles/controlWorks/#{a.filePath}" style="margin-left: 5px;"><img src="../resources/images/save_control_work.png"/></h:outputLink>
+                            <br/>
+                            <h:outputText rendered="#{a.read}" value="скачана! " styleClass="Ipsilon_Web_GreenText"/>
+
+                        </td>
+                        <td><span class="linkToStudentsProfile"><h:outputLink value="student.xhtml?id=#{a.work.student.id}&amp;s=#{controlWorksAttemptsBean.semester}"><h:outputText value="#{a.work.student.initials}"/></h:outputLink></span></td>
+                        <td class="linkToTeachersProfile"> <h:outputLink value="groupControlWorks.xhtml?g=#{a.work.student.group.id}&amp;c=#{a.work.curriculum.id}&amp;s=#{controlWorksAttemptsBean.semester}"><h:outputText value="#{a.work.student.group.name} гр."/></h:outputLink>
+                        </td>
+                        <td>
+                            <est:readCwAttempt attempt="#{a}"/>
+                        </td>
+                        <td class="Ipsilon_Web_GreenText"> <h:outputText converter="enumConverter" value="#{a.work.progress}"/> <br/>   <h:outputText value="#{a.work.points}"/> баллов</td>
+                    </tr>
+
+                </ui:repeat>
             </table>
-       </div>
-       
-  </composite:implementation>
+        </div>
+
+    </composite:implementation>
 </html>

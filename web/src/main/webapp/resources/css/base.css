@@ -2232,3 +2232,35 @@ a.mainStyle .lightGreyText a:hover{
     color:#5BBF5D;
     margin-top: 10px;
 }
+/*ссылки сверху: группы, тесты, контрольные*/
+.mainStyle .DisciplineTextBig{
+    font-size: 10pt;
+    color: #27587F;
+    padding: 0px;
+    margin-top: 5px;
+    display: block;
+}
+/*главная страница*/
+.mainStyle .blocksMargins{
+    margin: 10px; margin-left: 15px;
+}
+.mainStyle .InfoAboutTeacher tr td{
+    height: 26px;
+}
+/*контрольные работы*/
+.mainStyle .controlWorkTable tr td{
+    padding: 3px 8px;
+    vertical-align: top;
+}
+.mainStyle .controlWorkTable tr td:nth-child(4),
+.mainStyle .controlWorkTable tr td:nth-child(5){
+    text-align: center;
+}
+.mainStyle .disciplineName a{
+    font-size: 11pt !important;
+}
+.mainStyle .disciplineName{
+    padding: 8px;
+    padding-bottom: 2px;
+    text-align: left;
+}
