@@ -10,7 +10,7 @@
         <f:viewParam name="id" value="#{testBean.testId}"/>
     </f:metadata>
     <ui:define name="contentHeader">
-        Прохождение теста -  "#{testBean.test[1].work.title}"
+        #{msgs.student_Test_PassTest} -  "#{testBean.test[1].work.title}"
     </ui:define>
 
     <ui:define name="content">
@@ -34,18 +34,18 @@
                     #{testBean.test[1].work.title}
                 </p>
                 <div style="float: right; margin-top: 4px;" class="greyLinks">
-                    <h:outputLink value="discipline.xhtml?c=#{testBean.curriculumId}" styleClass="navigationLinks backLinkPosition">вернуться к просмотру УМК</h:outputLink>
+                    <h:outputLink value="discipline.xhtml?c=#{testBean.curriculumId}" styleClass="navigationLinks backLinkPosition">#{msgs.student_Test_returnToUMK}</h:outputLink>
                 </div>
                 <div class="floatDestroyer"/>
             </div>
             <h:form id="mainForm">
                 <script type="text/javascript" src="../resources/scripts/test.js"></script>
                 <h:panelGroup rendered="#{not testBean.renderTestPassing}">
-                    <h:outputText rendered="#{testBean.accessDenied}" value="Не найден или не доступен" />
+                    <h:outputText rendered="#{testBean.accessDenied}" value="#{msgs.student_TestIsNotFoundOrNotAvail}" />
 
                     <tests:showPreInfo t="#{testBean.test}" test="#{testBean.test[1].work}" work="#{testBean.test[1]}"/>
                     <div class="linkToTeachersProfile testsMargins">
-                        <h:commandLink action="#{testBean.startTest}" rendered="#{not testBean.accessDenied}" >Начать тестирование
+                        <h:commandLink action="#{testBean.startTest}" rendered="#{not testBean.accessDenied}" >#{msgs.student_Test_beginTest}
                             <f:ajax render="@form" />
                         </h:commandLink>
                     </div>
@@ -85,7 +85,7 @@
 
                         <br/>
                         <div class="greyLinks">
-                            <a href="discipline.xhtml?c=#{testBean.curriculumId}"> Вернуться к курсу</a>
+                            <a href="discipline.xhtml?c=#{testBean.curriculumId}"> #{msgs.student_Test_returnToCourse}</a>
                         </div>
                         <br/>
                         <tests:showResult countQuestions="#{testPassingBean.countQuestions}" countRight="#{testPassingBean.countRight}" points="#{testPassingBean.points}"/>

@@ -8,14 +8,14 @@
     xmlns:edu="http://java.sun.com/jsf/composite/components/education"
     xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
     xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs">
-    <ui:define name="contentHeader">Список преподавателей</ui:define>
+    <ui:define name="contentHeader">#{msgs.student_teachersList}</ui:define>
     <ui:define name="content">
 
         <div class="StudentMainPageTitlesBorders" style="margin-left: 2%; width: 66%; float: left;">
 
             <div class="interfaceContentForMyMarks">
                 <div class="mainStudentPageTitles  mainStudentPageTitlesBlue">
-                    Мои преподаватели
+                    #{msgs.student_teachersOnlineMenuTitle}
                     <div style="float: right;">
                         <div>
                             <f:metadata>
@@ -48,7 +48,7 @@
         <div class="StudentMainPageTitlesBorders" style="width: 28%; margin-left: 70%">
             <div class="interfaceContentForMyMarks">
                 <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
-                    Подсказка
+                    #{msgs.student_marksHelp}
                 </div>
             </div>
             <div class="textForPodskazka">
