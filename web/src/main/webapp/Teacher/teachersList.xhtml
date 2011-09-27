@@ -4,13 +4,14 @@
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
     template="../resources/teacherTemplate.xhtml"
+    xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs"
     >
     <f:metadata>
         <f:viewParam name="page" value="#{NavigationBean.page}"/>
         <f:viewParam name="page" value="#{teacherListBean.page}"/>
     </f:metadata>
     <ui:define name="content">
-        <div class="StudentMainPageTitlesBorders">
+        <div class="StudentMainPageTitlesBorders" style="margin-left: 2%; width: 66%; float: left;">
             <div class="interfaceContentForMyMarks">
                 <div class="mainStudentPageTitles  mainStudentPageTitlesBlue">
                     Преподаватели
@@ -30,6 +31,16 @@
                     <ut:navigationList elementOnPage="#{teacherListBean.maxNumber}"
                                        numElements="#{teacherListBean.count}"/>
                 </div>
+            </div>
+        </div>
+        <div class="StudentMainPageTitlesBorders" style="width: 28%; margin-left: 70%">
+            <div class="interfaceContentForMyMarks">
+                <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
+                    Подсказка
+                </div>
+            </div>
+            <div class="textForPodskazka">
+                <tabs:singleTab alias="STUDENT_TEACHERS_LIST"/>
             </div>
         </div>
     </ui:define>

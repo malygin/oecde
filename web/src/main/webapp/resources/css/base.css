@@ -497,7 +497,9 @@ label{
     border-bottom: 1px solid silver;
 }
 .mainStyle .hiddenTestsResultsInnerTableRightBorder{
-    border-right: 1px solid silver !important;
+/*    border-right: 1px solid silver !important;*/
+    width: 12%;
+    color: #5BBF5D;
 }
 .mainStyle .studentStandatrTableTd table:nth-last-child(1) td{
     border: none;

@@ -5,6 +5,7 @@
     template="../resources/teacherTemplate.xhtml"
     xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
     xmlns:edu="http://java.sun.com/jsf/composite/components/education"
+    xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs"
     >
 
     <ui:define name="contentHeader">
@@ -44,6 +45,16 @@
                         </div>
                     </h:column>
                 </h:dataTable>
+            </div>
+        </div>
+       <div class="StudentMainPageTitlesBorders">
+            <div class="interfaceContentForMyMarks">
+                <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
+                    Подсказка
+                </div>
+            </div>
+            <div class="textForPodskazka">
+                <tabs:singleTab alias="TEACHER_GROUP_TEST_RESULTS"/>
             </div>
         </div>
     </ui:define>

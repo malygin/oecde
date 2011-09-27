@@ -5,12 +5,13 @@
     template="../resources/teacherTemplate.xhtml"
     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
     xmlns:r="http://java.sun.com/jsp/jstl/core"
+    xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs"
     >
     <ui:define name="contentHeader">
         #{msgs.admin_adminsOnlineMenuTitle}
     </ui:define>
     <ui:define name="content">
-        <div class="StudentMainPageTitlesBorders">
+        <div class="StudentMainPageTitlesBorders" style="margin-left: 2%; width: 66%; float: left;">
             <div class="interfaceContentForMyMarks">
                 <div class="mainStudentPageTitles  mainStudentPageTitlesBlue">
                     Администраторы
@@ -63,6 +64,17 @@
                     </h:dataTable>
                     <div class="floatDestroyer"/>
                 </div>
+            </div>
+        </div>
+        <div class="StudentMainPageTitlesBorders" style="width: 28%; margin-left: 70%">
+
+            <div class="interfaceContentForMyMarks">
+                <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
+                    Подсказка
+                </div>
+            </div>
+            <div class="textForPodskazka">
+                <tabs:singleTab alias="STUDENT_ADMINS_LIST"/>
             </div>
         </div>
     </ui:define>

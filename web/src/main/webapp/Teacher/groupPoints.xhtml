@@ -3,7 +3,8 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/teacherTemplate.xhtml"
-    xmlns:est="http://java.sun.com/jsf/composite/components/estimation">
+    xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
+     xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs">
 
     <ui:define name="contentHeader">
         #{msgs.teacher_groupInfo}
@@ -68,7 +69,7 @@
                             <!--                            <h:graphicImage value='../resources/images/resultTestsTable.png'/>-->
                             <span class="Ipsilon_Web_GreenText">Итоговые <br/>тесты</span>
                         </f:facet>
-                       <span> #{p.concludingTest}</span> <span style="color:#808080;">(#{p.concludingTestsMaxPoints})</span>
+                        <span> #{p.concludingTest}</span> <span style="color:#808080;">(#{p.concludingTestsMaxPoints})</span>
                     </h:column>
 
                     <h:column>
@@ -125,6 +126,16 @@
                 <h:outputText id="error" rendered="#{groupPoints.error}" value="#{msgs.teacher_errorMessage}"/>
                 <h:outputText id="saved" rendered="#{groupPoints.saved}" value="#{msgs.teacher_successSavingMessage}"/>
             </h:form>
+        </div>
+        <div class="StudentMainPageTitlesBorders">
+            <div class="interfaceContentForMyMarks">
+                <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
+                    Подсказка
+                </div>
+            </div>
+            <div class="textForPodskazka">
+                <tabs:singleTab alias="TEACHER_GROUP_MARKS"/>
+            </div>
         </div>
     </ui:define>
 </ui:composition>
