@@ -19,7 +19,7 @@
         <ui:define name="content">
               <c:set target="#{DiscussionBean}" property="objectType" value="news"/> 
            <h:outputLink value="news_list.xhtml"  styleClass="AdminNavigationLinks">
-                         назад к списку новостей
+                         #{msgs.student_newsBackToList}
              </h:outputLink>
             <div class="interfaceContent">
                 <news:read n="#{NewsBean.currentNewItem}"/>
@@ -31,7 +31,7 @@
                     <div class="studentInterfaceStandartList forumTopBlock">
                     
                         <div class="forumDiscriptionText">
-                           Комментарии:
+                           #{msgs.student_newsComments}
                         </div>
                         <div class="floatDestroyer"/>
                     </div>

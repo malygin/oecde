@@ -19,18 +19,18 @@
                     </p>
                     <div style="float: right; margin-top: 4px;" class="greyLinks">
                         <h:outputLink value="discipline.xhtml?id=#{testForTeacher.curriculumId}&amp;s=#{testForTeacher.semester}">#{msgs.teacher_backToUMK} <span style="color: #89C9F5; font-size: 10pt;">#{testForTeacher.curriculum.umk.name}</span></h:outputLink><br/>
-                        <h:outputText rendered="#{testForTeacher.accessDenied}" value="Не найден или не доступен" />
+                        <h:outputText rendered="#{testForTeacher.accessDenied}" value="#{msgs.student_TestIsNotFoundOrNotAvail}" />
                     </div>
                     <div class="floatDestroyer"/>
                 </div>
                     <h:form rendered="#{not testForTeacher.accessDenied}">
                     <table class="teacherTestEdit">
                         <tr>
-                            <td>длительность</td>
+                            <td>#{msgs.teacher_testEditLong}</td>
                             <td><h:inputText maxlength="3" size="3" value="#{testForTeacher.test.duration}" style="width: 37px;"/></td>
                         </tr>
                         <tr>
-                            <td>количество попыток в зачёт</td>
+                            <td>#{msgs.teacher_testEditAttemptToPass}</td>
                             <td>
                         <h:inputText maxlength="1" size="1" value="#{testForTeacher.test.estimateAttemptsNumber}" style="width: 37px;"/>
                         </td>
@@ -43,41 +43,41 @@
 
                         </tr>-->
                         <tr>
-                            <td>количество пробных попыток</td>
+                            <td>#{msgs.teacher_testEditTestAttempt}</td>
                             <td>
                         <h:inputText maxlength="1" size="1" value="#{testForTeacher.test.trialNumber}" style="width: 37px;"/></td>
                         </tr>
                         <tr>
-                            <td>тип</td>
+                            <td>#{msgs.teacher_testEditType}</td>
                             <td>
                         <h:outputText converter="enumConverter" value="#{testForTeacher.test.type}" /></td>
                         </tr>
                         <tr>
-                            <td>способ оценивания</td>
+                            <td>#{msgs.teacher_testEditWayOfEstimation}</td>
                             <td><h:selectOneMenu id="estimationType" value="#{testForTeacher.test.estimation}">
                             <f:selectItems value="#{testForTeacher.estimation}" />
                         </h:selectOneMenu></td>
                         </tr>
                         <tr>
-                            <td>дата закрытия</td>
+                            <td>#{msgs.teacher_testEditToClose}</td>
                             <td><util:date_picker value="#{testForTeacher.test.closeDate}"/></td>
                         </tr>
                         <tr>
-                            <td>дата открытия</td>
+                            <td>#{msgs.teacher_testEditToOpen}</td>
                             <td><util:date_picker value="#{testForTeacher.test.openDate}"/></td>
                         </tr>
                         <tr>
-                            <td>количество выводимых вопросов</td>
+                            <td>#{msgs.teacher_testEditQuestionsToSee}</td>
                             <td>
                         <h:inputText maxlength="3" size="3" value="#{testForTeacher.test.quantity}" style="width: 37px;"/></td>
                         </tr>
                         <tr>
-                            <td>перемешиваются ли вопросы </td>
+                            <td>#{msgs.teacher_testEditMixQuestions} </td>
                             <td>
                         <h:selectBooleanCheckbox  value="#{testForTeacher.test.shuffle}"/></td>
                         </tr>
                         <tr>
-                            <td>записывается ли прохождение</td>
+                            <td>#{msgs.teacher_testEditRightPass}</td>
                             <td>
                         <h:selectBooleanCheckbox  value="#{testForTeacher.test.writable}"/></td>
                         </tr>

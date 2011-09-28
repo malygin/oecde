@@ -11,7 +11,7 @@
                 <p class="floatLeft mainStudentPageTitles skyBlueText"> #{teacherCurriculumBean.curriculum.umk.name}</p>
                 <div>
                     <div class="backLink greyLinks" style="width: 28%;">
-                        <div style="float: left;"><h:outputLink value="curriculums.xhtml?s=#{teacherCurriculumBean.semester}" style="margin-right: 14px;"><h:outputText value="вернуться к учебному плану" /></h:outputLink></div>
+                        <div style="float: left;"><h:outputLink value="curriculums.xhtml?s=#{teacherCurriculumBean.semester}" style="margin-right: 14px;"><h:outputText value="#{msgs.teacher_backToCurriculums}" /></h:outputLink></div>
                         <div><a href="#toTests">#{msgs.student_ToTests}</a></div>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
             <div>
                 <a name="toTests">
                     <div class="toTestLink mainStudentPageTitles  mainStudentPageTitlesGreen">
-                        Тесты по курсу
+                        #{msgs.student_disciplineTestUMK}
                     </div>
                 </a>
                 <div style="text-align: left;">

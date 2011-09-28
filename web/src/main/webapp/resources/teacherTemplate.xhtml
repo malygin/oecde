@@ -58,13 +58,13 @@
                 </h:dataTable>
             </div>
         </h:form>
-        <div class="modulsTitles"><p class="sideBarTitle">Общение</p></div>
+        <div class="modulsTitles"><p class="sideBarTitle">#{msgs.student_comMenuTitle}</p></div>
         <ol class="leftSideMenuLinks leftSideList">
             <li>
-                <a href="teachersList.xhtml">Преподаватели</a>
+                <a href="teachersList.xhtml">#{msgs.student_comMenuTeachers}</a>
             </li>
             <li>
-                <a href="adminsList.xhtml">Администраторы</a>
+                <a href="adminsList.xhtml">#{msgs.student_templateAdmins}</a>
             </li>
             <li><a href="forum.xhtml?type=teachfaq">#{msgs.student_comMenuForumTech}</a></li>
             <li><a href="forum.xhtml?type=teachorg">#{msgs.student_comMenuForumOrg}</a></li>
@@ -111,7 +111,7 @@
             <li class="StudentMainPageExit" style="border: 0px; float: right">
 
             <sec:ifAnyGranted roles="ROLE_PREVIOUS_ADMINISTRATOR">
-                <h:outputLink value="../Admin/exit_user" >Назад</h:outputLink>
+                <h:outputLink value="../Admin/exit_user" >#{msgs.admin_back}</h:outputLink>
             </sec:ifAnyGranted>
             <sec:ifNotGranted roles="ROLE_PREVIOUS_ADMINISTRATOR">
                 <h:outputLink value="../j_spring_security_logout" >#{msgs.student_topMenuExit}</h:outputLink>
