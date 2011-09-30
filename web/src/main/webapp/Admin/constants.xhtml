@@ -5,93 +5,97 @@
     xmlns:util="http://java.sun.com/jsf/composite/components/util"
     template="../resources/adminTemplate.xhtml"
     >
-     <ui:define name="contentHeader">
-       #{msgs.admin_topMenuPortalSettings}
+    <ui:define name="contentHeader">
+        #{msgs.admin_topMenuPortalSettings}
     </ui:define>
     <ui:define name="content">
-        <h:form>
-            <table class="DataTests">
-                <tr>
-                    
-                    <td><util:date_picker value="#{calendarConstantsBean.controlWorksBeginDate}"/></td>
+        <div class="StudentMainPageTitlesBorders blocksMargins">
+            <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">#{msgs.admin_topMenuPortalSettings}
+            </div>
+            <h:form>
+                <table class="DataTests blocksPaddings">
+                    <tr>
+
+                        <td><util:date_picker value="#{calendarConstantsBean.controlWorksBeginDate}"/></td>
                     <td>#{msgs.admin_mainContentDateOpenSentControlWorks}</td>
-                </tr>
-                <tr class="marginsDateBlocksPortalSettings">
-                    
-                    <td><util:date_picker value="#{calendarConstantsBean.controlWorksEndDate}"/></td>
+                    </tr>
+                    <tr class="marginsDateBlocksPortalSettings">
+
+                        <td><util:date_picker value="#{calendarConstantsBean.controlWorksEndDate}"/></td>
                     <td>#{msgs.admin_mainContentDateCloseSentControlWorks}</td>
-                 </tr>
-                <tr>
-                    
-                    <td><util:date_picker value="#{calendarConstantsBean.regularTestBeginDate}"/></td>
+                    </tr>
+                    <tr>
+
+                        <td><util:date_picker value="#{calendarConstantsBean.regularTestBeginDate}"/></td>
                     <td>#{msgs.admin_mainContentDateBeginTests}</td>
-                </tr>
-                <tr>
-                    
-                    <td><util:date_picker value="#{calendarConstantsBean.regularTestEndDate}"/></td>
+                    </tr>
+                    <tr>
+
+                        <td><util:date_picker value="#{calendarConstantsBean.regularTestEndDate}"/></td>
                     <td>#{msgs.admin_mainContentDateEndTests}</td>
-               </tr>
-                <tr class="marginsDateBlocksPortalSettings">
-                    
-                    <td><util:date_picker value="#{calendarConstantsBean.simpleSpecialitiesTestsClosing}"/></td>
+                    </tr>
+                    <tr class="marginsDateBlocksPortalSettings">
+
+                        <td><util:date_picker value="#{calendarConstantsBean.simpleSpecialitiesTestsClosing}"/></td>
                     <td>#{msgs.admin_mainContentDateEndTestsUsualSpeciality}</td>
-               </tr>
-                <tr>
-                     
-                    <td><util:date_picker value="#{calendarConstantsBean.concludingTestBeginDate}"/></td>
+                    </tr>
+                    <tr>
+
+                        <td><util:date_picker value="#{calendarConstantsBean.concludingTestBeginDate}"/></td>
                     <td>#{msgs.admin_mainContentDateBeginFinalTests}</td>
-               </tr>
-                <tr class="marginsDateBlocksPortalSettings">
-                    
-                    <td><util:date_picker value="#{calendarConstantsBean.concludingTestEndDate}"/></td>
+                    </tr>
+                    <tr class="marginsDateBlocksPortalSettings">
+
+                        <td><util:date_picker value="#{calendarConstantsBean.concludingTestEndDate}"/></td>
                     <td>#{msgs.admin_mainContentDateEndFinalTests}</td>
-              </tr>
-                <tr>
-                    
-                    <td><util:date_picker value="#{calendarConstantsBean.reExameBeginDate}"/></td>
-                     <td>#{msgs.admin_mainContentDateBeginReexamination}</td>
-              </tr>
-                <tr class="marginsDateBlocksPortalSettings">
-                    
-                    <td><util:date_picker value="#{calendarConstantsBean.reExameEndDate}"/></td>
+                    </tr>
+                    <tr>
+
+                        <td><util:date_picker value="#{calendarConstantsBean.reExameBeginDate}"/></td>
+                    <td>#{msgs.admin_mainContentDateBeginReexamination}</td>
+                    </tr>
+                    <tr class="marginsDateBlocksPortalSettings">
+
+                        <td><util:date_picker value="#{calendarConstantsBean.reExameEndDate}"/></td>
                     <td>#{msgs.admin_mainContentDateEndReexamination}</td>
-             </tr>
-                <tr>
-                     
-                    <td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.summerRegularTestReExameAttemtpsCount}"/></td>
+                    </tr>
+                    <tr>
+
+                        <td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.summerRegularTestReExameAttemtpsCount}"/></td>
                     <td>#{msgs.admin_mainContentNumberReexaminationsForSummerTests}</td>
-                </tr>
-                <tr>
-                     
-                    <td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.summerConcludingTestReExameAttemtpsCount}"/></td>
+                    </tr>
+                    <tr>
+
+                        <td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.summerConcludingTestReExameAttemtpsCount}"/></td>
                     <td>#{msgs.admin_mainContentNumberReexaminationsForSummerFinalTests}</td>
-                </tr>
-                <tr>
-                    
-                    <td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.winterRegularTestReExameAttemtpsCount}"/></td>
+                    </tr>
+                    <tr>
+
+                        <td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.winterRegularTestReExameAttemtpsCount}"/></td>
                     <td>#{msgs.admin_mainContentNumberReexaminationsForWinterTests}</td>
-                </tr>
-                <tr class="marginsDateBlocksPortalSettings">
-                      
-                    <td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.winterConcludingTestReExameAttemtpsCount}"/></td>
-                     <td>#{msgs.admin_mainContentNumberReexaminationsForWinterFinalTests}</td>
-                </tr>
-                <tr class="marginsDateBlocksPortalSettings">
-                     
-                    <td><h:inputText maxlength="4" size="4" value="#{calendarConstantsBean.year}"/></td>
+                    </tr>
+                    <tr class="marginsDateBlocksPortalSettings">
+
+                        <td><h:inputText maxlength="1" size="1" value="#{calendarConstantsBean.winterConcludingTestReExameAttemtpsCount}"/></td>
+                    <td>#{msgs.admin_mainContentNumberReexaminationsForWinterFinalTests}</td>
+                    </tr>
+                    <tr class="marginsDateBlocksPortalSettings">
+
+                        <td><h:inputText maxlength="4" size="4" value="#{calendarConstantsBean.year}"/></td>
                     <td>#{msgs.admin_mainContentYear}</td>
-                </tr>
-                <tr>
-                    
-                    <td><h:selectBooleanCheckbox  value="#{calendarConstantsBean.semester}"/></td>
+                    </tr>
+                    <tr>
+
+                        <td><h:selectBooleanCheckbox  value="#{calendarConstantsBean.semester}"/></td>
                     <td>#{msgs.admin_mainContentWinterSemester}</td>
-                </tr>
-                <tr><td><h:commandButton value="ОК" styleClass="studentButton" style="width: 70px;">
-                    <f:ajax execute="@form" render="@form error saved" listener="#{calendarConstantsBean.save}"/>
-                </h:commandButton></td>
-                <td><h:outputText id="error" rendered="#{calendarConstantsBean.error}" value="ERROR"/>
-                <h:outputText id="saved" rendered="#{calendarConstantsBean.saved}" value="saved"/></td></tr>
-            </table>
-        </h:form>
+                    </tr>
+                    <tr><td><h:commandButton value="ОК" styleClass="studentButton" style="width: 70px;">
+                        <f:ajax execute="@form" render="@form error saved" listener="#{calendarConstantsBean.save}"/>
+                    </h:commandButton></td>
+                    <td><h:outputText id="error" rendered="#{calendarConstantsBean.error}" value="ERROR"/>
+                    <h:outputText id="saved" rendered="#{calendarConstantsBean.saved}" value="saved"/></td></tr>
+                </table>
+            </h:form>
+        </div>
     </ui:define>
 </ui:composition>

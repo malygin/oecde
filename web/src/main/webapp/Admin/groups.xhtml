@@ -1,41 +1,59 @@
-    <ui:composition
-         xmlns:ui="http://java.sun.com/jsf/facelets"
-         xmlns:f="http://java.sun.com/jsf/core"
-         xmlns:h="http://java.sun.com/jsf/html"
-         template="../resources/adminTemplate.xhtml">
-         <ui:define name="contentHeader">
-          Группы
-        </ui:define>
-        <ui:define name="content">
-            группы за #{citiesAndGroups.year}
-            <div class="interfaceContent">
-                <h:dataTable id="table" value="#{citiesAndGroups.cities}" var="w" styleClass="StudentBorderInfo  centerTextInTables" cellspacing="0" cellpadding="0" style="width: 100%;"
-                              columnClasses="StudentBorderInfoTd,">
-                <h:column>
-                    <f:facet name="header">
-                     <h:outputText value="Город" styleClass="DisciplineText"/>
-                    </f:facet>
-                    <h:outputText value="#{w.key.name}" styleClass="townsInTableGroups"/>
-                </h:column>
-
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Группы" styleClass="DisciplineText"/>
-                    </f:facet>
-                    <h:dataTable value="#{w.value}" var="s" cellspacing="0" cellpadding="0" border="0" styleClass="StudentBorderInfoTableCity" style="width: 100%;">
-                        <h:column>
-                            <h:outputText value="#{s.key.name}"/>
-                        </h:column>
-                        <h:column>
-                            <h:dataTable  value="#{s.value}" var="g" cellspacing="0" cellpadding="0" styleClass="StudentBorderInfoTableNumberGroup" style="width: 30px;">
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/adminTemplate.xhtml"
+    xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <ui:define name="content">
+        <div class="interfaceContent">
+            <div class="StudentMainPageTitlesBorders blocksMargins">
+                <div class="mainStudentPageTitles mainStudentPageTitlesBlue">
+                    группы за #{citiesAndGroups.year}
+                </div>
+                <h:dataTable id="table" value="#{citiesAndGroups.cities}" var="w" styleClass="leftMenuContainer" style="width: 100%;">
+                    <h:column>
+                        <h:outputText value="#{w.key.name}" styleClass="darkBlueText studentPaddLeft" style="font-size: 11pt !important;"/>
+                        <div class="materialInfo">
+                            <h:dataTable value="#{w.value}" var="s" cellspacing="0" cellpadding="0" border="0" style="margin: 10px;">
                                 <h:column>
-                                    <h:outputLink value="group.xhtml?id=#{g.id}">#{g.name}</h:outputLink>
+                                    <h:outputText value="#{s.key.name}"/>
+                                    <ui:repeat value="#{s.value}" var="g">
+                                        <h:outputLink value="group.xhtml?id=#{g.id}" style="margin: 6px; color: #5BBF5D;">#{g.name}</h:outputLink>
+                                    </ui:repeat>
                                 </h:column>
                             </h:dataTable>
-                        </h:column>
-                    </h:dataTable>
-                </h:column>
-               </h:dataTable>
+                        </div>
+                    </h:column>
+                </h:dataTable>
+
+                <h:dataTable id="table" value="#{citiesAndGroups.cities}" var="w" styleClass="StudentBorderInfo  centerTextInTables" cellspacing="0" cellpadding="0"
+                             columnClasses="StudentBorderInfoTd," style="display: none;">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Город" styleClass="Ipsilon_Web_GreenText"/>
+                        </f:facet>
+                        <h:outputText value="#{w.key.name}" styleClass="townsInTableGroups"/>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Группы" styleClass="Ipsilon_Web_GreenText"/>
+                        </f:facet>
+                        <h:dataTable value="#{w.value}" var="s" cellspacing="0" cellpadding="0" border="0" styleClass="StudentBorderInfoTableCity linkToStudentsProfile" style="width: 100%;">
+                            <h:column>
+                                <h:outputText value="#{s.key.name}"/>
+                            </h:column>
+                            <h:column>
+                                <h:dataTable  value="#{s.value}" var="g" cellspacing="0" cellpadding="0" styleClass="StudentBorderInfoTableNumberGroup" style="width: 30px;">
+                                    <h:column>
+                                        <h:outputLink value="group.xhtml?id=#{g.id}">#{g.name}</h:outputLink>
+                                    </h:column>
+                                </h:dataTable>
+                            </h:column>
+                        </h:dataTable>
+                    </h:column>
+                </h:dataTable>
             </div>
-        </ui:define>
-    </ui:composition>
+        </div>
+    </ui:define>
+</ui:composition>

@@ -9,63 +9,69 @@
             <f:metadata>
                 <f:viewParam name="id" value="#{tabEditBean.id}"/>
             </f:metadata>
-            <h:form id="edit">
-                <br/>
-                <div class="includeName">
-                <span  class="AdminTextGrey">
-                #{msgs.admin_mainContentInsertName}
-                </span>
-                <h:inputText id="tabName" value="#{tabEditBean.tab.name}"/>
-                порядок <h:inputText size="4" value="#{tabEditBean.tab.orderTab}"/>
-                псевдоним <h:inputText value="#{tabEditBean.tab.alias}"/><br/>
+            <div class="StudentMainPageTitlesBorders">
+                <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
+                    <p class="floatLeft mainStudentPageTitles Ipsilon_Web_GreenText" style="width: 70%; padding: 0;">
+                        Редактирование вкладки
+                    </p>
+                    <div style="float: right;" class="greyLinks">
+                        <h:outputLink value="tabsView.xhtml?type=#{tabEditBean.tab.type}" styleClass="margFromBackground">назад без изменений</h:outputLink>
+                    </div>
+                    <div class="floatDestroyer"></div>
                 </div>
-                <div>              
-               
-                </div>
-                <div style="margin-top: 10px;">
-                    <div class="AdminNavigationLinksBold includeName"><span class="return_to_list"><h:outputLink value="tabsView.xhtml?type=#{tabEditBean.tab.type}" styleClass="margFromBackground"> к списку</h:outputLink></span></div>                
-                </div>
-                <h:dataTable styleClass="studentStandatrTable" columnClasses="studentStandatrTableTd,studentStandatrTableTd,studentStandatrTableTd studentStandatrTableExamin,studentStandatrTableTdLastTd studentStandatrTableExamin" cellpadding="0" cellspacing="0"  id="pages" value="#{tabEditBean.tab.pages}" var="p">
-                    <h:column>
-                        <f:facet name="header">
-                           #{msgs.admin_mainContentPageTitle_}
-                        </f:facet>
-                        <h:outputText id="pName" value="#{p.title}" styleClass="AdminInfo" style="margin-left: 10px;"/> порядок(#{p.orderPage})
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            #{msgs.admin_mainContentPageSeeOrNot_}
-                        </f:facet>
-                        <h:outputText id="visibility" rendered="#{p.visible}" value="#{msgs.admin_mainContentYes}"/>
-                    </h:column>
-                    <h:column>
-                        <span class="AdminNavigationLinks"  style="text-align: center;">
-                            <h:outputLink value="tabEditPage.xhtml?id=#{tabEditBean.tab.id}&amp;p=#{p.id}">#{msgs.admin_mainContentEdit}</h:outputLink>
-                        </span>
-                    </h:column>
-                    <h:column>
-                        <span class="navigationLinksRed" style="text-align: center;">
-                            <h:commandLink id="delete" value="#{msgs.message_delete}">
-                                <f:attribute name="page" value="#{p}"/>
-                                <f:ajax render=":edit" listener="#{tabEditBean.deletePage}"/>
+                <h:form id="edit">
+                    <br/>
+                    <table class="redactPages">
+                        <tr>
+                            <td>
+                                <span  class="AdminTextGrey">
+                                    #{msgs.admin_mainContentInsertTitle}
+                                </span>
+                        <h:inputText id="tabName" value="#{tabEditBean.tab.name}" style="width: 200px;"/>
+                        </td>
+                        <td>
+                            Порядок
+                        <h:inputText size="4" value="#{tabEditBean.tab.orderTab}"/>
+                        </td>
+                        <td>
+                            Псевдоним
+                        <h:inputText value="#{tabEditBean.tab.alias}"/>
+                        </td>
+                        </tr>
+                    </table>
+                    <div class="interfaceContent blocksPaddings">
+                        <div class="Ipsilon_Web_GreenText" style="font-size: 11pt;">
+                            #{msgs.admin_mainContentExistedPages}
+                        </div>
+                        <h:dataTable cellpadding="0" cellspacing="0"  id="pages" value="#{tabEditBean.tab.pages}" var="p" styleClass="blocksPaddings" width="100%">
+                            <h:column>
+                                <div style="float: left;">
+                                    <h:outputLink value="tabEditPage.xhtml?id=#{tabEditBean.tab.id}&amp;p=#{p.id}" style="margin-right: 5px; text-decoration: none;">
+                                        <img src="../resources/images/redact_umk.png"/>
+                                    </h:outputLink>
+                                    <h:commandLink id="delete" style="margin-right: 5px; text-decoration: none;">
+                                        <img src="../resources/images/delete_news.png"/>
+                                        <f:attribute name="page" value="#{p}"/>
+                                        <f:ajax render=":edit" listener="#{tabEditBean.deletePage}"/>
+                                    </h:commandLink>
+                                </div>
+                                <div>
+                                    <h:outputText id="pName" value="#{p.title}" styleClass="AdminInfo"/> - порядок #{p.orderPage}
+                                    <div style="margin-bottom: 10px;"> #{msgs.admin_mainContentPageSeeOrNot_}
+                                        <h:outputText id="visibility" rendered="#{p.visible}" value="#{msgs.admin_mainContentYes}" styleClass="Ipsilon_Web_GreenText"/>
+                                    </div>
+                                </div>
+                            </h:column>
+                        </h:dataTable>
+                        <span class="blocksPaddings">
+                            <h:commandLink id="updt" value="#{msgs.admin_mainContentSave}" styleClass="margFromBackground">
+                                <f:ajax execute="@form" render="@form" event="click" listener="#{tabEditBean.updateTab}"/>
                             </h:commandLink>
                         </span>
-                    </h:column>
-                </h:dataTable>
-                <div style="text-align: center; padding-top: 5px;">
-                <span class="AdminNavigationLinksBold saveChanges">
-                    <h:commandLink id="updt" value="#{msgs.admin_mainContentSave}" styleClass="margFromBackground">
-                        <f:ajax execute="@form" render="@form" event="click" listener="#{tabEditBean.updateTab}"/>
-                    </h:commandLink>
-                </span>
-                </div>
-            </h:form>
-            <br/>
-            <hr/>
-            <br/>
-            <span class="AdminNavigationLinksBold add_page">
-                <h:outputLink value="tabEditPage.xhtml?id=#{tabEditBean.tab.id}" styleClass="margFromBackground">#{msgs.admin_mainContentAddPage}</h:outputLink>
-            </span>
+                        <h:outputLink value="tabEditPage.xhtml?id=#{tabEditBean.tab.id}" styleClass="margFromBackground">#{msgs.admin_mainContentAddPage}</h:outputLink>
+                    </div>
+                </h:form>
+            </div>
         </div>
     </ui:define>
 </ui:composition>

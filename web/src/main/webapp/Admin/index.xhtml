@@ -4,21 +4,75 @@
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/adminTemplate.xhtml"
     xmlns:j="http://java.sun.com/jsf/composite/components/journal"
-    xmlns:news="http://java.sun.com/jsf/composite/components/news">
+    xmlns:news="http://java.sun.com/jsf/composite/components/news"
+    xmlns:ut="http://java.sun.com/jsf/composite/components/util">
 
-     <ui:define name="contentHeader">
+    <ui:define name="contentHeader">
         #{msgs.student_index}
-       
+
     </ui:define>
 
     <ui:define name="content">
-         <div class="adminName">#{adminSessionBean.admin.surname} #{adminSessionBean.admin.name} #{adminSessionBean.admin.secondName}
-       </div>
         <f:metadata>
             <f:viewParam name="page" value="#{journalBean.pageNumber}"/>
             <f:viewParam name="page" value="#{NavigationBean.page}"/>
         </f:metadata>
-        <news:shortList numberNews="3"/>        
-        <j:output type="adminEvents"/>
+        <div style="width: 45%" class="floatLeft">
+            <div class="StudentMainPageTitlesBorders blocksMargins">
+                <div class="mainStudentPageTitles mainStudentPageTitlesBlue">#{msgs.student_studentInfo}
+                </div>
+                <table class="leftMenuContainer blocksPaddings BorderNone MainInfo" style="width: 100%">
+                    <tr>
+                        <td>
+                            <p>
+                                #{msgs.teacher_mainContentUserInfoPost}
+                            </p>
+                        </td>
+                        <td><p>#{cc.attrs.u.position}</p></td>
+                        <td rowspan="8">
+                            <div style="text-align: center;">
+                                <ut:showPhoto user="#{adminSessionBean.admin}" size="medium"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                #{msgs.student_description}:
+                            </p>
+                        </td>
+                        <td><p></p></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                #{msgs.student_studentContact}
+                            </p>
+                        </td>
+                        <td><p>#{cc.attrs.u.description}</p></td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="StudentMainPageTitlesBorders blocksMargins">
+                <news:shortList numberNews="3"/>
+            </div>
+            <div class="StudentMainPageTitlesBorders blocksMargins">
+                <div class="mainStudentPageTitles mainStudentPageTitlesOrange">#{msgs.admin_AdminChat}
+                    <div style="float: right;"><a href="chat.xhtml" title="история чата" class="chatHistory"></a>
+                    </div>
+                    <div class="floatDestroyer"/>
+                </div>
+                <div id="chatShortHistory2" class="chatShortHistory">
+                </div>
+                <div class="smallChatTools">
+                    <input id="message2" style="width: 90%;"/><button id="button2" style="height: 19px;">#{msgs.student_chatOk}</button>
+                    <div style="height:18px;"></div>
+                </div>
+            </div>
+        </div>
+        <div style="width: 50%; float: right;" class="StudentMainPageTitlesBorders blocksMargins">
+            <j:output type="adminEvents"/>
+        </div>
     </ui:define>
 </ui:composition>

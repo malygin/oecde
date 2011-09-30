@@ -214,40 +214,7 @@
 .mainStyle .pageEditTable td{
     text-align: center !important;
 }
-/*настройки портала*/
-.DataTests td:nth-child(2){
-      color: #6F6F6F;
-    display: block;
-    margin-left: 10px;
 
-
-}
-.DataTests td:nth-child(1){
-
-    display: block;
-    float: left;
-    margin-left: 10px;
-    margin-right: 20px;
-}
-.DataTests input{
-    width: 35px;
-    text-align: center !important;
-}
-.DataTestsRedact td:nth-child(2){
-      color: #6F6F6F;
-    margin-left: 10px;
-}
-.DataTestsRedact td:nth-child(1){
-
-    display: block;
-    float: left;
-    margin-left: 10px;
-    margin-right: 20px;
-}
-.DataTestsRedact input{
-    text-align: center !important;
-    min-width: 50px;
-}
 /*форум*/
 .mainStyle .marginsDateBlocksPortalSettings{
     display: block;
@@ -273,19 +240,9 @@ float: left; margin-right: 10px;
     display: block;
     margin-top: 10px;
 }
-.mainStyle .searchButtonPosition{
-    width: 70px;
-    height: 20px;
-    margin-top: 0;
-    margin-left: 10px;
-    text-align: center !important;
-}
+
 /*pictures*/
 
-.mainStyle .saveChanges{
-    background: url('../resources/images/save.gif') no-repeat 0 0;
-    padding-left: 17px;
-}
 .mainStyle .return_to_list{
     background: url('../resources/images/return_to_list.gif') no-repeat 0 0;
     padding-left: 17px;

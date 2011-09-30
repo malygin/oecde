@@ -87,16 +87,16 @@
                 </h:panelGroup>
             </table>
             <table style="width: 65%;">
-                <tr>
-                    <td class="greyLinks" style="height: 30px;">
+                <tr class="greyLinks">
+                    <td style="height: 30px;">
                       <a class="s1" href="messages_write.xhtml?user=${cc.attrs.u.id}">#{msgs.student_studentListWriteMessage}</a>
                     </td>
-                    <td class="greyLinks" style="height: 30px;">
+                    <td style="height: 30px;">
                       <span class="s2" ><a href="messages_dialog.xhtml?user=${cc.attrs.u.id}">#{msgs.student_studentLestShowDialog}</a></span>
                     </td>
                     
                     <sec:ifAnyGranted roles="ROLE_ADMIN">
-                        <td colspan="2" class="controlWorksDisciplineNameLinkGrey enterPic">
+                        <td colspan="2">
                           <h:outputLink value="switch_user?j_username=#{cc.attrs.u.username}" >#{msgs.user_ComeIn}</h:outputLink>
                        </td>
                    </sec:ifAnyGranted>

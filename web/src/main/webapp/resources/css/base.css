@@ -151,7 +151,7 @@ label{
     margin-left: 80%;
     margin-right:  -1px;
 }
-.mainStyle input, .mainStyle textarea{
+.mainStyle input, .mainStyle textarea, .mainStyle select{
     border: 1px solid #D1E0EF;
 }
 @-moz-document url-prefix(){
@@ -327,17 +327,7 @@ label{
 .mainStyle .floatLeft{
     float: left;
 }
-
-
-
-
 /*левая и правая панели для всех пользователей*/
-/*.mainStyle .blueMenuTitle{
-    width: 100%;
-    height: 19px;
-    padding-top: 10px;
-    background: url("../resources/images/blueMenuTitle.png") repeat-x bottom;
-}*/
 .mainStyle .sideBarTitle{
     padding-top: 2px;
     text-align: left;
@@ -350,18 +340,6 @@ label{
     padding-bottom: 5px;
     padding-top: 10px;
 }
-/*.mainStyle .greenMenuTitle{
-    width: 100%;
-    height: 19px;
-    padding-top: 10px;
-    background: url("../resources/images/greenMenuTitle.png") repeat-x bottom;
-}*/
-/*.mainStyle .violMenuTitle{
-    width: 100%;
-    height: 19px;
-    padding-top: 10px;
-    background: url("../resources/images/violMenuTitle.png") repeat-x bottom;
-}*/
 .mainStyle .leftSideList li{
     list-style-image: url('../resources/images/markerListMainPage.png');
 }
@@ -497,7 +475,7 @@ label{
     border-bottom: 1px solid silver;
 }
 .mainStyle .hiddenTestsResultsInnerTableRightBorder{
-/*    border-right: 1px solid silver !important;*/
+    /*    border-right: 1px solid silver !important;*/
     width: 12%;
     color: #5BBF5D;
 }
@@ -788,14 +766,14 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 }
 
 .mainStyle .StudentBorderInfo th{
-    border-bottom: 1px solid #CFCFCF;
+    border-bottom: 1px solid #5BBF5D;
 }
 .mainStyle .StudentBorderInfo th:nth-child(1){
     height: 30px;
 }
 .mainStyle .StudentBorderInfo th:nth-child(2){
-    border-bottom: 1px solid #CFCFCF;
-    border-left: 1px solid #CFCFCF;
+    border-bottom: 1px solid #5BBF5D;
+    border-left: 1px solid #5BBF5D;
 }
 .mainStyle .StudentBorderInfoTd span, .centerTextInTables th span{
     text-align: center !important;
@@ -1016,6 +994,10 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     text-align: left;
     overflow-y: scroll;
 }
+.mainStyle .chatHistory{
+    background: url('../resources/images/chat_history.png') no-repeat; padding-left: 20px;
+}
+
 .mainStyle .smallChatTools{
     padding: 5px;
 }
@@ -1197,6 +1179,13 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     color: #3491C8;
     padding-top: 5px;
     font-size: 12pt;
+}
+.mainStyle .onlineStatus{
+    float: right;
+    padding: 10px 15px 5px 0px;
+    color: white;
+    text-decoration: underline;
+    font-family: Arial;
 }
 .mainStyle .hiddenUsersOnlineTableContainer{
     text-align: center;
@@ -1879,6 +1868,47 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     width: 190px;
 }
 
+.mainStyle .DataTests td:nth-child(2){
+    color: #6F6F6F;
+    display: block;
+    margin-left: 10px;
+
+
+}
+.mainStyle .DataTests td:nth-child(1){
+
+    display: block;
+    float: left;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+.mainStyle .DataTests input{
+    width: 35px;
+    text-align: center !important;
+}
+.mainStyle .DataTestsRedact td:nth-child(2){
+    color: #6F6F6F;
+    margin-left: 10px;
+}
+.mainStyle .DataTestsRedact td:nth-child(1){
+
+    display: block;
+    float: left;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+.mainStyle .DataTestsRedact input{
+    text-align: center !important;
+    min-width: 50px;
+}
+/*настройки*/
+.mainStyle .adminSettings td{
+    padding-bottom: 8px;
+}
+.mainStyle .adminSettings textarea{
+    border: 1px solid #838383;
+    width: 250px;
+}
 /*новости*/
 .mainStyle .previewColor{
     color: #6F6F6F;
@@ -1949,26 +1979,33 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     margin-top: -10px;
 }
 /*списки юзеров*/
-.mainStyle .enterPic{
+/*.mainStyle .enterPic{
     vertical-align: bottom !important;
     background: url('../resources/images/enter.gif') no-repeat bottom;
     padding-left: 35px;
-}
-/*.mainStyle .enterPic a{
-    float: right;
 }*/
 .mainStyle .searchBorders{
-    border-top: 1px solid #E3F1FC;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
     margin-top: 5px;
 }
 /*поиск*/
 .mainStyle .Search td{
     width: 400px;
 }
-
+.mainStyle .searchBlock{
+    padding: 10px;
+}
+/*.mainStyle .searchBlock td{
+    padding-right: 10px;
+}*/
+.mainStyle .searchButtonPosition{
+    width: 70px;
+    margin-top: 0;
+    margin-left: 10px;
+    text-align: center !important;
+}
 /*стили для иконок в меню по бокам*/
-.mainStyle .iconInMenu2{
+/*.mainStyle .iconInMenu2{
     margin-right: 3px;
     margin-bottom: -7px;
     margin-top: 10px;
@@ -1977,8 +2014,8 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     margin-right: 3px;
     float:left;
     height: 24px;
-}
-.mainStyle .iconMenu li{
+}*/
+/*.mainStyle .iconMenu li{
     margin-top:10px;
     padding-bottom:10px;
 }
@@ -1987,7 +2024,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     display: table-cell;
     width: 159px;
     vertical-align: middle;
-}
+}*/
 ul.dropdown {
     list-style: none;
     margin-left: 15px;
@@ -2225,6 +2262,25 @@ a.mainStyle .lightGreyText a:hover{
 .NewsInfo{ margin: 10px 20px;}
 .NewsInfo div{margin: 3px 0px;}
 
+/*мои изучаемые материалы*/
+.mainStyle .materialInfo{
+    margin-left: 25px;
+}
+.materialInfo p{
+    padding-bottom: 5px;
+    padding-left: 17px;
+}
+.materialInfo span{
+    color: #64D359;
+    /*font-weight: bolder;*/
+}
+.mainStyle .studentPaddLeft{
+    padding-left: 10px;
+}
+.mainStyle .news_edit{
+    background: url('../resources/images/redact_umk.png') no-repeat 0 0;
+    padding-left: 17px;
+}
 /*стили для расписания конференций*/
 .mainStyle .tableForShedule tr td:nth-child(3){
     text-align: center;
@@ -2246,8 +2302,18 @@ a.mainStyle .lightGreyText a:hover{
 .mainStyle .blocksMargins{
     margin: 10px; margin-left: 15px;
 }
+.mainStyle .blocksPaddings{
+    padding: 10px; padding-left: 15px;
+}
 .mainStyle .InfoAboutTeacher tr td{
     height: 26px;
+}
+.mainStyle .MainInfo td:nth-child(3){
+    width: 25%;
+}
+.mainStyle .the_menu{
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ABB3BC;
 }
 /*контрольные работы*/
 .mainStyle .controlWorkTable tr td{
@@ -2265,4 +2331,11 @@ a.mainStyle .lightGreyText a:hover{
     padding: 8px;
     padding-bottom: 2px;
     text-align: left;
+}
+/*редактирование вкладок и страниц*/
+.mainStyle .redactPages{
+    margin: auto;
+}
+.mainStyle .redactPages td{
+    padding-right: 10px;
 }

@@ -69,26 +69,9 @@
     text-align: left;
 }*/
 
-.mainStyle .onlineStatus{
-    float: right;
-    padding: 10px 15px 5px 0px;
-    color: white;
-    text-decoration: underline;
-    font-family: Arial;
-}
 
-/*мои изучаемые материалы*/
-.mainStyle .materialInfo{
-    margin-left: 25px;
-}
-.materialInfo p{
-    padding-bottom: 5px;
-    padding-left: 17px;
-}
-.materialInfo span{
-    color: #64D359;
-    /*font-weight: bolder;*/
-}
+
+
 /*.materialInfo p:nth-child(1){
    background:  url("../resources/images/control_works_little.gif") no-repeat ;
 }
@@ -106,9 +89,6 @@
 /*список администраторов*/
 .mainStyle .studentPaddBott{
     padding-bottom: 10px;
-}
-.mainStyle .studentPaddLeft{
-    padding-left: 10px;
 }
 /*мои контрольные работы*/
 .mainStyle .columnNames{

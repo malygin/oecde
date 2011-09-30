@@ -5,46 +5,53 @@
     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
     template="../resources/adminTemplate.xhtml"
     >
-     <f:metadata>
-              <f:viewParam name="page" value="#{NavigationBean.page}"/>
-              <f:viewParam name="page" value="#{umkListBean.page}"/>
-         </f:metadata>
+    <f:metadata>
+        <f:viewParam name="page" value="#{NavigationBean.page}"/>
+        <f:viewParam name="page" value="#{umkListBean.page}"/>
+    </f:metadata>
     <ui:define name="content">
         <div class="interfaceContent">
-            <ut:navigationList elementOnPage="#{umkListBean.maxNumber}"
-                               numElements="#{umkListBean.countUmk}"/>
-            <div class="">
-            <h:dataTable style="width: 100%; display: block;" value="#{umkListBean.umkList}" var="i" id="table" styleClass="controlWorksBorders"
-                     columnClasses="controlWorksDisciplineNameLink">
-            <h:column>
-                <h:outputLink value="umk.xhtml?id=#{i.id}" style="font-size: 11pt !important">#{i.name}</h:outputLink><br/>
-                <h:dataTable value="#{i.resources}" var="test" styleClass="controlWorksBordersAdminNon">
-                    <h:column>
-                    <div class="DisciplineTextlink testUmk">
-                    <div>
-                        <h:outputLink value="test.xhtml?id=#{test.id}&amp;action=start">
-                            #{test.title}
-                        </h:outputLink>
-                        <span class="controlWorksDisciplineNameLinkGrey enterPicTest" style="margin-left: 20px;">
-                        <h:outputLink value="test.xhtml?id=#{test.id}&amp;action=pass">
-                           Запустить
-                        </h:outputLink>
-                        </span>
-                        <span class="controlWorksDisciplineNameLinkGrey news_edit" style="margin-left: 20px;">
-                            <h:outputLink value="testEdit.xhtml?id=#{test.id}">
-                                #{msgs.admin_mainContentEdit}
-                            </h:outputLink>
-                        </span>
-                    </div>
-                    </div>
-                    </h:column>
-                </h:dataTable>
-                
-            </h:column>
-        </h:dataTable>
+            <div class="StudentMainPageTitlesBorders blocksMargins">
+                <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">
+                    #{msgs.admin_eduMenuUMK}
+                </div>
+                <ut:navigationList elementOnPage="#{umkListBean.maxNumber}"
+                                   numElements="#{umkListBean.countUmk}"/>
+                <div class="">
+                    <h:dataTable style="width: 100%; display: block;" value="#{umkListBean.umkList}" var="i" id="table" styleClass="controlWorksBorders"
+                                 columnClasses="controlWorksDisciplineNameLink">
+                        <h:column>
+                            <span class="linkToStudentsProfile studentPaddLeft">
+                                <h:outputLink value="umk.xhtml?id=#{i.id}" style="font-size: 11pt !important">#{i.name}</h:outputLink><br/>
+                            </span>
+                            <h:dataTable value="#{i.resources}" var="test" styleClass="materialInfo" style="width: 100%; margin-bottom: 15px; margin-top: 15px;">
+                                <h:column>
+                                    <div class="DisciplineTextlink testUmk greyLinks">
+                                        <div>
+                                            <h:outputLink value="test.xhtml?id=#{test.id}&amp;action=start">
+                                                #{test.title}
+                                            </h:outputLink>
+                                            <span class="controlWorksDisciplineNameLinkGrey enterPicTest" style="margin-left: 5px;">
+                                                <h:outputLink value="test.xhtml?id=#{test.id}&amp;action=pass">
+                                                    <img src="../resources/images/eventTEST_END.gif"/>
+                                                </h:outputLink>
+                                            </span>
+                                            <span class="controlWorksDisciplineNameLinkGrey" style="margin-left: 5px;">
+                                                <h:outputLink value="testEdit.xhtml?id=#{test.id}">
+                                                    <img src="../resources/images/redact_umk.png"/>
+                                                </h:outputLink>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </h:column>
+                            </h:dataTable>
+
+                        </h:column>
+                    </h:dataTable>
+                </div>
+                <ut:navigationList elementOnPage="#{umkListBean.maxNumber}"
+                                   numElements="#{umkListBean.countUmk}"/>
             </div>
-                 <ut:navigationList elementOnPage="#{umkListBean.maxNumber}"
-                                    numElements="#{umkListBean.countUmk}"/>    
         </div>
     </ui:define>
 </ui:composition>

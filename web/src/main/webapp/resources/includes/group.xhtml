@@ -5,19 +5,30 @@
     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
     >
     <div class="interfaceContent">
-        <div class="DisciplineText" style="margin-bottom: 10px;margin-top: 10px;">
-        (<h:outputText value="#{groupViewBean.group.faculty}"/>
-        <h:outputText  rendered="#{groupViewBean.group.faculty!=null}" value=", "/>
-        <h:outputText value="#{groupViewBean.group.speciality.name}"/>
-        , <h:outputText value="#{groupViewBean.group.calendarYear}"/>)
-        </div>
-        <h:dataTable value="#{groupViewBean.students}" var="s" style="width: 100%;">
-            <h:column>
-            <div class="studentInterfaceStandartList">
-                <ut:userListItem type="student" u="#{s}"/>
-                <div class="floatDestroyer"/>
+        <div class="StudentMainPageTitlesBorders blocksMargins"  style="width: 65%; float: left;">
+            <div class="mainStudentPageTitles mainStudentPageTitlesBlue">
+                #{msgs.admin_mainContentGroup} #{groupViewBean.group.name} <h:outputText value="#{groupViewBean.group.faculty}"/>
+                <h:outputText  rendered="#{groupViewBean.group.faculty!=null}" value=", "/>
+                <h:outputText value="#{groupViewBean.group.speciality.name}"/>
+                , <h:outputText value="#{groupViewBean.group.calendarYear} год"/>
             </div>
-            </h:column>
-        </h:dataTable>
+            <h:dataTable value="#{groupViewBean.students}" var="s" style="width: 100%;">
+                <h:column>
+                    <div class="studentInterfaceStandartList">
+                        <ut:userListItem type="student" u="#{s}"/>
+                        <div class="floatDestroyer"/>
+                    </div>
+                </h:column>
+            </h:dataTable>
+        </div>
+        <div class="StudentMainPageTitlesBorders blocksMargins"  style="width: 25%; float: right;">
+            <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">
+                Другие группы
+            </div>
+            <div class="linkToStudentsProfile">
+
+            </div>
+        </div>
+        <div class="floatDestroyer"/>
     </div>
 </ui:composition>

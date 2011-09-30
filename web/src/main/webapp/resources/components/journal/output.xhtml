@@ -19,10 +19,14 @@
          <h:form>
              <link href="style.css" rel="stylesheet" type="text/css" />
             <script type="text/javascript" src="../resources/scripts/slider.js"></script>
-            <div id="button">
-                <div class="menu_class">Фильтр событий
+            <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">
+                #{msgs.student_eduMenuEvents}
+                <div class="menu_class" style="float: right; margin-top: 4px; cursor: pointer; text-decoration: underline;">Фильтр событий
                 </div>
-                <div class="the_menu">
+                <div class="floatDestroyer"/>
+            </div>
+            <div id="button">
+                <div class="the_menu" style="display:none;">
                     <h:dataTable value="#{journalBean.getAvailableEvents(cc.attrs.type,cc.attrs.object)}" var="e">
                         <h:column>
                             <h:selectBooleanCheckbox value="#{e.chosen}" style="margin-left: 8px;"/><span style="margin-left: 3px;">#{e.eventType.rus}</span>

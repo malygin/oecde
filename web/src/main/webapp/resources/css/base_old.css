@@ -1880,10 +1880,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     background: url('../resources/images/news_delete.gif') no-repeat 0 0;
     padding-left: 17px;
 }
-.mainStyle .news_edit{
-    background: url('../resources/images/news_edit.gif') no-repeat 0 0;
-    padding-left: 17px;
-}
+
 /*списки юзеров*/
 .mainStyle .enterPic{
     vertical-align: bottom !important;

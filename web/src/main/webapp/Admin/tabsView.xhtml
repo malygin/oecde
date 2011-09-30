@@ -3,73 +3,66 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/adminTemplate.xhtml">
- <f:metadata>
-    <f:viewParam name="type" value="#{tabsViewBean.type}"/>
- </f:metadata>
-    <ui:define name="contentHeader">
-        #{tabsViewBean.tabtype.name}   / текущий язык - <b>#{userSessionBean.lang.name}</b>
-    </ui:define>
+    <f:metadata>
+        <f:viewParam name="type" value="#{tabsViewBean.type}"/>
+    </f:metadata>
     <ui:define name="content">
-        <div class="interfaceContent">
-            <div class="AdminTextGrey">
-                #{msgs.admin_mainContentExistedInsert}
+        <div class="StudentMainPageTitlesBorders">
+            <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
+                <p class="floatLeft mainStudentPageTitles Ipsilon_Web_GreenText" style="width: 70%; padding: 0;">
+                    Редактирование вкладки
+                </p>
+                <div style="float: right;" class="greyLinks">
+                    <a href="index.xhtml">назад без изменений</a>
+                </div>
+                <div class="floatDestroyer"/>
             </div>
-         <h:form id="edit">
-             <h:dataTable  styleClass="studentStandatrTable" columnClasses="studentStandatrTableTd AdminInfo,
-                         studentStandatrTableTdLastTd" cellpadding="0" cellspacing="0" id="tabs" style="width: 100%;" value="#{tabsViewBean.tabs}" var="t">
-                <h:column>
-                    <f:facet name="header">
-                        #{msgs.admin_mainContentInsertTitle}
-                    </f:facet>
-                    <h:outputText value="#{t.name}" style="color: #27587F;"/> - порядок (#{t.orderTab})
-                    
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        #{msgs.admin_mainContentType}
-                    </f:facet>
-                    <span class="AdminNavigationLinks">
-                      <h:outputLink value="tabEdit.xhtml?id=#{t.id}">#{msgs.admin_mainContentEdit}</h:outputLink> - 
-                      <h:commandLink action="#{tabsViewBean.deleteTabs}" value="удалить">
-                        <f:setPropertyActionListener target="#{tabsViewBean.idTab}" value="#{t.id}" />                                          
-                        <f:ajax render="@form"/>
-                    </h:commandLink>
-                    </span>
-                </h:column>
-            </h:dataTable>
-            <br/>
-            <div class="AdminTextGrey">
-                #{msgs.admin_mainContentAddNewInsert}
+            <div class="interfaceContent blocksPaddings">
+                <div class="Ipsilon_Web_GreenText" style="font-size: 11pt;">
+                    #{msgs.admin_mainContentExistedInsert}
+                </div>
+                <h:form id="edit" styleClass="blocksPaddings">
+                    <h:dataTable  cellpadding="0" cellspacing="0" id="tabs" style="width: 100%;" value="#{tabsViewBean.tabs}" var="t">
+                        <h:column>
+                            <h:outputLink value="tabEdit.xhtml?id=#{t.id}" style="margin-right: 5px; text-decoration: none;">
+                                <img src="../resources/images/redact_umk.png"/>
+                            </h:outputLink>
+                            <h:commandLink action="#{tabsViewBean.deleteTabs}" style="margin-right: 5px; text-decoration: none;">
+                                <img src="../resources/images/delete_news.png"/>
+                                <f:setPropertyActionListener target="#{tabsViewBean.idTab}" value="#{t.id}" />
+                                <f:ajax render="@form"/>
+                            </h:commandLink>
+                            <h:outputText value="#{t.name}"/> - порядок #{t.orderTab}
+                        </h:column>
+                    </h:dataTable>
+                    <br/>
+                    <div class="Ipsilon_Web_GreenText" style="font-size: 11pt;">
+                        #{msgs.admin_mainContentAddNewInsert}
+                    </div>
+
+                    <table Class="studentStandatrTable" cellpadding="0" cellspacing="0" style="width: 100%;">
+                        <tr>
+                            <td style="width: 17%;">
+                                #{msgs.admin_mainContentPageTitle_}
+                            </td>
+                            <td>
+                                <div>
+                                    <h:inputText id="tabName" value="#{tabsViewBean.tab.name}" style="width: 90%;"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <span>
+                                        <h:commandLink action="#{tabsViewBean.addTabs}" value="#{msgs.admin_mainContentAdd}">
+                                            <f:ajax  execute="@form" render="@form"/>
+                                        </h:commandLink>
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </h:form>
             </div>
-      
-                <table Class="studentStandatrTable" cellpadding="0" cellspacing="0" style="width: 100%;">
-                    <tr>
-                        <th class="studentStandatrTableForChrome">
-                            #{msgs.admin_mainContentInsertName_}
-                        </th>
-                        <th class="studentStandatrTableForChrome">
-                            #{msgs.admin_mainContentInsertType_}
-                        </th>
-                    </tr>
-                    <tr>
-                        <td class="studentStandatrTableTd studentStandatrTableTdForChrome">
-                            <div style="text-align: center !important;">
-                                <h:inputText style="width: 90%;" id="tabName" value="#{tabsViewBean.tab.name}" />
-                            </div>
-                        </td>
-                        <td class="studentStandatrTableTdLastTd studentStandatrTableTdLastTdForChrome">
-                             <div style="text-align: center !important;">
-                            
-                            <span class="AdminNavigationLinks" >
-                                <h:commandLink action="#{tabsViewBean.addTabs}" value="#{msgs.admin_mainContentAdd}">
-                                    <f:ajax  execute="@form" render="@form"/>
-                                </h:commandLink>
-                            </span>
-                             </div>
-                        </td>
-                    </tr>
-                </table>
-            </h:form>
         </div>
     </ui:define>
 </ui:composition>

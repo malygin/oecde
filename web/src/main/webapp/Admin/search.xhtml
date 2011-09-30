@@ -5,71 +5,74 @@
     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
     template="../resources/adminTemplate.xhtml"
     >
-     <ui:define name="contentHeader">
-       #{msgs.student_topSearchInputText_}
-    </ui:define>
     <ui:define name="content">
-        <div class="interfaceContent">
-        <h:form>
-            <table><tr class="searchBlock"><td>
-                <h:inputText value="#{searchBean.keyWord}" style="width: 250px;">
-                    <f:ajax execute="@form" event="keypress" render=":table" listener="#{searchBean.doSearch}"/>
-                </h:inputText></td>
-            <td><h:selectOneMenu id="type" value="#{searchBean.type}" style="height: 20px;">
-                     <f:ajax execute="@form" render=":table" listener="#{searchBean.doSearch}"/>
-                     <f:selectItems value="#{searchBean.types}" />
-                 </h:selectOneMenu></td><td>
-                 <h:commandButton value="ОК" styleClass="studentButton searchButtonPosition">
-                     <f:ajax execute="@form" render=":table" listener="#{searchBean.doSearch}"/>
-                 </h:commandButton>
-            </td></tr></table>
-        </h:form>
-            <h:dataTable style="width: 100%" value="#{searchBean.items}" var="i" id="table">
-            <h:column>
-                <h:panelGroup rendered="#{searchBean.type eq 'teacher' or searchBean.type eq 'student'}">
-                    <div class="studentInterfaceStandartList">
-                   <ut:userListItem type="#{searchBean.type}" u="#{i}"/>
-                     <div class="floatDestroyer"/>
-                   </div>
-                </h:panelGroup>
-                <h:panelGroup rendered="#{searchBean.type eq 'umk'}">
-                    <h:form styleClass="searchBorders">
-                        <span class="controlWorksDisciplineNameLink">
-                             <h:outputLink value="umk.xhtml?id=#{i.id}">#{i.name}</h:outputLink><br/>
-                        </span>
-                         <span class="controlWorksDisciplineNameLink">
-                             <h:commandLink value="#{msgs.admin_mainContentCourseEdited}">
-                                <f:attribute name="umk" value="#{i}"/>
-                                <f:attribute name="event" value="UMK_CREATE"/>
-                                <f:ajax execute="@this" listener="#{umkEventsBean.logEvent}"/>
-                            </h:commandLink> |
-                         </span>
-                         <span class="controlWorksDisciplineNameLink">
-                            <h:commandLink value="#{msgs.admin_mainContentCourseDeleted}">
-                                <f:attribute name="umk" value="#{i}"/>
-                                <f:attribute name="event" value="UMK_DELETE"/>
-                                <f:ajax execute="@this" listener="#{umkEventsBean.logEvent}"/>
-                            </h:commandLink> |
-                         </span>
-                         <span class="controlWorksDisciplineNameLink">
-                            <h:commandLink value="#{msgs.admin_mainContentCourseAdded}">
-                                <f:attribute name="umk" value="#{i}"/>
-                                <f:attribute name="event" value="UMK_EDIT"/>
-                                <f:ajax execute="@this" listener="#{umkEventsBean.logEvent}"/>
-                            </h:commandLink><br/>
-                         </span>
-                    </h:form>
-                </h:panelGroup>
-                <h:panelGroup rendered="#{searchBean.type eq 'group'}">
-                <div class="DisciplineText forumDiscriptionText">
-                     <h:outputLink value="group.xhtml?id=#{i.id}">#{i.name}</h:outputLink>
-                (<h:outputText value="#{i.faculty}"/>
-                <h:outputText  rendered="#{i.faculty!=null}" value=", "/>
-                <h:outputText value="#{i.speciality.name}"/>,<h:outputText value="#{i.calendarYear}"/>)
-                </div>
-                </h:panelGroup>
-            </h:column>
-        </h:dataTable>        
+        <div class="StudentMainPageTitlesBorders floatLeft" style="width: 94%; min-height: 500px;">
+            <div class="mainStudentPageTitles mainStudentPageTitlesOrange">
+                Поиск
+            </div>
+            <h:form>
+                <table class="searchBlock"><tr><td>
+                    <h:inputText value="#{searchBean.keyWord}" style="width: 250px;">
+                        <f:ajax execute="@form" event="keypress" render=":table" listener="#{searchBean.doSearch}"/>
+                    </h:inputText></td>
+                    <td><h:selectOneMenu id="type" value="#{searchBean.type}" style="height: 20px;">
+                        <f:ajax execute="@form" render=":table" listener="#{searchBean.doSearch}"/>
+                        <f:selectItems value="#{searchBean.types}" />
+                    </h:selectOneMenu></td><td>
+                    <h:commandButton value="Искать" styleClass="studentButton searchButtonPosition">
+                        <f:ajax execute="@form" render=":table" listener="#{searchBean.doSearch}"/>
+                    </h:commandButton>
+                    </td></tr></table>
+            </h:form>
+            <h:dataTable style="width: 100%" styleClass="searchBlock" value="#{searchBean.items}" var="i" id="table">
+                <h:column>
+                    <h:panelGroup rendered="#{searchBean.type eq 'teacher' or searchBean.type eq 'student'}">
+                        <div class="studentInterfaceStandartList">
+                            <ut:userListItem type="#{searchBean.type}" u="#{i}"/>
+                            <div class="floatDestroyer"/>
+                        </div>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{searchBean.type eq 'umk'}">
+                        <h:form styleClass="searchBorders">
+                            <span class="linkToStudentsProfile">
+                                <h:outputLink value="umk.xhtml?id=#{i.id}" style="font-size: 11pt !important">#{i.name}</h:outputLink><br/>
+                            </span>
+                            <span class="controlWorksDisciplineNameLink">
+                                <h:commandLink value="#{msgs.admin_mainContentCourseEdited}">
+                                    <f:attribute name="umk" value="#{i}"/>
+                                    <f:attribute name="event" value="UMK_CREATE"/>
+                                    <f:ajax execute="@this" listener="#{umkEventsBean.logEvent}"/>
+                                </h:commandLink> |
+                            </span>
+                            <span class="controlWorksDisciplineNameLink">
+                                <h:commandLink value="#{msgs.admin_mainContentCourseDeleted}">
+                                    <f:attribute name="umk" value="#{i}"/>
+                                    <f:attribute name="event" value="UMK_DELETE"/>
+                                    <f:ajax execute="@this" listener="#{umkEventsBean.logEvent}"/>
+                                </h:commandLink> |
+                            </span>
+                            <span class="controlWorksDisciplineNameLink">
+                                <h:commandLink value="#{msgs.admin_mainContentCourseAdded}">
+                                    <f:attribute name="umk" value="#{i}"/>
+                                    <f:attribute name="event" value="UMK_EDIT"/>
+                                    <f:ajax execute="@this" listener="#{umkEventsBean.logEvent}"/>
+                                </h:commandLink><br/>
+                            </span>
+                        </h:form>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{searchBean.type eq 'group'}">
+                        <div class="DisciplineText forumDiscriptionText">
+                            <h:outputText value="#{i.faculty}"/>
+                            <h:outputText  rendered="#{i.faculty!=null}" value=", "/>
+                            <h:outputText value="#{i.speciality.name}"/>
+                            <div class="linkToStudentsProfile">
+                                <h:outputLink value="group.xhtml?id=#{i.id}" style="margin-right: 20px;">#{i.name}</h:outputLink>
+                                <h:outputText value="#{i.calendarYear} год"/>
+                            </div>
+                        </div>
+                    </h:panelGroup>
+                </h:column>
+            </h:dataTable>
         </div>
     </ui:define>
 </ui:composition>

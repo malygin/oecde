@@ -16,68 +16,59 @@
         <h:outputText value="#{studentSessionBean.student.fio}"/>
     </ui:define>
     <ui:define name="content">
-<!--        <script type="text/javascript">
-            $(document).ready(function(){
-                if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
-                    console.debug($(".BorderTd"));
-                    $(".BorderTd").attr('style','-o-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;-moz-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round; -webkit-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;');
-                }
-            });
-        </script>-->
+        <!--        <script type="text/javascript">
+                    $(document).ready(function(){
+                        if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
+                            console.debug($(".BorderTd"));
+                            $(".BorderTd").attr('style','-o-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;-moz-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round; -webkit-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;');
+                        }
+                    });
+                </script>-->
         <f:metadata>
             <f:viewParam name="s" value="#{studentIndexBean.semester}"/>
         </f:metadata>
         <table class="Border" style="width: 100%; margin: auto;" cellpadding="0" cellspacing="20px">
             <tr>
                 <td style="width: 57%;  vertical-align: top;" class="BorderTd">
-                    <div>
-                        <div class="mainStudentPageTitles mainStudentPageTitlesBlue">#{msgs.student_studentInfo}
-                        </div>
-                        <div class="userData">
-                            <div>
-                                <table class="leftMenuContainer blocksMargins BorderNone">
-                                    <tr>
-                                        <td><p>#{msgs.student_mainContentUserInfoSpec}</p></td>
-                                        <td><p>#{studentSessionBean.student.group.speciality.name}</p></td>
-                                        <td rowspan="8">
-                                            <div>
-                                                <ut:showPhoto user="#{studentSessionBean.student}" size="medium"/>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><p>#{msgs.student_mainContentUserInfoGroup}</p></td>
-                                        <td><p>#{studentSessionBean.student.group.name}</p></td>
-                                    </tr>
-                                    <tr>
-                                        <td><p>#{msgs.student_studentPassId}</p></td>
-                                        <td><p>#{studentSessionBean.student.studentPassId}</p></td>
-                                    </tr>
-                                    <tr>
-                                        <td><p>#{msgs.student_yourRating}</p></td>
-                                        <td class="reitingLink"><a href="groupRating.xhtml" style="">#{studentRatingBean.studentRating.sum}</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><p>#{msgs.student_studentContact}
-                                            </p>
-                                        </td>
-                                        <td><p>#{AbstractPerson.contacts}</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><p>#{msgs.student_studentExtraInfo}
-                                            </p>
-                                        </td>
-                                        <td><p>#{AbstractPerson.info}</p>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-
-                            <div class="floatDestroyer"></div>
-                        </div>
-                        <div class="floatDestroyer"></div>
+                    <div class="mainStudentPageTitles mainStudentPageTitlesBlue">#{msgs.student_studentInfo}
                     </div>
+                    <table class="leftMenuContainer blocksPaddings BorderNone MainInfo">
+                        <tr>
+                            <td><p>#{msgs.student_mainContentUserInfoSpec}</p></td>
+                            <td><p>#{studentSessionBean.student.group.speciality.name}</p></td>
+                            <td rowspan="8">
+                                <div>
+                                    <ut:showPhoto user="#{studentSessionBean.student}" size="medium"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p>#{msgs.student_mainContentUserInfoGroup}</p></td>
+                            <td><p>#{studentSessionBean.student.group.name}</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>#{msgs.student_studentPassId}</p></td>
+                            <td><p>#{studentSessionBean.student.studentPassId}</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>#{msgs.student_yourRating}</p></td>
+                            <td class="reitingLink"><a href="groupRating.xhtml" style="">#{studentRatingBean.studentRating.sum}</a></td>
+                        </tr>
+                        <tr>
+                            <td><p>#{msgs.student_studentContact}
+                                </p>
+                            </td>
+                            <td><p>#{AbstractPerson.contacts}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p>#{msgs.student_studentExtraInfo}
+                                </p>
+                            </td>
+                            <td><p>#{AbstractPerson.info}</p>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
                 <td style="vertical-align: top;" class="BorderTd">
                     <div style="height: 100%;">

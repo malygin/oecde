@@ -27,20 +27,15 @@
                         <div class="mainStudentPageTitles mainStudentPageTitlesBlue"> #{msgs.student_studentInfo}
                         </div>
                         <div>
-                            <table class="leftMenuContainer blocksMargins BorderNone InfoAboutTeacher">
+                            <table class="leftMenuContainer blocksPaddings BorderNone InfoAboutTeacher MainInfo" style="width: 100%;">
                                 <tr>
-                                    <td></td>
+                                    <td><p>Дополнительная информация:</p></td>
                                     <td><p></p></td>
                                     <td rowspan="8">
-                                        <div style="margin-left: 80px;">
+                                        <div>
                                             <ut:showPhoto user="#{teacherIndexBean.teacher}" size="medium"/>
                                         </div>
                                     </td>
-                                </tr>
-                            
-                                <tr>
-                                    <td><p>#{msgs.student_studentExtraInfo}</p></td>
-                                    <td><p></p></td>
                                 </tr>
                                 <tr>
                                     <td><p>#{msgs.student_studentContact}</p></td>
@@ -53,7 +48,6 @@
                 </td>
                 <td  style="vertical-align: top;" class="BorderTd">
                     <div>
-                      
                         <news:shortList numberNews="3"/>                            
                     </div>
                 </td>
