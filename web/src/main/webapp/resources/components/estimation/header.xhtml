@@ -15,7 +15,7 @@
         <h:outputText rendered="#{cc.attrs.bean.accessDenied}" value="#{msgs.teacher_groupNotFoundOrNotAvailable}" />
         <h:panelGroup id="group" rendered="#{not cc.attrs.bean.accessDenied}">
             <div>
-                <p class="lightGreyText">Выберите дисциплину</p>
+                <p class="lightGreyText">#{msgs.student_mcwCWChoseDisc}</p>
             </div>
             <h:dataTable id="disciplines" value="#{cc.attrs.bean.disciplines}" var="d">
                 <h:column>
@@ -31,11 +31,11 @@
 <!--            <h:outputText value="#{cc.attrs.bean.curriculum.discipline.name}"  styleClass="DisciplineText"/>&nbsp;-->
             <div style="text-align: right;">             
                 <h:outputText rendered="#{cc.attrs.pageName eq 'points'}" value="оценки" style="margin-right: 10px; color: #FBB35D;"/>
-                <h:outputLink rendered="#{cc.attrs.pageName ne 'points'}" value="groupPoints.xhtml?g=#{cc.attrs.bean.group.id}&amp;s=#{cc.attrs.bean.semester}&amp;c=#{cc.attrs.bean.curriculumId}" style="margin-right: 10px;">оценки</h:outputLink>
+                <h:outputLink rendered="#{cc.attrs.pageName ne 'points'}" value="groupPoints.xhtml?g=#{cc.attrs.bean.group.id}&amp;s=#{cc.attrs.bean.semester}&amp;c=#{cc.attrs.bean.curriculumId}" style="margin-right: 10px;">#{msgs.teacher_groupGruopMarks}</h:outputLink>
                 <h:outputText rendered="#{cc.attrs.pageName eq 'cw'}" value="контрольные" style="margin-right: 10px; color: #FBB35D;"/>
-                <h:outputLink rendered="#{cc.attrs.pageName ne 'cw'}" value="groupControlWorks.xhtml?g=#{cc.attrs.bean.group.id}&amp;s=#{cc.attrs.bean.semester}&amp;c=#{cc.attrs.bean.curriculumId}" style="margin-right: 10px;">контрольные</h:outputLink>
+                <h:outputLink rendered="#{cc.attrs.pageName ne 'cw'}" value="groupControlWorks.xhtml?g=#{cc.attrs.bean.group.id}&amp;s=#{cc.attrs.bean.semester}&amp;c=#{cc.attrs.bean.curriculumId}" style="margin-right: 10px;">#{msgs.teacher_groupGruopCW}</h:outputLink>
                 <h:outputText rendered="#{cc.attrs.pageName eq 'tests'}" value="результаты тестов" style="margin-right: 10px; color: #FBB35D;"/>
-                <h:outputLink rendered="#{cc.attrs.pageName ne 'tests'}" value="groupTestResults.xhtml?g=#{cc.attrs.bean.group.id}&amp;s=#{cc.attrs.bean.semester}&amp;c=#{cc.attrs.bean.curriculumId}" style="margin-right: 10px;">результаты тестов</h:outputLink>
+                <h:outputLink rendered="#{cc.attrs.pageName ne 'tests'}" value="groupTestResults.xhtml?g=#{cc.attrs.bean.group.id}&amp;s=#{cc.attrs.bean.semester}&amp;c=#{cc.attrs.bean.curriculumId}" style="margin-right: 10px;">#{msgs.teacher_groupGruopTestResult}</h:outputLink>
             </div>
         </h:panelGroup>
         <br/>

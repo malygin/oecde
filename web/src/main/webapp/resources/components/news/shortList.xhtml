@@ -14,7 +14,7 @@
     <!-- IMPLEMENTATION -->
     <composite:implementation>     
         <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">
-       <a href="news_list.xhtml" style="font-size: 12pt;">Новости</a>
+       <a href="news_list.xhtml" style="font-size: 12pt;">#{msgs.student_topMenuNews}</a>
       </div>
       <div style="padding: 5px;">
        <h:dataTable value="#{NewsBean.getNewsForNumber(cc.attrs.numberNews)}" var="n" styleClass="leftMenuContainer" width="100%">

@@ -22,7 +22,7 @@
 
             <div>
             <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
-                Новое сообщение
+                #{msgs.message_interfaceTitleWriteMess}
             </div>
 
         <div class="interfaceContent">
@@ -60,7 +60,7 @@
 
                     <h:dataTable value="#{MessageWriteBean.groups}" var="gr">
                         <h:column>
-                           <b> #{gr.name}</b> группа из #{gr.number} человек
+                           <b> #{gr.name}</b> #{msgs.message_teacherGroupFrom} #{gr.number} #{msgs.message_teacherPeople}
                         </h:column>
                     </h:dataTable>
                     <table>
@@ -90,7 +90,7 @@
 
 
                 <div style="padding: 0px; padding-top: 10px; margin-left: 5%; margin-right: 5%;">
-                    <p class="lightGreyText">Вы можете прикрепить к данному сообщению необходимые файлы (размер не более 4 мб)</p>
+                    <p class="lightGreyText">#{msgs.message_addFile}</p>
                     <input type="file" name="MessageFile" style="background-color: #DFF1FE; font-size: 9pt; display: block; margin-left: 10px; float: left;" class="StudentWriteMess"/>
                     <h:commandButton  action="#{MessageWriteBean.addFile}" value="Прикрепить" styleClass="studentButton" style="margin: 0; margin-left: 20px;"/>
                     <h:panelGroup layout="block" rendered="#{MessageWriteBean.renderSuccessSend}" styleClass="actionResultSuccessfull">
@@ -113,7 +113,7 @@
 
 <div style="text-align: right;">
 <br />
-<h:commandLink  action="#{MessageWriteBean.save}" value="Отправить" styleClass="studentButton" style="font-weight: bold;">
+<h:commandLink  action="#{MessageWriteBean.save}" value="#{msgs.message_send}" styleClass="studentButton" style="font-weight: bold;">
                          <f:ajax execute="@form" render="@form"/>
                         </h:commandLink>
 
@@ -128,7 +128,7 @@
         <div class="StudentMainPageTitlesBorders" style="width: 24%; margin-left: 74%">
         <div class="interfaceContentForMyMarks">
             <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
-            Подсказка
+            #{msgs.student_marksHelp}
             </div>
          </div>
             <div class="textForPodskazka">

@@ -28,7 +28,7 @@
                                 <h:column>
                                     <f:facet name="header">
                                         <div class="contentsBlock">
-                                            Выберите пункт
+                                            #{msgs.user_choosePoint}
                                         </div>
                                     </f:facet>
                                     <div class="educ_umk_text_block">
@@ -66,7 +66,7 @@
                                         <br/>
                                         <hr/>
                                         <br/>
-                                        Файлы:
+                                        #{msgs.user_files}
                                         <h:dataTable id="files" value="#{tabsViewBean.currentPage.files}" var="f">
                                             <h:column>
                                                 <h:panelGroup rendered="#{f.visible}">

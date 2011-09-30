@@ -14,7 +14,7 @@
   <!-- IMPLEMENTATION -->
    <composite:implementation>
           <div class="StudentMainPageTitles">
-                            <div class="navigationLinks indentionInNavigation"><a class="control_works" href="controlWorks.xhtml">Мои контрольные </a></div>
+                            <div class="navigationLinks indentionInNavigation"><a class="control_works" href="controlWorks.xhtml">#{msgs.student_eduMenuControlWorks} </a></div>
                         </div>
                         <div class="StudentTestsPadding">
                         <h:dataTable columnClasses="studentStandatrTableTd studentStandatrTableTdTests,
@@ -30,13 +30,13 @@
                                 <div class="educ_content_title_activ" >
                                     <ol class="my_educ_disc_reason">
                                         <h:panelGroup rendered="#{w.value ne null}">
-                                            <li class="StudentMainPageImgPadd star">Контрольная
+                                            <li class="StudentMainPageImgPadd star">#{msgs.student_mcwOneCW}
                                             <h:outputText converter="enumConverter" value="#{w.value.progress}"/>
                                             </li>
-                                            <li class="StudentMainPageImgPadd discipline_summ">Получено баллов <span class="testResultMarkNotNull">#{w.value.points}</span></li>
+                                            <li class="StudentMainPageImgPadd discipline_summ">#{msgs.student_mcwPoints} <span class="testResultMarkNotNull">#{w.value.points}</span></li>
                                         </h:panelGroup>
                                         <h:panelGroup rendered="#{empty w.value}" >
-                                            <li class="StudentMainPageImgPadd discipline_summ">Контрольная работа не выполнена</li>
+                                            <li class="StudentMainPageImgPadd discipline_summ">#{msgs.student_mcwNotDo}</li>
                                         </h:panelGroup>
                                     </ol>
                                 </div>

@@ -29,7 +29,7 @@
 
         <div>
             <div class="mainStudentPageTitlesGreen mainStudentPageTitles">
-                <a style="font-size: 12pt;" href="schedule.xhtml">Расписание видеоконференций</a>
+                <a style="font-size: 12pt;" href="schedule.xhtml">#{msgs.student_sheduleVideoConf}</a>
             </div>
             <div class="#{cc.attrs.styleForShedule}">
                 <div id="datepicker" class="datepickerClass"></div>
@@ -44,7 +44,7 @@
                                 <p>
                                     <p class="skyBlueText">#{s.discipline.name}</p> 
                                     <p  class="Ipsilon_Web_GreenText"><h:outputText value="#{cwg.group.name}"/>(<h:outputText value="#{cwg.group.speciality.engShort}"/>)</p> 
-                                    <h:outputText converter="roomConverter" value="#{s.room}"/> комната
+                                    <h:outputText converter="roomConverter" value="#{s.room}"/> #{msgs.student_sheduleRoom}
                                 </p>
                             </td>
                         </tr>
@@ -52,7 +52,7 @@
                     <tr>
                         <td colspan="2">
                             <p class="videoConfSchedule" style="height: 25px;">
-                                <h:panelGroup rendered="#{cc.attrs.renderBlock eq 'firstLessons'}"><a href="schedule.xhtml">Посмотреть все видеоконференции</a></h:panelGroup>
+                                <h:panelGroup rendered="#{cc.attrs.renderBlock eq 'firstLessons'}"><a href="schedule.xhtml">#{msgs.student_sheduleSeeAll}</a></h:panelGroup>
                             </p>
                         </td>
                     </tr>
@@ -62,12 +62,12 @@
             <h:panelGroup layout="block" rendered="#{cc.attrs.renderBlock eq 'allLessons'}" style="float: right; width: 25%; margin: 0; margin-right: 10px; margin-top: 20px;" styleClass="StudentMainPageTitlesBorders">
                     <div class="interfaceContentForMyMarks">
                         <div class="mainStudentPageTitles  mainStudentPageTitlesOrange">
-                            Текущая конференция
+                            #{msgs.student_sheduleCurrentConf}
                         </div>
                     </div>
                     <div>
                         <div style="text-align: right;">
-                            <a href="#" style="margin-right: 10px;">посетить</a>
+                            <a href="#" style="margin-right: 10px;">#{msgs.student_sheduleGoToConf}</a>
                         </div>
                         <div style="margin-left: 5px;">
                             <p class="Ipsilon_Web_GreenText">10:00-11:35</p>

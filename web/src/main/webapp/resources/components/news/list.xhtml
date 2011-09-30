@@ -18,7 +18,7 @@
         <div class="StudentMainPageTitlesBorders">
             <div>
             <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
-               Новости
+               #{msgs.student_newsTitle}
                 </div>
         <ui:repeat value="#{cc.attrs.list}" var="n">
 
@@ -26,7 +26,7 @@
                 <div>
                     <div><span class="greenNewsLink"><a href="news_read.xhtml?id=#{n.id}">#{n.header}</a></span>
                         <span class="lightGreyText">
-                            <a href="news_read.xhtml?id=#{n.id}">(подробнее)</a>
+                            <a href="news_read.xhtml?id=#{n.id}">(#{msgs.student_newsMore})</a>
                         </span>
                     </div>
                     <div class="NewsInfo">

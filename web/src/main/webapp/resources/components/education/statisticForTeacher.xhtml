@@ -18,32 +18,32 @@
 
          <div class="" style="margin-bottom: 0px;">
     <div class="mainStudentPageTitles mainStudentPageTitlesOrange">
-        Статистика
+        #{msgs.teacher_statStatistic}
     </div>
     <div>
         <div>
 
             <table style="margin: 10px;" class="notificationTableTextOrange2 BorderNone" cellpadding="0" cellspacing="0">
                 <tr>
-                    <td><p>Оценено групп:</p>
+                    <td><p>#{msgs.teacher_statGroups}</p>
                     </td>
-                    <td><p>#{teacherIndexBean.estimatedGroupsCount} <span style="color: #838383;"> из #{teacherIndexBean.groupsCount}</span></p>
+                    <td><p>#{teacherIndexBean.estimatedGroupsCount} <span style="color: #838383;"> #{msgs.teacher_statFrom} #{teacherIndexBean.groupsCount}</span></p>
                 </td>
                 </tr>
                 <tr>
-                    <td><p>Прочитано занятий:</p>
+                    <td><p>#{msgs.teacher_statLectures}</p>
                     </td>
-                    <td><p>#{teacherIndexBean.readCwAttempsCount} <span style="color: #838383;"> из #{teacherIndexBean.cwAttempsCount}</span></p>
+                    <td><p>#{teacherIndexBean.readCwAttempsCount} <span style="color: #838383;"> #{msgs.teacher_statFrom} #{teacherIndexBean.cwAttempsCount}</span></p>
                 </td>
                 </tr>
                 <tr>
-                    <td><p>Прочитано контрольных:</p>
+                    <td><p>#{msgs.teacher_statContrWork}</p>
                     </td>
                     <td><p></p>
                 </td>
                 </tr>
                 <tr>
-                    <td><p>Прохождение тестов:</p>
+                    <td><p>#{msgs.teacher_statPassTests}</p>
                     </td>
                     <td><p></p>
                 </td>
