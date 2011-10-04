@@ -39,7 +39,7 @@
                                     <h:outputText value="${o[0].discipline.name}">${o[0].discipline.name}</h:outputText>
                                     <span class="linkToStudentsProfile skyBlueText" style="margin-left: 10px;"><h:panelGroup layout="span" rendered="${o[3].initials ne null and o[3].id ne 1}"> (<h:outputLink value="teacher.xhtml?id=${o[3].id}">${o[3].initials}</h:outputLink>)</h:panelGroup></span>
                                     <div class="messLinksMargins testsMargins">
-                                        <div style="width: 60%;"><span class="Ipsilon_Web_GreenText">Контрольная 1</span>
+                                        <div style="width: 60%;"><span class="Ipsilon_Web_GreenText">#{msgs.student_mcwCWNumber}</span>
                                             <span style="margin-left: 5px; margin-right: 5px;">
                                                 <h:commandLink rendered="#{o[2]}" id="updt" style="padding-left: 17px;" styleClass="add_cont_work">
                                                     <f:attribute value="#{o[1]}" name="cw"/>
@@ -58,7 +58,7 @@
                                         </div>
                                         <table style="width: 100%;" class="studentControlWorksTable testsMargins">
                                             <tr>
-                                                <td>Состояние
+                                                <td>#{msgs.student_mcwCWState}
                                                 </td>
                                                 <td>
                                             <h:panelGroup rendered="${o[1].progress=='passed'}" styleClass="controlWorkResultStylePassed">
@@ -76,11 +76,11 @@
                                                 <td colspan="2">
                                                     <div style="width: 100%;">
                                                         <ui:repeat value="#{o[1].cwAttempt}"  var="a" varStatus="i">
-                                                            <div style="float: left; margin-right: 10px;">Попытка #{i.index+1}</div>
-                                                            <h:outputText rendered="#{a.filePath eq 'empty'}" value="#{a.attemptDate}">в рукописном</h:outputText>
+                                                            <div style="float: left; margin-right: 10px;">#{msgs.student_mcwCWAttempt} #{i.index+1}</div>
+                                                            <h:outputText rendered="#{a.filePath eq 'empty'}" value="#{a.attemptDate}">#{msgs.teacher_inWriting}</h:outputText>
                                                             <div class="greyLinks">
                                                                 <h:outputLink rendered="#{a.filePath ne 'empty'}" value="../resources/userFiles/controlWorks/#{a.filePath}" id="log" styleClass="save_control_work">
-                                                                    <h:outputText converter="dateConverter" value="#{a.attemptDate}"/> в электронном
+                                                                    <h:outputText converter="dateConverter" value="#{a.attemptDate}"/> #{msgs.teacher_onComputer}
                                                                 </h:outputLink>
                                                             </div>
                                                         </ui:repeat>
