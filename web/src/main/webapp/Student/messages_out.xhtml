@@ -13,7 +13,7 @@
     <ui:define name="content">
         <div class="StudentMainPageTitlesBorders">
             <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
-                Исходящие сообщения
+                #{msgs.message_interfaceTitleOutListMessages}
             </div>
             <util:navigationList elementOnPage="#{MessageBean.messageOnPage}"  numElements="#{MessageBean.numOfMessagesOut}"/>
             <div class="interfaceContent">  <mess:list_out list="#{MessageBean.messagesOut}"/> </div>
