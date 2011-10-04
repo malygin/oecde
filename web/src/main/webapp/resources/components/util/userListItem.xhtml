@@ -50,27 +50,27 @@
                     <tr><td class="userInfoItemColor">#{msgs.student_mainContentUserInfoCourse}</td><td>#{cc.attrs.u.group.year}</td></tr>
                     </sec:ifAnyGranted>
                     <tr>
-                        <td class="userInfoItemColor">Контакты:</td>
+                        <td class="userInfoItemColor">#{msgs.student_studentContact}</td>
                         <td>#{cc.attrs.u.contacts}</td>
                     </tr>
                     <tr>
-                        <td class="userInfoItemColor">Дополнительная информация:</td>
+                        <td class="userInfoItemColor">#{msgs.student_studentExtraInfo}</td>
                         <td>#{cc.attrs.u.info}</td>
                     </tr>
 <!--                    <tr><td></td><td><h:outputText rendered="#{cc.attrs.u.online}" value="On-line" style="color:#617F5F;"/></td></tr>-->
                 </h:panelGroup>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'admin'}">
-                    <tr><td class="userInfoItemColor">Должность:</td><td>#{cc.attrs.u.position}</td></tr>
-                    <tr><td class="userInfoItemColor">Контакты:</td><td>#{cc.attrs.u.description}</td></tr>
+                    <tr><td class="userInfoItemColor">#{msgs.teacher_mainContentUserInfoPost}</td><td>#{cc.attrs.u.position}</td></tr>
+                    <tr><td class="userInfoItemColor">#{msgs.student_studentContact}</td><td>#{cc.attrs.u.description}</td></tr>
                    
                 </h:panelGroup>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'teacher'}">
                     <tr>
-                        <td class="userInfoItemColor">Департамент:</td>
+                        <td class="userInfoItemColor">#{msgs.teacher_mainContentUserInfoDepartment}</td>
                         <td>#{cc.attrs.u.department.name}</td>
                     </tr>
                     <tr>
-                        <td class="userInfoItemColor">Должность:</td>
+                        <td class="userInfoItemColor">#{msgs.teacher_mainContentUserInfoPost}</td>
                         <td></td>
                     </tr>
                     <tr>
@@ -83,7 +83,7 @@
                             </h:outputLink>
                         </td>
                     </tr>
-                    <tr><td class="userInfoItemColor">Контакты:</td><td></td></tr>
+                    <tr><td class="userInfoItemColor">#{msgs.student_studentContact}</td><td></td></tr>
                 </h:panelGroup>
             </table>
             <table style="width: 65%;">
