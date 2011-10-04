@@ -28,7 +28,7 @@
                 </div>
                 <div>
                     <div class="blocksMargins">
-                        <span style="margin-right: 20px;">Выберите курс: </span>
+                        <span style="margin-right: 20px;">#{msgs.student_oldGradesChooseUMK}</span>
                         <ui:repeat id="years" value="#{oldGradesBean.years}" var="y">
                             <span class="linkToTeachersProfile">
                                 <h:outputLink id="year" disabled="#{oldGradesBean.semester eq y[1]}"  value="?w=#{oldGradesBean.winter}&amp;s=#{y[1]}" style="font-weight: bold;">
@@ -36,7 +36,7 @@
                                 </h:outputLink>
                             </span>
                         </ui:repeat>
-                        <div class="oldGradesExamBlock"><span class="Ipsilon_Web_GreenText">Экзамены</span>
+                        <div class="oldGradesExamBlock"><span class="Ipsilon_Web_GreenText">#{msgs.student_oldGradesExams}</span>
                             <h:dataTable id="table" value="#{oldGradesBean.oldGrades}" var="p" 
                                          columnClasses=" ,Ipsilon_Web_GreenText" cellpadding="0" cellspacing="0" styleClass="writeMessageInterfaceThemeMess disciplineTable">
                                 <h:column>
@@ -51,7 +51,7 @@
                                 </h:column>
                             </h:dataTable>
                         </div>                      
-                        <div class="oldGradesExamBlock"><span class="Ipsilon_Web_GreenText">Зачеты</span>
+                        <div class="oldGradesExamBlock"><span class="Ipsilon_Web_GreenText">#{msgs.student_oldGradesZach}</span>
                             <h:dataTable id="tableEx" value="#{oldGradesBean.pointsTests}" var="p" 
                                          columnClasses=" ,Ipsilon_Web_GreenText" cellpadding="0" cellspacing="0" styleClass="writeMessageInterfaceThemeMess disciplineTable">
                                 <h:column>                                 
@@ -69,13 +69,13 @@
             </div>
             <div class="RightInterfaceContent">
                 <div class="StudentMainPageTitlesBorders">
-                    <div class="mainStudentPageTitles mainStudentPageTitlesOrange">Задолжности
+                    <div class="mainStudentPageTitles mainStudentPageTitlesOrange">#{msgs.student_oldGradesDebt}
                     </div>
                     <div>
                         <table class="tableForBadMarkAndStatistik" style="margin: auto; width: 80%;">
                             <thead>
                                 <tr>
-                                    <td>Всего:</td>
+                                    <td>#{msgs.student_oldGradesDebtAll}</td>
                                     <td class="orangeText">#{oldGradesBean.outstanding}</td>
                                 </tr>
                             </thead>
@@ -93,31 +93,31 @@
                     </div>
                 </div>
                 <div class="StudentMainPageTitlesBorders">
-                    <div class="mainStudentPageTitles mainStudentPageTitlesBlue">Статистика
+                    <div class="mainStudentPageTitles mainStudentPageTitlesBlue">#{msgs.student_oldGradesStatistics}
                     </div>
                     <div>
                         <table class="tableForBadMarkAndStatistik" style="margin: auto; width: 80%;">
                             <thead>
                                 <tr>
-                                    <td>Средний балл:</td>
+                                    <td>#{msgs.student_oldGradesMiddleGrade}</td>
                                     <td class="darkBlueText">#{oldGradesBean.average}</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Оценка 5:</td>
+                                    <td>#{msgs.student_oldGradesGrade5}</td>
                                     <td>#{oldGradesBean.mark5}</td>
                                 </tr>
                                 <tr>
-                                    <td>Оценка 4:</td>
+                                    <td>#{msgs.student_oldGradesGrade4}</td>
                                     <td>#{oldGradesBean.mark4}</td>
                                 </tr>
                                 <tr>
-                                    <td>Оценка 3:</td>
+                                    <td>#{msgs.student_oldGradesGrade3}</td>
                                     <td>#{oldGradesBean.mark3}</td>
                                 </tr>
                                 <tr>
-                                    <td>Зачет:</td>
+                                    <td>#{msgs.student_oldGradesGradeZach}</td>
                                     <td>#{oldGradesBean.countTests}</td>
                                 </tr>
                             </tbody>
@@ -125,7 +125,7 @@
                     </div>
                 </div>
                 <div class="StudentMainPageTitlesBorders">
-                    <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">Подсказка
+                    <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">#{msgs.student_marksHelp}
                     </div>
                     <div class="textForPodskazka">
                        <tabs:singleTab alias="STUDENT_OLD_GRADES"/>
