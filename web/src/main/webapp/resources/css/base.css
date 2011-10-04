@@ -1886,7 +1886,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     width: 35px;
     text-align: center !important;
 }
-.mainStyle .DataTestsRedact td:nth-child(2){
+/*.mainStyle .DataTestsRedact td:nth-child(2){
     color: #6F6F6F;
     margin-left: 10px;
 }
@@ -1900,7 +1900,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .DataTestsRedact input{
     text-align: center !important;
     min-width: 50px;
-}
+}*/
 /*настройки*/
 .mainStyle .adminSettings td{
     padding-bottom: 8px;
@@ -1913,9 +1913,9 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .previewColor{
     color: #6F6F6F;
 }
-.mainStyle .previewPadBott{
+/*.mainStyle .previewPadBott{
     margin-bottom: 15px;
-}
+}*/
 .mainStyle .previewPadLeft{
     margin-left: 80px;
 }
@@ -1934,6 +1934,9 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 }
 .mainStyle .newsBlocks{
     margin: 18px;
+}
+.mainStyle .newAdd td{
+    vertical-align: top;
 }
 /*помощь*/
 .mainStyle .studentHelp{
@@ -2338,4 +2341,8 @@ a.mainStyle .lightGreyText a:hover{
 }
 .mainStyle .redactPages td{
     padding-right: 10px;
+}
+.mainStyle .comeInAsStudentOrTeacher{
+    background: url('../resources/images/students.png') no-repeat 0 0;
+    padding-left: 20px;
 }

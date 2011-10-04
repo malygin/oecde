@@ -1,34 +1,110 @@
 <ui:composition
-     xmlns:ui="http://java.sun.com/jsf/facelets"
-     xmlns:f="http://java.sun.com/jsf/core"
-     xmlns:h="http://java.sun.com/jsf/html"
-     xmlns:util="http://java.sun.com/jsf/composite/components/util"
-     template="../resources/adminTemplate.xhtml"
-     >
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:util="http://java.sun.com/jsf/composite/components/util"
+    template="../resources/adminTemplate.xhtml"
+    >
     <ui:define name="content">
-     <f:metadata>
-         <f:viewParam name="id" value="#{adminTestBean.id}"/>
-     </f:metadata>
-     <h:form>
-        <table class="DataTestsRedact">
-            <tr><td><h:inputText maxlength="3" size="3" value="#{adminTestBean.test.duration}"/></td><td>duration</td></tr>
-            <tr><td><h:inputText maxlength="1" size="1" value="#{adminTestBean.test.estimateAttemptsNumber}"/></td><td>estimateAttemptsNumber</td></tr>
-            <tr><td><h:inputText size="70" value="#{adminTestBean.test.title}"/></td><td>title</td></tr>
-            <tr><td><h:inputText maxlength="1" size="1" value="#{adminTestBean.test.trialNumber}"/></td><td>trialNumber</td></tr>
-            <tr><td><h:inputText maxlength="3" size="3" value="#{adminTestBean.test.weight}"/></td><td>weight</td></tr>
-            <tr><td><h:selectOneMenu id="testType" value="#{adminTestBean.test.type}">
-               <f:selectItems value="#{adminTestBean.types}" />
-            </h:selectOneMenu></td><td>type</td></tr>
-            <tr><td><h:selectOneMenu id="estimationType" value="#{adminTestBean.test.estimation}">
-               <f:selectItems value="#{adminTestBean.estimation}" />
-            </h:selectOneMenu></td><td>estimation</td></tr>
-            <tr><td><util:date_picker value="#{adminTestBean.test.closeDate}"/></td><td>closeDate</td></tr>
-            <tr><td><util:date_picker value="#{adminTestBean.test.openDate}"/></td><td>openDate</td></tr>
-            <tr><td><h:inputText maxlength="3" size="3" value="#{adminTestBean.test.quantity}"/></td><td>quantity</td></tr>
-            <tr><td><h:selectBooleanCheckbox  value="#{adminTestBean.test.shuffle}"/></td><td>is shuffle</td></tr>
-            <tr><td><h:selectBooleanCheckbox  value="#{adminTestBean.test.writable}"/></td><td>is winter</td></tr>
-            <tr><td><h:commandButton action="#{adminTestBean.save}" value="ОК" styleClass="studentButton" style="width: 70px;"/></td></tr>
-        </table>
-    </h:form>
-   </ui:define>
+        <f:metadata>
+            <f:viewParam name="id" value="#{adminTestBean.id}"/>
+        </f:metadata>
+        <div class="interfaceContent">
+            <div class="StudentMainPageTitlesBorders">
+                <div class="mainStudentPageTitlesGreen mainStudentPageTitles Ipsilon_Web_GreenText">
+                    <p class="floatLeft mainStudentPageTitles">
+                    <h:outputText value="#{adminTestBean.test.title}"/>
+                    </p>
+<!--                    <div style="float: right; margin-top: 4px;" class="greyLinks">
+                        <h:outputLink value="umk.xhtml?id=#{adminTestBean.test.id}">
+                            #{msgs.teacher_backToUMK}
+                        </h:outputLink>
+                    </div>-->
+                    <div class="floatDestroyer"/>
+                </div>
+                <h:form>
+                    <table class="teacherTestEdit">
+                        <tr>
+                            <td>#{msgs.teacher_testEditLong}</td>
+                            <td>
+                        <h:inputText maxlength="3" size="3" value="#{adminTestBean.test.duration}" style="width: 37px;"/></td>
+                        </tr>
+                        <tr>
+                            <td>#{msgs.teacher_testEditAttemptToPass}</td>
+                            <td>
+                        <h:inputText maxlength="1" size="1" value="#{adminTestBean.test.estimateAttemptsNumber}" style="width: 37px;"/></td>
+                        </tr>
+                        <tr>
+                            <td>#{msgs.student_testResultName}</td>
+                            <td>
+                        <h:inputText size="70" value="#{adminTestBean.test.title}"/>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>#{msgs.teacher_testEditTestAttempt}</td>
+                            <td>
+                        <h:inputText maxlength="1" size="1" value="#{adminTestBean.test.trialNumber}"/>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>weight</td>
+                            <td>
+                        <h:inputText maxlength="3" size="3" value="#{adminTestBean.test.weight}" style="width: 37px;"/>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>#{msgs.teacher_testEditType}</td>
+                            <td>
+                        <h:selectOneMenu id="testType" value="#{adminTestBean.test.type}">
+                            <f:selectItems value="#{adminTestBean.types}" />
+                        </h:selectOneMenu>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>#{msgs.teacher_testEditWayOfEstimation}</td>
+                            <td>
+                        <h:selectOneMenu id="estimationType" value="#{adminTestBean.test.estimation}">
+                            <f:selectItems value="#{adminTestBean.estimation}" />
+                        </h:selectOneMenu></td>
+                        </tr>
+                        <tr>
+                            <td>#{msgs.teacher_testEditToClose}</td>
+                            <td>
+                        <util:date_picker value="#{adminTestBean.test.closeDate}"/>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>#{msgs.teacher_testEditToOpen}</td>
+                            <td>
+                        <util:date_picker value="#{adminTestBean.test.openDate}"/>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>#{msgs.teacher_testEditQuestionsToSee}</td>
+                            <td>
+                        <h:inputText maxlength="3" size="3" value="#{adminTestBean.test.quantity}" style="width: 37px;"/>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>#{msgs.teacher_testEditMixQuestions}</td>
+                            <td>
+                        <h:selectBooleanCheckbox  value="#{adminTestBean.test.shuffle}"/>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>#{msgs.teacher_testEditRightPass}</td>
+                            <td>
+                        <h:selectBooleanCheckbox  value="#{adminTestBean.test.writable}"/>
+                        </td>
+                        </tr>
+                        <tr><td></td>
+                            <td>
+                        <h:commandButton action="#{adminTestBean.save}" value="ОК" styleClass="studentButton" style="width: 40px;text-align: center;"/>
+                        </td>
+                        </tr>
+                    </table>
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
 </ui:composition>

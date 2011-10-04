@@ -52,9 +52,11 @@
                                         #{test.title}
                                     </h:outputLink>
                                     <div class="greyLinks" style="margin-top: 8px;">
+                                        <span class="comeInAsStudentOrTeacher">
                                         <h:outputLink value="test.xhtml?id=#{test.id}&amp;action=pass" style="margin-right: 15px;">
                                             Запустить как студент
                                         </h:outputLink>
+                                        </span>
                                         <h:outputLink value="testEdit.xhtml?id=#{test.id}" styleClass="news_edit">
                                             #{msgs.admin_mainContentEdit}
                                         </h:outputLink>

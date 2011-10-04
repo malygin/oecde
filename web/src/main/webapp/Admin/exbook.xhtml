@@ -1,21 +1,64 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
-                  xmlns:f="http://java.sun.com/jsf/core"
-                  template="./../resources/umkTemplate.xhtml">
-     <f:metadata>
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="./../resources/adminTemplate.xhtml"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <f:metadata>
         <f:viewParam name="mId" value="#{umkBean.moduleId}"/>
         <f:viewParam name="tId" value="#{umkBean.taskId}"/>
         <f:viewParam name="cId" value="#{umkBean.cId}"/>
     </f:metadata>
     <ui:define name="umkNavigation">
         <ui:include src="../resources/includes/exbookNavigation.xhtml"/>
-     </ui:define>
+    </ui:define>
     <ui:define name="taskName">
         ${umkBean.currentTask.title}
     </ui:define>
     <ui:define name="content">
-        <iframe class="exbook" style="margin-top: 133px;" src="../TaskServlet?task=#{umkBean.url}" height="80%"  scrolling="auto"    width="100%"  frameborder="0" id="taskFrame">
-         </iframe>
+        <script type="text/javascript" src="../resources/jquery/js/umk.js"></script>
+        <div class="StudentMainPageTitlesBorders">
+            <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">
+                <p class="floatLeft mainStudentPageTitles skyBlueText">
+                    Теоретический материал для выполнения контрольной работы
+                </p>
+                <div style="float: right;" class="greyLinks">
+                    <a href="umk.xhtml?id=#{umkBean.cId}">#{msgs.student_Test_returnToCourse}</a>
+                </div>
+                <div class="floatDestroyer"/>
+            </div>
+            <div  class="umkNavigationLinksContainer">
+                <p class="floatLeft" style="height: 19px; margin-top: 6px;">#{msgs.user_UMK_pages}</p>
+                <ol class="umkNavigationLinksList">
+                    <li class="umkNavigationLinkContainer linkToTeachersProfile" style="padding-left: 10px;">
+                        <c:if test="${umkBean.prevTask.id==0}"><span>&larr;</span></c:if>
+                        <c:if test="${umkBean.prevTask.id!=0}">
+                            <a href="exbook.xhtml?cId=#{umkBean.cId}&amp;mId=#{umkBean.prevModule.id}&amp;tId=#{umkBean.prevTask.id}" title="#{msgs.user_UMK_goToPage} - ${umkBean.prevTask.title}.">&larr;</a>
+                        </c:if>
+                    </li>
+                    <c:forEach items="#{umkBean.tasks}" var="task" varStatus="st">
+                        <c:if test="${task.id!=umkBean.taskId}">
+                            <li class="umkNavigationLinkContainer linkToTeachersProfile"><a style="font-weight: bold;" title="${task.title}" href="exbook.xhtml?cId=${umkBean.cId}&amp;mId=${umkBean.moduleId}&amp;tId=${task.id}">  ${st.count}</a></li>
+                        </c:if>
+                        <c:if test="${task.id==umkBean.taskId}">
+                            <li class="umkNavigationLinkContainer linkToTeachersProfile"><span style="font-weight: bold; color: #FBB35D;">${st.count}</span></li>
+                        </c:if>
+                    </c:forEach>
+                    <li class="umkNavigationLinkContainer linkToTeachersProfile">
+                        <c:if test="${umkBean.nextTask.id==0}"><span>&rarr;</span></c:if>
+                        <c:if test="${umkBean.nextTask.id!=0}">
+                            <a  href="exbook.xhtml?cId=#{umkBean.cId}&amp;mId=#{umkBean.nextModule.id}&amp;tId=#{umkBean.nextTask.id}" title="#{msgs.user_UMK_goToPage} - ${umkBean.nextTask.title}.">&rarr;</a>
+                        </c:if>
+                    </li>
+                </ol>
+                <div class="umkModuleName">
+                    <div class="floatLeft">#{msgs.user_UMK_currentModule} <span class="orangeText" style="font-weight: bold;">#{umkBean.currentModule.name}</span>
+                    </div>
+                    <div class="floatDestroyer"/>
+                </div>
+            </div>
+            <iframe class="exbook" src="../TaskServlet?task=#{umkBean.url}" height="80%"  scrolling="auto"    width="100%"  frameborder="0" id="taskFrame">
+            </iframe>
+        </div>
     </ui:define>
-   </ui:composition>
+</ui:composition>

@@ -1,39 +1,68 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:composite="http://java.sun.com/jsf/composite"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:util="http://java.sun.com/jsf/composite/components/util">
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:util="http://java.sun.com/jsf/composite/components/util">
 
- <!-- INTERFACE -->
-  <composite:interface>
- 
-  </composite:interface>
+    <!-- INTERFACE -->
+    <composite:interface>
 
-  <!-- IMPLEMENTATION -->
-  <composite:implementation>
-      <h:form>
-         <span  class="previewColor">#{msgs.user_newsShotNews}</span><br/>
-          <div style="padding: 5px;">         
-          <h:outputText  rendered="#{NewsBean.renderAddSuccess}" value="#{msgs.user_newsAdded}" styleClass="DisciplineText"/><br/>
-          </div>
- 
-          <div class="previewPadBott">
-          <span class="previewColor">#{msgs.user_newsTitle} </span><br/>
-        тип  <h:selectOneMenu  value="#{NewsBean.type}">
-            <f:selectItems value="#{NewsBean.newTypeValues}" />
-            </h:selectOneMenu>
-          <h:inputText size="60"  value="#{NewsBean.header}"/></div>  
-          <span  class="previewColor">#{msgs.user_newsNotice} </span>
-          <div class="previewPadLeft previewPadBott"><util:editor value="#{NewsBean.anons}"/></div>         
-          <span  class="previewColor">#{msgs.user_newsFullText} </span>
-          <div class="previewPadLeft"><util:editor rows="10" cols="80" value="#{NewsBean.fulltext}"/></div>
-          <h:commandButton styleClass="studentButton" action="#{NewsBean.save}" value="#{msgs.admin_mainContentAdd}" style="width: 75px;"/>
-              
-          <h:messages infoStyle="color:red;"/>
-      
-      </h:form>
+    </composite:interface>
 
-  </composite:implementation>
+    <!-- IMPLEMENTATION -->
+    <composite:implementation>
+        <h:form>
+  <!--         <span  class="previewColor">#{msgs.user_newsShotNews}</span><br/>-->
+            <div style="padding: 5px;">
+                <h:outputText  rendered="#{NewsBean.renderAddSuccess}" value="#{msgs.user_newsAdded}" styleClass="DisciplineText"/><br/>
+            </div>
+            <table cellpadding="10px" cellspacing="10px" class="newAdd">
+                <tr>
+                    <td>
+                        <span class="previewColor">#{msgs.user_newsTitle} </span>
+                    </td>
+                    <td>
+                        <h:inputText size="60"  value="#{NewsBean.header}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Тип:
+                    </td>
+                    <td>
+                        <h:selectOneMenu  value="#{NewsBean.type}">
+                            <f:selectItems value="#{NewsBean.newTypeValues}" />
+                        </h:selectOneMenu>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span  class="previewColor">#{msgs.user_newsNotice} </span>
+                    </td>
+                    <td>
+                        <div class="previewPadBott"><util:editor value="#{NewsBean.anons}"/></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span  class="previewColor">#{msgs.user_newsFullText} </span>
+                    </td>
+                    <td>
+                        <div><util:editor rows="10" cols="80" value="#{NewsBean.fulltext}"/></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: right;">
+                        <h:commandButton styleClass="studentButton" action="#{NewsBean.save}" value="#{msgs.admin_mainContentAdd}" style="width: 75px; text-align: center;"/>
+                    </td>
+                </tr>
+            </table>
+
+            <h:messages infoStyle="color:red;"/>
+
+        </h:form>
+
+    </composite:implementation>
 </html>

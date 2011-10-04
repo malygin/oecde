@@ -9,25 +9,25 @@
       >
 
 
- <!-- INTERFACE -->
-  <composite:interface>
-      <composite:attribute name="type" required="true" type="java.lang.String" shortDescription="тип пользователя"/>
-      <composite:attribute name="u" required="true" type="org.sgu.oecde.core.users.AbstractUser" shortDescription="пользователь"/>
-      
-  </composite:interface>
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute name="type" required="true" type="java.lang.String" shortDescription="тип пользователя"/>
+        <composite:attribute name="u" required="true" type="org.sgu.oecde.core.users.AbstractUser" shortDescription="пользователь"/>
 
-  <!-- IMPLEMENTATION -->
-   <composite:implementation>
-       <style type="text/css">
-       </style>
-       <div style="float: left; margin-right: 20px; text-align: center;">
-           <ut:showPhoto user="#{cc.attrs.u}" styleClass="#{cc.attrs.u.classType}" size="medium"/>
-           <div class="floatDestroyer"/>
-           <h:outputText rendered="#{cc.attrs.u.online}" value="On-line" styleClass="online"/>
-       </div>
-       <div>
-        
-       </div>
+    </composite:interface>
+
+    <!-- IMPLEMENTATION -->
+    <composite:implementation>
+        <style type="text/css">
+        </style>
+        <div style="float: left; margin-right: 20px; text-align: center;">
+            <ut:showPhoto user="#{cc.attrs.u}" styleClass="#{cc.attrs.u.classType}" size="medium"/>
+            <div class="floatDestroyer"/>
+            <h:outputText rendered="#{cc.attrs.u.online}" value="On-line" styleClass="online"/>
+        </div>
+        <div>
+
+        </div>
         <div style="padding-top: 5px;" class="Search">
             <table style="height:100%; text-indent: 0px;">
                 <tr>
@@ -45,9 +45,9 @@
                 <h:panelGroup rendered="#{cc.attrs.type eq 'student'}">
                     <tr><td class="userInfoItemColor">#{msgs.teacher_city}:</td><td>#{cc.attrs.u.city.name}</td></tr>
                     <sec:ifAnyGranted roles="ROLE_ADMIN">
-                    <tr><td class="userInfoItemColor">#{msgs.student_mainContentUserInfoSpec}</td><td>#{cc.attrs.u.group.speciality.name}</td></tr>
-                    <tr><td class="userInfoItemColor">#{msgs.student_mainContentUserInfoGroup}</td><td><h:outputLink value="group.xhtml?id=#{cc.attrs.u.group.id}">#{cc.attrs.u.group.name}</h:outputLink></td></tr>
-                    <tr><td class="userInfoItemColor">#{msgs.student_mainContentUserInfoCourse}</td><td>#{cc.attrs.u.group.year}</td></tr>
+                        <tr><td class="userInfoItemColor">#{msgs.student_mainContentUserInfoSpec}</td><td>#{cc.attrs.u.group.speciality.name}</td></tr>
+                        <tr><td class="userInfoItemColor">#{msgs.student_mainContentUserInfoGroup}</td><td><h:outputLink value="group.xhtml?id=#{cc.attrs.u.group.id}">#{cc.attrs.u.group.name}</h:outputLink></td></tr>
+                        <tr><td class="userInfoItemColor">#{msgs.student_mainContentUserInfoCourse}</td><td>#{cc.attrs.u.group.year}</td></tr>
                     </sec:ifAnyGranted>
                     <tr>
                         <td class="userInfoItemColor">#{msgs.student_studentContact}</td>
@@ -62,7 +62,7 @@
                 <h:panelGroup rendered="#{cc.attrs.type eq 'admin'}">
                     <tr><td class="userInfoItemColor">#{msgs.teacher_mainContentUserInfoPost}</td><td>#{cc.attrs.u.position}</td></tr>
                     <tr><td class="userInfoItemColor">#{msgs.student_studentContact}</td><td>#{cc.attrs.u.description}</td></tr>
-                   
+
                 </h:panelGroup>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'teacher'}">
                     <tr>
@@ -79,31 +79,33 @@
                         </td>
                         <td class="linkToStudentsProfile" style="font-size: 8pt; font-weight: normal !important;">
                             <h:outputLink value="discipline.xhtml?c= #{t.key.id}">
-                            #{t.key['discipline'].name}
+                                #{t.key['discipline'].name}
                             </h:outputLink>
                         </td>
                     </tr>
                     <tr><td class="userInfoItemColor">#{msgs.student_studentContact}</td><td></td></tr>
                 </h:panelGroup>
             </table>
-            <table style="width: 65%;">
+            <table style="width: 75%;">
                 <tr class="greyLinks">
                     <td style="height: 30px;">
-                      <a class="s1" href="messages_write.xhtml?user=${cc.attrs.u.id}">#{msgs.student_studentListWriteMessage}</a>
+                        <a class="s1" href="messages_write.xhtml?user=${cc.attrs.u.id}">#{msgs.student_studentListWriteMessage}</a>
                     </td>
                     <td style="height: 30px;">
-                      <span class="s2" ><a href="messages_dialog.xhtml?user=${cc.attrs.u.id}">#{msgs.student_studentLestShowDialog}</a></span>
+                        <span class="s2" ><a href="messages_dialog.xhtml?user=${cc.attrs.u.id}">#{msgs.student_studentLestShowDialog}</a></span>
                     </td>
-                    
+
                     <sec:ifAnyGranted roles="ROLE_ADMIN">
                         <td colspan="2">
-                          <h:outputLink value="switch_user?j_username=#{cc.attrs.u.username}" >#{msgs.user_ComeIn}</h:outputLink>
-                       </td>
-                   </sec:ifAnyGranted>
-                    
+                            <span  class="comeInAsStudentOrTeacher">
+                                <h:outputLink value="switch_user?j_username=#{cc.attrs.u.username}" >#{msgs.user_ComeIn}</h:outputLink>
+                            </span>
+                        </td>
+                    </sec:ifAnyGranted>
+
                 </tr>
             </table>
         </div>
-       <div class="floatDestroyer"></div>
-   </composite:implementation>
+        <div class="floatDestroyer"></div>
+    </composite:implementation>
 </html>

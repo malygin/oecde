@@ -5,58 +5,98 @@
     template="../resources/adminTemplate.xhtml"
     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
     xmlns:r="http://java.sun.com/jsp/jstl/core"
+    xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs"
     >
     <ui:define name="contentHeader">
         #{msgs.admin_adminsOnlineMenuTitle}
     </ui:define>
     <ui:define name="content">
-        <div class="interfaceContent">
+        <div class="StudentMainPageTitlesBorders" style="margin-left: 2%; width: 66%; float: left;">
 
-           <div class="DisciplineText prosto_tekst studentPaddBott studentPaddLeft">#{msgs.student_representation}:
-           </div>
-            <h:dataTable value="#{adminsBean.supervisors}" styleClass="leftMenuContainer" var="s">
-                <h:column>
-                <div class="standartContainerForStudentMediumAvatar studentPaddLeft" style="margin-left: 8px; width: 80px;" align="center">
-                    <ut:showPhoto user="#{s}" size="small"/>
+            <div class="interfaceContentForMyMarks">
+                <div class="mainStudentPageTitles  mainStudentPageTitlesBlue">
+                    Администраторы
                 </div>
-                <div class="standartContainerForTeacherInfoInTeachersList">
-                    <table>
-                        <tr>
-                            <td>
-                                <div class="studentPaddBott">
-                                <span class="AdminTextGrey">#{msgs.student_description}:</span>
-                                 #{s.description}
-                                </div>
-                            </td>
-                            <td>
-                                <div class="studentPaddBott">
-                                <span class="AdminTextGrey">город:</span>
-                                 #{s.city.name}
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                        <td class="controlWorksDisciplineNameLinkGrey">
-                            <span class="s1 studentPaddBott">
-                                <a href="messages_write.xhtml?user=${s.id}">#{msgs.student_studentListWriteMessage}</a>
-                            </span>
-                            <span class="s2 controlWorksDisciplineNameLink">
-                            <a href="messages_dialog.xhtml?user=${s.id}">#{msgs.student_studentLestShowDialog}</a>
-                            </span>
-                        </td>
-                        </tr>
-                    </table>
+                <div class="interfaceContent">
+                    <div class="DisciplineText prosto_tekst studentPaddBott studentPaddLeft">#{msgs.student_representation}:
+                    </div>
+                    <h:dataTable value="#{adminsBean.supervisors}" styleClass="leftMenuContainer" var="s">
+                        <h:column>
+                            <div class="standartContainerForStudentMediumAvatar studentPaddLeft" style="margin-left: 8px; width: 80px;" align="center">
+                                <ut:showPhoto user="#{s}" size="small"/>
+                            </div>
+                            <div class="standartContainerForTeacherInfoInTeachersList">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div class="studentPaddBott">
+                                                <span class="AdminTextGrey">#{msgs.student_description}:</span>
+                                                #{s.description}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="studentPaddBott">
+                                                <span class="AdminTextGrey">город:</span>
+                                                #{s.city.name}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="controlWorksDisciplineNameLinkGrey">
+                                            <span class="s1 studentPaddBott">
+                                                <a href="messages_write.xhtml?user=${s.id}">#{msgs.student_studentListWriteMessage}</a>
+                                            </span>
+                                            <span class="s2 controlWorksDisciplineNameLink">
+                                                <a href="messages_dialog.xhtml?user=${s.id}">#{msgs.student_studentLestShowDialog}</a>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </h:column>
+                    </h:dataTable>
+                    <h:dataTable value="#{adminsBean.admins}" styleClass="leftMenuContainer" var="a">
+                        <h:column>
+                            <div class="studentInterfaceStandartList">
+                                <ut:userListItem type="admin" u="#{a}"/>
+                            </div>
+                        </h:column>
+                    </h:dataTable>
+                    <div class="floatDestroyer"/>
                 </div>
-                </h:column>
-            </h:dataTable>
-            <h:dataTable value="#{adminsBean.admins}" styleClass="leftMenuContainer" var="a">
-                <h:column>
-                <div class="studentInterfaceStandartList">
-                    <ut:userListItem type="admin" u="#{a}"/>
+            </div>
+        </div>
+        <div class="StudentMainPageTitlesBorders" style="width: 28%; margin-left: 70%">
+            <div class="interfaceContentForMyMarks">
+                <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
+                    Часто задаваемые вопросы
                 </div>
-                </h:column>
-            </h:dataTable>
-            <div class="floatDestroyer"/>
+            </div>
+            <div class="questionDiv">
+                <p>Прежде чем спросить, убедитесь, что на Ваш вопрос еще нет ответа</p>
+                <ol class="listOfQuestion">
+                    <li><a href="support.xhtml">Что такое куки?</a></li>
+                    <li><a href="support.xhtml">Как очистить кэш?</a></li>
+                    <li><a href="support.xhtml">Как связаться с деканатом? </a></li>
+                    <li><a href="support.xhtml">Что такое видеоконференция?</a></li>
+                    <li><a href="support.xhtml">Как загрузить аватарку?</a></li>
+                    <li><a href="support.xhtml">Работа с УМК</a></li>
+                    <li><a href="support.xhtml">Как оценивают тесты?</a></li>
+                    <li><a href="support.xhtml">Что такое библиотека курсов?</a></li>
+                    <li><a href="support.xhtml">Почему не выставлена оценка в зачетке, если экзамен уже сдан?</a></li>
+                </ol>
+            </div>
+        </div>
+        <div class="StudentMainPageTitlesBorders" style="width: 28%; margin-left: 70%">
+
+            <div class="interfaceContentForMyMarks">
+                <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
+                    Подсказка
+                </div>
+            </div>
+            <div class="textForPodskazka">
+                <tabs:singleTab alias="STUDENT_ADMINS_LIST"/>
+            </div>
         </div>
     </ui:define>
 </ui:composition>
