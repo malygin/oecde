@@ -14,7 +14,7 @@
             <div>
                 <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
                     <p class="floatLeft mainStudentPageTitles skyBlueText" style="width: 70%; padding: 0;">
-                        Мои изучаемые материалы
+                        #{msgs.student_eduMenuLearningCourses}
                     </p>
                     <f:metadata>
                         <f:viewParam name="s" value="#{materialsBean.semester}"/>
@@ -36,7 +36,7 @@
                             <div class="materialInfo">
                                 <table style="margin: 10px;">
                                     <tr>
-                                        <td>Преподаватель</td>
+                                        <td>#{msgs.student_gradesTableHeadTeacher}</td>
                                         <td class="linkToTeachersProfile">
                                     <ui:repeat value="#{setToList.getList(m.curriculum.teacherToGroups)}" var="t">    
                                        <h:panelGroup rendered="#{t.teacher.id != 1}"> <a href="teacher.xhtml?id=#{t.teacher.id}"> #{t.teacher.fio}</a></h:panelGroup>
@@ -45,15 +45,15 @@
                                     </tr>
                                     <tr>
                                         <td>#{msgs.student_finishedTests}</td>
-                                        <td><span> #{m.passedTests}</span> #{msgs.student_fromWord} #{m.testsCount} (<a href="discipline.xhtml?c=#{m.curriculum.id}#toTests">перейти к тестам</a>)</td>
+                                        <td><span> #{m.passedTests}</span> #{msgs.student_fromWord} #{m.testsCount} (<a href="discipline.xhtml?c=#{m.curriculum.id}#toTests">#{msgs.student_materialsGoToTest}</a>)</td>
                                     </tr>
                                     <tr>
                                         <td>#{msgs.student_testResults}</td>
-                                        <td><span> #{m.reTestPoints==0?m.testPoints:m.reTestPoints}</span> баллов (<a href="testResults.xhtml">подробнее</a>)</td>
+                                        <td><span> #{m.reTestPoints==0?m.testPoints:m.reTestPoints}</span> #{msgs.student_gradesMarks} (<a href="testResults.xhtml">#{msgs.student_newsMore}</a>)</td>
                                     </tr>
                                     <tr>
                                         <td>#{msgs.student_mainTest} </td>
-                                        <td><span>#{m.concludingReTestPoints==0?m.concludingTestPoints:m.concludingReTestPoints}</span> баллов </td>
+                                        <td><span>#{m.concludingReTestPoints==0?m.concludingTestPoints:m.concludingReTestPoints}</span> #{msgs.student_gradesMarks} </td>
                                     </tr>
                                 </table>
                 
@@ -103,7 +103,7 @@
 
             <div class="interfaceContentForMyMarks">
                 <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
-                    Подсказка
+                    #{msgs.student_marksHelp}
                 </div>
             </div>
             <div class="textForPodskazka">
