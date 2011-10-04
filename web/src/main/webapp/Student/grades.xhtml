@@ -13,7 +13,7 @@
     <ui:define name="content">
         <div class="StudentMainPageTitlesBorders" style="height: 100%;">
         <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
-                    Мои оценки
+                    #{msgs.student_grades}
            
                 <div style="float: right;">
                     <est:changeSemester semester="#{gradesBean.semester}" />
@@ -24,8 +24,8 @@
             <h:form>
             <table class="MyGradesBigTable">
                 <tr>
-                    <td><p  class="lightGreyText">Выберите дисциплину:</p></td>
-                    <td><p class="lightGreyText">Ваша успеваемость:</p></td>
+                    <td><p  class="lightGreyText">#{msgs.student_mcwCWChoseDisc}</p></td>
+                    <td><p class="lightGreyText">#{msgs.student_gradesResult}</p></td>
                 </tr>
                 <tr>
                     <td>
@@ -48,7 +48,7 @@
                     <p class="GreenLinkToDisciplineOpen linkToTeachersProfile"><h:outputLink value="umk.xhtml?c=#{gradesBean.currentsFacade.points.curriculum.id}">#{gradesBean.currentsFacade.points.curriculum.discipline.name}</h:outputLink></p>
                     <table class="GradesDiskription">
                         <tr>
-                            <td>Преподаватель:</td>
+                            <td>#{msgs.student_gradesTableHeadTeacher}</td>
                             <td class="linkToTeachersProfile">
                                  <ui:repeat value="#{setToList.getList(gradesBean.currentsFacade.points.curriculum.teacherToGroups)}" var="t">    
                                             <a href="teacher.xhtml?id=#{t.teacher.id}"> #{t.teacher.fio}</a>
@@ -56,35 +56,35 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Тесты:</td>
+                            <td>#{msgs.student_gradesTableHeadTests}</td>
                             <td> #{gradesBean.currentsFacade.test} <span style="color:#808080;">(#{gradesBean.currentsFacade.testsMaxPoints})</span></td>
                         </tr>
                         <tr>
-                            <td>Переэкзаменовка:</td>
+                            <td>#{msgs.student_gradesTableHeadResit}</td>
                             <td>#{gradesBean.currentsFacade.reTest} </td>
                         </tr>
                         <tr>
-                            <td>Итоговые тесты:</td>
+                            <td>#{msgs.student_gradesTableHeadFinTests}</td>
                             <td>#{gradesBean.currentsFacade.concludingTest} <span style="color:#808080;">(#{gradesBean.currentsFacade.concludingTestsMaxPoints})</span></td>
                         </tr>
                         <tr>
-                            <td>Переэкзаменовка:</td>
+                            <td>#{msgs.student_gradesTableHeadResit}</td>
                             <td>#{gradesBean.currentsFacade.concludingReTest}</td>
                         </tr>
                         <tr>
-                            <td>Самостоятельные работы:</td>
+                            <td>#{msgs.student_gradesSamWorks}</td>
                             <td>#{gradesBean.currentsFacade.controlWorkPoints}</td>
                         </tr>
                         <tr>
-                            <td>Контрольная работа:</td>
+                            <td>#{msgs.student_gradesControlWork}</td>
                             <td><h:outputText converter="enumConverter" value="#{gradesBean.currentsFacade.controlWorkValue}"/></td>
                         </tr>
                         <tr>
-                            <td>Сумма:</td>
+                            <td>#{msgs.student_gradesTableHeadSumm}</td>
                             <td>#{gradesBean.currentsFacade.points.sum}</td>
                         </tr>
                         <tr>
-                            <td>Итоговая оценка:</td>
+                            <td>#{msgs.student_gradesTableHeadFinal}</td>
                             <td><h:outputText converter="enumConverter" value="#{gradesBean.currentsFacade.grade}"/></td>
                         </tr>
                     </table>
