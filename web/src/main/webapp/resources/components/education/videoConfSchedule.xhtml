@@ -29,7 +29,7 @@
 
         <div>
             <div class="mainStudentPageTitlesGreen mainStudentPageTitles">
-                <a style="font-size: 12pt;" href="schedule.xhtml">Расписание видеоконференций</a>
+                <a style="font-size: 12pt;" href="schedule.xhtml">#{msgs.student_sheduleVideoConf}</a>
             </div>
             <div class="#{cc.attrs.styleForShedule}">
                 <div id="datepicker" class="datepickerClass"></div>
@@ -40,7 +40,7 @@
                         <tr>
                             <td valign="top" class="Ipsilon_Web_GreenText"><p><h:outputText value="#{s.lessonDate}" converter="dateConverter"/></p>
                             </td>
-                            <td><p><p class="skyBlueText">#{s.discipline.name}</p> <p  class="Ipsilon_Web_GreenText">#{s.teacher.initials}</p> <h:outputText converter="roomConverter" value="#{s.room}"/> комната</p>
+                            <td><p><p class="skyBlueText">#{s.discipline.name}</p> <p  class="Ipsilon_Web_GreenText">#{s.teacher.initials}</p> <h:outputText converter="roomConverter" value="#{s.room}"/> #{msgs.student_sheduleRoom}</p>
                             </td>
                         </tr>
 
@@ -48,7 +48,7 @@
                     <tr>
                         <td colspan="2">
                             <p class="videoConfSchedule" style="height: 25px;">
-                                <h:panelGroup rendered="#{cc.attrs.renderBlock eq 'firstLessons'}"><a href="schedule.xhtml">Посмотреть все видеоконференции</a></h:panelGroup>
+                                <h:panelGroup rendered="#{cc.attrs.renderBlock eq 'firstLessons'}"><a href="schedule.xhtml">#{msgs.student_sheduleSeeAll}</a></h:panelGroup>
                             </p>
                         </td>
                     </tr>
@@ -57,12 +57,12 @@
             <h:panelGroup layout="block" rendered="#{cc.attrs.renderBlock eq 'allLessons'}" style="float: right; width: 25%; margin: 0; margin-right: 10px; margin-top: 20px;" styleClass="StudentMainPageTitlesBorders">
                     <div class="interfaceContentForMyMarks">
                         <div class="mainStudentPageTitles  mainStudentPageTitlesOrange">
-                            Текущая конференция
+                            #{msgs.student_sheduleCurrentConf}
                         </div>
                     </div>
                     <div>
                         <div style="text-align: right;">
-                            <a href="#" style="margin-right: 10px;">посетить</a>
+                            <a href="#" style="margin-right: 10px;">#{msgs.student_sheduleGoToConf}</a>
                         </div>
                         <div>
                         </div>
@@ -92,7 +92,7 @@
                                 <td><span class="linkToStudentsProfile"><h:outputLink value="umk.xhtml?c=#{s.id}" style="margin-left: 10px;">#{s.discipline.name}
                                         </h:outputLink></span></td>
                                 <td><span class="linkToTeachersProfile linkToTeachersProfileFromStudent"><a href="teacher.xhtml?id=#{s.teacher.id}"><h:outputText value="#{s.teacher.initials}"/></a></span></td>
-                                <td><h:outputText converter="roomConverter" value="#{s.room}"/> комната</td>
+                                <td><h:outputText converter="roomConverter" value="#{s.room}"/> #{msgs.student_sheduleRoom}</td>
                             </tr>
                         </table>
                     </ui:repeat>
