@@ -24,34 +24,34 @@
             <li><a href="reports.xhtml">#{msgs.admin_eduMenuXlsReports}</a></li>
             <li><a href="news_add.xhtml">#{msgs.admin_mainContentAddNew}</a></li>
             <li><a href="http://oecdo.sgu.ru/client/">#{msgs.student_comMenuVideoconferencing}</a></li>
-            <li><a href="http://oec-tst.main.sgu.ru/DoctrineUMK/">Умк и планы</a></li>
-            <li><a href="http://oec-tst.main.sgu.ru:9292/sashedule/">Расписания</a></li>
+            <li><a href="http://oec-tst.main.sgu.ru/DoctrineUMK/">#{msgs.admin_eduMenuUMK}</a></li>
+            <li><a href="http://oec-tst.main.sgu.ru:9292/sashedule/">#{msgs.admin_eduMenuSchedule}</a></li>
   <!--            <li><a href="index.xhtml"> #{msgs.admin_eduMenuTeachersExcercises}</a></li>
               <li><a href="index.xhtml">#{msgs.admin_eduMenuGroupProjects}</a></li>-->
         </ol>
         <div class="modulsTitles"><p class="sideBarTitle">#{msgs.student_comMenuTitle}</p></div>
         <ol class="leftSideMenuLinks leftSideList">
             <li><a href="groups.xhtml">#{msgs.admin_communicationMenuStudents}</a></li>
-            <li><a href="adminsList.xhtml">Администраторы</a></li>
-            <li><a href="teacherList.xhtml">Преподаватели</a></li>
-            <li><a href="forum.xhtml?type=adminbags">Баги и предложения</a></li>
+            <li><a href="adminsList.xhtml">#{msgs.student_templateAdmins}</a></li>
+            <li><a href="teacherList.xhtml">#{msgs.admin_communicationMenuTeachers}</a></li>
+            <li><a href="forum.xhtml?type=adminbags">#{msgs.admin_communicationMenuBugs}</a></li>
 
             <li><a href="forum.xhtml?type=stfaq">#{msgs.admin_forumMenuStTechForum}</a></li>
             <li><a href="forum.xhtml?type=storg">#{msgs.admin_forumMenuStOrgForum}</a></li>
             <li><a href="forum.xhtml?type=teachfaq">#{msgs.admin_forumMenuTeachTechForum}</a></li>
             <li><a href="forum.xhtml?type=teachorg">#{msgs.admin_forumMenuTeachOrgForum}</a></li>
         </ol>
-        <div class="modulsTitles"><p class="sideBarTitle">Редактирование информации</p></div>
+        <div class="modulsTitles"><p class="sideBarTitle">#{msgs.admin_redactInfo}</p></div>
         <ol class="leftSideMenuLinks leftSideList">
-            <li><a href="tabsView.xhtml?type=STUDENT_HELP">Помощь для  студентов</a></li>
-            <li><a href="tabsView.xhtml?type=STUDENT_INFORMATION">Информация для студентов </a></li>
-            <li><a href="tabsView.xhtml?type=STUDENTS_TIPS">Подсказки студентам</a></li>
-            <li><a href="tabsView.xhtml?type=TEACHER_HELP">Помощь для преподавателей</a></li>
-            <li><a href="tabsView.xhtml?type=TEACHER_INFORMATION">Информация для преподавателей </a></li>
-            <li><a href="tabsView.xhtml?type=TEACHERS_TIPS">Подсказки преподавателям</a></li>
+            <li><a href="tabsView.xhtml?type=STUDENT_HELP">#{msgs.admin_redactInfoStudHelp}</a></li>
+            <li><a href="tabsView.xhtml?type=STUDENT_INFORMATION">#{msgs.admin_redactInfoStudInfo} </a></li>
+            <li><a href="tabsView.xhtml?type=STUDENTS_TIPS">#{msgs.admin_redactInfoStudHint}</a></li>
+            <li><a href="tabsView.xhtml?type=TEACHER_HELP">#{msgs.admin_redactInfoTeachHelp}</a></li>
+            <li><a href="tabsView.xhtml?type=TEACHER_INFORMATION">#{msgs.admin_redactInfoTeachInfo} </a></li>
+            <li><a href="tabsView.xhtml?type=TEACHERS_TIPS">#{msgs.admin_redactInfoTeachHint}</a></li>
         </ol>
         <div class="modulsTitles"><p class="sideBarTitle" style="float: left;">#{msgs.student_chatMenuTitle}</p>
-            <div style="text-align: right;"><a href="chat.xhtml" title="история чата" class="chatHistory"></a>
+            <div style="text-align: right;"><a href="chat.xhtml" title="#{msgs.admin_chatHistory}" class="chatHistory"></a>
             </div>
             <div class="floatDestroyer"/>
         </div>
@@ -63,7 +63,7 @@
         </div>
         <ut:usersOnline/>
         <div style="margin-left: 15px;">
-            <div class="greenMenuTitle"><p class="sideBarTitle">Представители</p></div>
+            <div class="greenMenuTitle"><p class="sideBarTitle">#{msgs.admin_onLineMembers}</p></div>
             <div class="sideBarUnderTitleText"><div class="greenUnderTitleLink"><a href="usersOnlineList.xhtml?type=supervisor">#{msgs.admin_adminsOnlineUnderTitleText} (#{usersInCache.supervisorsNumber})</a></div></div>
             <div class="hiddenUsersOnlineTableContainer">
                 <table cellpadding="3" cellspacing="1" >
