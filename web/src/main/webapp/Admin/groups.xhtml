@@ -8,7 +8,7 @@
         <div class="interfaceContent">
             <div class="StudentMainPageTitlesBorders blocksMargins">
                 <div class="mainStudentPageTitles mainStudentPageTitlesBlue">
-                    группы за #{citiesAndGroups.year}
+                    #{msgs.admin_groupForYear} #{citiesAndGroups.year}
                 </div>
                 <h:dataTable id="table" value="#{citiesAndGroups.cities}" var="w" styleClass="leftMenuContainer" style="width: 100%;">
                     <h:column>
@@ -30,14 +30,14 @@
                              columnClasses="StudentBorderInfoTd," style="display: none;">
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="Город" styleClass="Ipsilon_Web_GreenText"/>
+                            <h:outputText value="#{msgs.teacher_city}" styleClass="Ipsilon_Web_GreenText"/>
                         </f:facet>
                         <h:outputText value="#{w.key.name}" styleClass="townsInTableGroups"/>
                     </h:column>
 
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="Группы" styleClass="Ipsilon_Web_GreenText"/>
+                            <h:outputText value="#{msgs.teacher_groupsMenuTitle}" styleClass="Ipsilon_Web_GreenText"/>
                         </f:facet>
                         <h:dataTable value="#{w.value}" var="s" cellspacing="0" cellpadding="0" border="0" styleClass="StudentBorderInfoTableCity linkToStudentsProfile" style="width: 100%;">
                             <h:column>
