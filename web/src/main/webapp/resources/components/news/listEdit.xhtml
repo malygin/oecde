@@ -21,7 +21,7 @@
         <div class="StudentMainPageTitlesBorders interfaceContent">
             <div>
             <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
-               Новости
+               #{msgs.student_newsTitle}
                 </div>
         <ui:repeat value="#{cc.attrs.list}" var="n">
             <h:form id="formList">
@@ -30,7 +30,7 @@
                     <div><span class="greenNewsLink"><a href="news_read.xhtml?id=#{n.id}">#{n.header}</a></span>
                         <span class="lightGreyText">
                             <h:outputLink value="news_read.xhtml?id=#{n.id}" rendered="#{not NewsBean.renderDeleteSuccess}">
-                           (подробнее)
+                           (#{msgs.student_newsMore})
                            </h:outputLink>
                         </span>
                     </div>

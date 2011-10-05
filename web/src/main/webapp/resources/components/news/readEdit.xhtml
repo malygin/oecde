@@ -15,10 +15,10 @@
     <composite:implementation>
         <h:form>
       #{cc.attrs.n.time}<br/>
-        <h:outputText  rendered="#{NewsBean.renderAddSuccess}" value="сохранено успешно"/><br/>
+        <h:outputText  rendered="#{NewsBean.renderAddSuccess}" value="#{msgs.admin_newsSaveSuccess}"/><br/>
 
         <div style="margin-bottom: 15px;"><h:inputText value="#{NewsBean.currentNewItem.header}"/></div><br/>
-           тип  <h:selectOneMenu  value="#{NewsBean.currentNewItem.newstype}">
+           #{msgs.admin_newsType}  <h:selectOneMenu  value="#{NewsBean.currentNewItem.newstype}">
             <f:selectItems value="#{NewsBean.newTypeValues}" />
             </h:selectOneMenu>
            <div style="margin-left: 80px;"><h:inputTextarea cols="100" value="#{NewsBean.currentNewItem.announcement}"/></div>
