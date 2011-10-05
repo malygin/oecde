@@ -8,23 +8,23 @@
     <ui:define name="content">
         <div class="StudentMainPageTitlesBorders floatLeft" style="width: 68.5%;">
             <div class="mainStudentPageTitles mainStudentPageTitlesGreen">
-                Настройки аккаунта
+                #{msgs.user_settingsForAccount}
             </div>
             <div class="userinfoContent">
                 <h:form>
                     <div class="floatLeft greyInputs" style="width: 60%;">
-                        <p class="Ipsilon_Web_GreenText login_pagePadding previewPadBott">Информация на главной странице
+                        <p class="Ipsilon_Web_GreenText login_pagePadding previewPadBott">#{msgs.user_settingsInfoOnMain}
                         </p>
                         <table class="adminSettings">
                             <tr>
-                                <td>Контакты:
+                                <td>#{msgs.student_studentContact}
                                 </td>
                                 <td>
                             <h:inputTextarea cols="30" value="#{adminSettingsBean.user.description}"/>
                             </td>
                             </tr>
                             <tr>
-                                <td> Должность:
+                                <td> #{msgs.teacher_mainContentUserInfoPost}
                                 </td>
                                 <td>
                             <h:inputText size="30" value="#{adminSettingsBean.user.position}" style="width: 250px;"/>
@@ -45,7 +45,7 @@
                 <div class="floatDestroyer"></div>
 
                 <div class="greyInputs">
-                    <p class="Ipsilon_Web_GreenText login_pagePadding previewPadBott">Смена пароля</p>
+                    <p class="Ipsilon_Web_GreenText login_pagePadding previewPadBott">#{msgs.user_ChangePassword}</p>
                     <set:changePassword user="#{adminSessionBean.admin}"/>
                 </div>
                 <div class="userPhotoPosition">

@@ -10,10 +10,10 @@
         <div class="StudentMainPageTitlesBorders">
             <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
                 <p class="floatLeft mainStudentPageTitles Ipsilon_Web_GreenText" style="width: 70%; padding: 0;">
-                    Редактирование вкладки
+                    #{msgs.admin_infoRedactTitle}
                 </p>
                 <div style="float: right;" class="greyLinks">
-                    <a href="index.xhtml">назад без изменений</a>
+                    <a href="index.xhtml">#{msgs.admin_infoBackWithoutSave}</a>
                 </div>
                 <div class="floatDestroyer"/>
             </div>
@@ -32,7 +32,7 @@
                                 <f:setPropertyActionListener target="#{tabsViewBean.idTab}" value="#{t.id}" />
                                 <f:ajax render="@form"/>
                             </h:commandLink>
-                            <h:outputText value="#{t.name}"/> - порядок #{t.orderTab}
+                            <h:outputText value="#{t.name}"/> - #{msgs.admin_infoOrder2} #{t.orderTab}
                         </h:column>
                     </h:dataTable>
                     <br/>

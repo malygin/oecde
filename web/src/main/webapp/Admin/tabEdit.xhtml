@@ -12,10 +12,10 @@
             <div class="StudentMainPageTitlesBorders">
                 <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
                     <p class="floatLeft mainStudentPageTitles Ipsilon_Web_GreenText" style="width: 70%; padding: 0;">
-                        Редактирование вкладки
+                        #{msgs.admin_infoRedactTitle}
                     </p>
                     <div style="float: right;" class="greyLinks">
-                        <h:outputLink value="tabsView.xhtml?type=#{tabEditBean.tab.type}" styleClass="margFromBackground">назад без изменений</h:outputLink>
+                        <h:outputLink value="tabsView.xhtml?type=#{tabEditBean.tab.type}" styleClass="margFromBackground">#{msgs.admin_infoBackWithoutSave}</h:outputLink>
                     </div>
                     <div class="floatDestroyer"></div>
                 </div>
@@ -24,17 +24,17 @@
                     <table class="redactPages">
                         <tr>
                             <td>
-                                <span>
+                                <span  class="AdminTextGrey">
                                     #{msgs.admin_mainContentInsertTitle}
                                 </span>
                         <h:inputText id="tabName" value="#{tabEditBean.tab.name}" style="width: 200px;"/>
                         </td>
                         <td>
-                            Порядок
+                            #{msgs.admin_infoOrder}
                         <h:inputText size="4" value="#{tabEditBean.tab.orderTab}"/>
                         </td>
                         <td>
-                            Псевдоним
+                            #{msgs.admin_infoAlias}
                         <h:inputText value="#{tabEditBean.tab.alias}"/>
                         </td>
                         </tr>
@@ -56,7 +56,7 @@
                                     </h:commandLink>
                                 </div>
                                 <div>
-                                    <h:outputText id="pName" value="#{p.title}" styleClass="AdminInfo"/> - порядок #{p.orderPage}
+                                    <h:outputText id="pName" value="#{p.title}" styleClass="AdminInfo"/> - #{msgs.admin_infoOrder2} #{p.orderPage}
                                     <div style="margin-bottom: 10px;"> #{msgs.admin_mainContentPageSeeOrNot_}
                                         <h:outputText id="visibility" rendered="#{p.visible}" value="#{msgs.admin_mainContentYes}" styleClass="Ipsilon_Web_GreenText"/>
                                     </div>

@@ -7,118 +7,104 @@
 
     <ui:define name="content">
         <div class="interfaceContent">
-            <div class="StudentMainPageTitlesBorders">
-                <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
-                    <p class="floatLeft mainStudentPageTitles Ipsilon_Web_GreenText" style="width: 70%; padding: 0;">
-                        Редактирование страницы
-                    </p>
-                    <div style="float: right;" class="greyLinks">
-                        <h:outputLink value="tabEdit.xhtml?id=#{tabEditBean.tab.id}">назад без изменений</h:outputLink>
-                    </div>
-                    <div class="floatDestroyer"></div>
-                </div>
-                <f:metadata>
-                    <f:viewParam name="id" value="#{tabEditBean.id}"/>
-                    <f:viewParam name="p" value="#{tabEditBean.pageId}"/>
-                </f:metadata>
-                <div class="blocksPaddings">
-                    <span style="margin-right: 20px;"> #{msgs.admin_mainContentInsert}</span>
-                    <span>"</span>
-                    <span class="controlWorksDisciplineName"><h:outputText id="tabName" value="#{tabEditBean.tab.name}"/></span>
-                    <span>"</span><br/><br/>
-                    <h:form id="form">
-                        <table  class="redactPages" cellspacing="5px">
-                            <tr>
-                                <td>
-                                    #{msgs.admin_mainContentPageTitle}
-                                </td>
-                                <td>
-                            <h:inputText style="width: 200px;" id="pName" value="#{tabEditBean.page.title}"/>
-                            </td>
-                            <td>
-                                псевдоним
-                            <h:inputText value="#{tabEditBean.page.alias}"/>
-                            </td>
-                            <td>
-                                порядок
-                            <h:inputText value="#{tabEditBean.page.orderPage}"/>
-                            </td>
-                            </tr>
-                            <tr>
+            <div class="backLinkPosition">
+                <span class="AdminNavigationLinksBold">
+                    <h:outputLink value="tabEdit.xhtml?id=#{tabEditBean.tab.id}">#{msgs.admin_infoBackWithoutSave}</h:outputLink>
+                </span>
+            </div>
+            <f:metadata>
+                <f:viewParam name="id" value="#{tabEditBean.id}"/>
+                <f:viewParam name="p" value="#{tabEditBean.pageId}"/>
+            </f:metadata>
+            <span class="AdminTextGrey" style="margin-right: 20px;"> #{msgs.admin_mainContentSectionName}</span><span class="AdminTextGrey">"</span>
+            <span class="controlWorksDisciplineName"><h:outputText id="tabName" value="#{tabEditBean.tab.name}"/></span> 
+            <span class="AdminTextGrey">"</span><br/><br/>
+            <h:form id="form">
+                <table  class="studentStandatrTable">
+                    <tr>
+                         <td style="width: 200px;" class="AdminTextGrey">
+                            #{msgs.admin_mainContentPageTitle}
+                         </td>
+                         <td>
+                            <h:inputText style="width: 99.5%;" id="pName" value="#{tabEditBean.page.title}"/><br/>
+                            #{msgs.admin_infoAlias2} <h:inputText value="#{tabEditBean.page.alias}"/>  #{msgs.admin_infoOrder2} <h:inputText value="#{tabEditBean.page.orderPage}"/>
+                          </td>
+                    </tr>
+                    <tr>
                         <td valign="top" class="AdminTextGrey">
                             #{msgs.admin_mainContentPageContent}
                         </td>
-                        <td colspan="3">
-                            <h:inputTextarea rows="10" cols="70" value="#{tabEditBean.page.text}" style="width: 100%;"/>
+                        <td>
+                      <h:inputTextarea rows="10" cols="70" value="#{tabEditBean.page.text}"/>
                         </td>
-                        </tr>
-                        <tr>
-                            <td class="AdminTextGrey">
-                                #{msgs.admin_mainContentPageSeeOrNot}
-                            </td>
-                            <td class="AdminIndent">
-                        <h:selectBooleanCheckbox id="visibility" value="#{tabEditBean.page.visible}"/>
+                    </tr>
+                    <tr>
+                        <td class="AdminTextGrey">
+                            #{msgs.admin_mainContentPageSeeOrNot}
                         </td>
-                        </tr>
-                        </table>
-                        <span class="AdminTextGrey">
-                            #{msgs.admin_mainContentFiles}
+                        <td class="AdminIndent">
+                            <h:selectBooleanCheckbox id="visibility" value="#{tabEditBean.page.visible}"/>
+                        </td>
+                    </tr>
+                </table>
+                <span class="AdminTextGrey">
+                #{msgs.admin_mainContentFiles}
+                </span>
+                <h:dataTable rendered="#{tabEditBean.pageId ne null}" id="files" value="#{tabEditBean.page.files}" var="f" styleClass="pageEditTable">
+                    <h:column>
+                        <f:facet name="header">
+                            #{msgs.admin_mainContentFileName}
+                        </f:facet>
+                        <span class="AdminNavigationLinksBold">
+                        <h:outputLink id="fLink" value="../resources/userFiles/tabs/#{f.name}" >#{f.name}</h:outputLink>
+                    </span>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                           #{msgs.admin_mainContentDescription}
+                        </f:facet>
+                        <h:inputText id="desc" value="#{f.description}"/><br/>
+                    </h:column>
+                    <h:column>
+                         <f:facet name="header">
+                            #{msgs.admin_mainContentFileSeeOrNot}
+                        </f:facet>
+                        <h:selectBooleanCheckbox id="fVisibility" value="#{f.visible}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                           #{msgs.admin_mainContentPictureSeeOrNot}
+                        </f:facet>
+                        <h:selectBooleanCheckbox id="image" value="#{f.image}"/>
+                    </h:column>
+                    <h:column>
+                        <span class="AdminNavigationLinksBold news_delete">
+                        <h:commandLink id="delF" value="#{msgs.admin_mainContentDelete}">
+                            <f:attribute name="file" value="#{f}"/>
+                            <f:ajax render="@form"  listener="#{tabEditBean.deleteFile}"/>
+                        </h:commandLink>
                         </span>
-                        <h:dataTable rendered="#{tabEditBean.pageId ne null}" id="files" value="#{tabEditBean.page.files}" var="f" styleClass="pageEditTable">
-                            <h:column>
-                                <f:facet name="header">
-                                    #{msgs.admin_mainContentFileName}
-                                </f:facet>
-                                <span class="AdminNavigationLinksBold">
-                                    <h:outputLink id="fLink" value="../resources/userFiles/tabs/#{f.name}" >#{f.name}</h:outputLink>
-                                </span>
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">
-                                    #{msgs.admin_mainContentDescription}
-                                </f:facet>
-                                <h:inputText id="desc" value="#{f.description}"/><br/>
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">
-                                    #{msgs.admin_mainContentFileSeeOrNot}
-                                </f:facet>
-                                <h:selectBooleanCheckbox id="fVisibility" value="#{f.visible}"/>
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">
-                                    #{msgs.admin_mainContentPictureSeeOrNot}
-                                </f:facet>
-                                <h:selectBooleanCheckbox id="image" value="#{f.image}"/>
-                            </h:column>
-                            <h:column>
-                                <span class="AdminNavigationLinksBold news_delete">
-                                    <h:commandLink id="delF" value="#{msgs.admin_mainContentDelete}">
-                                        <f:attribute name="file" value="#{f}"/>
-                                        <f:ajax render="@form"  listener="#{tabEditBean.deleteFile}"/>
-                                    </h:commandLink>
-                                </span>
-                            </h:column>
-                        </h:dataTable>
+                    </h:column>
+                </h:dataTable>
 
-                        <div style="float: right;">
-                            <span class="AdminNavigationLinksBold saveChanges">
-                                <span>
-                                    <h:commandLink rendered="#{tabEditBean.pageId eq null}" action="#{tabEditBean.updateTab}" id="newBtn" value="#{msgs.admin_mainContentSaveChanges}"/>
-                                    <h:commandLink rendered="#{tabEditBean.pageId ne null}" id="updt" value="#{msgs.admin_mainContentSaveChanges}">
-                                        <f:ajax execute="@form" render="@form" event="click" listener="#{tabEditBean.updatePage}"/>
-                                    </h:commandLink>
-                                </span>
-                            </span>
-                        </div>
-                    </h:form>
-                    <br/>
-                    <h:form rendered="#{tabEditBean.pageId ne null}" id="addFile" enctype="multipart/form-data">
-                        <input type="file" name="file" />
-                        <h:commandLink action="#{tabEditBean.addFile}" id="fileBtn" value="Загрузить"/>
-                    </h:form>
+                <div class="backLinkPosition">
+                    <span class="AdminNavigationLinksBold saveChanges">  
+                        <span>
+                            <h:commandLink rendered="#{tabEditBean.pageId eq null}" action="#{tabEditBean.updateTab}" id="newBtn" value="#{msgs.admin_mainContentSaveChanges}"/>
+                            <h:commandLink rendered="#{tabEditBean.pageId ne null}" id="updt" value="#{msgs.admin_mainContentSaveChanges}">
+                                    <f:ajax execute="@form" render="@form" event="click" listener="#{tabEditBean.updatePage}"/>
+                             </h:commandLink>
+                      </span>
+                   </span>
                 </div>
-            </div>
+            </h:form>
+            <br/>
+            <hr/>
+            <br/>
+            <h:form rendered="#{tabEditBean.pageId ne null}" id="addFile" enctype="multipart/form-data">
+               <input type="file" name="file" />
+               <h:commandLink action="#{tabEditBean.addFile}" id="fileBtn" value="Загрузить"/>  
+           </h:form>
         </div>
     </ui:define>
 </ui:composition>
