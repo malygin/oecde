@@ -22,7 +22,7 @@
              
                         <sec:ifAnyGranted roles="ROLE_ADMIN">
                             <span class="controlWorksDisciplineNameLink">
-                            <h:outputLink value="switch_user?j_username=#{studentViewBean.user.username}">Зайти</h:outputLink>
+                            <h:outputLink value="switch_user?j_username=#{studentViewBean.user.username}">#{msgs.user_ComeIn}</h:outputLink>
                             </span>
                         </sec:ifAnyGranted>
                             
@@ -41,7 +41,7 @@
                     <tr>
                         <td>
                          <span class="controlWorksDisciplineNameLink">
-                             <h:outputLink value="studentEvents.xhtml?id=#{studentViewBean.id}" >События</h:outputLink>
+                             <h:outputLink value="studentEvents.xhtml?id=#{studentViewBean.id}" >#{msgs.student_eduMenuEvents}</h:outputLink>
                          </span>
                     </td></tr>
                           
@@ -82,31 +82,31 @@
                     </tr>
                     <sec:ifAnyGranted roles="ROLE_ADMIN">
                         <tr>
-                            <td><p>Полный ли доступ:</p></td><td><div><h:selectBooleanCheckbox  value="#{studentViewBean.user.fullAccess}"/></div></td>
+                            <td><p>#{msgs.admin_mainContentFullAccessOrNot}</p></td><td><div><h:selectBooleanCheckbox  value="#{studentViewBean.user.fullAccess}"/></div></td>
                         </tr>
                         <tr>
-                            <td><p>Переведён ли на след. курс:</p></td><td><div><h:selectBooleanCheckbox  value="#{studentViewBean.user.transfered}"/></div></td>
+                            <td><p>#{msgs.admin_userGraduatedNextCourse}</p></td><td><div><h:selectBooleanCheckbox  value="#{studentViewBean.user.transfered}"/></div></td>
                         </tr>
                         <tr>
-                            <td><p>Есть ли доступ на портал:</p></td><td><div><h:selectBooleanCheckbox  value="#{studentViewBean.user.enabled}"/></div></td>
+                            <td><p>#{msgs.admin_mainContentIsAccessOrNot}</p></td><td><div><h:selectBooleanCheckbox  value="#{studentViewBean.user.enabled}"/></div></td>
                         </tr>
                         <tr>
-                            <td><p>Логин:</p></td><td><div>#{studentViewBean.user.username}</div></td>
+                            <td><p>#{msgs.admin_userLogin2}</p></td><td><div>#{studentViewBean.user.username}</div></td>
                         </tr>
                         <tr>
-                            <td><p>Пароль:</p></td><td><div><h:inputText value="#{studentViewBean.user.password}" style="width:45%;"/></div></td>
+                            <td><p>#{msgs.admin_userPassworld2}</p></td><td><div><h:inputText value="#{studentViewBean.user.password}" style="width:45%;"/></div></td>
                         </tr>
                         <tr>
-                            <td><p>Изначальный айди:</p></td><td><div>#{studentViewBean.user.originalId}</div></td>
+                            <td><p>#{msgs.admin_mainContentStartId}</p></td><td><div>#{studentViewBean.user.originalId}</div></td>
                         </tr>
                          <tr>
-                            <td><p>телефон:</p></td><td><div>#{studentViewBean.user.cellPhone}</div></td>
+                            <td><p>#{msgs.admin_userPhone}</p></td><td><div>#{studentViewBean.user.cellPhone}</div></td>
                         </tr>
                          <tr>
-                            <td><p>почта:</p></td><td><div>#{studentViewBean.user.email}</div></td>
+                            <td><p>#{msgs.admin_mainContentE-mail}</p></td><td><div>#{studentViewBean.user.email}</div></td>
                         </tr>
                           <tr>
-                            <td><p>icq:</p></td><td><div>#{studentViewBean.user.icq}</div></td>
+                            <td><p>#{msgs.user_ICQ}</p></td><td><div>#{studentViewBean.user.icq}</div></td>
                         </tr>
                         <tr>
                             <td><div>
@@ -123,7 +123,7 @@
         </div>
         <est:changeSemester semester="#{studentViewBean.semester}" link="id=#{studentViewBean.id}"/>
 
-                <hr/><br/><h4 class="DisciplineText">Оценки:</h4><br/><hr/>
+                <hr/><br/><h4 class="DisciplineText">#{msgs.admin_userGrades}</h4><br/><hr/>
         <h:dataTable  value="#{gradesBean.points}"
                      columnClasses="studentStandatrTableTd,
                      studentStandatrTableTd,
@@ -205,7 +205,7 @@
         </h:dataTable>
 
 
-        <hr/><br/><h4 class="DisciplineText">Контрольные:</h4><br/><hr/>
+        <hr/><br/><h4 class="DisciplineText">#{msgs.admin_userContrWork}</h4><br/><hr/>
         
         <h:dataTable width="100%" value="#{controlWorksBean.controlWorks}" var="o">
             <h:column>
@@ -234,7 +234,7 @@
                 </h:column>
             </h:dataTable>
 
-        <hr/><br/><h4 class="DisciplineText">Тесты:<h:outputText rendered="#{testResultsBean.reExame}" value=" (переэкзаменовка)"/></h4><br/><hr/>
+        <hr/><br/><h4 class="DisciplineText">#{msgs.admin_userTest}<h:outputText rendered="#{testResultsBean.reExame}" value=" (#{msgs.admin_userExtraTest})"/></h4><br/><hr/>
         <h:form id="form">
 <span class="controlWorksDisciplineNameLink"><h:commandLink value="#{msgs.student_eduMenuReexamination}">
     <f:attribute name="reExame" value="#{!testResultsBean.reExame}"/>
