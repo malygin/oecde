@@ -56,8 +56,8 @@
                          <td valign="middle" style="width: 170px;" class="testComparVariants"><label><h:outputText escape="false" value="#{a.title} "/></label></td>
                             <td valign="middle"><h:inputText size="2" styleClass="numberField" onkeyup="
                                   if(isNaN(parseInt(this.value))){this.value='';}
-                                  else{ if((this.value>#{testPassingBean.currentQustionView.countAnswers}) || (this.value&lt;1)) this.value=#{testPassingBean.currentQustionView.countAnswers};
-                                         else this.value=parseInt(this.value)}
+                                  else{ if((this.value>#{testPassingBean.currentQustionView.countAnswers}) || (this.value&lt;1)) {this.value=#{testPassingBean.currentQustionView.countAnswers}}
+                                         else {this.value=parseInt(this.value)}
                                                "  value="#{a.answer}">
                                   }
                               </h:inputText>

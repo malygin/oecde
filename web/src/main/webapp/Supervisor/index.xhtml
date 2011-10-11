@@ -3,33 +3,28 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/supervisorTemplate.xhtml"
-      xmlns:util="http://java.sun.com/jsf/composite/components/util"
+    xmlns:util="http://java.sun.com/jsf/composite/components/util"
     >
     <ui:define name="contentHeader">
         #{msgs.student_controlMenuSchedule}
     </ui:define>
     <ui:define name="online">
-            c <util:date_picker value="#{supervisorScheduleBean.beginDate}"/> по
-            <util:date_picker value="#{supervisorScheduleBean.endDate}"/>
+        c <util:date_picker value="#{supervisorScheduleBean.beginDate}"/> по
+        <util:date_picker value="#{supervisorScheduleBean.endDate}"/>
     </ui:define>
     <ui:define name="content">
 
-            <f:metadata>
-                <f:viewParam name="pageNumber" value="#{supervisorScheduleBean.pageNumber}"/>
-            </f:metadata>
-        <style type="text/css">
-            .mainStyle .studentStandatrTable *{
-                text-align: left !important;
-            }
-        </style>
+        <f:metadata>
+            <f:viewParam name="pageNumber" value="#{supervisorScheduleBean.pageNumber}"/>
+        </f:metadata>
         <div class="interfaceContent">
             <util:navigationList numElements="#{supervisorScheduleBean.count}" elementOnPage="#{supervisorScheduleBean.maxResult}"/>
-        <h:dataTable columnClasses="
+            <h:dataTable columnClasses="
                          studentStandatrTableTd,
                          studentStandatrTableTd,
                          studentStandatrTableTd,
                          studentStandatrTableTd,
-                        studentStandatrTableTdLastTd  studentStandatrTableExamin "
+                         studentStandatrTableTdLastTd  studentStandatrTableExamin "
                          value="#{supervisorScheduleBean.lessons}" var="s" styleClass="studentStandatrTable studentStandatrTableExamin" cellpadding="0" cellspacing="0">
                 <h:column>
                     <f:facet name="header">
@@ -38,13 +33,13 @@
                     <h:dataTable var="cwg" value="#{setToList.getList(s.citiesWithGroups)}">
                         <h:column>
                             <h:panelGroup>
-                            <h:outputText value="#{cwg.group.name}"/>
-                            (<h:outputText value="#{cwg.group.speciality.engShort}"/>)
+                                <h:outputText value="#{cwg.group.name}"/>
+                                (<h:outputText value="#{cwg.group.speciality.engShort}"/>)
                             </h:panelGroup>
                         </h:column>
                     </h:dataTable>
                 </h:column>
-            <h:column>
+                <h:column>
                     <f:facet name="header">
                         <h:outputText value="дисциплина"/>
                     </f:facet>

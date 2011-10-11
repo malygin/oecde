@@ -112,29 +112,18 @@ $(function(){
                 style = this.contentWindow.document.createElement('style');
                 style.innerHTML = '*{margin: 0px; padding: 0px !important;}';
                 this.contentWindow.document.head.appendChild(style);
-                //                this.style.height = this.contentWindow.document.body.offsetHeight + 'px';
                 bodyElem = this.contentWindow.document.body;
-//                var deti = bodyElem.getElementsByTagName('*');
-               
+                var deti = bodyElem.getElementsByTagName('*');
+              
                 for(i = 0; i < bodyElem.childElementCount; i++){
-//                     if(deti[i].className == "imG"){
-//                         commonHeight += deti[i].clientHeight;
-//                     }
-                    commonHeight += bodyElem.children[i].offsetHeight;
-                //                    if(bodyElem.children[i].childNodes != null){
-                //                        ch = bodyElem.children[i];
-                //                        ch1 = ch.children[0];
-                //                        commonHeight += ch1.clientHeight;
-                //                        if(ch1.childNodes != null){
-                //                            ch2 = ch1.children[0];
-                //                            commonHeight += ch2.clientHeight;
-                //                        }
-                //                    }
-                    
+                    if(deti[i].className == "imG"){
+//                          console.debug(deti[0].className);
+                        commonHeight += deti[i].clientHeight;
+//                        console.debug(commonHeight);
+                    }
+                    commonHeight += bodyElem.children[i].offsetHeight; 
                     
                 }
-                
-                //                bodyElem.offsetHeight = commonHeight + 'px';
                 this.style.height = commonHeight + 'px';
                
                 d = $(this).parent().parent();
@@ -148,20 +137,19 @@ $(function(){
     }
 });
 
-$(function(){
-    $('iframe').load(function(){
-        //        iframEWidth = ($(this).width())/2;
-        //        picture = this.contentWindow.document.getElementsByClassName('imG')[0];
-        //        pictureWidth = ($(picture).width())/2;
-        //        margiN = iframEWidth - pictureWidth -42;
-        //        pictureParent = $(picture).parent();
-        //        pictureParent.attr('style', 'margin-left:'+ margiN+ 'px;');
-        //        n = $('.testQuestion').height() - 19;
-        //        c[0].setAttribute('style','margin-top:'+h+'px');
-        //        $('.testQuestionNumber').attr('style','position: relative; bottom:'+ n+'px;')
-       
-        });
-});
+//$(function(){
+//    $('iframe').load(function(){
+//        picture = this.contentWindow.document.getElementsByClassName('imG')[0];
+//        pictureWidth = ($(picture).width())/2;
+//        margiN = iframEWidth - pictureWidth -42;
+//        pictureParent = $(picture).parent();
+//        pictureParent.attr('style', 'margin-left:'+ margiN+ 'px;');
+//        n = $('.testQuestion').height() - 19;
+//        c[0].setAttribute('style','margin-top:'+h+'px');
+//        $('.testQuestionNumber').attr('style','position: relative; bottom:'+ n+'px;')
+//
+//    });
+//});
 
 $(function(){
     vd = document.getElementsByClassName('testComparVariants');
