@@ -28,6 +28,8 @@ public class TeacherScheduleBean extends AbstractTeacherBean{
     private int maxResult = 30;
 
     private static final long serialVersionUID = 151L;
+    
+    private String currentDate = null;
 
     public List<Lesson> getSchedule(){
         if(lessons == null){
@@ -69,4 +71,26 @@ public class TeacherScheduleBean extends AbstractTeacherBean{
     public int getMaxResult() {
         return maxResult;
     }
+    
+        public String getCurrentDate() {
+        return currentDate;
+    }
+
+    public void setCurrentDate(String currentDate) {
+        this.currentDate = currentDate;
+    }
+    
+    public boolean IsCurrentDate(String lessonDate){
+        if((currentDate!=null)&&(currentDate.equals(lessonDate))) currentDate=null;
+        if(currentDate==null){
+            currentDate =lessonDate;            
+            return true;
+        } else if(currentDate.substring(0, 11).equals(lessonDate.substring(0, 11))){
+             return false;                    
+             } else{
+                currentDate =lessonDate;            
+                return true;
+             }   
+   }
+    
 }
