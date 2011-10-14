@@ -1,0 +1,26 @@
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/supervisorTemplate.xhtml"
+    xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+    >
+    <ui:define name="contentHeader">
+        #{msgs.users_Online}
+    </ui:define>
+    <ui:define name="content">
+        <f:metadata>
+            <f:viewParam name="type" value="#{usersOnlineBean.type}"/>
+        </f:metadata>
+        <div class="interfaceContent">
+            <h:dataTable value="#{usersOnlineBean.users}" var="s">
+                <h:column>
+                <div class="studentInterfaceStandartList">
+                    <ut:userListItem type="#{usersOnlineBean.type}" u="#{s}"/>
+                    <div class="floatDestroyer"/>
+                </div>
+                </h:column>
+            </h:dataTable>
+        </div>
+    </ui:define>
+</ui:composition>
