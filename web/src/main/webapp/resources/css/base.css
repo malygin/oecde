@@ -122,7 +122,7 @@ label{
     /*    height: 400px;*/
 }
 .mainStyle .videoConfSchedule td:nth-child(odd){
-    min-width: 125px;
+    min-width: 160px;
 }
 .mainStyle .videoConfSchedule td:nth-child(even) p{
     max-width: 315px;    
