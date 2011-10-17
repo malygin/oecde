@@ -3,6 +3,7 @@
      xmlns:ui="http://java.sun.com/jsf/facelets"
      xmlns:f="http://java.sun.com/jsf/core"
      xmlns:h="http://java.sun.com/jsf/html"
+     template="../resources/supervisorTemplate.xhtml"
      xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
      xmlns:ut="http://java.sun.com/jsf/composite/components/util">
     
@@ -16,6 +17,55 @@
             <f:viewParam name="s" value="#{studentViewBean.semester}"/>
             <f:viewParam name="r" value="#{testResultsBean.reExame}"/>
         </f:metadata>
-        <ui:include src="../resources/includes/student.xhtml"/>
+        <div class="StudentMainPageTitlesBorders PaddingUserProfile">
+            <div class="userPhoto">
+                <h:form>
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="userPhotoBorderfromAdmin">
+                            <ut:showPhoto user="#{studentViewBean.user}" styleClass="#{studentViewBean.user.classType}" size="medium"/>
+                        </td>
+                    </tr>                     
+                   </table>
+                </h:form>
+            </div> 
+            <div class="userData">
+                <h:form>
+                <table cellspacing="8">
+                    <tr>
+                        <td><p>#{msgs.student_mainContentUserInfoSecondName}</p></td><td><div>#{studentViewBean.user.surname}</div></td>
+                    </tr>
+                    <tr>
+                        <td><p>#{msgs.student_mainContentUserInfoFirstName}</p></td><td><div>#{studentViewBean.user.name}</div></td>
+                    </tr>
+                    <tr>
+                        <td><p>#{msgs.student_mainContentUserInfoThirdName}</p></td><td><div>#{studentViewBean.user.secondName}</div></td>
+                    </tr>
+                    <tr>
+                        <td><p>#{msgs.student_mainContentUserInfoFaculty}</p></td><td><div>#{studentViewBean.user.group.faculty}</div></td>
+                    </tr>
+                    <tr>
+                        <td><p>#{msgs.student_mainContentUserInfoSpec}</p></td><td><div>#{studentViewBean.user.group.speciality.name}</div></td>
+                    </tr>
+                     <tr>
+                        <td><p>#{msgs.teacher_city}</p></td><td><div>#{studentViewBean.user.city.name}</div></td>
+                    </tr>
+                    <tr>
+                        <td><p>#{msgs.student_mainContentUserInfoCourse}</p></td><td><div>#{studentViewBean.user.group.year}</div></td>
+                    </tr>
+                    <tr>
+                        <td><p>#{msgs.student_mainContentUserInfoGroup}</p></td>
+                        <td>
+                            <div class="controlWorksDisciplineNameLink">
+                                <h:outputLink value="group.xhtml?id=#{studentViewBean.user.group.id}">#{studentViewBean.user.group.name}</h:outputLink>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                </table>
+                </h:form>
+            </div>   
+        </div>
+        <!--<ui:include src="../resources/includes/student.xhtml"/>-->
     </ui:define>
 </ui:composition>
