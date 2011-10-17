@@ -4,17 +4,22 @@
          xmlns:h="http://java.sun.com/jsf/html"
          template="../resources/supervisorTemplate.xhtml">
         <ui:define name="content">
+            <div class="interfaceContent">
+            <div class="StudentMainPageTitlesBorders blocksMargins">
+                <div class="mainStudentPageTitles mainStudentPageTitlesBlue">
+                    #{msgs.admin_groupForYear} #{citiesAndGroups.year}
+                </div>
+            <div class="GroupForSupervisor">   
             <h:dataTable id="table" value="#{oneCityGroupsBean.specialities}" var="s">
                 <h:column>
                     <h:outputText value="#{s.key.name}"/>
-                </h:column>
-                <h:column>
-                    <h:dataTable  value="#{s.value}" var="g">
-                        <h:column>
-                            <h:outputLink value="group.xhtml?id=#{g.id}">#{g.name}</h:outputLink>
-                        </h:column>
-                    </h:dataTable>
+                    <ui:repeat value="#{s.value}" var="g">
+                        <h:outputLink value="group.xhtml?id=#{g.id}" style="margin: 6px; color: #5BBF5D;">#{g.name}</h:outputLink>
+                    </ui:repeat>
                 </h:column>
            </h:dataTable>
+           </div>
+           </div>
+           </div>
         </ui:define>
     </ui:composition>
