@@ -5,7 +5,7 @@
     xmlns:ut="http://java.sun.com/jsf/composite/components/util"
     >
     <div class="interfaceContent">
-        <div class="StudentMainPageTitlesBorders blocksMargins"  style="width: 75%; float: left;">
+        <div class="StudentMainPageTitlesBorders blocksMargins"  style="width: 73%; float: left;">
             <div class="mainStudentPageTitles mainStudentPageTitlesBlue">
                 #{msgs.admin_mainContentGroup} #{groupViewBean.group.name} <h:outputText value="#{groupViewBean.group.faculty}"/>
                 <h:outputText  rendered="#{groupViewBean.group.faculty!=null}" value=", "/>
@@ -21,9 +21,9 @@
                 </h:column>
             </h:dataTable>
         </div>
-        <div class="StudentMainPageTitlesBorders blocksMargins"  style="width: 25%; float: right;">
+        <div class="StudentMainPageTitlesBorders blocksMargins"  style="width: 20%; float: right;">
             <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">
-                Другие группы
+                #{msgs.admin_groupOther}
             </div>
             <div class="linkToStudentsProfile">
 
