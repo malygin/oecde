@@ -2346,3 +2346,7 @@ a.mainStyle .lightGreyText a:hover{
     background: url('../resources/images/students.png') no-repeat 0 0;
     padding-left: 20px;
 }
+/*styles for supervisor*/
+.mainStyle .GroupForSupervisor{
+    margin: 25px;
+}
