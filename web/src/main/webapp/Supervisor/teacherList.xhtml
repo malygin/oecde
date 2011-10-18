@@ -1,0 +1,49 @@
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+    template="../resources/supervisorTemplate.xhtml"
+    xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs"
+    >
+    <f:metadata>
+        <f:viewParam name="page" value="#{NavigationBean.page}"/>
+        <f:viewParam name="page" value="#{teacherListBean.page}"/>
+    </f:metadata>
+    <ui:define name="content">
+        <div class="StudentMainPageTitlesBorders" style="margin-left: 2%; width: 66%; float: left;">
+
+            <div class="interfaceContentForMyMarks">
+                <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
+                    #{msgs.teacher_communicationTeacher}
+                </div>
+                <div class="interfaceContent">
+                    <ut:navigationList elementOnPage="#{teacherListBean.maxNumber}"
+                                       numElements="#{teacherListBean.count}"/>
+                    <div>
+                        <h:dataTable style="width: 100%; display: block;" value="#{teacherListBean.teacherList}" var="i" id="table" styleClass="controlWorksBorders"
+                                     columnClasses="controlWorksDisciplineNameLink">
+                            <h:column>
+                                <ut:userListItem type="teacher" u="#{i}"/>
+
+                            </h:column>
+                        </h:dataTable>
+                    </div>
+                    <ut:navigationList elementOnPage="#{teacherListBean.maxNumber}"
+                                       numElements="#{teacherListBean.count}"/>
+                </div>
+            </div>
+        </div>
+        <div class="StudentMainPageTitlesBorders" style="width: 28%; margin-left: 70%">
+            <div class="interfaceContentForMyMarks">
+                <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
+                    #{msgs.student_marksHelp}
+                </div>
+            </div>
+            <div class="textForPodskazka">
+                <!--<tabs:singleTab alias=""/>-->
+            </div>
+        </div>
+
+    </ui:define>
+</ui:composition>
