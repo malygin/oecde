@@ -15,43 +15,51 @@
 
             <div class="interfaceContentForMyMarks">
                 <div class="mainStudentPageTitles  mainStudentPageTitlesBlue">
-                    Администраторы
+                    #{msgs.admin_adminsOnlineMenuTitle}
                 </div>
                 <div class="interfaceContent">
                     <div class="DisciplineText prosto_tekst studentPaddBott studentPaddLeft">#{msgs.student_representation}:
                     </div>
                     <h:dataTable value="#{adminsBean.supervisors}" styleClass="leftMenuContainer" var="s">
                         <h:column>
-                            <div class="standartContainerForStudentMediumAvatar studentPaddLeft" style="margin-left: 8px; width: 80px;" align="center">
+                            <div class="standartContainerForStudentMediumAvatar studentPaddLeft" style="margin: 8px; width: 80px;" align="center">
                                 <ut:showPhoto user="#{s}" size="small"/>
                             </div>
-                            <div class="standartContainerForTeacherInfoInTeachersList">
-                                <table>
+                            <div style="padding-top: 5px;" class="Search">
+                                <table style="padding-left: 20px;">
                                     <tr>
-                                        <td>
-                                            <div class="studentPaddBott">
-                                                <span class="AdminTextGrey">#{msgs.student_description}:</span>
-                                                #{s.description}
-                                            </div>
+                                        <td style="width: 15%;">
+                                            #{msgs.student_description}:
                                         </td>
                                         <td>
-                                            <div class="studentPaddBott">
-                                                <span class="AdminTextGrey">город:</span>
-                                                #{s.city.name}
-                                            </div>
+                                            #{s.description}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="controlWorksDisciplineNameLinkGrey">
-                                            <span class="s1 studentPaddBott">
-                                                <a href="messages_write.xhtml?user=${s.id}">#{msgs.student_studentListWriteMessage}</a>
-                                            </span>
-                                            <span class="s2 controlWorksDisciplineNameLink">
-                                                <a href="messages_dialog.xhtml?user=${s.id}">#{msgs.student_studentLestShowDialog}</a>
+                                        <td style="width: 15%;">
+                                            #{msgs.student_mainContentUserInfoCity}
+                                        </td>
+                                        <td>
+                                            #{s.city.name}
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table style="width: 75%; padding-left: 20px;">
+                                    <tr class="greyLinks">
+                                        <td style="height: 30px;">
+                                            <a class="s1" href="messages_write.xhtml?user=${s.id}">#{msgs.student_studentListWriteMessage}</a>
+                                        </td>
+                                        <td style="height: 30px;">
+                                            <span class="s2" ><a href="messages_dialog.xhtml?user=${s.id}">#{msgs.student_studentLestShowDialog}</a></span>
+                                        </td>
+                                        <td colspan="2">
+                                            <span  class="comeInAsStudentOrTeacher">
+                                                <h:outputLink value="switch_user?j_username=#{s.username}" >#{msgs.user_ComeIn}</h:outputLink>
                                             </span>
                                         </td>
                                     </tr>
                                 </table>
+         
                             </div>
                         </h:column>
                     </h:dataTable>
