@@ -12,6 +12,7 @@ import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.core.IBasicDao;
 import org.sgu.oecde.core.education.Curriculum;
 import org.sgu.oecde.core.education.ExaminationType;
+import org.sgu.oecde.core.education.TeacherToGroup;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.de.education.DeCurriculum;
 
@@ -44,7 +45,17 @@ public class StudentCurriculumBean extends AbstractStudentBean{
                DeCurriculum next=i.next();
                if((next.getExaminationType()==ExaminationType.empty)&&(!next.getGotControlWork()))
                    i.remove();
+               
+               Iterator<TeacherToGroup> ttg = next.getTeacherToGroups().iterator();
+               // у нас есть преподы не той группы - заплатка пока - просто вычищаем их отсюда @todo разобраться
+               
+               while (ttg.hasNext()){
+                  TeacherToGroup t=ttg.next();
+                  if (!t.getGroup().equals(student.getGroup())) ttg.remove();
+                  System.out.println("group"+t.getGroup().getId());
+               }
            }
+          
             //удалим те дисциплины где нет умк
 //            while (i.hasNext()){
 //               if (i.next().getExaminationType()==ExaminationType.empty){

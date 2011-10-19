@@ -21,7 +21,7 @@
                 <h:column>
                     <span class="greyLinks">
                         <h:outputLink rendered="#{d ne cc.attrs.bean.curriculum}" value="?c=#{d.id}&amp;g=#{cc.attrs.bean.id}&amp;s=#{cc.attrs.bean.semester}">
-                            <h:outputText value="#{d.discipline.name}"/>
+                            <h:outputText value="#{d.discipline.name}"/> (#{d})
                         </h:outputLink>
                         <h:outputText rendered="#{d eq cc.attrs.bean.curriculum}"  value="#{d.discipline.name}" styleClass="Ipsilon_Web_GreenText"/>
                     </span>

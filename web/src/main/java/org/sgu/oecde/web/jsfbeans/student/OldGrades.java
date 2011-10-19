@@ -43,6 +43,7 @@ public class OldGrades extends AbstractStudentBean{
     
     private List<NewEntry<NewEntry<DeCurriculum,Teacher>,Estimate>>points;
     private List<NewEntry<NewEntry<DeCurriculum,Teacher>,Estimate>>pointsTests;
+    private List<NewEntry<NewEntry<DeCurriculum,Teacher>,Estimate>>pointsEmpty;
 
     private Group group;
 
@@ -109,12 +110,13 @@ public class OldGrades extends AbstractStudentBean{
     public void calculateParamsAndSliceListMarks(){
         Iterator<NewEntry<NewEntry<DeCurriculum,Teacher>,Estimate>> it = points.iterator();
         pointsTests = new ArrayList<NewEntry<NewEntry<DeCurriculum,Teacher>,Estimate>>();
+        pointsEmpty = new ArrayList<NewEntry<NewEntry<DeCurriculum,Teacher>,Estimate>>();
         int countExams=0;
         int sumExams=0;
         while(it.hasNext()){
           
             NewEntry<NewEntry<DeCurriculum,Teacher>,Estimate> i=it.next();
-            if(i.getKey().getKey().getExaminationType()==ExaminationType.empty){
+            if((i.getKey().getKey().getExaminationType()==ExaminationType.empty)&&(!i.getKey().getKey().getGotControlWork())){
                 it.remove();
                 continue;
             }
@@ -146,7 +148,11 @@ public class OldGrades extends AbstractStudentBean{
             if (i.getKey().getKey().getExaminationType()==ExaminationType.test){
                 pointsTests.add(i);
                 it.remove();
-            };            
+            };
+            if (i.getKey().getKey().getExaminationType()==ExaminationType.empty){
+                pointsEmpty.add(i);
+                it.remove();
+            };
         }
         
         if (countExams!=0) average=(float)sumExams/countExams;
@@ -254,6 +260,14 @@ public class OldGrades extends AbstractStudentBean{
 
     public void setPointsTests(List<NewEntry<NewEntry<DeCurriculum, Teacher>, Estimate>> pointsTests) {
         this.pointsTests = pointsTests;
+    }
+
+    public List<NewEntry<NewEntry<DeCurriculum, Teacher>, Estimate>> getPointsEmpty() {
+        return pointsEmpty;
+    }
+
+    public void setPointsEmpty(List<NewEntry<NewEntry<DeCurriculum, Teacher>, Estimate>> pointsEmpty) {
+        this.pointsEmpty = pointsEmpty;
     }
     
     

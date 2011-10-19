@@ -18,56 +18,20 @@
                     #{msgs.admin_adminsOnlineMenuTitle}
                 </div>
                 <div class="interfaceContent">
-                    <div class="DisciplineText prosto_tekst studentPaddBott studentPaddLeft">#{msgs.student_representation}:
-                    </div>
-                    <h:dataTable value="#{adminsBean.supervisors}" styleClass="leftMenuContainer" var="s">
-                        <h:column>
-                            <div class="standartContainerForStudentMediumAvatar studentPaddLeft" style="margin: 8px; width: 80px;" align="center">
-                                <ut:showPhoto user="#{s}" size="small"/>
-                            </div>
-                            <div style="padding-top: 5px;" class="Search">
-                                <table style="padding-left: 20px;">
-                                    <tr>
-                                        <td style="width: 15%;">
-                                            #{msgs.student_description}:
-                                        </td>
-                                        <td>
-                                            #{s.description}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="width: 15%;">
-                                            #{msgs.student_mainContentUserInfoCity}
-                                        </td>
-                                        <td>
-                                            #{s.city.name}
-                                        </td>
-                                    </tr>
-                                </table>
-                                <table style="width: 75%; padding-left: 20px;">
-                                    <tr class="greyLinks">
-                                        <td style="height: 30px;">
-                                            <a class="s1" href="messages_write.xhtml?user=${s.id}">#{msgs.student_studentListWriteMessage}</a>
-                                        </td>
-                                        <td style="height: 30px;">
-                                            <span class="s2" ><a href="messages_dialog.xhtml?user=${s.id}">#{msgs.student_studentLestShowDialog}</a></span>
-                                        </td>
-                                        <td colspan="2">
-                                            <span  class="comeInAsStudentOrTeacher">
-                                                <h:outputLink value="switch_user?j_username=#{s.username}" >#{msgs.user_ComeIn}</h:outputLink>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                </table>
-         
-                            </div>
-                        </h:column>
-                    </h:dataTable>
+                    
+                  
                     <h:dataTable value="#{adminsBean.admins}" styleClass="leftMenuContainer" var="a">
                         <h:column>
                             <div class="studentInterfaceStandartList">
                                 <ut:userListItem type="admin" u="#{a}"/>
                             </div>
+                        </h:column>
+                    </h:dataTable>
+                    <div class="DisciplineText prosto_tekst studentPaddBott studentPaddLeft">#{msgs.student_representation}:
+                    </div>
+                      <h:dataTable value="#{adminsBean.supervisors}" styleClass="leftMenuContainer" var="s">
+                        <h:column>
+                           <ut:userListItem type="supervisor" u="#{s}"/>
                         </h:column>
                     </h:dataTable>
                     <div class="floatDestroyer"/>

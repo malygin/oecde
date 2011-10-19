@@ -30,6 +30,7 @@
         </div>
         <div style="padding-top: 5px;" class="Search">
             <table style="height:100%; text-indent: 0px;">
+                <h:panelGroup rendered="#{cc.attrs.type ne 'supervisor'}">
                 <tr>
                     <td class="userInfoItemColor" style="width: 14%;">
                         #{msgs.student_studentListFIO}
@@ -42,6 +43,22 @@
                         </span>
                     </td>
                 </tr>
+                </h:panelGroup>
+                <h:panelGroup rendered="#{cc.attrs.type eq 'supervisor'}">                    
+                    <tr>
+                    <td class="userInfoItemColor" style="width: 14%;">
+                          #{msgs.student_mainContentUserInfoCity}
+                    </td>
+                    <td>
+                        <span class="linkTo#{cc.attrs.u.classType}sProfile">
+                            <a href="#{cc.attrs.type}.xhtml?id=#{cc.attrs.u.id}">
+                                #{cc.attrs.u.city.name}
+                            </a>
+                        </span>
+                    </td>
+                </tr>
+                </h:panelGroup>
+                
                 <h:panelGroup rendered="#{cc.attrs.type eq 'student'}">
                     <tr><td class="userInfoItemColor">#{msgs.teacher_city}:</td><td>#{cc.attrs.u.city.name}</td></tr>
                     <sec:ifAnyGranted roles="ROLE_ADMIN">
@@ -60,10 +77,12 @@
 <!--                    <tr><td></td><td><h:outputText rendered="#{cc.attrs.u.online}" value="On-line" style="color:#617F5F;"/></td></tr>-->
                 </h:panelGroup>
                 <h:panelGroup rendered="#{cc.attrs.type eq 'admin'}">
-                    <tr><td class="userInfoItemColor">#{msgs.teacher_mainContentUserInfoPost}</td><td>#{cc.attrs.u.position}</td></tr>
-                    <tr><td class="userInfoItemColor">#{msgs.student_studentContact}</td><td>#{cc.attrs.u.description}</td></tr>
-
+                      <tr><td class="userInfoItemColor">#{msgs.teacher_mainContentUserInfoPost}</td><td>#{cc.attrs.u.position}</td></tr>
+                      <tr><td class="userInfoItemColor">Описание</td><td>#{cc.attrs.u.description}</td></tr>
+                      <tr><td class="userInfoItemColor">#{msgs.student_studentContact}</td><td>#{cc.attrs.u.contacts}</td></tr>
+                   
                 </h:panelGroup>
+            
                 <h:panelGroup rendered="#{cc.attrs.type eq 'teacher'}">
                     <tr>
                         <td class="userInfoItemColor">#{msgs.teacher_mainContentUserInfoDepartment}</td>

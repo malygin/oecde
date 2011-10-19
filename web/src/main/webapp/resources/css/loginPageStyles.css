@@ -19,7 +19,7 @@
 .login_pageFormBackground{
    background: url("../resources/images/main_background_top.png") no-repeat;
     width: 1001px;
-    height: 819px;
+    height: 900px;
 }
 .login_pageFormBackgroundBottom{
     background: url('../resources/images/main_background_bottom.png')  no-repeat white;

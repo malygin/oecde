@@ -38,13 +38,15 @@
                 <table class="#{cc.attrs.ClassStyle}">
                     <ui:repeat var="s" value="#{teacherScheduleBean.schedule}" size="2">
                         <tr>
-                            <td valign="top" class="Ipsilon_Web_GreenText"><p><h:outputText value="#{s.lessonDate}" converter="dateConverter"/></p>
+                            <td valign="top" class="Ipsilon_Web_GreenText"><p><h:outputText value="#{s.lessonDate}" converter="dateConverter"/> -${fn:substring(s.lessonEndDate,11,16)}</p>
                             </td>
                             <td>
                                 <p>
                                     <p class="skyBlueText">#{s.discipline.name}</p> 
-                                    <p  class="Ipsilon_Web_GreenText"><h:outputText value="#{cwg.group.name}"/>(<h:outputText value="#{cwg.group.speciality.engShort}"/>)
-                                    </p>
+                                  <p  class="Ipsilon_Web_GreenText">
+                                    <ui:repeat  value="#{setToList.getList(s.citiesWithGroups)}" var="cwg">
+                                           <h:outputText value="#{cwg.group.name}"/>(#{cwg.city.name}),  
+                                    </ui:repeat>   </p>    
                                     <h:outputText converter="roomConverter" value="#{s.room}"/> #{msgs.student_sheduleRoom}
                                 </p>
                             </td>
@@ -71,10 +73,10 @@
                         <a href="#" style="margin-right: 10px;">#{msgs.student_sheduleGoToConf}</a>
                     </div>
                     <div style="margin-left: 5px;">
-                        <p class="Ipsilon_Web_GreenText">10:00-11:35</p>
+                        <p class="Ipsilon_Web_GreenText"></p>
                         <div class="testsMargins">
-                            <p class="skyBlueText">Дисциплина</p>
-                            <p><!--<span  class="skyBlueText Ipsilon_Web_GreenText">--><h:outputText value="434 гр."/><!--</span>-->1 комната</p>
+                            <p class="skyBlueText"></p>
+                           
                         </div>
                     </div>
                     <div>
@@ -98,9 +100,14 @@
                             <tr>
                                 <td>${fn:substring(s.lessonDate,11,16)}-${fn:substring(s.lessonEndDate,11,16)}</td>
                                 <td><span class="linkToStudentsProfile"><h:outputLink value="umk.xhtml?c=#{s.id}" style="margin-left: 10px;">#{s.discipline.name}
-                                        </h:outputLink></span></td>
-                                <td><span class="linkToTeachersProfile linkToTeachersProfileFromStudent"><a href="teacher.xhtml?id=#{s.teacher.id}"><h:outputText value="#{s.teacher.initials}"/></a></span></td>
-                                <td><h:outputText converter="roomConverter" value="#{s.room}"/> #{msgs.student_sheduleRoom}</td>
+                                        </h:outputLink></span>
+                                       <p  class="Ipsilon_Web_GreenText">
+                                        <ui:repeat  value="#{setToList.getList(s.citiesWithGroups)}" var="cwg">
+                                           <h:outputText value="#{cwg.group.name}"/>(#{cwg.city.name}),  
+                                         </ui:repeat> 
+                                       </p>    
+                                </td>
+                                  <td><h:outputText converter="roomConverter" value="#{s.room}"/> #{msgs.student_sheduleRoom}</td>
                             </tr>
                         </table>
                     </ui:repeat>

@@ -31,6 +31,7 @@
             <div class="groupInfo">
                 <est:header bean="#{groupControlWorksForTeacher}" pageName="cw"/>
             </div>
+      
             <h:form id="form" rendered="#{not groupControlWorksForTeacher.accessDenied}"  style="margin: 10px; margin-top: 0;">
                 <h:dataTable rendered="#{not groupControlWorksForTeacher.accessDenied}"
                              styleClass="studentStandatrTable ContrWorkAndTestTable"
@@ -78,7 +79,10 @@
                             <span class="Ipsilon_Web_GreenText">#{msgs.teacher_control_works}<br/>#{msgs.teacher_inWriting}
                             </span>
                         </f:facet>
-                        <span class="linkToStudentsProfile"><h:commandLink id="handle">
+                        <span class="linkToStudentsProfile">
+                            
+                           
+                            <h:commandLink id="handle" rendered="#{groupControlWorksForTeacher.curriculum.gotControlWork}">
                                 <f:ajax execute="@this" event="click" render="attempts" listener="#{groupControlWorksForTeacher.saveEmpty}"/>
                                 <f:attribute name="work" value="#{w.value}"/>
                                 <h:outputText value="#{msgs.teacher_toNote}"/>

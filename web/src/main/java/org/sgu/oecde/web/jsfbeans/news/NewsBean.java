@@ -97,6 +97,9 @@ public class NewsBean implements Serializable {
                 case STUDENT:
                     news = newsDao.getNewsForStudent(newsOnPage, currentPage, LangEnum.ru);
                     break;
+                case SUPERVISOR:
+                    news = newsDao.getNewsForStudent(newsOnPage, currentPage, LangEnum.ru);
+                    break;
                 case TEACHER:
                     news = newsDao.getNewsForTeacher(newsOnPage, currentPage, LangEnum.ru);
                     break;
@@ -120,6 +123,9 @@ public class NewsBean implements Serializable {
         if (countNews == 0) {
             switch (UserType.toType(SecurityContextHandler.getUser())) {
                 case STUDENT:
+                    countNews = newsDao.getNewsStudentCount(LangEnum.ru);
+                    break;
+                case SUPERVISOR:
                     countNews = newsDao.getNewsStudentCount(LangEnum.ru);
                     break;
                 case TEACHER:

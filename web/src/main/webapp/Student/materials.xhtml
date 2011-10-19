@@ -38,7 +38,7 @@
                                     <tr>
                                         <td>#{msgs.student_gradesTableHeadTeacher}</td>
                                         <td class="linkToTeachersProfile">
-                                    <ui:repeat value="#{setToList.getList(m.curriculum.teacherToGroups)}" var="t">    
+                                    <ui:repeat value="#{setToList.getList(m.curriculum.teacherToGroups)}" var="t" size="1" >    
                                        <h:panelGroup rendered="#{t.teacher.id != 1}"> <a href="teacher.xhtml?id=#{t.teacher.id}"> #{t.teacher.fio}</a></h:panelGroup>
                                     </ui:repeat>                                
                                     </td>

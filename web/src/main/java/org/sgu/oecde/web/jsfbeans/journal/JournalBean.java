@@ -1,10 +1,12 @@
 package org.sgu.oecde.web.jsfbeans.journal;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import org.sgu.oecde.journal.EventBodyElement;
 import org.sgu.oecde.journal.EventItem;
 import org.sgu.oecde.journal.dao.IJournalDao;
@@ -33,6 +35,8 @@ public class JournalBean implements Serializable{
 
     @ManagedProperty(value="#{journalFilters}")
     private JournalFilters journalFilters;
+    
+    private String IdUser;
 
     private static final long serialVersionUID = 185L;
 
@@ -56,10 +60,15 @@ public class JournalBean implements Serializable{
         EventBodyElement.whoIs = "http://whois.domaintools.com/";
     }
 
-    public String clearEvents(){
+    public String clearEvents() throws IOException{
         events = null;
         pageNumber = 1;
         eventsCount = null;
+        if (filter == FilterType.adminStudentEvents){
+             FacesContext.getCurrentInstance().getExternalContext().redirect("studentEvents.xhtml?id="+IdUser);
+
+           // return "studentEvents.xhtml?id=11"+IdUser;
+        }
         return "index.xhtml?faces-redirect=true";
     }
 
@@ -72,7 +81,9 @@ public class JournalBean implements Serializable{
     }
 
     public List<FilterType.EventForChoise>getAvailableEvents(String type, Object object){
+        
         if(availableEvents == null){
+           if (object!= null) IdUser=((Long) object).toString();
             filter(type,object);
             availableEvents = journalFilters.getFilter(filter);
         }

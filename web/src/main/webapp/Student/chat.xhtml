@@ -9,6 +9,9 @@
             История чата
          </ui:define>
          <ui:define name="content">
+         <f:metadata>
+             <f:viewParam name="id" value="#{chatBean.idChat}"/>         
+        </f:metadata>
              <div align="left">
              <ui:repeat value="#{chatBean.listMessages}" var="mess">
                  <div class="chatPost">

@@ -148,7 +148,7 @@ public class TestPassingBean implements Serializable {
      * TODO брать семестр по кусру студента и сравнивать с учебным планом
      */
      private void checkTestAttemptType(AdditionalSelfDependentWork w){
-        if (curriculum.getSemester()!=semesterGetter.getCurrentSemester()){
+        if (curriculum.getSemester() %2 ==(semesterGetter.getCurrentSemester())){
              String currentDate = DateConverter.currentDate();
              if((currentDate.compareTo(resourceService.getReExameBeginDate())>=0)&&(currentDate.compareTo(resourceService.getReExameEndDate())<0))
                 testAttemptType=TestAttemptType.reTest;

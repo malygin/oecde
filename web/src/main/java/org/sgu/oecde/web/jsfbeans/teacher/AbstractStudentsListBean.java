@@ -2,6 +2,7 @@ package org.sgu.oecde.web.jsfbeans.teacher;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import org.sgu.oecde.de.education.DeCurriculum;
@@ -68,6 +69,7 @@ abstract class AbstractStudentsListBean extends AbstractTeacherCurriculumBean{
             if(g!=null&&g.getId()!=null&&id!=null&&g.getId().equals(id)&&id!=0){
                 students = new ArrayList(g.getPersons());
                 Collections.sort(students, new Student.OrderByStudentName());
+                deleteUnActiveStudent(students);
                 if(group==null)
                     group = g;
             }
@@ -75,6 +77,15 @@ abstract class AbstractStudentsListBean extends AbstractTeacherCurriculumBean{
         setAccessDenied(students==null);
     }
 
+    
+    private void deleteUnActiveStudent (List<Student> st){
+      Iterator<Student>it=st.iterator();
+      while(it.hasNext()){
+          Student s=it.next();
+          if (! s.isEnabled()) it.remove();
+      }
+        
+    }
     public Group getGroup() {
         return group;
     }

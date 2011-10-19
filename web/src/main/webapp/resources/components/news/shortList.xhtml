@@ -9,12 +9,17 @@
     <!-- INTERFACE -->
     <composite:interface>
         <composite:attribute  name="numberNews"  required="true" type="int" shortDescription="количество новостей что будет показано"/>
+         <composite:attribute name="type" required="false" type="java.lang.String" shortDescription="тип пользователя"/>
+   
     </composite:interface>
 
     <!-- IMPLEMENTATION -->
     <composite:implementation>     
         <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">
-       <a href="news_list.xhtml" style="font-size: 12pt;">#{msgs.student_topMenuNews}</a>
+            <a href="news_list.xhtml" style="font-size: 12pt;">#{msgs.student_topMenuNews} </a> 
+               <h:panelGroup rendered="#{cc.attrs.type eq 'admin'}">
+                <a href="news_add.xhtml"> (добавить новость)</a>
+               </h:panelGroup>
       </div>
       <div style="padding: 5px;">
        <h:dataTable value="#{NewsBean.getNewsForNumber(cc.attrs.numberNews)}" var="n" styleClass="leftMenuContainer" width="100%">

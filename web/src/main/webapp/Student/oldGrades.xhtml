@@ -63,6 +63,18 @@
                                 </h:column>
                             </h:dataTable>
                         </div>
+                         <div class="oldGradesExamBlock"><span class="Ipsilon_Web_GreenText">Отчетность по контрольным</span>
+                             <h:dataTable id="tableEmp" value="#{oldGradesBean.pointsEmpty}" var="p" 
+                                         columnClasses=" ,Ipsilon_Web_GreenText" cellpadding="0" cellspacing="0" styleClass="writeMessageInterfaceThemeMess disciplineTable">
+                                <h:column>                                 
+                                    <span class="controlWorksDisciplineName linkToStudentsProfile" style="display: block;"><h:outputLink value="umk.xhtml?c=#{p.key.key.id}">#{p.key.key.discipline.name}</h:outputLink></span>
+                                    <span class="greyLinks"><h:outputLink value="teacher.xhtml?id=${p.key.value.id}">#{p.key.value.initials}</h:outputLink></span>
+                                </h:column>                             
+                                <h:column>                                   
+                                    <h:outputText converter="enumConverter" value="#{p.value.gradeCode}"/>
+                                </h:column>
+                            </h:dataTable>
+                        </div>
                     </div>
 
                 </div>

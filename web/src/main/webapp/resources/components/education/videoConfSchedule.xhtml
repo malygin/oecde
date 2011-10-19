@@ -36,9 +36,9 @@
             </div>
             <div class="videoConfSchedule floatLeft" style="min-height: 212px; width: 57%;">
                 <table class="#{cc.attrs.ClassStyle}">
-                    <ui:repeat var="s" value="#{studentScheduleBean.schedule(40,true)}" size="2">
+                    <ui:repeat var="s" value="#{studentScheduleBean.schedule(40,true)}" >
                         <tr>
-                            <td valign="top" class="Ipsilon_Web_GreenText"><p><h:outputText value="#{s.lessonDate}" converter="dateConverter"/></p>
+                            <td valign="top" class="Ipsilon_Web_GreenText"><p><h:outputText value="#{s.lessonDate}" converter="dateConverter"/> - ${fn:substring(s.lessonEndDate,11,16)} </p>
                             </td>
                             <td><p><p class="skyBlueText">#{s.discipline.name}</p> <p  class="Ipsilon_Web_GreenText">#{s.teacher.initials}</p> <h:outputText converter="roomConverter" value="#{s.room}"/> #{msgs.student_sheduleRoom}</p>
                             </td>

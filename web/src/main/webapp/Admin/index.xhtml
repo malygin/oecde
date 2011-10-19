@@ -25,10 +25,10 @@
                     <tr>
                         <td>
                             <p>
-                                #{msgs.teacher_mainContentUserInfoPost}
+                               
                             </p>
                         </td>
-                        <td><p>#{cc.attrs.u.position}</p></td>
+                        <td><p> #{adminSettingsBean.user.position}</p></td>
                         <td rowspan="8">
                             <div style="text-align: center;">
                                 <ut:showPhoto user="#{adminSessionBean.admin}" size="medium"/>
@@ -38,7 +38,7 @@
                     <tr>
                         <td>
                             <p>
-                                #{msgs.student_description}:
+                         
                             </p>
                         </td>
                         <td><p></p></td>
@@ -46,20 +46,20 @@
                     <tr>
                         <td>
                             <p>
-                                #{msgs.student_studentContact}
+                             
                             </p>
                         </td>
-                        <td><p>#{cc.attrs.u.description}</p></td>
+                        <td><p></p></td>
                     </tr>
                 </table>
 
             </div>
             <div class="StudentMainPageTitlesBorders blocksMargins">
-                <news:shortList numberNews="3"/>
+                <news:shortList numberNews="3" type="admin"/>
             </div>
             <div class="StudentMainPageTitlesBorders blocksMargins">
                 <div class="mainStudentPageTitles mainStudentPageTitlesOrange">#{msgs.admin_AdminChat}
-                    <div style="float: right;"><a href="chat.xhtml" title="история чата" class="chatHistory"></a>
+                    <div style="float: right;"><a href="chat.xhtml?id=2" title="история чата" class="chatHistory"></a>
                     </div>
                     <div class="floatDestroyer"/>
                 </div>

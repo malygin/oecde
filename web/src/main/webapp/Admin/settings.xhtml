@@ -17,9 +17,9 @@
                         </p>
                         <table class="adminSettings">
                             <tr>
-                                <td>#{msgs.student_studentContact}
+                                <td>Описание:
                                 </td>
-                                <td>
+                             <td>
                             <h:inputTextarea cols="30" value="#{adminSettingsBean.user.description}"/>
                             </td>
                             </tr>
@@ -30,7 +30,14 @@
                             <h:inputText size="30" value="#{adminSettingsBean.user.position}" style="width: 250px;"/>
                             </td>
                             </tr>
-                            <tr>
+                             <tr>
+                                <td> Контакты:
+                                </td>
+                                <td>
+                            <h:inputText size="30" value="#{adminSettingsBean.user.contacts}" style="width: 250px;"/>
+                            </td>
+                            </tr>
+                              <tr>
                                 <td colspan="2">
                             <h:commandButton styleClass="studentButton" value="Cохранить" action="#{adminSettingsBean.save()}"/>
                             </td>
