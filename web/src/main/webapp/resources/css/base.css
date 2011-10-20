@@ -642,6 +642,7 @@ not all and (-webkit-min-device-pixel-ratio:0) {
     padding: 10px;
     margin-left: 10px;
     margin-right: 10px;
+    text-align: left;
 }
 
 .mainStyle .studentStandatrTable{
