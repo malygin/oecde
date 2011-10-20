@@ -30,6 +30,14 @@
                          studentStandatrTableTd,
                         studentStandatrTableTdLastTd  studentStandatrTableExamin "
                          value="#{supervisorScheduleBean.lessons}" var="s" styleClass="studentStandatrTable studentStandatrTableExamin" cellpadding="0" cellspacing="0">
+                
+                <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="дата"/>
+                        </f:facet>
+                        <span ><h:outputText converter="dateConverter" value="#{s.lessonDate}"/></span>
+                </h:column>
+            
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="группы"/>
@@ -64,12 +72,6 @@
                             <f:convertNumber maxFractionDigits="0" groupingUsed="false"/>
                         </h:outputText>
                     </div>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="дата"/>
-                    </f:facet>
-                    <span ><h:outputText converter="dateConverter" value="#{s.lessonDate}"/></span>
                 </h:column>
             </h:dataTable>
             <util:navigationList numElements="#{supervisorScheduleBean.count}" elementOnPage="#{supervisorScheduleBean.maxResult}"/>
