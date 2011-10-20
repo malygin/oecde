@@ -34,7 +34,7 @@
             <div class="#{cc.attrs.styleForShedule}">
                 <div id="datepicker" class="datepickerClass"></div>
             </div>
-            <div class="videoConfSchedule floatLeft" style="min-height: 212px; width: 57%;">
+            <div class="videoConfSchedule floatLeft" style="min-height: 212px; width: 50%;">
                 <table class="#{cc.attrs.ClassStyle}">
                     <ui:repeat var="s" value="#{studentScheduleBean.schedule(40,true)}" size="2">
                         <tr>
@@ -86,7 +86,7 @@
                         <h:panelGroup rendered="#{studentScheduleBean.IsCurrentDate(s.lessonDate)}">
                             <div class="greenText"><h:outputText value="#{fn:substring(s.lessonDate,0,10)}" converter="dateConverter"/></div>
                         </h:panelGroup>
-                        <table class="tableForSheduleStudent">
+                        <table class="tableForShedule">
                             <tr>
                                 <td>${fn:substring(s.lessonDate,11,16)}-${fn:substring(s.lessonEndDate,11,16)}</td>
                                 <td><span class="linkToStudentsProfile"><h:outputLink value="umk.xhtml?c=#{s.id}" style="margin-left: 10px;">#{s.discipline.name}
