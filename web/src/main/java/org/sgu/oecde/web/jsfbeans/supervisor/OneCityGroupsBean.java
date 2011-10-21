@@ -30,13 +30,13 @@ public class OneCityGroupsBean implements Serializable{
     public List<NewEntry<Speciality,List<Group>>> getSpecialities(){
         if(specialities == null){
             List<Group>l = supervisorSessionBean.getGroups();
-            Speciality s = null;
+            Speciality s = (l.get(0)).getSpeciality();
             NewEntry<Speciality,List<Group>>specialityEntry = null;
             specialities = new ArrayList<NewEntry<Speciality, List<Group>>>();
-            List<Group>groupList = null;
+            List<Group>groupList = new ArrayList<Group>();
             for(Group g:l){
-                if(g.getSpeciality()!=s){
-                    specialityEntry = new NewEntry<Speciality, List<Group>>(g.getSpeciality(), groupList);
+                if((g.getSpeciality()!=s)){
+                    specialityEntry = new NewEntry<Speciality, List<Group>>(s, groupList);
                     specialities.add(specialityEntry);
                     groupList = new ArrayList<Group>();
                 }

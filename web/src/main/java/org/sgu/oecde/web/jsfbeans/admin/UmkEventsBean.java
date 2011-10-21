@@ -24,13 +24,15 @@ public class UmkEventsBean implements Serializable{
     @ManagedProperty(value="#{adminSessionBean}")
     private AdminSessionBean adminSessionBean;
 
+    private String eventType;
+
+    private Umk umk;
+    
     private static final long serialVersionUID = 184L;
 
-    @Secured({"ROLE_ADMIN"})
-    public void logUmkEvent(AjaxBehaviorEvent event){
-        Umk u = (Umk) event.getComponent().getAttributes().get("umk");
-        String e = (String) event.getComponent().getAttributes().get("event");
-        journalService.saveByStringType(e,adminSessionBean.getAdmin(), u);
+
+    public void logUmkEvent(){      
+        journalService.saveByStringType(eventType,adminSessionBean.getAdmin(), umk);
     }
 
     @Secured({"ROLE_ADMIN"})
@@ -48,4 +50,22 @@ public class UmkEventsBean implements Serializable{
     public void setJournalService(JournalService journalService) {
         this.journalService = journalService;
     }
+
+    public String getEventType() {
+        return eventType;
+    }
+
+    public void setEventType(String eventType) {
+        this.eventType = eventType;
+    }
+
+    public Umk getUmk() {
+        return umk;
+    }
+
+    public void setUmk(Umk umk) {
+        this.umk = umk;
+    }
+    
+    
 }

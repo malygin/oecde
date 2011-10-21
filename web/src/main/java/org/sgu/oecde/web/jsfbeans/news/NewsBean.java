@@ -81,6 +81,7 @@ public class NewsBean implements Serializable {
         }      
         Long id = newsDao.save(n);
         n.setId(id);
+        if (type!=NewTypeEnum.forTeacher)
         journalService.save(EventType.NEW_NEWS, SecurityContextHandler.getUser(), n);
 
     }

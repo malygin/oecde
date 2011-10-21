@@ -30,6 +30,7 @@
             
                 <r:forEach items="#{teachersListBean.teachers}" var="t">
                 <div class="studentInterfaceStandartList">
+               
                     <h:panelGroup rendered="#{t.value.id ne 1}">
                        <ut:userListItem  type="teacher" u="#{t.value}"/>
                     </h:panelGroup>

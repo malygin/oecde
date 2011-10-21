@@ -14,7 +14,7 @@
         <div  class="modulsTitles"><p class="sideBarTitle">#{msgs.student_eduMenuTitle}</p></div>
         <ol class="leftSideMenuLinks leftSideList">
             <li><a href="curriculums.xhtml">#{msgs.teacher_communicationMenuMyCources}</a></li>
-            <li><a target="blank" href="http://oecdo.sgu.ru/client/">Видеоконференции</a></li>
+            <li><a target="blank" href="http://vishnu.main.sgu.ru/client/">Видеоконференции</a></li>
             <li><a href="controlWorksAttempts.xhtml">#{msgs.teacher_communicationMenuAllCw}</a></li>
             <li><a href="schedule.xhtml">#{msgs.teacher_communicationSchedule}</a></li>
         </ol>
@@ -46,7 +46,7 @@
                     <h:column>
                         <div style="width: 100%; text-align: left;" class="groupsLinks controlWorksDisciplineNameLink">
                             <h:outputText value="#{w.key.name}"/>
-                            <h:outputText value="#{w.key.rusShort}"/>
+                      
                         </div>
                         <h:dataTable id="groups" value="#{w.value}" style="margin: 0px; padding: 0px; text-align: left; margin-left: 20px;" cellpadding="0" cellspacing="0" var="g">
                             <h:column>

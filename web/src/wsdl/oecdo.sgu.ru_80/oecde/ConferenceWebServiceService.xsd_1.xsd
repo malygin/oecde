@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.4-b01-. --><xs:schema xmlns:tns="http://web.oecde.sgu.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://web.oecde.sgu.org/">
+
+<xs:element name="getByUsernameAndPassword" type="tns:getByUsernameAndPassword"></xs:element>
+
+<xs:element name="getByUsernameAndPasswordResponse" type="tns:getByUsernameAndPasswordResponse"></xs:element>
+
+<xs:complexType name="getByUsernameAndPassword">
+<xs:sequence>
+<xs:element name="username" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="password" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getByUsernameAndPasswordResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:hashMap" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="hashMap">
+<xs:complexContent>
+<xs:extension base="tns:abstractMap">
+<xs:sequence></xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="abstractMap" abstract="true">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+</xs:schema>

@@ -30,7 +30,7 @@ public class SupervisorScheduleBean implements Serializable{
 
     private int pageNumber = 1;
 
-    private int maxResult = 40;
+    private int maxResult = 100;
 
     private String beginDate;
 

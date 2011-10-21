@@ -20,6 +20,26 @@
                 <f:metadata>
                     <f:viewParam name="id" value="#{adminUmkBean.id}"/>
                 </f:metadata>
+                <h:form>
+                  <span class="controlWorksDisciplineNameLink">
+                  <h:commandLink value="Создавался" action="#{umkEventsBean.logUmkEvent}">
+                                    <f:setPropertyActionListener target="#{umkEventsBean.umk}"   value="#{adminUmkBean.umk}"/>
+                                    <f:setPropertyActionListener target="#{umkEventsBean.eventType}"    value="UMK_CREATE"/>                  
+                  </h:commandLink> 
+                       </span>
+                      <span class="controlWorksDisciplineNameLink">
+                   <h:commandLink value="Удалялся" action="#{umkEventsBean.logUmkEvent}">
+                                    <f:setPropertyActionListener target="#{umkEventsBean.umk}"   value="#{adminUmkBean.umk}"/>
+                                    <f:setPropertyActionListener target="#{umkEventsBean.eventType}"    value="UMK_DELETE"/>                  
+                  </h:commandLink> 
+                       </span>
+                          <span class="controlWorksDisciplineNameLink">
+                   <h:commandLink value="Редактировался" action="#{umkEventsBean.logUmkEvent}">
+                                    <f:setPropertyActionListener target="#{umkEventsBean.umk}"   value="#{adminUmkBean.umk}"/>
+                                    <f:setPropertyActionListener target="#{umkEventsBean.eventType}"    value="UMK_EDIT"/>                  
+                  </h:commandLink>
+                      </span>
+                </h:form>
                 <h:dataTable value="#{adminUmkBean.umk.modules}" var="m">
                     <h:column>
                         <div class="studentInterfaceStandartList">

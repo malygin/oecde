@@ -30,9 +30,7 @@
                     <div class="chatPostDate" style="font-size: 8pt;margin-right: 10px;">
                         <h:outputText converter="dateConverter" value="#{message.message.dateMessage}"/>
                     </div>
-
-
-                    <h:panelGroup layout="block" rendered="#{message.fioAuthor==messageDialogBean.recipient.fioAuthor}">
+                                      <h:panelGroup layout="block" rendered="#{message.fioAuthor==messageDialogBean.recipient.fioAuthor}">
                         <div class="floatLeft linkTo#{messageDialogBean.recipient.recipient.classType}sProfile">
                             <a href="#{fn:toLowerCase(messageDialogBean.recipient.recipient.classType)}.xhtml?id=#{messageDialogBean.recipient.recipient.id}">#{messageDialogBean.recipient.fioAuthor}</a>
                         </div>

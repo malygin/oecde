@@ -27,6 +27,7 @@ import org.springframework.security.access.annotation.Secured;
 public class ChatBean implements Serializable{
     @ManagedProperty(value="#{chatDao}")
     private IChatDao chatDao;
+    
     private List<ChatMessage> listMessages=null;
 
     protected AbstractUser user;
