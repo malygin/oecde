@@ -70,10 +70,10 @@
 
 
                                 <h:commandLink rendered="#{DiscussionBean.renderEdit}" styleClass="messLinksMargins" action="#{DiscussionBean.editNodes}" value="#{msgs.user_change}"/>
-                                <h:commandLink rendered="#{DiscussionBean.renderEdit}" action="#{DiscussionBean.cancelNodes}" value="#{msgs.user_cancel}"/>
+                                <h:commandLink rendered="#{DiscussionBean.renderEdit}"  styleClass="messLinksMargins" action="#{DiscussionBean.cancelNodes}" value="#{msgs.user_cancel}"/>
 
                                 
-                                    <h:commandLink action="#{DiscussionBean.deleteNode}" value="#{msgs.message_delete}">
+                                    <h:commandLink action="#{DiscussionBean.deleteNode}"  styleClass="messLinksMargins" value="#{msgs.message_delete}">
                                         <f:setPropertyActionListener target="#{DiscussionBean.nodeId}" value="#{node.id}" />                                     
                                    </h:commandLink>
                                
