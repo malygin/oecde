@@ -83,7 +83,7 @@ public class JournalBean implements Serializable{
     public List<FilterType.EventForChoise>getAvailableEvents(String type, Object object){
         
         if(availableEvents == null){
-           if (object!= null) IdUser=((Long) object).toString();
+         //  if (object!= null) IdUser=((Long) object).toString();
             filter(type,object);
             availableEvents = journalFilters.getFilter(filter);
         }

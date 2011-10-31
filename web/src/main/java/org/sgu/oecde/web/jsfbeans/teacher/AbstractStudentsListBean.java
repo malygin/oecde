@@ -14,7 +14,7 @@ import org.springframework.util.CollectionUtils;
  *
  * @author ShihovMY
  */
-abstract class AbstractStudentsListBean extends AbstractTeacherCurriculumBean{
+public abstract class AbstractStudentsListBean extends AbstractTeacherCurriculumBean{
 
     private Long id;
     private List<Student>students;

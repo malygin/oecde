@@ -79,7 +79,7 @@ public class TestBean extends StudentCurriculumBean {
      }
 
     public void action(){
-        System.out.println("action!");
+    //    System.out.println("action!");
     }
     
     public Long getCurriculumId() {

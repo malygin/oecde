@@ -80,7 +80,7 @@ public class StudentRatingBean extends StudentCurriculumBean{
 
     public Points getStudentRating(){
         if(points == null){
-            System.out.println("points");
+        //    System.out.println("points");
             List<Student>students = ListUtil.<Student>oneItemList(student);
             List<Points>rating = getStudentsRating(students);
             if(rating.size()==1)
@@ -98,7 +98,7 @@ public class StudentRatingBean extends StudentCurriculumBean{
         filters.add(controlWorkFilter);
         filters.add(testFilter);
         List<AbstractResult> l = resultDao.getByStudentsAndCurriculums(getCurriculums(), students, null);
-        System.out.println("l"+l);
+      //  System.out.println("l"+l);
         List<Points>rating = preFilter.forEachResult(l, false,filters,students,getCurriculums());
         if(rating == null)
             return new ArrayList<Points>(0);

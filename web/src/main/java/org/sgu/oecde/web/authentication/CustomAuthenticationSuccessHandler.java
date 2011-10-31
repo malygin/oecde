@@ -53,10 +53,16 @@ public class CustomAuthenticationSuccessHandler implements  AuthenticationSucces
 
     public static void doRedirect(HttpServletRequest request, HttpServletResponse response, boolean returnToIndex)throws IOException, ServletException {
          UserType type = SecurityContextHandler.getUserType();
+//         String path="";
+//         if (request.getContextPath().equals("")) path="";
+//            else path=request.getContextPath();
+       //  System.out.println("context "+request.getContextPath());
+      //   System.out.println("path "+path);
          if(type!=null){
-             response.sendRedirect(request.getContextPath()+"/"+type.toNameFolder());
+       //      System.out.println(path+"23/"+type.toNameFolder());
+             response.sendRedirect(request.getContextPath()+"/"+type.toNameFolder()+"/");
          }else
              if(returnToIndex)
-                response.sendRedirect(request.getContextPath()+"/"+"index.xhtml");
+                response.sendRedirect("index.xhtml");
     }
 }

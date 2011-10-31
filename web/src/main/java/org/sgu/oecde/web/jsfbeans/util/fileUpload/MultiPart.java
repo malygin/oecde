@@ -32,7 +32,7 @@ public class MultiPart {
             Part p = findPart(attrName);
             if(p != null){
                 String fileName = getFilename(p);
-                System.out.println("Filename : " + fileName + ", contentType " + p.getContentType());
+               // System.out.println("Filename : " + fileName + ", contentType " + p.getContentType());
                 byte[] b = new byte[(int) p.getSize()];
                 p.getInputStream().read(b);
                 uf = new UploadFile(fileName, p.getContentType(), b);

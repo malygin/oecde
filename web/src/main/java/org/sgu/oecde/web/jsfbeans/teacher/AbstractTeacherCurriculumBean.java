@@ -10,7 +10,7 @@ import org.springframework.util.CollectionUtils;
  *
  * @author ShihovMY
  */
-abstract class AbstractTeacherCurriculumBean extends AbstractTeacherBean{
+public abstract class AbstractTeacherCurriculumBean extends AbstractTeacherBean{
     private DeCurriculum curriculum;
     private Long curriculumId;
 

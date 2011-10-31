@@ -36,7 +36,7 @@
             </div>
             <div class="videoConfSchedule floatLeft" style="min-height: 212px; width: 50%;">
                 <table class="#{cc.attrs.ClassStyle}">
-                    <ui:repeat var="s" value="#{teacherScheduleBean.schedule}" size="2">
+                    <ui:repeat var="s" value="#{teacherScheduleBean.schedule}" >
                         <tr>
                             <td valign="top" class="Ipsilon_Web_GreenText"><p><h:outputText value="#{s.lessonDate}" converter="dateConverter"/> -${fn:substring(s.lessonEndDate,11,16)}</p>
                             </td>

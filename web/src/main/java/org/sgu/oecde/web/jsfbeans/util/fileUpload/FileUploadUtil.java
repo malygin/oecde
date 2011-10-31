@@ -13,6 +13,7 @@ import org.sgu.oecde.web.jsfbeans.util.fileUpload.UploadFile;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
+import org.sgu.oecde.web.jsfbeans.util.ArrayListUtil;
 
 /**
  * @author Andrey Malygin (mailto: anmalygin@gmail.com)
@@ -60,7 +61,7 @@ public class FileUploadUtil {
         String name = type + "_" + Math.abs(random.nextInt()) + uf.getFileName().substring(uf.getFileName().lastIndexOf("."));
         File someFile = new File(multi.getServletContext().getRealPath("/resources/userFiles/" + type + "/" + name));
         String mime = new MimetypesFileTypeMap().getContentType(someFile);
-        if (checkMime && !ObjectUtils.containsElement(mimetypes, mime)) {
+        if (checkMime && !ArrayListUtil.containsElement(mimetypes, mime)) {
             return null;
         }
         if (!someFile.exists()) {

@@ -35,7 +35,7 @@ public class MessageBean implements Serializable{
     private String currentUserId;
 
     //Сообщений на странице
-    private int messageOnPage=5;
+    private int messageOnPage=20;
     private int currentPage=1;
 
     public MessageBean() {

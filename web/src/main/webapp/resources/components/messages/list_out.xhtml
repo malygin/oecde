@@ -39,7 +39,7 @@
                                             </td>
                                             <td>
                                                 <div class="linkTo#{rec.recipient.classType}sProfile">
-                                                    <a href="#{fn:toLowerCase(message.message.author.classType)}.xhtml?id=#{rec.recipient.id}"><h:outputText value="#{rec.fioAuthor}"/></a>
+                                                    <a href="#{fn:toLowerCase(rec.recipient.classType)}.xhtml?id=#{rec.recipient.id}"><h:outputText value="#{rec.fioAuthor}"/></a>
                                                 </div>
                                             </td>
                                         </tr>

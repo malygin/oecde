@@ -21,8 +21,8 @@
                 <table cellpadding="0" cellspacing="0">
                     <tr>
                         <td class="styleBlock userPhotoBorder">
-                            <h:graphicImage rendered="#{cc.attrs.user.largePhoto ne null}" value="../resources/userFiles/avatars/#{cc.attrs.user.largePhoto}"/>
-                            <h:graphicImage rendered="#{cc.attrs.user.largePhoto eq null}" value="../resources/userFiles/avatars/defaultAvatarBig.jpg"/>
+                            <h:graphicImage rendered="#{cc.attrs.user.largePhoto ne null}" value="http://oec-static.main.sgu.ru/oecde/userFiles/avatars/#{cc.attrs.user.largePhoto}"/>
+                            <h:graphicImage rendered="#{cc.attrs.user.largePhoto eq null}" value="http://oec-static.main.sgu.ru/oecde/userFiles/avatars/defaultAvatarBig.jpg"/>
                         </td>
                     </tr>
                 </table>
@@ -34,8 +34,8 @@
                 <table cellpadding="0" cellspacing="0">
                     <tr>
                         <td class="styleBlock userPhotoBorder#{cc.attrs.styleClass}">
-                            <h:graphicImage styleClass="#{cc.attrs.styleClass}" rendered="#{cc.attrs.user.smallPhoto ne null}" value="../resources/userFiles/avatars/#{cc.attrs.user.smallPhoto}"/>
-                            <h:graphicImage styleClass="#{cc.attrs.styleClass}" rendered="#{cc.attrs.user.smallPhoto eq null}" value="../resources/userFiles/avatars/defaultAvatarSmall.jpg"/>
+                            <h:graphicImage styleClass="#{cc.attrs.styleClass}" rendered="#{cc.attrs.user.smallPhoto ne null}" value="http://oec-static.main.sgu.ru/oecde/userFiles/avatars/#{cc.attrs.user.smallPhoto}"/>
+                            <h:graphicImage styleClass="#{cc.attrs.styleClass}" rendered="#{cc.attrs.user.smallPhoto eq null}" value="http://oec-static.main.sgu.ru/oecde/userFiles/avatars/defaultAvatarSmall.jpg"/>
                         </td>
                     </tr>
                 </table>
@@ -46,8 +46,8 @@
                 <table cellpadding="0" cellspacing="0">
                     <tr>
                         <td class="styleBlock userPhotoBorder#{cc.attrs.styleClass}">
-                            <h:graphicImage styleClass="#{cc.attrs.styleClass}" rendered="#{cc.attrs.user.mediumPhoto ne null}" value="../resources/userFiles/avatars/#{cc.attrs.user.mediumPhoto}"/>
-                            <h:graphicImage styleClass="#{cc.attrs.styleClass}" rendered="#{cc.attrs.user.mediumPhoto eq null}" value="../resources/userFiles/avatars/defaultAvatarMedium.jpg"/>
+                            <h:graphicImage styleClass="#{cc.attrs.styleClass}" rendered="#{cc.attrs.user.mediumPhoto ne null}" value="http://oec-static.main.sgu.ru/oecde/userFiles/avatars/#{cc.attrs.user.mediumPhoto}"/>
+                            <h:graphicImage styleClass="#{cc.attrs.styleClass}" rendered="#{cc.attrs.user.mediumPhoto eq null}" value="http://oec-static.main.sgu.ru/oecde/userFiles/avatars/defaultAvatarMedium.jpg"/>
                         </td>
                     </tr>
                 </table>

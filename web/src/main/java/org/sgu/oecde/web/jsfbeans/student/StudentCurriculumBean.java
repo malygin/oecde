@@ -52,7 +52,7 @@ public class StudentCurriculumBean extends AbstractStudentBean{
                while (ttg.hasNext()){
                   TeacherToGroup t=ttg.next();
                   if (!t.getGroup().equals(student.getGroup())) ttg.remove();
-                  System.out.println("group"+t.getGroup().getId());
+                  //System.out.println("group"+t.getGroup().getId());
                }
            }
           

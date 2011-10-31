@@ -141,7 +141,8 @@ public class DiscussionBean {
                  journalService.save(EventType.POST_ADD, userForSave, news, node);
           }else   journalService.save(EventType.POST_ADD, userForSave, node);
             HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-            String url=request.getRequestURI().split("/")[3];      
+             String[] s=request.getRequestURI().split("/");
+            String url=s[s.length-1];      
             FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId+"&type="+objectType);
      }
     /**
@@ -153,7 +154,8 @@ public class DiscussionBean {
          if (currentNode.getParent() != null) parentId= currentNode.getParent().getId();
          discussionService.addNode(currentNode.getId(), new Long(objectId), objectTypeEnum,  parentId, nodeText, currentUser);
             HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-            String url=request.getRequestURI().split("/")[3];
+            String[] s=request.getRequestURI().split("/");
+            String url=s[s.length-1];
             FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId+"&type="+objectType);
      }
  /**
@@ -186,7 +188,8 @@ public class DiscussionBean {
             }else journalService.save(EventType.POST_ANSWER, userForSave,node, Integer.toString(currentPage), node.getUser().getFio() );
 
              HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-             String url=request.getRequestURI().split("/")[3];
+             String[] s=request.getRequestURI().split("/");
+             String url=s[s.length-1];
              FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId+"&page="+currentPage+"&type="+objectType+"#"+nodeId);
      }
 
@@ -204,7 +207,8 @@ public class DiscussionBean {
                  newsDao.update(news);
              }
              HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-             String url=request.getRequestURI().split("/")[3];
+             String[] s=request.getRequestURI().split("/");
+             String url=s[s.length-1];
              FacesContext.getCurrentInstance().getExternalContext().redirect(url+"?id="+objectId+"&page="+currentPage+"&type="+objectType);
      }
 

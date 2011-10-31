@@ -16,7 +16,7 @@ import org.springframework.util.Assert;
  *
  * @author ShihovMY
  */
-abstract class AbstractStudentBean implements Serializable{
+public abstract class AbstractStudentBean implements Serializable{
 
     protected int semester;
 
