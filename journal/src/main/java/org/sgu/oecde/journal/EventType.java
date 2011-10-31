@@ -1,5 +1,6 @@
 package org.sgu.oecde.journal;
 
+import java.util.Set;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.discussion.ForumTypes;
 import org.sgu.oecde.discussion.Node;
@@ -10,6 +11,7 @@ import org.sgu.oecde.core.education.Discipline;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.core.education.AdvancedCurriculum;
 import org.sgu.oecde.core.education.Speciality;
+import org.sgu.oecde.core.education.TeacherToGroup;
 import org.sgu.oecde.core.users.AbstractPerson;
 import org.sgu.oecde.core.users.UserType;
 import org.sgu.oecde.core.education.resource.Task;
@@ -647,7 +649,9 @@ public enum EventType {
                 return null;
 
             EventBodyElement[] el = new EventBodyElement[2];
-            el[0] = new EventBodyElement("Создан  курс"+item.getEventBody());
+            el[0] = new EventBodyElement("Создан  курс "+item.getEventBody());
+           // el[1] = new EventBodyElement(item.getId(), item.getEventBody(), EventBodyElement.umkPage);
+          
             return el;
         }
 
@@ -657,9 +661,22 @@ public enum EventType {
                 return null;
 
             EventBodyElement[] el = new EventBodyElement[2];
-            el[0] = new EventBodyElement("Создан курс");
+            el[0] = new EventBodyElement("Создан курс ");
             el[1] = new EventBodyElement( item.getEventBody());
             return el;
+        }
+         @Override
+        protected  boolean addConditionByStudent(StringBuilder sb, AbstractStudent user) {
+            super.addConditionByStudent(sb, user);
+            sb.append(" and ( ");
+               for (TeacherToGroup tg: (Set<TeacherToGroup>)user.getGroup().getTeacherToGroups()){
+                    sb.append("multiId = ").append(tg.getCurriculum().getUmk().getId());
+                    sb.append(" or ");
+               }
+               sb.delete(sb.length()-3, sb.length());
+               sb.append(") ");
+          
+            return false;
         }
     },
     /**
@@ -671,7 +688,11 @@ public enum EventType {
     UMK_DELETE(true,"Удаление УМК"){
 
         public EventItem fillEventItem(AbstractUser user, Object ... o){
-            return UMK_CREATE.fillEventItem(user, o);
+            if(checkSingleObjectArray(user, UserType.ADMIN,  Umk.class, this, o))
+                return null;
+
+            Umk u = (Umk) o[0];
+            return generateEventItem(user, u.getId(), u.getName());
         }
 
         @Override
@@ -683,9 +704,22 @@ public enum EventType {
 
         @Override
         public EventBodyElement[] parseEventForAdmin(EventItem item) {
-            EventBodyElement[] el = UMK_CREATE.parseEventForAdmin(item);
-            el[0] = new EventBodyElement("Удалён курс ");
-            return UMK_CREATE.parseEventForAdmin(item);
+            EventBodyElement[] el  = new EventBodyElement[1];
+            el[0] = new EventBodyElement("Удалён курс " +item.getEventBody());
+            return el;
+        }
+           @Override
+        protected  boolean addConditionByStudent(StringBuilder sb, AbstractStudent user) {
+            super.addConditionByStudent(sb, user);
+            sb.append(" and ( ");
+               for (TeacherToGroup tg: (Set<TeacherToGroup>)user.getGroup().getTeacherToGroups()){
+                    sb.append("multiId = ").append(tg.getCurriculum().getUmk().getId());
+                    sb.append(" or ");
+               }
+               sb.delete(sb.length()-3, sb.length());
+               sb.append(") ");
+          
+            return false;
         }
     },
     /**
@@ -712,9 +746,22 @@ public enum EventType {
 
         @Override
         public EventBodyElement[] parseEventForAdmin(EventItem item) {
-            EventBodyElement[] el = UMK_CREATE.parseEventForAdmin(item);
-            el[0] = new EventBodyElement("Изменён курс ");
-            return UMK_CREATE.parseEventForAdmin(item);
+                 EventBodyElement[] el  = new EventBodyElement[1];
+            el[0] = new EventBodyElement("Изменён курс "+item.getEventBody());
+            return el;
+        }
+           @Override
+        protected  boolean addConditionByStudent(StringBuilder sb, AbstractStudent user) {
+            super.addConditionByStudent(sb, user);
+            sb.append(" and ( ");
+               for (TeacherToGroup tg: (Set<TeacherToGroup>)user.getGroup().getTeacherToGroups()){
+                    sb.append("multiId = ").append(tg.getCurriculum().getUmk().getId());
+                    sb.append(" or ");
+               }
+               sb.delete(sb.length()-3, sb.length());
+               sb.append(") ");
+          
+            return false;
         }
     },
     /**
