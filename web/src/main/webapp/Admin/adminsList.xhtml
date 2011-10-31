@@ -20,7 +20,7 @@
                 <div class="interfaceContent">
                     
                   
-                    <h:dataTable value="#{adminsBean.admins}" styleClass="leftMenuContainer" var="a">
+                    <h:dataTable value="#{adminsBean.admins}" var="a">
                         <h:column>
                             <div class="studentInterfaceStandartList">
                                 <ut:userListItem type="admin" u="#{a}"/>
@@ -29,9 +29,11 @@
                     </h:dataTable>
                     <div class="DisciplineText prosto_tekst studentPaddBott studentPaddLeft">#{msgs.student_representation}:
                     </div>
-                      <h:dataTable value="#{adminsBean.supervisors}" styleClass="leftMenuContainer" var="s">
+                      <h:dataTable value="#{adminsBean.supervisors}" var="s">
                         <h:column>
-                           <ut:userListItem type="supervisor" u="#{s}"/>
+                           <div class="studentInterfaceStandartList">
+                               <ut:userListItem type="supervisor" u="#{s}"/>
+                           </div>
                         </h:column>
                     </h:dataTable>
                     <div class="floatDestroyer"/>
