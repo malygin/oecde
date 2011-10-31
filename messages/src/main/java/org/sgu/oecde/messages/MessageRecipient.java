@@ -65,7 +65,7 @@ public class MessageRecipient extends BasicItem{
    public String getFioAuthor(){
      String fio="";
      UserType userType=UserType.toType(recipient);
-     if (userType==UserType.SUPERVISOR) return "Представительство"+((DeSupervisor)recipient).getCity().getName();
+     if (userType==UserType.SUPERVISOR) return "Представительство "+((DeSupervisor)recipient).getCity().getName();
      AbstractPerson person=(AbstractPerson) recipient;
      switch(userType){
          case STUDENT:

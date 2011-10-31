@@ -3,6 +3,7 @@ package org.sgu.oecde.messages.service;
 
 import org.sgu.oecde.core.users.AbstractPerson;
 import org.sgu.oecde.core.users.UserType;
+import org.sgu.oecde.de.users.DeSupervisor;
 import org.sgu.oecde.messages.Message;
 
 /**
@@ -52,6 +53,8 @@ public class MessageImpl {
    public String getFioAuthor(){
      String fio="";
      UserType userType=UserType.toType(message.getAuthor());
+     if (userType==UserType.SUPERVISOR) return "Представительство "+((DeSupervisor)message.getAuthor()).getCity().getName();
+   
      AbstractPerson person=(AbstractPerson) message.getAuthor();
      switch(userType){
          case STUDENT:
