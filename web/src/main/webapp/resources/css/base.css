@@ -171,8 +171,10 @@ label{
     -webkit-border-image: none;
 }
 .mainStyle .BorderNone td{
-    border: none;
-    border-image: none;
+    -o-border: none;
+    -o-border-image: none;
+    -moz-border: none;
+    -moz-border-image: none;
 }
 .mainStyle .BorderTd{
     border: 3px solid #EDEDED;
