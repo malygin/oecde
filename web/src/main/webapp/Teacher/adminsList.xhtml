@@ -17,44 +17,6 @@
                     #{msgs.student_templateAdmins}
                 </div>
                 <div class="interfaceContent">
-
-                    <div class="DisciplineText prosto_tekst studentPaddBott studentPaddLeft">#{msgs.student_representation}:
-                    </div>
-                    <h:dataTable value="#{adminsBean.supervisors}" styleClass="leftMenuContainer" var="s">
-                        <h:column>
-                            <div class="standartContainerForStudentMediumAvatar studentPaddLeft" style="margin-left: 8px; width: 80px;" align="center">
-                                <ut:showPhoto user="#{s}" size="small"/>
-                            </div>
-                            <div class="standartContainerForTeacherInfoInTeachersList">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <div class="studentPaddBott">
-                                                <span class="AdminTextGrey">#{msgs.student_description}:</span>
-                                                #{s.description}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="studentPaddBott">
-                                                <span class="AdminTextGrey">#{msgs.student_mainContentUserInfoCity}</span>
-                                                #{s.city.name}
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="controlWorksDisciplineNameLinkGrey">
-                                            <span class="s1 studentPaddBott">
-                                                <a href="messages_write.xhtml?user=${s.id}">#{msgs.student_studentListWriteMessage}</a>
-                                            </span>
-                                            <span class="s2 controlWorksDisciplineNameLink">
-                                                <a href="messages_dialog.xhtml?user=${s.id}">#{msgs.student_studentLestShowDialog}</a>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </h:column>
-                    </h:dataTable>
                     <h:dataTable value="#{adminsBean.admins}" styleClass="leftMenuContainer" var="a">
                         <h:column>
                             <div class="studentInterfaceStandartList">

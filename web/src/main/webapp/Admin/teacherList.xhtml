@@ -21,8 +21,7 @@
                     <ut:navigationList elementOnPage="#{teacherListBean.maxNumber}"
                                        numElements="#{teacherListBean.count}"/>
                     <div>
-                        <h:dataTable style="width: 100%; display: block;" value="#{teacherListBean.teacherList}" var="i" id="table" styleClass="controlWorksBorders"
-                                     columnClasses="controlWorksDisciplineNameLink">
+                        <h:dataTable value="#{teacherListBean.teacherList}" var="i" id="table">
                             <h:column>
                                 <ut:userListItem type="teacher" u="#{i}"/>
 
