@@ -23,8 +23,18 @@
             <h:panelGroup rendered="#{not MessageReadBean.noAccess}">
                 <h:form  id ="formSend">
                     <div class="messContentBlockPhotoBlock" style="margin-left: 5px;margin-top: 0;">
-                         <h:panelGroup rendered="#{MessageReadBean.type}"><ut:showPhoto user="#{cc.attrs.mess.message.author}" size="small" styleClass="#{cc.attrs.mess.message.author.classType}"/></h:panelGroup>
-                         <h:panelGroup rendered="#{not MessageReadBean.type}"><ut:showPhoto user="#{MessageReadBean.userOut}" size="small" styleClass="#{MessageReadBean.userOut.classType}"/></h:panelGroup>
+                        <div style="float: left; text-align: center;"> 
+                        <h:panelGroup rendered="#{MessageReadBean.type}">
+                             <ut:showPhoto user="#{cc.attrs.mess.message.author}" size="small" styleClass="#{cc.attrs.mess.message.author.classType}"/>
+                             <div class="floatDestroyer"/>
+                             <h:outputText rendered="#{cc.attrs.mess.message.author.online}" value="On-line" styleClass="online" style="font-size: 9pt;"/>
+                        </h:panelGroup>
+                         <h:panelGroup rendered="#{not MessageReadBean.type}">
+                             <ut:showPhoto user="#{MessageReadBean.userOut}" size="small" styleClass="#{MessageReadBean.userOut.classType}"/>
+                             <div class="floatDestroyer"/>
+                             <h:outputText rendered="#{MessageReadBean.userOut.online}" value="On-line" styleClass="online" style="font-size: 9pt;"/>
+                         </h:panelGroup>
+                         </div>
                     </div>
                     <div style="float: left;">
                         <table cellpadding="3" cellspacing="6">
@@ -60,13 +70,14 @@
                             </tr>
                         </table>
                     </div>
+                    
                     <div class="chatPostDate" style="font-size: 8pt;">
                         <h:outputText value="#{cc.attrs.mess.message.dateMessage}"/>
                     </div>
                     <div class="floatDestroyer"/>
 
-                    <div style="margin: 0px 5px; height: 20px;">
-                         <h:outputText styleClass="DisciplineText" value="#{cc.attrs.mess.message.theme}"/>
+                    <div style="margin: 10px 5px 0px 0px; height: 20px;">
+                         <span>#{msgs.message_theme} </span><h:outputText styleClass="DisciplineText" value="#{cc.attrs.mess.message.theme}"/>
                         <div style="" class="trashIconContainer">
                             <h:commandLink action="#{MessageReadBean.delete}">
                                 <img style="margin: 2px; margin-top: 1px;" src="../resources/images/trashMessage.gif" title="#{msgs.message_iconDeleteMessTitle}" alt=""/>

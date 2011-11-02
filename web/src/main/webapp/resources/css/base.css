@@ -1181,7 +1181,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .online{
     color: #3491C8;
     padding-top: 5px;
-    font-size: 12pt;
+    /*font-size: 12pt;*/
 }
 .mainStyle .onlineStatus{
     float: right;

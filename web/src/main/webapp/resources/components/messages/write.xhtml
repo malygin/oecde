@@ -34,9 +34,11 @@
                 <div style="padding-top:10px;">
                 <h:dataTable id="recipients" value="#{MessageWriteBean.recipients}" var="recipient">
                     <h:column>
-
+                        <div style="float: left; text-align: center;">
                              <ut:showPhoto user="#{recipient.recipient}" styleClass="#{recipient.recipient.classType}" size="small"/>
-
+                             <div class="floatDestroyer"/>
+                             <h:outputText rendered="#{recipient.recipient.online}" value="On-line" styleClass="online" style="font-size: 9pt;"/>
+                        </div>
                     </h:column>
                     <h:column>
 
