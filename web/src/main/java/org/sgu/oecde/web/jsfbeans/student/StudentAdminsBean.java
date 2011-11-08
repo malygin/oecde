@@ -48,8 +48,8 @@ public class StudentAdminsBean {
                 if  (!adminReq.contains(a.getId()))  i.remove();                 
             }
          // Admin a=admins.get(0);         
-          admins.add(6, admins.get(0));
-          admins.remove(0);
+        //  admins.add(6, admins.get(0));
+         // admins.remove(0);
           
         }
         return admins;

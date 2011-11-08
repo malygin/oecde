@@ -13,16 +13,12 @@
     <!-- INTERFACE -->
     <composite:interface>
         <composite:attribute name="list" required="true" type="java.util.List" shortDescription="коллекция событий"/>
-        <!--      <composite:attribute name="classStyle" type="java.lang.String" default="admin"/>-->
+        <composite:attribute name="numberOfEvents" type="java.lang.String" default="15"/>
     </composite:interface>
 
     <!-- IMPLEMENTATION -->
     <composite:implementation>
-        <h:panelGroup rendered="#{cc.attrs.list eq '[]'}">
-            <div style="margin: 15px;">
-                #{msgs.student_eventNoEvents}
-            </div>
-        </h:panelGroup>
+   
 
         <h:dataTable id="events" value="#{cc.attrs.list}" var="e" style="width: 100%;">
             <h:column>

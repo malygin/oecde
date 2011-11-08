@@ -668,14 +668,16 @@ public enum EventType {
          @Override
         protected  boolean addConditionByStudent(StringBuilder sb, AbstractStudent user) {
             super.addConditionByStudent(sb, user);
+            Set<TeacherToGroup> ttg =(Set<TeacherToGroup>)user.getGroup().getTeacherToGroups();
+            if (!ttg.isEmpty()){
             sb.append(" and ( ");
-               for (TeacherToGroup tg: (Set<TeacherToGroup>)user.getGroup().getTeacherToGroups()){
+               for (TeacherToGroup tg: ttg){
                     sb.append("multiId = ").append(tg.getCurriculum().getUmk().getId());
                     sb.append(" or ");
                }
                sb.delete(sb.length()-3, sb.length());
                sb.append(") ");
-          
+            }else sb.delete(sb.lastIndexOf("or  ( eventType ="), sb.length());
             return false;
         }
     },
@@ -711,14 +713,16 @@ public enum EventType {
            @Override
         protected  boolean addConditionByStudent(StringBuilder sb, AbstractStudent user) {
             super.addConditionByStudent(sb, user);
+               Set<TeacherToGroup> ttg =(Set<TeacherToGroup>)user.getGroup().getTeacherToGroups();
+            if (!ttg.isEmpty()){
             sb.append(" and ( ");
-               for (TeacherToGroup tg: (Set<TeacherToGroup>)user.getGroup().getTeacherToGroups()){
+               for (TeacherToGroup tg:ttg){
                     sb.append("multiId = ").append(tg.getCurriculum().getUmk().getId());
                     sb.append(" or ");
                }
                sb.delete(sb.length()-3, sb.length());
                sb.append(") ");
-          
+            }else  sb.delete(sb.lastIndexOf("or  ( eventType ="), sb.length());
             return false;
         }
     },
@@ -753,14 +757,16 @@ public enum EventType {
            @Override
         protected  boolean addConditionByStudent(StringBuilder sb, AbstractStudent user) {
             super.addConditionByStudent(sb, user);
+               Set<TeacherToGroup> ttg =(Set<TeacherToGroup>)user.getGroup().getTeacherToGroups();
+            if (!ttg.isEmpty()){
             sb.append(" and ( ");
-               for (TeacherToGroup tg: (Set<TeacherToGroup>)user.getGroup().getTeacherToGroups()){
+               for (TeacherToGroup tg: ttg){
                     sb.append("multiId = ").append(tg.getCurriculum().getUmk().getId());
                     sb.append(" or ");
                }
                sb.delete(sb.length()-3, sb.length());
                sb.append(") ");
-          
+            }else  sb.delete(sb.lastIndexOf("or  ( eventType ="), sb.length());
             return false;
         }
     },

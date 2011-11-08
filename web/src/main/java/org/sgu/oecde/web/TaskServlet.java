@@ -29,7 +29,6 @@ import org.sgu.oecde.web.jsfbeans.util.fileUpload.FileUploadUtil;
  */
 @WebServlet(value="/TaskServlet")
 public class TaskServlet extends HttpServlet {
-    public static final String urlServer="http://oec-static.main.sgu.ru/textbooks/";
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
@@ -45,7 +44,7 @@ public class TaskServlet extends HttpServlet {
           
           String str="";
           String[] urlTask=request.getParameter("task").split("/");
-          URL url = new URL(urlServer+request.getParameter("task"));
+          URL url = new URL(getServletContext().getInitParameter("textbookUrl") +request.getParameter("task"));
           StringBuilder strbuf = new StringBuilder();
           BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
           String mime =  this.getServletContext().getMimeType(url.toString());
@@ -53,8 +52,8 @@ public class TaskServlet extends HttpServlet {
           if(!ArrayListUtil.containsElement(FileUploadUtil.mimetypes, mime)){
               while ((str = in.readLine()) != null) {strbuf.append(" ").append(str);}
            //   System.out.println(strbuf);
-              str=strbuf.toString().replaceAll("src='", "src='"+urlServer+"/"+urlTask[0]+"/"+((urlTask.length>2)?urlTask[1]:"")+"/");
-              str=str.replaceAll("src=\"", "src=\""+urlServer+"/"+urlTask[0]+"/"+((urlTask.length>2)?urlTask[1]:"")+"/");
+              str=strbuf.toString().replaceAll("src='", "src='"+getServletContext().getInitParameter("textbookUrl")+"/"+urlTask[0]+"/"+((urlTask.length>2)?urlTask[1]:"")+"/");
+              str=str.replaceAll("src=\"", "src=\""+getServletContext().getInitParameter("textbookUrl")+"/"+urlTask[0]+"/"+((urlTask.length>2)?urlTask[1]:"")+"/");
             //  System.out.println(str);
               out.print("<link href=\"resources/css/default.css\" rel=\"stylesheet\" type=\"text/css\" /> "+str);}
           else out.print("Вы можете скачать этот файл! <br/>"

@@ -17,7 +17,7 @@
                     #{msgs.student_templateAdmins}
                 </div>
                 <div class="interfaceContent">
-                    <h:dataTable value="#{adminsBean.admins}" styleClass="leftMenuContainer" var="a">
+                    <h:dataTable value="#{adminsBean.adminsForTeacher}" styleClass="leftMenuContainer" var="a">
                         <h:column>
                             <div class="studentInterfaceStandartList">
                                 <ut:userListItem type="admin" u="#{a}"/>

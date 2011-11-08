@@ -243,27 +243,25 @@ public class TestPassingBean implements Serializable {
                       countRight++;
                     //  points+=10;
                   }
+                  givenAnswers.add(ga);
                   selectedAnswerText="";
                   break;
               case comparison:
                    int i=0;
                    rightQuestion=true;
+                //   ArrayList<Answer> array=new ArrayList(currentQustionView.getQuestion().getAnswers());
                    for(Answer a:currentQustionView.getQuestion().getAnswers()){
                       GivenAnswer ga2=new GivenAnswer();
                       ga2.setAnsweredQuestion(answeredQuestion);
                       ga2.setRightAnswer(a);
-                      ga2.setGivenAnswer(answerComparisnView.get(i++).getAnswer());
+                      ga2.setGivenAnswer(answerComparisnView.get(Integer.parseInt(answerComparisnView.get(i).getAnswer())-1).getTitle2());
                       givenAnswers.add(ga2);
+                      String titleQ =checkForFormulaOrLink(a.getRightAnswer());
+                      String titleA=ga2.getGivenAnswer();
+                      i++;
+                      if (!titleQ.equals(titleA)) rightQuestion=false;
                    
-                  }
-                   i=0;
-                   for(AnswerComparisnView a:answerComparisnView){
-                       ArrayList<Answer> array=new ArrayList(currentQustionView.getQuestion().getAnswers());
-                       String titleQ =checkForFormulaOrLink(array.get(i++).getRightAnswer());
-                       String titleA=answerComparisnView.get(Integer.parseInt(a.getAnswer())-1).getTitle2();
-                    if (!titleQ.equals(titleA)) rightQuestion=false;
-                       
-                   }
+                  }                
                    if(rightQuestion){
                        countRight++;
                      //  points+=10;
@@ -277,7 +275,7 @@ public class TestPassingBean implements Serializable {
          answeredQuestions.add(answeredQuestion);     
       
          currentQustionView=questionsView[NumberNextQustion()];
-         questionTitle=checkForFormulaOrLink(currentQustionView.getQuestion().getTitle());
+         questionTitle=(currentQustionView.getQuestion().getTitle()==null)?"":checkForFormulaOrLink(currentQustionView.getQuestion().getTitle());
 
          makeAnswersList();
     }

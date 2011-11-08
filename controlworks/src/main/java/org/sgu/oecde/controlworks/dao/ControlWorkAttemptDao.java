@@ -43,6 +43,7 @@ public class ControlWorkAttemptDao extends UpdateDao<ControlWorkAttempt> impleme
                 .add(Property.forName("st.group").in(groups))
                 .addOrder(Order.asc("read"))
                 .addOrder(Order.desc("attemptDate"))
+                .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
                 .list();
     }
 

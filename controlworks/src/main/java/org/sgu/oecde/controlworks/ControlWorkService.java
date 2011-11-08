@@ -164,7 +164,7 @@ public class ControlWorkService implements Serializable{
     }
 
     public void save(ControlWork w) throws DataAccessException{
-        w.setDate(DateConverter.currentDate());
+        w.setDate(DateConverter.currentDate());   
         controlWorkDao.save(w);
     }
 

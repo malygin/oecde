@@ -49,16 +49,16 @@ public class TestServlet extends HttpServlet {
           }
           String str="";
           String[] urlTask=request.getParameter("task").split("/");
-          URL url = new URL(TaskServlet.urlServer+request.getParameter("task"));
+          URL url = new URL(getServletContext().getInitParameter("textbookUrl")+request.getParameter("task"));
           StringBuilder strbuf = new StringBuilder();
           BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
           while ((str = in.readLine()) != null) {strbuf.append(str);}
           //в некоторых тестах пути нестандартные - сразу с тектбукс
           if (strbuf.lastIndexOf("textbooks")==-1){
-             str=strbuf.toString().replaceAll("src='", "src='"+TaskServlet.urlServer+"/"+urlTask[0]+"/"+urlTask[1]+"/");
-             str=str.replaceAll("src=\"", "src=\""+TaskServlet.urlServer+urlTask[0]+"/"+urlTask[1]+"/"+urlTask[2]+"/");
+             str=strbuf.toString().replaceAll("src='", "src='"+getServletContext().getInitParameter("textbookUrl")+"/"+urlTask[0]+"/"+urlTask[1]+"/");
+             str=str.replaceAll("src=\"", "src=\""+getServletContext().getInitParameter("textbookUrl")+urlTask[0]+"/"+urlTask[1]+"/"+urlTask[2]+"/");
            }else{
-             str=strbuf.toString().replaceAll("src=\"../textbooks/", "src=\""+TaskServlet.urlServer);;
+             str=strbuf.toString().replaceAll("src=\"../textbooks/", "src=\""+getServletContext().getInitParameter("textbookUrl"));;
           }  
           str=str.replaceFirst("<html>", "<html><link href=\"resources/css/default.css\" rel=\"stylesheet\" type=\"text/css\" /> ");
           out.print(str);}

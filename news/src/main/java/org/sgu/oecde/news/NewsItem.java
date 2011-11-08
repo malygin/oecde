@@ -209,7 +209,7 @@ public class NewsItem extends BasicItem{
     
     public boolean isNew(){
         Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
     return sdf.format(cal.getTime()).equals(this.time.substring(0,10));
 
     }

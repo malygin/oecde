@@ -132,6 +132,11 @@ public enum FilterType {
         return capacity;
     }
 
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+    
+
     public List<EventForChoise> getAvailableEventsList(){
         return availableEvents;
     };

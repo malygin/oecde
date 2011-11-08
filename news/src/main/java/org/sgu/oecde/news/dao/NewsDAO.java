@@ -54,7 +54,7 @@ public class NewsDAO extends BasicDao<NewsItem> implements INewsDao{
 
     public int getNewsStudentCount(LangEnum lang) throws DataAccessException  {
         List<Long> list =  getSession().createCriteria(type)
-                .add(Restrictions.in("newstype", new NewTypeEnum[] { NewTypeEnum.forTeacher,NewTypeEnum.forStudentAndTeacher, NewTypeEnum.forAll}))              
+                .add(Restrictions.in("newstype", new NewTypeEnum[] { NewTypeEnum.forStudent,NewTypeEnum.forStudentAndTeacher, NewTypeEnum.forAll}))              
                 .add(Restrictions.eq("lang", lang))
                 .setProjection(Projections.rowCount()).setCacheable(true).list();
         return !CollectionUtils.isEmpty(list)?Long.valueOf(list.get(0)).intValue():0;

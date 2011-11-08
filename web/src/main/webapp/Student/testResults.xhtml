@@ -113,7 +113,8 @@
                                         <f:facet name="header">
                                             <h:outputText value="#{msgs.student_testResultResult}" />
                                         </f:facet>
-                                        <h:panelGroup  rendered="#{r.pointsForWork&gt;80}" styleClass="testResultMarkNotNull">
+                                        
+                                        <h:panelGroup  rendered="#{r.pointsForWork&gt;=80}" styleClass="testResultMarkNotNull">
                                             #{r.pointsForWork}
                                         </h:panelGroup>
                                         <h:panelGroup rendered="#{r.pointsForWork&lt;80}" styleClass="testResultMarkNull">

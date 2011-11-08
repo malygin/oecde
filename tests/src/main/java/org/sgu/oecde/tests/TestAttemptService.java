@@ -16,6 +16,7 @@ import org.sgu.oecde.core.education.dao.IResourceDao;
 import org.sgu.oecde.core.education.work.AdditionalSelfDependentWork;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.core.util.ListUtil;
+
 import org.sgu.oecde.tests.dao.ITestAttemptDao;
 import org.sgu.oecde.tests.util.pointsCounter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -296,6 +297,7 @@ public class TestAttemptService implements Serializable{
         List<Integer> points = new ArrayList<Integer>();
         TestEstimationType previousEstimationType = null;
         TestAttemptType previousAttemptType = null;
+        AbstractStudent previousStudent=null;
         TestEntity tmpTest = null;
         AbstractStudent tmpStudent = null;
         ListIterator<TestAttempt> it = attempts.listIterator();
@@ -326,7 +328,7 @@ public class TestAttemptService implements Serializable{
                 estimatedAttemptsNumber = 0;
             }
 
-            if((!attempt.getType().equals(previousAttemptType)&&!attempt.getType().equals(TestAttemptType.trial))||!attempt.getWork().equals(tmpTest))
+            if((!attempt.getType().equals(previousAttemptType)&&!attempt.getType().equals(TestAttemptType.trial))||!attempt.getWork().equals(tmpTest)||(!attempt.getStudent().equals(previousStudent)))
                 points = new ArrayList<Integer>();
             if(attempt.getType().equals(TestAttemptType.trial))
                 trialNumber++;
@@ -335,6 +337,7 @@ public class TestAttemptService implements Serializable{
                 points.add(attempt.getPoints());
                 previousEstimationType = attempt.<TestEntity>getWork().getEstimation();
                 previousAttemptType = attempt.getType();
+                previousStudent=attempt.getStudent();
                 if(attempt.getType().equals(TestAttemptType.regular))
                     estimatedAttemptsNumber++;
                 else if(attempt.getType().equals(TestAttemptType.reTest))

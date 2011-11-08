@@ -25,6 +25,8 @@ public class JournalBean implements Serializable{
     private List<EventItem>events;
 
     private int pageNumber = 1;
+    
+    private int numberOfEvents=15;
 
     private FilterType filter;
 
@@ -81,7 +83,7 @@ public class JournalBean implements Serializable{
     }
 
     public List<FilterType.EventForChoise>getAvailableEvents(String type, Object object){
-        
+    
         if(availableEvents == null){
          //  if (object!= null) IdUser=((Long) object).toString();
             filter(type,object);
@@ -91,13 +93,15 @@ public class JournalBean implements Serializable{
     }
 
     public List<EventItem>getEvents(){
-        return events(null,null);
+        return events(null,null,0);
     }
 
-    public List<EventItem>events(String type,Object object){
+    public List<EventItem>events(String type,Object object, int numberOfEvents){
+        
         if(events == null){
             if(type!=null||object == null)
                 filter(type,object);
+            if (numberOfEvents!=0) filter.setCapacity(numberOfEvents);
             events = journalDao.getEvents(filter, pageNumber);
         }
         return events;
@@ -133,4 +137,14 @@ public class JournalBean implements Serializable{
     public void setJournalFilters(JournalFilters journalFilters) {
         this.journalFilters = journalFilters;
     }
+
+    public int getNumberOfEvents() {
+        return numberOfEvents;
+    }
+
+    public void setNumberOfEvents(int numberOfEvents) {
+        this.numberOfEvents = numberOfEvents;
+    }
+
+
 }

@@ -40,7 +40,7 @@ public class StudentScheduleBean extends AbstractStudentBean{
 
     public List<Lesson> schedule(int maxResult, boolean byDate){
         if(lessons==null){
-            lessons = lessonDao.getLessonsForStudent(semesterGetter.getCurrentSemester()==SemesterGetter.WINTER_SEMESTER,student.<Group>getGroup(),student.getCity(),maxResult,pageNumber,byDate?beginDate:null,byDate?endDate:null);
+             lessons = lessonDao.getLessonsForStudent(semesterGetter.getCurrentSemester()==SemesterGetter.WINTER_SEMESTER,student.<Group>getGroup(),student.getCity(),maxResult,pageNumber,byDate?beginDate:null,byDate?endDate:null);
         }
         return lessons;
     }

@@ -11,25 +11,50 @@
                      classpath:/org/sgu/oecde/webSecurity.xml
         </param-value>
     </context-param>
+    
+    <context-param>
+        <param-name>textbookUrl</param-name>
+<!--        <param-value>http://oec-static.main.sgu.ru/school/textbooks/</param-value>-->
+        <param-value>http://oec-static.main.sgu.ru/textbooks/</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>ipsilonUmkUrl</param-name>
+<!--        <param-value>http://oec.sgu.ru/ipsilonUmk2/</param-value>-->
+        <param-value>http://oec.sgu.ru/ipsilonUmk/</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>videoConfUrl</param-name>
+<!--        <param-value>http://oecdo.sgu.ru/clientSchool/</param-value>
+-->        <param-value>http://oecdo.sgu.ru/client/</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>scheduleUrl</param-name>
+<!--        <param-value>http://oec-tst.main.sgu.ru:9292/sashedule/</param-value>-->
+        <param-value>http://oec-tst.main.sgu.ru:9292/sashedule/</param-value>
+    </context-param>
+    
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-
-    <servlet>
-        <servlet-name>jaxws-servlet</servlet-name>
-        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSSpringServlet</servlet-class>
-    </servlet>
-  
-    <servlet-mapping>
-        <servlet-name>jaxws-servlet</servlet-name>
-        <url-pattern>/ConferenceWebService</url-pattern>
-    </servlet-mapping>
+    
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
     <listener>
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>
+    <servlet>
+        <servlet-name>jaxws-servlet</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSSpringServlet</servlet-class>
+    </servlet>  
+    <servlet-mapping>
+        <servlet-name>jaxws-servlet</servlet-name>
+        <url-pattern>/ConferenceWebService</url-pattern>
+    </servlet-mapping>
+
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Extension</param-value>

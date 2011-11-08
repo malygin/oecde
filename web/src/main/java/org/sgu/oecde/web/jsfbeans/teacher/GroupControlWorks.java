@@ -69,6 +69,7 @@ public class GroupControlWorks extends AbstractStudentsListBean{
     public void save(){
         try{
             for(NewEntry<Student,ControlWork>w:groupControlWorks){
+                
                 cwService.save(w.getValue());
             }
         }catch(Exception e){

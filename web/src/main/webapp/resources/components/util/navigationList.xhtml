@@ -18,7 +18,7 @@
 
         <div class="navigationLinksMess navigationLinksMessInNavigationList">
             <ui:repeat varStatus="i" value="#{NavigationBean.getPages(cc.attrs.elementOnPage, cc.attrs.numElements)}" var="page">
-                  <h:outputText rendered="#{page==NavigationBean.page}" value="#{page}" style=" color:#C2D9EF; font-weight: bold; margin-right: 6px;font-size: 10pt;"/>
+                <h:outputText rendered="#{page==NavigationBean.page}" value="#{page}" style=" color:#C2D9EF; font-weight: bold; margin-right: 6px;font-size: 10pt;"/>
                   <h:panelGroup rendered="#{page!=NavigationBean.page}">
                       <h:outputLink rendered="#{(cc.attrs.link!=null)&amp;&amp;(page != 'begin')&amp;&amp;(page != 'end')}" value="?page=#{page}&amp;#{cc.attrs.link}"><h:outputText escape="false" value="#{page}" style=" color: #8BB5DF;  font-weight: bold;"/></h:outputLink>
                       <h:outputLink rendered="#{(cc.attrs.link==null)&amp;&amp;(page != 'begin')&amp;&amp;(page != 'end')}" value="?page=#{page}"><h:outputText value="#{page}" style=" color: #8BB5DF;  font-weight: bold;"/></h:outputLink>

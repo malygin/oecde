@@ -37,7 +37,8 @@ public class TestsPointsFactory extends EstimatedWorkPointsAbstractFactory{
             return TestEstimateNames.CONCLUDING_TEST;
         }else if(tResult.<TestEntity>getWork().getType().equals(TestType.concluding)&&tResult.getType().equals(TestAttemptType.reTest)){
             return TestEstimateNames.CONCLUDING_RE_TEST;
-        }else if(tResult.<TestEntity>getWork().getType().equals(TestType.regular)&&tResult.getType().equals(TestAttemptType.regular)){
+        }else if(tResult.getType().equals(TestAttemptType.regular)){
+      // @todo разобраться почему углов социология ворк приходит как пробный 1002281 }else if(tResult.<TestEntity>getWork().getType().equals(TestType.regular)&&tResult.getType().equals(TestAttemptType.regular)){
             return TestEstimateNames.TEST;
         }else if(tResult.<TestEntity>getWork().getType().equals(TestType.regular)&&tResult.getType().equals(TestAttemptType.reTest)){
             return TestEstimateNames.RE_TEST;
