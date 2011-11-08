@@ -2326,8 +2326,8 @@ a.mainStyle .lightGreyText a:hover{
 }
 /*контрольные работы*/
 .mainStyle .controlWorkTable tr td{
-    padding: 3px 8px;
-    vertical-align: top;
+    padding: 3px 4px;
+    vertical-align: middle;
 }
 .mainStyle .controlWorkTable tr td:nth-child(4),
 .mainStyle .controlWorkTable tr td:nth-child(5){
