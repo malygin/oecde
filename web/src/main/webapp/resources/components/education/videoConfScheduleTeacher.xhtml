@@ -36,7 +36,7 @@
             </div>
             <div class="videoConfSchedule floatLeft" style="min-height: 212px; width: 50%;">
                 <table class="#{cc.attrs.ClassStyle}">
-                    <ui:repeat var="s" value="#{teacherScheduleBean.schedule}" >
+                    <ui:repeat var="s" value="#{teacherScheduleBean.schedule}" size="2">
                         <tr>
                             <td valign="top" class="Ipsilon_Web_GreenText"><p><h:outputText value="#{s.lessonDate}" converter="dateConverter"/> -${fn:substring(s.lessonEndDate,11,16)}</p>
                             </td>
@@ -44,7 +44,7 @@
                                 <p>
                                     <p class="skyBlueText">#{s.discipline.name}</p> 
                                   <p  class="Ipsilon_Web_GreenText">
-                                    <ui:repeat  value="#{setToList.getList(s.citiesWithGroups)}" var="cwg">
+                                      <ui:repeat  value="#{setToList.getList(s.citiesWithGroups)}" var="cwg">
                                            <h:outputText value="#{cwg.group.name}"/>(#{cwg.city.name}),  
                                     </ui:repeat>   </p>    
                                     <h:outputText converter="roomConverter" value="#{s.room}"/> #{msgs.student_sheduleRoom}
@@ -99,7 +99,7 @@
                         <table class="tableForShedule">
                             <tr>
                                 <td>${fn:substring(s.lessonDate,11,16)}-${fn:substring(s.lessonEndDate,11,16)}</td>
-                                <td><span class="linkToStudentsProfile"><h:outputLink value="umk.xhtml?c=#{s.id}" style="margin-left: 10px;">#{s.discipline.name}
+                                <td><span class="linkToStudentsProfile"><h:outputLink value="umk.xhtml?c=#{s.id}">#{s.discipline.name}
                                         </h:outputLink></span>
                                        <p  class="Ipsilon_Web_GreenText">
                                         <ui:repeat  value="#{setToList.getList(s.citiesWithGroups)}" var="cwg">
