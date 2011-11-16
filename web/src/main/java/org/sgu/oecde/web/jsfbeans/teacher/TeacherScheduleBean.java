@@ -5,6 +5,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.schedule.Lesson;
 import org.sgu.oecde.schedule.dao.ILessonDao;
 
@@ -26,21 +27,29 @@ public class TeacherScheduleBean extends AbstractTeacherBean{
     private int pageNumber = 1;
 
     private int maxResult = 30;
+    
+    private String endDate="2013.11.11";
+      
 
     private static final long serialVersionUID = 151L;
     
     private String currentDate = null;
 
     public List<Lesson> getSchedule(){
-        if(lessons == null){
-            int endPoint = maxResult * (pageNumber-1)+maxResult;
-            if(endPoint > getAllLessons().size())
-                endPoint = getAllLessons().size();
-            lessons = getAllLessons().subList(maxResult * (pageNumber-1), endPoint);
+        if(allLessons == null){
+            allLessons = lessonDao.getLessonsForTeacher(semesterGetter.getCurrentSemester()==SemesterGetter.WINTER_SEMESTER,teacher,maxResult,pageNumber,null,null);
+     
+        }
+        return allLessons;
+    }
+    
+     public List<Lesson> schedule(int maxResult, boolean byDate){
+        if(lessons==null){
+             lessons = lessonDao.getLessonsForTeacher(semesterGetter.getCurrentSemester()==SemesterGetter.WINTER_SEMESTER,teacher,maxResult,pageNumber,byDate?semesterGetter.getCurrentDate():null,byDate?endDate:null);
         }
         return lessons;
     }
-    
+     
     public int getCount(){
         return getAllLessons().size();
     }
@@ -49,6 +58,7 @@ public class TeacherScheduleBean extends AbstractTeacherBean{
         if(allLessons==null){
             Lesson ex = new Lesson();
             ex.setTeacher(teacher);
+          
             ex.setWinter(semesterGetter.getCurrentSemester()==1);
             ex.setYear(semesterGetter.getCurrentYear());
             allLessons = lessonDao.getByExample(ex);

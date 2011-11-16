@@ -13,6 +13,9 @@
     <!-- INTERFACE -->
     <composite:interface>
         <composite:attribute  name="numberLessons"  required="true" type="int" shortDescription="количество выводимых занятий"/>
+        <composite:attribute  name="showLast"  required="true" type="boolean" shortDescription="Показывать только последние?"/>
+      
+        
         <composite:attribute name="styleForShedule" default="" type="java.lang.String" shortDescription="обтекание слева или без него"/>
         <composite:attribute name="renderBlock" default="" type="java.lang.String" shortDescription="что надо отобразить на странице"/>
         <composite:attribute name="ClassStyle" default="" type="java.lang.String" shortDescription="граница на главной странице"/>
@@ -36,7 +39,7 @@
             </div>
             <div class="videoConfSchedule floatLeft" style="min-height: 212px; width: 50%;">
                 <table class="#{cc.attrs.ClassStyle}">
-                    <ui:repeat var="s" value="#{studentScheduleBean.schedule(40,true)}" size="2">
+                    <ui:repeat var="s" value="#{studentScheduleBean.schedule(40,true)}">
                         <tr>
                             <td valign="top" class="Ipsilon_Web_GreenText"><p><h:outputText value="#{s.lessonDate}" converter="dateConverter"/> - ${fn:substring(s.lessonEndDate,11,16)} </p>
                             </td>
@@ -82,7 +85,7 @@
                     <util:navigationList numElements="#{studentScheduleBean.count(true)}" elementOnPage="40"/>
 
 
-                    <ui:repeat var="s" value="#{studentScheduleBean.schedule(cc.attrs.numberLessons,true)}">
+                    <ui:repeat var="s" value="#{studentScheduleBean.scheduleAll(cc.attrs.numberLessons,false)}">
                         <h:panelGroup rendered="#{studentScheduleBean.IsCurrentDate(s.lessonDate)}">
                             <div class="greenText"><h:outputText value="#{fn:substring(s.lessonDate,0,10)}" converter="dateConverter"/></div>
                         </h:panelGroup>

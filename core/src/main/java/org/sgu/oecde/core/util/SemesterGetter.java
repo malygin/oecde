@@ -1,5 +1,6 @@
 package org.sgu.oecde.core.util;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 import org.sgu.oecde.core.education.StringConstantsGetter;
@@ -142,6 +143,12 @@ public class SemesterGetter extends StringConstantsGetter{
     public String getSemesterName(int semester){
         validate(semester);
         return SemesterGetter.SUMMER_SEMESTER == semester?"Летний":"Зимний";
+    }
+    public String getCurrentDate(){
+      Calendar cal = Calendar.getInstance();
+        
+         return  getCurrentYear()+"."+NumberUtil.NumberToDateFormat(cal.get(Calendar.MONTH) +1)+"."+NumberUtil.NumberToDateFormat(cal.get(Calendar.DATE));
+       
     }
 
     /**

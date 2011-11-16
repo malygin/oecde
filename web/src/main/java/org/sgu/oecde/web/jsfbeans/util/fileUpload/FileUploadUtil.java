@@ -33,6 +33,8 @@ public class FileUploadUtil {
                                                     ,"image/x-tif"
                                                     ,"image/tiff"
                                                     ,"image/x-tiff"
+                                                    ,"image/vnd.djvu"
+                                                    ,"image/vnd.djvu"
                                                     ,"application/tif"
                                                     ,"application/x-tif"
                                                     ,"application/tiff"

@@ -38,6 +38,8 @@ public class JournalBean implements Serializable{
     @ManagedProperty(value="#{journalFilters}")
     private JournalFilters journalFilters;
     
+  
+    
     private String IdUser;
 
     private static final long serialVersionUID = 185L;
@@ -68,8 +70,7 @@ public class JournalBean implements Serializable{
         eventsCount = null;
         if (filter == FilterType.adminStudentEvents){
              FacesContext.getCurrentInstance().getExternalContext().redirect("studentEvents.xhtml?id="+IdUser);
-
-           // return "studentEvents.xhtml?id=11"+IdUser;
+              return "studentEvents.xhtml?id=11"+IdUser;
         }
         return "index.xhtml?faces-redirect=true";
     }
@@ -85,7 +86,7 @@ public class JournalBean implements Serializable{
     public List<FilterType.EventForChoise>getAvailableEvents(String type, Object object){
     
         if(availableEvents == null){
-         //  if (object!= null) IdUser=((Long) object).toString();
+           if (object!= null) IdUser=((Long) object).toString();
             filter(type,object);
             availableEvents = journalFilters.getFilter(filter);
         }

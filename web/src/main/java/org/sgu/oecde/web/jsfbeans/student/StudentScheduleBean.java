@@ -11,7 +11,7 @@ import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.schedule.Lesson;
 import org.sgu.oecde.schedule.dao.ILessonDao;
-import org.sgu.oecde.web.jsfbeans.util.NumberUtil;
+import org.sgu.oecde.core.util.NumberUtil;
 import org.springframework.util.Assert;
 
 /**
@@ -25,6 +25,7 @@ public class StudentScheduleBean extends AbstractStudentBean{
     private ILessonDao lessonDao;
 
     private List<Lesson>lessons;
+    private List<Lesson>lessonsAll;
 
     private int pageNumber = 1;
 
@@ -40,9 +41,15 @@ public class StudentScheduleBean extends AbstractStudentBean{
 
     public List<Lesson> schedule(int maxResult, boolean byDate){
         if(lessons==null){
-             lessons = lessonDao.getLessonsForStudent(semesterGetter.getCurrentSemester()==SemesterGetter.WINTER_SEMESTER,student.<Group>getGroup(),student.getCity(),maxResult,pageNumber,byDate?beginDate:null,byDate?endDate:null);
+             lessons = lessonDao.getLessonsForStudent(semesterGetter.getCurrentSemester()==SemesterGetter.WINTER_SEMESTER,student.<Group>getGroup(),student.getCity(),maxResult,pageNumber,byDate?semesterGetter.getCurrentDate():null,byDate?endDate:null);
         }
         return lessons;
+    }
+    public List<Lesson> scheduleAll(int maxResult, boolean byDate){
+        if(lessonsAll==null){
+             lessonsAll = lessonDao.getLessonsForStudent(semesterGetter.getCurrentSemester()==SemesterGetter.WINTER_SEMESTER,student.<Group>getGroup(),student.getCity(),maxResult,pageNumber,byDate?semesterGetter.getCurrentDate():null,byDate?endDate:null);
+        }
+        return lessonsAll;
     }
 
     public Long count(boolean byDate){

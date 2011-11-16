@@ -21,7 +21,7 @@ import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.schedule.Lesson;
 import org.sgu.oecde.schedule.dao.LessonDao;
 import org.sgu.oecde.web.jsfbeans.admin.ConstantsFormBean;
-import org.sgu.oecde.web.jsfbeans.util.NumberUtil;
+import org.sgu.oecde.core.util.NumberUtil;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;

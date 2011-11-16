@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.sgu.oecde.web.jsfbeans.util;
+package org.sgu.oecde.core.util;
 
 /**
  *
