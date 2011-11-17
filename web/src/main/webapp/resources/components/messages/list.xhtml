@@ -46,7 +46,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                                                            <td>
+                                    <td>
                                         #{msgs.message_theme}
                                     </td>
                                         <td>
@@ -60,17 +60,17 @@
                             </div>
                             <div class="chatPostDate MessageDate">
                                 <h:outputText converter="dateConverter" value="#{message.message.dateMessage}"/>
-                                <h:panelGroup layout="block" rendered="#{not message.readed}"><div class="sideBarTitle new_message" style="padding: 10px;"></div></h:panelGroup>
-                                <h:panelGroup layout="block" rendered="#{message.readed}"><div class="sideBarTitle readed_message" style="padding: 10px;"></div></h:panelGroup>
+                                <h:panelGroup rendered="#{message.readed}"><h:panelGroup rendered="#{!message.filesExist}"><div style="padding: 10px;" class="sideBarTitle readed_message"></div></h:panelGroup></h:panelGroup>
+                                <h:panelGroup rendered="#{message.readed}"><h:panelGroup rendered="#{message.filesExist}"><div style="padding: 10px; margin-right: -3px;" class="sideBarTitle read_mes_with_file"></div></h:panelGroup></h:panelGroup>
+                                <h:panelGroup rendered="#{!message.readed}"><h:panelGroup rendered="#{!message.filesExist}"><div style="padding: 10px;" class="sideBarTitle new_message"></div></h:panelGroup></h:panelGroup>
+                                <h:panelGroup rendered="#{!message.readed}"><h:panelGroup rendered="#{message.filesExist}"><div style="padding: 10px; margin-right: -3px;" class="sideBarTitle message_with_file"></div></h:panelGroup></h:panelGroup>
                             </div>
                             <div class="floatDestroyer"/>
                         </div>
                         <div class="listMessagesShortMessage listMessagesShortMessageBlock">
-                            <a href="messages_read.xhtml?id=#{message.message.id}" style="text-decoration: none !important;"><div class="messBlockLink"><h:outputText value="#{message.shortText}"/>&nbsp;</div></a>
-                             <div class="listMessagesAttachmentsIco">
-                                  <h:graphicImage value="../resources/images/isAttachment.png" rendered="#{message.filesExist}"/>
-                                   <h:graphicImage value="../resources/images/isNotAttachment.png" rendered="#{not message.filesExist}" />
-                              </div>
+                            <a href="messages_read.xhtml?id=#{message.message.id}" style="text-decoration: none !important;">
+                                <div class="messBlockLink"><h:outputText value="#{message.shortText}"/>&nbsp;</div>
+                            </a>
                             <div class="floatDestroyer"/>
                         </div>
                         <div class="floatDestroyer"/>

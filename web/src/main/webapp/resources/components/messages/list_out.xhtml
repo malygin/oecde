@@ -47,11 +47,11 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <span  style="color: grey; margin-right: 7px; margin-bottom: 10px;">#{msgs.message_theme}
-                                                </span>
+                                                #{msgs.message_theme}
                                             </td>
                                             <td>
-                                                <span class="controlWorksDisciplineNameLink"><a href="messages_read.xhtml?id=#{message.message.id}&amp;type=false"><h:outputText value="#{message.message.theme}"/></a>
+                                                <span class="controlWorksDisciplineNameLink">
+                                                    <a href="messages_read.xhtml?id=#{message.message.id}&amp;type=false"><h:outputText value="#{message.message.theme}"/></a>
                                                 </span>
                                             </td>
                                         </tr>
@@ -59,20 +59,18 @@
                                     </div>
                                     <div class="chatPostDate MessageDate">
                                         <h:outputText converter="dateConverter" value="#{message.message.dateMessage}"/>
-<!--                                    <div class="listMessagesAttachmentsIco"><r:if test="#{message.filesExist eq true}"><img title="#{msgs.message_iconFilesExistTitle}" src="../resources/images/isAttachment.png" alt=""/></r:if><r:if test="#{message.filesExist ne true}"><img title="#{msgs.message_iconFilesNotExistTitle}" src="../resources/images/isNotAttachment.png" alt=""/></r:if></div>-->
-                                        <h:panelGroup rendered="#{message.readed}"><r:if test="#{message.filesExist ne true}"><div style="padding: 10px;" class="sideBarTitle readed_message"></div></r:if></h:panelGroup>
-                                        <h:panelGroup rendered="#{message.readed}"><r:if test="#{message.filesExist eq true}"><div style="padding: 10px;" class="sideBarTitle read_mes_with_file"></div></r:if></h:panelGroup>
-                                        <h:panelGroup rendered="#{!message.readed}"><r:if test="#{message.filesExist ne true}"><div style="padding: 10px;" class="sideBarTitle new_message"></div></r:if></h:panelGroup>
-                                        <h:panelGroup rendered="#{!message.readed}"><r:if test="#{message.filesExist eq true}"><div style="padding: 10px;" class="sideBarTitle message_with_file"></div></r:if></h:panelGroup>
-
+                                        <h:panelGroup rendered="#{message.readed}"><h:panelGroup rendered="#{!message.filesExist}"><div style="padding: 10px;" class="sideBarTitle readed_message"></div></h:panelGroup></h:panelGroup>
+                                        <h:panelGroup rendered="#{message.readed}"><h:panelGroup rendered="#{message.filesExist}"><div style="padding: 10px; margin-right: -3px;" class="sideBarTitle read_mes_with_file"></div></h:panelGroup></h:panelGroup>
+                                        <h:panelGroup rendered="#{!message.readed}"><h:panelGroup rendered="#{!message.filesExist}"><div style="padding: 10px;" class="sideBarTitle new_message"></div></h:panelGroup></h:panelGroup>
+                                        <h:panelGroup rendered="#{!message.readed}"><h:panelGroup rendered="#{message.filesExist}"><div style="padding: 10px; margin-right: -3px;" class="sideBarTitle message_with_file"></div></h:panelGroup></h:panelGroup>
                                     </div>
 
                                 
                                 <div class="floatDestroyer"/>
                             </div>
-                                <div class="listMessagesShortMessage listMessagesShortMessageBlock">
-                                <a href="messages_read.xhtml?id=#{message.message.id}&amp;type=false" class="listMessagesShortMessage" style="width: 95%; float: left; position: relative; top: 10px; right: 3px;">
-                                    <div class="messBlockLink"><h:outputText value="#{message.shortText}"/></div>
+                            <div class="listMessagesShortMessage listMessagesShortMessageBlock">
+                                <a href="messages_read.xhtml?id=#{message.message.id}&amp;type=false" style="text-decoration: none !important;">
+                                    <div class="messBlockLink"><h:outputText value="#{message.shortText}"/>&nbsp;</div>
                                     
                                     <div class="floatDestroyer"/>
                                 </a>
@@ -80,7 +78,12 @@
                             <div class="messLinks" style="margin-left: 83px;margin-top: -10px;width: 15%;">
                                 <h:outputLink rendered="#{not MessageBean.renderDeleteSuccess}" value="messages_read.xhtml?id=#{message.message.id}">#{msgs.message_answer}</h:outputLink>
                             </div>
-                           
+                          
+                                    
+                            <div align="right" class="leftMenuContainer" style="margin-left: 20px;">
+                                <div class="floatDestroyer"/>
+                            </div>        
+                                    
                         </div>
                     </ui:repeat>
                 </h:form>
