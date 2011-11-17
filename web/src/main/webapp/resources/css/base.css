@@ -1378,12 +1378,12 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 }
 .mainStyle .listMessagesAttachmentsIco{
     position: relative;
-    top: -6px;
-    right: -6px;
+    top: -23px;
+    right: -15px;
     float: right;
     height: 16px;
     width: 16px;
-    border: 1px solid #D1E0EF;
+    /*border: 1px solid #D1E0EF;*/
     padding: 1px;
 }
 .mainStyle  .writeMessAndWatchCorrespondence{
@@ -1410,7 +1410,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     float: right;
 }
 .mainStyle .correspondenceMess{
-    background: url('../resources/images/correspondence.gif') no-repeat;
+    background: url('../resources/images/dialog.png') no-repeat;
     padding-left: 18px;
 }
 .s2,.s1{
@@ -2356,3 +2356,22 @@ a.mainStyle .lightGreyText a:hover{
 .mainStyle .GroupForSupervisor{
     margin: 25px;
 }
+
+/*страница студента с информацией для админов*/
+.mainStyle .actionWithStudents tr td{
+    padding: 5px 0px;
+}
+.mainStyle .actionWithStudents tr:first-child td{
+    padding: 2px;
+}
+
+.mainStyle .deleteStudent{
+    background: url('../resources/images/delete_student.png') no-repeat 0 0;
+    padding-left: 20px;
+}
+
+.mainStyle .studentEvent2{
+    background: url('../resources/images/student_event.png') no-repeat 0 0;
+    padding-left: 20px;
+}
+
