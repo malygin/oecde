@@ -16,6 +16,212 @@
             <f:viewParam name="s" value="#{studentViewBean.semester}"/>
             <f:viewParam name="r" value="#{testResultsBean.reExame}"/>
         </f:metadata>
-        <ui:include src="../resources/includes/student.xhtml"/>
+        <!--<ui:include src="../resources/includes/student.xhtml"/>-->
+        
+        
+        <div class="StudentMainPageTitlesBorders">
+
+            <div>
+                <div class="mainStudentPageTitles  mainStudentPageTitlesBlue">
+                    #{msgs.admin_userInfoStudent}
+                    <f:metadata>
+                        <f:viewParam name="s" value="#{materialsBean.semester}"/>
+                    </f:metadata>
+                    <div style="float: right;">
+                        <est:changeSemester semester="#{studentViewBean.semester}" link="id=#{studentViewBean.id}"/>
+                    </div>
+                    <div class="floatDestroyer"/>
+                </div>
+                <div class="floatDestroyer">
+                </div>
+           
+                    
+         <div class="groupInfo">
+                <est:infoAboutStudent pageName="points"/>
+            </div>          
+                 
+        <h:dataTable  value="#{gradesBean.points}"
+                     columnClasses="studentStandatrTableTd,
+                     studentStandatrTableTd,
+                     studentStandatrTableTd StudentBorderInfoTd,
+                     studentStandatrTableTd StudentBorderInfoTd,
+                     studentStandatrTableTd StudentBorderInfoTd,
+                     studentStandatrTableTd StudentBorderInfoTd,
+                     studentStandatrTableTd StudentBorderInfoTd,
+                     studentStandatrTableTd StudentBorderInfoTd,
+                     studentStandatrTableTd StudentBorderInfoTd,
+                     studentStandatrTableTdLastTd" var="p" styleClass="studentStandatrTable" cellpadding="0" cellspacing="0" style="margin: 10px; margin-top: 0px; width: inherit;">
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
+                </f:facet>
+                <span> <h:outputText value="#{p.points.curriculum.discipline.name}" style="display:block; margin-left: 4px; color:#89C8F2;" /></span>
+                <!--<span  class="linkToStudentsProfile" > <h:outputLink value="discipline.xhtml?c=#{p.points.curriculum.id}" style="display:block; margin-left: 4px;">#{p.points.curriculum.discipline.name}</h:outputLink></span>-->
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{msgs.student_gradesTableHeadTeacher}" />
+                </f:facet>
+                <span class="linkToTeachersProfile"><h:outputLink value="teacher.xhtml?id=${p.teacher.id}">#{p.teacher.initials}</h:outputLink></span>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{msgs.student_gradesTableHeadTests}" />
+                </f:facet>
+               <span> #{p.test}</span> <span class="AdminTextGrey">(#{p.testsMaxPoints})</span>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{msgs.teacher_groupTestsExtraAttempt}" />
+                </f:facet>
+                <span>#{p.reTest}</span>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{msgs.student_gradesTableHeadFinTests}" />
+                </f:facet>
+                <span>#{p.concludingTest} </span> <span class="AdminTextGrey">(#{p.concludingTestsMaxPoints})</span>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{msgs.student_gradesTableHeadFinTestsResit2}" />
+                </f:facet>
+                 <span>#{p.concludingReTest} </span>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{msgs.student_gradesTableHeadCWPoints}" />
+                </f:facet>
+                 <span>#{p.controlWorkPoints} </span>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{msgs.student_gradesTableHeadCWs}" />
+                </f:facet>
+                <span><h:outputText converter="enumConverter" value="#{p.controlWorkValue}"/></span>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{msgs.student_gradesTableHeadSumm}" />
+                </f:facet>
+                 <span>#{p.points.sum}</span>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{msgs.student_gradesTableHeadFinal}" />
+                </f:facet>
+                <h:outputText converter="enumConverter" value="#{p.grade}"/>
+            </h:column>
+        </h:dataTable>
+
+<!--
+<br />
+        
+        <h:dataTable width="100%" value="#{controlWorksBean.controlWorks}" var="o">
+            <h:column>
+                <div class="studentInterfaceStandartList">
+                    <div class="controlWorksControlTitle" style="margin-left: 5px;">
+                        <span class="controlWorksDisciplineNameLink"><h:outputLink value="discipline.xhtml?c=${o[0].id}"> ${o[0].discipline.name}</h:outputLink></span>
+                        <span class="linkToTeachersProfile" style="color:#669999;">(<h:outputLink value="teacher.xhtml?id=${o[3].id}">${o[3].initials}</h:outputLink>)</span>
+                        <span class="chatPostDate" style="color: #AFAFAF; font-size: 10pt; margin: 0px;">(${o[1].points} - <h:outputText converter="enumConverter" value="${o[1].progress}"/>)</span>
+                    </div>
+                    <br/>
+                    <ol style="padding-left: 25px; list-style: none;">
+                        <li>
+                            <ol style="padding-left: 25px; list-style: none;">
+                                <h:dataTable value="#{o[1].cwAttempt}" var="a">
+                                    <li class="downLoadFileLink"><h:outputText rendered="#{a.filePath eq 'empty'}" value="#{a.attemptDate}"/>
+                                    <h:outputLink rendered="#{a.filePath ne 'empty'}" value="#{a.filePath}" id="log">
+                                        <h:outputText value="#{a.attemptDate}"/>
+                                    </h:outputLink>
+                                    </li>
+                                </h:dataTable>
+                            </ol>
+                        </li>
+                    </ol>
+                    <br/>
+                </div>
+                </h:column>
+            </h:dataTable>-->
+
+
+<h:form id="form">
+<span class="controlWorksDisciplineNameLink"><h:commandLink value="">
+    <f:attribute name="reExame" value="#{!testResultsBean.reExame}"/>
+    <f:ajax render="form" listener="#{studentViewBean.reExameSwitch}"/>
+</h:commandLink></span><br/>
+
+<!--<h:dataTable style="width: 100%;" value="#{testResultsBean.attempts}" cellpadding="0" cellspacing="0"
+             columnClasses="studentStandatrTableTd,
+             studentStandatrTableTd,
+             studentStandatrTableSubtableTd,
+             studentStandatrTableTd,
+             studentStandatrTableTdLastTd" styleClass="studentStandatrTable"  var="r">
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="#{msgs.student_testResultName}" />
+        </f:facet>
+        <span class="controlWorksDisciplineName" style="font-size: 8pt;">#{r.work.title}</span>
+    </h:column>
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="#{msgs.student_testResultAttempt}" />
+        </f:facet>
+        #{testResultsBean.reExame?r.reExameAttemptsUsedNumber:r.estimateAttemptsUsedNumber} #{msgs.student_fromWord}
+        #{testResultsBean.reExame?
+           (r.work.type eq testConstantsServise.concludingType?testResultsBean.concludingAttemtpsCount:testResultsBean.regularAttemtpsCount)
+        :r.work.quantity}
+    </h:column>
+
+    <h:column>
+        <h:dataTable value="#{r.results}"
+                     headerClass="studentTabInStandartTableTh"
+                     columnClasses="studentTabInStandartTableLeftTd, studentTabInStandartTableRightTd"
+                     styleClass="studentTabInStandartTable" cellpadding="0" cellspacing="0" var="a" id="rowId">
+            <h:column>
+                <f:facet name="header">
+                    <div class="studentTabInStandartTableThContainer">
+                        <h:outputText value="#{msgs.student_testResultCorrectAnswers}" />
+                    </div>
+                </f:facet>
+                #{a.rightAnswers} #{msgs.student_fromWord} #{r.work.quantity}
+           </h:column>
+           <h:column>
+                <f:facet name="header">
+                    <div class="studentTabInStandartTableThContainer" style="border: 0px;">
+                        <h:outputText value="#{msgs.student_testResultDate}" />
+                    </div>
+                </f:facet>
+                #{a.date}
+            </h:column>
+        </h:dataTable>
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="#{msgs.student_testResultResult}" />
+        </f:facet>
+        #{r.pointsForWork}
+    </h:column>
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="#{msgs.student_testResultEstimationMethod}" />
+        </f:facet>
+        <h:outputText converter="enumConverter" value="#{r.work.estimation}" />
+    </h:column>
+</h:dataTable>-->
+</h:form>
+
+</div>
+</div>
+        
+        
     </ui:define>
 </ui:composition>
