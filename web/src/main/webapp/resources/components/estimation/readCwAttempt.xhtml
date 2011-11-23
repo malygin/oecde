@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:composite="http://java.sun.com/jsf/composite"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:sec="http://www.springframework.org/security/facelets/tags">
     
     <!-- INTERFACE -->
     <composite:interface>
@@ -12,11 +13,19 @@
 
     <!-- IMPLEMENTATION -->
     <composite:implementation>
-        <h:outputLink rendered="#{cc.attrs.attempt.filePath ne 'empty'}" value="../resources/userFiles/controlWorks/#{cc.attrs.attempt.filePath}" id="log">
-            <f:ajax  event="mousedown" listener="#{groupControlWorksForTeacher.logWorkDownload}"/>
-            <f:attribute name="attempt" value="#{cc.attrs.attempt}"/>
+        <h:panelGroup  rendered="#{cc.attrs.attempt.filePath ne 'empty'}" >
             <h:outputText converter="dateConverter" value="#{cc.attrs.attempt.attemptDate}"/>
+        <h:outputLink value="../resources/userFiles/controlWorks/#{cc.attrs.attempt.filePath}" id="log" style="text-decoration: none;">
+            <sec:ifNotGranted roles="ROLE_PREVIOUS_ADMINISTRATOR">
+                <f:ajax  event="mousedown" listener="#{groupControlWorksForTeacher.logWorkDownload}"/>
+                <f:attribute name="attempt" value="#{cc.attrs.attempt}"/>
+            </sec:ifNotGranted>
+            <img alt="" src="../resources/images/save_control_work.png" />
         </h:outputLink>
-        <h:outputText converter="dateConverter" rendered="#{cc.attrs.attempt.filePath eq 'empty'}" value="#{cc.attrs.attempt.attemptDate}"/>
+        </h:panelGroup>
+        <h:panelGroup  rendered="#{cc.attrs.attempt.filePath eq 'empty'}" >
+            <h:outputText converter="dateConverter" value="#{cc.attrs.attempt.attemptDate}"/>
+            <img alt="" src="../resources/images/cont_work_by_hands.png" style="margin-bottom: -2px;"/>
+        </h:panelGroup>    
     </composite:implementation>
 </html>

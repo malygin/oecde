@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:sec="http://www.springframework.org/security/facelets/tags"
+      xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute name="pageName" required="true" shortDescription="название страницы" type="java.lang.String"/>
+    </composite:interface>
+
+    <!-- IMPLEMENTATION -->
+    <composite:implementation>
+        <div class="userFile">
+            <div class="userPhoto">
+                <h:form>
+                <table cellspacing="8">
+                    <tr>
+                        <td><p>#{msgs.student_mainContentUserInfoSecondName}</p></td><td><div>#{studentViewBean.user.surname}</div></td>
+                    </tr>
+                    <tr>
+                        <td><p>#{msgs.student_mainContentUserInfoFirstName}</p></td><td><div>#{studentViewBean.user.name}</div></td>
+                    </tr>
+                    <tr>
+                        <td><p>#{msgs.student_mainContentUserInfoThirdName}</p></td><td><div>#{studentViewBean.user.secondName}</div></td>
+                    </tr>
+                    <tr>
+                        <td><p>#{msgs.student_mainContentUserInfoFaculty}</p></td><td><div>#{studentViewBean.user.group.faculty}</div></td>
+                    </tr>
+                    <tr>
+                        <td><p>#{msgs.student_mainContentUserInfoSpec}</p></td><td><div>#{studentViewBean.user.group.speciality.name}</div></td>
+                    </tr>
+                     <tr>
+                        <td><p>#{msgs.teacher_city}</p></td><td><div>#{studentViewBean.user.city.name}</div></td>
+                    </tr>
+                    <tr>
+                        <td><p>#{msgs.student_mainContentUserInfoCourse}</p></td><td><div>#{studentViewBean.user.group.year}</div></td>
+                    </tr>
+                    <tr>
+                        <td><p>#{msgs.student_mainContentUserInfoGroup}</p></td>
+                        <td>
+                            <div class="controlWorksDisciplineNameLink">
+                                <h:outputLink value="group.xhtml?id=#{studentViewBean.user.group.id}">#{studentViewBean.user.group.name}</h:outputLink>
+                            </div>
+                        </td>
+                    </tr>
+                    <sec:ifAnyGranted roles="ROLE_ADMIN">
+                        <tr>
+                            <td><p>#{msgs.admin_mainContentFullAccessOrNot}</p></td><td><div><h:selectBooleanCheckbox  value="#{studentViewBean.user.fullAccess}"/></div></td>
+                        </tr>
+                        <tr>
+                            <td><p>#{msgs.admin_userGraduatedNextCourse}</p></td><td><div><h:selectBooleanCheckbox  value="#{studentViewBean.user.transfered}"/></div></td>
+                        </tr>
+                        <tr>
+                            <td><p>#{msgs.admin_mainContentIsAccessOrNot}</p></td><td><div><h:selectBooleanCheckbox  value="#{studentViewBean.user.enabled}"/></div></td>
+                        </tr>
+                        <tr>
+                            <td><p>#{msgs.admin_userLogin2}</p></td><td><div>#{studentViewBean.user.username}</div></td>
+                        </tr>
+                        <tr>
+                            <td><p>#{msgs.admin_userPassworld2}</p></td><td><div><h:inputText value="#{studentViewBean.user.password}" style="width:45%;"/></div></td>
+                        </tr>
+                        <tr>
+                            <td><p>#{msgs.admin_mainContentStartId}</p></td><td><div>#{studentViewBean.user.originalId}</div></td>
+                        </tr>
+                         <tr>
+                            <td><p>#{msgs.admin_userPhone}</p></td><td><div>#{studentViewBean.user.cellPhone}</div></td>
+                        </tr>
+                         <tr>
+                            <td><p>e mail</p></td><td><div>#{studentViewBean.user.email}</div></td>
+                        </tr>
+                          <tr>
+                            <td><p>#{msgs.user_ICQ}</p></td><td><div>#{studentViewBean.user.icq}</div></td>
+                        </tr>
+                        <tr>
+                            <td><div>
+                            <h:commandButton value="ОК" styleClass="studentButton" style="width:45%; text-align: center;">
+                                <f:ajax execute="@form" render="@form" listener="#{studentViewBean.save}"/>
+                            </h:commandButton>
+                            </div></td>
+                        </tr>
+                    </sec:ifAnyGranted>
+                </table>
+                </h:form>
+            </div>
+            <div class="userData">
+                <h:form>
+                <table cellpadding="0" cellspacing="0" class="actionWithStudents">
+                    <tr>
+                        <td class="userPhotoBorderfromAdmin">
+                            <ut:showPhoto user="#{studentViewBean.user}" styleClass="#{studentViewBean.user.classType}" size="medium"/>
+                        </td>
+                    </tr>
+                     
+                    <tr>
+                        <td>
+                        <sec:ifAnyGranted roles="ROLE_ADMIN">
+                            <span class="controlWorksDisciplineNameLink comeInAsStudentOrTeacher">
+                            <h:outputLink value="switch_user?j_username=#{studentViewBean.user.username}">#{msgs.user_ComeIn}</h:outputLink>
+                            </span>
+                        </sec:ifAnyGranted>  
+                        </td>
+                    </tr>
+                     
+                    
+                    <tr>
+                        <td>
+                         <span class="s1" >
+                             <a href="messages_write.xhtml?user=${studentViewBean.id}">#{msgs.student_studentListWriteMessage}</a>
+                         </span>
+                    </td></tr>
+                    
+                    <tr>
+                        <td>
+                         <span class="s2" >
+                             <a href="messages_dialog.xhtml?user=${studentViewBean.id}" class="messLinksMargins">#{msgs.student_studentLestShowDialog}</a>
+                         </span>
+                    </td></tr>
+                    
+                    <tr>
+                        <td>
+                         <span class="controlWorksDisciplineNameLink studentEvent2">
+                             <h:outputLink value="studentEvents.xhtml?id=#{studentViewBean.id}" >#{msgs.student_eduMenuEvents}</h:outputLink>
+                         </span>
+                    </td></tr>
+                    
+                    <tr>
+                        <td>
+                         <span class="controlWorksDisciplineNameLink deleteStudent">
+                        <h:commandLink value="Удалить">
+                            <f:ajax execute="@form" render="@form" listener="#{studentViewBean.deletePhoto}"/>
+                        </h:commandLink>
+                         </span>
+                    </td></tr>
+                          
+                </table>
+                </h:form>
+         
+            </div>
+            <div class="floatDestroyer"></div>
+        </div>
+        
+        
+        
+        
+        
+        <div style="text-align: right;">
+                <h:outputText rendered="#{cc.attrs.pageName eq 'points'}" value="оценки" style="margin-right: 10px; color: #FBB35D;"/>
+                <h:outputLink rendered="#{cc.attrs.pageName ne 'points'}" value="student.xhtml?id=#{studentViewBean.user.id}" style="margin-right: 10px;">#{msgs.teacher_groupGruopMarks}</h:outputLink>
+                <h:outputText rendered="#{cc.attrs.pageName eq 'cw'}" value="контрольные" style="margin-right: 10px; color: #FBB35D;"/>
+                <h:outputLink rendered="#{cc.attrs.pageName ne 'cw'}" value="studentContWorks.xhtml?id=#{studentViewBean.user.id}" style="margin-right: 10px;">#{msgs.teacher_groupGruopCW}</h:outputLink>
+                <h:outputText rendered="#{cc.attrs.pageName eq 'tests'}" value="результаты тестов" style="margin-right: 10px; color: #FBB35D;"/>
+                <h:outputLink rendered="#{cc.attrs.pageName ne 'tests'}" value="studentTestResults.xhtml?id=#{studentViewBean.user.id}" style="margin-right: 10px;">#{msgs.teacher_groupGruopTestResult}</h:outputLink>
+            </div>
+        <br/>
+    </composite:implementation>
+</html>
