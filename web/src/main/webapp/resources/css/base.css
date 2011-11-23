@@ -1391,7 +1391,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     margin-left: 3%;
 }
 .mainStyle .new_message{
-    background: url('../resources/images/new_message.png') no-repeat right;
+    background: url('../resources/images/new_message_red.png') no-repeat right;
 }
 .mainStyle .readed_message{
     background: url('../resources/images/message_read.png') no-repeat right;
@@ -2270,6 +2270,7 @@ a.mainStyle .lightGreyText a:hover{
 }
 .NewsInfo{ margin: 10px 20px;}
 .NewsInfo div{margin: 3px 0px;}
+.NewsInfo div p span a, .NewsInfo div p a{color: #89C9F5 !important;}
 
 /*мои изучаемые материалы*/
 .mainStyle .materialInfo{
