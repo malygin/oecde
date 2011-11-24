@@ -62,8 +62,89 @@
                 </h:dataTable>
             </div>-->
     
+
+    <div style="margin: 10px; margin-top: 0;">
+                <h:dataTable value="#{testResultsBean.attempts}" var="a" styleClass="leftMenuContainer" style="width: 100%;"
+                             cellpadding="0" cellspacing="0">
+                    <h:column>
+                        <div>
+                            <br/>
+                            <span><h:outputText value="#{a.curriculum.discipline.name}" /></span><br />
+                            <!--<span><h:outputText value="#{r}" /></span>-->
+                            
+                            
+                            
+      <h:dataTable value="#{a}" var="r" cellpadding="0" cellspacing="0"
+                     columnClasses="studentStandatrTableTd,
+                     studentStandatrTableTd studentStandatrTableExamin,
+                     studentStandatrTableTd studentStandatrTableExamin,
+                     studentStandatrTableTd studentStandatrTableExamin,
+                     studentStandatrTableTd studentStandatrTableExamin,
+                     studentStandatrTableTdLastTd studentStandatrTableExamin" styleClass="studentStandatrTable leftMenuContainer hiddenTestsResults">
+            <h:column>
+            <f:facet name="header">
+                <h:outputText value="#{msgs.student_testResultName}" />
+            </f:facet>
+            <span class="controlWorksDisciplineName" style="font-size: 8pt;">#{r.work.title}</span>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="#{msgs.student_testResultAttempt}" />
+            </f:facet>
+            #{testResultsBean.reExame?r.reExameAttemptsUsedNumber:r.estimateAttemptsUsedNumber} #{msgs.student_fromWord}
+            #{testResultsBean.reExame?
+               (r.work.type eq testConstantsServise.concludingType?testResultsBean.concludingAttemtpsCount:testResultsBean.regularAttemtpsCount)
+            :r.work.quantity}
+        </h:column>
+
+        <h:column>
+            <h:dataTable value="#{r.results}"
+                         headerClass="studentTabInStandartTableTh"
+                         columnClasses="studentTabInStandartTableLeftTd, studentTabInStandartTableRightTd"
+                         styleClass="studentTabInStandartTable" cellpadding="0" cellspacing="0" var="a" id="rowId">
+                <h:column>
+                    <f:facet name="header">
+                        <div class="studentTabInStandartTableThContainer">
+                            <h:outputText value="#{msgs.student_testResultCorrectAnswers}" />
+                        </div>
+                    </f:facet>
+                    #{a.rightAnswers} #{msgs.student_fromWord} #{r.work.quantity}
+               </h:column>
+               <h:column>
+                    <f:facet name="header">
+                        <div class="studentTabInStandartTableThContainer" style="border: 0px;">
+                            <h:outputText value="#{msgs.student_testResultDate}" />
+                        </div>
+                    </f:facet>
+                    #{a.date}
+                </h:column>
+            </h:dataTable>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="#{msgs.student_testResultResult}" />
+            </f:facet>
+            #{r.pointsForWork}
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="#{msgs.student_testResultEstimationMethod}" />
+            </f:facet>
+            <h:outputText converter="enumConverter" value="#{r.work.estimation}" />
+        </h:column>
+        </h:dataTable>
+                            
+                            
+                            
+                            <br/>
+                            
+                        </div>
+                    </h:column>
+                </h:dataTable>
+            </div>
     
-    <h:dataTable style="width: 100%;" value="#{testResultsBean.attempts}" cellpadding="0" cellspacing="0"
+    <!--<h:dataTable style="width: 100%;" value="#{testResultsBean.attempts}" cellpadding="0" cellspacing="0"
                  columnClasses="studentStandatrTableTd,
                  studentStandatrTableTd,
                  studentStandatrTableSubtableTd,
@@ -121,7 +202,7 @@
             </f:facet>
             <h:outputText converter="enumConverter" value="#{r.work.estimation}" />
         </h:column>
-    </h:dataTable>
+    </h:dataTable>-->
 </h:form>
 </div>
 </div>
