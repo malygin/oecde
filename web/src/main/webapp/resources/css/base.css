@@ -1400,7 +1400,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     background: url('../resources/images/read_mes_with_file.png') no-repeat right;
 }
 .mainStyle .message_with_file{
-    background: url('../resources/images/message_with_file.png') no-repeat right;
+    background: url('../resources/images/message_with_file_red.png') no-repeat right;
 }
 .mainStyle .answerMessPic{
     /*background: url('../resources/images/answer.gif') no-repeat;*/
