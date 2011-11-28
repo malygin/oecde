@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:sec="http://www.springframework.org/security/facelets/tags"
+      >
+
+
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute name="tests"  shortDescription="список результатов тестов"/>
+        <composite:attribute name="studentId" shortDescription="айдишник студента"/>
+
+    </composite:interface>
+
+    <!-- IMPLEMENTATION -->
+    <composite:implementation>
+        <h:panelGroup rendered="#{cc.attrs.tests!=null}">
+        <table class="studentStandatrTable greyBorderInTab" cellpadding="0" cellspacing="0">
+            <thead>
+                <th><h:outputText value="#{msgs.student_testResultName}" /></th>
+                <th><h:outputText  value="#{msgs.student_testResultDate}"/></th>
+                <th><h:outputText value="#{msgs.student_testResultCorrectAnswers}"/></th>
+                <th><h:outputText value="#{msgs.student_testResultResult}" /></th>
+                <th><h:outputText value="#{msgs.teacher_wayOfEvaluation}" /></th>
+            </thead>
+        <ui:repeat value="#{cc.attrs.tests}" var="a">
+        <sec:ifAnyGranted roles="ROLE_ADMIN">
+            <h:panelGroup rendered="#{testResultsBean.IsCurrentDiscipline(a.curriculum.discipline.name, a.work.title)}">
+                    <tr>
+                        <td colspan="5"><span><h:outputText value="#{a.curriculum.discipline.name}" styleClass="Ipsilon_Web_GreenText smallChatTools"/></span></td>
+                        <br />
+                    </tr>
+            </h:panelGroup>
+         </sec:ifAnyGranted>
+                <tr>
+                    <td>
+                        <div class="workTitle">
+                            <h:outputText value="#{a.work.title}" />
+                            <p class="discussionCommentDate">
+                                сессия: #{a.estimateAttemptsUsedNumber} #{msgs.student_fromWord} #{a.work.estimateAttemptsNumber}
+                            </p>
+                            <p class="discussionCommentDate">
+                                переэкзаменовка: #{a.reExameAttemptsUsedNumber} #{msgs.student_fromWord} #{(a.work.type eq 'concluding')?groupTestResults.concludingAttemtpsCount:groupTestResults.regularAttemtpsCount}
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <ui:repeat value="#{a.results}" var="at" varStatus="i">
+                            <table class="hiddenTestsResultsInnerTable" style="width: 100%;" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td class="hiddenTestsResultsInnerTableRightBorder"  style="border: none;">#{i.index+1}
+                                    </td>
+                                    <td>
+                                        <h:outputText converter="dateConverter" value="#{at.date}"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </ui:repeat>
+                    </td>
+                    <td>
+                        <h:dataTable value="#{a.results}" var="at" id="rowId" styleClass="hiddenTestsResultsInnerTable" cellpadding="0" cellspacing="0" style="width: 100%;">
+                            <h:column>
+                                <h:outputLink value="showStudentTest.xhtml?id=#{cc.attrs.studentId}&amp;s=#{groupTestResults.semester}&amp;test=#{a.work.id}&amp;attempt=#{at.id}&amp;c=#{groupTestResults.curriculumId}"> #{at.rightAnswers} #{msgs.student_fromWord} #{a.work.quantity}</h:outputLink>
+                            </h:column>
+                        </h:dataTable>
+                    </td>
+                    <td class="centerAlignText">
+                        <h:outputText styleClass="resultRedText" value="#{a.pointsForWork}" />
+                    </td>
+                    <td class="centerAlignText">
+                        <h:outputText converter="enumConverter" value="#{a.work.estimation}" />
+                    </td>
+                </tr>
+        </ui:repeat>
+        </table>
+        </h:panelGroup>
+       
+    </composite:implementation>
+</html>

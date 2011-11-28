@@ -41,7 +41,7 @@
                             <br/>
                             <span class="linkToStudentsProfile"><h:outputLink value="student.xhtml?id=#{w.key.id}&amp;s=#{groupTestResults.semester}">#{w.key.fio}</h:outputLink></span>
                             <br/>
-                            <edu:oneStudentTestsForTeacher tests="#{w.value}" studentId="#{w.key.id}"/>
+                            <edu:oneStudentTests tests="#{w.value}" studentId="#{w.key.id}"/>
                         </div>
                     </h:column>
                 </h:dataTable>
