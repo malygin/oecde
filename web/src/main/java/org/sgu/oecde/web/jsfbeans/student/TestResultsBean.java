@@ -29,6 +29,9 @@ public class TestResultsBean extends StudentCurriculumBean{
 
     boolean reExame;
     
+    private String currentDiscipline = null;
+    private String currentTest = null;
+    
     private List<AdditionalSelfDependentWork>attempts;
     private List<AdditionalSelfDependentWork>attemptsByCID;
     private String currentCID="";
@@ -96,4 +99,28 @@ public class TestResultsBean extends StudentCurriculumBean{
     public void setResourceService(ResourceService resourceService) {
         this.resourceService = resourceService;
     }
+    
+    public String getCurrentDiscipline() {
+        return currentDiscipline;
+    }
+    
+    public void setCurrentDiscipline(String currentDiscipline) {
+        this.currentDiscipline = currentDiscipline;
+    }
+    
+    public boolean IsCurrentDiscipline(String disciplineName, String disciplineWork){
+        if((currentDiscipline!=null)&&(currentTest.equals(disciplineWork))) currentDiscipline=null;
+        if((currentDiscipline==null)){
+            currentDiscipline =disciplineName;
+            currentTest=disciplineWork;
+            return true;
+        } else if((currentDiscipline.equals(disciplineName)) && !(currentTest.equals(disciplineWork))){
+             return false;                    
+             } else{
+                currentDiscipline =disciplineName;   
+                currentTest=disciplineWork;
+                return true;
+             }  
+   }
+    
 }
