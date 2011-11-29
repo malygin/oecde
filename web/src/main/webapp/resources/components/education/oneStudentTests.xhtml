@@ -32,7 +32,6 @@
             <h:panelGroup rendered="#{testResultsBean.IsCurrentDiscipline(a.curriculum.discipline.name, a.work.title)}">
                     <tr>
                         <td colspan="5"><span><h:outputText value="#{a.curriculum.discipline.name}" styleClass="Ipsilon_Web_GreenText smallChatTools"/></span></td>
-                        <br />
                     </tr>
             </h:panelGroup>
          </sec:ifAnyGranted>
@@ -64,7 +63,13 @@
                     <td>
                         <h:dataTable value="#{a.results}" var="at" id="rowId" styleClass="hiddenTestsResultsInnerTable" cellpadding="0" cellspacing="0" style="width: 100%;">
                             <h:column>
-                                <h:outputLink value="showStudentTest.xhtml?id=#{cc.attrs.studentId}&amp;s=#{groupTestResults.semester}&amp;test=#{a.work.id}&amp;attempt=#{at.id}&amp;c=#{groupTestResults.curriculumId}"> #{at.rightAnswers} #{msgs.student_fromWord} #{a.work.quantity}</h:outputLink>
+                                <sec:ifNotGranted roles="ROLE_ADMIN"> 
+                                    <h:outputLink value="showStudentTest.xhtml?id=#{cc.attrs.studentId}&amp;s=#{groupTestResults.semester}&amp;test=#{a.work.id}&amp;attempt=#{at.id}&amp;c=#{groupTestResults.curriculumId}"> #{at.rightAnswers} #{msgs.student_fromWord} #{a.work.quantity}</h:outputLink>
+                                </sec:ifNotGranted>
+                                <sec:ifAnyGranted roles="ROLE_ADMIN">
+                                    <h:outputLink value="showStudentTest.xhtml?id=#{cc.attrs.studentId}&amp;s=#{a.curriculum.semester}&amp;test=#{a.work.id}&amp;attempt=#{at.id}&amp;c=#{a.curriculum.id}"> #{at.rightAnswers} #{msgs.student_fromWord} #{a.work.quantity}</h:outputLink>
+                                    <br /><h:outputText value="#{at.id}" styleClass="Ipsilon_Web_GreenText smallChatTools"/>
+                                </sec:ifAnyGranted>
                             </h:column>
                         </h:dataTable>
                     </td>

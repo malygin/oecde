@@ -1,0 +1,18 @@
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/adminTemplate.xhtml"
+    xmlns:test="http://java.sun.com/jsf/composite/components/tests">
+    <f:metadata>
+        <f:viewParam name="c" value="#{studentResults.curriculumId}"/>
+        <f:viewParam name="s" value="#{studentResults.semester}"/>
+        <f:viewParam name="id" value="#{studentResults.studentId}"/>
+        <f:viewParam name="test" value="#{studentResults.testId}"/>
+        <f:viewParam name="attempt" value="#{studentResults.attemptId}"/>
+
+    </f:metadata>
+    <ui:define name="content">  
+     
+    </ui:define>
+</ui:composition>

@@ -648,7 +648,6 @@ not all and (-webkit-min-device-pixel-ratio:0) {
 }
 
 .mainStyle .studentStandatrTable{
-    margin-top: 10px;
     width: 100%;
 }
 .mainStyle .greyBorderInTab{border: 1px solid silver;}

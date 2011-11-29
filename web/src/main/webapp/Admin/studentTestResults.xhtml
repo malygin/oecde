@@ -45,8 +45,8 @@
         <f:attribute name="reExame" value="#{!testResultsBean.reExame}"/>
         <f:ajax render="form" listener="#{studentViewBean.reExameSwitch}"/>
     </h:commandLink>
-    </span><br/>
-        <edu:oneStudentTests tests="#{testResultsBean.attempts}" studentId="#{studentViewBean.id}"/>
+    </span>
+        <div style="margin: 10px 20px;"><edu:oneStudentTests tests="#{testResultsBean.attempts}" studentId="#{studentViewBean.id}"/></div>
   
 </h:form>
 </div>
