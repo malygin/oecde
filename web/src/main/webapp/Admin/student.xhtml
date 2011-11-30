@@ -8,7 +8,7 @@
      xmlns:ut="http://java.sun.com/jsf/composite/components/util">
     <ui:define name="online">
         #{studentViewBean.setType('STUDENT')}
-        <h:outputText rendered="#{studentViewBean.user.online}" value="On-line"/>
+      
     </ui:define>
     <ui:define name="content">
         <f:metadata>
@@ -17,7 +17,7 @@
             <f:viewParam name="r" value="#{testResultsBean.reExame}"/>
         </f:metadata>
         <!--<ui:include src="../resources/includes/student.xhtml"/>-->
-        
+          <h:outputText rendered="#{studentViewBean.user.online}" value="On-line"/>
         
         <div class="StudentMainPageTitlesBorders">
 
@@ -34,7 +34,7 @@
                 </div>
                 <div class="floatDestroyer">
                 </div>
-           
+       
                     
          <div class="groupInfo">
                 <ut:infoAboutStudent pageName="points"/>
@@ -104,7 +104,7 @@
 
             <h:column>
                 <f:facet name="header">
-                    <h:outputText value="#{msgs.admin_infoStudentContWorPoints}" />
+                    <h:outputText value="Контрольная баллы" />
                 </f:facet>
                  <span>#{p.controlWorkPoints} </span>
             </h:column>

@@ -33,6 +33,6 @@ public class DeSupervisor extends org.sgu.oecde.core.users.Supervisor{
         this.city = city;
     }
       public String getClassType(){
-         return "Представительство "+this.getCity().getName();
+         return "supervisor";
     }
 }

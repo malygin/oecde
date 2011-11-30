@@ -15,7 +15,7 @@ public class Semesters {
      * @return летние семестры
      */
     public static final Integer[] summer(){
-         return new Integer[]{2,4,6,8,10,12};
+         return new Integer[]{2,4,6,8,10,12,14};
     }
 
     /**
@@ -23,6 +23,6 @@ public class Semesters {
      * @return зимние семестры
      */
     public static final Integer[] winter(){
-         return new Integer[]{1,3,5,7,9,11};
+         return new Integer[]{1,3,5,7,9,11,13};
     }
 }

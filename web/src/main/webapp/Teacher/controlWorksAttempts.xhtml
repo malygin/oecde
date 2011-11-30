@@ -8,6 +8,9 @@
     xmlns:edu="http://java.sun.com/jsf/composite/components/education"
     xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs"
     >
+     <f:metadata>
+         <f:viewParam name="type" value="#{controlWorksAttemptsBean.filterType}"/>
+        </f:metadata>
     <ui:define name="content">
         <!--<ui:define name="contentHeader">
            Присланные контрольные работы
@@ -83,7 +86,7 @@
        </div>-->
 
         <div class="StudentMainPageTitlesBorders"  style="margin-left: 2%; width: 71%; float: left;">
-            <edu:controlWorkForTeacher numberLessons="20"  styleForShedule="floatLeft"  renderBlock="allLessons"/>
+            <edu:controlWorkForTeacher simple="false" numbers="0"/>
         </div>
         <!--<div class="StudentMainPageTitlesBorders" style="width: 23%; margin-left: 75%;">
             <edu:statisticForTeacher/>

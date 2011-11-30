@@ -13,6 +13,68 @@
 
     </f:metadata>
     <ui:define name="content">  
-     
+     <script type="text/javascript" src="../resources/scripts/test.js"></script>
+        <div class="interfaceContent">
+            <div class="StudentMainPageTitlesBorders">
+                <div class="mainStudentPageTitlesGreen mainStudentPageTitles Ipsilon_Web_GreenText">
+                    <p class="floatLeft mainStudentPageTitles"> #{studentResults.attempt.work.title}
+                    </p>
+                    <div style="float: right; margin-top: 4px;" class="greyLinks">
+                        <a href="groupTestResults.xhtml?g=#{studentResults.student.group.id}&amp;s=#{studentResults.semester}&amp;c=#{studentResults.curriculumId}"> #{msgs.teacher_showStTestBack} </a>
+                    </div>
+                    <div class="floatDestroyer"/>
+                </div>
+                <div class="testItemsDiv">
+                    <table class="studentsTestsResultsForTeacher">
+                        <tr>
+                            <td>
+                                #{msgs.teacher_showStTestAttempt}
+                            </td>
+                            <td>
+                                <span class="Ipsilon_Web_GreenText"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                #{msgs.teacher_showStTestRightAnswers}
+                            </td>
+                            <td>
+                                <span class="Ipsilon_Web_GreenText">#{studentResults.attempt.rightAnswers}</span> из #{studentResults.attempt.work.quantity}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                #{msgs.teacher_showStTestPoints}
+                            </td>
+                            <td><span class="Ipsilon_Web_GreenText">#{studentResults.attempt.points}</span> #{msgs.teacher_showStTestFrom100}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                #{msgs.teacher_showStTestSpent}
+                            </td>
+                            <td><span class="Ipsilon_Web_GreenText">#{studentResults.attempt.duration}</span> #{msgs.student_Test_Minute}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                #{msgs.teacher_showStTestDate}
+                            </td>
+                            <td><h:outputText converter="dateConverter" value="#{studentResults.attempt.date}"/>
+                        </td>
+                        </tr>
+                    </table>
+                    <div style="margin-top: 20px;">
+                    <p class="Ipsilon_Web_GreenText">#{msgs.teacher_showStTestQuestionsWithAnswers}</p>
+                    <h:dataTable value="#{setToList.getList(studentResults.attempt.answeredQuestions)}"  var="a">
+                        <h:column>
+                            <test:questionViewWithAttempt ansQuest="#{a}" />
+                        </h:column>
+                    </h:dataTable>
+                    </div>
+                </div>            
+            </div>
+        </div>
+    
     </ui:define>
 </ui:composition>

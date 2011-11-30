@@ -86,7 +86,17 @@
                         </f:facet>
                         <span>#{p.concludingReTest}</span>
                     </h:column>
+                    
+                     <h:column>
+                        <f:facet name="header">
+                            <span class="Ipsilon_Web_GreenText">#{msgs.teacher_groupTestsExtraAttempt}<br/>#{msgs.teacher_groupForMainTests}<br/>#{msgs.teacher_groupForTests}
+                            </span>
+                        </f:facet>
+                     <h:inputText maxlength="3" size="3" value="#{p.activityPoints}"/> 
 
+                    </h:column>
+                    
+                    
                     <h:column>
                         <f:facet name="header">
                             <span class="Ipsilon_Web_GreenText">#{msgs.teacher_control_works},<br/> #{msgs.teacher_groupPoints}

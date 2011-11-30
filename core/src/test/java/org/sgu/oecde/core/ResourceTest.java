@@ -1,5 +1,6 @@
 package org.sgu.oecde.core;
 
+import org.sgu.oecde.core.education.estimation.activity.Activity;
 import java.util.ArrayList;
 import org.sgu.oecde.core.education.Umk;
 import java.util.List;
@@ -48,4 +49,5 @@ public class ResourceTest extends BasicTest {
        for (Umk u: list)
          System.out.println(""+u.getName());
     }
+
 }

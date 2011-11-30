@@ -125,6 +125,7 @@ public class TestAttempt extends AbstractSelfDependentWorkResult{
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer(super.toString());
+        sb.append("тип").append(this.type);
         sb.append("набрано баллов: ").append(points).append(";\n");
         return sb.toString();
     }

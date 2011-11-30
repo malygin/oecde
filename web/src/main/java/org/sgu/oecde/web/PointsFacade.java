@@ -5,6 +5,7 @@ import org.sgu.oecde.controlworks.ControlWorkProgress;
 import org.sgu.oecde.controlworks.estimation.CwEstimateNames;
 import org.sgu.oecde.core.education.estimation.EstimateNames;
 import org.sgu.oecde.core.education.estimation.Points;
+import org.sgu.oecde.core.education.estimation.activity.ActivityEstimateNames;
 import org.sgu.oecde.core.education.work.Estimate;
 import org.sgu.oecde.core.education.work.PointToEstimate;
 import org.sgu.oecde.core.users.Teacher;
@@ -27,6 +28,7 @@ public class PointsFacade implements Serializable{
     private Integer concludingReTest;
     private Integer concludingTest;
     private Integer controlWorkPoints;
+    private Integer activityPoints;
     private ControlWorkProgress controlWorkValue;
     private PointToEstimate grade;
 
@@ -44,6 +46,7 @@ public class PointsFacade implements Serializable{
         concludingReTest = points.getWorkPoints(TestEstimateNames.CONCLUDING_RE_TEST);
         concludingTest = points.getWorkPoints(TestEstimateNames.CONCLUDING_TEST);
         controlWorkPoints = points.getWorkPoints(CwEstimateNames.control_work_points);
+        activityPoints = points.getWorkPoints(ActivityEstimateNames.activity_points);
         controlWorkValue = points.getWorkPoints(CwEstimateNames.control_work_value);
         Estimate e = points.getWorkPoints(EstimateNames.estimate);
         grade = e==null?PointToEstimate.notEstimated:e.getGradeCode();
@@ -158,4 +161,14 @@ public class PointsFacade implements Serializable{
     public String toString() {
         return points!=null?points.toString():super.toString();
     }
+
+    public Integer getActivityPoints() {
+        return activityPoints;
+    }
+
+    public void setActivityPoints(Integer activityPoints) {
+        this.activityPoints = activityPoints;
+    }
+    
+    
 }

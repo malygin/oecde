@@ -12,11 +12,13 @@ import org.sgu.oecde.core.education.dao.IResultDao;
 import org.sgu.oecde.core.education.estimation.IResultFilter;
 import org.sgu.oecde.core.education.estimation.Points;
 import org.sgu.oecde.core.education.estimation.ResultPreFilter;
+import org.sgu.oecde.core.education.estimation.activity.ActivityFilter;
 import org.sgu.oecde.core.education.work.AbstractResult;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.util.ListUtil;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
+import org.sgu.oecde.tests.TestAttempt;
 import org.sgu.oecde.tests.TestEntity;
 import org.sgu.oecde.tests.TestService;
 import org.springframework.stereotype.Service;
@@ -41,6 +43,9 @@ public class GradesService implements Serializable{
     private IResultFilter testFilter;
 
     @Resource
+    private IResultFilter activityFilter;
+    
+    @Resource
     private IResultDao<AbstractResult>resultDao;
 
     @Resource
@@ -49,11 +54,17 @@ public class GradesService implements Serializable{
     private static final long serialVersionUID = 165L;
 
     public List<Points> getGrades(Collection<DeCurriculum> curriculums,Collection<Student>students) {
-        List<IResultFilter>filters = new ArrayList(3);
+        List<IResultFilter>filters = new ArrayList(4);
         filters.add(controlWorkFilter);
         filters.add(estimateFilter);
         filters.add(testFilter);
+        filters.add(activityFilter);
         List<AbstractResult> l = resultDao.getByStudentsAndCurriculums(curriculums, students, null);
+//       for (AbstractResult r: l){
+//           if (r instanceof TestAttempt)
+//           System.out.println(r.getCurriculum().getUmk().getName()+" "+r.getDate()+" "+((TestAttempt)r));
+//       }
+        System.out.println("");
         return preFilter.forEachResult(l, true,filters,students,curriculums);
     }
 

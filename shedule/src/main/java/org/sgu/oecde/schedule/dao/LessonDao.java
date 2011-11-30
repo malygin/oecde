@@ -27,7 +27,7 @@ public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
     private final static String GET_LESSONS_FOR_TEACHER_QUERY="from Lesson l join  l.citiesWithGroups cwg where l.winter=:w and cwg.group=:g and cwg.city=:c";
 
     private final static String ORDER_BY=" order by l.lessonDate,l.discipline";
-     private final static String ORDER_BY_DESC=" order by l.lessonDate desc,l.discipline";
+     private final static String ORDER_BY_DESC=" order by l.lessonDate,l.discipline";
 
     public LessonDao() {
         super(Lesson.class);

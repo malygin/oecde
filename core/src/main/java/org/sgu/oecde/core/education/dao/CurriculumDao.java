@@ -51,7 +51,7 @@ public class CurriculumDao<T extends Curriculum> extends UpdateDao<T> implements
      */
     @Override
     public List<T> getBySemesterYearAndParameters(Integer[] semester, int year, Teacher teacher) throws DataAccessException {
-        if(teacher == null&& teacher.getId()==0)
+        if(teacher == null || teacher.getId()==0)
             return new ArrayList(0);
          return makeQuery("distinct c"," t.teacher=:t ",new String[]{"c.discipline"},null,semester,year)
                  .setParameter("t", teacher).list();

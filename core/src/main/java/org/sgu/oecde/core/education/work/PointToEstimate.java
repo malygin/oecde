@@ -121,4 +121,13 @@ public enum PointToEstimate {
         estimates[3] = absence;
         return estimates;
     }
+    
+     public static PointToEstimate[] emptyGrades(){
+        PointToEstimate[] estimates = new PointToEstimate[4];
+        estimates[0] = notEstimated;
+        estimates[1] = passed;
+        estimates[2] = failed;
+        estimates[3] = absence;
+        return estimates;
+    }
 }

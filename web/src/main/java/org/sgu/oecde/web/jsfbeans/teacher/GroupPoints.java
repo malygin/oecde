@@ -4,9 +4,12 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import org.sgu.oecde.core.IUpdateDao;
 import org.sgu.oecde.core.education.ExaminationType;
 import org.sgu.oecde.core.education.dao.IEstimateDao;
 import org.sgu.oecde.core.education.estimation.EstimateNames;
+import org.sgu.oecde.core.education.estimation.activity.Activity;
+import org.sgu.oecde.core.education.estimation.activity.ActivityEstimateNames;
 import org.sgu.oecde.core.education.work.Estimate;
 import org.sgu.oecde.core.education.work.PointToEstimate;
 import org.sgu.oecde.core.util.DateConverter;
@@ -33,6 +36,9 @@ public class GroupPoints extends AbstractStudentsListBean{
 
     @ManagedProperty(value="#{estimateDao}")
     private IEstimateDao estimateDao;
+   
+    @ManagedProperty(value="#{activityDao}")
+    private IUpdateDao<Activity> actDao;
 
     private boolean error = false;
     private boolean saved = false;
@@ -40,7 +46,7 @@ public class GroupPoints extends AbstractStudentsListBean{
     private static final long serialVersionUID = 113L;
 
     public List<PointsFacade> getPoints() {
-        if(points==null)
+        if(points==null || saved)
             points = gradesService.getCurriculumGrades(getCurriculum(), getStudentsList());
         return points;
     }
@@ -62,8 +68,25 @@ public class GroupPoints extends AbstractStudentsListBean{
                 ex.fillInStackTrace();
                 error=true;
             }
+            
+        Activity a=p.getPoints().getWorkPoints(ActivityEstimateNames.activity);
+           if (a==null){
+                a=new Activity();
+                a.setCurriculum(p.getPoints().getCurriculum());
+                a.setDate(DateConverter.currentDate());
+                a.setStudent(p.getPoints().getStudent());       
+            }
+           if (p.getActivityPoints()>100 || p.getActivityPoints()<0) a.setPoints(0);
+           else  a.setPoints(p.getActivityPoints()); 
+            try {
+               actDao.update(a);
+            } catch (Exception ex) {
+                ex.fillInStackTrace();
+                error=true;
+            }
+           
         }
-        journalService.save(EventType.GRADING,teacher, getGroup(), getCurriculum().getDiscipline());
+        //journalService.save(EventType.GRADING,teacher, getGroup(), getCurriculum().getDiscipline());
         saved=true;
     }
 
@@ -77,6 +100,9 @@ public class GroupPoints extends AbstractStudentsListBean{
                 return PointToEstimate.exameGrades();
             else if(ExaminationType.test.equals(getCurriculum().getExaminationType()))
                 return PointToEstimate.testGrades();
+            else if(ExaminationType.empty.equals(getCurriculum().getExaminationType()))
+                return PointToEstimate.emptyGrades();
+        
         return new PointToEstimate[0];
     }
 
@@ -107,4 +133,14 @@ public class GroupPoints extends AbstractStudentsListBean{
     public void setJournalService(JournalService journalService) {
         this.journalService = journalService;
     }
+
+    public IUpdateDao<Activity> getActDao() {
+        return actDao;
+    }
+
+    public void setActDao(IUpdateDao<Activity> actDao) {
+        this.actDao = actDao;
+    }
+    
+    
 }

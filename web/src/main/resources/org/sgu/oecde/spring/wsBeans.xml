@@ -17,5 +17,6 @@
     </wss:binding>
    <bean id="ConferenceWebService" class="org.sgu.oecde.web.ConferenceWeb">
     	<property name="userDao" ref="userDao" />
+        <property name="lessonDao" ref="lessonDao" />
     </bean>
 </beans>

@@ -83,13 +83,17 @@ abstract public class AbstractResult extends BasicItem implements Comparable<Abs
     public int compareTo(AbstractResult o) {
        int curriculumInt = 0;
        int studentInt = 0;
+       int idInt = 0;
        if(o!=null){
            if(o.getCurriculum()!=null&&getCurriculum()!=null&&o.getCurriculum().getId()!=null)
                curriculumInt = (o.getCurriculum().getId().compareTo(getCurriculum().getId()));
            if(o.getStudent()!=null&&getStudent()!=null&&o.getStudent().getId()!=null)
                studentInt = o.getStudent().getId().compareTo(getStudent().getId());
+//            if(o.getId()!=null&&getId()!=null)
+//               idInt = o.getId().compareTo(getId());
        }
-       return studentInt==0?(curriculumInt):studentInt;
+     //  return (studentInt==0&&curriculumInt==0)?(idInt):(studentInt==0?(curriculumInt):studentInt);
+    return studentInt==0?(curriculumInt):studentInt;
     }
 
     /**

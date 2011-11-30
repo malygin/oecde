@@ -9,8 +9,12 @@ import javax.jws.WebService;
 import org.sgu.oecde.core.IBasicDao;
 import org.sgu.oecde.core.users.AbstractPerson;
 import org.sgu.oecde.core.users.AbstractUser;
+import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.users.UserType;
+import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.users.DeSupervisor;
+import org.sgu.oecde.schedule.Lesson;
+import org.sgu.oecde.schedule.dao.ILessonDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
@@ -23,6 +27,7 @@ public class ConferenceWeb extends SpringBeanAutowiringSupport implements Serial
 
 
     IBasicDao<AbstractUser> userDao;
+    ILessonDao lessonDao;
 
     private static final long serialVersionUID = 218L;
 
@@ -49,6 +54,15 @@ public class ConferenceWeb extends SpringBeanAutowiringSupport implements Serial
                     parameters.append(((DeSupervisor)u).getCity().getRusShort()).append(";");
                     parameters.append(((DeSupervisor)u).getCity().getName()).append(";");
                 }
+                if (u instanceof Teacher){
+                     List<Lesson>   lessons = lessonDao.getLessonsForTeacher(true,(Teacher)u,30,1,"2011.11.23","2013.11.11");
+                    if (lessons!=null){
+                         for (Lesson l:lessons)                     
+                            parameters.append(l.getId()+":"+l.getLessonDate()+":").append(l.getRoom()/13 +1).append(";");   
+               
+                     }                     
+                
+                }
             }
         }
         return parameters.toString();
@@ -60,6 +74,11 @@ public class ConferenceWeb extends SpringBeanAutowiringSupport implements Serial
     public void setUserDao(IBasicDao<AbstractUser> userDao) {
         this.userDao = userDao;
     }
+ @WebMethod(exclude=true)
+    public void setLessonDao(ILessonDao lessonDao) {
+        this.lessonDao = lessonDao;
+    }
+ 
         
         
 

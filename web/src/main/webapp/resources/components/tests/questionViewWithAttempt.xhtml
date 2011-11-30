@@ -18,6 +18,7 @@
         <div style="margin-top: 15px;"><h:outputText id="qTitle" title="qTitle" styleClass="qTitle" escape="false" value="#{testUtil.checkForFormulaOrLink(cc.attrs.ansQuest.question.title)}" style="display: block; font-size: 14px;"/></div>
                     <div style="clear: left;">
                         <h:outputText style="color:red;" rendered="#{ not cc.attrs.ansQuest.right}" value="Неправильный ответ"/>                  
+                       #{cc.attrs.ansQuest.id}
                         <h:panelGroup  id="radioType" rendered="#{cc.attrs.ansQuest.question.type=='radio'}" styleClass="educ_umk_text_block">
                             <div style="margin-left: 100px;">
                              <ui:repeat value="#{setToList.getList(cc.attrs.ansQuest.givenAnswers)}" var="ans">
@@ -75,7 +76,9 @@
                           <h:panelGroup id="textType" rendered="#{cc.attrs.ansQuest.question.type=='text'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
                              <div style="margin-left: 100px;">
                               <ui:repeat value="#{setToList.getList(cc.attrs.ansQuest.givenAnswers)}"  var="ans">
-                                  <br/>#{msgs.student_TestAnswer}  <b>#{ans.rightAnswer.title}</b> #{ans.givenAnswer}
+                                 
+                                  <br/>Правильный ответ: <b>#{ans.rightAnswer.rightAnswer}</b> <br/>
+                                   Ответ студента: <b> #{ans.givenAnswer}</b>
                              </ui:repeat>
                              </div>
                           

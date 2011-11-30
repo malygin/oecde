@@ -22,16 +22,19 @@ public class ControlWorksAttemptsBean extends AbstractStudentsListBean{
     @ManagedProperty(value="#{controlWorkAttemptDao}")
     private ControlWorkAttemptDao controlWorkAttemptDao;
 
-    private int elementsOnPage = 20;
+    private int elementsOnPage = 0;
 
     private int page = 0;
     
     private List<ControlWorkAttempt>attempts;
+    // сортировка по date - дате, mark - не оценена, read - прочитанности 
+    private String filterType="dateread";
 
     private static final long serialVersionUID = 175L;
 
     public List<ControlWorkAttempt> getAttempts() {
         if(attempts == null){
+            if (elementsOnPage==0)elementsOnPage=1000;
             List<Group>tmpGroups = new ArrayList<Group>(teacherSessionBean.getGroups(semester));
             List<DeCurriculum>curriculums = new ArrayList<DeCurriculum>();
             List<Group>groups = new ArrayList<Group>();
@@ -52,7 +55,7 @@ public class ControlWorksAttemptsBean extends AbstractStudentsListBean{
             }
             int first = page*elementsOnPage;
             if (curriculums.isEmpty()) return null;
-            attempts = controlWorkAttemptDao.getAttemptsList(first, elementsOnPage, groups, curriculums);
+            attempts = controlWorkAttemptDao.getAttemptsList(first, elementsOnPage, groups, curriculums,filterType);
         }
         return attempts;
     }
@@ -80,4 +83,14 @@ public class ControlWorksAttemptsBean extends AbstractStudentsListBean{
     public void setPage(int page) {
         this.page = page;
     }
+
+    public String getFilterType() {
+        return filterType;
+    }
+
+    public void setFilterType(String filterType) {
+        this.filterType = filterType;
+    }
+    
+    
 }

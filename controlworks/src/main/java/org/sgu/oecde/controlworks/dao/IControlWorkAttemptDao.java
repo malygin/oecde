@@ -24,7 +24,7 @@ public interface IControlWorkAttemptDao extends IUpdateDao<ControlWorkAttempt>{
      * @throws DataAccessException
      */
     @SuppressWarnings("unchecked")
-    public List<ControlWorkAttempt> getAttemptsList(int beginIndex, int endIndex, List<? extends StudentGroup>groups,List<? extends Curriculum>curriculums) throws DataAccessException;
+    public List<ControlWorkAttempt> getAttemptsList(int beginIndex, int endIndex, List<? extends StudentGroup>groups,List<? extends Curriculum>curriculums, String filterType) throws DataAccessException;
     
     /**
      * 

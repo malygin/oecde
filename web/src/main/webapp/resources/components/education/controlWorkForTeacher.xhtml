@@ -6,17 +6,19 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
 
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
 
     <!-- INTERFACE -->
     <composite:interface>
-
+        <composite:attribute  name="numbers"  required="false" type="int" shortDescription="количество выводимых контрольных" default="0"/>
+       <composite:attribute  name="simple"   required="false" type="boolean" shortDescription="маленькая панелька на главной?"/>
 
     </composite:interface>
 
     <!-- IMPLEMENTATION -->
     <composite:implementation>
-
+        <c:set target="#{controlWorksAttemptsBean}" property="elementsOnPage" value="#{cc.attrs.numbers}"/>
 
         <div class="" style="margin-bottom: 0px;">
             <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">
@@ -25,11 +27,13 @@
                     <div>
                         <div class="greyLinks">
                             <div>
-                                #{msgs.teacher_CW_show}
-                                &nbsp;&nbsp;<a href=" ">#{msgs.teacher_CW_all}</a>
-                                &nbsp;&nbsp;<a href=" ">#{msgs.teacher_CW_notMark}</a>
-                                &nbsp;&nbsp;<a href=" ">#{msgs.teacher_CW_byDate}</a>
-                                &nbsp;&nbsp;<a href=" ">#{msgs.teacher_CW_notRead}</a>
+                              
+                                <h:panelGroup rendered="#{ not cc.attrs.simple}">
+                                    Сортировать
+                                    &nbsp;&nbsp;<a href="controlWorksAttempts.xhtml?type=date">по дате</a>
+                                    &nbsp;&nbsp;<a href="controlWorksAttempts.xhtml?type=read">прочитано/не прочитано</a>
+                                  
+                                </h:panelGroup>
                             </div>
                         </div>
                     </div>

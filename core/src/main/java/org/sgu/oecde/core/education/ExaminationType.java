@@ -17,6 +17,7 @@ public enum ExaminationType {
      * не оценивается
      */
     empty;
+    
     private static final long serialVersionUID = 57L;
 
     /**
@@ -32,7 +33,7 @@ public enum ExaminationType {
                 return "зачёт";
             case empty:
             default:
-                return "";
+                return "по контрольной";
         }
     }
 
