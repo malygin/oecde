@@ -50,31 +50,37 @@
 
                     <h:column>
                         <f:facet name="header">
-                            <!--                            <h:graphicImage value='../resources/images/resultTestsTable.png'/>-->
-                            <h:outputText value="Тесты" />
+                            <h:outputText value="#{msgs.student_gradesTableHeadTests}" />
                         </f:facet>
-                        <span>#{p.test}</span> <span style="color:#808080;">(#{p.testsMaxPoints})</span>
+                        <h:panelGroup rendered="#{(p.test) ne null}">
+                            <span>#{p.test}</span> <span style="color:#b3b3b3;">#{msgs.student_From} #{p.testsMaxPoints}</span>
+                        </h:panelGroup>
+                        <h:panelGroup rendered="#{(p.test) eq null}">
+                            <span>#{p.test}</span> <span style="color:#b3b3b3;"> #{p.testsMaxPoints}</span>
+                        </h:panelGroup>
                     </h:column>
 
                     <h:column>
                         <f:facet name="header">
-                            <!--                            <h:graphicImage value='../resources/images/reexTable.png'/>-->
-                            <h:outputText value="Переэкз." />
+                            <h:outputText value="#{msgs.teacher_groupTestsExtraAttempt}" />
                         </f:facet>
                         <span>#{p.reTest}</span>
                     </h:column>
 
                     <h:column>
                         <f:facet name="header">
-                            <!--                            <h:graphicImage value='../resources/images/resultTestsTable.png'/>-->
                             <span class="Ipsilon_Web_GreenText">#{msgs.teacher_groupMainTests} <br/>#{msgs.teacher_groupTests}</span>
                         </f:facet>
-                        <span> #{p.concludingTest}</span> <span style="color:#808080;">(#{p.concludingTestsMaxPoints})</span>
+                        <h:panelGroup rendered="#{(p.concludingTest) ne null}">
+                            <span>#{p.concludingTest}</span> <span style="color:#b3b3b3;">#{msgs.student_From} #{p.concludingTestsMaxPoints}</span>
+                        </h:panelGroup>
+                        <h:panelGroup rendered="#{(p.concludingTest) eq null}">
+                            <span>#{p.concludingTest}</span> <span style="color:#b3b3b3;"> #{p.concludingTestsMaxPoints}</span>
+                        </h:panelGroup>
                     </h:column>
 
                     <h:column>
                         <f:facet name="header">
-                            <!--                            <h:graphicImage value='../resources/images/resultTestExam.png'/>-->
                             <span class="Ipsilon_Web_GreenText">#{msgs.teacher_groupTestsExtraAttempt}<br/>#{msgs.teacher_groupForMainTests}<br/>#{msgs.teacher_groupForTests}
                             </span>
                         </f:facet>
@@ -83,7 +89,6 @@
 
                     <h:column>
                         <f:facet name="header">
-                            <!--                            <h:graphicImage value='../resources/images/contrMarksTable.png'/>-->
                             <span class="Ipsilon_Web_GreenText">#{msgs.teacher_control_works},<br/> #{msgs.teacher_groupPoints}
                             </span>
                         </f:facet>
@@ -92,7 +97,6 @@
 
                     <h:column>
                         <f:facet name="header">
-                            <!--                            <h:graphicImage value='../resources/images/contrWorksTable.png'/>-->
                             <span class="Ipsilon_Web_GreenText">#{msgs.teacher_control_works},<br/> #{msgs.teacher_groupMarks}
                             </span>
                         </f:facet>
@@ -101,15 +105,13 @@
 
                     <h:column>
                         <f:facet name="header">
-                            <!--                            <h:graphicImage value='../resources/images/summTable.png'/>-->
-                            <h:outputText value="Сумма" />
+                            <h:outputText value="#{msgs.student_gradesTableHeadSumm}" />
                         </f:facet>
                         <span>#{p.points.sum}</span>
                     </h:column>
 
                     <h:column>
                         <f:facet name="header">
-                            <!--                            <h:graphicImage value='../resources/images/resultTable.png'/>-->
                             <h:outputText value="Результат" />
                         </f:facet>
                         <h:selectOneMenu id="grade" value="#{p.grade}">

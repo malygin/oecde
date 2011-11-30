@@ -2381,3 +2381,6 @@ a.mainStyle .lightGreyText a:hover{
     padding-left: 20px;
 }
 
+.mainStyle .resultRedText {
+    color: #fb6a00;
+}

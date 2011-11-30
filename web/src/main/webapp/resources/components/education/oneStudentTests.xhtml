@@ -68,13 +68,17 @@
                                 </sec:ifNotGranted>
                                 <sec:ifAnyGranted roles="ROLE_ADMIN">
                                     <h:outputLink value="showStudentTest.xhtml?id=#{cc.attrs.studentId}&amp;s=#{a.curriculum.semester}&amp;test=#{a.work.id}&amp;attempt=#{at.id}&amp;c=#{a.curriculum.id}"> #{at.rightAnswers} #{msgs.student_fromWord} #{a.work.quantity}</h:outputLink>
-                                    <br /><h:outputText value="#{at.id}" styleClass="Ipsilon_Web_GreenText smallChatTools"/>
                                 </sec:ifAnyGranted>
                             </h:column>
                         </h:dataTable>
                     </td>
                     <td class="centerAlignText">
-                        <h:outputText styleClass="resultRedText" value="#{a.pointsForWork}" />
+                        <h:panelGroup rendered="#{(a.pointsForWork) le 60}">
+                            <h:outputText styleClass="resultRedText" value="#{a.pointsForWork}" />
+                        </h:panelGroup>
+                        <h:panelGroup rendered="#{(a.pointsForWork) gt 60}">
+                            <span class="Ipsilon_Web_GreenText">#{a.pointsForWork}</span>
+                        </h:panelGroup>
                     </td>
                     <td class="centerAlignText">
                         <h:outputText converter="enumConverter" value="#{a.work.estimation}" />
