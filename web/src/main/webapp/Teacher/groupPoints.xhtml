@@ -40,6 +40,7 @@
                              studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
                              studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
                              studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
                              studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdWidthTeacher studentStandatrTableTdPaddingTeacher" cellpadding="0" cellspacing="0" id="table" value="#{groupPoints.points}" var="p" style="margin: 0;">
                     <h:column>
                         <f:facet name="header">
@@ -89,8 +90,7 @@
                     
                      <h:column>
                         <f:facet name="header">
-                            <span class="Ipsilon_Web_GreenText">#{msgs.teacher_groupTestsExtraAttempt}<br/>#{msgs.teacher_groupForMainTests}<br/>#{msgs.teacher_groupForTests}
-                            </span>
+                            <span class="Ipsilon_Web_GreenText">#{msgs.teacher_groupGruopExtraPoints}</span>
                         </f:facet>
                      <h:inputText maxlength="3" size="3" value="#{p.activityPoints}"/> 
 
@@ -124,9 +124,9 @@
                         <f:facet name="header">
                             <h:outputText value="Результат" />
                         </f:facet>
-                        <h:selectOneMenu id="grade" value="#{p.grade}">
+                        <p style="width: 100px; text-align: center;"><h:selectOneMenu id="grade" value="#{p.grade}">
                             <f:selectItems value="#{groupPoints['enum']}" />
-                        </h:selectOneMenu>
+                        </h:selectOneMenu></p>
                     </h:column>
                 </h:dataTable>
 
