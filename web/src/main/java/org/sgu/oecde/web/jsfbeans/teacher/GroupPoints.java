@@ -76,7 +76,7 @@ public class GroupPoints extends AbstractStudentsListBean{
                 a.setDate(DateConverter.currentDate());
                 a.setStudent(p.getPoints().getStudent());       
             }
-           if (p.getActivityPoints()>100 || p.getActivityPoints()<0) a.setPoints(0);
+           if (p.getActivityPoints()==null || p.getActivityPoints()>100 || p.getActivityPoints()<0) a.setPoints(0);
            else  a.setPoints(p.getActivityPoints()); 
             try {
                actDao.update(a);
