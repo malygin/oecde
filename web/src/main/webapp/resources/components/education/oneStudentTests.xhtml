@@ -67,7 +67,8 @@
                                     <h:outputLink value="showStudentTest.xhtml?id=#{cc.attrs.studentId}&amp;s=#{groupTestResults.semester}&amp;test=#{a.work.id}&amp;attempt=#{at.id}&amp;c=#{groupTestResults.curriculumId}"> #{at.rightAnswers} #{msgs.student_fromWord} #{a.work.quantity}</h:outputLink>
                                 </sec:ifNotGranted>
                                 <sec:ifAnyGranted roles="ROLE_ADMIN">
-                                    <h:outputLink value="showStudentTest.xhtml?id=#{cc.attrs.studentId}&amp;s=#{a.curriculum.semester}&amp;test=#{a.work.id}&amp;attempt=#{at.id}&amp;c=#{a.curriculum.id}"> #{at.rightAnswers} #{msgs.student_fromWord} #{a.work.quantity}</h:outputLink>
+                                    <!--<h:outputLink value="showStudentTest.xhtml?id=#{cc.attrs.studentId}&amp;s=#{a.curriculum.semester}&amp;test=#{a.work.id}&amp;attempt=#{at.id}&amp;c=#{a.curriculum.id}"> #{at.rightAnswers} #{msgs.student_fromWord} #{a.work.quantity}</h:outputLink>-->
+                                    <span> #{at.rightAnswers} #{msgs.student_fromWord} #{a.work.quantity}</span>
                                 </sec:ifAnyGranted>
                             </h:column>
                         </h:dataTable>
