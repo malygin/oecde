@@ -57,7 +57,14 @@
                         </tr>
                         <tr>
                             <td>#{msgs.student_gradesTableHeadTests}</td>
-                            <td> #{gradesBean.currentsFacade.test} <span style="color:#808080;">(#{gradesBean.currentsFacade.testsMaxPoints})</span></td>
+                            <td> 
+                                <h:panelGroup rendered="#{(gradesBean.currentsFacade.test) ne null}">
+                                    <span>#{gradesBean.currentsFacade.test}</span> <span class="lightGreyTestText">#{msgs.student_From} #{gradesBean.currentsFacade.testsMaxPoints}</span>
+                                </h:panelGroup>
+                                <h:panelGroup rendered="#{(gradesBean.currentsFacade.test) eq null}">
+                                    <span class="lightGreyTestText"> #{gradesBean.currentsFacade.testsMaxPoints}</span>
+                                </h:panelGroup>
+                            </td>
                         </tr>
                         <tr>
                             <td>#{msgs.student_gradesTableHeadResit}</td>
@@ -65,7 +72,14 @@
                         </tr>
                         <tr>
                             <td>#{msgs.student_gradesTableHeadFinTests}</td>
-                            <td>#{gradesBean.currentsFacade.concludingTest} <span style="color:#808080;">(#{gradesBean.currentsFacade.concludingTestsMaxPoints})</span></td>
+                            <td>
+                                <h:panelGroup rendered="#{(gradesBean.currentsFacade.concludingTest) ne null}">
+                                    <span>#{gradesBean.currentsFacade.concludingTest}</span> <span class="lightGreyTestText">#{msgs.student_From} #{gradesBean.currentsFacade.concludingTestsMaxPoints}</span>
+                                </h:panelGroup>
+                                <h:panelGroup rendered="#{(gradesBean.currentsFacade.concludingTest) eq null}">
+                                    <span class="lightGreyTestText"> #{gradesBean.currentsFacade.concludingTestsMaxPoints}</span>
+                                </h:panelGroup>
+                            </td>
                         </tr>
                         <tr>
                             <td>#{msgs.student_gradesTableHeadResit}</td>
