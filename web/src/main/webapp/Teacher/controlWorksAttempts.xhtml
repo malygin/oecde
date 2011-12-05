@@ -12,10 +12,7 @@
          <f:viewParam name="type" value="#{controlWorksAttemptsBean.filterType}"/>
         </f:metadata>
     <ui:define name="content">
-        <div class="StudentMainPageTitlesBorders"  style="margin-left: 2%; width: 71%; float: left;">
-            <edu:controlWorkForTeacher simple="false" numbers="0"/>
-        </div>
-        <div class="StudentMainPageTitlesBorders" style="width: 23%; margin-left: 75%">
+        <div class="StudentMainPageTitlesBorders">
             <div class="interfaceContentForMyMarks">
                 <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
                     #{msgs.student_marksHelp}
@@ -26,5 +23,8 @@
             </div>
         </div>
 
+        <div class="StudentMainPageTitlesBorders">
+            <edu:controlWorkForTeacher simple="false" numbers="0"/>
+        </div>
     </ui:define>
 </ui:composition>
