@@ -927,6 +927,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .centerAlignText{
     text-align: center !important;
 }
+.mainStyle .lightGreyTestText{color:#b3b3b3}
 .mainStyle .controlWorksDisciplineNameLink a{font-size: 9pt !important;}
 
 .indentionInNavigation{
@@ -1662,48 +1663,6 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .PaddingUserProfile{
     padding: 10px;
 }
-/*.save{
-    background: url("../resources/images/buttonBlue.jpg") repeat-x scroll center transparent;
-    border: 1px solid #6CC2D9;
-    color: #016281;
-    font-size: 10pt;
-    height: 17px;
-    margin-right: 21px;
-    padding-left: 9px;
-    padding-right: 9px;
-    padding-top: 0;
-    vertical-align: top;
-    cursor: pointer;
-    width: 100px !important;
-}
-.saveAdmin{
-    background:url("../resources/images/buttonRed.gif") repeat-x scroll center transparent;;
-    border: 1px solid #6CC2D9;
-    color: #016281;
-    font-size: 10pt;
-    height: 17px;
-    margin-right: 21px;
-    padding-left: 9px;
-    padding-right: 9px;
-    padding-top: 0;
-    vertical-align: top;
-    cursor: pointer;
-    width: 100px !important;
-}
-.save:hover,
-.save:active{
-    background: url("../resources/images/buttonBlue2.jpg") repeat-x bottom;
-    font-size: 10pt;
-    color: #016281;
-    border: 1px solid #6cc2d9;
-    outline: none;
-}*/
-/**
-используется на данный момент в userListItem.xhtml в components/util/, student.xtml в  Student/
-*/
-
-
-
 
 .mainStyle .passed,
 .mainStyle .failed,
@@ -2331,12 +2290,16 @@ a.mainStyle .lightGreyText a:hover{
     border-bottom: 1px solid #ABB3BC;
 }
 /*контрольные работы*/
+.mainStyle .controlWorkTable{margin: 1%;}
 .mainStyle .controlWorkTable tr td{
+    height: 33px;
     padding: 3px 4px;
     vertical-align: middle;
+    border-bottom: 1px solid #d4d4d4;
 }
 .mainStyle .controlWorkTable tr td:nth-child(4),
-.mainStyle .controlWorkTable tr td:nth-child(5){
+.mainStyle .controlWorkTable tr td:nth-child(5),
+.mainStyle .controlWorkTable tr td:nth-child(6){
     text-align: center;
 }
 .mainStyle .disciplineName a{
