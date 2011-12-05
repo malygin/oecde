@@ -39,8 +39,7 @@
                     </div>
                 </div>
             </div>
-            <p class="linkToStudentsProfile disciplineName"><h:outputText styleClass="mainStudentPageTitles skyBlueText" style="font-weight: normal;font-size: 11pt;" value="#{msgs.student_Dicipline}"/></p>
-            <table class="controlWorkTable" style="margin-top: 0px;" width="100%" cellpadding="0" cellspacing="0">
+            <table class="controlWorkTable" style="margin-top: 0px;" width="98%" cellpadding="0" cellspacing="0">
 
                 <ui:repeat value="#{controlWorksAttemptsBean.attempts}" var="a">
                     <tr>
@@ -52,12 +51,16 @@
 
                         </td>
                         <td><span class="linkToStudentsProfile"><h:outputLink value="student.xhtml?id=#{a.work.student.id}&amp;s=#{controlWorksAttemptsBean.semester}"><h:outputText value="#{a.work.student.initials}"/></h:outputLink></span></td>
-                        <td class="linkToTeachersProfile"> <h:outputLink value="groupControlWorks.xhtml?g=#{a.work.student.group.id}&amp;c=#{a.work.curriculum.id}&amp;s=#{controlWorksAttemptsBean.semester}"><h:outputText value="#{a.work.student.group.name} гр."/></h:outputLink>
+                        <td class="linkToTeachersProfile"> <h:outputLink value="groupControlWorks.xhtml?g=#{a.work.student.group.id}&amp;c=#{a.work.curriculum.id}&amp;s=#{controlWorksAttemptsBean.semester}"><h:outputText value="#{a.work.student.group.name}"/></h:outputLink>
                         </td>
                         <td>
-                            <est:readCwAttempt attempt="#{a}"/>
+                            <est:readCwAttempt attempt="#{a}" page="contwork" />
                         </td>
-                        <td class="Ipsilon_Web_GreenText"> <h:outputText converter="enumConverter" value="#{a.work.progress}"/> <h:outputText value="#{a.work.points}"/> #{msgs.student_gradesMarks}</td>
+                        <td class="Ipsilon_Web_GreenText"> <h:outputText converter="enumConverter" value="#{a.work.progress}"/></td>
+                        <td>
+                            <h:outputText value="#{a.work.points}" styleClass="Ipsilon_Web_GreenText"/>&nbsp;
+                            <h:panelGroup  rendered="#{a.work.points ne null}" >#{msgs.student_gradesMarks}</h:panelGroup>
+                        </td>
                     </tr>
 
                 </ui:repeat>
