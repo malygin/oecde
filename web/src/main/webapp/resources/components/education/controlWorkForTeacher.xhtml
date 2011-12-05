@@ -58,8 +58,10 @@
                         </td>
                         <td class="Ipsilon_Web_GreenText"> <h:outputText converter="enumConverter" value="#{a.work.progress}"/></td>
                         <td>
-                            <h:outputText value="#{a.work.points}" styleClass="Ipsilon_Web_GreenText"/>&nbsp;
-                            <h:panelGroup  rendered="#{a.work.points ne null}" >#{msgs.student_gradesMarks}</h:panelGroup>
+                            <h:panelGroup  rendered="#{(a.work.points ne null) and (a.work.points ne 0)}" >
+                                <h:outputText value="#{a.work.points}" styleClass="Ipsilon_Web_GreenText"/>&nbsp;
+                                #{msgs.student_gradesMarks}
+                            </h:panelGroup>
                         </td>
                     </tr>
 
