@@ -9,6 +9,7 @@
     <!-- INTERFACE -->
     <composite:interface>
         <composite:attribute name="attempt" required="true" shortDescription="попытка кр" type="org.sgu.oecde.controlworks.ControlWorkAttempt"/>
+        <composite:attribute name="page" default="" type="java.lang.String" shortDescription="страница вызова композита" />
     </composite:interface>
 
     <!-- IMPLEMENTATION -->
@@ -20,12 +21,14 @@
                 <f:ajax  event="mousedown" listener="#{groupControlWorksForTeacher.logWorkDownload}"/>
                 <f:attribute name="attempt" value="#{cc.attrs.attempt}"/>
             </sec:ifNotGranted>
-            <img alt="" src="../resources/images/save_control_work.png" />
+            <h:panelGroup  rendered="#{cc.attrs.page ne 'contwork'}" >
+                <img alt="" src="../resources/images/save_control_work.png" />
+            </h:panelGroup>
         </h:outputLink>
         </h:panelGroup>
         <h:panelGroup  rendered="#{cc.attrs.attempt.filePath eq 'empty'}" >
             <h:outputText converter="dateConverter" value="#{cc.attrs.attempt.attemptDate}"/>
             <img alt="" src="../resources/images/cont_work_by_hands.png" style="margin-bottom: -2px;"/>
-        </h:panelGroup>    
+        </h:panelGroup> 
     </composite:implementation>
 </html>
