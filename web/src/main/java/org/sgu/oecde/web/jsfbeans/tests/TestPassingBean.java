@@ -238,7 +238,7 @@ public class TestPassingBean implements Serializable {
                    Answer answer=  currentQustionView.getQuestion().getAnswers().iterator().next();
                    ga.setRightAnswer(answer);
                    ga.setGivenAnswer(selectedAnswerText);
-                  if(answer.getRightAnswer().toLowerCase().equals(selectedAnswerText.toLowerCase())){
+                  if(answer.getRightAnswer().toLowerCase().trim().equals(selectedAnswerText.toLowerCase().trim())){
                       rightQuestion=true;
                       countRight++;
                     //  points+=10;

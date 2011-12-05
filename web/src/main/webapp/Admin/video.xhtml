@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/adminTemplate.xhtml"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:mess="http://java.sun.com/jsf/composite/components/messages">
+    <ui:define name="online">
+        #{userViewBean.setType('ADMIN')}
+        <h:outputText rendered="#{userViewBean.user.online}" value="On-line"/>
+    </ui:define>
+    <ui:define name="content">
+       <object type="application/x-shockwave-flash" data="../resources/player/player_flv_multi.swf" width="150" height="300">
+	<param name="movie" value="player_flv_multi.swf" />
+	<param name="allowfullscreen" value="true" />
+	<param name="FlashVars" value="flv=KyodaiNoGilga.flv&amp;title=KyodaiNoGilga|garrison|KyodaiNoGilga|garrison|KyodaiNoGilga|garrison|KyodaiNoGilga|garrison&amp;width=320&amp;height=240&amp;showtime=1&amp;srt=1&amp;skin=player_flv_skin001.jpg&amp;margin=10&amp;startimage=rorobong.jpg&amp;playercolor=ffffff&amp;buttoncolor=333333&amp;buttonovercolor=999999&amp;slidercolor1=333333&amp;slidercolor2=0&amp;sliderovercolor=999999&amp;loadingcolor=0&amp;scrollbarcolor=333333&amp;scrollbarovercolor=0&amp;currentflvcolor=999900&amp;showfullscreen=1" />
+</object>
+    </ui:define>
+</ui:composition>

@@ -80,7 +80,6 @@ public final class TestFilter implements IResultFilter{
         }else if (att.getType().equals(TestAttemptType.regular)){
             points.add(att.getPoints());
             previousAttempt = att;
-            System.out.println("points "+att.getType() + points);
         }
         test = att.<TestEntity>getWork();
     }
@@ -92,7 +91,7 @@ public final class TestFilter implements IResultFilter{
      * @see #fillMap(org.sgu.oecde.tests.TestAttempt, java.util.List, boolean, org.sgu.oecde.core.education.estimation.Points)
      */
     public void setPoints(Points point){
-        System.out.println("call!!!!!!!!!!!! " +point);
+  
         if(point == null)
             return;
         if(!CollectionUtils.isEmpty(points)&&CollectionUtils.isEmpty(rePoints)){

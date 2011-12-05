@@ -60,11 +60,7 @@ public class GradesService implements Serializable{
         filters.add(testFilter);
         filters.add(activityFilter);
         List<AbstractResult> l = resultDao.getByStudentsAndCurriculums(curriculums, students, null);
-//       for (AbstractResult r: l){
-//           if (r instanceof TestAttempt)
-//           System.out.println(r.getCurriculum().getUmk().getName()+" "+r.getDate()+" "+((TestAttempt)r));
-//       }
-        System.out.println("");
+
         return preFilter.forEachResult(l, true,filters,students,curriculums);
     }
 

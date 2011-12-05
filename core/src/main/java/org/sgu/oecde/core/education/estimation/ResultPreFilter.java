@@ -47,17 +47,14 @@ public class ResultPreFilter implements Serializable{
         Curriculum cur = null;
         AbstractStudent st = null;
         Collections.sort(results);
-          for (AbstractResult r: results){
-           //if (r instanceof TestAttempt)
-           System.out.println(r.getCurriculum().getUmk().getName()+" "+r.getDate()+" "+(r));
-       }
+        
         Iterator<? extends AbstractResult>iterator = results.iterator();
         boolean breakPoint = false;
         while(iterator.hasNext()){
             AbstractResult result = iterator.next();
 
             breakPoint = ((sumEachIteration&&!result.getCurriculum().equals(cur))||!result.getStudent().equals(st));
-            System.out.println(""+breakPoint);
+ 
             
             // убрал     if(breakPoint||!iterator.hasNext()){
             if(breakPoint){

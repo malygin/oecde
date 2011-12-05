@@ -33,7 +33,7 @@
     <context-param>
         <param-name>scheduleUrl</param-name>
 <!--        <param-value>http://oec-tst.main.sgu.ru:9292/sashedule/</param-value>-->
-        <param-value>http://oec-tst.main.sgu.ru:9292/sashedule/</param-value>
+        <param-value>http://oecdo.sgu.ru/sashedule/</param-value>
     </context-param>
     
     <listener>
