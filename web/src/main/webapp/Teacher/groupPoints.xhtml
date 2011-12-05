@@ -54,10 +54,10 @@
                             <h:outputText value="#{msgs.student_gradesTableHeadTests}" />
                         </f:facet>
                         <h:panelGroup rendered="#{(p.test) ne null}">
-                            <span>#{p.test}</span> <span style="color:#b3b3b3;">#{msgs.student_From} #{p.testsMaxPoints}</span>
+                            <span>#{p.test}</span> <span class="lightGreyTestText">#{msgs.student_From} #{p.testsMaxPoints}</span>
                         </h:panelGroup>
                         <h:panelGroup rendered="#{(p.test) eq null}">
-                            <span>#{p.test}</span> <span style="color:#b3b3b3;"> #{p.testsMaxPoints}</span>
+                            <span class="lightGreyTestText"> #{p.testsMaxPoints}</span>
                         </h:panelGroup>
                     </h:column>
 
@@ -73,10 +73,10 @@
                             <span class="Ipsilon_Web_GreenText">#{msgs.teacher_groupMainTests} <br/>#{msgs.teacher_groupTests}</span>
                         </f:facet>
                         <h:panelGroup rendered="#{(p.concludingTest) ne null}">
-                            <span>#{p.concludingTest}</span> <span style="color:#b3b3b3;">#{msgs.student_From} #{p.concludingTestsMaxPoints}</span>
+                            <span>#{p.concludingTest}</span> <span class="lightGreyTestText">#{msgs.student_From} #{p.concludingTestsMaxPoints}</span>
                         </h:panelGroup>
                         <h:panelGroup rendered="#{(p.concludingTest) eq null}">
-                            <span>#{p.concludingTest}</span> <span style="color:#b3b3b3;"> #{p.concludingTestsMaxPoints}</span>
+                            <span class="lightGreyTestText"> #{p.concludingTestsMaxPoints}</span>
                         </h:panelGroup>
                     </h:column>
 
