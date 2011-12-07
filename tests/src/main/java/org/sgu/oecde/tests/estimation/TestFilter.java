@@ -82,6 +82,7 @@ public final class TestFilter implements IResultFilter{
             previousAttempt = att;
         }
         test = att.<TestEntity>getWork();
+      //  System.out.println(""+points);
     }
 
     /**
@@ -91,7 +92,8 @@ public final class TestFilter implements IResultFilter{
      * @see #fillMap(org.sgu.oecde.tests.TestAttempt, java.util.List, boolean, org.sgu.oecde.core.education.estimation.Points)
      */
     public void setPoints(Points point){
-  
+      
+        
         if(point == null)
             return;
         if(!CollectionUtils.isEmpty(points)&&CollectionUtils.isEmpty(rePoints)){
@@ -120,6 +122,7 @@ public final class TestFilter implements IResultFilter{
         int p = pointsCounter.count(attempt.<TestEntity>getWork().getEstimation(),pointsList);
         if(doSum)
             points.addSum(p);
+      //  System.out.println("sum "+ points.getSum());
         points.addIntegerWorkPoints(name, p);
     }
 }

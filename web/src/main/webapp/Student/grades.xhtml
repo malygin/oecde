@@ -39,7 +39,7 @@
                                 </span>
                             </h:column>
                             <h:column>
-                                <span><h:outputText converter="enumConverter" value="#{p.grade}"/></span>
+                                #{p.points.sum} <span><h:outputText converter="enumConverter" value="#{p.grade}"/></span>
                             </h:column>
                         </h:dataTable>
                 </td>
@@ -86,7 +86,7 @@
                             <td>#{gradesBean.currentsFacade.concludingReTest}</td>
                         </tr>
                         <tr>
-                            <td>#{msgs.student_gradesSamWorks}</td>
+                            <td>#{msgs.student_gradesTableHeadCWPoints}</td>
                             <td>#{gradesBean.currentsFacade.controlWorkPoints}</td>
                         </tr>
                         <tr>
@@ -94,9 +94,14 @@
                             <td><h:outputText converter="enumConverter" value="#{gradesBean.currentsFacade.controlWorkValue}"/></td>
                         </tr>
                         <tr>
+                            <td>Дополнительные баллы</td>
+                            <td>#{gradesBean.currentsFacade.activityPoints}</td>
+                        </tr>
+                        <tr>
                             <td>#{msgs.student_gradesTableHeadSumm}</td>
                             <td>#{gradesBean.currentsFacade.points.sum}</td>
                         </tr>
+                      
                         <tr>
                             <td>#{msgs.student_gradesTableHeadFinal}</td>
                             <td><h:outputText converter="enumConverter" value="#{gradesBean.currentsFacade.grade}"/></td>

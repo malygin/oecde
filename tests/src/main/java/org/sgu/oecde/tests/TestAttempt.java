@@ -124,9 +124,10 @@ public class TestAttempt extends AbstractSelfDependentWorkResult{
 
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer(super.toString());
-        sb.append("тип").append(this.type);
-        sb.append("набрано баллов: ").append(points).append(";\n");
+        StringBuffer sb = new StringBuffer();
+        sb.append("work").append(this.getWork().getId());
+        sb.append("student").append(this.getStudent().getFio());
+        sb.append("date").append(this.getDate()).append(";\n");
         return sb.toString();
     }
-}
+       }

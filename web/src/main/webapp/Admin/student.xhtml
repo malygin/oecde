@@ -124,6 +124,13 @@
                 </f:facet>
                 <span><h:outputText converter="enumConverter" value="#{p.controlWorkValue}"/></span>
             </h:column>
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Дополн. баллы" />
+                </f:facet>
+                 <span>#{p.activityPoints} </span>
+            </h:column>
 
             <h:column>
                 <f:facet name="header">

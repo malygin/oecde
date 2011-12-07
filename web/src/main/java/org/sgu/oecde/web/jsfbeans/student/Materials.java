@@ -60,6 +60,7 @@ public class Materials extends StudentCurriculumBean{
                         AdditionalCurriculum c = it.next();
                         if(c.getCurriculum().equals(ps.getCurriculum())){
                             c.setTestPoints(p.getTest());
+                            c.setSum(p.getPoints().getSum());
                             c.setConcludingReTestPoints(p.getConcludingReTest());
                             c.setConcludingTestPoints(p.getConcludingTest());
                             c.setReTestPoints(p.getReTest());

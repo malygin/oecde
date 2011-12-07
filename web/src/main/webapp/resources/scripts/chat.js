@@ -9,6 +9,9 @@
               });
 
                  $('#button'+roomId).click(function(){
+                      console.log($('#message'+roomId).val().length);
+                      if ($('#message'+roomId).val().length>200) alert("слишком большое сообщение! Не более 200 символов.");
+                      else
                        $.post('../ChatList',
                               { message: $('#message'+roomId).val(), room: roomId},
                               function(data){
@@ -18,7 +21,13 @@
                        );
                   });
                   $('#message'+roomId).keypress(function(e) {
+                   
+             
+        
                         if(e.which == 13) {
+                            
+                        if ($('#message'+roomId).val().length>200) alert("слишком большое сообщение! Не более 200 символов.");
+                        else 
                            $.post('../ChatList',
                            { message: $('#message'+roomId).val(), room: roomId},
                                function(data){

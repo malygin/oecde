@@ -37,7 +37,10 @@ public class StudentRatingBean extends StudentCurriculumBean{
 
     @ManagedProperty(value="#{resultDao}")
     private IResultDao<AbstractResult>resultDao;
-
+    
+   @ManagedProperty(value="#{activityFilter}")
+    private IResultFilter activityFilter;
+    
     private List<Points>rating;
     private List<Points>leadersRating;
     private List<Points>otherRating;
@@ -94,9 +97,10 @@ public class StudentRatingBean extends StudentCurriculumBean{
     private List<Points> getStudentsRating(Collection<Student> students){
         setSemester(this.semesterGetter.getCurrentSemester());
         
-        List<IResultFilter>filters = new ArrayList(2);
+        List<IResultFilter>filters = new ArrayList(3);
         filters.add(controlWorkFilter);
-        filters.add(testFilter);
+        filters.add(testFilter);  
+        filters.add(activityFilter);
         List<AbstractResult> l = resultDao.getByStudentsAndCurriculums(getCurriculums(), students, null);
       //  System.out.println("l"+l);
         List<Points>rating = preFilter.forEachResult(l, false,filters,students,getCurriculums());
@@ -140,6 +144,14 @@ public class StudentRatingBean extends StudentCurriculumBean{
 
     public void setMaxpoints(int maxpoints) {
         this.maxpoints = maxpoints;
+    }
+
+    public IResultFilter getActivityFilter() {
+        return activityFilter;
+    }
+
+    public void setActivityFilter(IResultFilter activityFilter) {
+        this.activityFilter = activityFilter;
     }
     
     

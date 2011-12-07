@@ -42,6 +42,9 @@ abstract public class AbstractSelfDependentWorkResult extends AbstractResult{
            if(r.getWork()!=null&&getWork()!=null)
                workInt = r.getWork().getId().compareTo(getWork().getId());
            dateInt = r.getDate().compareTo(getDate());
+           //группируем попытки других типов сверху списка
+       }else{
+          if (o.getStudent().equals(this.getStudent())&&(o.getCurriculum().equals(this.getCurriculum())))return 1;
        }
        return superCompare==0?
            (workInt==0?

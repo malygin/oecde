@@ -2,6 +2,7 @@ package org.sgu.oecde.tests;
 
 import java.io.Serializable;
 import org.sgu.oecde.core.education.Curriculum;
+import org.sgu.oecde.core.education.estimation.Points;
 
 /**
  * расширенная версия учебных планов. Помимо ссылки на сами планы имеет баллы, набранные студентом по
@@ -39,6 +40,10 @@ public class AdditionalCurriculum implements Serializable,Comparable<AdditionalC
      * баллы по итоговым тестам переэкзаменовка
      */
     private int concludingReTestPoints;
+    /**
+     * сумма баллов всех
+     */
+    private int sum;
     private static final long serialVersionUID = 76L;
 
     public AdditionalCurriculum() {
@@ -158,6 +163,16 @@ public class AdditionalCurriculum implements Serializable,Comparable<AdditionalC
     public void setTestPoints(Integer testPoints) {
         this.testPoints = testPoints!=null?testPoints:0;
     }
+
+    public int getSum() {
+        return sum;
+    }
+
+    public void setSum(int sum) {
+        this.sum = sum;
+    }
+    
+    
 
     @Override
     public boolean equals(Object obj) {

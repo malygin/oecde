@@ -58,11 +58,12 @@ public class DateConverter implements Converter, Serializable {
     }
 
     public String getAsString(FacesContext facesContext, UIComponent component, Object object) {
-       if (object == null) {
+       if (object == null || object.equals("")) {
             return null;
         }else{         
            StringBuilder dateResult= new StringBuilder();
            String[] date=((String)object).split(" ");
+           
            if (date[0]!=null){
                String[] ymd=date[0].split("\\.");
 
