@@ -30,7 +30,10 @@
                 <tr>
                     <td>
                         <h:dataTable  value="#{gradesBean.points}" var="p"  cellpadding="0" cellspacing="0" styleClass="TableForGrades">
-                            <h:column>
+                           <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="" />
+                                </f:facet>
                                 <span class="greyLinks">
                                     <h:commandLink   value="#{p.points.curriculum.discipline.name}">
                                          <f:setPropertyActionListener target="#{gradesBean.currentsFacade}" value="#{p}" />
@@ -39,7 +42,16 @@
                                 </span>
                             </h:column>
                             <h:column>
-                                #{p.points.sum} <span><h:outputText converter="enumConverter" value="#{p.grade}"/></span>
+                                <f:facet name="header">
+                                    <span class="lightGreyTestText" >#{msgs.student_gradesTableHeadSummLit}</span>
+                                </f:facet>
+                                 <span>#{p.points.sum}</span>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <span class="lightGreyTestText">#{msgs.teacher_groupMarks}</span>
+                                </f:facet>
+                                <span><h:outputText converter="enumConverter" value="#{p.grade}"/></span>
                             </h:column>
                         </h:dataTable>
                 </td>

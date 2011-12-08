@@ -2203,9 +2203,10 @@ a.mainStyle .lightGreyText a:hover{
     display: block;
     border-right: 1px solid #838383;
 }
-.mainStyle .TableForGrades tr td:last-child{
-    text-align: right;
-    width: 10%;
+.mainStyle .TableForGrades tr td:last-child,
+.mainStyle .TableForGrades tr td:nth-child(2){
+    text-align: center;
+    width: 8% !important;
 }
 .mainStyle .MyGradesBigTable{
     padding: 10px; width: 100%; vertical-align: top; text-align: left;
