@@ -7,9 +7,10 @@
     xmlns:util="http://java.sun.com/jsf/composite/components/util"
     >
     <f:metadata>
-        <f:viewParam name="page" value="#{NavigationBean.page}"/>
-        <f:viewParam name="page" value="#{MessageBean.currentPage}"/>
-    </f:metadata>
+              <f:viewParam name="page" value="#{NavigationBean.page}"/>
+              <f:viewParam name="page" value="#{MessageBean.currentPage}"/>              
+              <f:viewParam name="type" value="#{MessageBean.typeInt}"/>
+         </f:metadata>
     <ui:define name="content">
 
         <div class="StudentMainPageTitlesBorders">
@@ -18,16 +19,20 @@
                 <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
                     #{msgs.message_interfaceTitleInListMessages}
                 </div>
-                <util:navigationList elementOnPage="#{MessageBean.messageOnPage}"
-                                     numElements="#{MessageBean.numOfMessages}"/>
-
+                <util:navigationList  elementOnPage="#{MessageBean.messageOnPage}"
+                                  numElements="#{MessageBean.numOfMessagesByType}" link="type=#{MessageBean.typeInt}"/>
+                 <h:form id ="renderMe"> 
+                    <h:selectOneMenu value="#{MessageBean.type}">
+                            <f:selectItems value="#{MessageBean.types}" />
+                            <f:ajax  event="change" listener="#{MessageBean.changeListByType}"/>
+                    </h:selectOneMenu> 
+                </h:form>    
                 <div class="interfaceContent">
-                    <mess:list list="#{MessageBean.messages}"/>
+                    <mess:list list="#{MessageBean.messagesByType}"/>
                 </div>
 
-                <util:navigationList elementOnPage="#{MessageBean.messageOnPage}"
-                                     numElements="#{MessageBean.numOfMessages}"/>
-
+               <util:navigationList  elementOnPage="#{MessageBean.messageOnPage}"
+                                  numElements="#{MessageBean.numOfMessagesByType}" link="type=#{MessageBean.typeInt}"/>
 
             </div>
         </div>

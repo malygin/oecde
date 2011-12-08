@@ -8,7 +8,8 @@
           >
          <f:metadata>
               <f:viewParam name="page" value="#{NavigationBean.page}"/>
-              <f:viewParam name="page" value="#{MessageBean.currentPage}"/>
+              <f:viewParam name="page" value="#{MessageBean.currentPage}"/>           
+              <f:viewParam name="type" value="#{MessageBean.typeInt}"/>
          </f:metadata>
 
         <ui:define name="contentHeader">
@@ -16,14 +17,19 @@
         </ui:define>
         
         <ui:define name="content">
-            <util:navigationList elementOnPage="#{MessageBean.messageOnPage}"
-                                 numElements="#{MessageBean.numOfMessages}"/>
-
+            <util:navigationList  elementOnPage="#{MessageBean.messageOnPage}"
+                                  numElements="#{MessageBean.numOfMessagesByType}" link="type=#{MessageBean.typeInt}"/>
+            <h:form id ="renderMe"> 
+                    <h:selectOneMenu value="#{MessageBean.type}">
+                            <f:selectItems value="#{MessageBean.types}" />
+                            <f:ajax  event="change" listener="#{MessageBean.changeListByType}"/>
+                    </h:selectOneMenu> 
+            </h:form>   
             <div class="interfaceContent">
-                <mess:list list="#{MessageBean.messages}"/>
+                <mess:list list="#{MessageBean.messagesByType}"/>
             </div>
             
-            <util:navigationList elementOnPage="#{MessageBean.messageOnPage}"
-                                 numElements="#{MessageBean.numOfMessages}"/>
+           <util:navigationList  elementOnPage="#{MessageBean.messageOnPage}"
+                                  numElements="#{MessageBean.numOfMessagesByType}" link="type=#{MessageBean.typeInt}"/>
          </ui:define>
     </ui:composition>

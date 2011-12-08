@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -71,17 +72,35 @@ public class MessageWriteBean  implements Serializable{
     private MessageImpl message;
     private String theme="";
     private String fullText;
+    
+    
+    //!edited//////////////////////////////////////////////
+    private MessageType type = MessageType.privateMessage;
+    
+     public Map getTypes() {
+        return type.toMapForWrite();
+    }
 
+    public void setTypes(Map values) {
+    }
+    
+    public MessageType getType() {
+        return type;
+    }
+
+    public void setType(MessageType type) {
+        this.type = type;
+    }
     public MessageWriteBean()  {
     
     }
 
-
+    
     public void save() throws IOException{
         Message messageSave=new Message();
         messageSave.setFullText(fullText);
         messageSave.setTheme(theme);
-        messageSave.setType(MessageType.privateMessage);
+       messageSave.setType(type); 
         if (! groups.isEmpty()){
             for(StudentGroup gr:groups){
                 for(Object u: gr.getPersons()){
@@ -111,7 +130,7 @@ public class MessageWriteBean  implements Serializable{
         Message messageSave=new Message();
         messageSave.setFullText(fullText);
         messageSave.setTheme(theme);
-        messageSave.setType(MessageType.askMessage);
+        messageSave.setType(MessageType.askMessage);//?
            messageSave.setRecipients(recipients);
         messageSave.setDateMessage(DateConverter.currentDate());
         messageSave.setAuthor(SecurityContextHandler.getUser());

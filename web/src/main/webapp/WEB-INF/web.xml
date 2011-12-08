@@ -46,14 +46,14 @@
     <listener>
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>
-    <servlet>
+<!--    <servlet>
         <servlet-name>jaxws-servlet</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSSpringServlet</servlet-class>
     </servlet>  
     <servlet-mapping>
         <servlet-name>jaxws-servlet</servlet-name>
         <url-pattern>/ConferenceWebService</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
 
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>

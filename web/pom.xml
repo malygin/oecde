@@ -17,7 +17,13 @@
         <id>cedarsoft-thirdparty</id>
         <url>http://maven.cedarsoft.com/content/repositories/thirdparty/</url>
       </repository>
+       <repository>
+        <id>central</id>
+        <url>http://repo1.maven.org/maven2/</url>
+      </repository>
     </repositories>
+    
+    
    
     <dependencies>
         <dependency>
@@ -161,6 +167,7 @@
             <artifactId>org.springframework.security.taglibs</artifactId>
             <version>3.0.0.RELEASE</version>
         </dependency>
+        
         <dependency>
            <groupId>com.sun.xml.ws</groupId>
            <artifactId>jaxws-rt</artifactId>
@@ -172,18 +179,15 @@
               </exclusion>
            </exclusions>
         </dependency>
+       
+      
+        
         <dependency>
-            <groupId>im4java</groupId>
+            <groupId>org.im4java</groupId>
             <artifactId>im4java</artifactId>
-            <version>1.1.0</version>
+            <version>1.2.0</version>
             <type>jar</type>
         </dependency>
-      	<dependency>
-		<groupId>org.jvnet.jax-ws-commons.spring</groupId>
-		<artifactId>jaxws-spring</artifactId>
-		<version>1.8</version>
-	</dependency>
- 
     </dependencies>
     <build>
         <plugins>
@@ -245,6 +249,6 @@
         <finalName>web</finalName>
     </build>
     <properties>
-        <netbeans.hint.deploy.server>Tomcat70</netbeans.hint.deploy.server>
+        <netbeans.hint.deploy.server>Tomcat</netbeans.hint.deploy.server>
     </properties>
 </project>

@@ -17,6 +17,14 @@
     <!-- IMPLEMENTATION -->
     <composite:implementation>
         <div style="padding-top: 10px;">
+            <!---->
+            <!--
+             <h:selectOneMenu value="#{MessageWriteBean.type}">
+                        <f:selectItems value="#{MessageWriteBean.types}" />
+                    </h:selectOneMenu>
+            -->
+             <!---->
+            #{cc.attrs.mess.message.type.toString()}
             <h:panelGroup layout="block" rendered="#{MessageReadBean.noAccess}" styleClass="actionResultFailed">
                 #{msgs.message_messAccessDenied}
             </h:panelGroup>

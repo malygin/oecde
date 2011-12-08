@@ -29,8 +29,12 @@
             <h:form  id="formSend"   enctype="multipart/form-data" >
 
 <!--                  <div style="float: left; margin-right: 20px; margin-top: 5px;">
-
-                </div>-->
+                
+                </div>--> 
+           <h:selectOneMenu value="#{MessageWriteBean.type}">
+                        <f:selectItems value="#{MessageWriteBean.types}" />
+                    </h:selectOneMenu>
+           
                 <div style="padding-top:10px;">
                 <h:dataTable id="recipients" value="#{MessageWriteBean.recipients}" var="recipient">
                     <h:column>

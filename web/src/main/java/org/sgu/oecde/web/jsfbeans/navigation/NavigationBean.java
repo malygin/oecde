@@ -54,6 +54,7 @@ public class NavigationBean implements Serializable{
     }
     //формирование списка страниц
     public List<String> getPages(String onPage, String  num) {
+      //  System.out.println(""+onPage+" "+num);
         this.elementOnPage=Integer.parseInt(onPage);
         this.numElements=Integer.parseInt(num);
         if ((pages==null)&&(numElements!=0)){

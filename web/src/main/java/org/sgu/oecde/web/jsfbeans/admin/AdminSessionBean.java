@@ -40,4 +40,5 @@ public class AdminSessionBean extends UserSessionBean implements Serializable{
     public void afterPropertiesSet(){
         Assert.notNull(admin);
     }
+    
 }

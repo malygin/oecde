@@ -21,6 +21,7 @@
                 <div style="text-align: justify;">
                     <h:outputText escape="false" id="page" value="#{tabEditBean.getPageByAlias(cc.attrs.alias).text}"/>
                 </div>
+               
                 <h:panelGroup rendered="#{cc.attrs.haveNoFiles eq 'yes'}">
                 <div style="text-align: justify;">
                     <h:dataTable id="files" value="#{tabEditBean.page.files}" var="f">

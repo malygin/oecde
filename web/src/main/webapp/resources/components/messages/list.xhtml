@@ -19,7 +19,7 @@
         <h:panelGroup rendered="#{empty cc.attrs.list}" styleClass="DisciplineText">
             <span class="MessNothing">#{msgs.message_messNone}</span>
         </h:panelGroup>
-
+        
         <h:dataTable value="#{cc.attrs.list}" var="message" style="width: 98%;">
             <h:column>
                 <h:form id="formList">
@@ -37,6 +37,7 @@
                                         <td>
                                             <span class="greyMess">
                                                 #{msgs.message_fromWhom}
+                                     <!---->           #{message.message.type.toString()}
                                             </span>
                                         </td>
                                         <td>

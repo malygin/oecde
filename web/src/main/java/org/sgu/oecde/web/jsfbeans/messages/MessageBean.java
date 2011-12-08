@@ -1,12 +1,17 @@
 package org.sgu.oecde.web.jsfbeans.messages;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.util.SecurityContextHandler;
+import org.sgu.oecde.messages.MessageType;
 import org.sgu.oecde.messages.service.MessageImpl;
 import org.sgu.oecde.messages.service.MessageService;
 
@@ -22,7 +27,10 @@ import org.sgu.oecde.messages.service.MessageService;
 public class MessageBean implements Serializable{    
 
     @ManagedProperty(value="#{messageService}")
-    private MessageService messageService;   
+    private MessageService messageService;  
+    
+//    @ManagedProperty (value="messageDao")
+//    private IMessageDao messageDao;
     
     private List<MessageImpl> messages;
     private List<MessageImpl> messagesArchive;
@@ -35,9 +43,48 @@ public class MessageBean implements Serializable{
     private String currentUserId;
 
     //Сообщений на странице
-    private int messageOnPage=20;
+    private int messageOnPage=10;
     private int currentPage=1;
 
+    //число сообщений
+   int numOfMessages = 0;
+
+     private MessageType type = MessageType.all;
+     private int typeInt=0;
+
+     public Map getTypes() {
+        return type.toMap();
+    }
+
+    public void setTypes(Map values) {
+    }
+    
+    public MessageType getType() {
+        return type;
+    }
+    // перенаправление на себя с сохранением параметра "тип"
+    public void changeListByType() throws IOException{
+        FacesContext.getCurrentInstance().getExternalContext().redirect("messages_list.xhtml?page=1&type="+type.toInt());
+    }
+    // 
+
+    public int getTypeInt() {
+        return typeInt;
+    }
+
+    public void setTypeInt(int typeInt) {
+        this.typeInt = typeInt;
+        this.type= MessageType.parse(typeInt);
+    }
+    
+    
+        
+     //      
+    public void setType(MessageType type) {
+        
+        this.type = type;
+    }
+    
     public MessageBean() {
         currentUser = SecurityContextHandler.getUser();
        
@@ -51,9 +98,18 @@ public class MessageBean implements Serializable{
  
 
    //-------- получение списков
+    //все
     public List<MessageImpl> getMessages() {
         if (messages==null)messages=messageService.getListInAll(currentUser,messageOnPage,currentPage);
         return  messages;
+    }
+    //По типу 
+   public List<MessageImpl> getMessagesByType() {
+      if (messages==null){
+          if(type==MessageType.all) messages=messageService.getListInAll(currentUser,messageOnPage,currentPage); //потому что не нулл
+          else messages=messageService.getListSortedInAll(currentUser, type, messageOnPage, currentPage);
+      }
+      return  messages;
     }
   
     public List<MessageImpl> getMessagesArchive() {
@@ -79,6 +135,14 @@ public class MessageBean implements Serializable{
 
     public int getNumOfMessagesOut() {
          return messageService.getCountMessageOut(currentUser);
+    }
+    //получение списов по типу см MessageType
+
+    public int getNumOfMessagesByType() {
+         if(numOfMessages==0){
+                 numOfMessages = messageService.getCountMessageByType(currentUser, type);
+         }
+        return numOfMessages;
     }
 
     //------------

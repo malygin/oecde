@@ -1,5 +1,6 @@
 
 package org.sgu.oecde.web.jsfbeans.messages;
+import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -32,7 +33,7 @@ public class MessageReadBean {
     AbstractUser userOut;
     private boolean type=true;
     private MessageImpl message;
-
+   
  
     public MessageReadBean() {
     }
