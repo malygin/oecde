@@ -1,13 +1,18 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Map;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import org.sgu.oecde.core.education.Speciality;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
+import org.sgu.oecde.web.jsfbeans.util.CryptoClassDES;
 
 /**
  *
@@ -46,5 +51,12 @@ public class StudentSessionBean extends AbstractStudentBean{
         summerCurriculums = null;
         winterCurriculums = null;
         super.setStudent(student);
+    }
+    
+     public String getEncryptedUserNPass() throws NoSuchAlgorithmException, NoSuchPaddingException,
+            InvalidKeyException, IllegalBlockSizeException, BadPaddingException{
+        String encryptMe = this.student.getUsername() +":"+ this.student.getPassword();
+        String returnMe = CryptoClassDES.encrypt(encryptMe);
+        return returnMe;
     }
 }

@@ -12,7 +12,7 @@
     <ui:define name="left">
         <div class="modulsTitles"><p class="sideBarTitle">#{msgs.admin_eduMenuTitle}</p></div>
         <ol class="leftSideMenuLinks">
-            <li><a target="blank" href="#{initParam['videoConfUrl']}">#{msgs.admin_communicationMenuVideoConfs}</a></li>
+            <li><a target="blank" href="#{initParam['videoConfUrl']}?id=#{superviserSessionBean.encryptedUserNPass}">#{msgs.admin_communicationMenuVideoConfs}</a></li>
         </ol>
         <div class="modulsTitles"><p class="sideBarTitle">#{msgs.admin_communicationMenuTitle}</p></div>
         <ol class="leftSideMenuLinks">

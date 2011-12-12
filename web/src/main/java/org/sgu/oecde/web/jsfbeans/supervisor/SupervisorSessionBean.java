@@ -1,9 +1,14 @@
 package org.sgu.oecde.web.jsfbeans.supervisor;
 
 import java.io.Serializable;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Collections;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
@@ -13,6 +18,7 @@ import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.education.dao.IGroupDao;
 import org.sgu.oecde.de.users.DeSupervisor;
 import org.sgu.oecde.de.users.Group;
+import org.sgu.oecde.web.jsfbeans.util.CryptoClassDES;
 import org.springframework.util.Assert;
 
 /**
@@ -76,5 +82,11 @@ public class SupervisorSessionBean implements Serializable{
     @PostConstruct
     public void afterPropertiesSet(){
         Assert.notNull(supervisor);
+    }
+      public String getEncryptedUserNPass() throws NoSuchAlgorithmException, NoSuchPaddingException,
+            InvalidKeyException, IllegalBlockSizeException, BadPaddingException{
+        String encryptMe = this.supervisor.getUsername() +":"+ this.supervisor.getPassword();
+        String returnMe = CryptoClassDES.encrypt(encryptMe);
+        return returnMe;
     }
 }

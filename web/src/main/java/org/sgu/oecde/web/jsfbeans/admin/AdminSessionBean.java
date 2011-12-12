@@ -1,13 +1,19 @@
 package org.sgu.oecde.web.jsfbeans.admin;
 
 import java.io.Serializable;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import javax.annotation.PostConstruct;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.Admin;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.web.jsfbeans.UserSessionBean;
+import org.sgu.oecde.web.jsfbeans.util.CryptoClassDES;
 import org.springframework.util.Assert;
 
 /**
@@ -41,4 +47,10 @@ public class AdminSessionBean extends UserSessionBean implements Serializable{
         Assert.notNull(admin);
     }
     
+    public String getEncryptedUserNPass() throws NoSuchAlgorithmException, NoSuchPaddingException,
+            InvalidKeyException, IllegalBlockSizeException, BadPaddingException{
+        String encryptMe = this.admin.getUsername() +":"+ this.admin.getPassword();
+        String returnMe = CryptoClassDES.encrypt(encryptMe);
+        return returnMe;
+    }
 }
