@@ -11,7 +11,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
-
+import org.sgu.oecde.messages.MessageType;
 /**
  * @author Andrey Malygin (mailto: anmalygin@gmail.com)
  * created 08.06.2010
@@ -21,6 +21,9 @@ import org.springframework.util.CollectionUtils;
 public class MessageDao  extends BasicDao<Message> implements IMessageDao{
 
     private final String LIST_IN = "select m from Message m JOIN m.recipients  recipients  where recipients.recipient.id=:recipient_id and recipients.deleted=false ";
+    
+   //  private final String LIST_IN_SORTED = "select m from Message m JOIN m.recipients  recipients  where recipients.recipient.id=:recipient_id and recipients.deleted=false ";
+   
     private final String LIST_OUT="select m from Message m where m.author=:author_id order by m.dateMessage desc ";
     private final String LIST_DIALOG = "select m from Message m JOIN m.recipients  recipients  where" +
             " (recipients.recipient.id=:current_user_id  or recipients.recipient.id=:user_id) and" +
@@ -35,7 +38,16 @@ public class MessageDao  extends BasicDao<Message> implements IMessageDao{
         super(Message.class);
     }
 
-
+    @Override
+    public List<Message> getSortedInList(AbstractUser user, MessageType type, int messageOnPage, int numPage) throws DataAccessException {
+        List <Message> messages=new ArrayList();
+        messages =getSession().createQuery("select m from Message m join m.recipients r  where r.recipient.id=:recipient_id and r.deleted=false and m.type=:type order by m.dateMessage desc").
+                setLong("recipient_id", user.getId()).
+                setInteger("type", type.toInt()).
+                setFirstResult(messageOnPage * (numPage-1)).setMaxResults(messageOnPage).list();
+       return messages;
+    }
+    
     @Override
     public List<Message> getList(AbstractUser user, String type, int messageOnPage, int numPage) throws DataAccessException {
         List <Message> messages=new ArrayList();
@@ -99,7 +111,15 @@ public class MessageDao  extends BasicDao<Message> implements IMessageDao{
         }     
       return !CollectionUtils.isEmpty(list)?Long.valueOf(list.get(0)).intValue():0;
     }
-
+    
+    @Override
+    public int getCountByType(AbstractUser user, MessageType type) throws DataAccessException {
+        List<Long> list = null;
+             list = getSession().createQuery(LIST_COUNT+" and recipients.deleted=false and recipients.archived=false and m.type=:type").setLong("recipient_id", user.getId()).
+                     setLong("type", type.toInt()).list();
+        
+      return !CollectionUtils.isEmpty(list)?Long.valueOf(list.get(0)).intValue():0;
+    }
 
 
 }

@@ -7,6 +7,7 @@ import org.sgu.oecde.core.users.UserType;
 import org.sgu.oecde.messages.Message;
 import org.springframework.dao.DataAccessException;
 import org.springframework.transaction.annotation.Transactional;
+import org.sgu.oecde.messages.MessageType;
 
 /**
  * @author Andrey Malygin (mailto: anmalygin@gmail.com)
@@ -14,6 +15,18 @@ import org.springframework.transaction.annotation.Transactional;
  * 
  */
 public interface IMessageDao extends IBasicDao<Message>{
+    
+   /**
+    * Получение списка ВХОДЯЩИХ сообщений в зависимости от
+     * типа (личное, вопрос, самостоятельная работа)
+    * @param user - текущйи пользователь
+    * @param type -- строка, енам что за список мы возвращаем 
+    * @param messageOnPage - сообщений на странице
+    * @param numPage номер страницы
+    * @return список сообщений, доработанный для вывода
+    */
+    @SuppressWarnings("unchecked")
+    public List<Message> getSortedInList(AbstractUser user, MessageType type, int messageOnPage, int numPage) throws DataAccessException;
 
    /**
     * Получение списка сообщений в зависимости от типа
@@ -54,7 +67,14 @@ public interface IMessageDao extends IBasicDao<Message>{
     @SuppressWarnings("unchecked")
     public int getCount(AbstractUser user, String type) throws DataAccessException;
 
-   
+    /**
+     * Получение количества на разные типы сообщений 
+     * @param user - текущий пользователь
+     * @param type - тип личные, вопросы етк см MessageType
+     * @return количесство  сообщений
+     */
+    @SuppressWarnings("unchecked")
+    public int getCountByType(AbstractUser user, MessageType type) throws DataAccessException;
    /**
      * Помечаем, что текущий пользователь удалил, заархивировал или прочитал сообщение сообщение
      * @param messageId - id сообщения

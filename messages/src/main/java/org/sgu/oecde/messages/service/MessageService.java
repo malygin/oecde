@@ -8,6 +8,7 @@ import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.UserType;
 import org.sgu.oecde.messages.Message;
 import org.sgu.oecde.messages.MessageRecipient;
+import org.sgu.oecde.messages.MessageType;
 import org.sgu.oecde.messages.dao.IMessageDao;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
@@ -71,6 +72,12 @@ public class MessageService implements Serializable{
       return SetMessageListReaded(user, messages,"in");
     }
 
+     public List<MessageImpl> getListSortedInAll(AbstractUser user, MessageType type, int messageOnPage, int numPage) throws DataAccessException{
+      List <Message> messages=messageDao.getSortedInList(user,type, messageOnPage, numPage);
+      return SetMessageListReaded(user, messages,"in");
+    }
+    
+    
     /**
      * Получение списка исходящих сообщений
      * @param user - текущий пользователь
@@ -148,7 +155,17 @@ public class MessageService implements Serializable{
     public int getCountMessageOut(AbstractUser user) throws DataAccessException{
           return messageDao.getCount(user, "out");
     }
-
+     /**
+     * Получение количества исходящих сообщений
+     * @param user - текущий пользователь
+     * @param type MessageType
+     * @return количество исходящих сообщений
+     */
+    @SuppressWarnings("unchecked")
+    public int getCountMessageByType(AbstractUser user, MessageType type) throws DataAccessException{
+        if(type==MessageType.all) return getCountMessageIn(user);
+          return messageDao.getCountByType(user, type);
+    }
     /**
      * Получение количества заархивированных сообщений
      * @param user - текущий пользователь

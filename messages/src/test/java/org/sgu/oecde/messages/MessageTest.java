@@ -8,13 +8,10 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.sgu.oecde.messages.dao.IMessageDao;
 import org.sgu.oecde.core.BasicTest;
-import org.sgu.oecde.core.users.AbstractPerson;
 import org.sgu.oecde.core.users.Admin;
-import org.sgu.oecde.core.users.Department;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.users.UserType;
 import org.sgu.oecde.core.util.DateConverter;
-import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.de.users.Student;
 import org.sgu.oecde.messages.service.MessageImpl;
 import org.sgu.oecde.messages.service.MessageService;
@@ -89,6 +86,24 @@ public class MessageTest extends BasicTest{
             System.out.println(" "+UserType.toType(m.getAuthor()));
             System.out.println(" "+m.getFiles());
             System.out.println(" "+m.getRecipients());
+        }
+
+ }
+    @Ignore
+    @Test
+    public void getListByType(){
+          setDao("messageDao");
+          Message mess= new Message();
+         // mess.setId(10);
+          Admin a = new Admin();
+          a.setId(new Long(178783217));
+         List <Message> list = this.<IMessageDao>getDao().getSortedInList(a, MessageType.askMessage, 10, 1);
+        for(Message m:list){
+            System.out.println("__"+m.getFullText());
+//            System.out.println(" "+m.getAuthor().getUsername());
+//            System.out.println(" "+m.getType());
+//            System.out.println(" "+m.getFiles());
+//            System.out.println(" "+m.getRecipients());
         }
 
  }
@@ -171,7 +186,19 @@ public class MessageTest extends BasicTest{
           System.out.println("out  "+s.getCountMessageOut(st1));
 
  }
+    /*---*/
+    @Ignore
+    @Test
+     public void getCountByType(){
+          MessageService s = getBean("messageService");
+          Admin a = new Admin();
+          a.setId(new Long(178783217));
+          System.out.println("ask "+s.getCountMessageByType(a, MessageType.askMessage));
+          System.out.println("private  "+s.getCountMessageByType(a, MessageType.privateMessage));
+          System.out.println("control  "+s.getCountMessageByType(a, MessageType.homeWork));
+          System.out.println("all  "+s.getCountMessageByType(a, MessageType.all));
 
+    }
     @Ignore
     @Test
     public void getListArchive(){
@@ -185,7 +212,7 @@ public class MessageTest extends BasicTest{
           }
      }
 
-//   @Ignore
+    @Ignore
     @Test
     public void getListDialog(){
         MessageService s = getBean("messageService");
