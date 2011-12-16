@@ -12,9 +12,8 @@
     </ui:define>
     <ui:define name="content">
         <f:metadata>
-            <f:viewParam name="s" value="#{teacherViewBean.semester}"/>
             <f:viewParam name="id" value="#{teacherViewBean.id}"/>
-
+            <f:viewParam name="s" value="#{teacherViewBean.semester}"/>
         </f:metadata>
         <div style="float: right;">
                         <est:changeSemester semester="#{teacherViewBean.semester}" link="id=#{teacherViewBean.id}"/>

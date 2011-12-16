@@ -24,21 +24,10 @@ public class CryptoClassDES {
       private final static byte[] keyBytes = { 11, 32, 73, 24, 5, 66, 7, 18};
       private final static SecretKey key = new SecretKeySpec(keyBytes, "DES");
       private static Cipher cipher;
-//    
-//    CryptoClassOTP() throws NoSuchAlgorithmException, NoSuchPaddingException{
-//        cipher = Cipher.getInstance("DES");
-//    }
-//    
-//    public static String encrypt(String encryptMe) throws IllegalBlockSizeException, BadPaddingException, InvalidKeyException{
-//        cipher.init(Cipher.ENCRYPT_MODE, key);
-//        return new String(cipher.doFinal(encryptMe.getBytes()));
-//    }
-//    
-//    public static String decrypt(String decryptMe) throws InvalidKeyException, IllegalBlockSizeException, BadPaddingException{
-//        cipher.init(Cipher.DECRYPT_MODE, key);
-//        return new String(cipher.doFinal(decryptMe.getBytes()));
-//    }
-    
+ // кодирование полученной строки     
+//разбиение кодированной строки на символы получение байтов
+//      байты одного символа разделены ~
+//      между байтами разных символов :
     public static String encrypt(String encryptMe) throws NoSuchAlgorithmException,
             NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException{
         cipher = Cipher.getInstance("DES");
@@ -49,9 +38,9 @@ public class CryptoClassDES {
             String strpart="";
             strpart+=encrypted.charAt(a);
             byte[] part = strpart.getBytes();
-            //int j = 0;
             for(int i=0;i<part.length;i++){
                 result += part[i];
+                if(i!=part.length-1)result += "~";
                 
             }
             if(a!=encrypted.length()-1)result += ":";
@@ -61,16 +50,21 @@ public class CryptoClassDES {
     
     public static String decrypt(String decryptMe) throws InvalidKeyException, 
             NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException{
-        String result;
+        String result="";
+        //разбиваем полученную строку на строки в которых содержатся
+//        байты символа разделенные  ~
         String[] strpart= decryptMe.split(":");
-        byte[] bytepart = new byte[strpart.length];
+        
         for(int a=0;a<strpart.length;a++){
-           
-               bytepart[a] = Byte.parseByte(strpart[a]);
-           
-            
+//            разделяем каждую строку на строчки с байтами
+            String[] bytesstr= strpart[a].split("~");
+            byte[] bytepart = new byte[bytesstr.length];
+           for(int i=0;i<bytesstr.length;i++){
+                bytepart[i] = Byte.parseByte(strpart[i]);
+           }
+            result += new String(bytepart);
         }
-        result = new String(bytepart);
+        
         cipher = Cipher.getInstance("DES");
         cipher.init(Cipher.DECRYPT_MODE, key);
         String returnMe = new String(cipher.doFinal(result.getBytes()));
