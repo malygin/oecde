@@ -34,43 +34,27 @@ public class CryptoClassDES {
             BadPaddingException, UnsupportedEncodingException{
         cipher = Cipher.getInstance("DES");
         cipher.init(Cipher.ENCRYPT_MODE, key);
-        String encrypted = new String(cipher.doFinal(encryptMe.getBytes("UTF-8")));
-        String result="";
-        for(int a=0;a<encrypted.length();a++){
-            String strpart="";
-            strpart+=encrypted.charAt(a);
-            byte[] part = strpart.getBytes();
-            for(int i=0;i<part.length;i++){
-                result += part[i];
-                if(i!=part.length-1)result += "~";
-                
-            }
-            if(a!=encrypted.length()-1)result += ":";
-        }
-        return result;
+        byte[] encrypted = cipher.doFinal(encryptMe.getBytes("UTF-8"));
+        String codeForUrl=new String();
+        
+        for(int i=0;i<encrypted.length;i++){
+         codeForUrl+=encrypted[i]+":";
+        }       
+        
+       return codeForUrl;
     }
     
     public static String decrypt(String decryptMe) throws InvalidKeyException, 
             NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, 
             BadPaddingException, UnsupportedEncodingException{
-        String result="";
-        //разбиваем полученную строку на строки в которых содержатся
-//        байты символа разделенные  ~
-        String[] strpart= decryptMe.split(":");
-        
-        for(int a=0;a<strpart.length;a++){
-//            разделяем каждую строку на строчки с байтами
-            String[] bytesstr= strpart[a].split("~");
-            byte[] bytepart = new byte[bytesstr.length];
-           for(int i=0;i<bytesstr.length;i++){
-                bytepart[i] = Byte.parseByte(bytesstr[i]);
-           }
-            result += new String(bytepart,"UTF-8");
+       String url=decryptMe;
+        byte[] decodeFromUrl=new byte[url.split(":").length];
+        for(int i=0;i<url.split(":").length;i++){
+          decodeFromUrl[i]=(byte) Integer.parseInt(url.split(":")[i]);
         }
-        
         cipher = Cipher.getInstance("DES");
         cipher.init(Cipher.DECRYPT_MODE, key);
-        String returnMe = new String(cipher.doFinal(result.getBytes()));
-        return returnMe;
+        byte[] returnMe = cipher.doFinal(decodeFromUrl);
+        return new String(returnMe);
     }
 }

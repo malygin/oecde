@@ -34,8 +34,8 @@
                     <td>
                         <span class="linkTo#{cc.attrs.u.classType}sProfile">
                             <a href="#{cc.attrs.type}.xhtml?id=#{cc.attrs.u.id}">
-                                #{cc.attrs.u.fio}
-                            </a>
+                                #{cc.attrs.u.fio} 
+                            </a>  <h:panelGroup rendered="#{not s.enabled}"><b>Отчислена</b></h:panelGroup>
                         </span>
                     </td>
                 </tr>
