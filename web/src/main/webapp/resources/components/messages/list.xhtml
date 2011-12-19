@@ -37,13 +37,24 @@
                                         <td>
                                             <span class="greyMess">
                                                 #{msgs.message_fromWhom}
-                                     <!---->           #{message.message.type.toString()}
                                             </span>
                                         </td>
                                         <td>
                                             <div class="linkTo#{message.message.author.classType}sProfile"><a href="#{fn:toLowerCase(message.message.author.classType)}.xhtml?id=#{message.message.author.id}"><h:outputText value="#{message.fioAuthor}"/></a>
                                                
                                             </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="greyMess">
+                                                Тип:
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="greyMess boldMesTypeText">
+                                                #{message.message.type.toString()}
+                                            </span>
                                         </td>
                                     </tr>
                                     <tr>
