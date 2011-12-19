@@ -5,7 +5,8 @@
      xmlns:h="http://java.sun.com/jsf/html"
      template="../resources/adminTemplate.xhtml"
      xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
-     xmlns:util="http://java.sun.com/jsf/composite/components/util">
+     xmlns:util="http://java.sun.com/jsf/composite/components/util"
+     xmlns:edu="http://java.sun.com/jsf/composite/components/education">
 
     <ui:define name="online">
 .        <h:outputText rendered="#{teacherViewBean.user.online}" value="On-line"/>
@@ -15,21 +16,22 @@
             <f:viewParam name="id" value="#{teacherViewBean.id}"/>
             <f:viewParam name="s" value="#{teacherViewBean.semester}"/>
         </f:metadata>
-        <div style="float: right;">
+        
+        <div class="StudentMainPageTitlesBorders">
+            <div>
+            <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
+                    Информация о преподавателе
+                    <div style="float: right;">
                         <est:changeSemester semester="#{teacherViewBean.semester}" link="id=#{teacherViewBean.id}"/>
-        </div>
-        <div class="userFile">
-<!--            <div class="userPhoto">
-                <table cellpadding="0" cellspacing="0">
-                    <tr>
-                        <td class="userPhotoBorder">
-                            <h:graphicImage rendered="#{teacherViewBean.user.largePhoto ne null}" value="../resources/userFiles/avatars/#{teacherViewBean.user.largePhoto}"/>
-                        </td>
-                    </tr>
-                </table>
-            </div>-->
-        <util:showPhoto user="#{teacherViewBean.user}" styleClass="#{teacherViewBean.user.classType}" size="medium"/>
-            <div class="userData">
+                    </div>
+                    <div class="floatDestroyer"/>
+                </div>
+            </div>
+            <div class="floatDestroyer"></div>
+            
+        <div class="userFile groupInfo">
+        
+            <div class="userPhoto" style="width: 40%;">
                 <table cellspacing="8">
                     <tr>
                         <td><p>#{msgs.admin_mainContentUserInfoFirstName}</p></td><td><div>#{teacherViewBean.user.name}</div></td>
@@ -50,24 +52,49 @@
                         <td><p>#{msgs.admin_mainContentOfficePhoneNumber}</p></td><td><div>#{teacherViewBean.user.officePhoneNumber}</div></td>
                     </tr>
                      <tr>
-                         <td><p>#{msgs.admin_userLogin}</p></td><td><div>#{teacherViewBean.user.username}</div></td>
+                         <td><p>#{msgs.admin_userLogin2}</p></td><td><div>#{teacherViewBean.user.username}</div></td>
                     </tr>
                      <tr>
-                         <td><p>#{msgs.admin_userPassworld}</p></td><td><div>#{teacherViewBean.user.password}</div></td>
+                         <td><p>#{msgs.admin_userPassworld2}</p></td><td><div>#{teacherViewBean.user.password}</div></td>
                     </tr>
                 </table>
             </div>
-            <div class="floatDestroyer"></div>
-            <div style="width: 50%; margin-left: 17%;">
-                   <h:outputLink value="switch_user?j_username=#{teacherViewBean.user.username}">#{msgs.user_ComeIn}</h:outputLink>
-                 <span class="s1 controlWorksDisciplineNameLink"><a href="messages_write.xhtml?user=#{teacherViewBean.id}">#{msgs.student_studentListWriteMessage}</a></span> <span class="s2 controlWorksDisciplineNameLink"><a href="messages_dialog.xhtml?user=#{teacherViewBean.id}">#{msgs.student_studentLestShowDialog}</a></span>
+            
+            <div class="userData">
+                <table cellpadding="0" cellspacing="0" class="actionWithStudents">
+                    <tr>
+                        <td>
+                            <util:showPhoto user="#{teacherViewBean.user}" styleClass="#{teacherViewBean.user.classType}" size="medium"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="controlWorksDisciplineNameLink comeInAsStudentOrTeacher">
+                            <h:outputLink value="switch_user?j_username=#{teacherViewBean.user.username}">#{msgs.user_ComeIn}</h:outputLink>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="s1 controlWorksDisciplineNameLink">
+                                <a href="messages_write.xhtml?user=#{teacherViewBean.id}">#{msgs.student_studentListWriteMessage}</a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="s2 controlWorksDisciplineNameLink">
+                                <a href="messages_dialog.xhtml?user=#{teacherViewBean.id}">#{msgs.student_studentLestShowDialog}</a>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
             </div>
-            
-            <h1>#{teacherViewBean.studentsCount} students in #{teacherViewBean.groupsCount} groups:</h1><br/>
-            <ui:repeat value="#{teacherViewBean.teacherGroups}" var="t">
-                #{t.name} - #{t.speciality.name}<br/>
-            </ui:repeat>
-            
+        </div>
+        
+       <div class="floatDestroyer"></div>
+            <p class="orangeStatisText">#{msgs.teacher_statStatistic}</p>
+            <edu:statisticForTeacher/>
         </div>
     </ui:define>
 </ui:composition>

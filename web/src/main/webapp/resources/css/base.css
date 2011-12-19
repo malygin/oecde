@@ -1408,6 +1408,10 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .message_with_file{
     background: url('../resources/images/message_with_file_red.png') no-repeat right;
 }
+.mainStyle .chooseMesType{text-align: left; margin-left: 22px;}
+.mainStyle .chooseMesType span select{margin-left: 25px;}
+.mainStyle .boldMesTypeText{font-style: italic;}
+
 .mainStyle .answerMessPic{
     /*background: url('../resources/images/answer.gif') no-repeat;*/
     width: 65px;
@@ -1880,9 +1884,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .previewColor{
     color: #6F6F6F;
 }
-/*.mainStyle .previewPadBott{
-    margin-bottom: 15px;
-}*/
+
 .mainStyle .previewPadLeft{
     margin-left: 80px;
 }
@@ -1925,10 +1927,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     background: url('../resources/images/delete_news.png') no-repeat 0 0;
     padding-left: 19px;
 }
-/*.mainStyle .news_edit{
-    background: url('../resources/images/redact_news.png') no-repeat 0 0;
-    padding-left: 19px;
-}*/
+
 .mainStyle .messagesMainStPageNewMess{
     background: url('../resources/images/message_active.jpg') no-repeat;
     padding-left: 25px;
@@ -1948,12 +1947,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .StudentMainPageExit{
     margin-top: -10px;
 }
-/*списки юзеров*/
-/*.mainStyle .enterPic{
-    vertical-align: bottom !important;
-    background: url('../resources/images/enter.gif') no-repeat bottom;
-    padding-left: 35px;
-}*/
+
 .mainStyle .searchBorders{
     margin-bottom: 5px;
     margin-top: 5px;
@@ -1965,36 +1959,14 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .searchBlock{
     padding: 10px;
 }
-/*.mainStyle .searchBlock td{
-    padding-right: 10px;
-}*/
+
 .mainStyle .searchButtonPosition{
     width: 70px;
     margin-top: 0;
     margin-left: 10px;
     text-align: center !important;
 }
-/*стили для иконок в меню по бокам*/
-/*.mainStyle .iconInMenu2{
-    margin-right: 3px;
-    margin-bottom: -7px;
-    margin-top: 10px;
-}
-.mainStyle .iconInMenu{
-    margin-right: 3px;
-    float:left;
-    height: 24px;
-}*/
-/*.mainStyle .iconMenu li{
-    margin-top:10px;
-    padding-bottom:10px;
-}
-.mainStyle .iconMenu li a div{
-    height: 24px;
-    display: table-cell;
-    width: 159px;
-    vertical-align: middle;
-}*/
+
 ul.dropdown {
     list-style: none;
     margin-left: 15px;
@@ -2024,12 +1996,24 @@ ul.dropdown li ul li {
 .mainStyle .orangeText{
     color: #FBB35D;
 }
+/*статистика для преподавателей*/
 .mainStyle .tableForBadMarkAndStatistik tbody td:first-child{
     padding-left: 15%;
     width: 85%;
 }
 .mainStyle .tableForBadMarkAndStatistik thead tr{
     height: 30px;
+}
+.mainStyle .orangeStatisText{
+    color: #FBB35D;
+    font-size: 11pt;
+    font-weight: bolder;
+    text-align: left;
+    margin: 5px 20px;
+}
+.mainStyle .statisticBlock{
+    margin: 10px 20px;
+    text-align: left;
 }
 .mainStyle .darkBlueText{
     color: #0981bd;

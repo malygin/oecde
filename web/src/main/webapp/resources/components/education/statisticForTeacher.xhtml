@@ -5,6 +5,7 @@
       xmlns:composite="http://java.sun.com/jsf/composite"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       >
 
  <!-- INTERFACE -->
@@ -16,14 +17,8 @@
   <!-- IMPLEMENTATION -->
    <composite:implementation>
 
-         <div class="" style="margin-bottom: 0px;">
-    <div class="mainStudentPageTitles mainStudentPageTitlesOrange">
-        #{msgs.teacher_statStatistic}
-    </div>
-    <div>
-        <div>
-
-            <table style="margin: 10px;" class="notificationTableTextOrange2 BorderNone" cellpadding="0" cellspacing="0">
+<div class="statisticBlock">
+            <!--<table style="margin: 10px;" class="notificationTableTextOrange2 BorderNone" cellpadding="0" cellspacing="0">
                 <tr>
                     <td><p>#{msgs.teacher_statGroups}</p>
                     </td>
@@ -48,11 +43,15 @@
                     <td><p></p>
                 </td>
                 </tr>
-            </table>
-        </div>
-    </div>
+            </table>-->
+            
+            <p class="Ipsilon_Web_GreenText">Обучается #{teacherViewBean.studentsCount} студентов из #{teacherViewBean.groupsCount} групп:</p>
+            <div style="margin: 5px 10px">
+                <ui:repeat value="#{teacherViewBean.teacherGroups}" var="t">
+                    <span class="Ipsilon_Web_GreenText">#{t.name}</span> - #{t.speciality.name}<br/>
+                </ui:repeat>
+            </div>
 </div>
-         
-         
+
   </composite:implementation>
 </html>
