@@ -63,7 +63,7 @@ public class CryptoBean {
 //     FacesContext.getCurrentInstance().getExternalContext().redirect("CryptoServlet?id="+UTFtoISO(encryptedValue));
     }
      public String getDecrypt() throws InvalidKeyException, IllegalBlockSizeException,
-             BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException{
+             BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException, UnsupportedEncodingException{
         return CryptoClassDES.decrypt(encryptedValue);
     }
     

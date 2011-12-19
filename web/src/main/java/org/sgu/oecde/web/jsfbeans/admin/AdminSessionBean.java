@@ -1,6 +1,7 @@
 package org.sgu.oecde.web.jsfbeans.admin;
 
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import javax.annotation.PostConstruct;
@@ -48,7 +49,7 @@ public class AdminSessionBean extends UserSessionBean implements Serializable{
     }
     
     public String getEncryptedUserNPass() throws NoSuchAlgorithmException, NoSuchPaddingException,
-            InvalidKeyException, IllegalBlockSizeException, BadPaddingException{
+            InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException{
         String encryptMe = this.admin.getUsername() +":"+ this.admin.getPassword();
         String returnMe = CryptoClassDES.encrypt(encryptMe);
         return returnMe;

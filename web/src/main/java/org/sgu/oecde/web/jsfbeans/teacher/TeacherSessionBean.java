@@ -1,5 +1,6 @@
 package org.sgu.oecde.web.jsfbeans.teacher;
 
+import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
@@ -73,7 +74,7 @@ public class TeacherSessionBean extends AbstractTeacherBean{
         super.setTeacher(teacher);
     }
      public String getEncryptedUserNPass() throws NoSuchAlgorithmException, NoSuchPaddingException,
-            InvalidKeyException, IllegalBlockSizeException, BadPaddingException{
+            InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException{
         String encryptMe = this.teacher.getUsername() +":"+ this.teacher.getPassword();
         String returnMe = CryptoClassDES.encrypt(encryptMe);
         return returnMe;

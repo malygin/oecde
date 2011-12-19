@@ -1,6 +1,7 @@
 package org.sgu.oecde.web.jsfbeans.supervisor;
 
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Collections;
@@ -84,7 +85,7 @@ public class SupervisorSessionBean implements Serializable{
         Assert.notNull(supervisor);
     }
       public String getEncryptedUserNPass() throws NoSuchAlgorithmException, NoSuchPaddingException,
-            InvalidKeyException, IllegalBlockSizeException, BadPaddingException{
+            InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException{
         String encryptMe = this.supervisor.getUsername() +":"+ this.supervisor.getPassword();
         String returnMe = CryptoClassDES.encrypt(encryptMe);
         return returnMe;

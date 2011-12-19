@@ -4,6 +4,7 @@
  */
 package org.sgu.oecde.web.jsfbeans.util;
 
+import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.BadPaddingException;
@@ -29,10 +30,11 @@ public class CryptoClassDES {
 //      байты одного символа разделены ~
 //      между байтами разных символов :
     public static String encrypt(String encryptMe) throws NoSuchAlgorithmException,
-            NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException{
+            NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException,
+            BadPaddingException, UnsupportedEncodingException{
         cipher = Cipher.getInstance("DES");
         cipher.init(Cipher.ENCRYPT_MODE, key);
-        String encrypted = new String(cipher.doFinal(encryptMe.getBytes()));
+        String encrypted = new String(cipher.doFinal(encryptMe.getBytes("UTF-8")));
         String result="";
         for(int a=0;a<encrypted.length();a++){
             String strpart="";
@@ -49,7 +51,8 @@ public class CryptoClassDES {
     }
     
     public static String decrypt(String decryptMe) throws InvalidKeyException, 
-            NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException{
+            NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, 
+            BadPaddingException, UnsupportedEncodingException{
         String result="";
         //разбиваем полученную строку на строки в которых содержатся
 //        байты символа разделенные  ~
@@ -60,9 +63,9 @@ public class CryptoClassDES {
             String[] bytesstr= strpart[a].split("~");
             byte[] bytepart = new byte[bytesstr.length];
            for(int i=0;i<bytesstr.length;i++){
-                bytepart[i] = Byte.parseByte(strpart[i]);
+                bytepart[i] = Byte.parseByte(bytesstr[i]);
            }
-            result += new String(bytepart);
+            result += new String(bytepart,"UTF-8");
         }
         
         cipher = Cipher.getInstance("DES");
