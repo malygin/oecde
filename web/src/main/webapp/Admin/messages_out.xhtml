@@ -9,6 +9,7 @@
     <f:metadata>
         <f:viewParam name="page" value="#{NavigationBean.page}"/>
         <f:viewParam name="page" value="#{MessageBean.currentPage}"/>
+        <f:viewParam name="type" value="#{MessageBean.typeInt}"/>
     </f:metadata>
     <ui:define name="contentHeader">
         #{msgs.message_interfaceTitleOutListMessages}
@@ -17,6 +18,14 @@
             <util:navigationList elementOnPage="#{MessageBean.messageOnPage}"
                                  numElements="#{MessageBean.numOfMessagesOut}"/>
 
+        <h:form id ="renderMe" styleClass="chooseMesType"> 
+            <span>Показать:
+            <h:selectOneMenu value="#{MessageBean.type}">
+                    <f:selectItems value="#{MessageBean.types}" />
+                    <f:ajax  event="change" listener="#{MessageBean.changeListByType}"/>
+            </h:selectOneMenu> 
+            </span>
+        </h:form>
         <div class="interfaceContent">
             <mess:list_out list="#{MessageBean.messagesOut}"/>
         </div>

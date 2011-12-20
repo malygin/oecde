@@ -21,11 +21,13 @@
                 </div>
                 <util:navigationList  elementOnPage="#{MessageBean.messageOnPage}"
                                   numElements="#{MessageBean.numOfMessagesByType}" link="type=#{MessageBean.typeInt}"/>
-                 <h:form id ="renderMe"> 
+                <h:form id ="renderMe" styleClass="chooseMesType"> 
+                    <span>Показать:
                     <h:selectOneMenu value="#{MessageBean.type}">
                             <f:selectItems value="#{MessageBean.types}" />
                             <f:ajax  event="change" listener="#{MessageBean.changeListByType}"/>
                     </h:selectOneMenu> 
+                    </span>
                 </h:form>    
                 <div class="interfaceContent">
                     <mess:list list="#{MessageBean.messagesByType}"/>
