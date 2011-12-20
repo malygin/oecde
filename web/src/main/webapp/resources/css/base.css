@@ -2015,6 +2015,31 @@ ul.dropdown li ul li {
     margin: 10px 20px;
     text-align: left;
 }
+.tableForStatistic{
+    border: none;
+}
+.tableForStatistic tr td{
+    text-align: center;
+    border-right: 1px solid silver;
+    border-bottom: 1px solid silver;
+    padding: 3px;
+}
+.tableForStatistic tr td:nth-child(2),
+.tableForStatistic tr td:nth-child(3),
+.tableForStatistic tr td:nth-child(4),
+.tableForStatistic tr td:nth-child(5){
+    text-align: center;
+}
+.tableForStatistic tr td:last-child{
+    text-align: center;
+    border-right: none;
+}
+.tableForStatistic tr:last-child td{
+    /*border-top: 1px solid silver;*/
+    margin-top: 10px;
+}
+
+
 .mainStyle .darkBlueText{
     color: #0981bd;
 }
