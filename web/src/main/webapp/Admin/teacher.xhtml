@@ -88,13 +88,66 @@
                             </span>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                         <span class="controlWorksDisciplineNameLink studentEvent2">
+                             <h:outputLink value="" >#{msgs.student_eduMenuEvents}</h:outputLink>
+                         </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                             <span class="controlWorksDisciplineNameLink deleteStudent">
+                            <h:outputLink value="">#{msgs.admin_infoStudenDelFoto}</h:outputLink>
+                             </span>
+                        </td>
+                    </tr>
                 </table>
             </div>
         </div>
-        
-       <div class="floatDestroyer"></div>
-            <p class="orangeStatisText">#{msgs.teacher_statStatistic}</p>
-            <edu:statisticForTeacher/>
+       <div class="userFile"  style="padding-top: 0px;">
+            <table class="studentStandatrTable tableForStatistic" cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th rowspan="2">Группа - специальность
+                        </th>
+                        <th  rowspan="2">Студентов <br /> в группе
+                        </th>
+                        <th colspan="3">Оценки
+                        </th>
+                        <th  rowspan="2">Проверено к/р <br /> из общего числа
+                        </th>
+                     </tr>
+                     <tr>
+                        <th>зачтено</th>
+                        <th>не зачтено</th>
+                        <th style="border-right: 1px solid silver !important;">не явка</th>
+                     </tr>
+                </thead>
+                <ui:repeat value="#{teacherViewBean.teacherGroups}" var="t">
+                <tr>
+                    <td>
+                        <span class="Ipsilon_Web_GreenText">#{t.name}</span> - #{t.speciality.name}
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><span class="lightGreyTestText">#{msgs.student_From}</span></td>
+                </tr>
+                </ui:repeat>
+                <tr>
+                    <td><span class="Ipsilon_Web_GreenText">Всего:</span> #{teacherViewBean.groupsCount} групп</td>
+                    <td>#{teacherViewBean.studentsCount}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
         </div>
+       
+            <!--<edu:statisticForTeacher/>-->
+       </div>
     </ui:define>
 </ui:composition>
