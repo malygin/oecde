@@ -2034,9 +2034,12 @@ ul.dropdown li ul li {
     text-align: center;
     border-right: none;
 }
+.tableForStatistic tr:nth-last-child(2) td{
+    border-bottom: none;
+}
 .tableForStatistic tr:last-child td{
-    /*border-top: 1px solid silver;*/
-    margin-top: 10px;
+    border-top: 3px double silver;
+    border-collapse: collapse !important;
 }
 
 
