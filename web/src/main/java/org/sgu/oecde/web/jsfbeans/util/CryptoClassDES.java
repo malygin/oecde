@@ -42,8 +42,8 @@ public class CryptoClassDES {
         }       
         
        return codeForUrl;
-    }
-    
+           }
+        
     public static String decrypt(String decryptMe) throws InvalidKeyException, 
             NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, 
             BadPaddingException, UnsupportedEncodingException{

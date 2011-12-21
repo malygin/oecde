@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/studentTemplate.xhtml"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:mess="http://java.sun.com/jsf/composite/components/messages">
+
+     <f:metadata>
+          <f:viewParam name="id" value="#{videoBean.currentFileName}"/>
+      </f:metadata>
+    
+    <ui:define name="content">
+       <object type="application/x-shockwave-flash" data="../resources/player/player_flv_multi.swf" width="640" height="480">
+	<param name="movie" value="../resources/player/player_flv_multi.swf" />
+	<param name="allowfullscreen" value="true" />
+	<param name="FlashVars" value="flv=http://oec-static.main.sgu.ru/rtmp/saves/#{videoBean.currentFileName}&amp;title=KyodaiNoGilga|garrison|KyodaiNoGilga|garrison|KyodaiNoGilga|garrison|KyodaiNoGilga|garrison&amp;width=640&amp;height=480&amp;showtime=1&amp;srt=1&amp;skin=player_flv_skin001.jpg&amp;margin=10&amp;startimage=rorobong.jpg&amp;playercolor=ffffff&amp;buttoncolor=333333&amp;buttonovercolor=999999&amp;slidercolor1=333333&amp;slidercolor2=0&amp;sliderovercolor=999999&amp;loadingcolor=0&amp;scrollbarcolor=333333&amp;scrollbarovercolor=0&amp;currentflvcolor=999900&amp;showfullscreen=1" />
+    </object>
+    </ui:define>
+</ui:composition>

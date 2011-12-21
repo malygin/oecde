@@ -41,7 +41,7 @@
                 <table class="#{cc.attrs.ClassStyle}">
                     <ui:repeat var="s" value="#{studentScheduleBean.schedule(40,true)}">
                         <tr>
-                            <td valign="top" class="Ipsilon_Web_GreenText"><p><h:outputText value="#{s.lessonDate}" converter="dateConverter"/> - ${fn:substring(s.lessonEndDate,11,16)} </p>
+                            <td valign="top" class="Ipsilon_Web_GreenText"><p><h:outputText value="#{s.lessonDate}" converter="dateConverter"/> - ${fn:substring(s.lessonEndDate,11,16)} </p> 
                             </td>
                             <td><p><p class="skyBlueText">#{s.discipline.name}</p> <p  class="Ipsilon_Web_GreenText">#{s.teacher.initials}</p> <h:outputText converter="roomConverter" value="#{s.room}"/> #{msgs.student_sheduleRoom}</p>
                             </td>
@@ -91,7 +91,11 @@
                         </h:panelGroup>
                         <table class="tableForShedule">
                             <tr>
-                                <td>${fn:substring(s.lessonDate,11,16)}-${fn:substring(s.lessonEndDate,11,16)}</td>
+                                <td>${fn:substring(s.lessonDate,11,16)}-${fn:substring(s.lessonEndDate,11,16)}</td> 
+                                
+                               
+                                <h:panelGroup rendered="#{studentScheduleBean.fileExist(s.id) eq true}"> <a href="video.xhtml?id=#{studentScheduleBean.getFileName(s.id)}">record exists</a> </h:panelGroup>
+                                
                                 <td><span class="linkToStudentsProfile"><h:outputLink value="umk.xhtml?c=#{s.id}" style="margin-left: 10px;">#{s.discipline.name}
                                         </h:outputLink></span></td>
                                 <td><span class="linkToTeachersProfile linkToTeachersProfileFromStudent"><a href="teacher.xhtml?id=#{s.teacher.id}"><h:outputText value="#{s.teacher.initials}"/></a></span></td>

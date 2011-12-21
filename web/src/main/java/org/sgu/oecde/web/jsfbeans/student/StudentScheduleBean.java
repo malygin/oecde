@@ -1,8 +1,13 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -23,6 +28,7 @@ import org.springframework.util.Assert;
 public class StudentScheduleBean extends AbstractStudentBean{
     @ManagedProperty(value="#{lessonDao}")
     private ILessonDao lessonDao;
+    
 
     private List<Lesson>lessons;
     private List<Lesson>lessonsAll;
@@ -38,6 +44,8 @@ public class StudentScheduleBean extends AbstractStudentBean{
     private String currentDate = null;
     
     private static final long serialVersionUID = 151L;
+    
+    private String folderContent;
 
     public List<Lesson> schedule(int maxResult, boolean byDate){
         if(lessons==null){
@@ -58,7 +66,52 @@ public class StudentScheduleBean extends AbstractStudentBean{
         }
         return count;
     }
-
+   
+     private void getContent() throws MalformedURLException, IOException{
+        
+            URL PATH = new URL("http://oec-nginx.main.sgu.ru/get_files/dir_read.php");
+            URLConnection connection = PATH.openConnection();
+            connection.setDoInput(true);
+            connection.connect();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String line ="";
+            while ((line = reader.readLine()) != null) {
+                folderContent += line;
+            }
+    }
+     
+     
+     public String getFolderContent() throws MalformedURLException, IOException{
+         if(folderContent==null) getContent();
+         return folderContent;
+     }
+     
+     public boolean fileExist(String id) throws MalformedURLException, IOException{
+        if(folderContent==null) getContent();
+        boolean exists=folderContent.contains(";"+id+"roomVideoStream");
+        return exists;
+    }
+     public String getFileName(String id) throws MalformedURLException, IOException{
+         if(folderContent==null) getContent();
+         int startIndex = folderContent.indexOf(";"+id+"roomVideoStream")+1;
+         int endIndex = folderContent.indexOf(";",startIndex+1);
+         String name = folderContent.substring(startIndex, endIndex);
+         return name;
+     }
+//    public List<Long> getIdsOfLessons(){
+//        List<Long> result = new ArrayList();
+//        for(Lesson item : lessons){
+//            result.add(item.getId());
+//        }
+//        return result;
+//    }
+//      public List<Long> getIdsOfLessonsAll(){
+//        List<Long> result = new ArrayList();
+//        for(Lesson item : lessonsAll){
+//            result.add(item.getId());
+//        }
+//        return result;
+//    }
     public void setLessonDao(ILessonDao lessonDao) {
         this.lessonDao = lessonDao;
     }
@@ -87,6 +140,7 @@ public class StudentScheduleBean extends AbstractStudentBean{
         this.pageNumber = pageNumber;
     }
 
+  
     @PostConstruct
     public void postConstract(){
         Assert.notNull(semesterGetter);
