@@ -20,7 +20,7 @@
         <div class="StudentMainPageTitlesBorders">
             <div>
             <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
-                    Информация о преподавателе
+                    #{msgs.admin_userInfoTeacher}
                     <div style="float: right;">
                         <est:changeSemester semester="#{teacherViewBean.semester}" link="id=#{teacherViewBean.id}"/>
                     </div>
@@ -109,19 +109,19 @@
             <table class="studentStandatrTable tableForStatistic" cellpadding="0" cellspacing="0">
                 <thead>
                     <tr>
-                        <th rowspan="2">Группа - специальность
+                        <th rowspan="2">#{msgs.admin_userInfoGroupSpec}
                         </th>
-                        <th  rowspan="2">Студентов <br /> в группе
+                        <th  rowspan="2">#{msgs.admin_userInfoStudents} <br /> #{msgs.admin_userInfoInGroup}
                         </th>
-                        <th colspan="3">Оценки
+                        <th colspan="3">#{msgs.admin_userInfoMarks}
                         </th>
-                        <th  rowspan="2">Проверено к/р <br /> из общего числа
+                        <th  rowspan="2">#{msgs.admin_userInfoContWork} <br /> #{msgs.admin_userInfoGeneralCount}
                         </th>
                      </tr>
                      <tr>
-                        <th>зачтено</th>
-                        <th>не зачтено</th>
-                        <th style="border-right: 1px solid silver !important;">не явка</th>
+                        <th>#{msgs.admin_userInfoMarksZach}</th>
+                        <th>#{msgs.admin_userInfoMarksNeZach}</th>
+                        <th style="border-right: 1px solid silver !important;">#{msgs.admin_userInfoMarksNotBe}</th>
                      </tr>
                 </thead>
                 <ui:repeat value="#{teacherViewBean.teacherGroups}" var="t">
@@ -137,7 +137,7 @@
                 </tr>
                 </ui:repeat>
                 <tr>
-                    <td><span class="Ipsilon_Web_GreenText">Всего:</span> #{teacherViewBean.groupsCount} групп</td>
+                    <td><span class="Ipsilon_Web_GreenText">#{msgs.student_oldGradesDebtAll}</span> #{teacherViewBean.groupsCount} #{msgs.admin_userInfoGroup}</td>
                     <td>#{teacherViewBean.studentsCount}</td>
                     <td></td>
                     <td></td>
@@ -146,8 +146,6 @@
                 </tr>
             </table>
         </div>
-       
-            <!--<edu:statisticForTeacher/>-->
        </div>
     </ui:define>
 </ui:composition>
