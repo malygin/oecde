@@ -79,8 +79,8 @@
                                                             <div style="float: left; margin-right: 10px;">#{msgs.student_mcwCWAttempt} #{i.index+1}</div>
                                                             <h:outputText rendered="#{a.filePath eq 'empty'}" value="#{a.attemptDate}">#{msgs.teacher_inWriting}</h:outputText>
                                                             <div class="greyLinks">
-                                                                <h:outputLink rendered="#{a.filePath ne 'empty'}" value="../resources/userFiles/controlWorks/#{a.filePath}" id="log" styleClass="save_control_work">
-                                                                    <h:outputText converter="dateConverter" value="#{a.attemptDate}"/> #{msgs.teacher_onComputer}
+                                                                <h:outputLink rendered="#{a.filePath ne 'empty'}" value="../resources/userFiles/controlWorks/#{a.filePath}" id="log">
+                                                                    <h:outputText converter="dateConverter" value="#{a.attemptDate}"/> #{msgs.teacher_onComputer} <img src="../resources/images/save_control_work.png" style="margin-right: 5px;"/>
                                                                 </h:outputLink>
                                                             </div>
                                                         </ui:repeat>
