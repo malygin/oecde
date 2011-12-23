@@ -519,6 +519,25 @@ label{
     margin: 8px;
     width: 150px;
 }
+.mainStyle .tableForComprasQuastence{
+    width: auto;
+}
+.mainStyle .tableForComprasQuastence tr td{
+    padding: 4px 15px;
+    vertical-align: top;
+}
+.mainStyle .tableForComprasQuastence tr td:nth-child(3){
+    width: 10px;
+    padding: 4px 0px 4px 15px;
+    border-left: 1px solid silver;
+}
+.mainStyle .tableForComprasQuastence tr td:nth-child(4){
+    padding: 4px 0px;
+}
+.mainStyle .greenInput{
+    border: 1px solid #81c782;
+    margin-top: 2px;
+}
 input[type='radio'], input[type='checkbox']{
     display: block;
     float: left;

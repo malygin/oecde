@@ -34,36 +34,42 @@
 
               <h:panelGroup id="checkType" rendered="#{cc.attrs.question.type=='check'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px;">
                   <h:selectManyCheckbox  converter="testConverter"  layout="pageDirection"  value="#{testPassingBean.selectedAnswers}" styleClass="testSelectPadding">
-                      <f:selectItems   value="#{testPassingBean.answers}" /><br/>
+                      <f:selectItems value="#{testPassingBean.answers}" /><br/>
                 </h:selectManyCheckbox >
                  <div class="floatDestroyer"></div>
              </h:panelGroup>
 
               <h:panelGroup id="textType" rendered="#{cc.attrs.question.type=='text'}" styleClass="educ_umk_text_block" style="margin-bottom: 10px; margin-left: 0; text-align: center !important;">
-                  <br/> <h:inputText value="#{testPassingBean.selectedAnswerText}"/>
+                  <br/> <h:inputText value="#{testPassingBean.selectedAnswerText}" styleClass="greenInput"/>
              </h:panelGroup>
               <h:panelGroup id="comparisonType" rendered="#{cc.attrs.question.type=='comparison'}">
                   <div  style="margin: 10px 30px 10px 20px;">
-                      <table style="">
+                  <table class="tableForComprasQuastence" cellspacing="0" cellpadding="0">
+                      <tr>
+                          <td colspan="2">&nbsp;</td>
+                          <td colspan="2" style="border-left: 1px solid silver;"><div style="width: 200px;">Варианты для сопоставления:</div></td>
+                      </tr>
                   <ui:repeat value="#{testPassingBean.answerComparisnView}"  var="a" varStatus="i">
                      <tr>
-                         <td valign="middle">
-                      #{i.index+1}.
+                         <td class="testComparVariants">
+                             <label><h:outputText escape="false" value="#{a.title} "/></label>
                          </td>
-                         <td valign="middle">
-                            <label><h:outputText escape="false" value="#{a.title2}"/></label>
-                            </td>
-                         <td valign="middle" style="width: 170px;" class="testComparVariants"><label><h:outputText escape="false" value="#{a.title} "/></label></td>
-                            <td valign="middle"><h:inputText size="2" styleClass="numberField" onkeyup="
+                         <td>
+                             <h:inputText size="2" styleClass="numberField greenInput" onkeyup="
                                   if(isNaN(parseInt(this.value))){this.value='';}
                                   else{ 
                                        if((this.value>#{testPassingBean.currentQustionView.countAnswers}) || (this.value&lt;1)) {this.value=#{testPassingBean.currentQustionView.countAnswers}}
                                           else {this.value=parseInt(this.value)}}
                                                "  value="#{a.answer}">
-                                
                               </h:inputText>
-                             </td>
-                            </tr>
+                         </td>
+                         <td>
+                             <span class="Ipsilon_Web_GreenText">#{i.index+1}.</span>
+                         </td>
+                         <td>
+                            <label><h:outputText escape="false" value="#{a.title2}"/></label>
+                         </td>
+                      </tr>
                   </ui:repeat>
                       </table>
 
