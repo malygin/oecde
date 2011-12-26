@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+     >
+
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute name="pageName" required="true" shortDescription="название страницы" type="java.lang.String"/>
+    </composite:interface>
+
+    <!-- IMPLEMENTATION -->
+    <composite:implementation>
+       <div class="userFile"  style="padding-top: 0px;">
+           
+                
+                <ui:repeat value="#{teacherViewBean.teacherGroups}" var="g">
+                 name of group #{g.name} students #{g.persons}<br/>
+                    <ui:repeat value="#{g.distiplines}" var="d">
+ name of discipline  #{d.discipline} grades #{d.notEstimated} #{d.two} #{d.three} #{d.four} #{d.five} #{d.passed}#{d.failed} #{d.absence}<br/>
+                
+                   </ui:repeat>
+                </ui:repeat>
+             #{teacherViewBean.groupsCount} - #{teacherViewBean.studentsCount}   
+        </div>
+    </composite:implementation>
+</html>
