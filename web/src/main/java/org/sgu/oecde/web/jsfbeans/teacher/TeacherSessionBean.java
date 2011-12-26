@@ -32,7 +32,7 @@ public class TeacherSessionBean extends AbstractTeacherBean{
     private List<Group>winterGroups;
     
     private static final long serialVersionUID = 110L;
-
+// тут
     public List<DeCurriculum> getDisciplines(int semester){
         semester=this.semesterGetter.getCurrentSemester();
         if(((summerCurriculums==null&&semester==SemesterGetter.SUMMER_SEMESTER)||(winterCurriculums==null&&semester==SemesterGetter.WINTER_SEMESTER))){
