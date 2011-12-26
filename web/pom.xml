@@ -123,6 +123,30 @@
             <artifactId>commons-io</artifactId>
             <version>1.1</version>
         </dependency>
+<!-- Exclude some unnecessary libraries --> 
+	<dependency>
+		<groupId>org.jvnet.jax-ws-commons.spring</groupId>
+		<artifactId>jaxws-spring</artifactId>
+		<version>1.8</version>
+		<exclusions>
+			<exclusion>
+           		<groupId>org.springframework</groupId>
+      			<artifactId>spring-core</artifactId>
+        	</exclusion>
+        	<exclusion>
+           		<groupId>org.springframework</groupId>
+      			<artifactId>spring-context</artifactId>
+        	</exclusion>
+        	<exclusion>
+           		<groupId>com.sun.xml.stream.buffer</groupId>
+      			<artifactId>streambuffer</artifactId>
+        	</exclusion>
+        	<exclusion>
+           		<groupId>org.jvnet.staxex</groupId>
+      			<artifactId>stax-ex</artifactId>
+        	</exclusion>
+		</exclusions>
+	</dependency>
 
 
     <!--- jsf and richfaces-->
@@ -249,6 +273,6 @@
         <finalName>web</finalName>
     </build>
     <properties>
-        <netbeans.hint.deploy.server>Tomcat</netbeans.hint.deploy.server>
+        <netbeans.hint.deploy.server>Tomcat70</netbeans.hint.deploy.server>
     </properties>
 </project>

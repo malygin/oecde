@@ -7,7 +7,7 @@ import static org.sgu.oecde.core.util.ProperCase.bringTo;
  * пользователь - человек. с фамилией именем и отчетсвом
  * @author ShihovMY
  */
-public abstract class AbstractPerson extends AbstractUser implements Comparable<AbstractPerson>{
+public  class AbstractPerson extends AbstractUser implements Comparable<AbstractPerson>{
 
     /**
      * имя

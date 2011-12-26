@@ -10,7 +10,7 @@
         http://jax-ws.dev.java.net/spring/servlet
         http://jax-ws.dev.java.net/spring/servlet.xsd"
 >
-<!--  <wss:binding url="/ConferenceWebService">
+  <wss:binding url="/ConferenceWebService">
         <wss:service>
             <ws:service bean="#ConferenceWebService"/>
         </wss:service>
@@ -18,5 +18,5 @@
    <bean id="ConferenceWebService" class="org.sgu.oecde.web.ConferenceWeb">
     	<property name="userDao" ref="userDao" />
         <property name="lessonDao" ref="lessonDao" />
-    </bean>-->
+    </bean>
 </beans>

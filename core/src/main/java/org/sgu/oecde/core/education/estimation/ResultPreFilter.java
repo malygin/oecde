@@ -47,11 +47,11 @@ public class ResultPreFilter implements Serializable{
         Curriculum cur = null;
         AbstractStudent st = null;
         Collections.sort(results);
-          System.out.println("-----------------------");
-        for (AbstractResult r:results){
-            System.out.println(r);
-        };
-        System.out.println("-----------------------");
+//          System.out.println("-----------------------");
+//        for (AbstractResult r:results){
+//            System.out.println(r);
+//        };
+//        System.out.println("-----------------------");
         
         Iterator<? extends AbstractResult>iterator = results.iterator();
         boolean breakPoint = false;

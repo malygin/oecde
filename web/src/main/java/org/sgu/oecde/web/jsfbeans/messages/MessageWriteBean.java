@@ -118,7 +118,7 @@ public class MessageWriteBean  implements Serializable{
         messageService.save(messageSave);
         if (!groups.isEmpty()){
             recipients =new ArrayList<MessageRecipient> ();
-            journalService.save(EventType.SPAM_GROUP, SecurityContextHandler.getUser(),groups.get(0));
+            journalService.save(EventType.SPAM_GROUP, SecurityContextHandler.getUser(),groups.get(0).getId());
         }
              
      // recipients= new ArrayList();

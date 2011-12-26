@@ -11,8 +11,7 @@
                      classpath:/org/sgu/oecde/webSecurity.xml
         </param-value>
     </context-param>
-    
-    <context-param>
+   <context-param>
         <param-name>textbookUrl</param-name>
 <!--        <param-value>http://oec-static.main.sgu.ru/school/textbooks/</param-value>-->
         <param-value>http://oec-static.main.sgu.ru/textbooks/</param-value>
@@ -33,28 +32,27 @@
     <context-param>
         <param-name>scheduleUrl</param-name>
 <!--        <param-value>http://oec-tst.main.sgu.ru:9292/sashedule/</param-value>-->
-        <param-value>http://oecdo.sgu.ru/sashedule/</param-value>
+        <param-value>http://oec-tst.main.sgu.ru:9292/sashedule/</param-value>
     </context-param>
-    
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-    
+
+    <servlet>
+        <servlet-name>jaxws-servlet</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSSpringServlet</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+        <servlet-name>jaxws-servlet</servlet-name>
+        <url-pattern>/ConferenceWebService</url-pattern>
+    </servlet-mapping>
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
     <listener>
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>
-<!--    <servlet>
-        <servlet-name>jaxws-servlet</servlet-name>
-        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSSpringServlet</servlet-class>
-    </servlet>  
-    <servlet-mapping>
-        <servlet-name>jaxws-servlet</servlet-name>
-        <url-pattern>/ConferenceWebService</url-pattern>
-    </servlet-mapping>-->
-
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Extension</param-value>
@@ -93,7 +91,7 @@
     </filter-mapping>
   
     <session-config>
-        <session-timeout>30</session-timeout>
+        <session-timeout>20</session-timeout>
     </session-config>
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
@@ -102,4 +100,5 @@
         <error-code>403</error-code>
         <location>/RedurectServlet</location>
     </error-page>
+
     </web-app>

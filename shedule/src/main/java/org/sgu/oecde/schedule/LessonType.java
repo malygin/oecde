@@ -1,6 +1,8 @@
 package org.sgu.oecde.schedule;
 
 import java.io.Serializable;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  *
@@ -8,7 +10,8 @@ import java.io.Serializable;
  */
 public enum LessonType implements Serializable{
     practice("практика"),
-    exam("экзамен/зачёт"),
+    exam("экзамен"),
+    lightExam("зачет"),
     consult;
     private static final long serialVersionUID = 216L;
 
@@ -25,6 +28,12 @@ public enum LessonType implements Serializable{
     public String toString() {
         return name;
     }
-
+  public Map toMap(){
+        Map result = new LinkedHashMap();
+        for(LessonType mt: LessonType.values())
+            result.put(mt.toString(), mt);
+        
+        return result;
+    }
 
 }

@@ -101,7 +101,7 @@ public class ResourceService implements Serializable{
     }
 
     public boolean isConcludingTestAvailable(Student student,DeCurriculum curriculum){
-        if(!curriculum.getGotControlWork()||curriculum.getControlWorksPaperOnly())
+        if(!curriculum.getGotControlWork())
             return true;
         ControlWork cw = controlWorkService.getStudensControlWorks(student, ListUtil.<DeCurriculum>oneItemList(curriculum)).get(curriculum);
         return cw!=null&&ControlWorkProgress.passed.equals(cw.getProgress());
@@ -123,7 +123,7 @@ public class ResourceService implements Serializable{
 
         if(TestType.concluding.equals(e.getType())&&!concludingAvailable){
             available = false;
-            data[2] = "Контрольная работа не зачтена";
+            data[2] = "Тест недоступен,см.вкладку Мои контр работы";
         }else{
             if((currentDate.compareTo(testBeginDate)>=0)&&(currentDate.compareTo(testEndDate)<0)){
                 if(w.getReExameAttemptsUsedNumber()>=Integer.parseInt(
