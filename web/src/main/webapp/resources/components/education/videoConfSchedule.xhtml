@@ -91,19 +91,19 @@
                         </h:panelGroup>
                         <table class="tableForShedule">
                             <tr>
-                                <td>${fn:substring(s.lessonDate,11,16)}-${fn:substring(s.lessonEndDate,11,16)}</td> 
+                                <td>${fn:substring(s.lessonDate,11,16)}-${fn:substring(s.lessonEndDate,11,16)}</td>
                                 
-                               
-<!--                                <h:panelGroup rendered="#{studentScheduleBean.fileExist(s.id) eq true}">
-                                
-                                    <a href="video.xhtml?id=#{studentScheduleBean.getFileName(s.id)}">посмотреть запись конференции</a>
-                                
-                                </h:panelGroup>-->
-                                
-                                <td><span class="linkToStudentsProfile"><h:outputLink value="umk.xhtml?c=#{s.id}" style="margin-left: 10px;">#{s.discipline.name}
-                                        </h:outputLink></span> #{s.lessonType.toString()}</td>
+                                <td style="padding-right: 10px;">
+                                    <span class="linkToStudentsProfile"><h:outputLink value="umk.xhtml?c=#{s.id}" >#{s.discipline.name}</h:outputLink></span>
+                                    <br />#{s.lessonType.toString()}
+                                    <h:panelGroup rendered="#{studentScheduleBean.fileExist(s.id) eq true}">
+                                        <a href="video.xhtml?id=#{studentScheduleBean.getFileName(s.id)}">
+                                            <img src="../resources/images/conf_record.png" alt="" style="text-decoration: none; margin: 0px 3px -3px 10px;"/>посмотреть запись конференции
+                                        </a>
+                                    </h:panelGroup>
+                                </td>
                                 <td><span class="linkToTeachersProfile linkToTeachersProfileFromStudent"><a href="teacher.xhtml?id=#{s.teacher.id}"><h:outputText value="#{s.teacher.initials}"/></a></span></td>
-                                <td><h:outputText converter="roomConverter" value="#{s.room}"/> #{msgs.student_sheduleRoom}</td>
+                                <td><span class="Ipsilon_Web_GreenText"><h:outputText converter="roomConverter" value="#{s.room}"/></span> #{msgs.student_sheduleRoom}</td>
                             </tr>
                         </table>
                     </ui:repeat>
