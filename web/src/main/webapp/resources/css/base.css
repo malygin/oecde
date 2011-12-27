@@ -1,4 +1,4 @@
-/*
+А/*
     Document   : base
     Created on : 06.07.2010, 10:40:52
     Author     : KorgovVD
@@ -2038,16 +2038,14 @@ ul.dropdown li ul li {
     border: none;
 }
 .tableForStatistic tr td{
-    text-align: center;
+    text-align: center !important;
     border-right: 1px solid silver;
     border-bottom: 1px solid silver;
     padding: 3px;
 }
-.tableForStatistic tr td:nth-child(2),
-.tableForStatistic tr td:nth-child(3),
-.tableForStatistic tr td:nth-child(4),
-.tableForStatistic tr td:nth-child(5){
-    text-align: center;
+.tableForStatistic tr td:first-child{
+    width: 35%;
+    text-align: left !important;
 }
 .tableForStatistic tr td:last-child{
     text-align: center;
@@ -2105,7 +2103,7 @@ ul.dropdown li ul li {
 .mainStyle .tableForShedule{
     width: 94%;
     margin-left: 3%;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
 }
 .mainStyle .tableForShedule tr td{
     vertical-align: top;
@@ -2294,7 +2292,7 @@ a.mainStyle .lightGreyText a:hover{
 
 .mainStyle .greenText{
     color:#5BBF5D;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 /*ссылки сверху: группы, тесты, контрольные*/
 .mainStyle .DisciplineTextBig{
