@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
      >
 
@@ -14,15 +15,64 @@
     <composite:implementation>
        <div class="userFile"  style="padding-top: 0px;">
            
-                
+           <div style="padding-top: 0px;">
+            <table class="studentStandatrTable tableForStatistic" cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th rowspan="2">#{msgs.admin_userInfoGroupSpec}
+                        </th>
+                        <th  rowspan="2">#{msgs.admin_userInfoStudents} <br /> #{msgs.admin_userInfoInGroup}
+                        </th>
+                        <th colspan="8">#{msgs.admin_userInfoMarks}
+                        </th>
+                        <th  rowspan="2">#{msgs.admin_userInfoContWork} <br /> #{msgs.admin_userInfoGeneralCount}
+                        </th>
+                     </tr>
+                     <tr>
+                        <th>#{msgs.admin_userInfoMarksNotEstimate}</th>
+                        <th>#{msgs.admin_userInfoMarksZach}</th>
+                        <th>#{msgs.admin_userInfoMarksNeZach}</th>
+                        <th>&nbsp;&nbsp;2&nbsp;&nbsp;</th>
+                        <th>&nbsp;&nbsp;3&nbsp;&nbsp;</th>
+                        <th>&nbsp;&nbsp;4&nbsp;&nbsp;</th>
+                        <th>&nbsp;&nbsp;5&nbsp;&nbsp;</th>
+                        <th style="border-right: 1px solid silver !important;">#{msgs.admin_userInfoMarksNotBe}</th>
+                     </tr>
+                </thead>
                 <ui:repeat value="#{teacherViewBean.teacherGroups}" var="g">
-                 name of group #{g.name} students #{g.persons}<br/>
                     <ui:repeat value="#{g.distiplines}" var="d">
- name of discipline  #{d.discipline} grades #{d.notEstimated} #{d.two} #{d.three} #{d.four} #{d.five} #{d.passed}#{d.failed} #{d.absence}<br/>
-                
+                <tr>
+                    <td>
+                        <span class="Ipsilon_Web_GreenText"></span>#{g.name} - #{d.discipline}
+                    </td>
+                    <td>#{g.persons}</td>
+                    <td><h:panelGroup rendered="#{d.notEstimated ne 0}">#{d.notEstimated}</h:panelGroup></td>
+                    <td><h:panelGroup rendered="#{d.passed ne 0}">#{d.passed}</h:panelGroup></td>
+                    <td><h:panelGroup rendered="#{d.failed ne 0}">#{d.failed}</h:panelGroup></td>
+                    <td><h:panelGroup rendered="#{d.two ne 0}">#{d.two}</h:panelGroup></td>
+                    <td><h:panelGroup rendered="#{d.three ne 0}">#{d.three}</h:panelGroup></td>
+                    <td><h:panelGroup rendered="#{d.four ne 0}">#{d.four}</h:panelGroup></td>
+                    <td><h:panelGroup rendered="#{d.five ne 0}">#{d.five}</h:panelGroup></td>
+                    <td><h:panelGroup rendered="#{d.absence ne 0}">#{d.absence}</h:panelGroup></td>
+                    <td><span class="lightGreyTestText">#{msgs.student_From}</span></td>
+                </tr>
                    </ui:repeat>
                 </ui:repeat>
-             #{teacherViewBean.groupsCount} - #{teacherViewBean.studentsCount}   
+                <tr>
+                    <td><span class="Ipsilon_Web_GreenText">#{msgs.student_oldGradesDebtAll}</span> #{teacherViewBean.groupsCount} #{msgs.admin_userInfoGroup}</td>
+                    <td>#{teacherViewBean.studentsCount}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>   
         </div>
     </composite:implementation>
 </html>
