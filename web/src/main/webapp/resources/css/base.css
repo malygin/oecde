@@ -31,6 +31,9 @@ body {
     font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     color: #000000;
     text-align: center;
+    background-image: url("../resources/images/blue_ball2.png"), url("../resources/images/fon_with_snow.png");
+    background-repeat: no-repeat, repeat;
+    background-position: left, auto;
 }
 h1 {
     font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
@@ -61,7 +64,7 @@ label{
     display: block;
 }
 .mainStyle .firstBorder{
-    border-color: white;
+    border-color: transparent;
     /*    -o-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
         -moz-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
         -webkit-3order-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;*/
@@ -142,7 +145,7 @@ label{
     width: 81%;
 }
 .mainStyle .topMenu{
-    border-color: white;
+    border-color: transparent;
     border-bottom-width: 18px;
     border-style: solid;
     height: 35px;
@@ -186,6 +189,8 @@ label{
     -moz-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
     border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
     -webkit-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
+    background-image: none !important;
+    background-color: white !important;
 }
 .mainStyle .content{
     /*    border-left: 1px solid #9E9E9E;
