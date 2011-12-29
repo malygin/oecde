@@ -13,6 +13,7 @@ import org.sgu.oecde.core.users.StudentGroup;
 public final class TeacherToGroup implements Serializable{
     private StudentGroup group;
     private Teacher teacher;
+    //учебный план
     private Curriculum curriculum;
     private static final long serialVersionUID = 64L;
 
@@ -50,7 +51,7 @@ public final class TeacherToGroup implements Serializable{
      * @return
      */
     public <T extends StudentGroup> T getGroup() {
-        return (T) group;
+        return (T) group; 
     }
 
     /**
