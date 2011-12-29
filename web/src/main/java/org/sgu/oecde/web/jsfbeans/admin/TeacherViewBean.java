@@ -6,6 +6,8 @@ import java.util.Set;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import org.sgu.oecde.controlworks.ControlWorkProgress;
+import org.sgu.oecde.controlworks.estimation.CwEstimateNames;
 import org.sgu.oecde.core.education.TeacherToGroup;
 import org.sgu.oecde.core.education.estimation.EstimateNames;
 import org.sgu.oecde.core.education.estimation.Points;
@@ -46,6 +48,8 @@ public class TeacherViewBean extends UserViewBean{
     private  Integer semester;
     protected AbstractUser user;
     private  List<GroupViewFacade> groupsFacade;
+    private int studentsCount;
+    
      public int getCurrentSemester(){
         return semesterGetter.getCurrentSemester();
     }
@@ -103,6 +107,9 @@ public class TeacherViewBean extends UserViewBean{
         int passed;
 //         не зачтено
         int failed;
+        
+        int controlWorkTotal;
+        int controlWorkChecked;
         getUser();
     //    if(groupsFacade!=null){
             List<DeCurriculum> l = teacherSessionBean.getDisciplines(semester);
@@ -121,9 +128,14 @@ public class TeacherViewBean extends UserViewBean{
                     absence=0;
                     failed=0;
                     passed=0;
+                    controlWorkTotal=0;
+                    controlWorkChecked=0;
                     List<Points> points= gradesService.getGrades(l, teacherToGroup.getGroup().getPersons());
                       for(Points p:points){
+                          
                          Estimate e = p.getWorkPoints(EstimateNames.estimate);
+                         ControlWorkProgress c = p.getWorkPoints(CwEstimateNames.control_work_value);
+                          System.out.println("!!"+c);
                          if (e!=null){
                              switch(e.getGradeCode()){
                                 case notEstimated: notEstimated++; break;
@@ -136,13 +148,18 @@ public class TeacherViewBean extends UserViewBean{
                                 case failed: failed++; break;                            
                              }
                           }
+                         if(c!=null){
+                             controlWorkTotal++;
+                             if(c==c.failed||c==c.passed)controlWorkChecked++;
+                         }
                       }
                       if(groupsFacade.contains(facade)){
-                          groupsFacade.get(groupsFacade.indexOf(facade)).getDistiplines().add(new Discipline(dc.getDiscipline().getName(),notEstimated,two,three,four,five,absence,passed,failed));
+                          groupsFacade.get(groupsFacade.indexOf(facade)).getDistiplines().add(new Discipline(dc.getDiscipline().getName(),notEstimated,two,three,four,five,absence,passed,failed,controlWorkTotal,controlWorkChecked));
                       }
                       else {
                         groupsFacade.add(facade);
-                        facade.getDistiplines().add(new Discipline(dc.getDiscipline().getName(),notEstimated,two,three,four,five,absence,passed,failed));
+                        facade.getDistiplines().add(new Discipline(dc.getDiscipline().getName(),notEstimated,two,three,four,five,absence,passed,failed,controlWorkTotal,controlWorkChecked));
+                        studentsCount += teacherToGroup.getGroup().getPersons().size();
                         facade.setPersons(teacherToGroup.getGroup().getPersons().size());
                     }
                 }
@@ -155,6 +172,8 @@ public class TeacherViewBean extends UserViewBean{
         Group group;
         String name;
         int persons;
+        
+        
         List <Discipline> distiplines;
         
         @Override
@@ -219,6 +238,13 @@ public class TeacherViewBean extends UserViewBean{
         int passed;
         int failed;
         
+        int maxGrade;
+        int minGrade;
+        int overalGrade;
+        
+        int controlWorksTotal;
+        int controlWorksEstimated;
+        
         @Override
         public boolean equals(Object o){
             if(o==null) return false;
@@ -238,7 +264,9 @@ public class TeacherViewBean extends UserViewBean{
         int five,
         int absence,
         int passed,
-        int failed){
+        int failed,
+        int controlWorksTotal,
+        int controlWorksEstimated){
             this.discipline=discipline;
             this.two = two;
             this.three = three;
@@ -247,6 +275,8 @@ public class TeacherViewBean extends UserViewBean{
             this.absence = absence;
             this.passed = passed;
             this.failed = failed;
+            this.controlWorksTotal = controlWorksTotal;
+            this.controlWorksEstimated = controlWorksEstimated;
         }
         public int getAbsence() {
             return absence;
@@ -319,6 +349,46 @@ public class TeacherViewBean extends UserViewBean{
         public void setTwo(int two) {
             this.two = two;
         }
+
+        public int getControlWorksEstimated() {
+            return controlWorksEstimated;
+        }
+
+        public void setControlWorksEstimated(int controlWorksEstimated) {
+            this.controlWorksEstimated = controlWorksEstimated;
+        }
+
+        public int getControlWorksTotal() {
+            return controlWorksTotal;
+        }
+
+        public void setControlWorksTotal(int controlWorksTotal) {
+            this.controlWorksTotal = controlWorksTotal;
+        }
+
+        public int getMaxGrade() {
+            return maxGrade;
+        }
+
+        public void setMaxGrade(int maxGrade) {
+            this.maxGrade = maxGrade;
+        }
+
+        public int getMinGrade() {
+            return minGrade;
+        }
+
+        public void setMinGrade(int minGrade) {
+            this.minGrade = minGrade;
+        }
+
+        public int getOveralGrade() {
+            return overalGrade;
+        }
+
+        public void setOveralGrade(int overalGrade) {
+            this.overalGrade = overalGrade;
+        }
         
         
     }
@@ -328,15 +398,11 @@ public class TeacherViewBean extends UserViewBean{
     }
     
     public int getStudentsCount(){
-        int count=0;
-        groups = teacherSessionBean.getGroups(semester);
-        for(Group group:  groups){
-            count += group.getPersons().size();
-        }
-        return count;
+        return studentsCount;
     }
 
     public void setGradesService(GradesService gradesService) {
         this.gradesService = gradesService;
     }
+    
 }

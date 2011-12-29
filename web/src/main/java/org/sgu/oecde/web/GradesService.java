@@ -59,6 +59,7 @@ public class GradesService implements Serializable{
         filters.add(estimateFilter);
         filters.add(testFilter);
         filters.add(activityFilter);
+        //не тут
         List<AbstractResult> l = resultDao.getByStudentsAndCurriculums(curriculums, students, null);
 
         return preFilter.forEachResult(l, true,filters,students,curriculums);
