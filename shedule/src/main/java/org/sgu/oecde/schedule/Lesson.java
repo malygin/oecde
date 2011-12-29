@@ -1,10 +1,15 @@
 package org.sgu.oecde.schedule;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
 import org.sgu.oecde.core.education.Discipline;
 import org.sgu.oecde.core.users.Teacher;
-
 /**
  * занятие на видеоконференции
  * @author shihovmy
@@ -28,18 +33,33 @@ public class Lesson extends BasicItem{
     private boolean notUsed = true;
     private boolean warning;
     private static final long serialVersionUID = 44L;
-
+    
+    
+  //  private FileFind finder;
+    
     public Lesson() {
     }
 
-    public Lesson(int room, String lessonDate, String lessonEndDate, boolean notUsed, String color, String color2) {
+    public Lesson(int room, String lessonDate, String lessonEndDate, boolean notUsed, String color, String color2) throws MalformedURLException, IOException {
         this.room=room;
         this.lessonDate=lessonDate;
         this.lessonEndDate=lessonEndDate;
         this.notUsed=notUsed;
         this.color=color;
         this.colorDisable=color2;
+      //  finder = FileFind.getInstance();
     }
+    /**
+     * @return true if file with recording lesson exists
+     */
+    
+   
+    
+//     public boolean fileExist() throws MalformedURLException, IOException{
+//        getContent();
+//        boolean exists=folderContent.contains(";"+this.getId()+"roomVideoStream");
+//        return exists;
+//    }
     /**
      * @return количество человек на занятии
      */
