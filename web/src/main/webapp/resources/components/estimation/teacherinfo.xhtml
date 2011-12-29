@@ -4,6 +4,7 @@
       xmlns:composite="http://java.sun.com/jsf/composite"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
      >
 
     <!-- INTERFACE -->
@@ -13,6 +14,9 @@
 
     <!-- IMPLEMENTATION -->
     <composite:implementation>
+        <c:if test="#{teacherViewBean.id eq null}">
+          <c:set id="teacherViewBean" property="id" value="#{teacherSessionBean.teacher.id}" target="#{teacherViewBean}"/>
+        </c:if>
        <div class="userFile"  style="padding-top: 0px;">
            
            <div style="padding-top: 0px;">
@@ -54,7 +58,7 @@
                     <td><h:panelGroup rendered="#{d.four ne 0}">#{d.four}</h:panelGroup></td>
                     <td><h:panelGroup rendered="#{d.five ne 0}">#{d.five}</h:panelGroup></td>
                     <td><h:panelGroup rendered="#{d.absence ne 0}">#{d.absence}</h:panelGroup></td>
-                    <td><span class="lightGreyTestText">#{msgs.student_From}</span></td>
+                    <td>#{d.controlWorksEstimated} <span class="lightGreyTestText">#{msgs.student_From}</span> #{d.controlWorksTotal}</td>
                 </tr>
                    </ui:repeat>
                 </ui:repeat>
