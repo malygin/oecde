@@ -45,7 +45,10 @@ public class Group extends StudentGroup<Student>implements Comparable<Group>{
     public void setSpeciality(Speciality speciality) {
         this.speciality = speciality;
     }
-
+    @Override
+    public Integer getNumber() {
+        return super.getNumber();
+    }
     public String getFaculty() {
         return faculty;
     }
