@@ -1765,7 +1765,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     display: inline !important;
 }
 .mainStyle .qTitle iframe{
-    height: auto !important;
+    height: 100% !important;
 }
 /*форум*/
 .mainStyle .forumDiscriptionText {
