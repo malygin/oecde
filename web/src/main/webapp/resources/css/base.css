@@ -1,4 +1,4 @@
-А/*
+/*
     Document   : base
     Created on : 06.07.2010, 10:40:52
     Author     : KorgovVD
@@ -1763,6 +1763,9 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 }
 .mainStyle .imG_span img{
     display: inline !important;
+}
+.mainStyle .qTitle iframe{
+    height: auto !important;
 }
 /*форум*/
 .mainStyle .forumDiscriptionText {
