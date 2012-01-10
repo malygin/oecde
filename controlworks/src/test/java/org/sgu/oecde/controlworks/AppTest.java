@@ -74,7 +74,7 @@ public class AppTest extends BasicTest{
         l.add(new DeCurriculum(200927527L));
         List l2 = new ArrayList();
         l2.add(new Group(13327102L));
-        List<ControlWorkAttempt>ls = this.<IControlWorkAttemptDao>getDao().getAttemptsList(0,10,l2,l);
+        List<ControlWorkAttempt>ls = this.<IControlWorkAttemptDao>getDao().getAttemptsList(0,10,l2,l,null);
         System.out.println(ls.size());
         for (ControlWorkAttempt cw:ls){
             System.out.println(cw);

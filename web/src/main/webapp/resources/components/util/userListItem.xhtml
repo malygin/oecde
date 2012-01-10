@@ -61,7 +61,7 @@
                         <tr><td class="userInfoItemColor">#{msgs.student_mainContentUserInfoSpec}</td><td>#{cc.attrs.u.group.speciality.name}</td></tr>
                         <tr><td class="userInfoItemColor">#{msgs.student_mainContentUserInfoGroup}</td><td><h:outputLink value="group.xhtml?id=#{cc.attrs.u.group.id}">#{cc.attrs.u.group.name}</h:outputLink></td></tr>
                         <tr><td class="userInfoItemColor">#{msgs.student_mainContentUserInfoCourse}</td><td>#{cc.attrs.u.group.year}</td></tr>
-                        <tr><td  colspan="2"><h:panelGroup rendered="#{not s.fullAccess}"><b>Аккаунт заблокирован</b></h:panelGroup></td></tr>
+                        <tr><td  colspan="2"><h:panelGroup rendered="#{not cc.attrs.u.fullAccess}"><b>Аккаунт заблокирован</b></h:panelGroup></td></tr>
                      
                        
                     </sec:ifAnyGranted>
@@ -116,7 +116,7 @@
                     <sec:ifAnyGranted roles="ROLE_ADMIN">
                         <!--<td colspan="2">-->
                             <span  class="comeInAsStudentOrTeacher">
-                                <h:outputLink value="switch_user?j_username=#{cc.attrs.u.username}">#{msgs.user_ComeIn}</h:outputLink>
+                                <h:outputLink rendered="#{cc.attrs.type ne 'admin'}" value="switch_user?j_username=#{cc.attrs.u.username}">#{msgs.user_ComeIn}</h:outputLink>
                             </span>
                         <!--</td>-->
                     </sec:ifAnyGranted>

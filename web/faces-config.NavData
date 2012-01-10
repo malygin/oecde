@@ -14,8 +14,8 @@
         <Node id="resources/jquery/development-bundle/demos/dialog/modal-confirmation.html" x="900" y="2850" zoom="true"/>
         <Node id="404.html" x="400" y="4050" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/slider/index.html" x="1650" y="600" zoom="true"/>
-        <Node id="Teacher/controlWorksAttempts.xhtml" x="650" y="300" zoom="true"/>
         <Node id="Student/messages_list.xhtml" x="2150" y="600" zoom="true"/>
+        <Node id="Teacher/controlWorksAttempts.xhtml" x="650" y="300" zoom="true"/>
         <Node id="Teacher/messages_list.xhtml" x="2900" y="900" zoom="true"/>
         <Node id="Admin/test.xhtml" x="1900" y="1200" zoom="true"/>
         <Node id="Teacher/teacher.xhtml" x="5650" y="900" zoom="true"/>
@@ -36,8 +36,8 @@
         <Node id="resources/components/settings/addAvatar.xhtml" x="3150" y="300" zoom="true"/>
         <Node id="resources/components/education/disciplineForStudent.xhtml" x="2650" y="2550" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/removeClass/default.html" x="650" y="3150" zoom="true"/>
-        <Node id="resources/jquery/development-bundle/demos/accordion/no-auto-height.html" x="1400" y="2400" zoom="true"/>
         <Node id="resources/includes/group.xhtml" x="150" y="3150" zoom="true"/>
+        <Node id="resources/jquery/development-bundle/demos/accordion/no-auto-height.html" x="1400" y="2400" zoom="true"/>
         <Node id="resources/jquery/development-bundle/docs/removeClass.html" x="2150" y="900" zoom="true"/>
         <Node id="Supervisor/groups.xhtml" x="150" y="1650" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/dialog/animated.html" x="3400" y="1500" zoom="true"/>
@@ -47,20 +47,20 @@
         <Node id="Teacher/student.xhtml" x="1900" y="2850" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/position/index.html" x="1900" y="1050" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/autocomplete/categories.html" x="3400" y="750" zoom="true"/>
-        <Node id="resources/jquery/development-bundle/demos/draggable/events.html" x="650" y="3450" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/dialog/modal-message.html" x="3900" y="1200" zoom="true"/>
+        <Node id="resources/jquery/development-bundle/demos/draggable/events.html" x="650" y="3450" zoom="true"/>
         <Node id="resources/jquery/development-bundle/docs/dialog.html" x="4400" y="1350" zoom="true"/>
         <Node id="Student/controlWorks.xhtml" x="150" y="2400" zoom="true"/>
-        <Node id="resources/tiny_mce/plugins/example/dialog.htm" x="1650" y="1050" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/accordion/collapsible.html" x="4150" y="900" zoom="true"/>
+        <Node id="resources/tiny_mce/plugins/example/dialog.htm" x="1650" y="1050" zoom="true"/>
         <Node id="Teacher/forum.xhtml" x="1650" y="300" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/dialog/index.html" x="650" y="2850" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/draggable/handle.html" x="900" y="3450" zoom="true"/>
-        <Node id="resources/jquery/development-bundle/docs/progressbar.html" x="4650" y="300" zoom="true"/>
         <Node id="resources/components/tests/questionProgressBars.xhtml" x="150" y="1950" zoom="true"/>
+        <Node id="resources/jquery/development-bundle/docs/progressbar.html" x="4650" y="300" zoom="true"/>
         <Node id="Student/info.xhtml" x="4150" y="1650" zoom="true"/>
-        <Node id="resources/components/util/infoAboutStudent.xhtml" x="1150" y="3600" zoom="true"/>
         <Node id="resources/components/education/oneStudentCWForTeacher.xhtml" x="3650" y="1950" zoom="true"/>
+        <Node id="resources/components/util/infoAboutStudent.xhtml" x="1150" y="3600" zoom="true"/>
         <Node id="resources/components/util/date_picker.xhtml" x="1150" y="1950" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/resizable/constrain-area.html" x="1650" y="1200" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/slider/default.html" x="3900" y="450" zoom="true"/>
@@ -73,8 +73,8 @@
         <Node id="resources/tiny_mce/themes/advanced/image.htm" x="1650" y="900" zoom="true"/>
         <Node id="Admin/messages_list.xhtml" x="150" y="1050" zoom="true"/>
         <Node id="resources/tiny_mce/plugins/xhtmlxtras/cite.htm" x="900" y="3150" zoom="true"/>
-        <Node id="resources/components/education/curriculum.xhtml" x="1400" y="3300" zoom="true"/>
         <Node id="Supervisor/news_list.xhtml" x="5900" y="750" zoom="true"/>
+        <Node id="resources/components/education/curriculum.xhtml" x="1400" y="3300" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/sortable/delay-start.html" x="4150" y="1350" zoom="true"/>
         <Node id="resources/components/jquery/draggable.xhtml" x="1900" y="600" zoom="true"/>
         <Node id="Admin/supervisor.xhtml" x="1900" y="3150" zoom="true"/>
@@ -118,14 +118,14 @@
         <Node id="resources/tiny_mce/themes/advanced/color_picker.htm" x="1900" y="1500" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/button/checkbox.html" x="2400" y="1350" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/droppable/accepted-elements.html" x="2900" y="1950" zoom="true"/>
-        <Node id="Student/studentsList.xhtml" x="1650" y="2550" zoom="true"/>
         <Node id="Student/messages_out.xhtml" x="900" y="2400" zoom="true"/>
+        <Node id="Student/studentsList.xhtml" x="1650" y="2550" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/show/index.html" x="5650" y="150" zoom="true"/>
         <Node id="resources/components/education/controlWorks.xhtml" x="5650" y="750" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/resizable/animate.html" x="900" y="300" zoom="true"/>
         <Node id="Teacher/testEdit.xhtml" x="2150" y="1200" zoom="true"/>
-        <Node id="Teacher/admin.xhtml" x="2150" y="2100" zoom="true"/>
         <Node id="Supervisor/index.xhtml" x="2150" y="150" zoom="true"/>
+        <Node id="Teacher/admin.xhtml" x="2150" y="2100" zoom="true"/>
         <Node id="Teacher/curriculums.xhtml" x="1150" y="750" zoom="true"/>
         <Node id="Admin/umk.xhtml" x="400" y="600" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/sortable/connect-lists-through-tabs.html" x="2150" y="1800" zoom="true"/>
@@ -137,24 +137,24 @@
         <Node id="Student/usersOnlineList.xhtml" x="150" y="3750" zoom="true"/>
         <Node id="resources/jquery/index.html" x="900" y="2700" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/show/default.html" x="900" y="600" zoom="true"/>
-        <Node id="Admin/constants.xhtml" x="2900" y="150" zoom="true"/>
         <Node id="resources/jquery/development-bundle/docs/droppable.html" x="2150" y="2400" zoom="true"/>
+        <Node id="Admin/constants.xhtml" x="2900" y="150" zoom="true"/>
         <Node id="Teacher/schedule.xhtml" x="4650" y="750" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/tabs/bottom.html" x="900" y="1950" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/accordion/default.html" x="1150" y="2100" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/slider/multiple-vertical.html" x="900" y="2100" zoom="true"/>
         <Node id="resources/tiny_mce/plugins/fullpage/fullpage.htm" x="4150" y="450" zoom="true"/>
         <Node id="resources/tiny_mce/plugins/paste/pasteword.htm" x="1900" y="900" zoom="true"/>
-        <Node id="resources/tiny_mce/plugins/paste/pastetext.htm" x="1650" y="2700" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/datepicker/icon-trigger.html" x="6150" y="300" zoom="true"/>
+        <Node id="resources/tiny_mce/plugins/paste/pastetext.htm" x="1650" y="2700" zoom="true"/>
         <Node id="resources/jquery/development-bundle/docs/show.html" x="1400" y="1200" zoom="true"/>
         <Node id="Admin/teacher.xhtml" x="2150" y="750" zoom="true"/>
-        <Node id="resources/jquery/development-bundle/demos/tabs/vertical.html" x="1400" y="300" zoom="true"/>
         <Node id="resources/components/news/list.xhtml" x="900" y="2250" zoom="true"/>
+        <Node id="resources/jquery/development-bundle/demos/tabs/vertical.html" x="1400" y="300" zoom="true"/>
         <Node id="Admin/studentEdit.xhtml" x="650" y="1950" zoom="true"/>
         <Node id="resources/tiny_mce/themes/advanced/source_editor.htm" x="400" y="2400" zoom="true"/>
-        <Node id="resources/components/messages/list_out.xhtml" x="5150" y="300" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/accordion/index.html" x="1400" y="2100" zoom="true"/>
+        <Node id="resources/components/messages/list_out.xhtml" x="5150" y="300" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/slider/side-scroll.html" x="1650" y="450" zoom="true"/>
         <Node id="resources/components/education/controlWorkForStudent.xhtml" x="6650" y="150" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/dialog/default.html" x="150" y="3450" zoom="true"/>
@@ -192,8 +192,8 @@
         <Node id="resources/baseTemplate.xhtml" x="150" y="2100" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/datepicker/alt-field.html" x="3650" y="1800" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/datepicker/localization.html" x="1150" y="3150" zoom="true"/>
-        <Node id="Student/materials.xhtml" x="1150" y="600" zoom="true"/>
         <Node id="Admin/group.xhtml" x="1650" y="2250" zoom="true"/>
+        <Node id="Student/materials.xhtml" x="1150" y="600" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/effect/easing.html" x="150" y="3600" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/autocomplete/multiple-remote.html" x="400" y="900" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/datepicker/default.html" x="3400" y="1050" zoom="true"/>
@@ -204,12 +204,12 @@
         <Node id="resources/components/util/editor.xhtml" x="150" y="3000" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/resizable/delay-start.html" x="4150" y="600" zoom="true"/>
         <Node id="resources/player/player_flv_multi.html" x="6900" y="300" zoom="true"/>
-        <Node id="resources/jquery/development-bundle/demos/tabs/ajax/content1.html" x="1150" y="2250" zoom="true"/>
         <Node id="resources/tiny_mce/plugins/preview/preview.html" x="650" y="3000" zoom="true"/>
+        <Node id="resources/jquery/development-bundle/demos/tabs/ajax/content1.html" x="1150" y="2250" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/toggleClass/index.html" x="2150" y="1500" zoom="true"/>
-        <Node id="Supervisor/teacher.xhtml" x="3900" y="1950" zoom="true"/>
         <Node id="resources/components/tests/questionView.xhtml" x="1400" y="1050" zoom="true"/>
         <Node id="Supervisor/news_read.xhtml" x="6400" y="450" zoom="true"/>
+        <Node id="Supervisor/teacher.xhtml" x="3900" y="1950" zoom="true"/>
         <Node id="Teacher/settings.xhtml" x="400" y="1800" zoom="true"/>
         <Node id="Teacher/adminsList.xhtml" x="900" y="3600" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/datepicker/index.html" x="650" y="150" zoom="true"/>
@@ -222,12 +222,12 @@
         <Node id="resources/jquery/development-bundle/demos/autocomplete/xml.html" x="150" y="1500" zoom="true"/>
         <Node id="Teacher/messages_dialog.xhtml" x="4400" y="750" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/accordion/fillspace.html" x="1900" y="750" zoom="true"/>
-        <Node id="resources/jquery/development-bundle/demos/sortable/placeholder.html" x="3900" y="1500" zoom="true"/>
         <Node id="resources/tiny_mce/themes/advanced/charmap.htm" x="4900" y="450" zoom="true"/>
+        <Node id="resources/jquery/development-bundle/demos/sortable/placeholder.html" x="3900" y="1500" zoom="true"/>
         <Node id="resources/components/util/userListItem.xhtml" x="1400" y="2550" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/droppable/visual-feedback.html" x="5400" y="300" zoom="true"/>
-        <Node id="Admin/messages_dialog.xhtml" x="3150" y="600" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/button/radio.html" x="2650" y="300" zoom="true"/>
+        <Node id="Admin/messages_dialog.xhtml" x="3150" y="600" zoom="true"/>
         <Node id="resources/components/messages/list.xhtml" x="3900" y="1650" zoom="true"/>
         <Node id="resources/tiny_mce/plugins/style/props.htm" x="400" y="1950" zoom="true"/>
         <Node id="Admin/chat.xhtml" x="2900" y="2400" zoom="true"/>
@@ -241,17 +241,17 @@
         <Node id="resources/jquery/development-bundle/docs/datepicker.html" x="1650" y="1350" zoom="true"/>
         <Node id="Admin/studentEvents.xhtml" x="4900" y="150" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/droppable/propagation.html" x="6150" y="150" zoom="true"/>
-        <Node id="Student/teacher.xhtml" x="150" y="150" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/tabs/index.html" x="3150" y="1050" zoom="true"/>
+        <Node id="Student/teacher.xhtml" x="150" y="150" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/effect/index.html" x="3900" y="150" zoom="true"/>
         <Node id="resources/jquery/development-bundle/docs/animate.html" x="2900" y="300" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/dialog/modal.html" x="400" y="3300" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/hide/default.html" x="5150" y="150" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/position/cycler.html" x="2650" y="1950" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/datepicker/dropdown-month-year.html" x="1650" y="2100" zoom="true"/>
-        <Node id="resources/tiny_mce/plugins/emotions/emotions.htm" x="4650" y="900" zoom="true"/>
         <Node id="resources/jquery/development-bundle/docs/position.html" x="400" y="3600" zoom="true"/>
         <Node id="Student/discussion_list.xhtml" x="1150" y="1050" zoom="true"/>
+        <Node id="resources/tiny_mce/plugins/emotions/emotions.htm" x="4650" y="900" zoom="true"/>
         <Node id="Supervisor/usersOnlineList.xhtml" x="5400" y="1050" zoom="true"/>
         <Node id="resources/components/tabs/singleTab.xhtml" x="650" y="1650" zoom="true"/>
         <Node id="resources/components/education/statisticForTeacher.xhtml" x="4900" y="1200" zoom="true"/>
@@ -269,13 +269,13 @@
         <Node id="Admin/messages_write.xhtml" x="3900" y="900" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/button/toolbar.html" x="3150" y="1500" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/datepicker/inline.html" x="5400" y="150" zoom="true"/>
+        <Node id="resources/jquery/development-bundle/docs/toggle.html" x="650" y="1200" zoom="true"/>
         <Node id="resources/tiny_mce/plugins/preview/example.html" x="1650" y="750" zoom="true"/>
         <Node id="Student/supervisor.xhtml" x="1150" y="1350" zoom="true"/>
-        <Node id="resources/jquery/development-bundle/docs/toggle.html" x="650" y="1200" zoom="true"/>
         <Node id="Admin/student.xhtml" x="4900" y="600" zoom="true"/>
         <Node id="Teacher/messages_read.xhtml" x="4150" y="1050" zoom="true"/>
-        <Node id="Student/adminsList.xhtml" x="3900" y="1050" zoom="true"/>
         <Node id="resources/components/education/finalTestsForStudent.xhtml" x="1900" y="3000" zoom="true"/>
+        <Node id="Student/adminsList.xhtml" x="3900" y="1050" zoom="true"/>
         <Node id="resources/tiny_mce/plugins/media/media.htm" x="900" y="1350" zoom="true"/>
         <Node id="resources/components/education/index.xhtml" x="1150" y="2550" zoom="true"/>
         <Node id="resources/components/util/usersOnline.xhtml" x="150" y="1800" zoom="true"/>
@@ -295,8 +295,8 @@
         <Node id="resources/jquery/development-bundle/demos/droppable/shopping-cart.html" x="1150" y="2850" zoom="true"/>
         <Node id="Student/student.xhtml" x="150" y="1350" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/autocomplete/remote-jsonp.html" x="3400" y="1800" zoom="true"/>
-        <Node id="resources/components/util/autocomplete.xhtml" x="5650" y="600" zoom="true"/>
         <Node id="Teacher/usersOnlineList.xhtml" x="650" y="2250" zoom="true"/>
+        <Node id="resources/components/util/autocomplete.xhtml" x="5650" y="600" zoom="true"/>
         <Node id="resources/tiny_mce/plugins/advhr/rule.htm" x="2650" y="150" zoom="true"/>
         <Node id="Student/test.xhtml" x="3400" y="1200" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/datepicker/min-max.html" x="1150" y="450" zoom="true"/>
@@ -315,9 +315,9 @@
         <Node id="Supervisor/forum.xhtml" x="5150" y="1200" zoom="true"/>
         <Node id="Student/groupControlWorks.xhtml" x="3150" y="750" zoom="true"/>
         <Node id="resources/jquery/development-bundle/docs/selectable.html" x="2400" y="1050" zoom="true"/>
-        <Node id="Admin/tabEdit.xhtml" x="3150" y="2100" zoom="true"/>
-        <Node id="resources/jquery/development-bundle/demos/slider/slider-vertical.html" x="400" y="450" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/slider/colorpicker.html" x="3650" y="150" zoom="true"/>
+        <Node id="resources/jquery/development-bundle/demos/slider/slider-vertical.html" x="400" y="450" zoom="true"/>
+        <Node id="Admin/tabEdit.xhtml" x="3150" y="2100" zoom="true"/>
         <Node id="Student/forum.xhtml" x="5150" y="900" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/draggable/visual-feedback.html" x="4650" y="150" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/addClass/index.html" x="2400" y="1650" zoom="true"/>
@@ -328,8 +328,8 @@
         <Node id="resources/jquery/development-bundle/demos/draggable/constrain-movement.html" x="1150" y="300" zoom="true"/>
         <Node id="resources/components/tests/showResult.xhtml" x="2150" y="450" zoom="true"/>
         <Node id="Supervisor/settings.xhtml" x="2150" y="3000" zoom="true"/>
-        <Node id="Student/schedule.xhtml" x="2400" y="2100" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/progressbar/default.html" x="4150" y="1200" zoom="true"/>
+        <Node id="Student/schedule.xhtml" x="2400" y="2100" zoom="true"/>
         <Node id="Student/grades.xhtml" x="4650" y="1050" zoom="true"/>
         <Node id="resources/components/util/navigationList.xhtml" x="1900" y="450" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/resizable/index.html" x="1150" y="1800" zoom="true"/>
@@ -376,26 +376,26 @@
         <Node id="resources/jquery/development-bundle/docs/addClass.html" x="4400" y="1050" zoom="true"/>
         <Node id="Admin/search.xhtml" x="650" y="2550" zoom="true"/>
         <Node id="Admin/exbook.xhtml" x="1900" y="2400" zoom="true"/>
-        <Node id="resources/tiny_mce/plugins/searchreplace/searchreplace.htm" x="900" y="1050" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/datepicker/event-search.html" x="1900" y="150" zoom="true"/>
+        <Node id="resources/tiny_mce/plugins/searchreplace/searchreplace.htm" x="900" y="1050" zoom="true"/>
         <Node id="Supervisor/info.xhtml" x="3150" y="2400" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/draggable/default.html" x="4400" y="600" zoom="true"/>
         <Node id="resources/components/messages/read.xhtml" x="150" y="750" zoom="true"/>
         <Node id="Student/video.xhtml" x="6150" y="750" zoom="true"/>
         <Node id="resources/tiny_mce/plugins/template/template.htm" x="2650" y="450" zoom="true"/>
         <Node id="resources/includes/student.xhtml" x="150" y="2250" zoom="true"/>
-        <Node id="Student/support.xhtml" x="2900" y="450" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/autocomplete/maxheight.html" x="1150" y="2400" zoom="true"/>
+        <Node id="Student/support.xhtml" x="2900" y="450" zoom="true"/>
         <Node id="resources/jquery/development-bundle/docs/effect.html" x="900" y="150" zoom="true"/>
         <Node id="Supervisor/student.xhtml" x="2900" y="2100" zoom="true"/>
-        <Node id="resources/tiny_mce/plugins/xhtmlxtras/abbr.htm" x="4900" y="1050" zoom="true"/>
         <Node id="resources/tiny_mce/plugins/inlinepopups/template.htm" x="3900" y="600" zoom="true"/>
+        <Node id="resources/tiny_mce/plugins/xhtmlxtras/abbr.htm" x="4900" y="1050" zoom="true"/>
         <Node id="resources/components/estimation/header.xhtml" x="3650" y="450" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/selectable/default.html" x="1900" y="1950" zoom="true"/>
         <Node id="Admin/tabsView.xhtml" x="3400" y="1950" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/draggable/snap-to.html" x="2900" y="1650" zoom="true"/>
-        <Node id="resources/jquery/development-bundle/demos/sortable/portlets.html" x="2150" y="2550" zoom="true"/>
         <Node id="resources/jquery/development-bundle/demos/removeClass/index.html" x="400" y="1350" zoom="true"/>
+        <Node id="resources/jquery/development-bundle/demos/sortable/portlets.html" x="2150" y="2550" zoom="true"/>
         <Node id="Admin/studentTestResults.xhtml" x="1650" y="3300" zoom="true"/>
         <Node id="Admin/news_view.xhtml" x="400" y="3750" zoom="true"/>
         <Node id="resources/components/tests/questionTips.xhtml" x="4900" y="300" zoom="true"/>

@@ -102,6 +102,7 @@ public class GroupPoints extends AbstractStudentsListBean{
                 return PointToEstimate.testGrades();
             else if(ExaminationType.empty.equals(getCurriculum().getExaminationType()))
                 return PointToEstimate.emptyGrades();
+            else return PointToEstimate.emptyGrades();
         
         return new PointToEstimate[0];
     }

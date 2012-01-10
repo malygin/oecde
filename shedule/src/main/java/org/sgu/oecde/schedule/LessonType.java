@@ -12,6 +12,7 @@ public enum LessonType implements Serializable{
     practice("практика"),
     exam("экзамен"),
     lightExam("зачет"),
+    curPlan("по учебному плану"),
     consult;
     private static final long serialVersionUID = 216L;
 

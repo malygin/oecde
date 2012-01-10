@@ -5,7 +5,7 @@
     template="baseTemplate.xhtml">
 
     <ui:define name="userCSS">
-        <h:outputStylesheet name="base.css" library="css" rendered="true"/>
+        <h:outputStylesheet name="#{initParam.skinTheme}base.css" library="css" rendered="true"/>
         <!--        <h:outputStylesheet name="admin.css" library="css" rendered="true"/>-->
         <script type="text/javascript" src="../resources/jquery/js/jquery-1.4.2.min.js"></script>
 

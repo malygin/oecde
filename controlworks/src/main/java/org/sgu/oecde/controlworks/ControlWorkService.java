@@ -12,6 +12,7 @@ import org.sgu.oecde.controlworks.dao.IControlWorkAttemptDao;
 import org.sgu.oecde.controlworks.dao.IControlWorkDao;
 import org.sgu.oecde.core.education.AdvancedCurriculum;
 import org.sgu.oecde.core.education.Curriculum;
+import org.sgu.oecde.core.education.ExaminationType;
 import org.sgu.oecde.core.education.dao.ICurriculumDao;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.core.util.DateConverter;
@@ -160,6 +161,7 @@ public class ControlWorkService implements Serializable{
         if(example==null)
             return null;
         example.setGotControlWork(true);
+        if (example.getExaminationType()==null || example.getExaminationType().equals(ExaminationType.empty)) example.setExaminationType(null);
         return (List<T>) curriculumDao.getByExample(example);
     }
 

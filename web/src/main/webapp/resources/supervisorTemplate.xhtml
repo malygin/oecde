@@ -6,7 +6,7 @@
     template="baseTemplate.xhtml">
 
     <ui:define name="userCSS">
-        <h:outputStylesheet name="base.css" library="css" rendered="true"/>
+        <h:outputStylesheet name="#{initParam.skinTheme}base.css" library="css" rendered="true"/>
     </ui:define>
 
     <ui:define name="left">
