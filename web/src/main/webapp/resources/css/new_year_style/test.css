@@ -1,0 +1,23 @@
+/* 
+    Document   : test
+    Created on : 27.07.2011, 16:06:27
+    Author     : LatunskayaAA
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+* {
+    color: #838383;
+    font-family: Arial;
+    font-size: 10pt;
+}
+label{
+    display: block;
+    padding-left: 12px;
+}
+
