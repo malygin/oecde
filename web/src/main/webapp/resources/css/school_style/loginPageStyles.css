@@ -1,9 +1,8 @@
 /* 
     Document   : loginPageStyles
-    Created on : 02.07.2010, 15:35:52
-    Author     : KorgovVD
-    Description:
-        Purpose of the stylesheet follows.
+    Created on : 16.01.2012, 15:35:52
+    Author     : MarushinaAS
+    Description: styles for login page
 */
 
 .browsersLogo{
@@ -17,20 +16,13 @@
     width: 10px;
 }
 .login_pageFormBackground{
-   background: url("../../resources/images/main_background_top.png") no-repeat;
-    width: 1001px;
-    height: 900px;
+   background: url("../../resources/css/school_style/images/fon_for_school.png") no-repeat;
+    width: 1002px;
+    height: 652px;
 }
-.login_pageFormBackgroundBottom{
-    background: url('../../resources/images/main_background_bottom.png')  no-repeat white;
-    background-position: bottom;
-}
+.login_pageFormBackgroundBottom{}
 .login_pageFormBackgroundBottomRoundCorners{
-    background: url('../../resources/images/main_background_bottom2.png')  no-repeat;
-    background-position: bottom;
-    height: 27px;
-    width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 50px;*/
 }
 .login_pageFormBackgroundBottomRoundCorners a img{
     margin-top: -8px;
@@ -47,10 +39,10 @@
     text-align: left;
 }
 .SDO_text{
-    margin: 4px 0px 10px;
+    margin: 3px 0px;
     color: white;
     font-size: 15pt;
-    font-family: Century Gothic;
+    font-family: "Trebuchet MS";
     text-align: center;
 }
 .SDO_text_UOE{
@@ -71,7 +63,6 @@
 }
 .login_pageFormInputsLabels{
     margin-top: 2px;
-/*    color: #016281;*/
     color: black;
     font-size: 10pt;
     font-family: Arial;
@@ -89,10 +80,8 @@
     width: 100px;
 }
 .login_pageFormButtons{
-/*    background: url("../../resources/images/buttonBlue.jpg") repeat-x scroll center transparent;*/
     background: #BEDBEA;
     border: 1px solid #afc4c9;
-/*    color: #016281;*/
     color: black;
     font-size: 10pt;
     font-family: Arial;
@@ -106,19 +95,13 @@
 }
 .login_pageFormButtons:hover,
 .login_pageFormButtons:active{
-/*    background: url("../../resources/images/buttonBlue2.jpg") repeat-x bottom;*/
     background: #a3cce2;
     font-size: 10pt;
-/*    color: #016281;*/
     color: black;
     border: 1px solid #acc5cb;
     outline: none;
 }
-/*.login_pageHelloText{
-    height: 315px;
-    width: 800px;
-    z-index: 1;
-}*/
+
 .BoldBlackText{
     font-weight: bold;
     font-family: Arial;
@@ -144,29 +127,13 @@
     list-style-image: url('../../resources/images/markerStartPage.png');
 }
 .login_pageMargins{
-    margin-left: 20px;
-    padding-right: 50px;
+    padding-right: 40px;
 }
 .login_pageSpecialityList p+p{
     font-style: italic;
     text-align: left;
 }
 
-/*.login_pageBottomCorners{
-    width: 800px;
-    z-index: 1;
-}
-.login_pageLeftBottomCorner{
-    float: left;
-}
-.login_pageRightBottomCorner{
-    float: right;
-}
-.login_pageBetweenBottomCornersSpace{
-    width: 770px;
-    height: 28px;
-    background: none repeat scroll 0 0 white;
-}*/
 .login_pageHelloTextP{
 	color: #396469;
 	text-align: justify;
@@ -184,6 +151,7 @@
 .login_pageHelloTextLink:active{color:  #4AD4FF;text-decoration: underline;}
 .login_pageHelloTextLink:visited{color:  #4AD4FF;text-decoration: underline;}
 .login_pageHelloTextLink:hover{color:  #4AD4FF;text-decoration: none;}
+
 /*страница логинизации*/
 .indexPage .educ_umk_text_block{
     margin: 0;
