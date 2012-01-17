@@ -1,0 +1,1989 @@
+/*
+    Document   : base
+    Created on : 06.07.2010, 10:40:52
+    Author     : KorgovVD
+    Description:
+       базовые стили для всех пользователей
+*/
+
+
+
+/*стили для бэйзТемплэйт*/
+*{
+    margin: 0px;
+    padding: 0px;
+    color: #838383;
+    font-family: Arial;
+    font-size: 10pt;
+}
+img{
+    border: 0px;
+    /*    display: block;*/
+}
+body {
+    background-color: #ffffff;
+    font-size: 12px;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    color: #000000;
+    text-align: center;
+}
+h1 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    border-bottom: 1px solid #AFAFAF;
+    font-size:  16px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    color: #D20005;
+}
+p{
+    margin: 0px;
+
+}
+.floatDestroyer{
+    clear: both !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    width: 1px !important;
+    height: 1px !important;
+    border: 0px !important;
+}
+label{
+    display: block;
+    padding-left: 12px;
+}
+.mainStyle .styleBlock img{
+    display: block;
+}
+.mainStyle .firstBorder{
+    border-color: white;
+    -o-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
+    -moz-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
+    -webkit-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
+    border-width: 4px;
+    border-style: solid;
+    margin: 10px 10px 0px 10px;
+    z-index: 2;
+}
+.mainStyle .leftPagePart{
+    width: 16%;
+    float: left;
+    padding-top: 20px;
+}
+/*.mainStyle .leftMenuContainer{
+    width: 100%;
+}*/
+.mainStyle .rightPagePart{
+    margin-left: 16%;
+    width: 84%;
+}
+.mainStyle .topMenu{
+    border-color: white;
+    -o-border-image: url("../resources/images/topMenuBorder.png") 12 12 19 22 round round;
+    -moz-border-image: url("../resources/images/topMenuBorder.png") 12 12 19 22 round round;
+    -webkit-border-image: url("../resources/images/topMenuBorder.png") 12 12 19 22 round round;
+    border-width: 8px;
+    border-left-width: 20px;
+    border-bottom-width: 19px;
+    border-style: solid;
+    height: 35px;
+}
+.mainStyle .rightMenu{
+    margin-left: 80%;
+    margin-right:  -1px;
+}
+@-moz-document url-prefix(){
+    .mainStyle .rightMenu{
+    margin-left: 80%;
+    margin-right:  0px;
+}
+}
+.mainStyle .contentArea{
+    width: 80%;
+    float: left;
+    border-right: 1px solid #9E9E9E;
+}
+.mainStyle .content{
+    border-left: 1px solid #9E9E9E;
+    border-top: 1px solid #9E9E9E;
+    /*    margin-top: 5px;*/
+    min-height: 1060px;
+}
+.mainStyle .floatLeft{
+    float: left;
+}
+/*temporary styles for page content part*/
+.mainStyle .content table *{
+    text-align: left;
+}
+.mainStyle .content a:link {color: #8BB5DF; text-decoration: none; font-size: 10pt; font-weight: bold;margin: 0px;font-family: Arial;}
+.mainStyle .content a:visited {color: #8BB5DF; text-decoration: none; font-size:10pt; font-weight: bold;margin: 0px; font-family: Arial;}
+.mainStyle .content a:active {color: #8BB5DF; text-decoration: none;font-size: 10pt;font-weight: bold;margin: 0px; font-family: Arial;}
+.mainStyle .content a:hover {color: #A3A3A3; text-decoration: none; font-size: 10pt; font-weight: bold; margin: 0px; font-family: Arial;}
+
+.mainStyle .contentHeader{
+    width: 100%;
+    height: 30px;
+    background: #79CEFF;
+    border-top: #0E96FF 1px solid;
+    border-bottom: #0E96FF 1px solid;
+}
+.mainStyle .contentHeader p{
+    font-size: 150%;
+    padding: 5px 0 5px 15px;
+    text-align: left;
+    color: white;
+    font-family: Arial;
+    float: left;
+}
+.mainStyle .interfaceContent{
+    text-align: left;
+    padding: 0px;
+}
+/* .mainStyle div.interfaceContent{
+    padding: 0px;
+}*/
+
+.mainStyle div.interfaceContent{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.mainStyle div.interfaceContentForMyMarks{
+    padding: 0px !important;
+}
+.mainStyle .interfaceContentWithoutPadding{
+    padding: 0px;
+    text-align: left !important;
+    text-indent: 10px;
+}
+.mainStyle .bottom{
+    border-color: white;
+    border-image: url("../resources/images/bottomMenuBorder.png") 12 5 5 12 round round;
+    -moz-border-image: url("../resources/images/bottomMenuBorder.png") 12 5 5 12 round round;
+    -webkit-border-image: url("../resources/images/bottomMenuBorder.png") 12 5 5 12 round round;
+    border-width: 12px;
+    border-right-width: 5px;
+    border-style: solid;
+}
+.mainStyle .bottomMenu{
+    list-style: none;
+    padding-left: 38%;
+}
+.mainStyle .bottomMenu li{
+    margin-top: 5px;
+    padding-bottom: 3px;
+}
+.mainStyle .bottomMenuLinkContainer{
+    float: left;
+    border-right: 1px solid #989898;
+    margin-right: 15px;
+    padding-right: 15px;
+    text-align: center;
+}
+.mainStyle .copyrightCOO{
+    float: right;
+    margin-right: 20px;
+}
+.mainStyle .bottomMenuLinkContainer a:link {color: #A3A3A3; text-decoration: none; font-size: 100%; font-weight: normal;  font-family: Tahoma;}
+.mainStyle .bottomMenuLinkContainer a:visited {color: #A3A3A3; text-decoration: none; font-size: 100%; font-weight: normal;  font-family: Tahoma;}
+.mainStyle .bottomMenuLinkContainer a:active {color: #A3A3A3; text-decoration: none; font-size: 100%; font-weight: normal;  font-family: Tahoma;}
+.mainStyle .bottomMenuLinkContainer a:hover {color: #636363; text-decoration: none; font-size: 100%; font-weight: normal;  font-family: Tahoma; }
+
+.mainStyle .copyrightCOO p{
+    color: #AFAFAF;
+    text-decoration: none;
+    font-size: 95%;
+    font-weight: normal;
+    font-family: Tahoma;
+    margin:0px;
+    padding: 0px;
+    margin-top: 2px;
+    line-height: 11px;
+}
+
+/*левая и правая панели для всех пользователей*/
+/*.mainStyle .blueMenuTitle{
+    width: 100%;
+    height: 19px;
+    padding-top: 10px;
+    background: url("../resources/images/blueMenuTitle.png") repeat-x bottom;
+}*/
+.mainStyle .sideBarTitle{
+    color: white;
+    padding-top: 2px;
+    text-align: left;
+    padding-left: 15px;
+}
+.mainStyle .greenMenuTitle{
+    width: 100%;
+    height: 19px;
+    padding-top: 10px;
+    background: url("../resources/images/greenMenuTitle.png") repeat-x bottom;
+}
+.mainStyle .violMenuTitle{
+    width: 100%;
+    height: 19px;
+    padding-top: 10px;
+    background: url("../resources/images/violMenuTitle.png") repeat-x bottom;
+}
+.mainStyle .leftSideMenuLinks{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: 90%;
+    padding: 0 5%;
+    padding-top: 5px;
+    text-align: left;
+}
+.mainStyle .leftSideMenuLinks a:link {color: #505050; text-decoration: none; font-size: 100%; font-weight: normal; }
+.mainStyle .leftSideMenuLinks a:visited {color: #505050; text-decoration: none; font-size: 100%; font-weight: normal;}
+.mainStyle .leftSideMenuLinks a:active {color: #303030; text-decoration: none; font-size: 100%; font-weight: normal;}
+.mainStyle .leftSideMenuLinks a:hover {color: #8DBEE0; text-decoration: none; font-size: 100%; font-weight: normal;}
+
+.mainStyle .leftSideMenuLinks p{
+    color:#AFAFAF;
+    font-family:Tahoma;
+    font-size: 100%;
+    font-weight:normal;
+    margin-bottom:0;
+    margin-top:0;
+    padding-top:1px;
+    text-decoration:none;
+}
+.mainStyle .sideBarUnderTitleText{
+    width: 100%;
+    text-align: left;
+}
+.mainStyle .sideBarUnderTitleText *{
+    font-size: 95%;
+}
+.mainStyle .greenUnderTitleLink{
+    padding-bottom: 1px;
+    padding-top: 2px;
+    border-bottom: 1px solid #AFCB7E;
+    font-family: Arial;
+    font-weight: normal;
+}
+.mainStyle .greenUnderTitleLink a:link {color: #ACCC7A; text-decoration: none; font-weight: normal; margin-left: 10px;}
+.mainStyle .greenUnderTitleLink a:visited {color: #ACCC7A; text-decoration: none; font-weight: normal; margin-left: 10px;}
+.mainStyle .greenUnderTitleLink a:active {color: black; text-decoration: none; font-weight: normal; margin-left: 10px;}
+.mainStyle .greenUnderTitleLink a:hover {color: black; text-decoration: none; font-weight: normal; margin-left: 10px;}
+
+.mainStyle .blueUnderTitleLink{
+    padding-bottom: 1px;
+    padding-top: 2px;
+    border-bottom: 1px solid #99C4E6;
+    font-family: Arial;
+    font-weight: normal;
+}
+.mainStyle .blueUnderTitleLink a:link {color: #8DBEE0; text-decoration: none; font-weight: normal; margin-left: 10px;}
+.mainStyle .blueUnderTitleLink a:visited {color: #8DBEE0; text-decoration: none; font-weight: normal; margin-left: 10px;}
+.mainStyle .blueUnderTitleLink a:active {color: black; text-decoration: none; font-weight: normal; margin-left: 10px;}
+.mainStyle .blueUnderTitleLink a:hover {color: black; text-decoration: none; font-weight: normal; margin-left: 10px;}
+
+.mainStyle .violUnderTitleLink{
+    padding-bottom: 1px;
+    padding-top: 2px;
+    border-bottom: 1px solid #A978FE;
+    font-family: Arial;
+    font-weight: normal;
+    text-align: right;
+    padding-right: 10px;
+}
+.mainStyle .violUnderTitleLink a:link {color: #A978FE; text-decoration: none; font-weight: normal; margin-left: 10px;}
+.mainStyle .violUnderTitleLink a:visited {color: #A978FE; text-decoration: none; font-weight: normal; margin-left: 10px;}
+.mainStyle .violUnderTitleLink a:active {color: black; text-decoration: none; font-weight: normal; margin-left: 10px;}
+.mainStyle .violUnderTitleLink a:hover {color: black; text-decoration: none; font-weight: normal; margin-left: 10px;}
+
+.mainStyle .userPhotoBorder{
+    border: 1px #4DB7F1 solid;
+    width: 96%;
+    padding: 3px;
+    background: white;
+}
+
+/*стили для фото всех пользователей*/
+.mainStyle .userPhoto{
+    float: left;
+    /*   width: 15%;*/
+}
+.mainStyle .userPhotoBorder img{
+    margin: 0px;
+    padding: 0px;
+    vertical-align: top;
+    width: 100%;
+}
+.mainStyle .userPhotoBorderAdmin{
+    border: 1px #FF796F solid;
+    width: 100%;
+    padding: 3px;
+    background: white;
+}
+.mainStyle .userPhotoBorderStudent{
+    border: 1px #4DB7F1 solid;
+    width: 100%;
+    padding: 3px;
+    background: white;
+}
+.mainStyle .userPhotoBorderTeacher{
+    border: 1px #74CF91 solid;
+    width: 100%;
+    padding: 3px;
+    background: white;
+}
+/*тесты для студентов*/
+.mainStyle .StudentTestStartPages td:nth-child(1){
+    color: gray !important;
+}
+.mainStyle .StudentTestStartPages td:nth-child(2){
+    color: #373E3F !important;
+    font-weight: bolder !important;
+    text-indent: 3px;
+}
+.mainStyle .TestCounter {
+    color: #EF5D0E;
+    font-size: 11pt;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-right: 25px;
+    padding: 5px;
+    text-align: center;
+    width: 50px;
+}
+.StudentTestsPadding{
+    padding-left: 10px;
+}
+.mainStyle .testQuestionBlock{
+    width: 100px;
+    float: left;
+    color: #27587F;
+    font-size: 14px;
+    /*     margin-right: 10px;*/
+    text-align: center !important;
+    border: 1px solid #27587F;
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-right: 8px;
+}
+.mainStyle .testSelectPadding{
+    margin-left: 100px;
+    margin-bottom: 10px;
+    width: 80%;
+    border-bottom: 1px solid #E3F1FC;
+}
+.mainStyle .testSelectPadding iframe{
+    /*     border-bottom: 1px solid #E3F1FC;
+         border-top: 1px solid #E3F1FC;*/
+    width: 80%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+
+}
+.mainStyle .testSelectPadding td{
+    border-top: 1px solid #E3F1FC;
+}
+.mainStyle .testButtons{
+    margin: 8px;
+    width: 150px;
+}
+input[type='radio'], input[type='checkbox']{
+    display: block;
+    float: left;
+}
+label{
+    /*    display: block;*/
+    margin-left: 18px;
+}
+not all and (-webkit-min-device-pixel-ratio:0) {
+    label {margin-left: 18px;}
+}
+.educ_umk_text_block{
+    margin-left: 10px;
+    display: block;
+}
+.mainStyle .progressBarBorder{
+    border: 1px solid green;
+    width: 90%;
+    height: 15px;
+    margin: auto;
+    margin-top: 20px;
+}
+.educ_umk_text {
+    margin-bottom: 2px;
+    margin-left: 28px;
+}
+.educ_content_title {
+    margin-bottom: 5px;
+    margin-left: 30px;
+    margin-top: 2px;
+}
+.mainStyle .radioButtonActive iframe{
+    /*    height: inherit;*/
+    vertical-align: bottom!important;
+}
+.mainStyle .radioButtonEnabled iframe{
+    /*    height: inherit;*/
+}
+.mainStyle .radioButtonActive iframe html{
+    display: block;
+    height: 100%;
+}
+.mainStyle .radioButtonActive iframe body{
+    display: block;
+    position: relative;
+    top: 50px;
+}
+.mainStyle .testResultMarkNull{
+    color: red;
+    font-weight: bolder;
+}
+.mainStyle .backLink{
+    padding: 15px;
+    float: right;
+}
+.mainStyle .numberField{
+    width: 50px;
+}
+
+ul.dropdown {
+    list-style: none;
+}
+
+ul.dropdown li {
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+ul.dropdown li ul {
+    display: none;
+    cursor: default;
+    margin-top: 5px;
+    list-style-type: none;
+    list-style-image: none;
+}
+
+ul.dropdown li ul li {
+    list-style: none;
+    list-style-image: none;
+    cursor: default;
+}
+/*кнопки*/
+.mainStyle .adminButton{
+    color: #6F1B1B;
+    cursor: pointer;
+    font-size: 10pt;
+    background-color: #FFEFEF;
+    border: 1px solid #B97F7F;
+    margin-top: 10px;
+}
+.mainStyle .studentButton{
+    background: url('../resources/images/pic_for_Button_main.jpg');
+    color: #00194F;
+    cursor: pointer;
+    font-size: 10pt;
+    background-color: #EFF9FF;
+    border: 1px solid #7F9DB9;
+    margin-top: 10px;
+}
+.mainStyle .studentButtonRed{
+    background: url('../resources/images/pic_for_Button_Red.jpg');
+    color: #6F1B1B;
+    cursor: pointer;
+    font-size: 10pt;
+    background-color: #FFEFEF;
+    border: 1px solid #B97F7F;
+    margin-top: 10px;
+}
+.mainStyle .saveButton{
+    width: 100px !important;
+}
+.mainStyle .addNewsButtonPosition{
+    position: relative;
+    width: 130px;
+    left: 42%;
+    display: block;
+}
+/*стили для таблиц*/
+.mainStyle .studentStandatrTable *{
+    text-align: left !important;
+
+}
+.mainStyle .studentStandatrTable .studentStandatrTableExamin{
+    text-align: center !important;
+}
+.mainStyle .studentInterfaceStandartList{
+    margin-top: 3px;
+    padding: 10px;
+    border-bottom: 1px solid silver;
+    border-top: 1px solid silver;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.mainStyle .studentStandatrTable{
+    margin-top: 10px;
+    width: 100%;
+}
+.mainStyle .studentStandatrTableTdFirstWidth{
+    width: 30%;
+}
+.mainStyle .studentStandatrTable th{
+    font-weight: normal;
+    font-size: 8pt;
+    text-align: center !important;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-bottom: 3px double silver;
+    padding: 1px;
+    background: #EFEFEF;
+    padding: 7px 0px;
+    color: gray;
+    padding: 3px 3px;
+}
+.mainStyle .studentStandatrTableForChrome{
+    font-weight: normal;
+    font-size: 8pt;
+    text-align: center !important;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-bottom: 3px double silver;
+    padding: 1px;
+    background: #EFEFEF;
+    padding: 7px 0px;
+    color: gray;
+    padding: 3px 3px;
+}
+.mainStyle .studentStandatrTableTdLastTdForChrome{
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+}
+.mainStyle .studentStandatrTableTdForChrome{
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+}
+mainStyle .studentStandatrTable tr td .AdminIndent{
+    text-align: left !important;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    body:first-of-type .mainStyle .AdminAddAvatar{
+        background: #FFE1DF !important;
+        border: 1px solid #DF9E99;
+    }
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    body:first-of-type .mainStyle .StudentWriteMess{
+        background: none !important;
+        border: 1px solid #7F9DB9;
+    }
+}
+.mainStyle .studentStandatrTable .studentStandatrTableTd{
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+}
+.mainStyle .studentStandatrTable .studentStandatrTableTdLastTd{
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+}
+.mainStyle .studentStandatrTable .studentStandatrTableTdWithBorder{
+    border: 1px solid #EFEFEF;
+    border-left: 0px;
+    border-top: 0px;
+}
+.mainStyle .studentStandatrTable .studentStandatrTableTdWithBorderBrighter{
+    /*border: 1px solid #DFDFDF !important;*/
+    border-left: 0px;
+    border-top: 0px;
+}
+.mainStyle .StudentTablePadding  th img{
+    margin: auto;
+}
+.studentStandatrTableTdTests{
+    border: 1px solid #D1E0EF !important;
+    border-left: 0px !important;
+    border-right: 0px !important;
+    border-top: 0px !important;
+}
+.studentStandatrWidth{
+    width: 40%;
+    text-indent: 10px;
+}
+
+.mainStyle .studentStandatrTable .studentStandatrTableTdLastTdwithBorder{
+    text-align: center !important;
+    border: 1px solid #EFEFEF;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+}
+.mainStyle .studentStandatrTableBorder{
+    border-right: 1px solid #D1E0EF;
+}
+.mainStyle .studentStandatrTableCenter{
+    text-align: center !important;
+    vertical-align:middle;
+    font-size: 8pt;
+    font-weight: normal;
+}
+.mainStyle .studentStandatrTableTdWithBorder1{
+    color: #DFDFDF !important;
+}
+.mainStyle .changeSemWithoutBorder div{
+    border-bottom: 0px !important;
+}
+.mainStyle .StudentTablePadding th:nth-child(4){
+    width: 30px;
+}
+.mainStyle .StudentBorderInfo{
+    border: 1px solid #CFCFCF;
+}
+.mainStyle .StudentBorderInfo tr td:nth-child(1){
+    border-bottom: 1px solid #CFCFCF;
+}
+
+.mainStyle .StudentBorderInfo th{
+    border-bottom: 1px solid #CFCFCF;
+}
+.mainStyle .StudentBorderInfo th:nth-child(1){
+    height: 30px;
+}
+.mainStyle .StudentBorderInfo th:nth-child(2){
+    border-bottom: 1px solid #CFCFCF;
+    border-left: 1px solid #CFCFCF;
+}
+.mainStyle .StudentBorderInfoTd span, .centerTextInTables th span{
+    text-align: center !important;
+    display: block;
+}
+.mainStyle .StudentBorderInfo .StudentBorderInfoTableCity{
+    border-bottom: 1px solid #CFCFCF;
+    text-indent: 5px;
+}
+.mainStyle .StudentBorderInfo .StudentBorderInfoTableCity tr:last-child td{
+    border-bottom: 0 !important;
+}
+.mainStyle .StudentBorderInfo .StudentBorderInfoTableCity td{
+    border-left: 1px solid #CFCFCF;
+    border-right: 1px solid #CFCFCF;
+    border-bottom: 1px solid #CFCFCF;
+    width: 100%;
+    color: #1F1D1D;
+}
+.mainStyle .StudentBorderInfo .StudentBorderInfoTableCity td:nth-child(2){
+    width: 50px;
+}
+.mainStyle .StudentBorderInfo .StudentBorderInfoTableCity .StudentBorderInfoTableNumberGroup td{
+    border: 0 !important;
+    width: 100%;
+    text-align: center;
+}
+.mainStyle .studentTabInStandartTable{
+    width: 100%;
+}
+.mainStyle .studentTabInStandartTable .studentTabInStandartTableTh{
+    border: 0px;
+    border-bottom: 1px solid silver;
+    background: none;
+    padding: 0px;
+}
+.mainStyle .nullSign{
+    color:red;
+    font-weight: bolder;
+}
+.mainStyle .studentTabInStandartTable .studentTabInStandartTableThContainer{
+    border-right: 1px solid silver;
+    height: 100%;
+    text-align: center;
+    padding: 3px;
+}
+.mainStyle .studentTabInStandartTable .studentTabInStandartTableLeftTd{
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+    padding: 3px 0px;
+}
+.mainStyle .studentTabInStandartTable .studentTabInStandartTableRightTd{
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    font-size: 8pt;
+    padding: 3px 0px;
+}
+.mainStyle .studentStandatrTable .studentStandatrTableSubtableTd{
+    text-align: center;
+    border: 1px solid silver;
+    border-left: 0px;
+    border-top: 0px;
+    border-bottom: 0px;
+    font-size: 8pt;
+}
+.mainStyle .studentStandatrTable th:nth-last-child(1),
+.mainStyle .studentStandatrTable tr:nth-last-child(1){
+    border-right: 0px !important;
+}
+.studentStandatrTable tr td:nth-child(2){
+    text-align: center;
+}
+.mainStyle .student_gradesTableHeadTeacherWidth{
+    width: 50px;
+}
+/*блок изменить семестр*/
+.mainStyle .changeSemestrBlock div{
+    margin: 3px 0px;
+    border: 1px solid silver;
+    padding: 5px;
+}
+.indexChangeSemestrPanel div{
+    border: 1px solid silver;
+}
+.indexChangeSemestrPanel div div{
+    background: none !important;
+    border: 0px;
+}
+.indexChangeSemestrPanel div div div{
+    color: #686E6F;
+    font-weight: bolder;
+    padding-left: 10px;
+}
+.mainStyle .changeSemestr{
+    background: #e2f3fc;
+    color: #4593DF;
+    padding: 4px 5px 3px 5px;
+}
+/*стили для текста*/
+.mainStyle .DisciplineText{
+    font-size: 11pt;
+    font-weight: normal !important;
+    color: #27587F !important;
+    font-family: Arial;
+    padding-left: 12px;
+}
+.mainStyle .prosto_tekst {
+    padding-top: 10px;
+}
+.mainStyle .prosto_tekst p {
+    color: black;
+    margin: 0;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    text-align: justify;
+}
+.mainStyle .prosto_tekst .help_part {
+    color: #2DA0BA !important;
+    font-size: 10pt;
+    margin-left: 10px;
+    padding-top: 5px;
+}
+.mainStyle .prosto_tekst .comment {
+    border-bottom: 1px solid lightblue;
+    border-top: 1px solid lightblue;
+    color: #4C4C4C !important;
+    font-size: 8pt;
+    padding-bottom: 10px;
+}
+.mainStyle .centerAlignText{
+    text-align: center !important;
+}
+.mainStyle .controlWorksDisciplineNameLink a{font-size: 9pt !important;}
+.previewText{
+    font-size: 8pt;
+}           
+.indentionInNavigation{
+    padding-left: 10px; color: gray; font-size: 12pt !important;
+    height: 20px;
+}
+/*temporary style for page content part*/
+
+.mainStyle .topMenuLinks{
+    list-style: none;
+    margin-left: 2%;
+    width: 98%;
+}
+.mainStyle .topMenuLinkContainer{
+    float: left;
+    margin-right: 10px;
+    margin-top: 8px;
+    padding-right: 10px;
+    border-right:1px solid #E0E0E0;
+}
+.mainStyle .topMenuLinkContainer a:link {color: #959595; text-decoration: none; font-size: 100%; font-weight: normal; padding-top:0px;}
+.mainStyle .topMenuLinkContainer a:visited {color: #959595; text-decoration: none; font-size: 100%; font-weight: normal; padding-top:0px;}
+.mainStyle .topMenuLinkContainer a:active {color: #F95E62; text-decoration: none; font-size: 100%; font-weight: normal; padding-top:0px;}
+.mainStyle .topMenuLinkContainer a:hover {color: #F95E62; text-decoration: none; font-size: 100%; font-weight: normal;  padding-top:0px;}
+
+.mainStyle .topMenuLinkContainer p{
+    color:#AFAFAF;
+    font-family:Tahoma;
+    font-size: 100%;
+    font-weight:normal;
+    margin-bottom:0;
+    margin-top:0;
+    text-decoration:none;
+}
+.mainStyle .searchPannelContainer{
+    float: left;
+    margin-top: 7px;
+    width: 50%;
+    text-align: left;
+}
+.mainStyle .searchPannelContainer div{
+    width: 100%;
+    padding-left: 3px;
+}
+.mainStyle .topSearchInput{
+    height: 16px;
+    width: 82%;
+    background-image: url("../resources/images/search_small.jpg");
+    background-position: 2px 2px;
+    background-repeat: no-repeat;
+    padding-left: 14px;
+    border: 1px solid #B3B3B3;
+    font-size: 100%;
+    color: #B3B3B3;
+    float: left;
+}
+.mainStyle .topSearchButton{
+    color: #B3B3B3;
+    background: none;
+    border: 1px solid #B3B3B3;
+    border-left: 0px;
+    height: 18px;
+    font-size: 100%;
+    width: 60px;
+    cursor: pointer;
+}
+/*чатик*/
+.mainStyle .chatShortHistory{
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #A978FE;
+    min-height: 200px;
+    max-height: 200px;
+    text-align: left;
+    overflow-y: scroll;
+}
+.mainStyle .smallChatTools{
+    border-top: 1px solid #A978FE;
+    padding: 5px;
+    border-bottom: 1px solid #A978FE;
+}
+.mainStyle .smallChatTools button{
+    background: url("../resources/images/smallChatButton.png") no-repeat;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #A978FE;
+    float: right;
+}
+.mainStyle .smallChatTools input{
+    border: 1px solid #A978FE;
+    float: left;
+    max-width: 80%;
+}
+/*ссылки*/
+.mainStyle .linkToStudentsProfile{
+    font-weight: bolder;
+    XxXwidth: 70%;
+    XxXfloat: left;
+    Xcolor: #00A4FF;
+}
+.mainStyle .linkToTeachersProfile{
+    XxXwidth: 70%;
+    XxXfloat: left;
+    font-weight: bolder;
+    color: #64D359;
+    padding-left: 20px;
+    background: url("../resources/images/teacherIcon.png") no-repeat left bottom;
+    background:none !IMPORTANT;
+    padding-left: 3px !IMPORTANT;
+}
+.mainStyle .linkToAdminsProfile{
+    XxXwidth: 70%;
+    XxXfloat: left;
+    font-weight: bolder;
+    color: #EF596D;
+}
+.mainStyle .controlWorksDisciplineName{
+    font-weight: bolder;
+    color: #4593DF;
+}
+.mainStyle .linkToStudentsProfile a:link{color: #1B8CDF; text-decoration: none; font-weight: normal;}
+.mainStyle .linkToStudentsProfile a:visited{color: #1B8CDF; text-decoration: none; font-weight: normal;}
+.mainStyle .linkToStudentsProfile a:active{color:#1B8CDF; text-decoration: underline; font-weight: normal;}
+.mainStyle .linkToStudentsProfile a:hover{color: #1B8CDF; text-decoration: underline; font-weight: normal;}
+
+.mainStyle .linkToTeachersProfile a:link{ color: #4FAF41 !important; text-decoration: none; font-weight: normal;vertical-align: top;}
+.mainStyle .linkToTeachersProfile a:visited{ color: #4FAF41 !important; text-decoration: none; font-weight: normal;vertical-align: top;}
+.mainStyle .linkToTeachersProfile a:active{ color: #4FAF41 !important; text-decoration: underline; font-weight: normal;vertical-align: top;}
+.mainStyle .linkToTeachersProfile a:hover{ color: #4FAF41 !important; text-decoration: underline; font-weight: normal;vertical-align: top;}
+
+.mainStyle .linkToAdminsProfile a:link {color: #EF596D; text-decoration: none; font-weight: normal; font-family: Tahoma;}
+.mainStyle .linkToAdminsProfile a:visited {color: #EF596D; text-decoration: none; font-weight: normal; font-family: Tahoma;}
+.mainStyle .linkToAdminsProfile a:active {color: #EF596D; text-decoration: underline; font-weight: normal; font-family: Tahoma;}
+.mainStyle .linkToAdminsProfile a:hover {color: #EF596D; text-decoration: underline; font-weight: normal; font-family: Tahoma; }
+
+.mainStyle .navigationLinks,.mainStyle .navigationLinks a{
+    font-size: 10pt;
+}
+.mainStyle .navigationLinks a:link{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
+.mainStyle .navigationLinks a:visited{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
+.mainStyle .navigationLinks a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinks a:hover{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+
+.mainStyle .navigationLinksRed a:link{color: red; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinksRed a:visited{color: red; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinksRed a:active{color: #FF3F3F; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinksRed a:hover{color: #FF3F3F; text-decoration: none; font-weight: normal;}
+
+.mainStyle .navigationLinksSmall,.mainStyle .navigationLinksSmall a{
+    font-size: 8pt;
+}
+.mainStyle .navigationLinksSmall a:link{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
+.mainStyle .navigationLinksSmall a:visited{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
+.mainStyle .navigationLinksSmall a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinksSmall a:hover{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+
+.mainStyle .navigationLinksRedSmall a:link{color: red; text-decoration: underline; font-weight: normal;}
+.mainStyle .navigationLinksRedSmall a:visited{color: red; text-decoration: underline; font-weight: normal;}
+.mainStyle .navigationLinksRedSmall a:active{color: #FF3F3F; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinksRedSmall a:hover{color: #FF3F3F; text-decoration: none; font-weight: normal;}
+
+.mainStyle .controlWorksDisciplineNameLink a:link{color: #4593DF;}
+.mainStyle .controlWorksDisciplineNameLink a:visited{color: #4593DF;}
+.mainStyle .controlWorksDisciplineNameLink a:active{color: #8DBEE0;}
+.mainStyle .controlWorksDisciplineNameLink a:hover{color: #8DBEE0;}
+
+.mainStyle .controlWorksDisciplineNameLinkGrey a:link{color: #5F5F5F !important; font-weight: normal;}
+.mainStyle .controlWorksDisciplineNameLinkGrey a:visited{color: #5F5F5F !important;font-weight: normal;}
+.mainStyle .controlWorksDisciplineNameLinkGrey a:active{color: #B5CADF !important;font-weight: normal;}
+.mainStyle .controlWorksDisciplineNameLinkGrey a:hover{color: #B5CADF !important;font-weight: normal;}
+
+.mainStyle .reitingLink  a{color: green !important; font-weight: bolder !important; font-family: Verdana;}
+.mainStyle .reitingLink a:hover{text-decoration: underline;}
+
+.mainStyle div.navigationLinks a:link{color: #4593DF;}
+.mainStyle div.navigationLinks a:hover{color: #8DBEE0;}
+.mainStyle div.navigationLinks a:active{color: #8DBEE0;}
+.mainStyle div.navigationLinks a:visited{color: #8DBEE0;}
+
+.mainStyle .navigationLinksMess a:link{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinksMess a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinksMess a:hover{color: #C2D9EF; text-decoration: none; font-weight: normal;}
+.mainStyle .navigationLinksMess a:visited{color:#C2D9EF; text-decoration: none; font-weight: normal;}
+
+.mainStyle .messTheme a:link{
+    font-family: Verdana;
+    font-size: 10pt;
+    padding-left: 12px;
+    color: #6D869F;
+    font-weight: normal;
+}
+.mainStyle .messTheme a:visited{
+    font-family: Verdana;
+    font-size: 10pt;
+    padding-left: 12px;
+    color: #6D869F;
+    font-weight: normal;
+}
+.mainStyle .messTheme a:hover{
+    font-family: Verdana;
+    font-size: 10pt;
+    padding-left: 12px;
+    color:#1B7EDF;
+    font-weight: normal;
+}
+.mainStyle .messTheme a:active{
+    font-family: Verdana;
+    font-size: 10pt;
+    padding-left: 12px;
+    color:#1B7EDF ;
+    font-weight: normal;
+}
+.mainStyle .messLinksMargins{padding-right: 15px;}
+/*даты*/
+.mainStyle .chatPostDate{
+    color: #8F8F8F;
+    float: right;
+    font-family: tahoma;
+    font-size: 75%;
+    font-weight: normal;
+    margin-top: 3px;
+}
+.mainStyle .chatPostDateEvents{
+    color:#8F8F8F;
+    font-size: 8pt;
+    margin-bottom: 5px;
+    margin-right: 10px;
+}
+.mainStyle .chatPostUser{
+    font-family: tahoma;
+    margin-right: 10px;
+    /*    color: grey;*/
+}
+.mainStyle .chatPost{
+    margin-top: 3px;
+    border-bottom: 1px solid silver;
+    padding: 0px 5px;
+    padding-bottom: 3px;
+}
+.mainStyle .chatPostText{
+    font-size: 85%;
+}
+/*пользователи он-лайн*/
+.mainStyle .hiddenUsersOnlineTableContainer{
+    text-align: center;
+    width: 100%;
+}
+.mainStyle .usersOnlineTable *{
+    border: 0px;
+}
+.mainStyle .usersOnlineTable{
+    width: 99%;
+    margin-left: 2px;
+    margin-top: 5px;
+    font-size: 80%;
+}
+.mainStyle .userOnlineLinkContainer{
+    margin: 5px 0px;
+}
+.mainStyle .userOnlineImgContainer{
+    height: 70px;
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    min-height: 68px;
+}
+.mainStyle .userOnlineImgContainer img{
+    width: 100%;
+}
+.mainStyle .userOnlineLinkContainer a:link {color: #505050; text-decoration: none; font-weight: normal; font-size: 8pt; }
+.mainStyle .userOnlineLinkContainer a:visited {color: #505050; text-decoration: none; font-weight: normal; font-size: 8pt;}
+.mainStyle .userOnlineLinkContainer a:active {color: #505050; text-decoration: none; font-weight: normal;font-size: 8pt;}
+.mainStyle .userOnlineLinkContainer a:hover {color: #505050; text-decoration: underline; font-weight: normal;font-size: 8pt;}
+
+.mainStyle .userOnlineImgContainerHeightController{
+    height: 66px;
+    width: 1px;
+}
+/*загрузить файл*/
+.mainStyle .downLoadFileLink a:link{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
+.mainStyle .downLoadFileLink a:visited{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .downLoadFileLink a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .downLoadFileLink a:hover{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+
+.mainStyle .downLoadFileLink span{/*links counter*/
+                                  color: #8BB5DF;
+                                  text-decoration: none;
+                                  font-weight: normal;
+}
+/*сообщения*/
+.mainStyle .new_message{
+    background: url('../resources/images/new_message.png') no-repeat right;
+}
+.mainStyle .readed_message{
+    background: url('../resources/images/message_read.png') no-repeat right;
+}
+.mainStyle .read_mes_with_file{
+    background: url('../resources/images/read_mes_with_file.png') no-repeat right;
+}
+.mainStyle .message_with_file{
+    background: url('../resources/images/message_with_file.png') no-repeat right;
+}
+.mainStyle .writeMessageInterfaceTheme{
+    width: 100%;
+}
+.mainStyle .writeMessageInterfaceThemeMess{
+    margin-left: 2%;
+    width: 95.5%;
+}
+.mainStyle .writeMessageInterfaceThemeMess:focus{
+    border: 1px solid #AFAA2B;
+}
+.mainStyle .writeMessageInterfaceMessBodyMess:focus{
+    border: 1px solid #AFAA2B;
+}
+.mainStyle .writeMessageInterfaceMessBody{
+    width: 100%;
+    height: 300px;
+}
+.mainStyle .writeMessageInterfaceMessBodyMess{
+    height: 300px;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 20px;
+    width: 96%;
+}
+.mainStyle .writeMessageInterfaceMessBodySmall{
+    height: 150px;
+    width: 100%;
+}
+.mainStyle .writeMessageInterfaceTableForm{
+    width: 100%;
+}
+.mainStyle .messContentBlock{
+    border-top: 1px solid #DFDFDF;
+    border-bottom: 1px solid #DFDFDF;
+    margin-top: 3px;
+    padding: 10px;
+}
+.mainStyle .messContentBlockPhotoBlock{
+    float:left;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+.mainStyle .listMessagesShortMessageBlock{
+    width:86%;
+    float: left;
+    margin-left: 3px;
+}
+.mainStyle .messBlockLink{
+    float: left;
+    width: 95%;
+    color: #333333;
+    cursor: pointer;
+    font-family: Verdana;
+    font-weight: normal;
+}
+.mainStyle .messBlockRead{
+    width: 60%;
+    margin: 0 auto;
+}
+.mainStyle .navigationLinksMessInNavigationList{
+    margin-top: 5px;
+    font-family: Arial;
+    text-decoration: none !important;
+    text-align: center;
+}
+.mainStyle .writeMessageInterfaceTableForm input,
+.mainStyle .writeMessageInterfaceTableForm textarea{
+    border: 1px solid #7F9DB9;
+}
+.mainStyle .writeMessageInterfaceTableForm input{
+    color: gray;
+}
+.mainStyle .groupControlWorksCWProgress{
+    color: gray;
+}
+.mainStyle .listMessagesShortMessage{
+    min-height: 50px;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #D1E0EF !important;
+}
+.mainStyle .listMessagesText{
+    min-height: 50px;
+    padding: 5px;
+    border: 1px solid #D1E0EF !important;
+}
+.mainStyle .FullTextMess{
+    color:#3D3D3D;
+    margin-top: 3px;
+    margin-left: 8px;
+    color: #3F3E3B;
+    cursor: pointer;
+    font-family: Verdana;
+    font-weight: normal;
+    text-align: left;
+    border-bottom: 1px solid #EFF2F4;
+}
+.mainStyle .dialogBlocks{
+    padding-left: 50px;
+    padding-right: 50px;
+
+}
+.mainStyle .answerMess{
+    display: block;
+    padding-left: 16px;
+    margin-left: 15px;
+    margin-top: 10px;
+    text-align: center;
+    width: 80px;
+
+}
+.mainStyle .MessNothing{
+    display: block;
+    height: 30px;
+    margin-left:20px;
+    padding-left: 40px;
+    padding-top: 10px;
+    font-style: italic;
+    font-size: 12pt;
+    font-weight: bolder;
+    background: url('../resources/images/message-delete.gif') no-repeat 0 0;
+}
+.mainStyle .fullMessageMessageText{
+    min-height: 50px;
+    margin: 0px 5px;
+    padding: 5px;
+    border: 1px solid silver;
+    background: #EFEFEF;
+}
+.outMessStudFirstTd{
+    width: 10%;
+}
+.outMessStudSecTd{
+    vertical-align: top;
+}
+
+.mainStyle .greyMess{
+    color: grey;
+    margin-right: 10px;
+    padding-bottom: 10px;
+    font-weight: normal !important;
+}
+.mainStyle .NewMessageInfo{
+    color: #5785AF;
+    font-family: Arial;
+    font-size: 11pt;
+    font-weight: 600;
+}
+.mainStyle .inputMessText{
+    border: 1px solid #D1E0EF;
+    color: #6D869F;
+}
+.mainStyle .listMessagesAttachmentsIco{
+    position: relative;
+    top: -6px;
+    right: -6px;
+    float: right;
+    height: 16px;
+    width: 16px;
+    border: 1px solid #D1E0EF;
+    padding: 1px;
+}
+.mainStyle  .writeMessAndWatchCorrespondence{
+    width: 50%;
+    margin-left: 17%;
+}
+.mainStyle .answerMessPic{
+    background: url('../resources/images/answer.gif') no-repeat;
+    width: 65px;
+}
+.mainStyle .deleteMess{
+    float: right;
+    background: url('../resources/images/deleteMess.gif') no-repeat;
+}
+.mainStyle .correspondenceMess{
+    background: url('../resources/images/correspondence.gif') no-repeat;
+    padding-left: 18px;
+}
+.s2,.s1{
+    padding-left: 18px;
+}
+.s2{
+    background: url("../resources/images/dialog.png") no-repeat left top;
+}
+.s1{
+    background: url("../resources/images/write_new.png") no-repeat left top;
+}
+.mainStyle .actionResultSuccessfull{
+    color: #11628F;
+    text-align: center !important;
+    background: #E4FFDF;
+    width: 40%;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid green;
+}
+.mainStyle .actionResultSuccessfullOutsideBlock{
+    padding: 10px;
+    border-top: 1px solid silver;
+    text-align: center;
+}
+.mainStyle .actionResultNeutral{
+    text-align: center !important;
+    color: #7FB9FF;
+    background: #E4FFDF;
+    width: 40%;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #BFDCFF;
+    background: #DFEEFF;
+}
+.mainStyle .actionResultFailed{
+    color: #FF3F3F;
+    text-align: center !important;
+    background: #FFDFDF;
+    width: 40%;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid red;
+}
+.mainStyle .trashIconContainer{
+    margin-left: 5px;
+    width: 19px;
+    height: 19px;
+    float: right;
+    border: 1px solid silver;
+    background: #EFEFEF;
+}
+.mainStyle .dialogBlock{
+    border-bottom: 1px solid #EFF7FF;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left:60px;
+    padding-right: 60px;
+}
+.mainStyle .writeAndWatchMessProfile{width: 50%; margin-left: 10%;}
+/*.mainStyle .standartContainerForTeacherMediumAvatar{
+    border: 1px #64D359 solid;
+    padding: 3px;
+    background: white;
+    width: 100px;
+    float: left;
+    margin-right: 20px;
+    overflow: hidden;
+    text-align: center;
+}
+.mainStyle .standartContainerForTeacherMediumAvatar img{
+    margin: auto;
+    padding: 0px;
+    vertical-align: top;
+}
+.mainStyle .standartContainerForStudentMediumAvatar{
+    padding: 3px;
+    background: white;
+    width: 100px;
+    float: left;
+    overflow: hidden;
+    text-align: center;
+}
+.mainStyle .standartContainerForStudentMediumAvatar img{
+    margin: auto;
+    padding: 0px;
+    vertical-align: top;
+}
+.mainStyle .standartContainerForAdminMediumAvatar{
+    border: 1px #FF0000 solid;
+    padding: 3px;
+    background: white;
+    width: 100px;
+    float: left;
+    margin-right: 20px;
+    overflow: hidden;
+    text-align: center;
+}
+.mainStyle .standartContainerForAdminMediumAvatar img{
+    margin: auto;
+    padding: 0px;
+    vertical-align: top;
+}
+.mainStyle .standartContainerForTeacherInfoInTeachersList{
+    width: 100%;
+}*/
+.mainStyle .newsListNewPreview{
+    min-height: 50px;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #8EB8CF;
+}
+.mainStyle .newsListNewPreview img{
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 3px;
+    border: 1px solid #61CADF;
+    background: white;
+}
+.mainStyle .discussionCommentContentUserAvatar{
+    float: left;
+    margin: 0px 7px 7px 0px;
+    padding: 3px;
+    border: 1px solid silver;
+}
+.mainStyle .discussionComment{
+    margin: 10px 0px 0px 0px;
+    border-top: 1px dotted silver;
+    padding: 5px 5px 5px 20px;
+}
+.mainStyle .discussionCommentDate{
+    float: right;
+    color: silver;
+    font-size: 8pt;
+    margin-top: 2px;
+}
+.mainStyle .discussionCommentContentText{
+    text-align: justify;
+    margin-top: 5px;
+    margin-left: 81px;
+}
+.mainStyle .notLink:link,
+.mainStyle .notLink:hover,
+.mainStyle .notLink:visited,
+.mainStyle .notLink:active{
+    color: inherit !important;
+    text-decoration: inherit !important;
+    font-weight: inherit !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    margin: 0px;
+    padding: 0px;
+}
+
+/*UMK Styles*/
+.mainStyleUMKTemplate{
+    margin:0; padding:0; height:100%;
+}
+.mainStyle .umkFixedHeadBlock{
+    height: 108px;
+}
+.mainStyle .umkTopLinksContainer{
+    height: 32px;
+    background: url("../resources/images/umkTopLinksContainerBackground.jpg") repeat-x bottom;
+}
+.mainStyle .umkTopLinksContainer ol{
+    list-style: none;
+    margin: 0px 0 0 30px;
+    padding: 0px;
+}
+.mainStyle .umkTopLinkActive{
+    border-color: white;
+    -o-border-image: url("../resources/images/umkActiveLinkBorder.png") 0 7 0 7 stretch stretch;
+    -moz-border-image: url("../resources/images/umkActiveLinkBorder.png") 0 7 0 7 stretch stretch;
+    -webkit-border-image: url("../resources/images/umkActiveLinkBorder.png") 0 7 0 7 stretch stretch;
+    border-width: 4px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    border-style: solid;
+    height: 32px;
+}
+.mainStyle .umkTopLinksContainer ol li{
+    float: left;
+    padding: 0px 20px;
+}
+.mainStyle .umkTopLinksContainer ol li a:link,
+.mainStyle .umkTopLinksContainer ol li a:hover,
+.mainStyle .umkTopLinksContainer ol li a:visited,
+.mainStyle .umkTopLinksContainer ol li a:active{color: white; text-decoration: none; font-weight: normal; font-family: "Arial"; font-size: 11pt;}
+
+.mainStyle .umkTaskTitleContainer{
+    background: #4AA9E5;
+    height: 32px;
+    text-align: left;
+}
+.mainStyle .umkTaskTitleContainer p{
+    padding-top: 4px;
+    margin-left: 40px;
+    color: white;
+    font-size: 12pt;
+    font-family: "Times new roman";
+    font-weight: bold;
+}
+.mainStyle .umkNavigationLinksContainer{
+    border-top: 1px solid silver;
+    background: url("../resources/images/umkNavigationLinksContainerBackground.jpg") repeat-x bottom;
+    height: 35px;
+    text-align: left;
+    /*    padding-left: 30px;
+        padding-right: 30px;*/
+}
+.mainStyle .umkNavigationLinksList{
+    list-style: none;
+}
+.mainStyle .umkNavigationLinksList li{
+    float: left;
+    margin-right: 10px;
+    border-right: 1px solid silver;
+    padding-right: 10px;
+    height: 19px;
+    padding-top: 6px;
+}
+.mainStyle .umkModuleName{
+    height: 19px;
+    /*    float: right;*/
+    padding-top: 6px;
+    padding-right: 15px;
+    padding-left: 15px;
+    /*    border-left: 1px solid silver;
+        border-right: 1px solid silver;*/
+    color: #777777;
+}
+.mainStyle .umkFixedHeadBlockContainer{
+    position: fixed;
+    width: 100%;
+}
+.mainStyle.controlWorksBorders{
+    border-bottom: 1px solid #D1E0EF;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.mainStyle .answerPic{
+    background: url("../resources/images/answer.gif") no-repeat;
+    padding-left: 15px;
+}
+/*.mainStyle .studentInterfaceStandartList a:link{color: #8BB5DF;}
+.mainStyle .studentInterfaceStandartList a:visited{color: #8BB5DF;}
+.mainStyle .studentInterfaceStandartList a:active{color:#8BB5DF;}
+.mainStyle .studentInterfaceStandartList a:hover{color: #A3A3A3;}*/
+
+
+
+.mainStyle .controlWorksBordersAdmin tr{
+    border-bottom: 1px solid #D1E0EF;
+    display: block;
+    width: 100%;
+}
+.mainStyle .controlWorksBordersAdminNon tr{
+    border: none !important;
+}
+.mainStyle .controlWorksBordersAdminNon a{
+    font-size: 9pt ! important;
+}
+.mainStyle .controlWorksBordersAdminNon{
+    margin-bottom: 2px;
+}
+.mainStyle .umkTaskContentContainer{
+    padding: 108px 10px 0px 10px;
+    margin: 0px 50px;
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
+    color: #777777;
+}
+.mainStyle .umkTaskContentContainer p,
+.mainStyle .umkTaskContentContainer li{
+    text-align: justify;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #777777 !important;
+}
+.mainStyle .umkTaskContentContainer li{
+    margin-left: 40px;
+}
+.mainStyle .umkTaskContentContainer h2{
+    color: #777777 !important;
+}
+.mainStyle .umkTaskContentContainer h1,
+.mainStyle .umkTaskContentContainer h2{
+    margin-top: 20px !important;
+    font-family: "Arial" !important;
+    font-weight: normal !important;
+}
+.mainStyle .umkTaskContentContainer *{
+    border: 0px;
+}
+.mainStyle .umkTaskContentContainer a:link{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
+.mainStyle .umkTaskContentContainer a:hover{color: #8BB5DF; text-decoration: underline; font-weight: normal;}
+.mainStyle .umkNavigationLinkContainer a:visited{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .umkNavigationLinkContainer a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+
+.mainStyle .umkNavigationLinkContainer a:link{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .umkNavigationLinkContainer a:hover{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .umkNavigationLinkContainer a:visited{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+.mainStyle .umkNavigationLinkContainer a:active{color: #8BB5DF; text-decoration: none; font-weight: normal;}
+
+/*профиль пользователей*/
+.userData td{
+    vertical-align: top !important;
+}
+.mainStyle .userData div {
+    color: white;
+    text-align: left;
+    font-weight: bold;
+
+}
+.userData tr:nth-child(1) td:nth-child(3) div{
+    text-align: right !important;
+    font-size: 150%;
+    font-family: Arial;
+    position: relative;
+    top: -8px;
+    left: 10px;
+    font-weight: normal;
+}
+.mainStyle .InfoAboutUser p{
+    width: 100px !important;
+}
+/*.save{
+    background: url("../resources/images/buttonBlue.jpg") repeat-x scroll center transparent;
+    border: 1px solid #6CC2D9;
+    color: #016281;
+    font-size: 10pt;
+    height: 17px;
+    margin-right: 21px;
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 0;
+    vertical-align: top;
+    cursor: pointer;
+    width: 100px !important;
+}
+.saveAdmin{
+    background:url("../resources/images/buttonRed.gif") repeat-x scroll center transparent;;
+    border: 1px solid #6CC2D9;
+    color: #016281;
+    font-size: 10pt;
+    height: 17px;
+    margin-right: 21px;
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 0;
+    vertical-align: top;
+    cursor: pointer;
+    width: 100px !important;
+}
+.save:hover,
+.save:active{
+    background: url("../resources/images/buttonBlue2.jpg") repeat-x bottom;
+    font-size: 10pt;
+    color: #016281;
+    border: 1px solid #6cc2d9;
+    outline: none;
+}*/
+/**
+используется на данный момент в userListItem.xhtml в components/util/, student.xtml в  Student/
+*/
+
+
+
+
+.mainStyle .passed,
+.mainStyle .failed,
+.mainStyle .available,
+.mainStyle .notAvailable{
+    background-color:  white;
+}
+.mainStyle div span{
+    color: #373E3F;
+}
+.mainStyle .darkGreyColor{
+    color: #04383F;
+}
+.mainStyle .darkGreyColorBold{
+    color: #373E3F;
+    font-weight: bold;
+}
+
+/*iframe:first-child{
+    margin:0; padding:0; height:100%; 
+}*/
+/*html, body{ margin:0; padding:0; height:100%;}*/
+
+/*тесты секундомер прогрессбар*/
+
+.mainStyle #counter{
+    color: #EF5D0E;
+}
+.mainStyle .progressBarMaterials{
+    border: 1px solid #777F77;
+    width: 100px;
+    height: 12px;
+    float: right;
+    position: relative;
+    right: 460px;
+}
+.mainStyle #progressbar{
+    border:1px solid #00194F;
+    width:90%;
+    height:15px;
+    position:relative;
+    color:black;
+    margin: auto;
+    margin-top: 20px;
+
+}
+.mainStyle .toTestLink{
+    color: #27587F;
+    font-family: Arial;
+    font-size:12pt;
+    margin-left: 10px;
+    font-weight: bolder;
+}
+.mainStyle .moduls{
+    background: url('../resources/images/moduls.gif') no-repeat; padding-left: 20px;
+}
+.mainStyle .testUmk{
+    background: url('../resources/images/testUmk.gif') no-repeat;
+    padding-left: 14px;
+}
+.mainStyle .DisciplineTextlink a:link{color:#27587F;font-weight: normal;}
+.mainStyle .DisciplineTextlink a:hover{color:#A1A8AD;font-weight: normal;}
+.mainStyle .DisciplineTextlink a:visited{color:#27587F;font-weight: normal;}
+.mainStyle .DisciplineTextlink a:active{color:#27587F;font-weight: normal;}
+
+.mainStyle .DisciplineTextlink{
+    margin-left: 30px;
+}
+/*.mainStyle .sizeFont a{
+    font-size: 1pt;
+}*/
+/* color bar */
+.mainStyle #progressbar div.progress{
+    position:absolute;
+    width:0%;
+    height:100%;
+    overflow:hidden;
+    background: url('../resources/images/blueMenuTitle.png') repeat-x;
+}
+.mainStyle .imG_span img{
+    display: inline !important;
+}
+.mainStyle .imG_span {
+    margin-left: 130px;
+}
+/*форум*/
+.mainStyle .forumDiscriptionText {
+    text-align: justify;
+    margin: 5px 0px 5px 0px;
+}
+.mainStyle .forumTopBlock{
+    padding-top: 4px;
+    padding-bottom: 2px;
+}
+
+.mainStyle .bothMargins{text-align: left; margin-left: 10px; margin-top: 10px;}
+
+.mainStyle .forumPicAdminStyle{
+    margin: 0px 10px 2px 0px;
+    border: 1px solid red;
+    padding: 3px;
+    float: left;
+}
+.mainStyle .questionArea{
+    width: 50%;
+    margin: auto;
+}
+.mainStyle .questionAreaText{
+    text-align: left;
+    margin: 3px 0px 5px 3px;
+    font-size: 8pt;
+    color: gray;
+}
+.mainStyle .questionAreaBlock{
+    max-width: 90%;
+    margin-top: 10px;
+}
+/*информация о пользователе*/
+.mainStyle .userPhotoPosition{
+    float: right; width: 78%; text-align: left;
+}
+.mainStyle .margFromBackground{
+    margin-left: 17px;
+}
+.mainStyle .userinfoContent{
+    float: right;
+    width: 78%;
+    text-align: left;
+}
+.mainStyle .userinfoContentUp{
+    float: none;
+    width: 60%;
+}
+.mainStyle .downloadPhoto{
+    clear: both;
+    text-align: left;
+    width: 21%;
+    text-align: center;
+}
+.mainStyle .downloadPhotoInputStyle{
+    font-size: 9pt;
+    background-color: #DFF1FE;
+}
+.mainStyle .changePasswordButtonSaveAdminPosition{
+    margin-right: 0;
+    margin-top: 10px;
+    width: 100px;
+}
+.mainStyle .changePasswordMessStyle{
+    color: red;
+    list-style-image: none;
+    margin-bottom: 20px;
+    margin-left: 3px;
+    list-style-type: none;
+}
+.mainStyle .userInfoItemColor {
+    color:#808080;
+}
+.mainStyle  .chk_avlblty{margin: 10px 0 0 110px;width:110px;text-align:right;}
+.mainStyle .strength-text{font-size:12px; margin-left: 5px;}
+.mainStyle .chk_avlblty span.client-avail{display:block;}
+.mainStyle .settingErrDiv{
+    float: right; width: 150px; margin-left: 10px;
+}
+/*мои оценки*/
+.mainStyle .helpLink{
+    text-align: right;
+    padding-right: 15px;
+    padding-top: 5px;
+    position: relative;
+    top: -25px;
+    height: 0;
+}
+/*настройки портала*/
+.mainStyle .portalSettingsButtonPosition{
+    margin-left: 10px;
+    width: 70px;
+    display: block;
+    position: relative;
+    left: 45%;
+}
+/*новости*/
+.mainStyle .previewColor{
+    color: #6F6F6F;
+}
+.mainStyle .previewPadBott{
+    margin-bottom: 15px;
+}
+.mainStyle .previewPadLeft{
+    margin-left: 80px;
+}
+.mainStyle .newsName{
+    color:#077F5B;
+    font-weight: bolder;
+    margin-left: 20px;
+}
+.mainStyle .reviewNumber{
+    margin-bottom: 10px;
+    color:#577F7E;
+}
+.mainStyle .reviewNumberNumber{
+    color:#5A6C6F;
+    font-weight: bolder;
+}
+.mainStyle .newsBlocks{
+    margin: 18px;
+}
+/*помощь*/
+.mainStyle .studentHelp{
+    width: 245px;
+    border-right: 1px solid silver;
+}
+.mainStyle .contentsBlock{
+    line-height: 30px;
+    font-weight: normal;
+    color: silver;
+}
+.mainStyle .mainContentHelpPadding{
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+/*pictures*/
+.mainStyle .news_delete{
+    background: url('../resources/images/news_delete.gif') no-repeat 0 0;
+    padding-left: 17px;
+}
+
+/*списки юзеров*/
+.mainStyle .enterPic{
+    vertical-align: bottom !important;
+    /*    background: url('../resources/images/enter.gif') no-repeat bottom;*/
+    padding-left: 35px;
+}
+/*.mainStyle .enterPic a{
+    float: right;
+}*/
+.mainStyle .searchBorders{
+    border-top: 1px solid #E3F1FC;
+    margin-bottom: 3px;
+    margin-top: 5px;
+}
+/*поиск*/
+.mainStyle .Search td{
+    width: 400px;
+}
+
+/*стили для иконок в меню по бокам*/
+.mainStyle .iconInMenu2{
+    margin-right: 3px;
+    margin-bottom: -7px;
+    margin-top: 10px;
+}
+.mainStyle .iconInMenu{
+    margin-right: 3px;
+    float:left;
+    height: 24px;
+}
+.mainStyle .iconMenu li{
+    margin-top:10px;
+    padding-bottom:10px;
+}
+.mainStyle .iconMenu li a div{
+    height: 24px;
+    display: table-cell;
+    width: 159px;
+    vertical-align: middle;
+}
+/*из base.css*/
+.mainStyle .StudentMainPageTitlesBorders{
+    margin-bottom: 25px; margin-left: 25px; margin-right: 25px;
+    -o-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
+    -moz-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
+    -webkit-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
+    /*    height: 200px;*/
+}
+
+.mainStyle div .StudentMainPageTitlesBorders{
+    padding: 0px !important;
+}
+.mainStyle .mainStudentPageTitles{
+    font-size: 13pt;
+    text-align: left;
+    font-weight: bold;
+    padding: 4px;
+}
+
+.mainStyle .mainStudentPageTitles a:link{color: #838383; text-decoration: underline; font-weight: normal;}
+.mainStyle .mainStudentPageTitles a:visited{color: #838383; text-decoration: underline; font-weight: normal;}
+.mainStyle .mainStudentPageTitles a:active{color: #838383; text-decoration: underline; font-weight: normal;}
+.mainStyle .mainStudentPageTitles a:hover{color: #8; text-decoration: none; font-weight: normal;}
+
+
+.mainStyle .mainStudentPageTitlesBlue{
+    color: #0a81bd;
+    border-bottom: 3px solid #0a81bd;
+}
+.mainStyle .mainStudentPageTitlesOrange{
+    color: #fbb35d;
+    border-bottom: 3px solid #fbb35d;
+}
+.mainStyle .mainStudentPageTitlesGreen{
+    color: #5bbf5d;
+    border-bottom: 3px solid #5bbf5d;
+}
+.mainStyle .mainStudentPageTitlesGreen a:link{ color: #5bbf5d;text-decoration: none;font-weight: bold;}
+.mainStyle .mainStudentPageTitlesGreen a:visited{ color: #5bbf5d;text-decoration: none;font-weight: bold;}
+.mainStyle .mainStudentPageTitlesGreen a:hover{ color: #85C486;text-decoration: underline;font-weight: bold;}
+.mainStyle .mainStudentPageTitlesGreen a:active{ color: #85C486;text-decoration: underline;font-weight: bold;}
+
+.mainStyle .mainStudentPageTitlesSkyBlue{
+    color: #89c9f5;
+    border-bottom: 3px solid #89c9f5;
+}
+.mainStyle .mainStudentPageTitlesSkyBlue a:link{color: #89c9f5; text-decoration: none; font-weight: bold;}
+.mainStyle .mainStudentPageTitlesSkyBlue a:visited{color: #89c9f5;text-decoration: none;font-weight: bold;}
+.mainStyle .mainStudentPageTitlesSkyBlue a:active{color: #0A81BD; text-decoration: underline;font-weight: bold;}
+.mainStyle .mainStudentPageTitlesSkyBlue a:hover{color: #0A81BD;text-decoration: underline;font-weight: bold;}
+
+.mainStyle .mainStudentPageTitlesSkyBlue a,
+.mainStyle .mainStudentPageTitlesGreen a{
+    font-weight: bold;
+    text-decoration: none;
+}
+.mainStyle .studentInterfaceStandartList{
+    margin-top: 3px;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.mainStyle .interfaceContent {
+    text-align: left;
+    padding: 0px;
+}
