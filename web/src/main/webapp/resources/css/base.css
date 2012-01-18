@@ -1705,6 +1705,18 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     color: #373E3F;
     font-weight: bold;
 }
+
+/*прогрессбары в изучаемых материалах*/
+.mainStyle .badResult{
+    background: #FBB35D;
+}
+.mainStyle .goodResult{
+    background: #0981bd;
+}
+.mainStyle .greateResult{
+    background: #5bbf5d;
+}
+
 /*тесты секундомер прогрессбар*/
 .mainStyle #counter{
     color: #EF5D0E;
