@@ -104,9 +104,6 @@
     margin-left: 10px !important;
     width: 31px;
 }
-.mainStyle .controlWorkResultStylePassed{
-    color: #5bbf5d;
-}
 .mainStyle .controlWorkResultStyleFailed{
     color: #FBB35D;
 }

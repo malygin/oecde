@@ -124,10 +124,10 @@ label{
 .mainStyle .videoConfSchedule a:active{color:#838383;text-decoration: underline;}
 .mainStyle .videoConfSchedule a:hover{color:#838383; text-decoration: underline;}
 
-.mainStyle .datepickerClass td a:link{color:#838383; text-decoration: none; font-weight: normal;}
-.mainStyle .datepickerClass td a:visited{color:#838383; text-decoration: none;font-weight: normal;}
-.mainStyle .datepickerClass td a:active{color:#838383; text-decoration: none;font-weight: normal;}
-.mainStyle .datepickerClass td a:hover{color:#838383; text-decoration: none;font-weight: normal;}
+.mainStyle .datepickerClass td a:link{color:#ffffff; text-decoration: none; font-weight: normal;}
+.mainStyle .datepickerClass td a:visited{color:#ffffff; text-decoration: none;font-weight: normal;}
+.mainStyle .datepickerClass td a:active{color:#ffffff; text-decoration: none;font-weight: normal;}
+.mainStyle .datepickerClass td a:hover{color:#ffffff; text-decoration: none;font-weight: normal;}
 
 .mainStyle .rightPagePart{
     margin-left: 19%;
@@ -278,10 +278,10 @@ label{
     color: #c3f071;
     /*border-bottom: 3px solid #5bbf5d;*/
 }
-.mainStyle .mainStudentPageTitlesGreen a:link{ color: #5bbf5d;text-decoration: none;font-weight: bold;}
-.mainStyle .mainStudentPageTitlesGreen a:visited{ color: #5bbf5d;text-decoration: none;font-weight: bold;}
-.mainStyle .mainStudentPageTitlesGreen a:hover{ color: #85C486;text-decoration: underline;font-weight: bold;}
-.mainStyle .mainStudentPageTitlesGreen a:active{ color: #85C486;text-decoration: underline;font-weight: bold;}
+.mainStyle .mainStudentPageTitlesGreen a:link{ color: #c3ef73;text-decoration: none;font-weight: bold;}
+.mainStyle .mainStudentPageTitlesGreen a:visited{ color: #c3ef73;text-decoration: none;font-weight: bold;}
+.mainStyle .mainStudentPageTitlesGreen a:hover{ color: #c3ef73;text-decoration: underline;font-weight: bold;}
+.mainStyle .mainStudentPageTitlesGreen a:active{ color: #c3ef73;text-decoration: underline;font-weight: bold;}
 
 .mainStyle .mainStudentPageTitlesSkyBlue{
     color: #88d9f7;
@@ -299,6 +299,7 @@ label{
 }
 .mainStyle .floatLeft{
     float: left;
+    background: none;
 }
 /*левая и правая панели для всех пользователей*/
 .mainStyle .sideBarTitle{
@@ -349,10 +350,10 @@ label{
     padding-bottom: 2px;
     padding-top: 2px;
 }
-.mainStyle .greenUnderTitleLink a:link {color: #ACCC7A; text-decoration: none; font-weight: normal; margin-left: 15px;}
-.mainStyle .greenUnderTitleLink a:visited {color: #ACCC7A; text-decoration: none; font-weight: normal; margin-left: 15px;}
-.mainStyle .greenUnderTitleLink a:active {color: black; text-decoration: none; font-weight: normal; margin-left: 15px;}
-.mainStyle .greenUnderTitleLink a:hover {color: black; text-decoration: none; font-weight: normal; margin-left: 15px;}
+.mainStyle .greenUnderTitleLink a:link {color: #c3ef73; text-decoration: none; font-weight: normal; margin-left: 15px;}
+.mainStyle .greenUnderTitleLink a:visited {color: #c3ef73; text-decoration: none; font-weight: normal; margin-left: 15px;}
+.mainStyle .greenUnderTitleLink a:active {color: white; text-decoration: none; font-weight: normal; margin-left: 15px;}
+.mainStyle .greenUnderTitleLink a:hover {color: white; text-decoration: none; font-weight: normal; margin-left: 15px;}
 
 .mainStyle .blueUnderTitleLink a:link {color: #8DBEE0; text-decoration: none; font-weight: normal; margin-left: 15px;}
 .mainStyle .blueUnderTitleLink a:visited {color: #8DBEE0; text-decoration: none; font-weight: normal; margin-left: 15px;}
@@ -397,19 +398,19 @@ label{
     width: 100%;
 }
 .mainStyle .userPhotoBorderAdmin{
-    border: 1px #FBB35E solid;
+    border: 1px #fbc98e solid;
     width: 100%;
     padding: 3px;
     background: white;
 }
 .mainStyle .userPhotoBorderStudent{
-    border: 1px #4DB7F1 solid;
+    border: 1px #89d9fa solid;
     width: 100%;
     padding: 3px;
     background: white;
 }
 .mainStyle .userPhotoBorderTeacher{
-    border: 1px #74CF91 solid;
+    border: 1px #c3ef73 solid;
     width: 100%;
     padding: 3px;
     background: white;
@@ -604,7 +605,7 @@ not all and (-webkit-min-device-pixel-ratio:0) {
     font-weight: bold;
 }
 .mainStyle .studentButtonRed{
-    background: url('../resources/images/pic_for_Button_Red.jpg');
+    background: url('../../resources/images/pic_for_Button_Red.jpg');
     color: #6F1B1B;
     cursor: pointer;
     font-size: 10pt;
@@ -657,9 +658,9 @@ not all and (-webkit-min-device-pixel-ratio:0) {
 .mainStyle .studentStandatrTable th{
     font-weight: normal;
     text-align: center !important;
-    border-bottom: 1px solid #5BBF5D ;
+    border-bottom: 1px solid #82be11;
     padding: 3px 3px;
-    color: #5BBF5D;
+    color: #82be11;
 }
 .mainStyle .studentStandatrTable td{
     height: 24px;
@@ -964,7 +965,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .topSearchInput{
     height: 16px;
     width: 82%;
-    background-image: url("../resources/images/search_small.jpg");
+    background-image: url("../../resources/images/search_small.jpg");
     background-position: 2px 2px;
     background-repeat: no-repeat;
     padding-left: 14px;
@@ -987,14 +988,15 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .chatShortHistory{
     margin: 5px;
     padding: 5px;
-    border: 1px solid #3491c8;
+    border: 1px solid #d1d1d1;
     min-height: 200px;
     max-height: 200px;
     text-align: left;
     overflow-y: scroll;
+    background: url("../../resources/css/dark_skin/images/opacity_fon.png") repeat;
 }
 .mainStyle .chatHistory{
-    background: url('../resources/images/chat_history.png') no-repeat; padding-left: 20px;
+    background: url('../../resources/css/dark_skin/images/chat_history.png') no-repeat; padding-left: 20px;
 }
 
 .mainStyle .smallChatTools{
@@ -1015,26 +1017,24 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 
 }
 .mainStyle .smallChatTools input{
-    border: 1px solid #3491c8;
+    border: 1px solid #d1d1d1;
     float: left;
     width: 80%;
+    background: url("../../resources/css/dark_skin/images/opacity_fon.png") repeat;
 }
 /*ссылки*/
 .mainStyle .linkToStudentsProfile{
     /*font-weight: bolder;*/
     XxXwidth: 70%;
     XxXfloat: left;
-    Xcolor: #89C9F5;
+    Xcolor: #8ad9f8;
 }
 .mainStyle .linkToTeachersProfile{
     XxXwidth: 70%;
     XxXfloat: left;
-    /*    font-weight: bolder;*/
-    color: #64D359;
-    /*padding-left: 20px;*/
-    background: url("../resources/images/teacherIcon.png") no-repeat left bottom;
+    color: #c3ef73;
+    background: url("../../resources/images/teacherIcon.png") no-repeat left bottom;
     background:none !IMPORTANT;
-    /*padding-left: 3px !IMPORTANT;*/
 }
 .mainStyle .linkToAdminsProfile{
     XxXwidth: 70%;
@@ -1042,29 +1042,25 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     font-weight: bolder;
     color: #EF596D;
 }
-/*.mainStyle .controlWorksDisciplineName{
-    font-weight: bolder;
-    color: #4593DF;
-}*/
 .mainStyle .StudentMainPageExit a:link {color: #838383; text-decoration: none; font-size: 10pt;font-weight: bold;}
 .mainStyle .StudentMainPageExit a:visited{color: #838383;text-decoration: none;font-size: 10pt;font-weight: bold;}
 .mainStyle .StudentMainPageExit a:hover{color: #b5a5a5; text-decoration: none;font-size: 10pt; font-weight: bold;}
 .mainStyle .StudentMainPageExit a:active{color: #838383;text-decoration: none;font-size: 10pt;font-weight: bold;}
 
-.mainStyle .linkToStudentsProfile a:link{color: #89C9F5; text-decoration: none; font-weight: normal;}
-.mainStyle .linkToStudentsProfile a:visited{color: #89C9F5; text-decoration: none; font-weight: normal;}
-.mainStyle .linkToStudentsProfile a:active{color:#89C9F5; text-decoration: underline; font-weight: normal;}
-.mainStyle .linkToStudentsProfile a:hover{color: #89C9F5; text-decoration: underline; font-weight: normal;}
+.mainStyle .linkToStudentsProfile a:link{color: #8ad9f8; text-decoration: none; font-weight: normal;}
+.mainStyle .linkToStudentsProfile a:visited{color: #8ad9f8; text-decoration: none; font-weight: normal;}
+.mainStyle .linkToStudentsProfile a:active{color:#8ad9f8; text-decoration: underline; font-weight: normal;}
+.mainStyle .linkToStudentsProfile a:hover{color: #8ad9f8; text-decoration: underline; font-weight: normal;}
 
-.mainStyle .linkToTeachersProfile a:link{ color: #5bbf5d !important; text-decoration: none; font-weight: normal;vertical-align: top;}
-.mainStyle .linkToTeachersProfile a:visited{ color: #5bbf5d !important; text-decoration: none; font-weight: normal;vertical-align: top;}
-.mainStyle .linkToTeachersProfile a:active{ color: #5bbf5d !important; text-decoration: underline; font-weight: normal;vertical-align: top;}
-.mainStyle .linkToTeachersProfile a:hover{ color: #5bbf5d !important; text-decoration: underline; font-weight: normal;vertical-align: top;}
+.mainStyle .linkToTeachersProfile a:link{ color: #C3EF73 !important; text-decoration: none; font-weight: normal;vertical-align: top;}
+.mainStyle .linkToTeachersProfile a:visited{ color: #C3EF73d !important; text-decoration: none; font-weight: normal;vertical-align: top;}
+.mainStyle .linkToTeachersProfile a:active{ color: #C3EF73 !important; text-decoration: underline; font-weight: normal;vertical-align: top;}
+.mainStyle .linkToTeachersProfile a:hover{ color: #C3EF73 !important; text-decoration: underline; font-weight: normal;vertical-align: top;}
 
-.mainStyle .linkToAdminsProfile a:link {color: #fbb35d; text-decoration: none; font-weight: normal; font-family: Tahoma;}
-.mainStyle .linkToAdminsProfile a:visited {color: #fbb35d; text-decoration: none; font-weight: normal; font-family: Tahoma;}
-.mainStyle .linkToAdminsProfile a:active {color: #fbb35d; text-decoration: underline; font-weight: normal; font-family: Tahoma;}
-.mainStyle .linkToAdminsProfile a:hover {color: #fbb35d; text-decoration: underline; font-weight: normal; font-family: Tahoma; }
+.mainStyle .linkToAdminsProfile a:link {color: #fbc98e; text-decoration: none; font-weight: normal; font-family: Tahoma;}
+.mainStyle .linkToAdminsProfile a:visited {color: #fbc98e; text-decoration: none; font-weight: normal; font-family: Tahoma;}
+.mainStyle .linkToAdminsProfile a:active {color: #fbc98e; text-decoration: underline; font-weight: normal; font-family: Tahoma;}
+.mainStyle .linkToAdminsProfile a:hover {color: #fbc98e; text-decoration: underline; font-weight: normal; font-family: Tahoma; }
 
 .mainStyle .navigationLinks,.mainStyle .navigationLinks a{
     font-size: 10pt; font-weight: normal;
@@ -1102,10 +1098,10 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .navigationLinksMess a:hover{color: #C2D9EF; text-decoration: none; font-weight: normal;}
 .mainStyle .navigationLinksMess a:visited{color:#C2D9EF; text-decoration: none; font-weight: normal;}
 
-.mainStyle .greyLinks a:link{color:#838383; text-decoration: none; font-weight: normal !important;}
-.mainStyle .greyLinks a:active{color:#838383; text-decoration: underline !important; font-weight: normal !important;}
-.mainStyle .greyLinks a:hover{color:#838383; text-decoration: underline !important; font-weight: normal !important;}
-.mainStyle .greyLinks a:visited{color:#838383; text-decoration: none; font-weight: normal !important;}
+.mainStyle .greyLinks a:link{color:#ffffff; text-decoration: none; font-weight: normal !important;}
+.mainStyle .greyLinks a:active{color:#ffffff; text-decoration: underline !important; font-weight: normal !important;}
+.mainStyle .greyLinks a:hover{color:#ffffff; text-decoration: underline !important; font-weight: normal !important;}
+.mainStyle .greyLinks a:visited{color:#ffffff; text-decoration: none; font-weight: normal !important;}
 
 .mainStyle .messLinks a:link{color: #89C9F5; text-decoration: underline;}
 .mainStyle .messLinks a:visited{color: #89C9F5; text-decoration: underline;}
@@ -1340,7 +1336,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     font-style: italic;
     font-size: 12pt;
     font-weight: bolder;
-    background: url('../resources/images/message-delete.gif') no-repeat 0 0;
+    background: url('../../resources/images/message-delete.gif') no-repeat 0 0;
 }
 .mainStyle .fullMessageMessageText{
     min-height: 50px;
@@ -1387,16 +1383,16 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     margin-left: 3%;
 }
 .mainStyle .new_message{
-    background: url('../resources/images/new_message_red.png') no-repeat right;
+    background: url('../../resources/images/new_message_red.png') no-repeat right;
 }
 .mainStyle .readed_message{
-    background: url('../resources/images/message_read.png') no-repeat right;
+    background: url('../../resources/images/message_read.png') no-repeat right;
 }
 .mainStyle .read_mes_with_file{
-    background: url('../resources/images/read_mes_with_file.png') no-repeat right;
+    background: url('../../resources/images/read_mes_with_file.png') no-repeat right;
 }
 .mainStyle .message_with_file{
-    background: url('../resources/images/message_with_file_red.png') no-repeat right;
+    background: url('../../resources/images/message_with_file_red.png') no-repeat right;
 }
 .mainStyle .chooseMesType{text-align: left; margin-left: 22px;}
 .mainStyle .chooseMesType span select{margin-left: 25px;}
@@ -1410,20 +1406,20 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     float: right;
 }
 .mainStyle .correspondenceMess{
-    background: url('../resources/images/dialog.png') no-repeat;
+    background: url('../../resources/images/dialog.png') no-repeat;
     padding-left: 18px;
 }
 .s2,.s1{
     padding-left: 20px;
 }
 .s2{
-    background: url("../resources/images/dialog.png") no-repeat left top;
+    background: url("../../resources/images/dialog.png") no-repeat left top;
 }
 .s1{
-    background: url("../resources/images/write_new.png") no-repeat left top;
+    background: url("../../resources/images/write_new.png") no-repeat left top;
 }
 .mainStyle .massSending{
-    background: url("../resources/images/write_new.png") no-repeat 0px 6px;
+    background: url("../../resources/images/write_new.png") no-repeat 0px 6px;
     padding-left: 20px;
 }
 .mainStyle .actionResultSuccessfull{
@@ -1536,7 +1532,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 }
 .mainStyle .umkTopLinksContainer{
     height: 32px;
-    background: url("../resources/images/umkTopLinksContainerBackground.jpg") repeat-x bottom;
+    background: url("../../resources/images/umkTopLinksContainerBackground.jpg") repeat-x bottom;
 }
 .mainStyle .umkTopLinksContainer ol{
     list-style: none;
@@ -1545,9 +1541,9 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 }
 .mainStyle .umkTopLinkActive{
     border-color: white;
-    -o-border-image: url("../resources/images/umkActiveLinkBorder.png") 0 7 0 7 stretch stretch;
-    -moz-border-image: url("../resources/images/umkActiveLinkBorder.png") 0 7 0 7 stretch stretch;
-    -webkit-border-image: url("../resources/images/umkActiveLinkBorder.png") 0 7 0 7 stretch stretch;
+    -o-border-image: url("../../resources/images/umkActiveLinkBorder.png") 0 7 0 7 stretch stretch;
+    -moz-border-image: url("../../resources/images/umkActiveLinkBorder.png") 0 7 0 7 stretch stretch;
+    -webkit-border-image: url("../../resources/images/umkActiveLinkBorder.png") 0 7 0 7 stretch stretch;
     border-width: 4px;
     border-top-width: 0px;
     border-bottom-width: 0px;
@@ -1671,6 +1667,18 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     color: #373E3F;
     font-weight: bold;
 }
+
+/*прогрессбары в изучаемых материалах*/
+.mainStyle .badResult{
+    background: #fbc98e;
+}
+.mainStyle .goodResult{
+    background: #89d9fa;
+}
+.mainStyle .greateResult{
+    background: #c3ef73;
+}
+
 /*тесты секундомер прогрессбар*/
 .mainStyle #counter{
     color: #EF5D0E;
@@ -1725,7 +1733,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     width:0%;
     height:100%;
     overflow:hidden;
-    background: url('../resources/images/blueMenuTitle.png') repeat-x;
+    background: url('../../resources/images/blueMenuTitle.png') repeat-x;
 }
 .mainStyle .imG_span img{
     display: inline !important;
@@ -1914,23 +1922,23 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 }
 /*pictures*/
 .mainStyle .news_delete{
-    background: url('../resources/images/delete_news.png') no-repeat 0 0;
+    background: url('../../resources/images/delete_news.png') no-repeat 0 0;
     padding-left: 19px;
 }
 
 .mainStyle .messagesMainStPageNewMess{
-    background: url('../resources/images/message_active.jpg') no-repeat;
+    background: url('../../resources/images/message_active.jpg') no-repeat;
     padding-left: 25px;
     padding-top: 4px;
 }
 .mainStyle .messagesMainStPage{
-    background: url('../resources/images/messagesMainStPage.png') no-repeat;
+    background: url('../../resources/images/messagesMainStPage.png') no-repeat;
     background-position: right center;
     padding-right: 30px;
 }
 
 .mainStyle .messagesMainStPageIncomeMess{
-    background: url('../resources/images/messagesMainStPage.png') no-repeat;
+    background: url('../../resources/css/dark_skin/images/messagesMainStPage2.png') no-repeat;
     padding-left: 25px;
     padding-top: 4px;
 }
@@ -2032,7 +2040,7 @@ ul.dropdown li ul li {
 
 
 .mainStyle .darkBlueText{
-    color: #0981bd;
+    color: #e8d2f9;
 }
 .mainStyle .skyBlueText{
     color: #89c9f5;
@@ -2058,7 +2066,7 @@ ul.dropdown li ul li {
 }
 /*страница ошибки*/
 .mainStyle .Error{
-    background: url("../resources/images/error.png") no-repeat bottom left;
+    background: url("../../resources/images/error.png") no-repeat bottom left;
     padding-top: 20px;
 }
 /*стили для подсказки*/
@@ -2201,7 +2209,7 @@ a.mainStyle .lightGreyText a:hover{
 .mainStyle .TableForGrades{
     width: 95%;
     display: block;
-    border-right: 1px solid #838383;
+    border-right: 1px solid #ffffff;
 }
 .mainStyle .TableForGrades tr td:last-child,
 .mainStyle .TableForGrades tr td:nth-child(2){
@@ -2246,14 +2254,13 @@ a.mainStyle .lightGreyText a:hover{
     padding-left: 17px;
 }
 .materialInfo span{
-    color: #64D359;
-    /*font-weight: bolder;*/
+    color: #82be11;
 }
 .mainStyle .studentPaddLeft{
     padding-left: 10px;
 }
 .mainStyle .news_edit{
-    background: url('../resources/images/redact_umk.png') no-repeat 0 0;
+    background: url('../../resources/images/redact_umk.png') no-repeat 0 0;
     padding-left: 17px;
 }
 /*стили для расписания конференций*/
@@ -2262,7 +2269,7 @@ a.mainStyle .lightGreyText a:hover{
 }
 
 .mainStyle .greenText{
-    color:#5BBF5D;
+    color:#82be11;
     margin-top: 15px;
 }
 /*ссылки сверху: группы, тесты, контрольные*/
@@ -2319,7 +2326,7 @@ a.mainStyle .lightGreyText a:hover{
     padding-right: 10px;
 }
 .mainStyle .comeInAsStudentOrTeacher{
-    background: url('../resources/images/students.png') no-repeat 0 0;
+    background: url('../../resources/images/students.png') no-repeat 0 0;
     padding-left: 20px;
 }
 /*styles for supervisor*/
@@ -2336,15 +2343,24 @@ a.mainStyle .lightGreyText a:hover{
 }
 
 .mainStyle .deleteStudent{
-    background: url('../resources/images/delete_student.png') no-repeat 0 0;
+    background: url('../../resources/images/delete_student.png') no-repeat 0 0;
     padding-left: 20px;
 }
 
 .mainStyle .studentEvent2{
-    background: url('../resources/images/student_event.png') no-repeat 0 0;
+    background: url('../../resources/images/student_event.png') no-repeat 0 0;
     padding-left: 20px;
 }
 
 .mainStyle .resultRedText {
     color: #fb6a00;
+}
+/*переопределение стилей календаря*/
+.ui-datepicker-calendar tr td{
+    background: none !important;
+}
+
+/*перенесено из student.css*/
+.mainStyle .controlWorkResultStylePassed{
+    color: #82be11;
 }
