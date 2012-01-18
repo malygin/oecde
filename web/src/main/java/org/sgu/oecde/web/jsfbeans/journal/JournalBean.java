@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.journal.EventBodyElement;
 import org.sgu.oecde.journal.EventItem;
 import org.sgu.oecde.journal.dao.IJournalDao;
@@ -86,7 +87,10 @@ public class JournalBean implements Serializable{
     public List<FilterType.EventForChoise>getAvailableEvents(String type, Object object){
     
         if(availableEvents == null){
-           if (object!= null) IdUser=((Long) object).toString();
+           if (object!= null) {
+               if(object instanceof Long) IdUser=((Long) object).toString();
+               else IdUser=( (AbstractUser) object).getId().toString();
+           }
             filter(type,object);
             availableEvents = journalFilters.getFilter(filter);
         }

@@ -147,7 +147,7 @@ public class SemesterGetter extends StringConstantsGetter{
     public String getCurrentDate(){
       Calendar cal = Calendar.getInstance();
         
-         return  getCurrentYear()+"."+NumberUtil.NumberToDateFormat(cal.get(Calendar.MONTH) +1)+"."+NumberUtil.NumberToDateFormat(cal.get(Calendar.DATE));
+         return  "2012"+"."+NumberUtil.NumberToDateFormat(cal.get(Calendar.MONTH) +1)+"."+NumberUtil.NumberToDateFormat(cal.get(Calendar.DATE));
        
     }
 

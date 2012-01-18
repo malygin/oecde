@@ -46,8 +46,8 @@
                             $.each(object.Super, function() {                           
                                      $('#chatShortHistory'+roomId).prepend( '<div class="chatPost"><span><div class="'+this.type+'" style="float: left; width: 70%;" ><a href="'+this.link+'.xhtml?id='+this.id+'" title="'+this.fio+'">'+this.fio+'</a></div><span class="chatPostDate">'+this.date+'</span><div class="floatDestroyer"/></span><span class="chatPostText">'+this.message+'</span><div class="floatDestroyer"/></div>');
                             });
-                            $('#chatShortHistory'+roomId).scrollTop(8000);
+                            $('#chatShortHistory'+roomId).scrollTop(16000);
                                 });
-             setTimeout('update('+roomId+')', 16000);
+             setTimeout('update('+roomId+')', 32000);
          }
 

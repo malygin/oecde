@@ -69,6 +69,26 @@
                            <b> #{gr.name}</b> #{msgs.message_teacherGroupFrom} #{gr.number} #{msgs.message_teacherPeople}
                         </h:column>
                     </h:dataTable>
+                         <p class="lightGreyText">#{msgs.message_addFile}</p>
+                    <input type="file" name="MessageFile" style="background-color: #DFF1FE; font-size: 9pt; display: block; margin-left: 10px; float: left;" class="StudentWriteMess"/>
+                    <h:commandButton  action="#{MessageWriteBean.addFile}" value="Прикрепить" styleClass="studentButton" style="margin: 0; margin-left: 20px;"/>
+                    <h:panelGroup layout="block" rendered="#{MessageWriteBean.renderSuccessSend}" styleClass="actionResultSuccessfull">
+                        #{msgs.message_sentSuccess}
+                    </h:panelGroup>
+
+<br />
+                    <h:dataTable value="#{MessageWriteBean.files}" var="file">
+                    <h:column>
+                        #{file.name}
+                        <span class="navigationLinks">
+                            <h:commandLink action="#{MessageWriteBean.removeFile}" value="" >
+                                <img alt="" src="../resources/images/delete_file.png" style="margin-left: 10px;"/>
+                                <f:ajax execute="@form" render="@form"/>
+                                <f:setPropertyActionListener target="#{MessageWriteBean.messageNameForDelete}" value="#{file.name}"/>
+                            </h:commandLink>
+                        </span>
+                    </h:column>
+                    </h:dataTable>
                     <table>
                          <tr>
 
@@ -96,26 +116,7 @@
 
 
                 <div style="padding: 0px; padding-top: 10px; margin-left: 5%; margin-right: 5%;">
-                    <p class="lightGreyText">#{msgs.message_addFile}</p>
-                    <input type="file" name="MessageFile" style="background-color: #DFF1FE; font-size: 9pt; display: block; margin-left: 10px; float: left;" class="StudentWriteMess"/>
-                    <h:commandButton  action="#{MessageWriteBean.addFile}" value="Прикрепить" styleClass="studentButton" style="margin: 0; margin-left: 20px;"/>
-                    <h:panelGroup layout="block" rendered="#{MessageWriteBean.renderSuccessSend}" styleClass="actionResultSuccessfull">
-                        #{msgs.message_sentSuccess}
-                    </h:panelGroup>
-
-<br />
-                    <h:dataTable value="#{MessageWriteBean.files}" var="file">
-                    <h:column>
-                        #{file.name}
-                        <span class="navigationLinks">
-                            <h:commandLink action="#{MessageWriteBean.removeFile}" value="" >
-                                <img alt="" src="../resources/images/delete_file.png" style="margin-left: 10px;"/>
-                                <f:ajax execute="@form" render="@form"/>
-                                <f:setPropertyActionListener target="#{MessageWriteBean.messageNameForDelete}" value="#{file.name}"/>
-                            </h:commandLink>
-                        </span>
-                    </h:column>
-                    </h:dataTable>
+               
 
 <div style="text-align: right;">
 <br />

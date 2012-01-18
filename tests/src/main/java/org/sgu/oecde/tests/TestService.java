@@ -92,7 +92,7 @@ public class TestService implements Serializable{
                }
             }
         }
-        p.addNewWorkPoint(TestsCountEnum.CONCLUDING_TESTS_COUNT, ct);
+       p.addNewWorkPoint(TestsCountEnum.CONCLUDING_TESTS_COUNT, ct);
         p.addNewWorkPoint(TestsCountEnum.TESTS_COUNT, r);
         p.addNewWorkPoint(TestsCountEnum.CONCLUDING_TESTS_MAXIMUM_POINTS, ctPoints);
         p.addNewWorkPoint(TestsCountEnum.TESTS_MAXIMUM_POINTS, rPoints);

@@ -73,6 +73,7 @@ public class Materials extends StudentCurriculumBean{
             pI = points.iterator();
             while(pI.hasNext()){
                 Points ps = pI.next();
+              //  testService.countTests(m, ps);
                 AdditionalCurriculum c = new AdditionalCurriculum(ps.getCurriculum());
                 if(c.getCurriculum().getUmk()!=null){
                     Integer r = ps.<Integer>getWorkPoints(TestsCountEnum.TESTS_COUNT);
