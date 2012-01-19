@@ -21,16 +21,16 @@
           
           
             <ui:repeat varStatus="i" value="#{NavigationBean.getPages(cc.attrs.elementOnPage, cc.attrs.numElements)}" var="page">
-                <h:outputText rendered="#{page==NavigationBean.page}" value="#{page}" style=" color:#C2D9EF; font-weight: bold; margin-right: 6px;font-size: 10pt;"/>
+                <h:outputText rendered="#{page==NavigationBean.page}" value="#{page}" styleClass="navigationLinksPageActive"/>
                   <h:panelGroup rendered="#{page!=NavigationBean.page}">
-                      <h:outputLink rendered="#{(cc.attrs.link!=null)&amp;&amp;(page != 'begin')&amp;&amp;(page != 'end')}" value="?page=#{page}&amp;#{cc.attrs.link}"><h:outputText escape="false" value="#{page}" style=" color: #8BB5DF;  font-weight: bold;"/></h:outputLink>
-                      <h:outputLink rendered="#{(cc.attrs.link==null)&amp;&amp;(page != 'begin')&amp;&amp;(page != 'end')}" value="?page=#{page}"><h:outputText value="#{page}" style=" color: #8BB5DF;  font-weight: bold;"/></h:outputLink>
+                      <h:outputLink rendered="#{(cc.attrs.link!=null)&amp;&amp;(page != 'begin')&amp;&amp;(page != 'end')}" value="?page=#{page}&amp;#{cc.attrs.link}"><h:outputText escape="false" value="#{page}" styleClass="navigationLinksPage"/></h:outputLink>
+                      <h:outputLink rendered="#{(cc.attrs.link==null)&amp;&amp;(page != 'begin')&amp;&amp;(page != 'end')}" value="?page=#{page}"><h:outputText value="#{page}" styleClass="navigationLinksPage"/></h:outputLink>
 
-                      <h:outputLink rendered="#{(cc.attrs.link!=null)&amp;&amp;(page == 'begin')}" value="?page=1&amp;#{cc.attrs.link}"><h:outputText escape="false" value="&lt;&lt;" style=" color: #8BB5DF;  font-weight: bold;"/></h:outputLink>
-                      <h:outputLink rendered="#{(cc.attrs.link==null)&amp;&amp;(page == 'begin')}" value="?page=1"><h:outputText value="&lt;&lt;" style=" color: #8BB5DF;  font-weight: bold;"/></h:outputLink>
+                      <h:outputLink rendered="#{(cc.attrs.link!=null)&amp;&amp;(page == 'begin')}" value="?page=1&amp;#{cc.attrs.link}"><h:outputText escape="false" value="&lt;&lt;" styleClass="navigationLinksPage"/></h:outputLink>
+                      <h:outputLink rendered="#{(cc.attrs.link==null)&amp;&amp;(page == 'begin')}" value="?page=1"><h:outputText value="&lt;&lt;" styleClass="navigationLinksPage"/></h:outputLink>
 
-                      <h:outputLink rendered="#{(cc.attrs.link!=null)&amp;&amp;(page == 'end')}" value="?page=1&amp;#{cc.attrs.link}"><h:outputText escape="false" value="&gt;&gt;" style=" color: #8BB5DF;  font-weight: bold;"/></h:outputLink>
-                      <h:outputLink rendered="#{(cc.attrs.link==null)&amp;&amp;(page == 'end')}" value="?page=#{NavigationBean.numPages}" style="text-decoration: none !important;"><h:outputText value="&gt;&gt;" style=" color: #8BB5DF;  font-weight: bold;"/></h:outputLink>
+                      <h:outputLink rendered="#{(cc.attrs.link!=null)&amp;&amp;(page == 'end')}" value="?page=1&amp;#{cc.attrs.link}"><h:outputText escape="false" value="&gt;&gt;" styleClass="navigationLinksPage"/></h:outputLink>
+                      <h:outputLink rendered="#{(cc.attrs.link==null)&amp;&amp;(page == 'end')}" value="?page=#{NavigationBean.numPages}" style="text-decoration: none !important;"><h:outputText value="&gt;&gt;" styleClass="navigationLinksPage"/></h:outputLink>
 
                       &nbsp;</h:panelGroup>
             </ui:repeat>

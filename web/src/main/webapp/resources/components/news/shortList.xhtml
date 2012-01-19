@@ -22,7 +22,7 @@
                </h:panelGroup>
       </div>
       <div style="padding: 5px;">
-       <h:dataTable value="#{NewsBean.getNewsForNumber(cc.attrs.numberNews)}" var="n" styleClass="leftMenuContainer" width="100%">
+       <h:dataTable value="#{NewsBean.getNewsForNumber(cc.attrs.numberNews)}" var="n" styleClass="leftMenuContainer BorderNone" width="100%">
             <h:column>
                 <div style=" max-width: 60%; float: left;">
                  <h:outputText value="свежее! " style="font-weight: bold; color: #FBB35D; " rendered="#{n['new']}"/> <span class="linkToStudentsProfile"><a style="font-size: 9pt;" href="news_read.xhtml?id=#{n.id}">#{n.header}</a></span>
