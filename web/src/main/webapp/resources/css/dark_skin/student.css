@@ -64,27 +64,6 @@
     margin-right: 10px;
     width: 100%;
 }
-/*.mainStyle .userData div{
-    color: white;
-    text-align: left;
-}*/
-
-
-
-
-/*.materialInfo p:nth-child(1){
-   background:  url("../resources/images/control_works_little.gif") no-repeat ;
-}
-.materialInfo p:nth-child(2){
-   background:  url("../resources/images/test_results_little.gif") no-repeat;
-   background-position: -2px 0;
-}
-.materialInfo p:nth-child(3){
-     background:  url("../resources/images/test_result_little.gif") no-repeat;
-}
-  .StudentTestMark{
- color: #1D1F1F;
-}*/
 
 /*список администраторов*/
 .mainStyle .studentPaddBott{
@@ -118,11 +97,6 @@
     background: url('../resources/images/add_cont_work.png') no-repeat right;
 }
 /*тесты*/
-
-.mainStyle .notPassedTest{
-    color: #EF596D;
-    display: block;
-}
 .mainStyle .backLinkPosition{
     display: block;
     margin-top: 5px;
