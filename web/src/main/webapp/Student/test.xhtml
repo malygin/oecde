@@ -72,7 +72,7 @@
                     </script>
                     <h:panelGroup id="mainPanel" rendered="#{not testPassingBean.renderCompleteTest}" >
                        
-                        <tests:questionTips type="#{testPassingBean.currentQustionView.question.type}"/>
+                        <p class="testTips"><tests:questionTips type="#{testPassingBean.currentQustionView.question.type}"/></p>
 
                         <tests:questionAnswer question="#{testPassingBean.currentQustionView.question}"/>
                         <tests:questionProgressBars countAnsweredQuestion="#{testPassingBean.countAnsweredquestion}" countQuestions="#{testPassingBean.countQuestions}"/>
