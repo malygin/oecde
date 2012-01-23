@@ -1,4 +1,4 @@
-А/*
+/*
     Document   : base
     Created on : 06.07.2010, 10:40:52
     Author     : KorgovVD
@@ -31,6 +31,9 @@ body {
     font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     color: #000000;
     text-align: center;
+    background-image: url("../resources/images/blue_ball2.png"), url("../resources/images/fon_with_snow.png");
+    background-repeat: no-repeat, repeat;
+    background-position: left, auto;
 }
 h1 {
     font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
@@ -61,7 +64,7 @@ label{
     display: block;
 }
 .mainStyle .firstBorder{
-    border-color: white;
+    border-color: transparent;
     /*    -o-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
         -moz-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
         -webkit-3order-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;*/
@@ -137,12 +140,16 @@ label{
 .mainStyle .datepickerClass td a:active{color:#838383; text-decoration: none;font-weight: normal;}
 .mainStyle .datepickerClass td a:hover{color:#838383; text-decoration: none;font-weight: normal;}
 
+.mainStyle .scheduleTableWidth{
+    width: 200%;
+}
+
 .mainStyle .rightPagePart{
     margin-left: 19%;
     width: 81%;
 }
 .mainStyle .topMenu{
-    border-color: white;
+    border-color: transparent;
     border-bottom-width: 18px;
     border-style: solid;
     height: 35px;
@@ -186,6 +193,8 @@ label{
     -moz-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
     border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
     -webkit-border-image: url("../resources/images/firstBorder.png") 5 5 5 5 round round;
+    background-image: none !important;
+    background-color: white !important;
 }
 .mainStyle .content{
     /*    border-left: 1px solid #9E9E9E;
@@ -444,6 +453,14 @@ label{
     background: white;
 }
 /*тесты для студентов*/
+.mainStyle .testTips{
+    text-align: right;
+    padding-right: 5px;
+    margin-top: 5px;
+    color: #FBB35E;
+    font-size: 10pt;
+}
+
 .mainStyle .StudentTestStartPages td:nth-child(1){
     width: 200px;
 }
@@ -1700,6 +1717,18 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     color: #373E3F;
     font-weight: bold;
 }
+
+/*прогрессбары в изучаемых материалах*/
+.mainStyle .badResult{
+    background: #FBB35D;
+}
+.mainStyle .goodResult{
+    background: #0981bd;
+}
+.mainStyle .greateResult{
+    background: #5bbf5d;
+}
+
 /*тесты секундомер прогрессбар*/
 .mainStyle #counter{
     color: #EF5D0E;
@@ -1759,6 +1788,9 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .imG_span img{
     display: inline !important;
 }
+.mainStyle .qTitle iframe{
+    height: 100% !important;
+}
 /*форум*/
 .mainStyle .forumDiscriptionText {
     text-align: justify;
@@ -1792,6 +1824,17 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     margin-top: 10px;
     width: 65%;
 }
+.mainStyle .navigationLinksPage{
+    color: #8BB5DF;  
+    font-weight: bold;
+}
+.mainStyle .navigationLinksPageActive{
+    color:#C2D9EF; 
+    font-weight: bold; 
+    margin-right: 6px;
+    font-size: 10pt;
+}
+
 /*информация о пользователе*/
 .mainStyle .userPhotoPosition{
     float: right; width: 78%; text-align: left;
@@ -2131,6 +2174,16 @@ ul.dropdown li ul li {
     /*padding-left: 12px;*/
     color: #3A6484;
 }
+.mainStyle .informationText a:link,
+.mainStyle .informationText a:active,
+.mainStyle .informationText a:visited,
+.mainStyle .informationText a:hover,
+.mainStyle .informationText p a:link,
+.mainStyle .informationText p a:active,
+.mainStyle .informationText p a:visited,
+.mainStyle .informationText p a:hover{
+    color: #89C9F5;
+}
 /*тичер*/
 .mainStyle .groupInfo{
     margin: 10px;
@@ -2233,7 +2286,9 @@ a.mainStyle .lightGreyText a:hover{
     border-right: 1px solid #838383;
 }
 .mainStyle .TableForGrades tr td:last-child,
-.mainStyle .TableForGrades tr td:nth-child(2){
+.mainStyle .TableForGrades tr td:nth-child(2),
+.mainStyle .TableForGrades tr th:last-child,
+.mainStyle .TableForGrades tr th:nth-child(2){
     text-align: center;
     width: 8% !important;
 }
@@ -2376,4 +2431,196 @@ a.mainStyle .lightGreyText a:hover{
 
 .mainStyle .resultRedText {
     color: #fb6a00;
+}
+/***************/
+/*перенесено из student.css*/
+.mainStyle .controlWorkResultStylePassed{
+    color: #5bbf5d;
+}
+.mainStyle .notPassedTest{
+    color: #EF596D;
+    display: block;
+}
+.StudentSecondLineBlocks{
+    padding: 3px 3px 0px 3px; border: 1px solid silver;
+}
+/*стили для таблиц*/
+.mainStyle .StudentTablePadding{
+    padding: 10px;
+    margin: 0 !important;
+}
+.mainStyle .studentControlWorksTable td:nth-child(1){
+    width: 10%;
+}
+/*главная страница студента*/
+/*.my_educ_text ol {
+    margin-left: 0;
+}
+.my_educ_disc_reason{
+    list-style: none;
+}
+.my_educ_disc_reason li{
+    margin-left: 23px;
+}*/
+
+/*стили для границ блоков*/
+
+.studentStandatrTableBorder{
+    border-right: 1px solid #D1E0EF;
+}
+.StudentTimeTable{
+    padding-top: 10px;
+}
+
+.mainStyle .userData p{
+    text-align: left;
+    margin-right: 10px;
+    width: 100%;
+}
+
+
+/*список администраторов*/
+.mainStyle .studentPaddBott{
+    padding-bottom: 10px;
+}
+/*мои контрольные работы*/
+.mainStyle .columnNames{
+    color: gray;
+    width: 170px;
+    padding-left: 10px;
+}
+.mainStyle .chooseContrWorkButtonPosition{
+    display: block;
+    text-align: center !important;
+    float: right;
+    height: 17px !important;
+    margin-left: 10px !important;
+    width: 31px;
+}
+.mainStyle .controlWorkResultStylePassed{
+    color: #5bbf5d;
+}
+.mainStyle .controlWorkResultStyleFailed{
+    color: #FBB35D;
+}
+.mainStyle .controlWorkResultStyleAvailable{
+    color: #D4D4D4;
+}
+.mainStyle .save_control_work{
+    background: url('../resources/images/save_control_work.png') no-repeat right;
+    padding-right: 15px;
+}
+.mainStyle .add_cont_work{
+    background: url('../resources/images/add_cont_work.png') no-repeat right;
+}
+/*тесты*/
+
+.mainStyle .notPassedTest{
+    color: #EF596D;
+    display: block;
+}
+.mainStyle .backLinkPosition{
+    display: block;
+    margin-top: 5px;
+    margin-left: 70px;
+}
+.mainStyle .counterPosition{
+    text-align: right;
+    float: right;
+}
+.mainStyle .beginTest{
+    display: block;
+    width: 150px;
+    position: relative;
+    left: 40%;
+}
+
+.mainStyle .testQuestionTitle{
+    display: block;
+    font-size: 14px;
+}
+
+
+.mainStyle .testFinish{
+    font-size: 14pt;
+    padding: 0;
+    margin: auto;
+    width: 180px;
+}
+.mainStyle .testResultMarkNotNull{
+    color: #FBB35D;
+}
+/*рейтинг*/
+.mainStyle .ratingStyle{
+    color: green;
+    font-weight: bolder;
+    font-size: 10pt;
+}
+/*главная страница*/
+.mainStyle .tdStudentMainPage{
+    width: 50%;
+    padding: 3px 3px 0px 3px;
+    border: 1px solid silver;
+}
+.mainStyle .StudentMainPageTitles{
+    border-bottom: 1px solid silver;
+    padding-top: 4px;
+}
+.mainStyle .StudentMainPageImgPadd{
+    padding-left: 17px;
+    padding-bottom: 3px;
+}
+
+.mainStyle .test_results{
+    font-family: Arial;
+    color: #27587F;
+    background:url('../resources/images/test_results.gif') no-repeat;
+    padding-left: 24px;
+}
+.mainStyle .control_works{
+    font-size: 12pt;
+    background:url('../resources/images/control_works.gif') no-repeat;
+    padding-left: 24px;
+}
+
+.mainStyle .cross-circle{
+    background: url('../resources/images/cross-circle.gif') no-repeat 0 0;
+}
+
+/*на главной странице переопределяет стиль таблицы studentStandatrTable*/
+.mainStyle .studentTableEvent th{
+    border-bottom: 1px solid silver;
+}
+/*зачетная книжка студента*/
+.mainStyle .LeftInterfaceContent{
+    width: 66%;
+    float: left;
+}
+.mainStyle .RightInterfaceContent{
+    width: 27%;
+    margin-left: 72%;
+}
+.mainStyle .blocksMargins{
+    margin: 10px; margin-left: 15px;
+}
+/*************/
+
+
+
+
+/*перенесено из teacher.css*/
+.mainStyle .groupsLinks a:link{color: #8BB5DF; text-decoration: none; font-size: 10pt; font-weight: bold;margin: 0px;font-family: Arial;}
+.mainStyle .groupsLinks a:visited{color: #8BB5DF; text-decoration: none; font-size: 10pt; font-weight: bold;margin: 0px;font-family: Arial;}
+.mainStyle .groupsLinks a:active{color: #8BB5DF; text-decoration: none; font-size: 10pt; font-weight: bold;margin: 0px;font-family: Arial;}
+.mainStyle .groupsLinks a:hover{color: #A3A3A3; text-decoration: none; font-size: 10pt; font-weight: bold; margin: 0px; font-family: Arial;}
+
+/*выставление оценок преподавателем*/
+.mainStyle .badResultText{
+    color: #FBB35D;
+}
+.mainStyle .goodResultText{
+    color: #0981bd;
+}
+.mainStyle .greateResultText{
+    color: #5bbf5d;
 }

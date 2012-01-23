@@ -2386,11 +2386,11 @@ a.mainStyle .lightGreyText a:hover{
 .ui-datepicker-calendar tr td{
     background: none !important;
 }
-/*переопределение стилей УМК*/
-.mainStyle .exbook,
-#taskFrame{
-    background-color: red !important;
-}
+/*переопределение стилей iframe*/
+/*body{
+    color: white !important;
+    background: none !important;
+}*/
 
 /*перенесено из student.css*/
 .mainStyle .controlWorkResultStylePassed{
