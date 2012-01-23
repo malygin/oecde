@@ -16,16 +16,16 @@
     <composite:implementation>
         
              <h:panelGroup rendered="#{cc.attrs.type=='comparison'}">
-                <br/><small>#{msgs.student_TestAccordance} </small><br/><br/>
+                #{msgs.student_TestAccordance}<br/><br/>
               </h:panelGroup>
               <h:panelGroup rendered="#{cc.attrs.type=='radio'}">
-                <br/><small>#{msgs.student_TestOneVariant}</small><br/><br/>
+                #{msgs.student_TestOneVariant}<br/><br/>
               </h:panelGroup>
               <h:panelGroup rendered="#{cc.attrs.type=='text'}">
-                <br/><br/><small>#{msgs.student_TestWriteAnswer}</small><br/>
+                #{msgs.student_TestWriteAnswer}<br/>
               </h:panelGroup>
               <h:panelGroup rendered="#{cc.attrs.type=='check'}" style="margin-bottom: 10px;">
-                <br/><small>#{msgs.student_TestSeveralVariants}</small><br/><br/>
+                #{msgs.student_TestSeveralVariants}<br/><br/>
               </h:panelGroup>
     </composite:implementation>
 </html>
