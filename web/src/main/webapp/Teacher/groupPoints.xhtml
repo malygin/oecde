@@ -54,7 +54,10 @@
                             <h:outputText value="#{msgs.student_gradesTableHeadTests}" />
                         </f:facet>
                         <h:panelGroup rendered="#{(p.test) ne null}">
-                            <span>#{p.test}</span> <span class="lightGreyTestText">#{msgs.student_From} #{p.testsMaxPoints}</span>
+                            <h:panelGroup rendered="#{(p.test*100/(p.testsMaxPoints) gt 0) and (p.test*100/(p.testsMaxPoints) le 50)}" styleClass="badResultText">#{p.test}</h:panelGroup>
+                            <h:panelGroup rendered="#{(p.test*100/(p.testsMaxPoints) gt 50) and (p.test*100/(p.testsMaxPoints) le 90)}" styleClass="goodResultText">#{p.test}</h:panelGroup>
+                            <h:panelGroup rendered="#{(p.test*100/(p.testsMaxPoints) gt 90)}" styleClass="greateResultText">#{p.test}</h:panelGroup>
+                            <span class="lightGreyTestText">#{msgs.student_From} #{p.testsMaxPoints}</span>
                         </h:panelGroup>
                         <h:panelGroup rendered="#{(p.test) eq null}">
                             <span class="lightGreyTestText"> #{p.testsMaxPoints}</span>
@@ -73,7 +76,10 @@
                             <span class="Ipsilon_Web_GreenText">#{msgs.teacher_groupMainTests} <br/>#{msgs.teacher_groupTests}</span>
                         </f:facet>
                         <h:panelGroup rendered="#{(p.concludingTest) ne null}">
-                            <span>#{p.concludingTest}</span> <span class="lightGreyTestText">#{msgs.student_From} #{p.concludingTestsMaxPoints}</span>
+                            <h:panelGroup rendered="#{(p.concludingTest*100/(p.concludingTestsMaxPoints) gt 0) and (p.concludingTest*100/(p.concludingTestsMaxPointss) le 50)}" styleClass="badResultText">#{p.test}</h:panelGroup>
+                            <h:panelGroup rendered="#{(p.concludingTest*100/(p.concludingTestsMaxPoints) gt 50) and (p.concludingTest*100/(p.concludingTestsMaxPoints) le 90)}" styleClass="goodResultText">#{p.test}</h:panelGroup>
+                            <h:panelGroup rendered="#{(p.concludingTest*100/(p.concludingTestsMaxPoints) gt 90)}" styleClass="greateResultText">#{p.test}</h:panelGroup>
+                            <span class="lightGreyTestText">#{msgs.student_From} #{p.concludingTestsMaxPoints}</span>
                         </h:panelGroup>
                         <h:panelGroup rendered="#{(p.concludingTest) eq null}">
                             <span class="lightGreyTestText"> #{p.concludingTestsMaxPoints}</span>
@@ -117,7 +123,15 @@
                         <f:facet name="header">
                             <h:outputText value="#{msgs.student_gradesTableHeadSumm}" />
                         </f:facet>
-                        <span>#{p.points.sum}</span>
+                        <h:panelGroup rendered="#{((p.points.sum) ne null) and ((p.points.sum) ne 0)}">
+                            <h:panelGroup rendered="#{(p.points.sum*100/(p.testsMaxPoints+200) gt 0) and (p.points.sum*100/(p.testsMaxPoints+200) le 50)}" styleClass="badResultText">#{p.points.sum}</h:panelGroup>
+                            <h:panelGroup rendered="#{(p.points.sum*100/(p.testsMaxPoints+200) gt 50) and (p.points.sum*100/(p.testsMaxPoints+200) le 90)}" styleClass="goodResultText">#{p.points.sum}</h:panelGroup>
+                            <h:panelGroup rendered="#{(p.points.sum*100/(p.testsMaxPoints+200) gt 90)}" styleClass="greateResultText">#{p.points.sum}</h:panelGroup>
+                            <span class="lightGreyTestText">#{msgs.student_From} #{p.testsMaxPoints+200}</span>
+                        </h:panelGroup>
+                        <h:panelGroup rendered="#{((p.points.sum) eq null) or ((p.points.sum) eq 0)}">
+                            <span class="lightGreyTestText">#{p.testsMaxPoints+200}</span>
+                        </h:panelGroup>
                     </h:column>
 
                     <h:column>
