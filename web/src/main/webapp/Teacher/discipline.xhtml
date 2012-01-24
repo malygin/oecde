@@ -26,7 +26,7 @@
                 <h:outputText rendered="#{teacherCurriculumBean.accessDenied}" value="#{msgs.student_TestIsNotFoundOrNotAvail}" />
                 <r:forEach items="#{teacherCurriculumBean.curriculum.umk.modules}" var="m">
                     <div class="studentInterfaceStandartList">
-                        <div class="mainStudentPageTitles skyBlueText" style="font-weight: normal;font-size: 11pt;"> ${m.name}</div>
+                        <div class="mainStudentPageTitles skyBlueText BackgroundNone" style="font-weight: normal;font-size: 11pt;"> ${m.name}</div>
                         <r:forEach items="${m.resources}" var="r" varStatus="i">
                             <div class="greyLinks" style="margin-left: 20px;">
                                 <span>#{i.index+1}</span> <a href="exbook.xhtml?cId=${teacherCurriculumBean.curriculumId}&amp;mId=${m.id}&amp;tId=${r.id}" style="text-decoration: none;">${r.title}</a>

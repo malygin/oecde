@@ -161,7 +161,7 @@
     margin: 0;
 }
 .mainStyle .radioButtonActive label {
-    background: url(../resources/images/radioButtonActive.png) no-repeat;
+    background: url(../../resources/images/radioButtonActive.png) no-repeat;
     background-position: center left;
     padding-left: 17px;
     display: block;
@@ -171,7 +171,7 @@
     min-height: 17px;
 }
 .mainStyle .radioButtonEnabled label{
-    background: url(../resources/images/radioButtonEnabled.png) no-repeat;
+    background: url(../../resources/images/radioButtonEnabled.png) no-repeat;
     background-position: center left;
     padding-left: 17px;
       display: block;
@@ -184,7 +184,7 @@
    font-weight: bold;
 }
 .mainStyle .checkboxActive label {
-    background: url(../resources/images/checkboxActive.png) no-repeat;
+    background: url(../../resources/images/checkboxActive.png) no-repeat;
     background-position: center left;
     padding-left: 17px;
     display: block;
@@ -194,7 +194,7 @@
      height: 17px;
 }
 .mainStyle .checkboxEnabled label {
-    background: url(../resources/images/checkboxEnabled.png) no-repeat;
+    background: url(../../resources/images/checkboxEnabled.png) no-repeat;
     background-position: center left;
     padding-left: 17px;
     display: block;
@@ -204,7 +204,7 @@
      height: 17px;
 }
 .mainStyle .enterPicTest{
-    background: url("../resources/images/enter.gif") no-repeat;
+    background: url("../../resources/images/enter.gif") no-repeat;
     padding-left: 19px;
 }
 .mainStyle .inputTextCenter{

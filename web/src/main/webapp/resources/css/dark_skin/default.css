@@ -10,21 +10,20 @@ img{
     /*    display: block;*/
 }
 body {
-    /*background-color: #ffffff;*/
     font-size: 12px;
     font-family:   Times, Arial, "Arial CE", Verdana, "Verdana CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     color: #161616;
     text-align: left;
     padding: 10px;
 }
-h1 {
+h1, h1 b {
     font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     font-size:  16px;
     font-weight: bold;
     margin: 0px;
     padding: 0px;
     padding-bottom: 10px;
-    color: white;
+    color: #89d9fa !important;
     text-align: center;
 }
 p{
@@ -49,4 +48,15 @@ table{
 table td{
     border: 1px solid silver;
     border-top: 0;
+}
+ol li, ul li{
+    padding: 10px 0px 0px 10px;
+}
+ol, ul{
+    margin: 10px 30px 0px 40px;
+    list-style-position: outside;
+}
+
+@media all and (min-width: 0px) {
+    ol li, ul li{margin-left: 40px !important;}    
 }
