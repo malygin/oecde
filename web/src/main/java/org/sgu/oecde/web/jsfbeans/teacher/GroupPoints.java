@@ -86,7 +86,7 @@ public class GroupPoints extends AbstractStudentsListBean{
             }
            
         }
-        //journalService.save(EventType.GRADING,teacher, getGroup(), getCurriculum().getDiscipline());
+        journalService.save(EventType.GRADING,teacher, getGroup(), getCurriculum().getDiscipline());
         saved=true;
     }
 
