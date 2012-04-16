@@ -84,10 +84,10 @@ public class TestService implements Serializable{
                if(t!=null){
                    if(TestType.concluding.equals(t.getType())){
                        ct++;
-                       ctPoints+=(t.getWeight()!=null&&t.getWeight()>0)?t.getWeight():TestsCountEnum.CONCLUDING_TESTS_MAXIMUM_POINTS.getDedault();
+                       ctPoints+=(t.getWeight()!=null&&t.getWeight()>0)?t.getWeight():TestsCountEnum.CONCLUDING_TESTS_MAXIMUM_POINTS.getDefault();
                    } else if (TestType.regular.equals(t.getType()) ||(TestType.trial.equals(t.getType()))){
                        r++;
-                       rPoints+=(t.getWeight()!=null&&t.getWeight()>0)?t.getWeight():TestsCountEnum.TESTS_MAXIMUM_POINTS.getDedault();
+                       rPoints+=(t.getWeight()!=null&&t.getWeight()>0)?t.getWeight():TestsCountEnum.TESTS_MAXIMUM_POINTS.getDefault();
                    }
                }
             }

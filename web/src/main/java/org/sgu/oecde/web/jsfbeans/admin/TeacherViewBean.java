@@ -130,7 +130,9 @@ public class TeacherViewBean extends UserViewBean{
                     passed=0;
                     controlWorkTotal=0;
                     controlWorkChecked=0;
-                    List<Points> points= gradesService.getGrades(l, teacherToGroup.getGroup().getPersons());
+                    ArrayList<DeCurriculum> ldc= new ArrayList<DeCurriculum>();
+                    ldc.add(dc);
+                    List<Points> points= gradesService.getGrades(ldc, teacherToGroup.getGroup().getPersons());
                       for(Points p:points){
                           
                          Estimate e = p.getWorkPoints(EstimateNames.estimate);

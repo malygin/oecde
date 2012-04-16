@@ -1,6 +1,7 @@
 package org.sgu.oecde.core.util;
 
 import org.sgu.oecde.core.users.AbstractUser;
+import org.sgu.oecde.core.users.Guest;
 import org.sgu.oecde.core.users.UserType;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
@@ -28,8 +29,8 @@ public class SecurityContextHandler {
                 Object principal = authentication.getPrincipal();
                 if(principal instanceof AbstractUser){
                     return (AbstractUser) principal;
-                }
             }
+        }
         }
         return null;
     }

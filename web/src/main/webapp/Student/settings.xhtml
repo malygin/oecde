@@ -36,6 +36,13 @@
                                 <h:inputText value="#{studentSettingsBean.student.info}"/>
                                 </td>
                                 </tr>
+                           <tr>  <td></td>                            
+                                <td> 
+                                    <h:selectOneMenu value="#{studentSettingsBean.student.skin}">
+                                      <f:selectItems value="#{studentSettingsBean.skins}" />
+                                    </h:selectOneMenu>      
+                                </td>
+                            </tr>
                                 <tr>
                                     <td colspan="2">
                                           <h:outputText id="saved2" rendered="#{studentSettingsBean.saved}" value="#{msgs.user_settingsSaved}"/>

@@ -9,16 +9,16 @@
       xmlns:fn="http://java.sun.com/jsp/jstl/functions"
       >
 
-
     <!-- INTERFACE -->
     <composite:interface>
-        <composite:attribute  name="numberLessons"  required="true" type="int" shortDescription="количество выводимых занятий"/>
-        <composite:attribute  name="showLast"  required="true" type="boolean" shortDescription="Показывать только последние?"/>
-      
-        
-        <composite:attribute name="styleForShedule" default="" type="java.lang.String" shortDescription="обтекание слева или без него"/>
-        <composite:attribute name="renderBlock" default="" type="java.lang.String" shortDescription="что надо отобразить на странице"/>
-        <composite:attribute name="ClassStyle" default="" type="java.lang.String" shortDescription="граница на главной странице"/>
+        <composite:attribute  name="numberLessons"  required="true" type="int" shortDescription="количество выводимых занятий на странице"/>
+        <composite:attribute name="renderBlock" required="true" type="java.lang.String" shortDescription="что надо отобразить на странице"/>
+        <composite:attribute name="getList" type="java.lang.String" />
+        <composite:attribute name="getFullList" type="java.lang.String" />
+        <composite:attribute name="getCount" type="java.lang.String" />
+        <composite:attribute name="bean" type="java.lang.Object" />
+
+    
     </composite:interface>
     
     <!-- IMPLEMENTATION -->
@@ -34,12 +34,14 @@
             <div class="mainStudentPageTitlesGreen mainStudentPageTitles">
                 <a style="font-size: 12pt;" href="schedule.xhtml">#{msgs.student_sheduleVideoConf}</a>
             </div>
-            <div class="#{cc.attrs.styleForShedule}">
+            <div class="floatLeft">
                 <div id="datepicker" class="datepickerClass"></div>
             </div>
+            
             <div class="videoConfSchedule floatLeft" style="min-height: 212px; width: 50%;">
-                <table class="#{cc.attrs.ClassStyle}">
-                    <ui:repeat var="s" value="#{studentScheduleBean.schedule(40,true)}">
+                <table >
+                    
+                    <ui:repeat var="s" value="#{cc.attrs.bean[cc.attrs.getList]}">
                         <tr>
                             <td valign="top"><p><span class="Ipsilon_Web_GreenText"><h:outputText value="#{s.lessonDate}" converter="dateConverter"/> - ${fn:substring(s.lessonEndDate,11,16)} </span> &nbsp;&nbsp;&nbsp;<h:outputText converter="roomConverter" value="#{s.room}" /> #{msgs.student_sheduleRoom}</p> 
                             <p>#{s.lessonType.toString()} <span class="skyBlueText">#{s.discipline.name}</span> </p>
@@ -58,6 +60,7 @@
                     </tr>
                 </table>
             </div>
+            
             <h:panelGroup layout="block" rendered="#{cc.attrs.renderBlock eq 'allLessons'}" style="float: right; width: 25%; margin: 0; margin-right: 10px; margin-top: 20px;" styleClass="StudentMainPageTitlesBorders">
                     <div class="interfaceContentForMyMarks">
                         <div class="mainStudentPageTitles  mainStudentPageTitlesOrange">
@@ -80,14 +83,14 @@
             <div class="floatDestroyer"/>
             <h:panelGroup rendered="#{cc.attrs.renderBlock eq 'allLessons'}">
                 <f:metadata>
-                    <f:viewParam name="pageNumber" value="#{studentScheduleBean.pageNumber}"/>
+                    <f:viewParam name="pageNumber" value="#{scheduleBean.pageNumber}"/>
                 </f:metadata>
                 <div class="interfaceContent">
-                    <util:navigationList numElements="#{studentScheduleBean.count(true)}" elementOnPage="40"/>
+                    <util:navigationList numElements="#{cc.attrs.bean[cc.attrs.getCount]}" elementOnPage="40"/>
 
 
-                    <ui:repeat var="s" value="#{studentScheduleBean.scheduleAll(cc.attrs.numberLessons,false)}">
-                        <h:panelGroup rendered="#{studentScheduleBean.IsCurrentDate(s.lessonDate)}">
+                    <ui:repeat var="s" value="#{cc.attrs.bean[cc.attrs.getFullList]}">
+                        <h:panelGroup rendered="#{scheduleBean.IsCurrentDate(s.lessonDate)}">
                             <div class="greenText"><h:outputText value="#{fn:substring(s.lessonDate,0,10)}" converter="dateConverter"/></div>
                         </h:panelGroup>
                         <table class="tableForShedule">
@@ -97,8 +100,8 @@
                                 <td style="padding-right: 10px;">
                                     <span class="linkToStudentsProfile"><h:outputLink value="umk.xhtml?c=#{s.id}" >#{s.discipline.name}</h:outputLink></span>
                                     <br />#{s.lessonType.toString()}
-                                    <h:panelGroup rendered="#{studentScheduleBean.fileExist(s.id) eq true}">
-                                        <a href="video.xhtml?id=#{studentScheduleBean.getFileName(s.id)}">
+                                    <h:panelGroup rendered="#{scheduleBean.fileExist(s.id) eq true}">
+                                        <a href="video.xhtml?id=#{scheduleBean.getFileName(s.id)}">
                                             <img src="../resources/images/conf_record.png" alt="" style="text-decoration: none; margin: 0px 3px -3px 10px;"/>посмотреть запись конференции
                                         </a>
                                     </h:panelGroup>
@@ -109,7 +112,7 @@
                         </table>
                     </ui:repeat>
 
-                    <util:navigationList numElements="#{studentScheduleBean.count(true)}" elementOnPage="40"/>
+                    <util:navigationList numElements="#{cc.attrs.bean[cc.attrs.getCount]}" elementOnPage="40"/>
                 </div>
             </h:panelGroup>
 

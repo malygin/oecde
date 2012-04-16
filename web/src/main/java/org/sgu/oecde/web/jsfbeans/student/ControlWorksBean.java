@@ -93,6 +93,8 @@ public class ControlWorksBean extends StudentCurriculumBean{
                 }
                 data[1] = w;
                 data[2] = available;
+                if (semesterGetter.getCurrentSemester()!= this.semester)
+                    data[2] = false;
                 if(getCurriculumAndTeacher().containsKey(cr))
                     data[3] = getCurriculumAndTeacher().get(cr);
                 data[4] = (cr.getControlWorksPaperOnly()!=null&&cr.getControlWorksPaperOnly())?"в рукописном":"";

@@ -20,6 +20,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.PageContext;
+import org.sgu.oecde.core.users.AbstractUser;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
  *
@@ -35,6 +37,8 @@ public class TestServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
+          AbstractUser user = (AbstractUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
           if (request.getParameter("task").indexOf("$$")!=-1){
               String s=request.getParameter("task");
               while (s.indexOf("$")!=-1){
@@ -60,7 +64,7 @@ public class TestServlet extends HttpServlet {
            }else{
              str=strbuf.toString().replaceAll("src=\"../textbooks/", "src=\""+getServletContext().getInitParameter("textbookUrl"));;
           }  
-          str=str.replaceFirst("<html>", "<html><link href=\"resources/css/default.css\" rel=\"stylesheet\" type=\"text/css\" /> ");
+          str=str.replaceFirst("<html>", "<html><link href=\"resources/css/"+user.getSkin().getFolder()+"default.css\" rel=\"stylesheet\" type=\"text/css\" /> ");
           out.print(str);}
 
   

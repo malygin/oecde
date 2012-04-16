@@ -340,8 +340,10 @@ public class TestAttemptService implements Serializable{
                 previousStudent=attempt.getStudent();
                 if(attempt.getType().equals(TestAttemptType.regular))
                     estimatedAttemptsNumber++;
-                else if(attempt.getType().equals(TestAttemptType.reTest))
+                else if(attempt.getType().equals(TestAttemptType.reTest)){
                     reExameNumber++;
+                    test.setPointsForWorkRe(attempt.getPoints());
+                }
             }
 
             tmpStudent = attempt.getStudent();

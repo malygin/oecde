@@ -41,6 +41,8 @@ public enum UserType {
             return SUPERVISOR;
         } else if (user instanceof Admin ) {
             return ADMIN;
+        } else if (user instanceof Guest ) {
+            return GUEST;
         } 
         return null;
     }

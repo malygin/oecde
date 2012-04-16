@@ -31,7 +31,7 @@ body {
     font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     color: #000000;
     text-align: center;
-    background-image: url("../resources/images/blue_ball2.png"), url("../resources/images/fon_with_snow.png");
+    //background-image: url("../resources/images/blue_ball2.png"), url("../resources/images/fon_with_snow.png");
     background-repeat: no-repeat, repeat;
     background-position: left, auto;
 }

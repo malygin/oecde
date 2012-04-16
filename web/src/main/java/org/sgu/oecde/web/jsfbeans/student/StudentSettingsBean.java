@@ -1,5 +1,6 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
+import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -39,6 +40,9 @@ public class StudentSettingsBean implements IBeanWithAvatarAdding{
 
     public Student getStudent(){
         return studentSessionBean.getStudent();
+    }
+     public Map getSkins() {
+        return studentSessionBean.getStudent().getSkin().toMap();
     }
 
     public void save(){

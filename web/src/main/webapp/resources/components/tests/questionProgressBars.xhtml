@@ -9,7 +9,9 @@
     <!-- INTERFACE -->
     <composite:interface>
         <composite:attribute  name="countAnsweredQuestion" shortDescription="количество отвчеченных вопросов"/>
-          <composite:attribute  name="countQuestions" shortDescription="количество  вопросов"/>
+        <composite:attribute  name="countQuestions" shortDescription="количество  вопросов"/>
+        <composite:attribute  name="showTimeBar" type="Boolean" default="true" required="false" shortDescription="показывать временной бар"/>
+       
 
     </composite:interface>
 
@@ -27,11 +29,13 @@
                             </div>
                         </div>
                     </div>
+        
         <!-- Временный прогресс бар -->
+        <h:panelGroup rendered="#{cc.attrs.showTimeBar}">
                     <div id="progressbar">
                         <div class="progress">
                         </div>
                     </div>
-
+        </h:panelGroup>
     </composite:implementation>
 </html>

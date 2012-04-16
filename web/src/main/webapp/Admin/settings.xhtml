@@ -37,12 +37,21 @@
                             <h:inputText size="30" value="#{adminSettingsBean.user.contacts}" style="width: 250px;"/>
                             </td>
                             </tr>
+                             <tr>  <td></td>                            
+                                <td> 
+                                    <h:selectOneMenu value="#{adminSettingsBean.user.skin}">
+                                      <f:selectItems value="#{adminSettingsBean.skins}" />
+                                    </h:selectOneMenu>      
+                                </td>
+                            </tr>
                               <tr>
                                 <td colspan="2">
                             <h:commandButton styleClass="studentButton" value="Cохранить" action="#{adminSettingsBean.save()}"/>
                             </td>
                             </tr>
                         </table>
+                       
+                        
                         <h:outputText rendered="#{adminSettingsBean.saved}" value="Успешно сохранено"  /><br/>
                     </div>
                 </h:form>

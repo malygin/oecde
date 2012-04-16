@@ -18,6 +18,7 @@ import org.sgu.oecde.core.education.dao.CurriculumDao;
 import org.sgu.oecde.core.education.work.AdditionalSelfDependentWork;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.core.users.AbstractUser;
+import org.sgu.oecde.core.users.UsersSkins;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.core.util.SemesterGetter;
@@ -282,7 +283,7 @@ public class TestPassingBean implements Serializable {
 
       /*
        * записываем весь тест в базу
-       * @todo проверить какую именно попытку мы записываем
+       * 
        */
 
     public void completeTest(){
@@ -312,6 +313,7 @@ public class TestPassingBean implements Serializable {
      private void makeQuestionList() throws MalformedURLException, IOException {        
        questionsView = new QuestionImpl[countQuestions];
         int i=0;
+        Collections.shuffle(questions);
         for(Question q:questions){
             questionsView[i++]=new QuestionImpl(q);
             if (i>=countQuestions) break;
@@ -389,6 +391,7 @@ public class TestPassingBean implements Serializable {
     static public String checkForFormulaOrLink(String s)throws MalformedURLException, IOException {
         if((s.indexOf("$")!=-1)&&(s.indexOf("$",s.indexOf("$")+1 ))!=-1){          
            // s=s.replaceAll("\\$+[*\\+*]\\$+", "$$%2B");
+            AbstractUser currentUser = SecurityContextHandler.getUser();
             while (s.indexOf("$")!=-1){
                StringBuilder str =new StringBuilder(s);
                String replaceString="";
@@ -399,7 +402,11 @@ public class TestPassingBean implements Serializable {
               // str=str.replace(str.indexOf("$"), str.indexOf("$",str.indexOf("$")+2 )+2, replaceString);
                s=str.toString();
                // System.out.println("check "+s);
-              s= s.replaceFirst("\\$+"," <img src='http://oec.sgu.ru/latex/latex.php?code=");
+//http://oec.sgu.ru/latex/latex.php?code=\color{red}A=\x5C
+              s= s.replaceFirst("\\$+"," <img src='http://oec.sgu.ru/latex/latex.php?code=\\\\color{"+currentUser.getSkin().getFormulaColor()+"}");
+              while ((s.indexOf("+")!=-1)&&(s.indexOf("$")>s.indexOf("+"))){
+               s=s.replaceFirst("\\+", "%2b");            
+              }
               s= s.replaceFirst("\\$+"," '/> ");
              }
         }

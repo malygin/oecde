@@ -44,18 +44,18 @@ public class CacheTest extends AbstractJUnit4SpringContextTests{
     @Ignore
     @Test
     public void get(){
-        System.out.println(((net.sf.ehcache.Cache)applicationContext.getBean("teacherCache")).getKeys());
-        System.out.println(uic.getAdmins());
-        System.out.println("----");
-        System.out.println(uic.getTeachers());
-        System.out.println("----------");
+//        System.out.println(((net.sf.ehcache.Cache)applicationContext.getBean("teacherCache")).getKeys());
+//        System.out.println(uic.getAdmins());
+//        System.out.println("----");
+//        System.out.println(uic.getTeachers());
+//        System.out.println("----------");
         IUpdateDao<Teacher>t = (IUpdateDao<Teacher>) applicationContext.getBean("teacherDao");
         Teacher st = t.getById(44240L);
         st.setCellPhone(456456);
-        System.out.println(st.getOnline()+"     "+st.isEnabled());
+     //   System.out.println(st.getOnline()+"     "+st.isEnabled());
     }
     
-     @Ignore
+    @Ignore
     @Test
     public void getUmkByPage(){
         System.out.println(((net.sf.ehcache.Cache)applicationContext.getBean("teacherCache")).getKeys());

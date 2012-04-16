@@ -1,17 +1,10 @@
 package org.sgu.oecde.core;
 
 import java.util.List;
-import org.junit.Ignore;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
-import org.sgu.oecde.core.education.Speciality;
-import org.sgu.oecde.core.education.dao.ICurriculumDao;
-import org.sgu.oecde.core.education.work.Estimate;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.Admin;
-import org.sgu.oecde.core.users.Supervisor;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.test.context.ContextConfiguration;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -21,12 +14,7 @@ import static org.junit.Assert.*;
 public class getUsers extends BasicTest{
 
 
-    @Ignore
-    @Test
-    public void getByName(){
-        UserDetailsService uds = getBean("UserDetailsServiceImpl");
-        System.out.println(uds.loadUserByUsername("malyginav"));
-    }
+
 
 //     @Ignore
     @Test

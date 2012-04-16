@@ -31,26 +31,20 @@ public interface ILessonDao extends IBasicDao<Lesson>{
      * @throws DataAccessException
      * @throws ParseException
      */
-    @SuppressWarnings("unchecked")
-    public List<Lesson> getListByMonth(String year, String month) throws DataAccessException, ParseException;
-
-    /**
-     * удаляет занятие из базы
-     * @param lesson - сохраняемая сущность
-     * @throws DataAccessException
-     */
+   
     public void deleteLesson(final Lesson lesson) throws DataAccessException;
 
     public Long getLessonsCountByCity(City c, boolean isWinter, int year, String beginDate, String endDate) throws DataAccessException ;
-    
     public List<Lesson>getLessonsByCity(City c, boolean isWinter, int year, int maxResult, int firtsResult, String beginDate, String endDate)throws DataAccessException;
     
-    public List<Lesson>getLessonsForStudent( boolean isWinter,  Group g,City c, int maxResult, int firtsResult,String beginDate, String endDate) throws DataAccessException;
-    
-    public List<Lesson>getLessonsForTeacher( boolean isWinter, Teacher t, int maxResult, int firtsResult,String beginDate, String endDate) throws DataAccessException;
-   
+    public List<Lesson> getLessonsForStudent( boolean isWinter,  Group g,City c, int maxResult, int firtsResult, String beginDate, String endDate) throws DataAccessException;
+    public List<Lesson> getLessonsForTeacher( boolean isWinter, Teacher t, int maxResult, int firtsResult,String beginDate, String endDate) throws DataAccessException;
+    public List<Lesson> getLessonsForAdmin(int maxResult, int firtsResult,String beginDate, String endDate)throws DataAccessException;
+
 
     public List<Lesson>getLessonsByDate(Lesson l) throws DataAccessException;
+    @SuppressWarnings("unchecked")
+    public List<Lesson> getListByMonth(String year, String month) throws DataAccessException, ParseException;
 
     /**
      * получает количество занятий по критериям, что берутся из параметров lesson
@@ -59,4 +53,6 @@ public interface ILessonDao extends IBasicDao<Lesson>{
      * @throws DataAccessException
      */
     public Long getLessonsCountForStudent(boolean isWinter, Group g,City c, String beginDate, String endDate) throws DataAccessException;
+    public Long getLessonsCountForTeacher(boolean isWinter, Teacher t, String beginDate, String endDate) throws DataAccessException;
+    public Long getLessonsCountForAdmin(String beginDate, String endDate)throws DataAccessException;
 }

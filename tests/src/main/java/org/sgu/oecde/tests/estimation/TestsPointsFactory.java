@@ -32,7 +32,7 @@ public class TestsPointsFactory extends EstimatedWorkPointsAbstractFactory{
         Assert.state((result instanceof TestAttempt),"result is not an insnance of TestAttempt");
 
         TestAttempt tResult = (TestAttempt) result;
-
+        
         if(tResult.<TestEntity>getWork().getType().equals(TestType.concluding)&&tResult.getType().equals(TestAttemptType.regular)){
             return TestEstimateNames.CONCLUDING_TEST;
         }else if(tResult.<TestEntity>getWork().getType().equals(TestType.concluding)&&tResult.getType().equals(TestAttemptType.reTest)){

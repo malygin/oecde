@@ -40,8 +40,8 @@
                                 <div>
                                     <ut:showPhoto user="#{studentSessionBean.student}" size="medium"/>
                                 </div>
-                            </td>
-                        </tr>
+                                                        </td>
+                                                    </tr>
                         <tr>
                             <td><p>#{msgs.student_mainContentUserInfoGroup}</p></td>
                             <td><p>#{studentSessionBean.student.group.name}</p></td>
@@ -89,7 +89,7 @@
                 <tr>
                     <td style="width: 57%; vertical-align: top;" class="BorderTd">
 
-                <edu:videoConfSchedule showLast="true" numberLessons="20" styleForShedule="floatLeft"  renderBlock="firstLessons" ClassStyle="BorderNone"/>
+                        <edu:videoConfSchedule bean="#{scheduleBean}" getList="scheduleForStudents" getFullList="scheduleAllForStudents" getCount="countForStudents" numberLessons="20"  renderBlock="firstLessons" />
 
                 </td>
                 <td valign="top" class="BorderTd">

@@ -7,8 +7,8 @@
     xmlns:sec="http://www.springframework.org/security/facelets/tags"
     template="baseTemplate.xhtml">
     <ui:define name="userCSS">
-        <h:outputStylesheet name="#{initParam.skinTheme}teacher.css" library="css" rendered="true"/>
-        <h:outputStylesheet name="#{initParam.skinTheme}base.css" library="css" rendered="true"/>  
+        <h:outputStylesheet name="#{teacherSessionBean.teacher.skin.folder}teacher.css" library="css" rendered="true"/>
+        <h:outputStylesheet name="#{teacherSessionBean.teacher.skin.folder}base.css" library="css" rendered="true"/>  
     </ui:define>
     <ui:define name="left">
         <div  class="modulsTitles"><p class="sideBarTitle">#{msgs.student_eduMenuTitle}</p></div>

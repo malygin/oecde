@@ -24,7 +24,7 @@
                         <span class="previewColor">#{msgs.user_newsTitle} </span>
                     </td>
                     <td>
-                        <h:inputText size="60"  value="#{NewsBean.header}"/>
+                        <h:inputText class="searchInput" size="60"  value="#{NewsBean.header}"/>
                     </td>
                 </tr>
                 <tr>
@@ -32,7 +32,7 @@
                         #{msgs.admin_newsType2}
                     </td>
                     <td>
-                        <h:selectOneMenu  value="#{NewsBean.type}">
+                        <h:selectOneMenu class="searchInput"  value="#{NewsBean.type}">
                             <f:selectItems value="#{NewsBean.newTypeValues}" />
                         </h:selectOneMenu>
                     </td>
@@ -42,7 +42,7 @@
                         <span  class="previewColor">#{msgs.user_newsNotice} </span>
                     </td>
                     <td>
-                        <div class="previewPadBott"><util:editor value="#{NewsBean.anons}"/></div>
+                        <div class="previewPadBott"><h:inputTextarea  class="searchInput" rows="7" cols="80" value="#{NewsBean.anons}"/></div>
                     </td>
                 </tr>
                 <tr>

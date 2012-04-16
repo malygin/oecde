@@ -32,7 +32,8 @@
         <param-name>ipsilonUmkUrl</param-name>
 <!--        <param-value>http://oec.sgu.ru/ipsilonUmk3/</param-value>-->
  <!--       <param-value>http://oec.sgu.ru/ipsilonUmk2/</param-value>-->
-        <param-value>http://oec.sgu.ru/ipsilonUmk/</param-value>
+<!--        <param-value>http://oec.sgu.ru/ipsilonUmk/</param-value>-->
+            <param-value>http://oec.sgu.ru/ipsilonUmk_demo/</param-value>
     </context-param>
     
     <context-param>
@@ -47,6 +48,12 @@
 <!--        <param-value>http://oec-tst.main.sgu.ru:9292/sashedule/</param-value>-->
         <param-value>http://oec-tst.main.sgu.ru:9292/sashedule/</param-value>
     </context-param>
+      <context-param>
+        <param-name>scheduleRecordScriptUrl</param-name>
+<!--        <param-value>http://oec-tst.main.sgu.ru:9292/sashedule/</param-value>-->
+        <param-value>http://oec-nginx.main.sgu.ru/get_files/dir_read.php</param-value>
+    </context-param>
+    
     
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

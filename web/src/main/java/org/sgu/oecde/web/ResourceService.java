@@ -104,10 +104,10 @@ public class ResourceService implements Serializable{
         if(!curriculum.getGotControlWork())
             return true;
         ControlWork cw = controlWorkService.getStudensControlWorks(student, ListUtil.<DeCurriculum>oneItemList(curriculum)).get(curriculum);
-        return cw!=null&&ControlWorkProgress.passed.equals(cw.getProgress());
+        return cw!=null;//&&ControlWorkProgress.passed.equals(cw.getProgress());
     }
 
-    public Object[] getTestForStudent(AdditionalSelfDependentWork w, Student student, boolean concludingAvailable){
+    public Object[] getTestForStudent(AdditionalSelfDependentWork w, Student student, boolean concludingAvailable, boolean currentSemester){
         if(w==null||student==null)
             return null;
         boolean available = false;
@@ -120,8 +120,10 @@ public class ResourceService implements Serializable{
         String testBeginDate = reExameBeginDate;
         String testEndDate = reExameEndDate;
         String currentDate = DateConverter.currentDate();
-
-        if(TestType.concluding.equals(e.getType())&&!concludingAvailable){
+        if (!currentSemester){
+            available = false;
+            data[2] = "Тест недоступен"; 
+        }else if(TestType.concluding.equals(e.getType())&&!concludingAvailable){
             available = false;
             data[2] = "Тест недоступен,см.вкладку Мои контр работы";
         }else{

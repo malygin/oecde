@@ -48,6 +48,9 @@ public class AbstractUser extends BasicItem implements UserDetails{
      * оригинальный айди
      */
     private Long originalId;
+    
+    private UsersSkins skin;
+    
     private static final long serialVersionUID = 61L;
 
     public AbstractUser(String userName){
@@ -257,6 +260,17 @@ public class AbstractUser extends BasicItem implements UserDetails{
 
         return sb.toString();
     }
+
+    public UsersSkins getSkin() {
+       // return UsersSkins.defaultSkin;
+        return skin;
+    }
+
+    public void setSkin(UsersSkins skin) {
+        this.skin = skin;
+    }
+    
+    
 
     /**
      * {@inheritDoc }

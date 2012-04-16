@@ -11,6 +11,10 @@ public enum CwEstimateNames implements IEstimate{
      * баллы за кр
      */
     control_work_points,
+      /**
+     * баллы за кр
+     */
+    control_work_max_points,
     /**
      * статус кр
      */
@@ -24,6 +28,8 @@ public enum CwEstimateNames implements IEstimate{
                 return "кр баллы";
             case control_work_value:
                 return "з/нз";
+            case control_work_max_points:
+                return "максимум балов";
             default:
                 return "";
         }

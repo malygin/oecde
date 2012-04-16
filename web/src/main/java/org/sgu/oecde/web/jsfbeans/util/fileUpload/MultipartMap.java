@@ -102,7 +102,7 @@ public class MultipartMap extends HashMap<String, Object> {
                 processTextPart(part);
             } else if (!filename.isEmpty()) {
                 processFilePart(part, filename);
-            }
+    }
         }
     }
 

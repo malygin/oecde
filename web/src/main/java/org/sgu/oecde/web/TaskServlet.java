@@ -18,8 +18,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.web.jsfbeans.util.ArrayListUtil;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.FileUploadUtil;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 
 /**
@@ -44,6 +46,8 @@ public class TaskServlet extends HttpServlet {
           
           String str="";
           String[] urlTask=request.getParameter("task").split("/");
+          AbstractUser user = (AbstractUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
           URL url = new URL(getServletContext().getInitParameter("textbookUrl") +request.getParameter("task"));
           StringBuilder strbuf = new StringBuilder();
           BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
@@ -55,7 +59,8 @@ public class TaskServlet extends HttpServlet {
               str=strbuf.toString().replaceAll("src='", "src='"+getServletContext().getInitParameter("textbookUrl")+"/"+urlTask[0]+"/"+((urlTask.length>2)?urlTask[1]:"")+"/");
               str=str.replaceAll("src=\"", "src=\""+getServletContext().getInitParameter("textbookUrl")+"/"+urlTask[0]+"/"+((urlTask.length>2)?urlTask[1]:"")+"/");
             //  System.out.println(str);
-              out.print("<link href=\"resources/css/default.css\" rel=\"stylesheet\" type=\"text/css\" /> "+str);}
+              //user.getSkin().getFolder();
+              out.print("<link href=\"resources/css/"+user.getSkin().getFolder()+"default.css\" rel=\"stylesheet\" type=\"text/css\" /> "+str);}
           else out.print("Вы можете скачать этот файл! <br/>"
               + "<a href=\""+url+"\"> скачать файл</a>"); 
         } finally { 

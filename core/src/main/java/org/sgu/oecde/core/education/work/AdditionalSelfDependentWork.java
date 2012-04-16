@@ -32,6 +32,8 @@ public class AdditionalSelfDependentWork implements Serializable{
      * сумма баллов, набранных студентом по данной работе
      */
     private int pointsForWork;
+    
+    private int pointsForWorkRe;
     /**
      * результаты студента по данной работе
      */
@@ -137,6 +139,16 @@ public class AdditionalSelfDependentWork implements Serializable{
     public void setPointsForWork(int pointsForWork) {
         this.pointsForWork = pointsForWork;
     }
+
+    public int getPointsForWorkRe() {
+        return pointsForWorkRe;
+    }
+
+    public void setPointsForWorkRe(int pointsForWorkRe) {
+        this.pointsForWorkRe = pointsForWorkRe;
+    }
+    
+    
 
     /**
      * ссылка на работу

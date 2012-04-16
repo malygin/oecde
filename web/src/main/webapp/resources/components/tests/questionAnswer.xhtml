@@ -55,7 +55,7 @@
                              <label><h:outputText escape="false" value="#{a.title} "/></label>
                          </td>
                          <td>
-                             <h:inputText size="2" styleClass="numberField greenInput" onkeyup="
+                             <h:inputText  size="2" styleClass="numberField greenInput" onkeyup="
                                   if(isNaN(parseInt(this.value))){this.value='';}
                                   else{ 
                                        if((this.value>#{testPassingBean.currentQustionView.countAnswers}) || (this.value&lt;1)) {this.value=#{testPassingBean.currentQustionView.countAnswers}}

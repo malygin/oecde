@@ -27,10 +27,12 @@ public class ResourceDao <T extends AbstractResource> extends UpdateDao<T> imple
     /**
      * {@inheritDoc }
      */
+    @Override
     public <K extends Curriculum,V extends AbstractResource>Map<K,List<V>> getResourceByCurriculums(List<? extends Curriculum> curriculums, Long resourceId,Class type)throws DataAccessException{
         if(CollectionUtils.isEmpty(curriculums)||type==null)
             return null;
-
+          Map<K,List<V>>map = new HashMap<K, List<V>>();
+    try {
         String byExample = null;
         if(resourceId!=null)
             byExample = "r.id=:e";
@@ -42,19 +44,24 @@ public class ResourceDao <T extends AbstractResource> extends UpdateDao<T> imple
             q.setParameter("e", resourceId);
 
         ScrollableResults r = q.scroll();
-        Map<K,List<V>>map = new HashMap<K, List<V>>();
+      
         List<V>list = null;
-        while(r.next()){
-            K c = (K)r.get(0);
-            V rs = (V) r.get(1);
-            if(map.containsKey(c)){
-                map.get(c).add(rs);
-            }else{
-                list = new ArrayList<V>();
-                list.add(rs);
-                map.put(c,list);
+            while(r.next()){
+                K c = (K)r.get(0);
+                V rs = (V) r.get(1);
+                if(map.containsKey(c)){
+                    map.get(c).add(rs);
+                }else{
+                    list = new ArrayList<V>();
+                    list.add(rs);
+                    map.put(c,list);
+                }
             }
-        }
+        r.close();
+        }catch(Exception e) {           
+        getSession(false).close();  // using  SessionFactoryUtils.closeSession
+
+       }
         return map;
     }
 }

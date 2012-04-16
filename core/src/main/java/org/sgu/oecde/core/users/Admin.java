@@ -14,6 +14,8 @@ public class Admin extends AbstractPerson{
      * описание
      */
     private String description;
+    
+    private boolean showUsers = false;
 
     private static final long serialVersionUID = 56L;
     
@@ -50,6 +52,14 @@ public class Admin extends AbstractPerson{
      */
     public void setPosition(String position) {
         this.position = position;
+    }
+
+    public boolean isShowUsers() {
+        return showUsers;
+    }
+
+    public void setShowUsers(boolean showUsers) {
+        this.showUsers = showUsers;
     }
     
   

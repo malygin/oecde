@@ -12,9 +12,10 @@
          </f:metadata>
 
         <ui:define name="contentHeader">
-            Тест.#{adminTestBean.test.title}
+            Тест.#{adminTestBean.test.title} 
         </ui:define>
        <ui:define name="content">     
+          
       <div>          
        <h:form id="mainForm">
             <h:panelGroup id="TestPassing" rendered="#{adminTestBean.renderTestPassing}">
@@ -22,7 +23,7 @@
                 <h:panelGroup   rendered="#{not testPassingBean.renderCompleteTest}">
                       <h:panelGroup rendered="#{not testPassingBean.viewTest}">
                             <tests:questionAnswer question="#{testPassingBean.currentQustionView.question}"/>
-                            <tests:questionProgressBars countAnsweredQuestion="#{testPassingBean.countAnsweredquestion}" countQuestions="#{testPassingBean.countQuestions}"/>
+                            <tests:questionProgressBars showTimeBar="false" countAnsweredQuestion="#{testPassingBean.countAnsweredquestion}" countQuestions="#{testPassingBean.countQuestions}"/>
                        </h:panelGroup>
                         <h:panelGroup rendered="#{testPassingBean.viewTest}">------------
                              <tests:questionView question="#{testPassingBean.currentQustionView.question}"/>
@@ -30,8 +31,8 @@
                         <tests:questionTips type="#{testPassingBean.currentQustionView.question.type}"/>
                </h:panelGroup>
                <h:panelGroup   rendered="#{testPassingBean.renderCompleteTest}">
-                        <tests:showResult countQuestions="#{testPassingBean.countQuestions}" countRight="#{testPassingBean.countRight}" points="#{testPassingBean.points}"/>
-                </h:panelGroup>
+                   <tests:showResult testType="#{adminTestBean.test.type}" countQuestions="#{testPassingBean.countQuestions}" countRight="#{testPassingBean.countRight}" points="#{testPassingBean.points}"/>
+               </h:panelGroup>
              </h:panelGroup>
          </h:form>
           

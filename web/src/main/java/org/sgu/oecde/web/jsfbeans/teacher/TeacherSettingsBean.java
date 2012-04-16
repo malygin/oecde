@@ -1,5 +1,6 @@
 package org.sgu.oecde.web.jsfbeans.teacher;
 
+import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -39,6 +40,9 @@ public class TeacherSettingsBean implements IBeanWithAvatarAdding{
 
     public Teacher getUser(){
         return getTeacher();
+    }
+       public Map getSkins() {
+        return getTeacher().getSkin().toMap();
     }
 
     public void save(){

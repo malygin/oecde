@@ -50,8 +50,10 @@ public class MessageService implements Serializable{
                 }
            }else{
                for(MessageRecipient r:l.getRecipients()){
-                   if (r.getRecipient().getId().equals(user.getId())){
-                      messageImpl.setReaded(r.getReaded());
+                   if (r!=null){
+                    if (r.getRecipient().getId().equals(user.getId())){
+                        messageImpl.setReaded(r.getReaded());
+                    }
                    }
                 }
            }

@@ -30,22 +30,29 @@
                                         <td>#{msgs.student_studentContact}
                                         </td>
                                         <td>
-                                    <h:inputText value="#{studentSettingsBean.student.contacts}"/>
+                                    <h:inputText value="#{teacherSettingsBean.teacher.contacts}"/>
                                     </td>
                                     </tr>
                                     <tr>
                                         <td>#{msgs.student_studentExtraInfo}
                                         </td>
                                         <td>
-                                    <h:inputText value="#{studentSettingsBean.student.info}"/>
+                                    <h:inputText value="#{teacherSettingsBean.teacher.info}"/>
                                     </td>
                                     </tr>
+                                    <tr>  <td></td>                            
+                                <td> 
+                                    <h:selectOneMenu value="#{teacherSettingsBean.teacher.skin}">
+                                      <f:selectItems value="#{teacherSettingsBean.skins}" />
+                                    </h:selectOneMenu>      
+                                </td>
+                            </tr>
                                     <tr>
                                         <td colspan="2">
                                     <h:outputText id="saved2" rendered="#{studentSettingsBean.saved}" value="#{msgs.user_settingsSaved}"/>
                                     <div class="smallChatTools">
                                         <h:commandButton value="#{msgs.admin_mainContentSave}" styleClass="studentButton" style="margin-right: 0; margin-top: 10px; width: 90px;text-align: center;">
-                                            <f:ajax execute="@form" render="@form"  listener="#{studentSettingsBean.save}"/>
+                                            <f:ajax execute="@form" render="@form"  listener="#{teacherSettingsBean.save}"/>
                                         </h:commandButton>
                                     </div>
                                     </td>

@@ -74,7 +74,9 @@
                                     <h:outputText  value="#{msgs.student_TestAttemps}: #{t[1].estimateAttemptsUsedNumber} #{msgs.student_From} #{t[1].work.estimateAttemptsNumber}"/><br/>                                    
                                     <h:outputText  value="#{msgs.student_TestTryingAttemps}:#{t[1].trialAttemptsUsedNumber} #{msgs.student_From} #{t[1].work.trialNumber}"/><br/>
                                     <h:outputText  value="#{msgs.student_TestReexamin}: #{t[1].reExameAttemptsUsedNumber}" /><br/>
-                                    <h:outputText  value="#{msgs.student_TestResults}: #{t[1].pointsForWork}"/>
+                                    <h:panelGroup rendered="#{t[1].pointsForWorkRe ne 0}"><s><h:outputText  value="#{msgs.student_TestResults}: #{t[1].pointsForWork}"/><br/></s></h:panelGroup>
+                                    <h:panelGroup rendered="#{t[1].pointsForWorkRe eq 0}"><h:outputText  value="#{msgs.student_TestResults}: #{t[1].pointsForWork}"/><br/></h:panelGroup>
+                                    <h:outputText  value="результат переэкзменовки: #{t[1].pointsForWorkRe}"/>
                                 </div>
                             </div>
                         </h:column>

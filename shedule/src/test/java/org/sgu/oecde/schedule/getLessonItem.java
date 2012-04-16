@@ -92,25 +92,59 @@ public class getLessonItem extends BasicTest{
         return ds;
     }
 
-//    @Ignore
+    @Ignore
     @Test
-    public void getLesson(){
+    public void getLessonForStudent(){
        Student student = studentDao.getById(320412l);
         setDao("lessonDao");
-        List<Lesson> l=this.<ILessonDao>getDao().getLessonsForStudent(false,student.<Group>getGroup(),student.getCity(),30,1,"2011.07.01","2011.08.01");
+        List<Lesson> l=this.<ILessonDao>getDao().getLessonsForStudent(false,student.<Group>getGroup(),student.getCity(),30,1,"2011.07.01","2012.08.01");
         System.out.println(""+l.size());
+        for(Lesson e:l){
+            System.out.println("! "+e.getTeacher());
+        }
+        Long n=this.<ILessonDao>getDao().getLessonsCountForStudent(false, student.<Group>getGroup(), student.getCity(), null, null);
+         System.out.println(""+n);        
     }
-   
     
     @Ignore
     @Test
+    public void getLessonForTeaher(){
+       Teacher t = teacherDao.getById(44240l);
+        setDao("lessonDao");
+        List<Lesson> l=this.<ILessonDao>getDao().getLessonsForTeacher(false,t,30,1,"2011.07.01","2012.08.01");
+        System.out.println(""+l.size());
+        for(Lesson e:l){
+            System.out.println("! "+e.getLessonDate());
+        }
+        Long n=this.<ILessonDao>getDao().getLessonsCountForTeacher(false, t, "2011.07.01","2012.08.01");
+        System.out.println(""+n);        
+    }
+//    @Ignore
+    @Test
+    public void getLessonForAdmin(){
+      // Teacher t = teacherDao.getById(44240l);
+        setDao("lessonDao");
+        List<Lesson> l=this.<ILessonDao>getDao().getLessonsForAdmin(30,1,null,null);
+        System.out.println(""+l.size());
+        for(Lesson e:l){
+            System.out.println("! "+e.getLessonDate());
+        }
+        Long n=this.<ILessonDao>getDao().getLessonsCountForAdmin(null,null);
+        System.out.println(""+n);        
+    }
+   
+    
+   @Ignore
+    @Test
     public void getLessonByDate(){
         Lesson l=new Lesson();
-        l.setLessonDate("2011.08.04");
+        l.setLessonDate("2012.03.22");
       //  List<Group>cssIs = sdsyDao.getGroupsForTeacher(Semesters.summer(), 2010, t,new Discipline(2l));
         setDao("lessonDao");
         List<Lesson> list= this.<ILessonDao>getDao().getLessonsByDate(l);
-        System.out.println("result "+list);
+         for(Lesson e:list){
+            System.out.println("! "+e.getLessonDate()+" "+e.getTeacher());
+        }
 
     }
 
@@ -160,7 +194,7 @@ public class getLessonItem extends BasicTest{
     @Test
     public void getListByMonth() throws DataAccessException, ParseException{
         setDao("lessonDao");
-        List<Lesson> l= this.<ILessonDao>getDao().getListByMonth("2010", "02");
+        List<Lesson> l= this.<ILessonDao>getDao().getListByMonth("2012", "03");
         System.out.println("!! "+l);
         for(Lesson c:l){
             System.out.println("-- "+c.getLessonDate());

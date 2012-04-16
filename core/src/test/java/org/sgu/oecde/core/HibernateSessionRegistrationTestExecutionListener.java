@@ -15,7 +15,7 @@ public class HibernateSessionRegistrationTestExecutionListener extends AbstractT
     private Session _session;
 
     public HibernateSessionRegistrationTestExecutionListener() {
-        System.out.println();
+      //  System.out.println();
     }
 
     @Override

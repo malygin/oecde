@@ -6,9 +6,9 @@
     template="baseTemplate.xhtml">
 
     <ui:define name="userCSS">
-        <h:outputStylesheet name="#{initParam.skinTheme}student.css" library="css" rendered="true"/>
-        <h:outputStylesheet name="#{initParam.skinTheme}newForStudent.css" library="css" rendered="true"/>
-        <h:outputStylesheet name="#{initParam.skinTheme}base.css" library="css" rendered="true"/>  
+        <h:outputStylesheet name="#{studentSessionBean.student.skin.folder}student.css" library="css" rendered="true"/>
+        <h:outputStylesheet name="#{studentSessionBean.student.skin.folder}newForStudent.css" library="css" rendered="true"/>
+        <h:outputStylesheet name="#{studentSessionBean.student.skin.folder}base.css" library="css" rendered="true"/>  
     </ui:define>
     <ui:define name="left">
         <div  class="modulsTitles"><p class="sideBarTitle">#{msgs.student_eduMenuTitle}</p></div>

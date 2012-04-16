@@ -55,7 +55,7 @@ public class DisciplineBean extends StudentCurriculumBean{
             else{
                 boolean available = resourceService.isConcludingTestAvailable(student, curriculum);
                 for(AdditionalSelfDependentWork w:l){
-                    tests.add(resourceService.getTestForStudent(w,student,available));                
+                    tests.add(resourceService.getTestForStudent(w,student,available,this.getCurriculums().contains(curriculum)));                
                 }
                 Collections.sort(tests,new OrderByTestTitle() );
             }

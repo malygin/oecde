@@ -24,7 +24,7 @@ public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
     private final static String GET_LESSONS_BY_GROUPS_QUERY="from Lesson as l join fetch l.citiesWithGroups as cwg join fetch l.discipline c join fetch l.teacher t where cwg.city =:c and l.year=:y and l.winter=:w";
 
     private final static String GET_LESSONS_FOR_STUDENT_QUERY="from Lesson l join  l.citiesWithGroups cwg where l.winter=:w and cwg.group=:g and cwg.city=:c";
-    private final static String GET_LESSONS_FOR_TEACHER_QUERY="from Lesson l join  l.citiesWithGroups cwg where l.winter=:w and cwg.group=:g and cwg.city=:c";
+    private final static String GET_LESSONS_FOR_TEACHER_QUERY="from Lesson l  where l.teacher=:t and l.winter=:w ";
 
     private final static String ORDER_BY=" order by l.lessonDate,l.discipline";
      private final static String ORDER_BY_DESC=" order by l.lessonDate,l.discipline";
@@ -67,7 +67,7 @@ public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
      */
     @Override
     public List<Lesson> getLessonsByCity(City c, boolean isWinter, int year, int maxResult, int firtsResult, String beginDate, String endDate) throws DataAccessException {
-        return getSession().createQuery("select distinct l "+GET_LESSONS_BY_GROUPS_QUERY+insertParameters(beginDate, endDate)+ORDER_BY_DESC)
+        return getSession().createQuery("select distinct l "+GET_LESSONS_BY_GROUPS_QUERY+insertParameters(beginDate, endDate, false)+ORDER_BY_DESC)
                 .setParameter("c", c).setBoolean("w", isWinter).setInteger("y", year)
                 .setFirstResult(getFirstResult(maxResult, firtsResult)).setMaxResults(maxResult).list();
     }
@@ -75,8 +75,9 @@ public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
     /**
      * {@inheritDoc }
      */
+    @Override
     public Long getLessonsCountByCity(City c, boolean isWinter, int year, String beginDate, String endDate) throws DataAccessException {
-        String query = "select count(l) "+GET_LESSONS_BY_GROUPS_QUERY+insertParameters(beginDate, endDate);
+        String query = "select count(l)  "+GET_LESSONS_BY_GROUPS_QUERY+insertParameters(beginDate, endDate, false);
         Query q = getSession().createQuery(query)
                 .setParameter("c", c).setBoolean("w", isWinter).setInteger("y", year);
         List<Long>l =q.list();
@@ -88,36 +89,48 @@ public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
      */
     @Override
     public Long getLessonsCountForStudent(boolean isWinter, Group g,City c, String beginDate, String endDate) throws DataAccessException {
-        String query = "select count(l) "+GET_LESSONS_FOR_STUDENT_QUERY+insertParameters(beginDate, endDate);
+        String query = "select count(l) "+GET_LESSONS_FOR_STUDENT_QUERY+insertParameters(beginDate, endDate, false);
         Query q = getSession().createQuery(query);
         q.setBoolean("w", isWinter).setParameter("g", g).setParameter("c", c);
         List<Long>l =q.list();
         return !l.isEmpty()?(Long)l.get(0):0l;
     }
 
+    @Override
     public List<Lesson>getLessonsForStudent( boolean isWinter, Group g,City c, int maxResult, int firtsResult,String beginDate, String endDate) throws DataAccessException{
        // String query = "select distinct l "+GET_LESSONS_FOR_STUDENT_QUERY+insertParameters(beginDate, endDate)+ORDER_BY;
-        String query = "select distinct l "+GET_LESSONS_FOR_STUDENT_QUERY+insertParameters(beginDate, endDate)+ORDER_BY;
+        String query = "select distinct l "+GET_LESSONS_FOR_STUDENT_QUERY+insertParameters(beginDate, endDate, false)+ORDER_BY;
         Query q = getSession().createQuery(query);
         q.setBoolean("w", isWinter).setParameter("g", g).setParameter("c", c).setFirstResult(getFirstResult(maxResult, firtsResult)).setMaxResults(maxResult);
         return q.list();
     }
     
+    @Override
      public List<Lesson>getLessonsForTeacher( boolean isWinter, Teacher t, int maxResult, int firtsResult,String beginDate, String endDate) throws DataAccessException{
        // String query = "select distinct l "+GET_LESSONS_FOR_STUDENT_QUERY+insertParameters(beginDate, endDate)+ORDER_BY;
-        String query = "select distinct l from Lesson l  where l.teacher=:t and l.winter=:w "+insertParameters(beginDate, endDate)+ORDER_BY;
+        String query = "select distinct l "+GET_LESSONS_FOR_TEACHER_QUERY+insertParameters(beginDate, endDate, false)+ORDER_BY;
         Query q = getSession().createQuery(query);
         q.setBoolean("w", isWinter).setParameter("t", t).setFirstResult(getFirstResult(maxResult, firtsResult)).setMaxResults(maxResult);
         return q.list();
     }
+        @Override
+     public List<Lesson>getLessonsForAdmin( int maxResult, int firtsResult,String beginDate, String endDate) throws DataAccessException{
+       // String query = "select distinct l "+GET_LESSONS_FOR_STUDENT_QUERY+insertParameters(beginDate, endDate)+ORDER_BY;
+        String query = "select distinct l from Lesson l "+insertParameters(beginDate, endDate, true)+ORDER_BY;
+        Query q = getSession().createQuery(query);
+        q.setFirstResult(getFirstResult(maxResult, firtsResult)).setMaxResults(maxResult);
+        return q.list();
+    }
 
 
-    private String insertParameters( String beginDate, String endDate){
+    private String insertParameters( String beginDate, String endDate, boolean first ){
         String query = " ";
         if(beginDate == null && endDate == null){
            // query+= " > '"+DateConverter.currentDate()+"'";
         } else{
-            query+="  and l.lessonDate  between '"+beginDate +" 00:00:00' and '"+endDate+" 00:00:00'";
+            if (!first)  query+="and ";
+            else query+=" where ";
+            query+="l.lessonDate  between '"+beginDate +" 00:00:00' and '"+endDate+" 00:00:00'";
         }
         return query;
     }
@@ -135,6 +148,7 @@ public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
         return maxResult * (pageNumber-1) ;
     }
     
+    @Override
     public List<Lesson>getLessonsByDate(Lesson l) throws DataAccessException{
        String query = "select l from Lesson as l where l.lessonDate like :d";
        Query q = getSession().createQuery(query);
@@ -143,4 +157,22 @@ public class LessonDao extends BasicDao<Lesson> implements ILessonDao{
        return q.list();
     }
 
+    @Override
+    public Long getLessonsCountForTeacher(boolean isWinter, Teacher t, String beginDate, String endDate) throws DataAccessException {
+        String query = "select count(l) "+GET_LESSONS_FOR_TEACHER_QUERY+insertParameters(beginDate, endDate, false);
+        Query q = getSession().createQuery(query);
+        q.setBoolean("w", isWinter).setParameter("t", t);
+        List<Long>l =q.list();
+        return !l.isEmpty()?(Long)l.get(0):0l;   
+    }
+
+    @Override
+    public Long getLessonsCountForAdmin(String beginDate, String endDate) throws DataAccessException {
+        String query = "select count(l) from Lesson l "+insertParameters(beginDate, endDate, true);
+        Query q = getSession().createQuery(query);  
+        List<Long>l =q.list();
+        return !l.isEmpty()?(Long)l.get(0):0l;
+    }
+
+ 
 }

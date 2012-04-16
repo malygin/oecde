@@ -82,7 +82,7 @@
                                     <h:inputHidden id="faces-redirect" value="true"/>
                                     <button class="login_pageFormButtons" type="submit">#{msgs.login_EnterButton}</button>
                                     <h:commandButton styleClass="login_pageFormButtons" type="reset" id="resetButton" value="#{msgs.login_CancelButton}"/>
-                                    <h:commandButton styleClass="login_pageFormButtons" type="button" id="guestEnterButton" value="#{msgs.login_GuestEnterButton}"/>
+                                    <h:outputLink styleClass="login_pageFormButtons"  id="guestEnterButton" value="Guest/">#{msgs.login_GuestEnterButton}</h:outputLink>
                                     <a href="http://oecdo.sgu.ru/client/"><h:commandButton styleClass="login_pageFormButtons" type="button" id="VideoConfButton" value="#{msgs.login_VideoConfButton}"/></a>
                                 </td>
                             </tr>

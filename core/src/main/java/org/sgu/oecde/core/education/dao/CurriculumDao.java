@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.ScrollMode;
 import org.hibernate.ScrollableResults;
 import org.hibernate.criterion.Property;
 import org.sgu.oecde.core.UpdateDao;
@@ -64,13 +65,16 @@ public class CurriculumDao<T extends Curriculum> extends UpdateDao<T> implements
     public <K extends Curriculum,V extends Teacher>Map<K,V> getTeachersByGroup(int semester, int year, StudentGroup group) throws DataAccessException {
         if(group == null&& group.getId()==0)
             return null;
+        //getSession().beginTransaction();
         ScrollableResults result = getSession().createQuery("select distinct c,t.teacher from AdvancedCurriculum c join c.teacherToGroups t join fetch c.discipline join fetch c.speciality right join fetch c.umk u left join fetch u.authors where c.calendarYear=:y and c.semester =:s and t.group=:g")
-                .setParameter("s", semester).setParameter("y", year).setParameter("g", group).setCacheable(true).scroll();
+                .setParameter("s", semester).setParameter("y", year).setParameter("g", group).setCacheable(true).scroll(ScrollMode.FORWARD_ONLY);
         Map<K,V>map = new HashMap<K,V>();
         while(result.next()){
             map.put((K)(((Object[])result.get(0))[0]), (V)(((Object[])result.get(0))[1]));
         }
-        
+        result.close();
+       // getSession().getTransaction().commit();
+        //getSession().close();
         return map;
     }
     

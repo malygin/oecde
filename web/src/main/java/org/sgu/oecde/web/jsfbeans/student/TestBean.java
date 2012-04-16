@@ -69,7 +69,7 @@ public class TestBean extends StudentCurriculumBean {
             return;
         TestEntity t = resourceService.getResource(curriculum,new TestEntity(testId),TestEntity.class);
         boolean available = resourceService.isConcludingTestAvailable(student, curriculum);
-        test = resourceService.getTestForStudent(testAttemptService.getStudentSingleTestWithAttempts(t, student,curriculum),student,available);
+        test = resourceService.getTestForStudent(testAttemptService.getStudentSingleTestWithAttempts(t, student,curriculum),student,available, true);
         accessDenied = test==null;
         this.testPassingBean.startTest(test, curriculum);
     }

@@ -41,9 +41,9 @@ public class UploadServlet extends HttpServlet {
                 pageName = "pageEdit";
             } else if ("MessageFile".equals(p.getName())){
                 pageName = "messages_write";
-            }
+    }
             request.setAttribute(p.getName(), p);
             request.getRequestDispatcher(pageName+".xhtml").forward(request, response);
-        }
+}
     }
 }

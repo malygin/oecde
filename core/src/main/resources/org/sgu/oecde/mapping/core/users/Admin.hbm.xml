@@ -5,5 +5,7 @@
     <key column="id" foreign-key="fk_admin_user" not-null="true" on-delete="cascade"/>
     <property insert="false" length="200" name="position" type="string"/>
     <property insert="false" length="200" name="description" type="string"/>
+    <property column="show_users" insert="false" name="showUsers" not-null="false" scale="1" type="true_false"/>
+  
   </joined-subclass>
 </hibernate-mapping>

@@ -107,6 +107,9 @@ label{
 .mainStyle .notificationTableTextOrange td:nth-child(odd) p{
     width: 232px;
 }
+.mainStyle .searchInput{
+    color:black;
+}
 
 .mainStyle .videoConfSchedule{
     /*    margin-left: 250px;*/
@@ -149,7 +152,7 @@ label{
 }
 .mainStyle input, .mainStyle textarea, .mainStyle select{
     border: 1px solid #d1d1d1;
-    background: url("../../resources/css/dark_skin/images/opacity_fon.png") repeat;
+   // background: url("../../resources/css/dark_skin/images/opacity_fon.png") repeat;
 }
 .mainStyle select option {
     background-color: #6C6C6C;
@@ -164,7 +167,7 @@ label{
     -o-border-image: url("../../resources/css/dark_skin/images/firstBorder.png") 6 6 6 6 round round;
     -moz-border-image: url("../../resources/css/dark_skin/images/firstBorder.png") 6 6 6 6 round round;
     -webkit-border-image: url("../../resources/css/dark_skin/images/firstBorder.png") 6 6 6 6 round round;
-    background: url("../../resources/css/dark_skin/images/opacity_fon.png") repeat;
+   // background: url("../../resources/css/dark_skin/images/opacity_fon.png") repeat;
 }
 .mainStyle .Border td table td{
     -o-border-image: none;
@@ -518,6 +521,7 @@ label{
 .mainStyle .greenInput{
     border: 1px solid #81c782;
     margin-top: 2px;
+    color: black;
 }
 input[type='radio'], input[type='checkbox']{
     display: block;
@@ -601,20 +605,20 @@ not all and (-webkit-min-device-pixel-ratio:0) {
 .mainStyle .studentButton:visited,
 .mainStyle .studentButton:active,
 .mainStyle .studentButton:hover{
-    color: #838383 !important;
+   // color: #838383 !important;
 }
 .mainStyle .studentButton{
     cursor: pointer;
     margin-top: 10px;
     padding: 1px 2px;
-    background: #f0f0f0 !important;
+   // background: #f0f0f0 !important;
     height: 23px;
     border: 1px solid #838383;
     /*    float: right;*/
     -moz-border-radius: 4px;
     -o-border-radius: 4px;
     -webkit-border-radius: 4px;
-    color: #838383;
+   color: #838383;
     font-size: 9pt;
     text-decoration: none !important;
     font-weight: bold;
@@ -1222,8 +1226,8 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     min-height: 68px;
 }
 
-.mainStyle .userOnlineLinkContainer a:link {color: #505050; text-decoration: none; font-weight: normal; font-size: 8pt; }
-.mainStyle .userOnlineLinkContainer a:visited {color: #505050; text-decoration: none; font-weight: normal; font-size: 8pt;}
+.mainStyle .userOnlineLinkContainer a:link { text-decoration: none; font-weight: normal; font-size: 8pt; }
+.mainStyle .userOnlineLinkContainer a:visited { text-decoration: none; font-weight: normal; font-size: 8pt;}
 .mainStyle .userOnlineLinkContainer a:active {color: #505050; text-decoration: none; font-weight: normal;font-size: 8pt;}
 .mainStyle .userOnlineLinkContainer a:hover {color: #505050; text-decoration: underline; font-weight: normal;font-size: 8pt;}
 
@@ -1872,7 +1876,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 }
 
 .mainStyle .DataTests td:nth-child(2){
-    color: #6F6F6F;
+  //  color: #6F6F6F;
     display: block;
     margin-left: 10px;
 
@@ -1914,7 +1918,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 }
 /*новости*/
 .mainStyle .previewColor{
-    color: #6F6F6F;
+    //color: #6F6F6F;
 }
 
 .mainStyle .previewPadLeft{
@@ -2488,11 +2492,11 @@ a.mainStyle .lightGreyText a:hover{
     color: #D4D4D4;
 }
 .mainStyle .save_control_work{
-    background: url('../resources/images/save_control_work.png') no-repeat right;
+    background: url('../../resources/images/save_control_work.png') no-repeat right;
     padding-right: 15px;
 }
 .mainStyle .add_cont_work{
-    background: url('../resources/images/add_cont_work.png') no-repeat right;
+    background: url('../../resources/images/add_cont_work.png') no-repeat right;
 }
 /*тесты*/
 

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/guestTemplate.xhtml"
+    xmlns:j="http://java.sun.com/jsf/composite/components/journal"
+    xmlns:news="http://java.sun.com/jsf/composite/components/news"
+    xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+    xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
+    xmlns:edu="http://java.sun.com/jsf/composite/components/education"
+    >
+
+
+    <ui:define name="fio">
+        Иванов Петр Никифорович
+    </ui:define>
+    <ui:define name="content">
+ <link type="text/css" href="../resources/jquery/css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" />
+        <script type="text/javascript" src="../resources/jquery/js/jquery-1.5.1.min.js"></script>
+        <script type="text/javascript" src="../resources/jquery/js/jquery-ui-1.8.14.custom.min.js"></script>
+        <script type="text/javascript" src="../resources/jquery/js/jquery.simpletip-1.3.1.js"></script>
+        <script type="text/javascript" src="../resources/jquery/js/jquery.ui.datepicker-ru.js"></script>
+        <script type="text/javascript" src="../resources/scripts/shedule.js"></script>
+       
+        <table class="Border" style="width: 100%; margin: auto;" cellpadding="0" cellspacing="20px">
+            <tr>
+                <td style="width: 57%;  vertical-align: top;" class="BorderTd">
+                    <div class="mainStudentPageTitles mainStudentPageTitlesBlue">#{msgs.student_studentInfo}
+                    </div>
+                    <table class="leftMenuContainer blocksPaddings BorderNone MainInfo">
+                        <tr>
+                            <td><p>#{msgs.student_mainContentUserInfoSpec}</p></td>
+                            <td><p>Прикладная информатика</p></td>
+                            <td rowspan="8">
+                                <div>
+                                      <div class="userPhoto">
+                                        <table cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td class="styleBlock userPhotoBorder#{cc.attrs.styleClass}">
+                                                    <h:graphicImage  value="http://oec-static.main.sgu.ru/#{initParam.fileFolder}/userFiles/avatars/defaultAvatarMedium.jpg"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p>#{msgs.student_mainContentUserInfoGroup}</p></td>
+                            <td><p>351</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>#{msgs.student_studentPassId}</p></td>
+                            <td><p>2323434</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>#{msgs.student_mainContentUserInfoFaculty}</p></td><td><div>Мех-мат</div></td>
+                        </tr>
+                        <tr>
+                            <td><p>#{msgs.student_yourRating}</p></td>
+                            <td class="reitingLink"><a href="index.xhtml" style="">1476 (посмотреть всю группу)</a></td>
+                        </tr>
+                        <tr>
+                            <td><p>#{msgs.student_studentContact}
+                                </p>
+                            </td>
+                            <td><p>student@sgu.ru</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p>#{msgs.student_studentExtraInfo}
+                                </p>
+                            </td>
+                            <td><p>я люблю учиться!</p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="vertical-align: top;" class="BorderTd">
+                    <div style="height: 100%;">                         
+                            <div class="" style="margin-bottom: 0px;">
+                            <div class="mainStudentPageTitles mainStudentPageTitlesOrange">
+                                #{msgs.student_studentNotification}
+                            </div>
+                            <div>
+                                <div>
+
+                                    <table style="margin: 10px; margin-left: 15px;" class="notificationTableTextOrange2 BorderNone" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td><p>#{msgs.student_notifOpenTest}</p>
+                                            </td>
+                                            <td><p>1 сентября</p>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                            <td><p>#{msgs.student_notifCloseTest}</p>
+                                            </td>
+                                            <td><p>22 октября</p>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                            <td><p>#{msgs.student_notifOpenContWork}</p>
+                                            </td>
+                                            <td><p>13 сентября</p>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                            <td><p>#{msgs.student_notifCloseContWork} </p>
+                                            </td>
+                                            <td><p>2 декабря</p>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                            <td><p>#{msgs.student_notifOpenMainTest}</p>
+                                            </td>
+                                            <td><p>17 февраля</p>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                            <td><p>#{msgs.student_notifCloseMainTest}</p>
+                                            </td>
+                                            <td><p>5 января</p>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                            <td><p>#{msgs.student_notifBeginExtraExam}</p>
+                                            </td>
+                                            <td><p>7 сентября</p>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                            <td><p>#{msgs.student_notifEndExtraExam}</p>
+                                            </td>
+                                            <td><p>11 сентября</p>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"><p style="color: #FBB35D;">  Внимание! обязательно ознакомьтесь с <a  href="index.xhtml">Порядком проведения зимней сессии</a>
+                                                и <a href="index.xhtml">Порядком прохождения тестов</a>
+                                                  </p></td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                      
+                      
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="floatDestroyer">
+        </div>
+        <div>
+            <table class="Border" cellpadding="0" cellspacing="20px"  style="width: 100%; margin: auto;">
+                <tr>
+                 <td style="width: 57%; vertical-align: top;" class="BorderTd">
+                      
+            <div class="mainStudentPageTitlesGreen mainStudentPageTitles">
+                <a style="font-size: 12pt;" href="schedule.xhtml">#{msgs.student_sheduleVideoConf}</a>
+            </div>
+            <div class="floatLeft">
+                <div id="datepicker" class="datepickerClass"></div>
+            </div>
+            <div class="videoConfSchedule floatLeft" style="min-height: 212px; width: 50%;">
+                <table class="">
+                   
+                        <tr>
+                            <td valign="top"><p><span class="Ipsilon_Web_GreenText">
+                                       11 января 17:30 </span> 5  #{msgs.student_sheduleRoom}</p> 
+                            <p>консультация <span class="skyBlueText">Политология</span> </p>
+                            <p><span  class="Ipsilon_Web_GreenText">Никаноров Н.Н. </span></p>
+                            <br />
+                            </td>
+                        </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <p class="videoConfSchedule" style="height: 25px;">
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+                </td>
+                <td valign="top" class="BorderTd">
+                    <div class="BorderNone" style="margin-bottom: 0;">
+                         <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">
+                                <a href="news_list.xhtml" style="font-size: 12pt;">#{msgs.student_topMenuNews} </a> 
+                         </div>
+                        <div style="padding: 5px;">                      
+                                    <div style=" max-width: 60%; float: left;">
+                                    <span class="linkToStudentsProfile"><a style="font-size: 9pt;" href="index.xhtml">Добро пожаловать на новый портал!</a></span>
+                                    </div>
+                                    <span class="chatPostDate">1 сентября</span>
+                                    <div class="floatDestroyer"></div>
+                                    <div class="previewText">Новый портал доступен всем желающим</div>
+                                    <br/>                                
+                        </div>
+                         <div style="padding: 5px;">                      
+                                    <div style=" max-width: 60%; float: left;">
+                                    <span class="linkToStudentsProfile"><a style="font-size: 9pt;" href="index.xhtml">Новые тесты</a></span>
+                                    </div>
+                                    <span class="chatPostDate">10 октября</span>
+                                    <div class="floatDestroyer"></div>
+                                    <div class="previewText">Доступны тесты по математике</div>
+                                    <br/>                                
+                        </div>   
+                         <div style="padding: 5px;">                      
+                                    <div style=" max-width: 60%; float: left;">
+                                    <h:outputText value="свежее! " style="font-weight: bold; color: #FBB35D; " /> 
+                                    <span class="linkToStudentsProfile"><a style="font-size: 9pt;" href="index.xhtml" >Отчисленные</a></span>
+                                    </div>
+                                    <span class="chatPostDate">1 сентября</span>
+                                    <div class="floatDestroyer"></div>
+                                    <div class="previewText">списки отчисленных студентов</div>
+                                    <br/>                                
+                        </div>   
+                    </div>
+                </td>
+                </tr>
+                <tr>
+                    <td colspan="2" valign="top" class="BorderTd">
+                        <div>
+                            <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
+                                <a href="index.xhtml" style="font-size: 12pt;" >#{msgs.student_studentListOfEvents}</a>
+                            </div>
+                            <!--                            <div style="height: 200px;">-->
+                            <div class="StudentTestsPadding BorderNone">
+                                 <table class="controlWorksDisciplineNameLink eventAdminColor" cellpadding="0" cellspacing="0"  style="padding-left: 5px; width: 100%;">
+                                    <tr>
+                                        <td style="background: url('../resources/images/eventGRADING.gif') no-repeat top left; padding-left: 25px;">
+                                            <div class="floatDestroyer"></div>                                          
+                                            Преподователь <a href="index.xhtml">Иванов И.И. </a> выставил оценки по дисциплине "Психоанализ"
+                                         
+                                        </td>
+                                        <td style="width: 100px; text-align: center; vertical-align: top;">
+                                            <div class="chatPostDate" style="text-align: right;">2 сентября</div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table class="controlWorksDisciplineNameLink eventAdminColor" cellpadding="0" cellspacing="0"  style="padding-left: 5px; width: 100%;">
+                                    <tr>
+                                        <td style="background: url('../resources/images/eventPOST_ANSWER.gif') no-repeat top left; padding-left: 25px;">
+                                            <div class="floatDestroyer"></div>                                          
+                                            На ваш пост в  <a href="index.xhtml">организационном форуме </a> есть ответ
+                                         
+                                        </td>
+                                        <td style="width: 100px; text-align: center; vertical-align: top;">
+                                            <div class="chatPostDate" style="text-align: right;">13 октября</div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+              
+            </table>
+        </div>
+    </ui:define>
+</ui:composition>

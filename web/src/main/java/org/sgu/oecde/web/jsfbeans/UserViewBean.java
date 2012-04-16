@@ -1,6 +1,7 @@
 package org.sgu.oecde.web.jsfbeans;
 
 import java.io.Serializable;
+import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -64,6 +65,10 @@ public class UserViewBean implements Serializable{
                 return null;
         }
         return user;
+    }
+    
+    public Map getSkins() {
+        return user.getSkin().toMap();
     }
 
     public void setUser(AbstractUser user) {

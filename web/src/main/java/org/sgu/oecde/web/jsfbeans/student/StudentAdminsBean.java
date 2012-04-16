@@ -20,17 +20,7 @@ import org.sgu.oecde.de.users.DeSupervisor;
 public class StudentAdminsBean {
     private List<Admin>admins;
     private List<DeSupervisor> supervisors;
-    private List<Long> adminReq=new ArrayList<Long>();
-    {
-        adminReq.add(new Long(11));
-        adminReq.add(new Long(42));
-        adminReq.add(new Long(82));
-        adminReq.add(new Long(172));
-        adminReq.add(new Long(262));
-        adminReq.add(new Long(483));
-        adminReq.add(new Long(522));
-        adminReq.add(new Long(542));
-    }
+   
 
     @ManagedProperty(value="#{adminDao}")
     private IBasicDao<Admin>adminDao;
@@ -41,16 +31,10 @@ public class StudentAdminsBean {
 
     public List<Admin> getAdmins() {
         if(admins == null){
-            admins = adminDao.getAll();
-            Iterator<Admin> i=admins.iterator();
-            while (i.hasNext()){
-                Admin a=i.next();
-                if  (!adminReq.contains(a.getId()))  i.remove();                 
-            }
-         // Admin a=admins.get(0);         
-        //  admins.add(6, admins.get(0));
-         // admins.remove(0);
-          
+            Admin admin = new Admin();
+            admin.setShowUsers(true);
+            admin.setEnabled(true);
+            admins = adminDao.getByExample(admin);
         }
         return admins;
     }

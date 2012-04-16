@@ -81,7 +81,7 @@
                         </div>
                         <div class="listMessagesShortMessage listMessagesShortMessageBlock">
                             <a href="messages_read.xhtml?id=#{message.message.id}" style="text-decoration: none !important;">
-                                <div class="messBlockLink"><h:outputText value="#{message.shortText}"/>&nbsp;</div>
+                               <h:panelGroup rendered="#{MessageBean.currentUser.classType eq 'Admin'}"> <div class="messBlockLink"><h:outputText value="#{message.shortText}"/>&nbsp;</div></h:panelGroup>
                             </a>
                             <div class="floatDestroyer"/>
                         </div>
@@ -99,14 +99,10 @@
                                 </tr>
                                 <tr>
                                     <td class="messLinks">
-                                        <h:outputLink rendered="#{not MessageBean.renderDeleteSuccess}"  styleClass="messLinksMargins" value="messages_read.xhtml?id=#{message.message.id}">#{msgs.message_answer}</h:outputLink>
+                                        <h:outputLink rendered="#{not MessageBean.renderDeleteSuccess}"  styleClass="messLinksMargins" value="messages_read.xhtml?id=#{message.message.id}">#{msgs.message_read}</h:outputLink>
                                     </td>
                                     <td class="messLinks" style="text-align: right; vertical-align: bottom;">
-                                        <h:commandLink   action="#{MessageBean.deleteMessage}">
-                                            <h:outputText rendered="#{not MessageBean.renderDeleteSuccess}" value="#{msgs.message_delete}"/>
-                                            <f:setPropertyActionListener target="#{MessageBean.currentMessageId}" value="#{message.message.id}" />
-                                            <f:ajax  execute="@this" render="@form" />
-                                        </h:commandLink>
+
                                     </td>
                                 </tr>
                             </table>

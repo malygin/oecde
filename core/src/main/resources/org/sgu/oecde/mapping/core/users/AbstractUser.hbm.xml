@@ -12,8 +12,13 @@
     <property column="medium_photo" insert="false" name="mediumPhoto" type="string"/>
     <property column="small_photo" insert="false" name="smallPhoto" type="string"/>
     <property column="original_id" insert="false" name="originalId" type="long" update="false"/>
+     <property column="users_skins" insert="false" name="skin">
+      <type name="org.sgu.oecde.core.GenericEnumUserType">
+        <param name="enumClass">org.sgu.oecde.core.users.UsersSkins</param>
+      </type>
+    </property>
     <list cascade="delete" fetch="select" inverse="true" lazy="true" name="authorities" table="users_roles">
-  
+   
       <key column="user_id" foreign-key="fk_users_roles_user" not-null="true"/>
       <list-index column="role_order"/>
       <composite-element class="org.sgu.oecde.core.authentication.RoleItem">

@@ -12,6 +12,8 @@
                 <h:outputText value="#{groupViewBean.group.speciality.name}"/>
                 , <h:outputText value="#{groupViewBean.group.calendarYear} год"/>
             </div>
+                    <a href="messages_write.xhtml?gr=#{groupViewBean.group.id}">#{msgs.teacher_groupSendAll}</a>
+
             <h:dataTable value="#{groupViewBean.students}" var="s" style="width: 100%;">
                 <h:column>
                     <div class="studentInterfaceStandartList">

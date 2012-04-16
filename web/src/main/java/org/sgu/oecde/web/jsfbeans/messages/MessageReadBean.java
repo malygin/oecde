@@ -50,7 +50,8 @@ public class MessageReadBean {
                noAccess=false;
           }
            for(MessageRecipient r: message.getMessage().getRecipients()){
-              if (r.getRecipient().getId().equals(SecurityContextHandler.getUser().getId())){
+               
+              if ((r!=null)&&(r.getRecipient().getId().equals(SecurityContextHandler.getUser().getId()))){
                    noAccess=false;
                    messageService.read(new Long(id_message), SecurityContextHandler.getUser());
                }

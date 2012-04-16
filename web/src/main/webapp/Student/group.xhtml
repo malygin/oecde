@@ -1,0 +1,19 @@
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+    template="../resources/studentTemplate.xhtml"
+    >
+    <ui:define name="contentHeader">
+        #{msgs.admin_mainContentGroup}
+        <h:outputText value="#{groupViewBean.group.name}"/>
+
+    </ui:define>
+    <ui:define name="content">
+        <f:metadata>
+            <f:viewParam name="id" value="#{groupViewBean.id}"/>
+        </f:metadata>
+        <ui:include src="../resources/includes/group.xhtml"/>
+    </ui:define>
+</ui:composition>

@@ -42,8 +42,7 @@
                         </div>
                     </h:column>
                     <h:column>
-
-                         <div class="greyMess" style="width: 48px; margin:  0; padding: 5px;">
+                       <div class="greyMess" style="width: 48px; margin:  0; padding: 5px;">
                            #{msgs.message_forWhom}
                        </div>
                        <div class="greyMess" style="width: 48px; margin:  0; padding: 5px;">
@@ -57,18 +56,24 @@
                         <div class="linkTo#{recipient.recipient.classType}sProfile linkTo#{recipient.recipient.classType}sProfileFromStudent" style="padding: 5px;"><a href="#{fn:toLowerCase(recipient.recipient.classType)}.xhtml?id=#{recipient.recipient.id}">
                         #{recipient.fioAuthor}</a>
                         </div>
-                        <h:selectOneMenu value="#{MessageWriteBean.type}" style="margin-left: 5px; width: 190px;">
+                        <h:selectOneMenu class="searchInput" value="#{MessageWriteBean.type}" style="margin-left: 5px; width: 190px;">
                             <f:selectItems value="#{MessageWriteBean.types}" />
                         </h:selectOneMenu>
                         <div style="padding: 5px;">
-                            <h:inputText  value="#{MessageWriteBean.theme}"  style="width: 188px;"/>
+                            <h:inputText class="searchInput"  value="#{MessageWriteBean.theme}"  style="width: 188px;"/>
                         </div>
                     </h:column>
                 </h:dataTable>
 
                     <h:dataTable value="#{MessageWriteBean.groups}" var="gr">
                         <h:column>
-                           <b> #{gr.name}</b> #{msgs.message_teacherGroupFrom} #{gr.number} #{msgs.message_teacherPeople}
+                           <div><b> #{gr.name}</b> #{msgs.message_teacherGroupFrom} #{gr.number} #{msgs.message_teacherPeople}</div>
+                        <h:selectOneMenu value="#{MessageWriteBean.type}" style="margin-left: 5px; width: 190px;">
+                            <f:selectItems value="#{MessageWriteBean.types}" />
+                        </h:selectOneMenu>
+                        <div style="padding: 5px;">
+                            <h:inputText  value="#{MessageWriteBean.theme}"  style="width: 188px;"/>
+                        </div>
                         </h:column>
                     </h:dataTable>
                     <p class="lightGreyText">#{msgs.message_addFile}</p>

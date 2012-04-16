@@ -24,7 +24,7 @@ public enum TestsCountEnum implements IEstimate{
      */
     CONCLUDING_TESTS_MAXIMUM_POINTS;
 
-    public int getDedault(){
+    public int getDefault(){
         switch(this){
             case CONCLUDING_TESTS_COUNT:
                 return 0;

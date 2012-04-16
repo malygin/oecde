@@ -14,6 +14,10 @@ public enum TestType {
      */
     regular,
     /**
+     * анкета
+     */
+     form,
+    /**
      * пробный
      */
     trial;
@@ -28,6 +32,8 @@ public enum TestType {
                 return "Обычный Тест";
             case trial:
                 return "Пробный тест";
+            case form:
+                return "Анкета";
             default:
                 throw new AssertionError();
         }
@@ -35,12 +41,14 @@ public enum TestType {
 
     public int toInt() {
         switch(this){
+            case form:
+                return 3;
             case concluding:
                 return 2;
             case regular:
-                return 1;
-            case trial:
                 return 0;
+            case trial:
+                return 1;
             default:
                 throw new AssertionError();
         }
@@ -48,6 +56,8 @@ public enum TestType {
 
     public static TestType parse(int type) {
         switch(type){
+            case 3:
+                return form;
             case 2:
                 return concluding;
             case 0:

@@ -11,9 +11,14 @@
          <composite:attribute  name="points" shortDescription="количество баллов"/>
          <composite:attribute  name="countRight" shortDescription="количество правильных ответов"/>
          <composite:attribute  name="countQuestions" shortDescription="количество  вопросов"/>
+         <composite:attribute  name="testType" shortDescription="тип теста"/>
+
+    
     </composite:interface>
     <!-- IMPLEMENTATION -->
     <composite:implementation>
+      
+        <h:panelGroup rendered="#{cc.attrs.testType ne 'form'}">
         <div class="DisciplineText testFinish">#{msgs.student_TestTestEnded}</div>
                      <div style="margin: auto; width: 200px; height: 100px;">
                      <table style="margin-top: 20px;">
@@ -39,6 +44,9 @@
                      </tr>
                      </table>
                      </div>
-
+        </h:panelGroup>
+        <h:panelGroup rendered="#{cc.attrs.testType eq 'form'}">
+            <div class="DisciplineText ">Спасибо за прохождение анкеты!</div>
+        </h:panelGroup>
     </composite:implementation>
 </html>

@@ -12,10 +12,10 @@
             </div>
             <h:form>
                 <table class="searchBlock"><tr><td>
-                    <h:inputText value="#{searchBean.keyWord}" style="width: 250px;">
+                    <h:inputText class="searchInput" value="#{searchBean.keyWord}" style="width: 250px;">
                         <f:ajax execute="@form" event="keypress" render=":table" listener="#{searchBean.doSearch}"/>
                     </h:inputText></td>
-                    <td><h:selectOneMenu id="type" value="#{searchBean.type}" style="height: 20px;">
+                    <td><h:selectOneMenu  class="searchInput" id="type" value="#{searchBean.type}" style="height: 20px;">
                         <f:ajax execute="@form" render=":table" listener="#{searchBean.doSearch}"/>
                         <f:selectItems value="#{searchBean.types}" />
                     </h:selectOneMenu></td><td>

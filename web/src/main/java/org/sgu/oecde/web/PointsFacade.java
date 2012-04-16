@@ -28,6 +28,7 @@ public class PointsFacade implements Serializable{
     private Integer concludingReTest;
     private Integer concludingTest;
     private Integer controlWorkPoints;
+    private Integer controlWorkMaxPoints;
     private Integer activityPoints;
     private ControlWorkProgress controlWorkValue;
     private PointToEstimate grade;
@@ -35,6 +36,7 @@ public class PointsFacade implements Serializable{
     private static final long serialVersionUID = 163L;
 
     public PointsFacade(Points points) {
+        
         this.points = points;
       //  this.points.addNewWorkPoint(EstimateNames.estimate, "");
         testsCount = points.getWorkPoints(TestsCountEnum.TESTS_COUNT);
@@ -48,6 +50,7 @@ public class PointsFacade implements Serializable{
         controlWorkPoints = points.getWorkPoints(CwEstimateNames.control_work_points);
         activityPoints = points.getWorkPoints(ActivityEstimateNames.activity_points);
         controlWorkValue = points.getWorkPoints(CwEstimateNames.control_work_value);
+        controlWorkMaxPoints=(controlWorkValue!=null)?100:0;
         Estimate e = points.getWorkPoints(EstimateNames.estimate);
         grade = e==null?PointToEstimate.notEstimated:e.getGradeCode();
 
@@ -168,6 +171,14 @@ public class PointsFacade implements Serializable{
 
     public void setActivityPoints(Integer activityPoints) {
         this.activityPoints = activityPoints;
+    }
+
+    public Integer getControlWorkMaxPoints() {
+        return controlWorkMaxPoints;
+    }
+
+    public void setControlWorkMaxPoints(Integer controlWorkMaxPoints) {
+        this.controlWorkMaxPoints = controlWorkMaxPoints;
     }
     
     
