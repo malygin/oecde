@@ -27,15 +27,15 @@
                                 <span  class="AdminTextGrey">
                                     #{msgs.admin_mainContentInsertTitle}
                                 </span>
-                        <h:inputText id="tabName" value="#{tabEditBean.tab.name}" style="width: 200px;"/>
+                        <h:inputText class="searchInput" id="tabName" value="#{tabEditBean.tab.name}" style="width: 400px;"/> <br/>
                         </td>
                         <td>
                             #{msgs.admin_infoOrder}
-                        <h:inputText size="4" value="#{tabEditBean.tab.orderTab}"/>
+                        <h:inputText class="searchInput" size="4" value="#{tabEditBean.tab.orderTab}"/>
                         </td>
                         <td>
                             #{msgs.admin_infoAlias}
-                        <h:inputText value="#{tabEditBean.tab.alias}"/>
+                        <h:inputText class="searchInput" value="#{tabEditBean.tab.alias}"/>
                         </td>
                         </tr>
                     </table>

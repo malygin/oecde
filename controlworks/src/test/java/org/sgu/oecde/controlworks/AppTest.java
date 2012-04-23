@@ -52,7 +52,7 @@ public class AppTest extends BasicTest{
         this.<IControlWorkDao>getDao().save(w);
     }
 
-    //@Ignore
+    @Ignore
     @Test
     public void get(){
         setDao("controlWorkDao");
@@ -81,7 +81,7 @@ public class AppTest extends BasicTest{
         }
     }
 
-    //@Ignore
+    @Ignore
     @Test
     public void getCount(){
         setDao("controlWorkAttemptDao");
@@ -93,7 +93,7 @@ public class AppTest extends BasicTest{
 
     }
 
-    //@Ignore
+    @Ignore
     @Test
     public void getStudentCw(){
         ControlWorkService s = getBean("controlWorkService");

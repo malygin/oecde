@@ -29,13 +29,7 @@
           <artifactId>de</artifactId>     
           <scope>provided</scope>
         </dependency>
-        <dependency>
-          <groupId>${project.groupId}</groupId>
-          <artifactId>resources</artifactId>
-          <classifier>resources</classifier>
-          <type>zip</type>
-          <scope>provided</scope>
-        </dependency>
+
     </dependencies>
     
     <build>

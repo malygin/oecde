@@ -207,10 +207,7 @@
                     <groupId>javax.xml.stream</groupId>
               </exclusion>
            </exclusions>
-        </dependency>
-        
-        
-        
+        </dependency> 
         <dependency>
             <groupId>org.im4java</groupId>
             <artifactId>im4java</artifactId>
@@ -219,6 +216,12 @@
         </dependency>
     </dependencies>
     <build>
+    <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+            <filtering>true</filtering> 
+        </resource>
+    </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -267,16 +270,37 @@
                 </configuration>
             </plugin>
             <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>2.0.2</version>
+            <configuration>
+                <webResources>
+                <resource>
+                    <filtering>true</filtering>
+                    <directory>src/main/webapp</directory>
+<!--                     <targetPath>src/main/webapp/WEB-INF</targetPath>-->
+                     
+                    <includes>
+                    <include>**/web.xml</include>       
+                    </includes>
+                </resource>
+                </webResources>
+            </configuration>
+            </plugin> 
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.3</version>
                 <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <!-- specify UTF-8, ISO-8859-1 or any other file encoding -->
                     <encoding>UTF-8</encoding>
                 </configuration>
-            </plugin>
+           </plugin>
         </plugins>
         <finalName>web</finalName>
     </build>
+   
+    
     <properties>
         <netbeans.hint.deploy.server>Tomcat</netbeans.hint.deploy.server>
         <netbeans.hint.j2eeVersion>1.5</netbeans.hint.j2eeVersion>

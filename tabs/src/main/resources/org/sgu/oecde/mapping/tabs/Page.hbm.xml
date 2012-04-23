@@ -8,7 +8,7 @@
         <param name="sequence">tab_page_seq</param>
       </generator>
     </id>
-    <property length="4000" name="text" not-null="true" type="string"/>
+    <property length="8000" name="text" not-null="true" type="string"/>
     <property length="250" name="title" type="string"/>
     <property length="250"  name="alias" not-null="false"  type="string"/>
     <property length="10"  name="orderPage" not-null="false"  type="string"/>

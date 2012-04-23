@@ -26,7 +26,7 @@
                             #{msgs.admin_mainContentPageTitle}
                          </td>
                          <td>
-                            <h:inputText style="width: 99.5%;" id="pName" value="#{tabEditBean.page.title}"/><br/>
+                            <h:inputText class="searchInput" style="width: 99.5%;" id="pName" value="#{tabEditBean.page.title}"/><br/>
                             #{msgs.admin_infoAlias2} <h:inputText value="#{tabEditBean.page.alias}"/>  #{msgs.admin_infoOrder2} <h:inputText value="#{tabEditBean.page.orderPage}"/>
                           </td>
                     </tr>
@@ -35,7 +35,7 @@
                             #{msgs.admin_mainContentPageContent}
                         </td>
                         <td>
-                      <h:inputTextarea rows="10" cols="70" value="#{tabEditBean.page.text}"/>
+                      <h:inputTextarea class="searchInput" rows="30" cols="120" value="#{tabEditBean.page.text}"/>
                         </td>
                     </tr>
                     <tr>

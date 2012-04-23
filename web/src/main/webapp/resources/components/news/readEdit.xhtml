@@ -17,12 +17,12 @@
       #{cc.attrs.n.time}<br/>
         <h:outputText  rendered="#{NewsBean.renderAddSuccess}" value="#{msgs.admin_newsSaveSuccess}"/><br/>
 
-        <div style="margin-bottom: 15px;"><h:inputText value="#{NewsBean.currentNewItem.header}"/></div><br/>
-           #{msgs.admin_newsType}  <h:selectOneMenu  value="#{NewsBean.currentNewItem.newstype}">
+        <div style="margin-bottom: 15px;"><h:inputText class="searchInput" value="#{NewsBean.currentNewItem.header}"/></div><br/>
+           #{msgs.admin_newsType}  <h:selectOneMenu class="searchInput" value="#{NewsBean.currentNewItem.newstype}">
             <f:selectItems value="#{NewsBean.newTypeValues}" />
             </h:selectOneMenu>
-           <div style="margin-left: 80px;"><h:inputTextarea cols="100" value="#{NewsBean.currentNewItem.announcement}"/></div>
-           <div style="margin-left: 80px;"><h:inputTextarea cols="100" rows="30" value="#{NewsBean.currentNewItem.fullText}"/></div>
+           <div style="margin-left: 80px;"><h:inputTextarea class="searchInput" cols="100" value="#{NewsBean.currentNewItem.announcement}"/></div>
+           <div style="margin-left: 80px;"><h:inputTextarea class="searchInput" cols="100" rows="30" value="#{NewsBean.currentNewItem.fullText}"/></div>
     
         <h:commandButton styleClass="studentButton" action="#{NewsBean.edit}" value="#{msgs.admin_maincontentedit}">
         </h:commandButton>

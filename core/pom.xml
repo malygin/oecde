@@ -23,14 +23,7 @@
         </repository>        
     </repositories>
     
-  <dependencies>
-      <dependency>
-        <groupId>${project.groupId}</groupId>
-        <artifactId>resources</artifactId>       
-        <classifier>resources</classifier>
-        <type>zip</type>    
-      </dependency>
-  </dependencies>
+ 
   
   <distributionManagement>
     <repository>
@@ -47,6 +40,15 @@
   </distributionManagement>
   
   <build>
+ <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+            <filtering>true</filtering>   
+                <includes>
+          <include>**/*.properties</include>
+        </includes>
+        </resource>
+    </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -95,4 +97,7 @@
             </plugin>
         </plugins>
     </build>
+<!--     <properties>
+            <dbBeansUrl>spring/dbBeans.xml</dbBeansUrl>
+     </properties>-->
 </project>
