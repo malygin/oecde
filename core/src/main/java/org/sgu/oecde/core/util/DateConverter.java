@@ -36,7 +36,7 @@ public class DateConverter {
 
     /**
      *
-     * @return текущая дата вида {@code yyyy.MM.dd HH:mm:ss}
+     * @return текущая дата вида!!! {@code yyyy.MM.dd HH:mm:ss}
      */
     public static String currentDate(){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
