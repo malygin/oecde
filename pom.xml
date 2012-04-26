@@ -10,7 +10,7 @@
   
   <modules>
     <module>tests</module>
-    <module>resources</module>
+<!--    <module>resources</module>-->
     <module>core</module>
     <module>news</module>
     <module>journal</module>
@@ -532,6 +532,11 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-reactor-plugin</artifactId>
+                <version>1.0</version>
             </plugin>
         </plugins>
         <finalName>${core.finalname}</finalName>	
