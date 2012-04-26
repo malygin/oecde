@@ -286,7 +286,7 @@
                 <webResources>
                 <resource>
                     <filtering>true</filtering>
-                    <directory>src/main/webapp</directory>
+                    <directory>${basedir}/src/main/webapp</directory>
 <!--                     <targetPath>src/main/webapp/WEB-INF</targetPath>-->
                      
                     <includes>
@@ -309,7 +309,61 @@
         <finalName>web</finalName>
     </build>
    
-    
+      <profiles>
+        <!-- oecdo.sgu.ru -->
+        <profile>
+            <id>ssu_st_prod</id>
+            <activation>
+		<activeByDefault>true</activeByDefault>
+	    </activation>
+            <properties>         
+                <db.connectionURL>jdbc:postgresql://shiva.main.sgu.ru:5432/oecde/</db.connectionURL> 
+                <db.login>oecde</db.login> 
+                <db.pass>YmqPWz6GsYEQ62EH</db.pass>
+                <fileFolder>oecde</fileFolder>
+                <videoConfUrl>http://oecdo.sgu.ru/client/</videoConfUrl>
+                <textbookUrl>http://oec-static.main.sgu.ru/textbooks/</textbookUrl>
+                <ipsilonUmkUrl>http://oec.sgu.ru/ipsilonUmk/</ipsilonUmkUrl>
+                <scheduleUrl>http://oecdo.sgu.ru/sashedule/</scheduleUrl>
+                <scheduleRecordScriptUrl>http://oec-nginx.main.sgu.ru/get_files/dir_read.php</scheduleRecordScriptUrl>
+                <skinTheme></skinTheme>
+            </properties> 
+        </profile>
+        
+        <!-- de.sgu.ru -->
+         <profile>             
+            <id>ssu_sch_prod</id>
+            <properties>         
+                <db.connectionURL>jdbc:postgresql://shiva.main.sgu.ru:5432/oecde_sh/</db.connectionURL> 
+                <db.login>oecde</db.login> 
+                <db.pass>YmqPWz6GsYEQ62EH</db.pass>
+                <fileFolder>school</fileFolder>
+                <videoConfUrl>http://oecdo.sgu.ru/clientSchool/</videoConfUrl>
+                <textbookUrl>http://oec-static.main.sgu.ru/school/textbooks/</textbookUrl>
+                <ipsilonUmkUrl>http://oec.sgu.ru/ipsilonUmk2/</ipsilonUmkUrl>
+                <scheduleUrl></scheduleUrl>
+                <scheduleRecordScriptUrl></scheduleRecordScriptUrl>
+                <skinTheme></skinTheme>
+            </properties> 
+        </profile> 
+        
+         <!-- de.sgu.ru/geo    -->
+        <profile>
+            <id>ssu_geo_prod</id>
+             <properties>         
+                <db.connectionURL>jdbc:postgresql://vishnu.main.sgu.ru:5432/geo/</db.connectionURL> 
+                <db.login>malygin</db.login> 
+                <db.pass>11nekotyan</db.pass>
+                <fileFolder>oecde</fileFolder>
+                <videoConfUrl>http://oecdo.sgu.ru/client/geo/</videoConfUrl>
+                <textbookUrl>http://oec-static.main.sgu.ru/geo/textbooks/</textbookUrl>
+                <ipsilonUmkUrl>http://oec.sgu.ru/ipsilonUmk3/</ipsilonUmkUrl>
+                <scheduleUrl></scheduleUrl>
+                <scheduleRecordScriptUrl></scheduleRecordScriptUrl>
+                <skinTheme></skinTheme>
+            </properties> 
+        </profile>
+    </profiles>
     <properties>
         <netbeans.hint.deploy.server>Tomcat</netbeans.hint.deploy.server>
         <netbeans.hint.j2eeVersion>1.5</netbeans.hint.j2eeVersion>
