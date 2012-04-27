@@ -46,7 +46,7 @@ public class TeacherCurriculumsEditBean implements Serializable{
 
     public List<DeCurriculum> getCurriculums() {
         if(curriculums == null){
-            curriculums = teacherSessionBean.getDisciplines(semester);
+            curriculums = teacherSessionBean.getDisciplines(teacherSessionBean.semesterGetter.getCurrentSemester());
         }
         return curriculums;
     }
@@ -56,7 +56,7 @@ public class TeacherCurriculumsEditBean implements Serializable{
     }
 
     public int getSemester() {
-        return semester;
+        return teacherSessionBean.semesterGetter.getCurrentSemester();
     }
 
     public void setSemester(int semester) {

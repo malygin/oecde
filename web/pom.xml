@@ -286,9 +286,7 @@
                 <webResources>
                 <resource>
                     <filtering>true</filtering>
-                    <directory>${basedir}/src/main/webapp</directory>
-<!--                     <targetPath>src/main/webapp/WEB-INF</targetPath>-->
-                     
+                    <directory>${basedir}/src/main/webapp</directory>                
                     <includes>
                     <include>**/web.xml</include>       
                     </includes>
@@ -306,7 +304,7 @@
                 </configuration>
            </plugin>
         </plugins>
-        <finalName>web</finalName>
+        <finalName>${appName}</finalName>
     </build>
    
       <profiles>
@@ -316,7 +314,8 @@
             <activation>
 		<activeByDefault>true</activeByDefault>
 	    </activation>
-            <properties>         
+            <properties>
+                <appName>oecde</appName>
                 <db.connectionURL>jdbc:postgresql://shiva.main.sgu.ru:5432/oecde/</db.connectionURL> 
                 <db.login>oecde</db.login> 
                 <db.pass>YmqPWz6GsYEQ62EH</db.pass>
@@ -333,7 +332,8 @@
         <!-- de.sgu.ru -->
          <profile>             
             <id>ssu_sch_prod</id>
-            <properties>         
+            <properties>
+                <appName>oecde</appName>
                 <db.connectionURL>jdbc:postgresql://shiva.main.sgu.ru:5432/oecde_sh/</db.connectionURL> 
                 <db.login>oecde</db.login> 
                 <db.pass>YmqPWz6GsYEQ62EH</db.pass>
@@ -350,7 +350,8 @@
          <!-- de.sgu.ru/geo    -->
         <profile>
             <id>ssu_geo_prod</id>
-             <properties>         
+             <properties> 
+                 <appName>oecde</appName>
                 <db.connectionURL>jdbc:postgresql://vishnu.main.sgu.ru:5432/geo/</db.connectionURL> 
                 <db.login>malygin</db.login> 
                 <db.pass>11nekotyan</db.pass>

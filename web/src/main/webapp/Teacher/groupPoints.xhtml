@@ -106,7 +106,7 @@
                         <f:facet name="header">
                             <span class="Ipsilon_Web_GreenText">#{msgs.teacher_groupGruopExtraPoints}</span>
                         </f:facet>
-                     <h:inputText maxlength="3" size="3" value="#{p.activityPoints}"/> 
+                     <h:inputText class="searchInput" maxlength="3" size="3" value="#{p.activityPoints}"/> 
 
                     </h:column>
                     
@@ -145,7 +145,7 @@
                         <f:facet name="header">
                             <h:outputText value="Результат" />
                         </f:facet>
-                        <p style="width: 100px; text-align: center;"><h:selectOneMenu id="grade" value="#{p.grade}">
+                        <p style="width: 100px; text-align: center;"><h:selectOneMenu class="searchInput" id="grade" value="#{p.grade}">
                             <f:selectItems value="#{groupPoints['enum']}" />
                         </h:selectOneMenu></p>
                     </h:column>

@@ -209,6 +209,7 @@
 }
 .mainStyle .inputTextCenter{
     text-align: center !important;
+    color:black;
 }
 .mainStyle .TableCenter{
     margin: auto;

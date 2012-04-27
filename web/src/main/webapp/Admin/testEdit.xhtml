@@ -27,35 +27,35 @@
                         <tr>
                             <td>#{msgs.teacher_testEditLong}</td>
                             <td>
-                        <h:inputText maxlength="3" size="3" value="#{adminTestBean.test.duration}" style="width: 37px;"/></td>
+                        <h:inputText class="searchInput" maxlength="3" size="3" value="#{adminTestBean.test.duration}" style="width: 37px;"/></td>
                         </tr>
                         <tr>
                             <td>#{msgs.teacher_testEditAttemptToPass}</td>
                             <td>
-                        <h:inputText maxlength="1" size="1" value="#{adminTestBean.test.estimateAttemptsNumber}" style="width: 37px;"/></td>
+                        <h:inputText class="searchInput" maxlength="1" size="1" value="#{adminTestBean.test.estimateAttemptsNumber}" style="width: 37px;"/></td>
                         </tr>
                         <tr>
                             <td>#{msgs.student_testResultName}</td>
                             <td>
-                        <h:inputText size="70" value="#{adminTestBean.test.title}"/>
+                        <h:inputText class="searchInput" size="70" value="#{adminTestBean.test.title}"/>
                         </td>
                         </tr>
                         <tr>
                             <td>#{msgs.teacher_testEditTestAttempt}</td>
                             <td>
-                        <h:inputText maxlength="1" size="1" value="#{adminTestBean.test.trialNumber}"/>
+                        <h:inputText  class="searchInput" maxlength="1" size="1" value="#{adminTestBean.test.trialNumber}"/>
                         </td>
                         </tr>
                         <tr>
                             <td>weight</td>
                             <td>
-                        <h:inputText maxlength="3" size="3" value="#{adminTestBean.test.weight}" style="width: 37px;"/>
+                        <h:inputText  class="searchInput" maxlength="3" size="3" value="#{adminTestBean.test.weight}" style="width: 37px;"/>
                         </td>
                         </tr>
                         <tr>
                             <td>#{msgs.teacher_testEditType}</td>
                             <td>
-                        <h:selectOneMenu id="testType" value="#{adminTestBean.test.type}">
+                        <h:selectOneMenu class="searchInput" id="testType" value="#{adminTestBean.test.type}">
                             <f:selectItems value="#{adminTestBean.types}" />
                         </h:selectOneMenu>
                         </td>
@@ -63,7 +63,7 @@
                         <tr>
                             <td>#{msgs.teacher_testEditWayOfEstimation}</td>
                             <td>
-                        <h:selectOneMenu id="estimationType" value="#{adminTestBean.test.estimation}">
+                        <h:selectOneMenu class="searchInput" id="estimationType" value="#{adminTestBean.test.estimation}">
                             <f:selectItems value="#{adminTestBean.estimation}" />
                         </h:selectOneMenu></td>
                         </tr>
@@ -76,13 +76,13 @@
                         <tr>
                             <td>#{msgs.teacher_testEditToOpen}</td>
                             <td>
-                        <util:date_picker value="#{adminTestBean.test.openDate}"/>
+                        <util:date_picker  value="#{adminTestBean.test.openDate}"/>
                         </td>
                         </tr>
                         <tr>
                             <td>#{msgs.teacher_testEditQuestionsToSee}</td>
                             <td>
-                        <h:inputText maxlength="3" size="3" value="#{adminTestBean.test.quantity}" style="width: 37px;"/>
+                        <h:inputText class="searchInput" maxlength="3" size="3" value="#{adminTestBean.test.quantity}" style="width: 37px;"/>
                         </td>
                         </tr>
                         <tr>
