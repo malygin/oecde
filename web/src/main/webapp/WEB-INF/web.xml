@@ -17,6 +17,10 @@
         <param-value>${fileFolder}</param-value>
     </context-param>
      <context-param>
+        <param-name>storage</param-name>
+        <param-value>${storage}</param-value>
+    </context-param>
+     <context-param>
         <param-name>skinTheme</param-name>
         <param-value>${skinTheme}</param-value>
     </context-param>
