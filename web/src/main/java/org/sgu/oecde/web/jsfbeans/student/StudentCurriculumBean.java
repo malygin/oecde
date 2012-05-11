@@ -43,7 +43,7 @@ public class StudentCurriculumBean extends AbstractStudentBean{
            Iterator<DeCurriculum> i = curriculums.iterator();
            while(i.hasNext()){
                DeCurriculum next=i.next();
-               if((next.getExaminationType()==ExaminationType.empty)&&(!next.getGotControlWork()))
+               if((next.getExaminationType()==ExaminationType.empty)&&(!next.getGotControlWork())&&(next.getTermPapersNumber()==0))
                    i.remove();
                
                Iterator<TeacherToGroup> ttg = next.getTeacherToGroups().iterator();

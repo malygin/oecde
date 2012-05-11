@@ -288,7 +288,8 @@
                     <filtering>true</filtering>
                     <directory>${basedir}/src/main/webapp</directory>                
                     <includes>
-                    <include>**/web.xml</include>       
+                        <include>**/web.xml</include>
+                        <include>**/context.xml</include>  
                     </includes>
                 </resource>
                 </webResources>
@@ -316,6 +317,7 @@
 	    </activation>
             <properties>
                 <appName>oecde</appName>
+                <contextPath>oecde</contextPath>
                 <db.connectionURL>jdbc:postgresql://shiva.main.sgu.ru:5432/oecde/</db.connectionURL> 
                 <db.login>oecde</db.login> 
                 <db.pass>YmqPWz6GsYEQ62EH</db.pass>
@@ -335,6 +337,7 @@
             <id>ssu_sch_prod</id>
             <properties>
                 <appName>oecde</appName>
+                <contextPath>oecde</contextPath>
                 <db.connectionURL>jdbc:postgresql://shiva.main.sgu.ru:5432/oecde_sh/</db.connectionURL> 
                 <db.login>oecde</db.login> 
                 <db.pass>YmqPWz6GsYEQ62EH</db.pass>
@@ -353,7 +356,8 @@
         <profile>
             <id>ssu_geo_prod</id>
              <properties> 
-                 <appName>oecde</appName>
+                <appName>oecde</appName>
+                 <contextPath>oecde</contextPath>
                 <db.connectionURL>jdbc:postgresql://vishnu.main.sgu.ru:5432/geo/</db.connectionURL> 
                 <db.login>malygin</db.login> 
                 <db.pass>11nekotyan</db.pass>
@@ -370,7 +374,8 @@
         <profile>
             <id>ssu_st_test</id>
              <properties> 
-                 <appName>oecde</appName>
+                <appName>oecde</appName>
+                <contextPath>oecde</contextPath>
                 <db.connectionURL>jdbc:postgresql://vishnu.main.sgu.ru:5432/oecdo_test/</db.connectionURL> 
                 <db.login>malygin</db.login> 
                 <db.pass>11nekotyan</db.pass>

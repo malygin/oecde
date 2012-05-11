@@ -55,11 +55,10 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="#{msgs.teacher_curriclums_reporting_form}" />
-                            
+                            <h:outputText value="#{msgs.teacher_curriclums_reporting_form}" />                            
                         </f:facet>
-
-                        <h:outputText converter="enumConverter" value="#{m.examinationType}" />
+                        <h:panelGroup rendered="#{(m.examinationType=='empty' and  m.gotControlWork) or m.examinationType!='empty'}"><h:outputText converter="enumConverter" value="#{m.examinationType}" /></h:panelGroup>
+                        
                     </h:column>
 
                 </h:dataTable>
