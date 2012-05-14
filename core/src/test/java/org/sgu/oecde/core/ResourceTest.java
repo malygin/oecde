@@ -1,20 +1,12 @@
 package org.sgu.oecde.core;
 
-import org.sgu.oecde.core.education.estimation.activity.Activity;
-import java.util.ArrayList;
 import org.sgu.oecde.core.education.Umk;
 import java.util.List;
 
-import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.sgu.oecde.core.education.dao.IResourceDao;
-import org.sgu.oecde.core.education.resource.AccessResource;
 import org.sgu.oecde.core.education.resource.Image;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestExecutionListeners;
-import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 import static org.junit.Assert.*;
 
 /**
@@ -40,7 +32,7 @@ public class ResourceTest extends BasicTest {
     }
     
     
-     @Ignore
+    @Ignore
     @Test
     public void getUmkByPage(){
        setDao("umkDao");
