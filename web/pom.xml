@@ -336,8 +336,8 @@
          <profile>             
             <id>ssu_sch_prod</id>
             <properties>
-                <appName>ROOT</appName>
-                <contextPath></contextPath>
+                <appName>de</appName>
+                <contextPath>/de</contextPath>
                 <db.connectionURL>jdbc:postgresql://shiva.main.sgu.ru:5432/oecde_sh/</db.connectionURL> 
                 <db.login>oecde</db.login> 
                 <db.pass>YmqPWz6GsYEQ62EH</db.pass>
