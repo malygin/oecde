@@ -336,15 +336,15 @@
          <profile>             
             <id>ssu_sch_prod</id>
             <properties>
-                <appName>oecde</appName>
-                <contextPath>oecde</contextPath>
+                <appName>oecdeSchool</appName>
+                <contextPath>/</contextPath>
                 <db.connectionURL>jdbc:postgresql://shiva.main.sgu.ru:5432/oecde_sh/</db.connectionURL> 
                 <db.login>oecde</db.login> 
                 <db.pass>YmqPWz6GsYEQ62EH</db.pass>
                 <fileFolder>school</fileFolder>
                 <storage>de</storage>
                 <videoConfUrl>http://oecdo.sgu.ru/clientSchool/</videoConfUrl>
-                <textbookUrl>http://oec-static.main.sgu.ru/school/textbooks/</textbookUrl>
+                <textbookUrl>http://oec-static.main.sgu.ru/storage/oec-java/de/userFiles/</textbookUrl>
                 <ipsilonUmkUrl>http://oec.sgu.ru/ipsilonUmk2/</ipsilonUmkUrl>
                 <scheduleUrl></scheduleUrl>
                 <scheduleRecordScriptUrl></scheduleRecordScriptUrl>
