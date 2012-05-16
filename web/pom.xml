@@ -336,7 +336,7 @@
          <profile>             
             <id>ssu_sch_prod</id>
             <properties>
-                <appName>oecdeSchool</appName>
+                <appName>oecdeSchool!</appName>
                 <contextPath>/</contextPath>
                 <db.connectionURL>jdbc:postgresql://shiva.main.sgu.ru:5432/oecde_sh/</db.connectionURL> 
                 <db.login>oecde</db.login> 
