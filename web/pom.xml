@@ -341,10 +341,10 @@
                 <db.connectionURL>jdbc:postgresql://shiva.main.sgu.ru:5432/oecde_sh/</db.connectionURL> 
                 <db.login>oecde</db.login> 
                 <db.pass>YmqPWz6GsYEQ62EH</db.pass>
-                <fileFolder>school</fileFolder>
+                <fileFolder>storage/oec-java/de</fileFolder>
                 <storage>de</storage>
                 <videoConfUrl>http://oecdo.sgu.ru/clientSchool/</videoConfUrl>
-                <textbookUrl>http://oec-static.main.sgu.ru/storage/oec-java/de/userFiles/</textbookUrl>
+                <textbookUrl>http://oec-static.main.sgu.ru/school/textbooks/</textbookUrl>
                 <ipsilonUmkUrl>http://oec.sgu.ru/ipsilonUmk2/</ipsilonUmkUrl>
                 <scheduleUrl></scheduleUrl>
                 <scheduleRecordScriptUrl></scheduleRecordScriptUrl>
