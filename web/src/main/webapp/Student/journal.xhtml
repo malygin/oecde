@@ -4,13 +4,15 @@
     xmlns:h="http://java.sun.com/jsf/html"
     template="../resources/studentTemplate.xhtml"
     xmlns:j="http://java.sun.com/jsf/composite/components/journal">
+      <f:metadata>
+            <f:viewParam name="page" value="#{journalBean.pageNumber}"/>
+            <f:viewParam name="page" value="#{NavigationBean.page}"/>
+        </f:metadata>
     <ui:define name="contentHeader">
         События
     </ui:define>
     <ui:define name="content">
-        <f:metadata>
-            <f:viewParam name="p" value="#{journalBean.pageNumber}"/>
-        </f:metadata>
+      
         <j:output type="studentEvents" object="#{studentSessionBean.student}" link="#{studentSessionBean.student.id}"/>
     </ui:define>
 </ui:composition>

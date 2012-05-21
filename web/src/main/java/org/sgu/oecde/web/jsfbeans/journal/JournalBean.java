@@ -39,8 +39,8 @@ public class JournalBean implements Serializable{
     @ManagedProperty(value="#{journalFilters}")
     private JournalFilters journalFilters;
     
-  
     
+  
     private String IdUser;
 
     private static final long serialVersionUID = 185L;
