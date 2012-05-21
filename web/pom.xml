@@ -316,8 +316,9 @@
 		<activeByDefault>true</activeByDefault>
 	    </activation>
             <properties>
-                <appName>oecde</appName>
-                <contextPath>oecde</contextPath>
+                <appName>ipsilon</appName>
+                <contextPath>/oecde</contextPath>
+                <docbase>oecde</docbase>
                 <db.connectionURL>jdbc:postgresql://shiva.main.sgu.ru:5432/oecde/</db.connectionURL> 
                 <db.login>oecde</db.login> 
                 <db.pass>YmqPWz6GsYEQ62EH</db.pass>
@@ -357,12 +358,14 @@
         <profile>
             <id>ssu_geo_prod</id>
              <properties> 
-                <appName>oecde</appName>
-                 <contextPath>oecde</contextPath>
+                <appName>ipsilon</appName>
+                <contextPath>/geo</contextPath>
+                <docbase>geo</docbase>
                 <db.connectionURL>jdbc:postgresql://vishnu.main.sgu.ru:5432/geo/</db.connectionURL> 
                 <db.login>malygin</db.login> 
                 <db.pass>11nekotyan</db.pass>
-                <fileFolder>oecde</fileFolder>
+                <fileFolder>storage/oec-java/geo</fileFolder>
+                <storage>geo</storage>
                 <videoConfUrl>http://oecdo.sgu.ru/client/geo/</videoConfUrl>
                 <textbookUrl>http://oec-static.main.sgu.ru/geo/textbooks/</textbookUrl>
                 <ipsilonUmkUrl>http://oec.sgu.ru/ipsilonUmk3/</ipsilonUmkUrl>
