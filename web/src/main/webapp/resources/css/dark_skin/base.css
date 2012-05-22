@@ -107,9 +107,7 @@ label{
 .mainStyle .notificationTableTextOrange td:nth-child(odd) p{
     width: 232px;
 }
-.mainStyle .searchInput{
-    color:black;
-}
+
 
 .mainStyle .videoConfSchedule{
     /*    margin-left: 250px;*/
@@ -2089,11 +2087,20 @@ ul.dropdown li ul li {
 /*inputs*/
 .mainStyle .greyInputs input{
     border: 1px solid #d1d1d1;
+    color:white;
     background: url("../../resources/css/dark_skin/images/opacity_fon.png") repeat;
 }
-.mainStyle .textAreaStyle{
+.mainStyle .searchInput{
+ border: 1px solid #d1d1d1;
+    color:white;
+    background: url("../../resources/css/dark_skin/images/opacity_fon.png") repeat;
+}
+.mainStyle textarea{
     border: 1px solid #bae6f8;
     background: url("../../resources/css/dark_skin/images/opacity_fon.png") repeat;
+}
+.mainStyle select{
+    color:black;
 }
 /*стиль для подсказок в расписании*/
 .tooltip{ 
