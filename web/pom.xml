@@ -155,7 +155,18 @@
 		    </exclusion>
 		</exclusions>
 	</dependency>
-
+        
+        <dependency>
+          <groupId>javax.transaction</groupId>
+          <artifactId>transaction-api</artifactId>
+          <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        
 
     <!--- jsf and richfaces-->
 
@@ -169,6 +180,7 @@
             <artifactId>jsf-impl</artifactId>
             <version>2.0.2-b10</version>
         </dependency>
+
    
         <dependency>
             <groupId>taglibs</groupId>
@@ -244,7 +256,7 @@
                             <excludeTransitive>true</excludeTransitive>
                         </configuration>
                     </execution>
-                    <execution>
+<!--                    <execution>
                         <phase>validate</phase>
                         <goals>
                             <goal>copy</goal>
@@ -261,7 +273,7 @@
                                 </artifactItem>
                             </artifactItems>
                         </configuration>
-                    </execution>
+                    </execution>-->
                 </executions>
             </plugin>
             <plugin>
