@@ -127,6 +127,12 @@
             <artifactId>commons-io</artifactId>
             <version>1.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.2.5</version>
+            <scope>compile</scope>
+         </dependency>
 <!-- Exclude some unnecessary libraries --> 
 	<dependency>
 		<groupId>org.jvnet.jax-ws-commons.spring</groupId>
