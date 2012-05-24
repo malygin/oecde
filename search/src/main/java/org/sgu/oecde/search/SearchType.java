@@ -6,6 +6,7 @@ import org.sgu.oecde.core.users.AbstractPerson;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.core.users.StudentGroup;
 import org.sgu.oecde.core.users.Teacher;
+import org.sgu.oecde.messages.Message;
 
 /**
  *
@@ -15,6 +16,7 @@ public enum SearchType {
     teacher(Teacher.class,"преподаватель"),
     student(AbstractStudent.class,"студент"),
     umk(Umk.class,"умк"),
+    message(Message.class,"сообщения"),
     group(StudentGroup.class,"группа");
 
     private SearchType(Class className,String rusName) {
@@ -39,6 +41,13 @@ public enum SearchType {
                     str[i] = fields[i].getName();
                 }
                 return str;
+            case message:
+                String [] str_message = new String[1];
+                str_message[0]="theme";
+                //str_message[1]="fulltext";
+                return str_message;
+                
+                
             case umk:
             default:
                 return new String[]{"name"};
