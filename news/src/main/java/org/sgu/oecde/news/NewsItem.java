@@ -1,11 +1,17 @@
 package org.sgu.oecde.news;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
 import org.sgu.oecde.core.users.Admin;
 import javax.validation.constraints.Size;
+import org.sgu.oecde.core.education.resource.Image;
+import org.sgu.oecde.core.users.AbstractPerson;
+import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.util.LangEnum;
 /**
  *
@@ -35,7 +41,7 @@ public class NewsItem extends BasicItem{
     /**
      * автор
      */
-    private Admin author;
+    private AbstractPerson author;
     /**
      * дата публикации новости
      */
@@ -55,7 +61,8 @@ public class NewsItem extends BasicItem{
     /**
      * теги. не используются
      */
-    private Set<NewsTag> tags;
+    private Set<NewsTag> tags=new HashSet<NewsTag>();
+    private List<Image> images = new ArrayList<Image>();
     private static final long serialVersionUID = 83L;
 
     public NewsItem(){
@@ -150,21 +157,20 @@ public class NewsItem extends BasicItem{
         return sb.toString();
     }
 
+    public AbstractPerson getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(AbstractPerson author) {
+        this.author = author;
+    }
+
+   
     /**
      *
      * @return автор
      */
-    public Admin getAuthor() {
-        return author;
-    }
-
-    /**
-     * автор
-     * @param author
-     */
-    public void setAuthor(Admin author) {
-        this.author = author;
-    }
+   
 
     /**
      *
@@ -206,7 +212,23 @@ public class NewsItem extends BasicItem{
     public void setLang(LangEnum lang) {
         this.lang = lang;
     }
+
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
+    }
+       
     
+    public void addTag(NewsTag tag){
+        this.tags.add(tag);
+    }
+    
+    public void  addImage(Image image){
+        this.images.add(image);
+    }
     public boolean isNew(){
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");

@@ -7,6 +7,8 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.model.SelectItem;
 import javax.validation.constraints.Size;
+import org.sgu.oecde.core.users.AbstractPerson;
+import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.Admin;
 import org.sgu.oecde.core.users.UserType;
 import org.sgu.oecde.core.util.DateConverter;
@@ -39,6 +41,8 @@ public class NewsBean implements Serializable {
     private int countNews = 0;
     private NewsItem currentNewItem;
     private String currentNewId;
+    private long viewUserId;
+    
     private int NewIdDelete;
     private boolean renderDeleteSuccess = false;
     private boolean renderAddSuccess = false;
@@ -85,6 +89,24 @@ public class NewsBean implements Serializable {
         journalService.save(EventType.NEW_NEWS, SecurityContextHandler.getUser(), n);
 
     }
+    
+    public void saveBlog() {
+      
+        NewsItem n = new NewsItem();
+        n.setFullText(fulltext);
+        n.setAnnouncement("");
+        n.setHeader(header);
+        n.setTime(DateConverter.currentDate());
+        n.setAuthor((AbstractPerson)SecurityContextHandler.getUser());
+       // n.setNewstype(type);
+        n.setLang(LangEnum.ru);
+        renderAddSuccess = true;         
+        Long id = newsDao.saveBlog(n);
+        n.setId(id);
+
+        //journalService.save(EventType.NEW_NEWS, SecurityContextHandler.getUser(), n);
+
+    }
 
     @Secured("ROLE_ADMIN")
     public void edit() {
@@ -110,6 +132,23 @@ public class NewsBean implements Serializable {
             }
         }
         return news;
+    }
+    
+    public List<NewsItem> getBlogs(){
+        if (news == null) {
+            if (this.viewUserId!=0){                
+                news=newsDao.getBlogsByUser(newsOnPage, currentPage, LangEnum.ru, viewUserId);
+            }else{
+               news = newsDao.getBlogs(newsOnPage, currentPage, LangEnum.ru);
+            }
+        }
+        return news;
+    }
+        public int getCountBlogs() {
+        if (countNews == 0) {            
+            countNews = newsDao.getBlogsCount(LangEnum.ru);
+        }
+        return countNews;
     }
 
     public List<NewsItem> getNewsForNumber(int number) {
@@ -139,6 +178,7 @@ public class NewsBean implements Serializable {
         }
         return countNews;
     }
+    
 
     public void setCurrentNewId(String id) {
         if (!id.equals("0")) {
@@ -272,4 +312,17 @@ public class NewsBean implements Serializable {
     public void setUserSessionBean(UserSessionBean userSessionBean) {
         this.userSessionBean = userSessionBean;
     }
+    
+    public AbstractUser getCurrentUser(){
+        return SecurityContextHandler.getUser();
+    }
+
+    public long getViewUserId() {
+        return viewUserId;
+    }
+
+    public void setViewUserId(long viewUserId) {
+        this.viewUserId = viewUserId;
+    }
+    
 }

@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:discuss="http://java.sun.com/jsf/composite/components/discussion"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute  name="n"/>
+    </composite:interface>
+
+    <!-- IMPLEMENTATION -->
+    <composite:implementation>
+        <div class="StudentMainPageTitlesBorders" >
+            <div>
+            <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
+               #{cc.attrs.n.header}
+               <div style="float: right;" class="greyLinks">
+                    <a href="blog_list.xhtml" style="font-weight: normal">назад к блогам</a>
+                </div>
+            </div>
+
+            <div class="NewsInfo">
+            <div style="float: right;">
+                 <span class="lightGreyText">#{msgs.student_newsLooks}</span>&nbsp; #{cc.attrs.n.reviewNumber} &nbsp;&nbsp;&nbsp;
+            </div>
+            <div>
+                <span class="linkToAdminsProfile"><a href="admin.xhtml?id=#{cc.attrs.n.id}">#{cc.attrs.n.author.fio}</a></span>&nbsp;&nbsp;&nbsp;
+                <span class="lightGreyText" ><h:outputText converter="dateConverter" value="#{cc.attrs.n.time}"></h:outputText></span>
+            </div>
+            <div class="floatDestroyer"/>
+            
+
+        
+            <!--<span class="chatPostDate" style="font-size: 10pt;">
+                #{cc.attrs.n.time}
+            </span>-->
+
+
+        <div>
+            <h:outputText escape="false" value="#{cc.attrs.n.fullText}"/>
+        </div>
+
+        
+
+            <!--<span style="font-size: 8pt;">#{msgs.student_newsLooks} <span class="darkGreyColorBold"> #{cc.attrs.n.reviewNumber}</span></span>-->
+
+      </div>
+
+      
+      </div>
+                </div>
+      </composite:implementation>
+</html>

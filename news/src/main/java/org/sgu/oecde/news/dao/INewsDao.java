@@ -1,7 +1,9 @@
 package org.sgu.oecde.news.dao;
 
 import java.util.List;
+import org.hibernate.exception.DataException;
 import org.sgu.oecde.core.IBasicDao;
+import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.util.LangEnum;
 import org.sgu.oecde.news.NewsItem;
 import org.springframework.dao.DataAccessException;
@@ -23,12 +25,17 @@ public interface INewsDao extends IBasicDao<NewsItem>{
     public List<NewsItem> getNewsForStudent(int messageOnPage, int numPage,  LangEnum lang)  throws DataAccessException ;
     public List<NewsItem> getNewsForTeacher(int messageOnPage, int numPage,  LangEnum lang)  throws DataAccessException ;
     public List<NewsItem> getNews(int messageOnPage, int numPage,  LangEnum lang)  throws DataAccessException ;
+    public List<NewsItem> getBlogs(int messageOnPage, int numPage,  LangEnum lang)  throws DataAccessException ;
+    public List<NewsItem> getBlogsByUser(int messageOnPage, int numPage, LangEnum lang, Long author) throws DataAccessException;
 
     /**
      *
      * @return количество новостей
      * @throws DataAccessException
      */
+    public int getBlogsCount(LangEnum lang) throws DataException ;
+    public int getBlogsCountByUser(LangEnum lang, Long author) throws DataException ;
+
     public int getNewsCount(LangEnum lang)  throws DataAccessException ;
     public int getNewsStudentCount(LangEnum lang)  throws DataAccessException ;
     public int getNewsTeacherCount(LangEnum lang)  throws DataAccessException ;
@@ -40,6 +47,8 @@ public interface INewsDao extends IBasicDao<NewsItem>{
      */
  
     public Long save(NewsItem item) throws DataAccessException;
+    public Long saveBlog(NewsItem item) throws DataAccessException ;
+
     /** 
      * удаляет новость
      * @param id

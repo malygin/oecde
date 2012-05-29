@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:composite="http://java.sun.com/jsf/composite"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:util="http://java.sun.com/jsf/composite/components/util">
+
+ <!-- INTERFACE -->
+  <composite:interface>
+    <composite:attribute  name="new"/>
+  </composite:interface>
+
+  <!-- IMPLEMENTATION -->
+    <composite:implementation>
+        <h:form>
+      #{cc.attrs.n.time}  <a href="blog_list.xhtml">вернуться к блогам</a><br/>
+        <h:outputText  rendered="#{NewsBean.renderAddSuccess}" value="#{msgs.admin_newsSaveSuccess}"/><br/>
+        Заголовок
+        <div style="margin-bottom: 15px;"><h:inputText class="searchInput" value="#{NewsBean.currentNewItem.header}" size="102"/></div><br/>
+        Текст записи
+        <div style="margin-left: 5px;"><h:inputTextarea class="searchInput" cols="100" rows="30" value="#{NewsBean.currentNewItem.fullText}"/></div>
+    
+        <h:commandButton styleClass="studentButton" action="#{NewsBean.edit}" value="#{msgs.admin_maincontentedit}">
+        </h:commandButton>
+      </h:form>
+
+    </composite:implementation>
+</html>

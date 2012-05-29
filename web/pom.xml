@@ -327,12 +327,28 @@
     </build>
    
       <profiles>
+                  <!-- oec-tst.main.sgu.ru/oecde    -->
+        <profile>
+            <id>ssu_st_test</id>
+            <properties> 
+                <appName>ipsilon</appName>
+                <contextPath>/oecde</contextPath>
+                <db.connectionURL>jdbc:postgresql://vishnu.main.sgu.ru:5432/oecdo_test/</db.connectionURL> 
+                <db.login>malygin</db.login> 
+                <db.pass>11nekotyan</db.pass>
+                <fileFolder>oecde</fileFolder>
+                <storage>oecde2</storage>
+                <videoConfUrl>http://oecdo.sgu.ru/client/geo/</videoConfUrl>
+                <textbookUrl>http://oec-static.main.sgu.ru/geo/textbooks/</textbookUrl>
+                <ipsilonUmkUrl>http://oec.sgu.ru/ipsilonUmk3/</ipsilonUmkUrl>
+                <scheduleUrl></scheduleUrl>
+                <scheduleRecordScriptUrl></scheduleRecordScriptUrl>
+                <skinTheme></skinTheme>
+            </properties> 
+        </profile>
         <!-- oecdo.sgu.ru -->
         <profile>
-            <id>ssu_st_prod</id>
-            <activation>
-		<activeByDefault>true</activeByDefault>
-	    </activation>
+            <id>ssu_st_prod</id>    
             <properties>
                 <appName>ipsilon</appName>
                 <contextPath>/oecde</contextPath>
@@ -392,25 +408,7 @@
                 <skinTheme></skinTheme>
             </properties> 
         </profile>
-        <!-- oec-tst.main.sgu.ru/oecde    -->
-        <profile>
-            <id>ssu_st_test</id>
-             <properties> 
-                <appName>oecde</appName>
-                <contextPath>oecde</contextPath>
-                <db.connectionURL>jdbc:postgresql://vishnu.main.sgu.ru:5432/oecdo_test/</db.connectionURL> 
-                <db.login>malygin</db.login> 
-                <db.pass>11nekotyan</db.pass>
-                <fileFolder>oecde</fileFolder>
-                <storage>oecde2</storage>
-                <videoConfUrl>http://oecdo.sgu.ru/client/geo/</videoConfUrl>
-                <textbookUrl>http://oec-static.main.sgu.ru/geo/textbooks/</textbookUrl>
-                <ipsilonUmkUrl>http://oec.sgu.ru/ipsilonUmk3/</ipsilonUmkUrl>
-                <scheduleUrl></scheduleUrl>
-                <scheduleRecordScriptUrl></scheduleRecordScriptUrl>
-                <skinTheme></skinTheme>
-            </properties> 
-        </profile>
+
     </profiles>
     <properties>
         <netbeans.hint.deploy.server>Tomcat</netbeans.hint.deploy.server>

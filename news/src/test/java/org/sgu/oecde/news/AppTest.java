@@ -1,11 +1,13 @@
 package org.sgu.oecde.news;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.sgu.oecde.core.BasicTest;
+import org.sgu.oecde.core.education.resource.Image;
 import org.sgu.oecde.core.users.Admin;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.core.util.LangEnum;
@@ -23,7 +25,7 @@ public class AppTest extends BasicTest{
     @Test
     public void newsAdd(){
         String fullText = "qweeeeeeeee qwe      qwe qw aoksf[glsdkfn[ gofg ";
-        String header = "sdf ksdjfgkjdfk gjdf g   sdf gfgf ";
+        String header = "новости от кати";
         String announcement = " ssfdg df  dfkjngdk jfpgsjdf ";
         NewsItem item = new NewsItem();
         item.setTime(DateConverter.currentDate());
@@ -32,22 +34,35 @@ public class AppTest extends BasicTest{
         item.setHeader(header);
         item.setNewstype(NewTypeEnum.forAll);
         item.setLang(LangEnum.ru);
+     
+        
+        Image im = new Image();
+        im.setUrl("inf.png");
+        
+        item.addImage(im);
+
         setDao("adminDao");
-        Admin author = this.<Admin>getItem(11L);
+        Admin author = this.<Admin>getItem(82L);
         System.out.println(author);
         item.setAuthor(author);
         setDao("newsDao");
-        this.<INewsDao>getDao().save(item);
+        this.<INewsDao>getDao().saveBlog(item);
     }
 
-  @Ignore
+//  @Ignore
     @Test
-    public void listNews() {
-    
+    public void listNews() {  
+         setDao("adminDao");
+        Admin author = this.<Admin>getItem(82L);
         setDao("newsDao");
-        List<NewsItem> news = this.<INewsDao>getDao().getNewsForStudent(10, 1, LangEnum.ru);
+        int blogc=this.<INewsDao>getDao().getBlogsCountByUser(LangEnum.ru, 11L);
+       // int newc=this.<INewsDao>getDao().getNewsCount(LangEnum.ru);
+       System.out.println("!" + blogc);
+//
+        List<NewsItem> news = this.<INewsDao>getDao().getBlogsByUser(20, 1, LangEnum.ru,82L);
         for(NewsItem n:news){
-          //  System.out.println(n.getId());
+           System.out.println(n.getId());
+           System.out.println(n.getImages());
         }
        System.out.println(""+news.size());
     }

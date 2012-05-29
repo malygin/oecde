@@ -1,0 +1,24 @@
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/adminTemplate.xhtml"
+    xmlns:util="http://java.sun.com/jsf/composite/components/util"
+    xmlns:news="http://java.sun.com/jsf/composite/components/news"
+    >
+
+    <f:metadata>
+        <f:viewParam name="page" value="#{NavigationBean.page}"/>
+        <f:viewParam name="view" value="#{NewsBean.viewUserId}"/>
+        <f:viewParam name="page" value="#{NewsBean.currentPage}"/>
+    </f:metadata>
+    <ui:define name="contentHeader">
+        Блоги
+    </ui:define>
+    <ui:define name="content">
+
+        <util:navigationList elementOnPage="#{NewsBean.newsOnPage}"
+                             numElements="#{NewsBean.countBlogs}"/>
+        <news:blogList list="#{NewsBean.blogs}"/>
+    </ui:define>
+</ui:composition>

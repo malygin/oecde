@@ -29,12 +29,18 @@
         <param name="valueOfMethod">parse</param>
       </type>
     </property>
-    <many-to-one class="org.sgu.oecde.core.users.Admin" fetch="join" foreign-key="fk_news_admin" name="author"/>
-    <!--
-    <set batch-size="15" cascade="none" fetch="join" name="tags">
-      <key column="question_id" not-null="true"/>
-      <one-to-many class="org.sgu.oecde.tests.Answer"/>
-    </set>
-    -->
+    <many-to-one class="org.sgu.oecde.core.users.AbstractPerson" fetch="join" foreign-key="fk_news_author" name="author"/>
+   
+    <set  batch-size="15" fetch="select" mutable="false"  name="tags" table="tags_to_news">
+      <key column="news_id" foreign-key="fk_news_2_tags_news" not-null="false"/>
+      <many-to-many class="org.sgu.oecde.news.NewsTag"   column="tag_id" foreign-key="fk_news_2_tag_tag"/>
+    </set>    
+    
+    <list cascade="all" name="images" table="news_images" batch-size="15" fetch="select" >
+      <key column="news_id" not-null="false"/>
+      <index column="id_images_news"/>
+      <many-to-many class="org.sgu.oecde.core.education.resource.Image" column="image_id" />
+    </list>
+ 
   </class>
 </hibernate-mapping>

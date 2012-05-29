@@ -1074,10 +1074,10 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .linkToTeachersProfile a:active{ color: #C3EF73 !important; text-decoration: underline; font-weight: normal;vertical-align: top;}
 .mainStyle .linkToTeachersProfile a:hover{ color: #C3EF73 !important; text-decoration: underline; font-weight: normal;vertical-align: top;}
 
-.mainStyle .linkToAdminsProfile a:link {color: #fbc98e; text-decoration: none; font-weight: normal; font-family: Tahoma;}
-.mainStyle .linkToAdminsProfile a:visited {color: #fbc98e; text-decoration: none; font-weight: normal; font-family: Tahoma;}
-.mainStyle .linkToAdminsProfile a:active {color: #fbc98e; text-decoration: underline; font-weight: normal; font-family: Tahoma;}
-.mainStyle .linkToAdminsProfile a:hover {color: #fbc98e; text-decoration: underline; font-weight: normal; font-family: Tahoma; }
+.mainStyle .linkToAdminsProfile a:link {color: #fbc98e; text-decoration: none; font-weight: normal; }
+.mainStyle .linkToAdminsProfile a:visited {color: #fbc98e; text-decoration: none; font-weight: normal; }
+.mainStyle .linkToAdminsProfile a:active {color: #fbc98e; text-decoration: underline; font-weight: normal; }
+.mainStyle .linkToAdminsProfile a:hover {color: #fbc98e; text-decoration: underline; font-weight: normal; }
 
 .mainStyle .navigationLinks,.mainStyle .navigationLinks a{
     font-size: 10pt; font-weight: normal;

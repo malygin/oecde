@@ -3,7 +3,11 @@
 <hibernate-mapping schema="oecdo_test">
   <class abstract="true" dynamic-update="true" name="org.sgu.oecde.core.education.resource.AbstractResource" table="abstract_resource">
     <cache usage="read-write"/>
-    <id name="id" type="long"/>
+    <id name="id" type="long">
+        <generator class="native">
+        <param name="sequence">resource_seq</param>
+        </generator>
+      </id>
     <property insert="false" length="250" name="title" type="string"/>
     <property insert="false" length="400" name="description" type="string"/>
     <property insert="false" name="version" scale="3" type="integer"/>

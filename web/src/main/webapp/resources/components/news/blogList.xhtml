@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+      xmlns:sec="http://www.springframework.org/security/facelets/tags"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute  name="list"/>
+    </composite:interface>
+
+    <!-- IMPLEMENTATION -->
+    <composite:implementation>
+
+
+        <div class="StudentMainPageTitlesBorders">
+            <div>
+            <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
+                Экспериментальные блоги  | <span class="linkToAdminsProfile"> <a href="blog_list.xhtml?view=#{NewsBean.currentUser.id}">(посмотреть мои записи)</a></span>
+                </div>
+                <div><a href="blog_add.xhtml">+ Добавить свою запись</a></div>
+        <ui:repeat value="#{cc.attrs.list}" var="n">
+
+          <h:form id="formList">
+                    <div style="padding-left: 20px; padding-top: 20px;">
+                      <div style="padding-right: 10px; "><ut:showPhoto user="#{n.author}" styleClass="#{n.author.classType}"  size="small"/></div>
+                       <div style="text-align: left;padding-left: 80px;"> <span class="linkTo#{n.author.classType}sProfile"><a href="#{fn:toLowerCase(n.author.classType)}.xhtml?id=#{n.author.id}">#{n.author.surname} #{n.author.name}</a><br/>
+                        </span>                        
+                        <span class="greenNewsLink"><a href="blog_read.xhtml?id=#{n.id}">#{n.header}</a></span>
+                                  &nbsp;&nbsp;&nbsp;
+                        <span class="lightGreyText" ><h:outputText converter="dateConverter" value="#{n.time}"></h:outputText></span>
+                            <br/>
+                            <h:outputText escape="false" value="#{n.fullText}"/>
+                            
+                   
+                        <div>
+                            <span class="lightGreyText">#{msgs.student_newsLooks}</span>&nbsp; #{n.reviewNumber} &nbsp;&nbsp;&nbsp;<span class="lightGreyText">#{msgs.user_newsNumberOfComment} </span>&nbsp; #{n.commentNumber}
+                        </div>
+                            <div> <h:outputText rendered="#{NewsBean.renderDeleteSuccess}" value="Пост успешно удален от греха!"/></div>
+                             <div>
+                                 <h:panelGroup rendered="#{NewsBean.currentUser.id==n.author.id || sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.authorities.get(0) eq 'ROLE_ADMIN'}">
+                                        <span class="controlWorksDisciplineNameLinkGrey news_delete">
+                                            <h:commandLink rendered="#{not NewsBean.renderDeleteSuccess}"  action="#{NewsBean.delete}" value="#{msgs.message_delete}">
+                                                <f:setPropertyActionListener target="#{NewsBean.newIdDelete}" value="#{n.id}" />
+                                                <f:ajax  execute="@this" render="@form" />
+                                            </h:commandLink>
+                                        </span>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <span class="controlWorksDisciplineNameLinkGrey news_edit">
+                                            <h:outputLink value="blog_edit.xhtml?id=#{n.id}" rendered="#{not NewsBean.renderDeleteSuccess}" styleClass="AdminNavigationLinks">
+                                                #{msgs.admin_mainContentEdit}
+                                            </h:outputLink>
+                                        </span>
+                                 </h:panelGroup>
+                        </div>
+                        <img src="../resources/images/razdel.jpg" alt=""/>
+                       </div>
+            </div>
+          </h:form>
+      </ui:repeat>
+                </div></div>
+    </composite:implementation>
+</html>

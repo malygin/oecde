@@ -12,6 +12,17 @@ public class NewsTag extends BasicItem{
     private String name;
     private static final long serialVersionUID = 84L;
 
+    public NewsTag() {
+    }
+
+    
+    
+    public NewsTag( String name) {     
+        this.name = name;
+    }
+
+    
+    
     public String getName() {
         return name;
     }

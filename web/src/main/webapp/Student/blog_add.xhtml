@@ -1,0 +1,21 @@
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="../resources/studentTemplate.xhtml"
+    xmlns:news="http://java.sun.com/jsf/composite/components/news">
+    <f:metadata>
+        <f:viewParam name="id" value="#{NewsBean.currentNewId}"/>
+    </f:metadata>
+
+    <ui:define name="content">
+        <div class="StudentMainPageTitlesBorders">
+            <div class="mainStudentPageTitles  mainStudentPageTitlesSkyBlue">
+                Добавление записи | <a href="blog_list.xhtml"> вернуться к блогам</a>
+            </div>
+            <div class="interfaceContent blocksPaddings">
+                <news:blogAdd/>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
