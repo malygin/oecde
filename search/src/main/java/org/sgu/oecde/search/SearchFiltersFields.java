@@ -11,7 +11,7 @@ import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.StudentGroup;
 import org.sgu.oecde.core.users.Teacher;
-import org.sgu.oecde.messages.Message;
+//import org.sgu.oecde.messages..Message;
 
 /**
  *
@@ -25,8 +25,8 @@ public enum SearchFiltersFields {
             new String[]{"name","secondname","surname"}),
     umk(Umk.class,"умк",
             new String[]{"name"}),
-    message(Message.class,"сообщения",
-            new String[]{"theme", "fulltext"}),
+//    message(Message.class,"сообщения",
+//            new String[]{"theme", "fulltext"}),
     group(StudentGroup.class,"группа",
             new String[]{"name"});
     
@@ -65,13 +65,13 @@ public enum SearchFiltersFields {
     }
 
     public HashMap<String, String> getAdditionalFields(AbstractUser user, Boolean restrict) {
-        switch(this){
-           case message:
-               if ((user instanceof AbstractStudent) || restrict){
-                   additionalFields.put("author", user.getId().toString());                   
-               }
-               break;               
-        }
+//        switch(this){
+//           case message:
+//               if ((user instanceof AbstractStudent) || restrict){
+//                   additionalFields.put("author", user.getId().toString());                   
+//               }
+//               break;               
+//        }
         return additionalFields;
     }
     
