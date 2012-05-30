@@ -17,7 +17,7 @@
         #{msgs.student_newsTitle}
     </ui:define>
     <ui:define name="content">
-        <c:set target="#{DiscussionBean}" property="objectType" value="news"/> 
+        <c:set target="#{DiscussionBean}" property="objectType" value="blogs"/> 
         <div class="interfaceContent">
             <news:blogRead n="#{NewsBean.currentNewItem}"/>
         </div>

@@ -139,7 +139,7 @@ public class DiscussionBean {
                  news.setCommentNumber(news.getCommentNumber()+1);
                  newsDao.update(news);
                  journalService.save(EventType.POST_ADD, userForSave, news, node);
-          }else   journalService.save(EventType.POST_ADD, userForSave, node);
+          }else if (objectTypeEnum!=ForumTypes.BLOGS)   journalService.save(EventType.POST_ADD, userForSave, node);
             HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
              String[] s=request.getRequestURI().split("/");
             String url=s[s.length-1];      
@@ -185,7 +185,7 @@ public class DiscussionBean {
                   news.setCommentNumber(news.getCommentNumber()+1);
                   newsDao.update(news);
                   journalService.save(EventType.POST_ANSWER, userForSave,news, node, Integer.toString(currentPage), node.getUser().getFio());
-            }else journalService.save(EventType.POST_ANSWER, userForSave,node, Integer.toString(currentPage), node.getUser().getFio() );
+            }else if (objectTypeEnum!=ForumTypes.BLOGS) journalService.save(EventType.POST_ANSWER, userForSave,node, Integer.toString(currentPage), node.getUser().getFio() );
 
              HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
              String[] s=request.getRequestURI().split("/");

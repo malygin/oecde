@@ -20,6 +20,7 @@ public class EventBodyElement implements Serializable{
     public static String testPage;
     public static String studentPage;
     public static String newsPage;
+    public static String blogsPage;
     public static String teacherPage;
     public static String adminPage;
     public static String supervisorPage;

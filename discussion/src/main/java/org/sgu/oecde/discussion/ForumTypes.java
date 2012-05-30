@@ -32,7 +32,12 @@ public enum ForumTypes {
     /**
      * новость
      */
-    NEWS;
+    NEWS,
+    /**
+     * блоги
+     */
+    BLOGS
+    ;
     private static final long serialVersionUID = 89L;
 
     public String getName() {
@@ -51,6 +56,8 @@ public enum ForumTypes {
                 return "adminbags";
             case NEWS:
                 return "news";
+            case BLOGS:
+                return "blogs";
             default:
                 //Заглушка. Недостижима.
                 throw new RuntimeException("No string representation found for " + this);
@@ -85,6 +92,8 @@ public enum ForumTypes {
                 return "Баг-Трекер";
             case NEWS:
                 return "Новостной форум";
+            case BLOGS:
+                return "Блоги";
             default:
                 //Заглушка. Недостижима.
                 throw new RuntimeException("No string representation found for " + this);

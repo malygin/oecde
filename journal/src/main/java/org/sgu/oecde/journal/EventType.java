@@ -974,7 +974,7 @@ public enum EventType {
              ForumTypes type = node.getRoot().getObjectType();
              str[0] = type.toString();
                   
-             if(ForumTypes.NEWS.equals(type)&&news!=null){
+             if((ForumTypes.NEWS.equals(type)||(ForumTypes.BLOGS.equals(type)))&&news!=null){
                 str[1] = news.getHeader();
                 str[2] = node.getParent().getId().toString();
                 str[3]=(String)o[2];
@@ -1024,6 +1024,11 @@ public enum EventType {
                 case NEWS:
                     el[0] = new EventBodyElement(str[4]+" вашему комментарию к новости ");
                     el[1] = new EventBodyElement("?id="+item.getMultiId()+"&amp;page="+str[3]+"#"+str[2], str[1]+" ", EventBodyElement.newsPage);
+                    el[2] = new EventBodyElement("   "+"  добавил(а) ответ.");
+                    break;
+               case BLOGS:
+                    el[0] = new EventBodyElement(str[4]+" вашему комментарию к блогу ");
+                    el[1] = new EventBodyElement("?id="+item.getMultiId()+"&amp;page="+str[3]+"#"+str[2], str[1]+" ", EventBodyElement.blogsPage);
                     el[2] = new EventBodyElement("   "+"  добавил(а) ответ.");
                     break;
             }
@@ -1115,6 +1120,11 @@ public enum EventType {
                 case NEWS:
                     el[3] = new EventBodyElement("добавил(а) комментарий к новости ");
                     el[4] = new EventBodyElement(item.getMultiId(), str[1], EventBodyElement.newsPage);
+                    break;
+            
+                case BLOGS:
+                    el[3] = new EventBodyElement("добавил(а) комментарий к блогу ");
+                    el[4] = new EventBodyElement(item.getMultiId(), str[1], EventBodyElement.blogsPage);
                     break;
             }
             return el;

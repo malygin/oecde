@@ -93,8 +93,17 @@ public class ControlWorksBean extends StudentCurriculumBean{
                 }
                 data[1] = w;
                 data[2] = available;
-                if (semesterGetter.getCurrentSemester()!= this.semester)
-                    data[2] = false;
+                if (semesterGetter.getCurrentSemester()!= this.semester){
+                    // проверяем переэкзаменовка ли сейчас и даем доступ предыдущему семестру
+                    if(((currentDate.compareTo(reExameBeginDate)>=0
+                    &&currentDate.compareTo(reExameEndDate)<0)
+                    )&&(w==null||!ControlWorkProgress.passed.equals(w.getProgress()))
+                    &&!cr.getControlWorksPaperOnly()
+                    &&student.getFullAccess())
+                     data[2] = true;
+                    else  data[2] = false;
+                }
+
                 if(getCurriculumAndTeacher().containsKey(cr))
                     data[3] = getCurriculumAndTeacher().get(cr);
                 data[4] = (cr.getControlWorksPaperOnly()!=null&&cr.getControlWorksPaperOnly())?"в рукописном":"";
