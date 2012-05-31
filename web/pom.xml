@@ -331,7 +331,7 @@
         <profile>
             <id>ssu_st_test</id>
             <properties> 
-                <appName>ipsilon</appName>
+                <appName>oecde</appName>
                 <contextPath>/oecde</contextPath>
                 <db.connectionURL>jdbc:postgresql://vishnu.main.sgu.ru:5432/oecdo_test/</db.connectionURL> 
                 <db.login>malygin</db.login> 

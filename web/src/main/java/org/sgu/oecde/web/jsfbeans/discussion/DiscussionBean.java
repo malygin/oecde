@@ -134,12 +134,12 @@ public class DiscussionBean {
              }
           node = discussionService.addNode(null, new Long(objectId), objectTypeEnum, 0L, nodeText , userForSave);       
        
-          if(objectTypeEnum==ForumTypes.NEWS){
+          if(objectTypeEnum==ForumTypes.NEWS || objectTypeEnum==ForumTypes.BLOGS){
                  NewsItem news=newsDao.getById(new Long(objectId));
                  news.setCommentNumber(news.getCommentNumber()+1);
                  newsDao.update(news);
-                 journalService.save(EventType.POST_ADD, userForSave, news, node);
-          }else if (objectTypeEnum!=ForumTypes.BLOGS)   journalService.save(EventType.POST_ADD, userForSave, node);
+                if (objectTypeEnum!=ForumTypes.BLOGS) journalService.save(EventType.POST_ADD, userForSave, news, node);
+          }else   journalService.save(EventType.POST_ADD, userForSave, node);
             HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
              String[] s=request.getRequestURI().split("/");
             String url=s[s.length-1];      
@@ -180,12 +180,12 @@ public class DiscussionBean {
            Node node=discussionService.addNode(null, new Long(objectId), objectTypeEnum, new Long(nodeId), nodeTextReply , userForSave);
            node.setParent(currentNode); 
            node.setRoot(currentRoot);           
-           if(objectTypeEnum==ForumTypes.NEWS){
+           if(objectTypeEnum==ForumTypes.NEWS || objectTypeEnum==ForumTypes.BLOGS){
                   NewsItem news=newsDao.getById(new Long(objectId));
                   news.setCommentNumber(news.getCommentNumber()+1);
                   newsDao.update(news);
-                  journalService.save(EventType.POST_ANSWER, userForSave,news, node, Integer.toString(currentPage), node.getUser().getFio());
-            }else if (objectTypeEnum!=ForumTypes.BLOGS) journalService.save(EventType.POST_ANSWER, userForSave,node, Integer.toString(currentPage), node.getUser().getFio() );
+                  if (objectTypeEnum!=ForumTypes.BLOGS) journalService.save(EventType.POST_ANSWER, userForSave,news, node, Integer.toString(currentPage), node.getUser().getFio());
+            }else journalService.save(EventType.POST_ANSWER, userForSave,node, Integer.toString(currentPage), node.getUser().getFio() );
 
              HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
              String[] s=request.getRequestURI().split("/");
