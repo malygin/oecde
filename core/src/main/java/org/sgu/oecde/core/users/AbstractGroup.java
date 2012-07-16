@@ -18,6 +18,12 @@ public abstract class AbstractGroup<T extends AbstractPerson> extends BasicItem 
      * название группы
      */
     private String name;
+    
+    /**
+     * group-ancestor, for faculty
+     */
+    private AbstractGroup<T> ancestor;
+    
 
     public AbstractGroup() {
     }
@@ -68,4 +74,14 @@ public abstract class AbstractGroup<T extends AbstractPerson> extends BasicItem 
             sb.append("название: ").append(getName()).append("; ");
         return sb.toString();
     }
+
+    public AbstractGroup<T> getAncestor() {
+        return ancestor;
+    }
+
+    public void setAncestor(AbstractGroup<T> ancestor) {
+        this.ancestor = ancestor;
+    }
+    
+    
 }

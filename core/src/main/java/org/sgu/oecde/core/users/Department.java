@@ -12,7 +12,13 @@ public class Department extends AbstractGroup<Teacher>{
     /**
      * телефон
      */
-    private Integer phoneNumber;
+    private String phoneNumber;
+    private String email;
+    private String address;
+    private String url;
+    
+    private Teacher head;
+  
     private static final long serialVersionUID = 68L;
 
     public Department() {
@@ -34,20 +40,46 @@ public class Department extends AbstractGroup<Teacher>{
         this.description = description;
     }
 
-    /**
-     *
-     * @return телефон
-     */
-    public Integer getPhoneNumber() {
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Teacher getHead() {
+        return head;
+    }
+
+    public void setHead(Teacher head) {
+        this.head = head;
+    }
+
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    /**
-     * телефон
-     * @param phoneNumber
-     */
-    public void setPhoneNumber(Integer phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+  
     
 }
