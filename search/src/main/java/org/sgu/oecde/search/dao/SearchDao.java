@@ -1,6 +1,9 @@
 package org.sgu.oecde.search.dao;
 
 import java.util.List;
+import java.util.Map;
+import org.sgu.oecde.core.users.AbstractUser;
+import org.sgu.oecde.search.SearchFiltersFields;
 import org.sgu.oecde.search.SearchType;
 import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate3.HibernateTemplate;
@@ -16,7 +19,7 @@ public class SearchDao extends HibernateTemplate implements ISearchDao{
     /**
      * {@inheritDoc }
      */
-    public List search(SearchType type,String[] words) throws DataAccessException{
+    public List search(SearchFiltersFields type,String[] words, AbstractUser user, Boolean restrict) throws DataAccessException{
         Assert.notNull(type);
         Assert.notEmpty(words);
         StringBuilder sb = new StringBuilder("from").append(" ").append(type.toClass()).append(" where ");
@@ -26,7 +29,7 @@ public class SearchDao extends HibernateTemplate implements ISearchDao{
             if(notFirst)
                 sb.append(" and ");
             sb.append("(");
-            for(String s:type.getSearchableFields()){
+            for(String s:type.getSelectedFileds()){
                 if(notFirtsField)
                     sb.append(" or ");
                 sb.append("lower(").append(s).append(") like '%").append(w.toLowerCase()).append("%'");
@@ -36,8 +39,13 @@ public class SearchDao extends HibernateTemplate implements ISearchDao{
             notFirtsField = false;
             notFirst = true;
         }
+        
         if(!notFirst)
             return null;
+        for (Map.Entry<String,String> e : type.getAdditionalFields(user, restrict).entrySet()){
+            sb.append("and ").append(e.getKey()).append("=").append(e.getValue());
+        }
+        System.out.println("q "+sb);
         return getSession().createQuery(sb.toString()).setCacheable(false).list();
     }
 }
