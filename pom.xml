@@ -42,10 +42,7 @@
             <id>ssuRepo</id>
             <url>http://baldr.sgu.ru/maven/</url>
         </repository>        
-<!--        <repository>
-            <id>oecde_snapshots</id>
-            <url>http://baldr.sgu.ru:8080/archiva/repository/oecde_snapshots/</url>
-        </repository>        -->
+
     </repositories>
 
     <pluginRepositories>
