@@ -63,7 +63,7 @@ public class Materials extends StudentCurriculumBean{
                             c.setTestPoints(p.getTest());
                             c.setSum(p.getPoints().getSum());
                             c.setConcludingReTestPoints(p.getConcludingReTest()==null?0:p.getConcludingReTest()*d.getWeightTest()/100);
-                            c.setConcludingTestPoints(p.getConcludingTest()*d.getWeightTest()/100);
+                            c.setConcludingTestPoints(p.getConcludingTest()==null?0:p.getConcludingTest()*d.getWeightTest()/100);
                             c.setReTestPoints(p.getReTest());
                             c.setTestsCount(p.getTestsCount()+p.getConcludingTestsCount());
                             c.setActivityPoints(p.getActivityPoints()==null?0:p.getActivityPoints()*d.getWeightAtt()/100);

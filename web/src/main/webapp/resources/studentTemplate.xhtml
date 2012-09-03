@@ -36,7 +36,7 @@
         </ol>
         <div class="modulsTitles"><p class="sideBarTitle">#{msgs.student_comMenuTitle}</p></div>
         <ol class="leftSideMenuLinks leftSideList">
-             <li><span style="font-weight: bold; color: #fbb35d; ">new!</span> <a href="blog_list.xhtml">Блоги</a></li>
+             <li> <a href="blog_list.xhtml">Блоги</a></li>
 
             <li>
                 <a href="teachersList.xhtml">#{msgs.student_comMenuTeachers}</a>
@@ -78,11 +78,11 @@
     <ui:define name="top">
         <ol class="topMenuLinks" style="height: 100%;">
             <h:form style="height: 100%;">
-                           <li class="topMenuLinkContainer"><a href="support.xhtml">#{msgs.user_help}</a></li>
+                 <li class="topMenuLinkContainer"><a href="support.xhtml">#{msgs.user_help}</a></li>
                 <li class="topMenuLinkContainer"><a href="info.xhtml">#{msgs.student_topMenuInfo}</a></li>
                 <li class="topMenuLinkContainer"><a href="news_list.xhtml">#{msgs.student_topMenuNews}</a></li>
                 <li class="topMenuLinkContainer"><a href="settings.xhtml">#{msgs.student_topMenuSettings}</a></li>
-                <li class="topMenuLinkContainer"><a href="search.xhtml">Поиск</a></li>
+                <li class="topMenuLinkContainer"><span style="font-weight: bold; color: #fbb35d; ">new!</span><a href="search.xhtml">Поиск</a></li>
 
                 <li class="topMenuLinkContainer">
                     <div class="" style="float: left;">
@@ -132,7 +132,6 @@
                 <li><a target="_blank" href="http://oecdo.sgu.ru/client/"><h:graphicImage value="../resources/images/video.png" styleClass="iconInMenu" /><div>#{msgs.student_comMenuVideoconferencing}</div></a></li>
 
             </ol>
-
             <div class="blueMenuTitle"><p class="sideBarTitle">#{msgs.student_controlMenuTitle}</p></div>
             <ol class="leftSideMenuLinks iconMenu">
                 <li><a href="curriculum.xhtml"><h:graphicImage value="../resources/images/uch_plan.png" styleClass="iconInMenu" /><div>#{msgs.student_controlMenuCurriculum}</div></a></li>

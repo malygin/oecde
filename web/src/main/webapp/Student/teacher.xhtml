@@ -36,6 +36,14 @@
                     <tr>
                         <td><p>#{msgs.admin_mainContentOfficePhoneNumber}</p></td><td><div>#{userViewBean.user.officePhoneNumber}</div></td>
                     </tr>
+                    <tr>
+                        <td class="userInfoItemColor">#{msgs.teacher_mainContentUserInfoDepartment}</td>
+                        <td><a href="cath.xhtml?id=#{userViewBean.user.department.id}">#{userViewBean.user.department.name}</a></td>
+                    </tr>
+                    <tr>
+                        <td class="userInfoItemColor">#{msgs.teacher_mainContentUserInfoPost}</td>
+                        <td>#{userViewBean.user.post}</td>
+                    </tr>
                 </table>
             </div>
             <div class="floatDestroyer"></div>

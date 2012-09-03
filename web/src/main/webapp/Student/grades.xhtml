@@ -106,8 +106,24 @@
                             <td><h:outputText converter="enumConverter" value="#{gradesBean.currentsFacade.controlWorkValue}"/></td>
                         </tr>
                         <tr>
-                            <td>Дополнительные баллы</td>
-                            <td>#{gradesBean.currentsFacade.activityPoints}</td>
+                            <td>Промежуточная аттестация</td>
+                            <td><span> #{gradesBean.currentsFacade.activityPoints}</span> </td>
+                        </tr>
+                        <tr>
+                            <td>Персональные характеристика</td>
+                            <td><span> #{gradesBean.currentsFacade.personalCharPoints}</span> </td>
+                        </tr>
+                                <tr>
+                            <td>Аудиторная активность</td>
+                            <td><span> #{gradesBean.currentsFacade.samAudWorkPoints}</span>  </td>
+                        </tr>
+                                <tr>
+                            <td>Внеаудиторная активность</td>
+                            <td><span> #{gradesBean.currentsFacade.samAudOutWorkPoints}</span>  </td>
+                        </tr>
+                        <tr>
+                            <td>#{msgs.student_mainTest} </td>
+                            <td><span>#{gradesBean.currentsFacade.concludingReTestPoints==0?gradesBean.currentsFacade.concludingTestPoints:gradesBean.currentsFacade.concludingReTestPoints}</span>  </td>
                         </tr>
                         <tr>
                             <td>#{msgs.student_gradesTableHeadSumm}</td>
