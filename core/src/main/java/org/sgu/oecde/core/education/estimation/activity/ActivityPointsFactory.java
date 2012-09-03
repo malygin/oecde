@@ -34,9 +34,12 @@ public class ActivityPointsFactory extends EstimatedWorkPointsAbstractFactory{
         Map<IEstimate,Object> values = null;
         if(result instanceof Activity){
             values = new HashMap<IEstimate, Object>();
-            Activity cw = (Activity)result;
-            values.put(ActivityEstimateNames.activity_points,cw.getPoints());
-             values.put(ActivityEstimateNames.activity,cw);
+            Activity ac = (Activity)result;
+            values.put(ActivityEstimateNames.activity_points,ac.getPoints());
+            values.put(ActivityEstimateNames.samAud_points,ac.getSamAudWorkpoints());
+            values.put(ActivityEstimateNames.samOutAud_points,ac.getSamOutAudWorkpoints());
+            values.put(ActivityEstimateNames.personChar_points,ac.getPersonalCharpoints());
+            values.put(ActivityEstimateNames.activity,ac);
         }
         return values;
     }

@@ -76,8 +76,10 @@ public class GroupPoints extends AbstractStudentsListBean{
                 a.setDate(DateConverter.currentDate());
                 a.setStudent(p.getPoints().getStudent());       
             }
-           if (p.getActivityPoints()==null || p.getActivityPoints()>100 || p.getActivityPoints()<0) a.setPoints(0);
-           else  a.setPoints(p.getActivityPoints()); 
+           a.setPoints(p.getActivityPoints());
+           a.setSamAudWorkpoints(p.getSamAudWorkPoints());
+           a.setPersonalCharpoints(p.getPersonalCharPoints());
+           a.setSamOutAudWorkpoints(p.getSamAudOutWorkPoints());
             try {
                actDao.update(a);
             } catch (Exception ex) {

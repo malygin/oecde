@@ -3,6 +3,7 @@ package org.sgu.oecde.core.education.resource;
 import java.util.Comparator;
 import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
+import org.sgu.oecde.core.users.Teacher;
 
 /**
  * ресурс умк, либо модуля
@@ -44,7 +45,7 @@ abstract public class AbstractResource extends BasicItem{
     /**
      * авторы
      */
-    private Set<Author>authors;
+    private Set<Teacher>authors;
 
     public AbstractResource() {
     }
@@ -65,21 +66,14 @@ abstract public class AbstractResource extends BasicItem{
         this.title = title;
     }
 
-    /**
-     * авторы
-     * @return
-     */
-    public Set<Author> getAuthors() {
+    public Set<Teacher> getAuthors() {
         return authors;
     }
 
-    /**
-     * авторы
-     * @param authors
-     */
-    public void setAuthors(Set<Author> authors) {
+    public void setAuthors(Set<Teacher> authors) {
         this.authors = authors;
     }
+
 
     /**
      * дата последнего изменения

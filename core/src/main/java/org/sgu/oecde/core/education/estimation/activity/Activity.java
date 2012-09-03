@@ -18,6 +18,11 @@ public class Activity extends AbstractResult{
      * баллы
      */
     private Integer points;
+    private Integer samAudWorkpoints;
+    private Integer samOutAudWorkpoints;
+    private Integer personalCharpoints;
+    
+    
 
     public Activity() {
     }
@@ -27,9 +32,40 @@ public class Activity extends AbstractResult{
     }
 
     public void setPoints(Integer points) {
-        this.points = points;
+       if (points==null || points>100 || points<0)
+           this.points = 0 ;
+       else  this.points = points;
     }
-    
+
+    public Integer getSamAudWorkpoints() {
+        return samAudWorkpoints;
+    }
+
+    public void setSamAudWorkpoints(Integer samAudWorkpoints) {
+        if (samAudWorkpoints==null || samAudWorkpoints>100 || samAudWorkpoints<0)
+            this.samAudWorkpoints=0;
+        else  this.samAudWorkpoints = samAudWorkpoints;
+    }
+
+    public Integer getPersonalCharpoints() {
+        return personalCharpoints;
+    }
+
+    public void setPersonalCharpoints(Integer personalCharpoints) {
+       if (personalCharpoints==null || personalCharpoints>100 || personalCharpoints<0)
+            this.personalCharpoints=0;
+        else  this.personalCharpoints = personalCharpoints;
+    }
+
+    public Integer getSamOutAudWorkpoints() {
+        return samOutAudWorkpoints;
+    }
+
+    public void setSamOutAudWorkpoints(Integer samOutAudWorkpoints) {
+       if (samOutAudWorkpoints==null || samOutAudWorkpoints>100 || samOutAudWorkpoints<0)
+            this.samOutAudWorkpoints=0;
+        else  this.samOutAudWorkpoints = samOutAudWorkpoints;
+    }
     
     
 }

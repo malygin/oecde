@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ut="http://java.sun.com/jsf/composite/components/util">
+
+ <!-- INTERFACE -->
+  <composite:interface>
+    
+  </composite:interface>
+
+  <!-- IMPLEMENTATION -->
+  <composite:implementation>
+        <div class="StudentMainPageTitlesBorders">
+          <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">
+            #{cathBean.name}
+          </div>
+          <div>
+            <span class="mainStudentPageTitlesSkyBlue">Руководитель подразделения </span>
+            <ut:userListItem type="teacher" u="#{cathBean.head}"/>
+            
+            <span class="mainStudentPageTitlesSkyBlue">Cостав</span>
+            <h:dataTable style="width: 100%; display: block;" value="#{cathBean.teachers}" var="i" id="table" styleClass="controlWorksBorders"
+                                        columnClasses="studentInterfaceStandartList">
+                <h:column>
+                    <ut:userListItem type="teacher" u="#{i}"/>
+                </h:column>
+            </h:dataTable>
+          </div>
+        </div>
+  </composite:implementation>
+</html>

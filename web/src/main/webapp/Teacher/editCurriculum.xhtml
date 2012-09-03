@@ -1,0 +1,66 @@
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:r="http://java.sun.com/jsp/jstl/core"
+    template="../resources/teacherTemplate.xhtml"
+    xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
+    xmlns:edu="http://java.sun.com/jsf/composite/components/education">
+
+    <ui:define name="contentHeader">
+        #{msgs.student_myMaterials}
+    </ui:define>
+    <ui:define name="content">
+        <div>
+            <f:metadata>
+                <f:viewParam name="id" value="#{teacherCurriculumsEditBean.curriculimId}"/>
+            </f:metadata>
+            <div class="StudentMainPageTitlesBorders">
+                <div class="mainStudentPageTitles mainStudentPageTitlesSkyBlue">
+                    Редактирование учебного плана 
+                </div>
+                <div>            <br/>
+                
+                    #{teacherCurriculumsEditBean.curriculum.discipline.name} - #{teacherCurriculumsEditBean.curriculum.speciality.name}
+                   <br/> <br/>
+                    <h:form styleClass="teacherCurriculum">
+                        <table>
+                        <tr><td>Вес по тестам </td>
+                            <td><h:inputText class="searchInput" maxlength="3" size="3" value="#{teacherCurriculumsEditBean.curriculum.weightTest}"/><br/>
+                            </td>
+                        </tr>
+                        <tr><td>Вес по аудиторной работе </td>
+                            <td><h:inputText class="searchInput" maxlength="3" size="3" value="#{teacherCurriculumsEditBean.curriculum.weightAud}"/><br/>
+                            </td>
+                        </tr>
+                        <tr><td>Вес по персональным характеристикам </td>
+                            <td><h:inputText class="searchInput" maxlength="3" size="3" value="#{teacherCurriculumsEditBean.curriculum.weightPers}"/><br/>
+                            </td>
+                        </tr>  
+                        <tr><td> Вес по внеаудиторной работе </td>
+                            <td><h:inputText class="searchInput" maxlength="3" size="3" value="#{teacherCurriculumsEditBean.curriculum.weightOutAud}"/><br/>
+                            </td>
+                        </tr>
+                        <tr><td colspan="2">
+                              <h:commandButton id="btn" value="#{msgs.teacher_saveButton}" styleClass="studentButton">
+                                  <f:ajax execute="@form" render="@form" listener="#{teacherCurriculumsEditBean.saveWeight}"/>
+                               </h:commandButton>
+                            </td>
+                        </tr>
+                        <tr><td colspan="2">
+                             
+                            </td>
+                        </tr>
+                            </table>
+                     <h:outputText id="error" rendered="#{teacherCurriculumsEditBean.error}" value="Сумма не равна 80"/>
+                    <h:outputText id="saved" rendered="#{teacherCurriculumsEditBean.saved}" value="Сохранено!"/>
+                    </h:form>
+                
+                    В сумме должно быть ровно 80!
+                    
+                </div>
+            </div>
+           
+        </div>
+    </ui:define>
+</ui:composition>

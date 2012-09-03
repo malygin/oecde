@@ -85,7 +85,7 @@
                 <h:panelGroup rendered="#{cc.attrs.type eq 'teacher'}">
                     <tr>
                         <td class="userInfoItemColor">#{msgs.teacher_mainContentUserInfoDepartment}</td>
-                        <td>#{cc.attrs.u.department.name}</td>
+                        <td><a href="cath.xhtml?id=#{cc.attrs.u.department.id}">#{cc.attrs.u.department.name}</a></td>
                     </tr>
                     <tr>
                         <td class="userInfoItemColor">#{msgs.teacher_mainContentUserInfoPost}</td>
@@ -101,7 +101,8 @@
                             </h:outputLink>
                         </td>
                     </tr>
-                    <tr><td class="userInfoItemColor">#{msgs.student_studentContact}</td><td></td></tr>
+                    <tr><td class="userInfoItemColor">#{msgs.student_studentContact}</td>
+                        <td>#{cc.attrs.u.contacts}</td></tr>
                 </h:panelGroup>
             <!--</table>
             <table style="width: 75%;">-->

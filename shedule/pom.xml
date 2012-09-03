@@ -24,11 +24,7 @@
           <scope>test</scope>
           <classifier>tests</classifier>
         </dependency>
-        <dependency>
-          <groupId>${project.groupId}</groupId>
-          <artifactId>de</artifactId>     
-          <scope>provided</scope>
-        </dependency>
+     
 
     </dependencies>
     

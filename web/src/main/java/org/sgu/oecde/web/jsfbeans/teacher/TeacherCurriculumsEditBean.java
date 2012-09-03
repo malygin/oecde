@@ -19,6 +19,12 @@ import org.sgu.oecde.journal.JournalService;
 public class TeacherCurriculumsEditBean implements Serializable{
     private int semester;
     private List<DeCurriculum>curriculums;
+    
+    private DeCurriculum curriculum;
+    private long curriculimId;
+    
+    private boolean error = false;
+    private boolean saved = false;
 
     @ManagedProperty(value="#{teacherSessionBean}")
     private TeacherSessionBean teacherSessionBean;
@@ -43,6 +49,24 @@ public class TeacherCurriculumsEditBean implements Serializable{
             return "curriculums.xhtml.xhtml?faces-redirect=true&s="+semester;
         }
     }
+    
+        public void saveWeight(){
+            if (curriculum.getWeightTest()+curriculum.getWeightAud()+curriculum.getWeightOutAud()+curriculum.getWeightPers() == 80){
+                        curriculumDao.update(curriculum);         
+                        journalService.save(EventType.CURRICULUMS_CHANGING_BY_TEACHER, teacherSessionBean.getTeacher());
+                        saved=true;
+                        error=false;
+            }else{
+                DeCurriculum curriculumR = curriculumDao.getById(curriculimId);
+                curriculum.setWeightTest(curriculumR.getWeightTest());
+                curriculum.setWeightAud(curriculumR.getWeightAud());
+                curriculum.setWeightOutAud(curriculumR.getWeightOutAud());
+                curriculum.setWeightPers(curriculumR.getWeightPers());
+                error=true;
+                saved=false;
+            }    
+        }
+
 
     public List<DeCurriculum> getCurriculums() {
         if(curriculums == null){
@@ -74,4 +98,43 @@ public class TeacherCurriculumsEditBean implements Serializable{
     public void setJournalService(JournalService journalService) {
         this.journalService = journalService;
     }
+
+    public DeCurriculum getCurriculum() {
+        return curriculum;
+    }
+
+    public void setCurriculum(DeCurriculum curriculum) {
+        this.curriculum = curriculum;
+
+    }
+
+    public long getCurriculimId() {
+        return curriculimId;
+    }
+
+    public void setCurriculimId(long curriculimId) {
+        this.curriculimId = curriculimId;
+        for (DeCurriculum d: getCurriculums()){
+            if (d.getId() == this.curriculimId)
+                curriculum = d;
+        }
+    }
+
+    public boolean isError() {
+        return error;
+    }
+
+    public void setError(boolean error) {
+        this.error = error;
+    }
+
+    public boolean isSaved() {
+        return saved;
+    }
+
+    public void setSaved(boolean saved) {
+        this.saved = saved;
+    }
+    
+    
 }

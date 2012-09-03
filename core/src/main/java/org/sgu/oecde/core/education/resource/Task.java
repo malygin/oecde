@@ -12,7 +12,7 @@ public class Task extends AbstractResource{
      * урл
      */
     private String url;
-    
+    private Boolean changed=false;
     private static final long serialVersionUID = 140L;
 
     public Task() {
@@ -38,5 +38,14 @@ public class Task extends AbstractResource{
         this.url = url;
     }
 
+    public Boolean getChanged() {
+        return changed;
+    }
+
+    public void setChanged(Boolean changed) {
+        this.changed = changed;
+    }
+
+    
 
 }

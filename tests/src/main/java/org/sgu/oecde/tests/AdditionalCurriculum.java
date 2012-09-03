@@ -40,10 +40,15 @@ public class AdditionalCurriculum implements Serializable,Comparable<AdditionalC
      * баллы по итоговым тестам переэкзаменовка
      */
     private int concludingReTestPoints;
+    
+    private int activityPoints;
+    private int samAudWorkPoints;
+    private int samAudOutWorkPoints;
+    private int personalCharPoints;
     /**
      * сумма баллов всех
      */
-    private int sum;
+    private float sum;
     private static final long serialVersionUID = 76L;
 
     public AdditionalCurriculum() {
@@ -164,11 +169,45 @@ public class AdditionalCurriculum implements Serializable,Comparable<AdditionalC
         this.testPoints = testPoints!=null?testPoints:0;
     }
 
-    public int getSum() {
+    public int getActivityPoints() {
+        return activityPoints;
+    }
+
+    public void setActivityPoints(int activityPoints) {
+        this.activityPoints = activityPoints;
+    }
+
+    public int getPersonalCharPoints() {
+        return personalCharPoints;
+    }
+
+    public void setPersonalCharPoints(int personalCharPoints) {
+        this.personalCharPoints = personalCharPoints;
+    }
+
+    public int getSamAudOutWorkPoints() {
+        return samAudOutWorkPoints;
+    }
+
+    public void setSamAudOutWorkPoints(int samAudOutWorkPoints) {
+        this.samAudOutWorkPoints = samAudOutWorkPoints;
+    }
+
+    public int getSamAudWorkPoints() {
+        return samAudWorkPoints;
+    }
+
+    public void setSamAudWorkPoints(int samAudWorkPoints) {
+        this.samAudWorkPoints = samAudWorkPoints;
+    }
+    
+    
+
+    public float getSum() {
         return sum;
     }
 
-    public void setSum(int sum) {
+    public void setSum(float sum) {
         this.sum = sum;
     }
     

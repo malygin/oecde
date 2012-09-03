@@ -36,7 +36,7 @@ public class ControlWorkFilter implements IResultFilter{
         if(points!=null&&result!=null&&result.getCurriculum()!=null){
             ControlWork cw = ((ControlWork)result);
             
-            points.addSum(cw!=null && cw.getPoints()!=null?cw.getPoints():0);
+            //points.addSum(cw!=null && cw.getPoints()!=null?cw.getPoints():0);
             points.addWorkPoints(pointsFactory.createEstimatedWorkValue(result));
         }
     }

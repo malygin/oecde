@@ -30,6 +30,6 @@ public class SearchEngine {
         }else{
             words = keywords.trim().split(" ");
         }
-        return searchDao.search(type, words, user, restrict);
+       return searchDao.search(type, words, user, restrict);
     }
 }

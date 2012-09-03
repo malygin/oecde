@@ -59,12 +59,17 @@ public class Materials extends StudentCurriculumBean{
                     while(it.hasNext()){
                         AdditionalCurriculum c = it.next();
                         if(c.getCurriculum().equals(ps.getCurriculum())){
+                            DeCurriculum d = (DeCurriculum)c.getCurriculum();
                             c.setTestPoints(p.getTest());
                             c.setSum(p.getPoints().getSum());
-                            c.setConcludingReTestPoints(p.getConcludingReTest());
-                            c.setConcludingTestPoints(p.getConcludingTest());
+                            c.setConcludingReTestPoints(p.getConcludingReTest()==null?0:p.getConcludingReTest()*d.getWeightTest()/100);
+                            c.setConcludingTestPoints(p.getConcludingTest()*d.getWeightTest()/100);
                             c.setReTestPoints(p.getReTest());
                             c.setTestsCount(p.getTestsCount()+p.getConcludingTestsCount());
+                            c.setActivityPoints(p.getActivityPoints()==null?0:p.getActivityPoints()*d.getWeightAtt()/100);
+                            c.setSamAudWorkPoints(p.getSamAudWorkPoints()==null?0:p.getSamAudWorkPoints()*d.getWeightAud()/100);
+                            c.setSamAudOutWorkPoints(p.getSamAudOutWorkPoints()==null?0:p.getSamAudOutWorkPoints()*d.getWeightOutAud()/100);
+                            c.setPersonalCharPoints(p.getPersonalCharPoints()==null?0:p.getPersonalCharPoints()*d.getWeightPers()/100);
                             pI.remove();
                         }
                     }

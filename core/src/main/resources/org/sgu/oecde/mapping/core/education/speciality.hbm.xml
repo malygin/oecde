@@ -7,5 +7,21 @@
     <property insert="false" length="70" name="name" unique="true" unique-key="uk_speciality"/>
     <property column="eng_short" insert="false" length="15" name="engShort"/>
     <property column="rus_short" insert="false" length="15" name="rusShort"/>
+    <property column="level" name="levelTypeSpeciality" not-null="false">
+        <type name="org.sgu.oecde.core.GenericEnumUserType">
+            <param name="enumClass">org.sgu.oecde.core.education.LevelTypeSpeciality</param>
+            <param name="identifierMethod">toInt</param>
+            <param name="valueOfMethod">parse</param>
+        </type>
+     </property>
+     <property column="speed" name="speedTypeSpeciality" not-null="false">
+        <type name="org.sgu.oecde.core.GenericEnumUserType">
+            <param name="enumClass">org.sgu.oecde.core.education.SpeedTypeSpeciality</param>
+            <param name="identifierMethod">toInt</param>
+            <param name="valueOfMethod">parse</param>
+        </type>
+     </property>
+     <many-to-one cascade="none" class="org.sgu.oecde.core.users.Department" fetch="join" lazy="false" name="department" not-null="false"/>
+
   </class>
 </hibernate-mapping>

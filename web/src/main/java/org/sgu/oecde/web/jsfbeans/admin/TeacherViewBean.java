@@ -137,7 +137,7 @@ public class TeacherViewBean extends UserViewBean{
                           
                          Estimate e = p.getWorkPoints(EstimateNames.estimate);
                          ControlWorkProgress c = p.getWorkPoints(CwEstimateNames.control_work_value);
-                          System.out.println("!!"+c);
+                          //System.out.println("!!"+c);
                          if (e!=null){
                              switch(e.getGradeCode()){
                                 case notEstimated: notEstimated++; break;

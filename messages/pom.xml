@@ -17,11 +17,7 @@
       <artifactId>core</artifactId>
       <scope>provided</scope>
     </dependency>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>de</artifactId>
-      <scope>provided</scope>
-    </dependency>
+
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>core</artifactId>

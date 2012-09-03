@@ -3,5 +3,8 @@
 <hibernate-mapping schema="oecdo_test">
   <subclass discriminator-value="act" select-before-update="true" dynamic-update="true" extends="org.sgu.oecde.core.education.work.AbstractResult" name="org.sgu.oecde.core.education.estimation.activity.Activity">
        <property name="points" type="integer"/>
+       <property name="samAudWorkpoints" type="integer"/>
+       <property name="samOutAudWorkpoints" type="integer"/>
+       <property name="personalCharpoints" type="integer"/>
   </subclass>
 </hibernate-mapping>

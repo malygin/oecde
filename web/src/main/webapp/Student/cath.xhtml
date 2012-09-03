@@ -1,0 +1,15 @@
+<ui:composition
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+    template="../resources/studentTemplate.xhtml"
+    xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs"
+    >
+    <f:metadata>
+        <f:viewParam name="id" value="#{cathBean.id}"/>
+    </f:metadata>
+    <ui:define name="content">
+        <ut:cath/>
+    </ui:define>
+</ui:composition>

@@ -32,13 +32,14 @@
                                      studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher"
                                      style="margin: 0;" cellpadding="0" cellspacing="0" value="#{teacherCurriculumsEditBean.curriculums}" var="c">
                             <h:column>
-                                <f:facet name="header">#{msgs.student_Dicipline}</f:facet>
-                                <span class="DisciplineTextTeacher"><h:outputText value="#{c.discipline.name}"/></span>
-                            </h:column>
-                            <h:column>
                                 <f:facet name="header">#{msgs.student_mainContentUserInfoSpec_}</f:facet>
                                 <span><h:outputText value="#{c.speciality.name}"/></span>
                             </h:column>
+                            <h:column>
+                                <f:facet name="header">#{msgs.student_Dicipline}</f:facet>
+                                <span class="DisciplineTextTeacher"><h:outputText value="#{c.discipline.name}"/></span>
+                            </h:column>
+
                             <h:column>
                                 <f:facet name="header">#{msgs.user_UMK}</f:facet>
                                 <span class="controlWorksDisciplineNameLink">
@@ -46,11 +47,16 @@
                                 </span>
                             </h:column>
                             <h:column>
-                                <f:facet name="header">#{msgs.teacher_lessonsSpended}<br/> #{msgs.teacher_studentsSendMarks}
+                                <f:facet name="header">Веса
                                 </f:facet>
-                                <span>
+                      <span>
+                                  тесты  #{c.weightTest/100}<br/>
+                                  аудит. #{c.weightAud/100}<br/>
+                                  внеауд.  #{c.weightOutAud/100}<br/>
+                                  персонал. #{c.weightPers/100}<br/>
+                                  <h:outputLink value="editCurriculum.xhtml?id=#{c.id}">ред.</h:outputLink>
 
-                                </span>
+                      </span>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">#{msgs.teacher_curriclums_years}</f:facet>

@@ -35,13 +35,13 @@
             <div class="userPhoto" style="width: 40%;">
                 <table cellspacing="8">
                     <tr>
-                        <td><p>#{msgs.admin_mainContentUserInfoFirstName}</p></td><td><div>#{teacherViewBean.user.name}</div></td>
+                        <td><p>ФИО:</p></td><td><div>#{teacherViewBean.user.fio}</div></td>
                     </tr>
                     <tr>
-                        <td><p>#{msgs.admin_mainContentUserInfoThirdName}</p></td><td><div>#{teacherViewBean.user.secondName}</div></td>
+                        <td><p>Кафедра:</p></td><td><div><a href="cath.xhtml?id=#{teacherViewBean.user.department.id}">#{teacherViewBean.user.department.name}</a></div></td>
                     </tr>
                     <tr>
-                        <td><p>#{msgs.admin_mainContentUserInfoSecondName}</p></td><td><div>#{teacherViewBean.user.surname}</div></td>
+                        <td><p>Должность:</p></td><td><div>#{teacherViewBean.user.post}</div></td>
                     </tr>
                     <tr>
                         <td><p>#{msgs.admin_mainContentMobilePhone}</p></td><td><div>#{teacherViewBean.user.cellPhone}</div></td>
@@ -107,7 +107,7 @@
             </div>
         </div>
          
-            <inf:teacherinfo />
+<!--            <inf:teacherinfo pageName="df" />-->
        </div>
     </ui:define>
 </ui:composition>

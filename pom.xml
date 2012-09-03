@@ -16,13 +16,11 @@
     <module>journal</module>
     <module>search</module>
     <module>discussion</module>
-    <module>umk</module>
     <module>controlworks</module>
     <module>selfdependentwork</module>
     <module>web</module>
     <module>messages</module>
     <module>shedule</module>
-    <module>de</module>
     <module>tabs</module>
     <module>chat</module>
   </modules>

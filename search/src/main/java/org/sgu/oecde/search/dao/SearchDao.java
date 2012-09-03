@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.search.SearchFiltersFields;
-import org.sgu.oecde.search.SearchType;
 import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;

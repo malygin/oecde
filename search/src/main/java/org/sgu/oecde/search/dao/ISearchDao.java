@@ -4,7 +4,6 @@ import com.sun.jndi.toolkit.dir.SearchFilter;
 import java.util.List;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.search.SearchFiltersFields;
-import org.sgu.oecde.search.SearchType;
 import org.springframework.dao.DataAccessException;
 
 /**

@@ -7,7 +7,7 @@
         <generator class="native">
         <param name="sequence">resource_seq</param>
         </generator>
-      </id>
+    </id>
     <property insert="false" length="250" name="title" type="string"/>
     <property insert="false" length="400" name="description" type="string"/>
     <property insert="false" name="version" scale="3" type="integer"/>
@@ -16,7 +16,7 @@
     <set batch-size="5" cascade="none" fetch="select" lazy="true" mutable="false" name="authors" table="resource_author">
       <cache usage="read-only"/>
       <key column="resource_id" foreign-key="fk_resource_author_resource" not-null="true"/>
-      <many-to-many class="org.sgu.oecde.core.education.resource.Author" column="author" foreign-key="fk_resource_author"/>
+      <many-to-many class="org.sgu.oecde.core.users.Teacher" column="author" foreign-key="fk_resource_author"/>
     </set>
     <property column="access_resource" insert="false" name="accessResource">
       <type name="org.sgu.oecde.core.GenericEnumUserType">

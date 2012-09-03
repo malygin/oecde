@@ -6,8 +6,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.core.BasicItem;
+import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.search.SearchEngine;
-import org.sgu.oecde.search.SearchType;
+import org.sgu.oecde.search.SearchFiltersFields;
 
 /**
  *
@@ -22,7 +23,7 @@ public class SearchBean implements Serializable{
 
     private String keyWord;
     private List<BasicItem>items;
-    private SearchType type = SearchType.student;
+    private SearchFiltersFields type = SearchFiltersFields.student;
 
     private static final long serialVersionUID = 176L;
 
@@ -30,12 +31,15 @@ public class SearchBean implements Serializable{
         return items;
     }
 
-    public void doSearch(){
-        items = searchEngine.search(keyWord, type);
+    public void doSearch(){        
+        items = searchEngine.search(keyWord, type,SecurityContextHandler.getUser(),  true);
     }
 
-    public SearchType[]getTypes(){
-        return SearchType.values();
+    public SearchFiltersFields[]getTypes(){
+        return SearchFiltersFields.values();
+    }
+    public SearchFiltersFields[] getStudentTypes(){
+        return type.getStudentValues();
     }
 
     public String getKeyWord() {
@@ -46,13 +50,15 @@ public class SearchBean implements Serializable{
         this.keyWord = keyWord;
     }
 
-    public SearchType getType() {
+    public SearchFiltersFields getType() {
         return type;
     }
 
-    public void setType(SearchType type) {
+    public void setType(SearchFiltersFields type) {
         this.type = type;
     }
+
+   
 
     public void setSearchEngine(SearchEngine searchEngine) {
         this.searchEngine = searchEngine;

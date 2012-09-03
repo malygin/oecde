@@ -6,11 +6,13 @@ package org.sgu.oecde.search;
 
 import java.util.HashMap;
 import java.util.Hashtable;
+
 import org.sgu.oecde.core.education.Umk;
 import org.sgu.oecde.core.users.AbstractStudent;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.StudentGroup;
 import org.sgu.oecde.core.users.Teacher;
+import org.sgu.oecde.messages.Message;
 //import org.sgu.oecde.messages..Message;
 
 /**
@@ -20,13 +22,13 @@ import org.sgu.oecde.core.users.Teacher;
  */
 public enum SearchFiltersFields {
     teacher(Teacher.class,"преподаватель", 
-            new String[]{"name", "secondname", "surname"}),
+            new String[]{"name", "secondName", "surname"}),
     student(AbstractStudent.class,"студент",
-            new String[]{"name","secondname","surname"}),
+            new String[]{"name","secondName","surname"}),
     umk(Umk.class,"умк",
             new String[]{"name"}),
-//    message(Message.class,"сообщения",
-//            new String[]{"theme", "fulltext"}),
+    message(Message.class,"сообщения",
+            new String[]{"theme", "fulltext"}),
     group(StudentGroup.class,"группа",
             new String[]{"name"});
     
@@ -41,6 +43,11 @@ public enum SearchFiltersFields {
         this.rusName = rusName;
         this.availbaleFields=availbaleFields;
         this.selectedFileds=availbaleFields;
+    }
+    
+    public  SearchFiltersFields[] getStudentValues(){
+        SearchFiltersFields[] studentList={teacher, student, message};
+        return studentList;
     }
     
     public String toClass(){
@@ -65,13 +72,13 @@ public enum SearchFiltersFields {
     }
 
     public HashMap<String, String> getAdditionalFields(AbstractUser user, Boolean restrict) {
-//        switch(this){
-//           case message:
-//               if ((user instanceof AbstractStudent) || restrict){
-//                   additionalFields.put("author", user.getId().toString());                   
-//               }
-//               break;               
-//        }
+        switch(this){
+           case message:
+               if ((user instanceof AbstractStudent) || restrict){
+                   additionalFields.put("author", user.getId().toString());                   
+               }
+               break;               
+        }
         return additionalFields;
     }
     

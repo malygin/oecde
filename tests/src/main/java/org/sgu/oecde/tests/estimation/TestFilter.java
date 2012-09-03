@@ -7,9 +7,11 @@ import org.sgu.oecde.core.education.estimation.IResultFilter;
 import org.sgu.oecde.core.education.estimation.Points;
 import org.sgu.oecde.core.education.estimation.ResultType;
 import org.sgu.oecde.core.education.work.AbstractResult;
+import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.tests.TestAttempt;
 import org.sgu.oecde.tests.TestAttemptType;
 import org.sgu.oecde.tests.TestEntity;
+import org.sgu.oecde.tests.TestType;
 import org.sgu.oecde.tests.util.pointsCounter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -70,7 +72,7 @@ public final class TestFilter implements IResultFilter{
     public void check(AbstractResult result,Points point) {
         TestAttempt att = (TestAttempt) result;
         //System.out.println("! "+att.toString());
-        if(att==null||att.<TestEntity>getWork()==null||att.<TestEntity>getWork().getType()==null||att.getType()==null||att.getType().equals(TestAttemptType.trial))
+        if(att==null||att.<TestEntity>getWork()==null||att.<TestEntity>getWork().getType()==null||att.<TestEntity>getWork().getType()!=TestType.concluding||att.getType()==null|| att.getType().equals(TestAttemptType.trial))
             return;
         if(!att.<TestEntity>getWork().equals(test))
             setPoints(point);
@@ -121,7 +123,7 @@ public final class TestFilter implements IResultFilter{
         IEstimate name = pointsFactory.createEstimatedWorkValue(attempt);
         int p = pointsCounter.count(attempt.<TestEntity>getWork().getEstimation(),pointsList);
         if(doSum)
-            points.addSum(p);
+            points.addSum(p *((DeCurriculum)attempt.getCurriculum()).getWeightTest()/100f);
       //  System.out.println("sum "+ points.getSum());
         points.addIntegerWorkPoints(name, p);
     }

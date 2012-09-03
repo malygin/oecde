@@ -15,10 +15,12 @@ public class AdvancedCurriculum extends Curriculum{
      * специальность
      */
     private Speciality speciality;
+    
     /**
      * дисциплина
      */
     private Discipline discipline;
+    
     /**
      * есть ли контрольные рабоы
      */
@@ -26,8 +28,7 @@ public class AdvancedCurriculum extends Curriculum{
     
     /*
      * количество контрольных работ 
-     */
-    
+     */    
     private int numberControlWork;
     
     private static final long serialVersionUID = 46L;

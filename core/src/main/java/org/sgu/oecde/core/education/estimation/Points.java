@@ -18,7 +18,7 @@ public class Points implements Serializable{
     private AbstractStudent student;
     private Curriculum curriculum;
     private Map<IEstimate,Object> workPoints = new HashMap<IEstimate,Object>();
-    private int sum;
+    private float sum;
     private static final long serialVersionUID = 65L;
 
     public Points() {
@@ -97,7 +97,7 @@ public class Points implements Serializable{
      *
      * @return сумма баллов
      */
-    public int getSum() {
+    public float getSum() {
         return sum;
     }
 
@@ -105,11 +105,11 @@ public class Points implements Serializable{
      * сумма баллов
      * @param sum
      */
-    public void setSum(int sum) {
+    public void setSum(float sum) {
         this.sum = sum;
     }
 
-    public void addSum(int sum){
+    public void addSum(float sum){
         this.sum+=sum;
     }
 

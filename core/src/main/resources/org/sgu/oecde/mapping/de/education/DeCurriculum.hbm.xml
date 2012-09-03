@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <subclass discriminator-value="de" extends="org.sgu.oecde.core.education.AdvancedCurriculum" name="org.sgu.oecde.de.education.DeCurriculum">
+    <join table="de_curriculum">
+      <key column="id" foreign-key="fk_curriculum_curriculum" not-null="true" on-delete="cascade"/>
+      <property column="control_works_paper_only" insert="false" name="controlWorksPaperOnly" scale="1" type="true_false"/>
+      <property column="lab_works_number" insert="false" name="labWorksNumber" scale="2" type="integer" update="false"/>
+      <property column="term_papers_number" insert="false" name="termPapersNumber" scale="1" type="integer" update="false"/>
+      
+      <property  name="weightTest" scale="2" type="integer" >
+        <column name="weight_test" not-null="false" default="20" />
+      </property>
+      <property  name="weightAud" scale="2" type="integer" >
+        <column name="weight_aud" not-null="false" default="20" />
+      </property>
+      <property  name="weightOutAud" scale="2" type="integer" >
+        <column name="weight_out" not-null="false" default="20" />
+      </property>
+      <property  name="weightPers" scale="2" type="integer" >
+        <column name="weight_pers" not-null="false" default="20" />
+      </property>
+      <property  name="weightAtt" scale="2" type="integer" >
+        <column name="weight_att" not-null="false" default="20" />
+      </property>
+     
+     <property insert="false" name="selected" scale="1" type="true_false" update="false"/>
+      <property column="form_education" name="formEducation" not-null="false">
+        <type name="org.sgu.oecde.core.GenericEnumUserType">
+            <param name="enumClass">org.sgu.oecde.de.education.FormEducation</param>
+            <param name="identifierMethod">toInt</param>
+            <param name="valueOfMethod">parse</param>
+        </type>
+      </property>
+    </join>
+
+  </subclass>
+  
+</hibernate-mapping>

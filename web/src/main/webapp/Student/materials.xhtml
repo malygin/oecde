@@ -52,6 +52,22 @@
                                         <td><span> #{m.reTestPoints==0?m.testPoints:m.reTestPoints}</span> #{msgs.student_gradesMarks} (<a href="testResults.xhtml">#{msgs.student_newsMore}</a>)</td>
                                     </tr>
                                     <tr>
+                                        <td>Промежуточная аттестация</td>
+                                        <td><span> #{m.activityPoints}</span> #{msgs.student_gradesMarks} </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Персональные характеристика</td>
+                                        <td><span> #{m.personalCharPoints}</span> #{msgs.student_gradesMarks} </td>
+                                    </tr>
+                                            <tr>
+                                        <td>Аудиторная активность</td>
+                                        <td><span> #{m.samAudWorkPoints}</span> #{msgs.student_gradesMarks} </td>
+                                    </tr>
+                                            <tr>
+                                        <td>Внеаудиторная активность</td>
+                                        <td><span> #{m.samAudOutWorkPoints}</span> #{msgs.student_gradesMarks} </td>
+                                    </tr>
+                                    <tr>
                                         <td>#{msgs.student_mainTest} </td>
                                         <td><span>#{m.concludingReTestPoints==0?m.concludingTestPoints:m.concludingReTestPoints}</span> #{msgs.student_gradesMarks} </td>
                                     </tr>
@@ -67,27 +83,27 @@
                                     <div class="progressBarMaterials floatLeft">
                                         <!-- ((m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) -->
                                        
-                                        <h:panelGroup layout="block" rendered="#{(m.sum*100/(m.testsCount*100+200) gt 0) and (m.sum*100/(m.testsCount*100+200) le 50)}" style="height: 12px; width: #{m.sum*100/(m.testsCount*100+200)}%;" styleClass="badResult"/>
-                                        <h:panelGroup layout="block" rendered="#{(m.sum*100/(m.testsCount*100+200) gt 50) and (m.sum*100/(m.testsCount*100+200) le 90)}" style="height: 12px; width: #{m.sum*100/(m.testsCount*100+200)}%;"  styleClass="goodResult"/>
-                                        <h:panelGroup layout="block" rendered="#{(m.sum*100/(m.testsCount*100+200) gt 90)}" style="height: 12px; width: #{m.sum*100/(m.testsCount*100+200)}%;"  styleClass="greateResult"/>
+                                        <h:panelGroup layout="block" rendered="#{(m.sum gt 0) and (m.sum le 50)}" style="height: 12px; width:#{m.sum}%;" styleClass="badResult"/>
+                                        <h:panelGroup layout="block" rendered="#{(m.sum gt 50) and (m.sum le 90)}" style="height: 12px; width: #{m.sum}%;"  styleClass="goodResult"/>
+                                        <h:panelGroup layout="block" rendered="#{(m.sum gt 90)}" style="height: 12px; width:#{m.sum}%;"  styleClass="greateResult"/>
                                     </div>
                                     
                                     <div style="float: right;">
                                        
-                                        <h:panelGroup layout="block" rendered="#{(m.sum*100/(m.testsCount*100+200) le 50)}" style="color: #FBB35D; margin-right: 50px; width: 20px;"> 
-                                            <h:outputText value="#{m.sum*100/(m.testsCount*100+200)}">
+                                        <h:panelGroup layout="block" rendered="#{(m.sum le 50)}" style="color: #FBB35D; margin-right: 50px; width: 20px;"> 
+                                            <h:outputText value="#{m.sum}">
                                                 <f:convertNumber maxFractionDigits="2"/>
                                             </h:outputText>%;
                                         </h:panelGroup>
                                        
-                                        <h:panelGroup layout="block" rendered="#{(m.sum*100/(m.testsCount*100+200)gt 50) and (m.sum*100/(m.testsCount*100+200)le 90)}" style="color: #0981bd; margin-right: 50px; width: 20px;">
-                                             <h:outputText value="#{m.sum*100/(m.testsCount*100+200)}">
-                                                <f:convertNumber maxFractionDigits="2"/>
+                                        <h:panelGroup layout="block" rendered="#{(m.sum gt 50) and (m.sum le 90)}" style="color: #0981bd; margin-right: 50px; width: 20px;">
+                                             <h:outputText value="#{m.sum}">
+                                                <f:convertNumber maxFractionDigits="2" />
                                             </h:outputText>%;
                                          </h:panelGroup>
                                        
-                                        <h:panelGroup layout="block" rendered="#{(m.sum*100/(m.testsCount*100+200) gt 90)}" style="color: #5bbf5d; margin-right: 50px;  width: 20px;">
-                                            <h:outputText value="#{m.sum*100/(m.testsCount*100+200)}">
+                                        <h:panelGroup layout="block" rendered="#{(m.sum gt 90)}" style="color: #5bbf5d; margin-right: 50px;  width: 20px;">
+                                            <h:outputText value="#{m.sum}">
                                                 <f:convertNumber maxFractionDigits="2"/>
                                             </h:outputText>%;
                                         </h:panelGroup>

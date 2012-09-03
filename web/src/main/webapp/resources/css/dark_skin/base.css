@@ -678,6 +678,7 @@ not all and (-webkit-min-device-pixel-ratio:0) {
     border-bottom: 1px solid #c3ef73;
     padding: 3px 3px;
     color: #c3ef73;
+    width: 101px;
 }
 .mainStyle .studentStandatrTable td{
     height: 24px;
@@ -935,7 +936,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .centerAlignText{
     text-align: center !important;
 }
-.mainStyle .lightGreyTestText{color:#b3b3b3}
+.mainStyle .lightGreyTestText{color:#b3b3b3; font-size: 9pt;}
 .mainStyle .controlWorksDisciplineNameLink a{font-size: 9pt !important;}
 
 .indentionInNavigation{
@@ -1037,6 +1038,10 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     border: 1px solid #d1d1d1;
     float: left;
     width: 80%;
+    background: url("../../resources/css/dark_skin/images/opacity_fon.png") repeat;
+}
+.mainStyle .pointInput{
+    width: 22px;
     background: url("../../resources/css/dark_skin/images/opacity_fon.png") repeat;
 }
 /*ссылки*/

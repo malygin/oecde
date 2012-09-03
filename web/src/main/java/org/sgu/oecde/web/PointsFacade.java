@@ -30,6 +30,9 @@ public class PointsFacade implements Serializable{
     private Integer controlWorkPoints;
     private Integer controlWorkMaxPoints;
     private Integer activityPoints;
+    private Integer samAudWorkPoints;
+    private Integer samAudOutWorkPoints;
+    private Integer personalCharPoints;
     private ControlWorkProgress controlWorkValue;
     private PointToEstimate grade;
 
@@ -49,6 +52,9 @@ public class PointsFacade implements Serializable{
         concludingTest = points.getWorkPoints(TestEstimateNames.CONCLUDING_TEST);
         controlWorkPoints = points.getWorkPoints(CwEstimateNames.control_work_points);
         activityPoints = points.getWorkPoints(ActivityEstimateNames.activity_points);
+        samAudWorkPoints = points.getWorkPoints(ActivityEstimateNames.samAud_points);
+        samAudOutWorkPoints = points.getWorkPoints(ActivityEstimateNames.samOutAud_points);
+        personalCharPoints = points.getWorkPoints(ActivityEstimateNames.personChar_points);
         controlWorkValue = points.getWorkPoints(CwEstimateNames.control_work_value);
         controlWorkMaxPoints=(controlWorkValue!=null)?100:0;
         Estimate e = points.getWorkPoints(EstimateNames.estimate);
@@ -169,6 +175,30 @@ public class PointsFacade implements Serializable{
         return activityPoints;
     }
 
+    public Integer getSamAudWorkPoints() {
+        return samAudWorkPoints;
+    }
+
+    public void setSamAudWorkPoints(Integer samAudWorkPoints) {
+        this.samAudWorkPoints = samAudWorkPoints;
+    }
+
+    public Integer getPersonalCharPoints() {
+        return personalCharPoints;
+    }
+
+    public void setPersonalCharPoints(Integer personalCharPoints) {
+        this.personalCharPoints = personalCharPoints;
+    }
+
+    public Integer getSamAudOutWorkPoints() {
+        return samAudOutWorkPoints;
+    }
+
+    public void setSamAudOutWorkPoints(Integer samAudOutWorkPoints) {
+        this.samAudOutWorkPoints = samAudOutWorkPoints;
+    }
+   
     public void setActivityPoints(Integer activityPoints) {
         this.activityPoints = activityPoints;
     }

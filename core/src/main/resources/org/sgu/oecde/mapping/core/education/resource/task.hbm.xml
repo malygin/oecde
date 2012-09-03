@@ -4,5 +4,6 @@
   <joined-subclass dynamic-update="true" extends="org.sgu.oecde.core.education.resource.AbstractResource" name="org.sgu.oecde.core.education.resource.Task" table="task">
     <key column="id" foreign-key="fk_task_res" not-null="true" on-delete="cascade"/>
     <property name="url" type="string"/>
+    <property name="changed" type="true_false"/>
   </joined-subclass>
 </hibernate-mapping>

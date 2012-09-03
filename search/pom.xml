@@ -22,11 +22,7 @@
       <artifactId>messages</artifactId>  
       <scope>provided</scope>
     </dependency>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>de</artifactId>
-      <scope>test</scope>
-    </dependency>
+
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>core</artifactId>

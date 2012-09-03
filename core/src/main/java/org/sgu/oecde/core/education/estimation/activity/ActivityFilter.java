@@ -8,6 +8,7 @@ import org.sgu.oecde.core.education.estimation.IResultFilter;
 import org.sgu.oecde.core.education.estimation.Points;
 import org.sgu.oecde.core.education.estimation.ResultType;
 import org.sgu.oecde.core.education.work.AbstractResult;
+import org.sgu.oecde.de.education.DeCurriculum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,9 +40,11 @@ public class ActivityFilter implements IResultFilter{
     @Override
     public void check(AbstractResult result,Points points) {
         if(points!=null&&result!=null&&result.getCurriculum()!=null){
-            Activity a = ((Activity)result);
-            
-            points.addSum(a!=null && a.getPoints()!=null?a.getPoints():0);
+            Activity a = ((Activity)result);            
+            points.addSum(a!=null && a.getPoints()!=null?a.getPoints()*((DeCurriculum)result.getCurriculum()).getWeightAtt()/100f:0f);
+            points.addSum(a!=null && a.getSamAudWorkpoints() !=null?a.getSamAudWorkpoints()*((DeCurriculum)result.getCurriculum()).getWeightAud()/100f:0f);
+            points.addSum(a!=null && a.getSamOutAudWorkpoints() !=null?a.getSamOutAudWorkpoints()*((DeCurriculum)result.getCurriculum()).getWeightOutAud()/100f:0f);
+            points.addSum(a!=null && a.getPersonalCharpoints() !=null?a.getPersonalCharpoints()*((DeCurriculum)result.getCurriculum()).getWeightPers()/100f:0f);
             points.addWorkPoints(pointsFactory.createEstimatedWorkValue(result));
 //            points.addWorkPoints(pointsFactory.createEstimatedWorkValue(result));
         }

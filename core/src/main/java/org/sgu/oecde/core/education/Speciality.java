@@ -1,6 +1,7 @@
 package org.sgu.oecde.core.education;
 
 import org.sgu.oecde.core.BasicItem;
+import org.sgu.oecde.core.users.Department;
 
 
 /**
@@ -21,6 +22,11 @@ public class Speciality extends BasicItem{
      *  сокращённое имя русскими буквами
      */
     private String rusShort;
+    
+    private LevelTypeSpeciality levelTypeSpeciality;
+    private SpeedTypeSpeciality speedTypeSpeciality;
+    private Department department;
+    
     private static final long serialVersionUID = 45L;
 
     public Speciality() {
@@ -39,6 +45,10 @@ public class Speciality extends BasicItem{
      * @return имя специальности
      */
     public String getName() {
+        return name+" "+levelTypeSpeciality+" "+speedTypeSpeciality;
+    }
+    
+    public String getSimpleName(){
         return name;
     }
 
@@ -81,6 +91,31 @@ public class Speciality extends BasicItem{
     public void setRusShort(String rusShort) {
         this.rusShort = rusShort;
     }
+
+    public LevelTypeSpeciality getLevelTypeSpeciality() {
+        return levelTypeSpeciality;
+    }
+
+    public void setLevelTypeSpeciality(LevelTypeSpeciality levelTypeSpeciality) {
+        this.levelTypeSpeciality = levelTypeSpeciality;
+    }
+
+    public SpeedTypeSpeciality getSpeedTypeSpeciality() {
+        return speedTypeSpeciality;
+    }
+
+    public void setSpeedTypeSpeciality(SpeedTypeSpeciality speedTypeSpeciality) {
+        this.speedTypeSpeciality = speedTypeSpeciality;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+    
 
     @Override
     public String toString() {

@@ -60,7 +60,7 @@ public class StudentRatingBean extends StudentCurriculumBean{
         try{
              if(leadersRating==null){
                 otherRating = getStudentsRating(student.<Group>getGroup().getPersons());
-                maxpoints=otherRating.get(0).getSum();
+                maxpoints=Math.round(otherRating.get(0).getSum());
                 int i=0;
                 leadersRating=new ArrayList<Points>();            
                 for(Iterator<Points> p=otherRating.iterator();  p.hasNext();){
@@ -132,7 +132,7 @@ public class StudentRatingBean extends StudentCurriculumBean{
         public int compare(Points o1, Points o2) {
             int sum = 0;
             if(o1!= null && o2!=null)
-                sum = Integer.valueOf(o2.getSum()).compareTo(o1.getSum());
+                sum = Integer.valueOf(Math.round(o2.getSum())).compareTo(Math.round(o1.getSum()));
             return sum;
 
         }

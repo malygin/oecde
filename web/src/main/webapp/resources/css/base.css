@@ -706,6 +706,7 @@ not all and (-webkit-min-device-pixel-ratio:0) {
     border-bottom: 1px solid #5BBF5D ;
     padding: 3px 3px;
     color: #5BBF5D;
+    width: 101px;
 }
 .mainStyle .studentStandatrTable td{
     height: 24px;
@@ -963,7 +964,7 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
 .mainStyle .centerAlignText{
     text-align: center !important;
 }
-.mainStyle .lightGreyTestText{color:#b3b3b3}
+.mainStyle .lightGreyTestText{color:#b3b3b3; font-size: 9pt;}
 .mainStyle .controlWorksDisciplineNameLink a{font-size: 9pt !important;}
 
 .indentionInNavigation{
@@ -1018,6 +1019,10 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     font-size: 100%;
     color: #B3B3B3;
     float: left;
+}
+
+.mainStyle .pointInput{
+    width: 22px;
 }
 .mainStyle .topSearchButton{
     color: #B3B3B3;

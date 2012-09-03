@@ -22,7 +22,8 @@
     <set batch-size="5" cascade="none" fetch="join" mutable="false" name="authors" table="umk_author">
     
       <key column="umk" foreign-key="fk_umk_author_umk" not-null="true"/>
-      <many-to-many class="org.sgu.oecde.core.education.resource.Author" column="author" foreign-key="fk_umk_author"/>
+      <many-to-many class="org.sgu.oecde.core.users.Teacher" column="author" foreign-key="fk_umk_author"/>
     </set>
+     <property name="changed" type="true_false"/>
   </class>
 </hibernate-mapping>

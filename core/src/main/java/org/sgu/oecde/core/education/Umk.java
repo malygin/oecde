@@ -6,7 +6,7 @@ import java.util.List;
 import org.sgu.oecde.core.education.resource.AbstractResource;
 import java.util.Set;
 import org.sgu.oecde.core.BasicItem;
-import org.sgu.oecde.core.education.resource.Author;
+import org.sgu.oecde.core.users.Teacher;
 
 /**
  * учебно-методический комплекс. умк
@@ -28,7 +28,7 @@ public class Umk extends BasicItem {
     /**
      * авторы
      */
-    private Set<Author>authors;
+    private Set<Teacher>authors;
     /**
      * модули
      */
@@ -36,6 +36,7 @@ public class Umk extends BasicItem {
     /**
      * ресурсы
      */
+    private Boolean changed=false;
     private List<? extends AbstractResource> resources;
     private static final long serialVersionUID = 53L;
   
@@ -60,21 +61,15 @@ public class Umk extends BasicItem {
         this.name = name;
     }
 
-    /**
-     * авторы
-     * @return
-     */
-    public Set<Author> getAuthors() {
+    public Set<Teacher> getAuthors() {
         return authors;
     }
 
-    /**
-     * авторы
-     * @param authors
-     */
-    public void setAuthors(Set<Author> authors) {
+    public void setAuthors(Set<Teacher> authors) {
         this.authors = authors;
     }
+
+ 
 
     /**
      * модули
@@ -142,5 +137,15 @@ public class Umk extends BasicItem {
         sb.append("название: ").append(name).append("; ");
         return sb.toString();
     }
+
+    public Boolean getChanged() {
+        return changed;
+    }
+
+    public void setChanged(Boolean changed) {
+        this.changed = changed;
+    }
+    
+    
   
 }

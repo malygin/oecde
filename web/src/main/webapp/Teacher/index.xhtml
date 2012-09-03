@@ -34,7 +34,7 @@
                             <table class="leftMenuContainer blocksPaddings BorderNone InfoAboutTeacher MainInfo" style="width: 100%;">
                                 <tr>
                                     <td><p>Дополнительная информация:</p></td>
-                                    <td><p></p></td>
+                                    <td><p> #{teacherIndexBean.teacher.additionalInformation}</p></td>
                                     <td rowspan="8">
                                         <div>
                                             <ut:showPhoto user="#{teacherIndexBean.teacher}" size="medium"/>
@@ -43,7 +43,15 @@
                                 </tr>
                                 <tr>
                                     <td><p>#{msgs.student_studentContact}</p></td>
-                                    <td><p></p></td>
+                                    <td><p>#{teacherIndexBean.teacher.contacts}</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>Кафедра</p></td>
+                                    <td><p><a href="cath.xhtml?id=#{teacherIndexBean.teacher.department.id}">#{teacherIndexBean.teacher.department.name}</a></p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>Должность</p></td>
+                                    <td><p>#{teacherIndexBean.teacher.post}</p></td>
                                 </tr>
                             </table>
                         </div>
@@ -94,7 +102,7 @@
 
         <est:changeSemester semester="#{teacherViewBean.semester}" link="id=#{teacherViewBean.id}"/>
            
-        <est:teacherinfo />
+<!--        <est:teacherinfo pageName="we" />-->
 
     </ui:define>
 

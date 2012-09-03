@@ -12,10 +12,10 @@
     <packaging>war</packaging>
     <version>2.0-SNAPSHOT</version>
     <name>web</name>
-    <ciManagement>
+<!--    <ciManagement>
         <system>hudson</system>
         <url>http://baldr.sgu.ru:8080/jenkins/job/oecdo/</url>
-    </ciManagement>
+    </ciManagement>-->
     <repositories>
       <repository>
         <id>cedarsoft-thirdparty</id>
@@ -40,11 +40,7 @@
             <artifactId>tests</artifactId>   
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>de</artifactId>
-            <scope>provided</scope>
-        </dependency>
+
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>tabs</artifactId>
@@ -102,13 +98,7 @@
             <scope>test</scope>
             <classifier>tests</classifier>
         </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>resources</artifactId>
-            <classifier>resources</classifier>
-            <type>zip</type>
-            <scope>provided</scope>
-        </dependency>
+    
 
         <dependency>
             <groupId>org.apache.xmlbeans</groupId>
@@ -338,11 +328,12 @@
                 <db.pass>11nekotyan</db.pass>
                 <fileFolder>oecde</fileFolder>
                 <storage>oecde2</storage>
-                <videoConfUrl>http://oecdo.sgu.ru/client/geo/</videoConfUrl>
-                <textbookUrl>http://oec-static.main.sgu.ru/geo/textbooks/</textbookUrl>
-                <ipsilonUmkUrl>http://oec.sgu.ru/ipsilonUmk3/</ipsilonUmkUrl>
-                <scheduleUrl></scheduleUrl>
-                <scheduleRecordScriptUrl></scheduleRecordScriptUrl>
+                <videoConfUrl>http://oecdo.sgu.ru/client/</videoConfUrl>
+                <textbookUrl>http://oec-static.main.sgu.ru/textbooks/</textbookUrl>
+                <ipsilonUmkUrl>http://oec.sgu.ru/ipsilonUmk/</ipsilonUmkUrl>
+                <scheduleUrl>http://oecdo.sgu.ru/sashedule/</scheduleUrl>
+                <scheduleRecordScriptUrl>http://oec-nginx.main.sgu.ru/get_files/dir_read.php</scheduleRecordScriptUrl>
+
                 <skinTheme></skinTheme>
             </properties> 
         </profile>

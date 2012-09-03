@@ -1,7 +1,6 @@
 package org.sgu.oecde.news;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import org.junit.Ignore;
@@ -49,7 +48,7 @@ public class AppTest extends BasicTest{
         this.<INewsDao>getDao().saveBlog(item);
     }
 
-//  @Ignore
+  @Ignore
     @Test
     public void listNews() {  
          setDao("adminDao");

@@ -16,7 +16,9 @@
                         <div class="materialInfo">
                             <h:dataTable value="#{w.value}" var="s" cellspacing="0" cellpadding="0" border="0" style="margin: 10px;">
                                 <h:column>
-                                    <h:outputText value="#{s.key.name}"/>
+                                    <span class="darkBlueText">#{s.key.levelTypeSpeciality.toString()}</span>|
+                                    <span class="darkBlueText">#{s.key.speedTypeSpeciality.toString()}</span>| 
+                                     <h:outputText value="#{s.key.simpleName}"/>                                  
                                     <ui:repeat value="#{s.value}" var="g">
                                         <h:outputLink value="group.xhtml?id=#{g.id}" style="margin: 6px; color: #5BBF5D;">#{g.name}</h:outputLink>
                                     </ui:repeat>
