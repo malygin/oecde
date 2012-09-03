@@ -62,7 +62,8 @@ public class FileUploadUtil {
         Random random = new Random();
         String name = type + "_" + Math.abs(random.nextInt()) + uf.getFileName().substring(uf.getFileName().lastIndexOf("."));
         File someFile = new File(System.getProperty("catalina.base")+"/storage/"+multi.getServletContext().getInitParameter("storage") +"/userFiles/" + type + "/" + name);
-       // File someFile = new File(multi.getServletContext().getRealPath("/resources/userFiles/" + type + "/" + name));        
+        System.out.println(""+System.getProperty("catalina.base")+"/storage/"+multi.getServletContext().getInitParameter("storage") +"/userFiles/" + type + "/" + name);
+        // File someFile = new File(multi.getServletContext().getRealPath("/resources/userFiles/" + type + "/" + name));        
         String mime = new MimetypesFileTypeMap().getContentType(someFile);
         if (checkMime && !ArrayListUtil.containsElement(mimetypes, mime)) {
             return null;
