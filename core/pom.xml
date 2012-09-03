@@ -16,7 +16,11 @@
         <repository>
             <id>ssuRepo</id>
             <url>http://baldr.sgu.ru/maven/</url>
-        </repository>        
+        </repository>   
+       <repository>
+        <id>central</id>
+        <url>http://repo1.maven.org/maven2/</url>
+      </repository>
         
     </repositories>
     
