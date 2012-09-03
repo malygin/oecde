@@ -41,7 +41,7 @@
         <repository>
             <id>ssuRepo</id>
             <url>http://baldr.sgu.ru/maven/</url>
-        </repository>        
+        </repository>      
 
     </repositories>
 
