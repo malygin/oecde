@@ -45,7 +45,7 @@ public class Speciality extends BasicItem{
      * @return имя специальности
      */
     public String getName() {
-        return name+" "+levelTypeSpeciality+" "+speedTypeSpeciality;
+        return name+" "+levelTypeSpeciality==null?"":levelTypeSpeciality+" "+speedTypeSpeciality==null?"":speedTypeSpeciality+" ";
     }
     
     public String getSimpleName(){

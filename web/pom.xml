@@ -348,7 +348,7 @@
                 <db.login>oecde</db.login> 
                 <db.pass>YmqPWz6GsYEQ62EH</db.pass>
                 <fileFolder>oecde</fileFolder>
-                <storage>tstde</storage>
+                <storage>ROOT</storage>
                 <videoConfUrl>http://oecdo.sgu.ru/client/</videoConfUrl>
                 <textbookUrl>http://oec-static.main.sgu.ru/textbooks/</textbookUrl>
                 <ipsilonUmkUrl>http://oec.sgu.ru/ipsilonUmk/</ipsilonUmkUrl>
