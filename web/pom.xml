@@ -347,7 +347,7 @@
                 <db.connectionURL>jdbc:postgresql://shiva.main.sgu.ru:5432/oecde/</db.connectionURL> 
                 <db.login>oecde</db.login> 
                 <db.pass>YmqPWz6GsYEQ62EH</db.pass>
-                <fileFolder>oecde</fileFolder>
+                <fileFolder>storage/oec-j2ee6/ROOT</fileFolder>
                 <storage>ROOT</storage>
                 <videoConfUrl>http://oecdo.sgu.ru/client/</videoConfUrl>
                 <textbookUrl>http://oec-static.main.sgu.ru/textbooks/</textbookUrl>
