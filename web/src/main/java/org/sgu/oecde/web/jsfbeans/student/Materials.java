@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import org.sgu.oecde.core.education.Umk;
 import org.sgu.oecde.core.education.estimation.Points;
 import org.sgu.oecde.de.education.DeCurriculum;
 import org.sgu.oecde.tests.AdditionalCurriculum;
@@ -89,6 +90,7 @@ public class Materials extends StudentCurriculumBean{
             }
             Collections.sort(advCurriculums, new OrderByDisciplineName());
         }
+         
         return advCurriculums;
     }
 
