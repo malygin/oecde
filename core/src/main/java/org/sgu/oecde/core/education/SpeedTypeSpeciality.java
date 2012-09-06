@@ -20,11 +20,11 @@ public enum SpeedTypeSpeciality {
     public String toString() {
         switch(this){
             case uskor:
-                return "ускоренник";
+                return "ускоренная";
             case sokrSP:
-                return "сокращенник на базе СПо";
+                return "на базе СПО";
             case sokrVPO:
-                return "сокращенник на базе ВПО";
+                return "на базе ВПО";
             case undefined:
                 return "";                  
             default:
