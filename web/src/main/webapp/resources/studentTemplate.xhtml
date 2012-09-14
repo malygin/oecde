@@ -13,8 +13,8 @@
     <ui:define name="left">
         <div  class="modulsTitles"><p class="sideBarTitle">#{msgs.student_eduMenuTitle}</p></div>
         <ol class="leftSideMenuLinks leftSideList">
-            <li><a href="materials.xhtml">#{msgs.student_eduMenuLearningCourses}</a></li>
-            <li><span style="font-weight: bold; color: #fbb35d; ">new!</span><a href="umkR.xhtml?id=5480">Курс "ДАО ДО"</a></li>
+            <li><a href="materials.xhtml">#{msgs.student_eduMenuLearningCourses}</a><span style="font-weight: bold; color: #fbb35d; ">+1</span></li>
+            <li><a href="umkR.xhtml?id=5480">Курс "ДАО ДО"</a></li>
             <li><a href="controlWorks.xhtml"> #{msgs.student_eduMenuControlWorks}</a></li>
             <li><a href="grades.xhtml">  #{msgs.student_eduMenuMarks}</a></li>
            <!--<li><a href="groupControlWorks.xhtml">#{msgs.student_eduMenuControlWorksResult}</a></li>-->
@@ -53,6 +53,9 @@
             </li>
             <li>
                 <a href="forum.xhtml?type=storg">#{msgs.student_comMenuForumOrg}</a>
+            </li>
+            <li>
+                <span style="font-weight: bold; color: #fbb35d; ">new!</span><a href="forum.xhtml?type=spr">Вопросы по системе принятия рещений</a>
             </li>
             <li>
                 <a target="_blank" href="#{initParam['videoConfUrl']}?sid=#{studentSessionBean.encryptedUserNPass}">#{msgs.student_comMenuVideoconferencing}</a>
@@ -119,6 +122,7 @@
             </p>
         </div>
         <div class="floatDestroyer"/>
+
     </ui:define>
 
     <ui:define name="right">

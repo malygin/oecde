@@ -96,7 +96,7 @@ public class UmkBean implements Serializable {
     public void setcId(String cId) {
           this.cId = cId;
           user=SecurityContextHandler.getUser();
-          if ("5480".equals(cId)){
+          if ("5480".equals(cId) || "5505".equals(cId)){
               currentUmk=umkDao.getById(new Long(this.cId)); 
           }else if ( user instanceof Student){
             //curriculum= (DeCurriculum) cDao.getById(new Long(cId));
