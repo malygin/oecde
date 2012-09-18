@@ -89,7 +89,9 @@ public class AvatarBuilder implements Serializable {
             int cr = (newHeight - height) / 2;
             img = img.getSubimage(0, cr, width, newHeight - cr * 2);
         }
-        File someFile = new File(multi.getServletContext().getRealPath("/resources/userFiles/avatars/" + fname));
+       File someFile = new File(System.getProperty("catalina.base")+"/storage/"+multi.getServletContext().getInitParameter("storage") +"/userFiles/avatars/" + fname);
+
+//        File someFile = new File(multi.getServletContext().getRealPath("/resources/userFiles/avatars/" + fname));
 //        if(!someFile.exists())
         someFile.createNewFile();
         ImageIO.write(img, "JPEG", someFile);
