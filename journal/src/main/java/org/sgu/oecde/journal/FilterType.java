@@ -94,7 +94,7 @@ public enum FilterType {
         this.capacity = capacity;
     }
 
-    private String beginDate = "2009.01.01";
+    private String beginDate = "2012.09.01";
 
     private String endDate = "2019.01.01";
 
