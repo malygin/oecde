@@ -16,7 +16,7 @@
         <h:outputText value="#{studentSessionBean.student.fio}"/>
     </ui:define>
     <ui:define name="content">
-                <div style="height: 150px; background: #0172b8;"><a href="materials.xhtml"><img src="../resources/images/banner.jpg"  /></a></div>
+                <div style="height: 150px; background: #0172b8;"><a href="http://mass-decision.ru"><img src="../resources/images/banner.jpg"  /></a></div>
 
         <!--        <script type="text/javascript">
                     $(document).ready(function(){
@@ -113,6 +113,99 @@
                         </div>
                     </td>
                 </tr>
+                <tr>
+                    <td colspan="2" valign="top" class="BorderTd">
+                        <div>
+                            <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
+                                <a href="grades.xhtml" style="font-size: 12pt;" >Распределение балов</a>
+                            </div>
+                            <!--                            <div style="height: 200px;">-->
+                            <div class="StudentTestsPadding BorderNone">
+
+                                <h:dataTable styleClass="studentStandatrTable"
+                                             columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdWidthTeacher studentStandatrTableTdPaddingTeacher" cellpadding="0" cellspacing="0" id="table" value="#{materialsBean.studentsDisciplines}" var="m" style="margin: 0;">
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Дисциплина" />
+                                        </f:facet>
+                                       #{m.curriculum.discipline.name}
+                                    </h:column>
+
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <span class="Ipsilon_Web_GreenText">Тестовые<br/>задания</span>
+                                        </f:facet>
+                                        <span class="lightGreyTestText">#{m.passedTests} * #{m.curriculum.weightTest/100} =</span> <b>#{m.passedTests*m.curriculum.weightTest/100}</b>
+                                    </h:column>
+
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Самостоятельная аудиторная работа" />
+                                        </f:facet>
+                                        <h:panelGroup >
+                                            #{m.samAudWorkPoints}
+                                            <span class="lightGreyTestText">*#{m.curriculum.weightAud/100}= </span><b>#{m.samAudWorkPoints * m.curriculum.weightAud/100}</b>
+                                        </h:panelGroup>
+                                    </h:column>
+
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Самостоятельная внеаудиторная работа" />
+                                        </f:facet>
+                                        <h:panelGroup >
+                                            #{m.samAudOutWorkPoints}
+                                            <span class="lightGreyTestText">* #{m.curriculum.weightOutAud/100} =</span><b> #{m.samAudOutWorkPoints * m.curriculum.weightOutAud/100}</b>
+                                        </h:panelGroup>
+
+                                    </h:column>
+
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Научная и исследовательская деятельность по дисциплине" />
+                                        </f:facet>
+                                        <h:panelGroup>
+                                            #{m.personalCharPoints}
+                                            <span class="lightGreyTestText">* #{m.curriculum.weightPers/100} =</span><b> #{m.personalCharPoints * m.curriculum.weightPers/100}</b>
+
+                                        </h:panelGroup>
+                                    </h:column>
+
+
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <span class="Ipsilon_Web_GreenText">Промежуточная аттестация</span>
+                                        </f:facet>
+                                        #{m.activityPoints}
+                                        <span class="lightGreyTestText">* #{m.curriculum.weightAtt/100} =</span><b> #{m.activityPoints * m.curriculum.weightAtt/100}</b>
+
+                                    </h:column>
+
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{msgs.student_gradesTableHeadSumm}" />
+                                        </f:facet>
+                                        <h:panelGroup rendered="#{((p.points.sum) ne null) and ((p.points.sum) ne 0)}">
+                                            <h:panelGroup rendered="#{(p.points.sum ge 0) and (p.points.sum le 50)}" styleClass="badResultText">#{p.points.sum}</h:panelGroup>
+                                            <h:panelGroup rendered="#{(p.points.sum gt 50) and (p.points.sum le 90)}" styleClass="goodResultText">#{p.points.sum}</h:panelGroup>
+                                            <h:panelGroup rendered="#{(p.points.sum gt 90)}" styleClass="greateResultText">#{m.points.sum}</h:panelGroup>
+                                            <span class="lightGreyTestText">#{msgs.student_From} 100</span>
+                                        </h:panelGroup>
+                                    </h:column>
+
+                                </h:dataTable>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
 <!--                <h:panelGroup rendered="#{studentIndexBean.exame}">
                     <tr>
                         <td colspan="2" class="indexChangeSemestrPanel">
@@ -130,10 +223,10 @@
                 <tr>
                 <td class="tdStudentMainPage" valign="top">
             <edu:finalTestsForStudent/>
-            </td>                   
+            </td>
 
             <td class="tdStudentMainPage" valign="top">
-            <edu:controlWorkForStudent/> 
+            <edu:controlWorkForStudent/>
             </td>
             </tr>
         </h:panelGroup>-->

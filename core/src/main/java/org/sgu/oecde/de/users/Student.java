@@ -5,6 +5,7 @@ import org.sgu.oecde.core.users.AbstractStudent;
 import org.hibernate.validator.constraints.Email;
 import javax.validation.constraints.Digits;
 import org.sgu.oecde.de.education.City;
+import org.sgu.oecde.de.education.FormEducation;
 
 /**
  * студент дистанционного образования
@@ -37,6 +38,8 @@ public class Student extends AbstractStudent{
     private Long studentPassId;
 
     private static final long serialVersionUID = 51L;
+    // форма образования - очники - заочники
+    private FormEducation formEducation;
 
     public Student() {
     }
@@ -129,5 +132,12 @@ public class Student extends AbstractStudent{
             return st;
         }
 
+    }
+    public FormEducation getFormEducation() {
+        return formEducation;
+    }
+
+    public void setFormEducation(FormEducation formEducation) {
+        this.formEducation = formEducation;
     }
 }

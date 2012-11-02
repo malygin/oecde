@@ -25,19 +25,20 @@
                    <br/> <br/>
                     <h:form styleClass="teacherCurriculum">
                         <table>
-                        <tr><td>Вес по тестам </td>
+                        <tr><td>Вес по тестовым заданиям </td>
                             <td><h:inputText class="searchInput" maxlength="3" size="3" value="#{teacherCurriculumsEditBean.curriculum.weightTest}"/><br/>
                             </td>
                         </tr>
-                        <tr><td>Вес по аудиторной работе </td>
-                            <td><h:inputText class="searchInput" maxlength="3" size="3" value="#{teacherCurriculumsEditBean.curriculum.weightAud}"/><br/>
-                            </td>
-                        </tr>
-                        <tr><td>Вес по персональным характеристикам </td>
+
+                        <tr><td>Вес по научной и исследовательской деятельности по дисциплине </td>
                             <td><h:inputText class="searchInput" maxlength="3" size="3" value="#{teacherCurriculumsEditBean.curriculum.weightPers}"/><br/>
                             </td>
-                        </tr>  
-                        <tr><td> Вес по внеаудиторной работе </td>
+                        </tr>
+                            <tr><td>Вес по аудиторной самостоятельно работе</td>
+                                <td><h:inputText class="searchInput" maxlength="3" size="3" value="#{teacherCurriculumsEditBean.curriculum.weightAud}"/><br/>
+                                </td>
+                            </tr>
+                        <tr><td> Вес по внеаудиторной самостоятельно работе </td>
                             <td><h:inputText class="searchInput" maxlength="3" size="3" value="#{teacherCurriculumsEditBean.curriculum.weightOutAud}"/><br/>
                             </td>
                         </tr>

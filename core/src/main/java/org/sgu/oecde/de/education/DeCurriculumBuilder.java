@@ -41,11 +41,21 @@ public class DeCurriculumBuilder extends CurriculumBuilder<DeCurriculum>{
     public DeCurriculum getInstanceByCurrentDate(Student student,int booleanSemester){
         DeCurriculum c =  getInstance(getter.getCurrentYear(),booleanSemester,student);
         setGroup(student, c);
+        c.setWeightAtt(null);
+        c.setWeightAud(null);
+        c.setWeightOutAud(null);
+        c.setWeightPers(null);
+        c.setWeightTest(null);
         return c;
     }
 
     public DeCurriculum getInstance(Student student,Long id){
         DeCurriculum c =  getInstance(id);
+        c.setWeightAtt(null);
+        c.setWeightAud(null);
+        c.setWeightOutAud(null);
+        c.setWeightPers(null);
+        c.setWeightTest(null);
         setGroup(student, c);
         return c;
     }

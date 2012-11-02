@@ -45,6 +45,7 @@ public class TaskServlet extends HttpServlet {
       try{
           
           String str="";
+
           String[] urlTask=request.getParameter("task").split("/");
           AbstractUser user = (AbstractUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 

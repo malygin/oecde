@@ -38,6 +38,7 @@ public class Umk extends BasicItem {
      */
     private Boolean changed=false;
     private List<? extends AbstractResource> resources;
+    private String created_at;
     private static final long serialVersionUID = 53L;
   
 
@@ -145,7 +146,12 @@ public class Umk extends BasicItem {
     public void setChanged(Boolean changed) {
         this.changed = changed;
     }
-    
-    
-  
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
 }

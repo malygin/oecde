@@ -81,23 +81,23 @@
                                     </tr>
                                     <tr>
                                         <td>Промежуточная аттестация</td>
-                                        <td><span> #{m.activityPoints}</span> #{msgs.student_gradesMarks} </td>
+                                        <td><span> #{m.activityPoints}</span> #{msgs.student_gradesMarks}  ( вес - #{m.curriculum.weightAtt} %)</td>
                                     </tr>
                                     <tr>
-                                        <td>Персональные характеристика</td>
-                                        <td><span> #{m.personalCharPoints}</span> #{msgs.student_gradesMarks} </td>
+                                        <td>Научная и исследовательская деятельность по дисциплине</td>
+                                        <td><span> #{m.personalCharPoints}</span> #{msgs.student_gradesMarks} ( вес - #{m.curriculum.weightPers} %)</td>
                                     </tr>
                                             <tr>
-                                        <td>Аудиторная активность</td>
-                                        <td><span> #{m.samAudWorkPoints}</span> #{msgs.student_gradesMarks} </td>
+                                        <td>Самостоятельная аудиторная работа</td>
+                                        <td><span> #{m.samAudWorkPoints}</span> #{msgs.student_gradesMarks} ( вес - #{m.curriculum.weightAud} %)</td>
                                     </tr>
                                             <tr>
-                                        <td>Внеаудиторная активность</td>
-                                        <td><span> #{m.samAudOutWorkPoints}</span> #{msgs.student_gradesMarks} </td>
+                                        <td>Самостоятельная внеаудиторная работа</td>
+                                        <td><span> #{m.samAudOutWorkPoints}</span> #{msgs.student_gradesMarks} ( вес - #{m.curriculum.weightOutAud} %)</td>
                                     </tr>
                                     <tr>
-                                        <td>#{msgs.student_mainTest} </td>
-                                        <td><span>#{m.concludingReTestPoints==0?m.concludingTestPoints:m.concludingReTestPoints}</span> #{msgs.student_gradesMarks} </td>
+                                        <td>Тестовые задания</td>
+                                        <td><span>#{m.concludingReTestPoints==0?m.concludingTestPoints:m.concludingReTestPoints}</span> #{msgs.student_gradesMarks}( вес - #{m.curriculum.weightTest} %) </td>
                                     </tr>
                                        <tr>
                                         <td>Всего: </td>

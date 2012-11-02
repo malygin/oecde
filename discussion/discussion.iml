@@ -60,11 +60,10 @@
     <orderEntry type="library" name="Maven: net.sf.jsr107cache:jsr107cache:1.1" level="project" />
     <orderEntry type="library" name="Maven: net.sf.ehcache:ehcache-core:2.1.0" level="project" />
     <orderEntry type="library" name="Maven: net.sf.ehcache:ehcache-terracotta:2.1.1" level="project" />
-    <orderEntry type="library" name="Maven: javax:javaee-web-api:6.0" level="project" />
-    <orderEntry type="module" module-name="de" scope="TEST" />
     <orderEntry type="module" module-name="core" scope="TEST" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.8.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:org.springframework.test:3.0.3.RELEASE" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax:javaee-web-api:6.0" level="project" />
   </component>
 </module>
 

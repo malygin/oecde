@@ -175,8 +175,13 @@ public class TabEditBean implements Serializable {
     public Page getPageByAlias(String alias){
          page=new Page();
          page.setAlias(alias);
-         page=pageDao.getByExample(page).get(0);
-         return page;
+        try{
+           page=pageDao.getByExample(page).get(0);
+        } catch(Exception e){
+           page = new Page();
+           page.setText("Подсказки пока нет");
+        }
+        return page;
     }
  
     

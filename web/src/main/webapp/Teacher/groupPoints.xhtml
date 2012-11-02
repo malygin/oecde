@@ -52,7 +52,7 @@
                     
                     <h:column>
                         <f:facet name="header">
-                            <span class="Ipsilon_Web_GreenText">#{msgs.teacher_groupMainTests} <br/>#{msgs.teacher_groupTests}</span>
+                            <span class="Ipsilon_Web_GreenText">Тестовые<br/>задания</span>
                         </f:facet>
                         <span class="lightGreyTestText">#{p.concludingTest} * #{groupPoints.curriculum.weightTest/100} =</span> <b>#{p.concludingTest*groupPoints.curriculum.weightTest/100}</b>
 
@@ -63,7 +63,7 @@
                     
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="Аудиторная работа" />
+                            <h:outputText value="Самостоятельная аудиторная работа" />
                         </f:facet>
                         <h:panelGroup >
                             <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.samAudWorkPoints}"/> 
@@ -74,7 +74,7 @@
 
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="Внеаудиторная работа" />
+                            <h:outputText value="Самостоятельная внеаудиторная работа" />
                         </f:facet>
                          <h:panelGroup >
                             <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.samAudOutWorkPoints}"/> 
@@ -85,7 +85,7 @@
                     
                       <h:column>
                         <f:facet name="header">
-                            <h:outputText value="Личностные характеристики" />
+                            <h:outputText value="Научная и исследовательская деятельность по дисциплине" />
                         </f:facet>
                          <h:panelGroup>
                              <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.personalCharPoints}"/>

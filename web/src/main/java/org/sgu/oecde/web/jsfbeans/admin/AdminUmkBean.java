@@ -54,7 +54,7 @@ public class AdminUmkBean implements Serializable{
             tests=(List<AbstractResource>) umk.getResources();
              Iterator<AbstractResource> i = tests.iterator();
              while (i.hasNext()) if (i.next()==null) i.remove();               
-             Collections.sort(tests, new AbstractResource.OrderByTitle());            
+             Collections.sort(tests, new AbstractResource.OrderByTitle());
         }
        return tests;
         

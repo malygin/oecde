@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chat" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/controlworks" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/discussion" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/journal" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/messages" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/news" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/search" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/selfdependentwork" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shedule" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tabs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tests" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web" charset="UTF-8" />
+  </component>
+</project>
+
