@@ -13,7 +13,9 @@
     </ui:define>
 
     <ui:define name="content">
+        <h:panelGroup  rendered=" #{initParam['projectName'] eq 'oecde'}">
         <div style="height: 150px; background: #0172b8;"><a href="http://mass-decision.ru"><img src="../resources/images/banner.jpg"  /></a></div>
+       </h:panelGroup>
         <f:metadata>
             <f:viewParam name="page" value="#{journalBean.pageNumber}"/>
             <f:viewParam name="page" value="#{NavigationBean.page}"/>

@@ -26,6 +26,7 @@
                 </div>
                 <div class="floatDestroyer"></div>
                 <br/>
+                <h:panelGroup  rendered=" #{initParam['projectName'] eq 'oecde'}">
                 <table class="leftMenuContainer">
                 <tr>
                     <td>
@@ -54,6 +55,7 @@
                     </td>
                 </tr>
             </table>
+                </h:panelGroup>
                 <h:dataTable value="#{materialsBean.studentsDisciplines}" var="m" styleClass="leftMenuContainer" style="width: 100%;">
                     <h:column>
                         <h:panelGroup rendered="#{ m.curriculum.umk.id != 5276}"> 

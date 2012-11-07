@@ -347,6 +347,7 @@
                 <db.connectionURL>jdbc:postgresql://shiva.main.sgu.ru:5432/oecde/</db.connectionURL> 
                 <db.login>oecde</db.login> 
                 <db.pass>YmqPWz6GsYEQ62EH</db.pass>
+                <projectName>oecde</projectName>
                 <fileFolder>storage/oec-j2ee6/ROOT</fileFolder>
                 <storage>ROOT</storage>
                 <videoConfUrl>http://oecdo.sgu.ru/client/</videoConfUrl>
@@ -368,9 +369,10 @@
                 <db.connectionURL>jdbc:postgresql://shiva.main.sgu.ru:5432/oecde_sh/</db.connectionURL> 
                 <db.login>oecde</db.login> 
                 <db.pass>YmqPWz6GsYEQ62EH</db.pass>
+                <projectName>mchs</projectName>
                 <fileFolder>storage/oec-java/de</fileFolder>
                 <storage>de</storage>
-                <videoConfUrl>http://oecdo.sgu.ru/clientSchool/</videoConfUrl>
+                <videoConfUrl>http://oecdo.sgu.ru/client/</videoConfUrl>
                 <textbookUrl>http://oec-static.main.sgu.ru/school/textbooks/</textbookUrl>
                 <ipsilonUmkUrl>http://oec.sgu.ru/ipsilonUmk2/</ipsilonUmkUrl>
                 <scheduleUrl></scheduleUrl>
