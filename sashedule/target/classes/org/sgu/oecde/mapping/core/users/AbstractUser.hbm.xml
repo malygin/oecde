@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <class abstract="true" dynamic-update="true" name="org.sgu.oecde.core.users.AbstractUser" select-before-update="false" table="abstract_user">
+   
+    <id name="id" type="long"/>
+    <property insert="false" length="30" name="username" not-null="true" type="string" unique="true" unique-key="uk_abs_user" update="false"/>
+    <property insert="false" length="20" name="password" not-null="true" type="string"/>
+    <property insert="false" name="enabled" not-null="true" scale="1" type="true_false"/>
+    <property column="full_access" insert="false" name="fullAccess" not-null="true" scale="1" type="true_false"/>
+    <property column="large_photo" insert="false" name="largePhoto" type="string"/>
+    <property column="medium_photo" insert="false" name="mediumPhoto" type="string"/>
+    <property column="small_photo" insert="false" name="smallPhoto" type="string"/>
+    <property column="original_id" insert="false" name="originalId" type="long" update="false"/>
+     <property column="users_skins" insert="false" name="skin">
+      <type name="org.sgu.oecde.core.GenericEnumUserType">
+        <param name="enumClass">org.sgu.oecde.core.users.UsersSkins</param>
+      </type>
+    </property>
+    <list cascade="delete" fetch="select" inverse="true" lazy="true" name="authorities" table="users_roles">
+   
+      <key column="user_id" foreign-key="fk_users_roles_user" not-null="true"/>
+      <list-index column="role_order"/>
+      <composite-element class="org.sgu.oecde.core.authentication.RoleItem">
+        <property length="20" name="role" not-null="true" type="string"/>
+      </composite-element>
+    </list>
+  </class>
+</hibernate-mapping>

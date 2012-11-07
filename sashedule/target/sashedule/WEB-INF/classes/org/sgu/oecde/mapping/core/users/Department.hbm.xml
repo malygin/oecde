@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <joined-subclass dynamic-update="true" extends="org.sgu.oecde.core.users.AbstractGroup" name="org.sgu.oecde.core.users.Department" table="department">
+    <key column="id" foreign-key="fk_departament_group" not-null="true" on-delete="cascade"/>
+    <property insert="false" length="500" name="description" type="string"/>
+    <property column="phone_number" insert="false" name="phoneNumber"  length="20" type="string"/>
+    <many-to-one class="org.sgu.oecde.core.users.Teacher" fetch="join" foreign-key="fk_department_head" name="head"/>
+    <property column="email" insert="false" name="email"  length="100" type="string"/>
+    <property column="address" insert="false" name="address"  length="200" type="string"/>
+    <property column="url" insert="false" name="url"  length="100" type="string"/>
+  </joined-subclass>
+</hibernate-mapping>

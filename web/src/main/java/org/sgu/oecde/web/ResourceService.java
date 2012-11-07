@@ -5,7 +5,6 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import org.sgu.oecde.controlworks.ControlWork;
-import org.sgu.oecde.controlworks.ControlWorkProgress;
 import org.sgu.oecde.controlworks.ControlWorkService;
 import org.sgu.oecde.core.education.CalendarConstantName;
 import org.sgu.oecde.core.education.StringConstantsGetter;

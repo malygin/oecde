@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <class dynamic-insert="true" dynamic-update="true" name="org.sgu.oecde.news.NewsItem" table="news">
+    <cache usage="read-write"/>
+    <id name="id" type="long" unsaved-value="0">
+      <generator class="native">
+        <param name="sequence">news_seq</param>
+      </generator>
+    </id>
+    <property length="1000" name="header" type="string"/>
+    <property name="announcement" length="250" type="string"/>
+    <property column="full_text" length="10000" name="fullText" type="string"/>
+    <property column="news_time" length="19" name="time" type="string"/>
+    <property column="access_type" name="accessType" type="string"/>
+    <property column="review_number" name="reviewNumber" scale="3" type="integer"/>
+    <property column="commentNumber" name="commentNumber" scale="3" type="integer"/>
+    <property length="30" name="newstype">
+      <type name="org.sgu.oecde.core.GenericEnumUserType">
+        <param name="enumClass">org.sgu.oecde.news.NewTypeEnum</param>
+        <param name="identifierMethod">toName</param>
+        <param name="valueOfMethod">parse</param>
+      </type>
+    </property>
+    <property length="30" name="lang">
+      <type name="org.sgu.oecde.core.GenericEnumUserType">
+        <param name="enumClass">org.sgu.oecde.core.util.LangEnum</param>
+        <param name="identifierMethod">toName</param>
+        <param name="valueOfMethod">parse</param>
+      </type>
+    </property>
+    <many-to-one class="org.sgu.oecde.core.users.AbstractPerson" fetch="join" foreign-key="fk_news_author" name="author"/>
+   
+    <set  batch-size="15" fetch="select" mutable="false"  name="tags" table="tags_to_news">
+      <key column="news_id" foreign-key="fk_news_2_tags_news" not-null="false"/>
+      <many-to-many class="org.sgu.oecde.news.NewsTag"   column="tag_id" foreign-key="fk_news_2_tag_tag"/>
+    </set>    
+    
+    <list cascade="all" name="images" table="news_images" batch-size="15" fetch="select" >
+      <key column="news_id" not-null="false"/>
+      <index column="id_images_news"/>
+      <many-to-many class="org.sgu.oecde.core.education.resource.Image" column="image_id" />
+    </list>
+ 
+  </class>
+</hibernate-mapping>

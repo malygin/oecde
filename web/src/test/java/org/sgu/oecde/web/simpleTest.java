@@ -1,48 +1,9 @@
 package org.sgu.oecde.web;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.Console;
-import java.io.Externalizable;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Currency;
-import java.util.Date;
-import java.util.Formatter;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
-import java.util.regex.Pattern;
-import javax.activation.MimetypesFileTypeMap;
-import oracle.sql.ARRAY;
-import org.apache.xmlbeans.impl.piccolo.util.RecursionException;
+
 import org.junit.Ignore;
 import org.junit.Test;
-import org.sgu.oecde.core.education.Curriculum;
-import org.sgu.oecde.de.education.DeCurriculum;
-import org.sgu.oecde.de.users.Student;
-import org.sgu.oecde.journal.EventType;
-import org.sgu.oecde.web.jsfbeans.admin.ConstantsFormBean;
 
 /**
  *

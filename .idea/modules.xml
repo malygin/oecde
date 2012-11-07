@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/chat/chat.iml" filepath="$PROJECT_DIR$/chat/chat.iml" />
-      <module fileurl="file://$PROJECT_DIR$/controlworks/controlworks.iml" filepath="$PROJECT_DIR$/controlworks/controlworks.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/discussion/discussion.iml" filepath="$PROJECT_DIR$/discussion/discussion.iml" />
-      <module fileurl="file://$PROJECT_DIR$/journal/journal.iml" filepath="$PROJECT_DIR$/journal/journal.iml" />
       <module fileurl="file://$PROJECT_DIR$/main.iml" filepath="$PROJECT_DIR$/main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/messages/messages.iml" filepath="$PROJECT_DIR$/messages/messages.iml" />
-      <module fileurl="file://$PROJECT_DIR$/news/news.iml" filepath="$PROJECT_DIR$/news/news.iml" />
-      <module fileurl="file://$PROJECT_DIR$/shedule/schedule.iml" filepath="$PROJECT_DIR$/shedule/schedule.iml" />
-      <module fileurl="file://$PROJECT_DIR$/search/search.iml" filepath="$PROJECT_DIR$/search/search.iml" />
-      <module fileurl="file://$PROJECT_DIR$/selfdependentwork/selfdependentwork.iml" filepath="$PROJECT_DIR$/selfdependentwork/selfdependentwork.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tabs/tabs.iml" filepath="$PROJECT_DIR$/tabs/tabs.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tests/tests.iml" filepath="$PROJECT_DIR$/tests/tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sashedule/saschedule.iml" filepath="$PROJECT_DIR$/sashedule/saschedule.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/web.iml" filepath="$PROJECT_DIR$/web/web.iml" />
     </modules>
   </component>

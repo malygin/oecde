@@ -4,7 +4,6 @@ package org.sgu.oecde.web.jsfbeans.messages;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.messages.service.MessageService;

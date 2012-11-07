@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/oecdo/!svn/ver/1212/sashedule/src/main/webapp/WEB-INF
+END
+faces-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/oecdo/!svn/ver/1212/sashedule/src/main/webapp/WEB-INF/faces-config.xml
+END
+glassfish-web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/oecdo/!svn/ver/1152/sashedule/src/main/webapp/WEB-INF/glassfish-web.xml
+END
+sun-web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/oecdo/!svn/ver/796/sashedule/src/main/webapp/WEB-INF/sun-web.xml
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/oecdo/!svn/ver/1212/sashedule/src/main/webapp/WEB-INF/web.xml
+END

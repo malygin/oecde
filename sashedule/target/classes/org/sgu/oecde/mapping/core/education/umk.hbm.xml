@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <class mutable="false" name="org.sgu.oecde.core.education.Umk" table="umk">
+
+    <id name="id" type="long"/>
+    <property insert="false" length="150" name="name" type="string" unique="true" unique-key="uk_umk_name"/>
+    <property insert="false" length="400" name="description" type="string"/>
+    <property insert="false" length="600" name="folder" type="string"/>
+      <property column="event_time" length="19" name="created_at" not-null="false" type="string"/>
+    <list batch-size="5" cascade="none" fetch="select" inverse="true" lazy="true" mutable="false" name="modules">
+ 
+      <key column="umk" foreign-key="fk_module_umk" not-null="true"/>
+      <index column="module_order" length="3" type="integer"/>
+      <one-to-many class="org.sgu.oecde.core.education.Module"/>
+    </list>
+    <list batch-size="5" cascade="none" fetch="select" inverse="true" lazy="true" mutable="false" name="resources" table="umk_resources">
+   
+      <key column="umk" foreign-key="fk_umk_resource_umk" not-null="true"/>
+      <index column="resource_order" length="3" type="integer"/>
+      <many-to-many not-found="ignore" class="org.sgu.oecde.core.education.resource.AbstractResource" column="resource_id" foreign-key="fk_umk_res"/>
+    </list>
+    <set batch-size="5" cascade="none" fetch="join" mutable="false" name="authors" table="umk_author">
+    
+      <key column="umk" foreign-key="fk_umk_author_umk" not-null="true"/>
+      <many-to-many class="org.sgu.oecde.core.users.Teacher" column="author" foreign-key="fk_umk_author"/>
+    </set>
+     <property name="changed" type="true_false"/>
+  </class>
+</hibernate-mapping>

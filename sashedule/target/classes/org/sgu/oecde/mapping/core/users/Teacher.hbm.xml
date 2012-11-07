@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <joined-subclass dynamic-update="true" extends="org.sgu.oecde.core.users.AbstractPerson" name="org.sgu.oecde.core.users.Teacher" schema="oecdo_test" table="teacher">
+    <key column="id" foreign-key="fk_teacher_user" not-null="true" on-delete="cascade"/>
+    <property insert="false" length="100" name="post" type="string"/>
+    <many-to-one class="org.sgu.oecde.core.users.Department" fetch="join" foreign-key="fk_teacher_departament" insert="false" name="department" not-null="false"/>
+    <set cascade="none" fetch="select" lazy="true" mutable="false" name="teacherToGroups" schema="oecdo_test" table="teacher_to_group">
+    
+      <key column="teacher" foreign-key="fk_teacher_2_group_teacher"/>
+      <composite-element class="org.sgu.oecde.core.education.TeacherToGroup">
+        <parent name="teacher"/>
+        <many-to-one cascade="none" class="org.sgu.oecde.core.education.Curriculum" fetch="join" foreign-key="fk_teacher_2_group_curriculum" insert="false" name="curriculum" update="false"/>
+        <many-to-one cascade="none" class="org.sgu.oecde.core.users.StudentGroup" column="student_group" fetch="join" foreign-key="fk_teacher_2_group_group" insert="false" name="group" update="false"/>
+      </composite-element>
+    </set>
+    <property column="cell_phone" insert="false" name="cellPhone" scale="10" type="integer"/>
+    <property column="additional_information" insert="false" name="additionalInformation" scale="500" type="string"/>
+    <property insert="false" length="30" name="email" type="string"/>
+    <property column="office_phone_number" insert="false" name="officePhoneNumber" scale="10" type="integer"/>
+  </joined-subclass>
+</hibernate-mapping>

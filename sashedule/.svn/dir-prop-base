@@ -1,0 +1,10 @@
+K 10
+svn:ignore
+V 74
+target
+nb-configuration.xml
+catalog.xml
+profiles.xml
+faces-config.NavData
+
+END

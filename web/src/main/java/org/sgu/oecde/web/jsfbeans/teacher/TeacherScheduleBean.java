@@ -1,6 +1,5 @@
 package org.sgu.oecde.web.jsfbeans.teacher;
 
-import java.util.Collections;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;

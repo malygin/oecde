@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <class dynamic-insert="true" dynamic-update="true" name="org.sgu.oecde.messages.Message">
+    <id name="id" type="long">
+      <generator class="native">
+        <param name="sequence">message_seq</param>
+      </generator>
+    </id>
+    <property name="theme" type="string"/>
+    <property length="2000" name="fullText" type="string"/>
+    <property length="19" name="dateMessage" type="string"/>
+    <many-to-one cascade="none" class="org.sgu.oecde.core.users.AbstractUser" fetch="join" lazy="false" name="author" not-null="false"/>
+    <list cascade="all" name="files" table="message_files">
+      <key column="message_id" not-null="false" update="true"/>
+      <index column="id_message_file"/>
+      <one-to-many class="org.sgu.oecde.messages.MessageFile"/>
+    </list>
+    <list cascade="all" name="recipients" table="message_recipients">
+      <key column="message_id" not-null="false" update="true"/>
+      <index column="id_messages_persons"/>
+      <one-to-many class="org.sgu.oecde.messages.MessageRecipient"/>
+    </list>
+    <property column="message_type" name="type" not-null="true">
+      <type name="org.sgu.oecde.core.GenericEnumUserType">
+        <param name="enumClass">org.sgu.oecde.messages.MessageType</param>
+        <param name="identifierMethod">toInt</param>
+        <param name="valueOfMethod">parse</param>
+      </type>
+    </property>
+  </class>
+</hibernate-mapping>

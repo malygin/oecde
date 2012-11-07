@@ -1,6 +1,5 @@
 package org.sgu.oecde.web.jsfbeans.chat;
 
-import org.sgu.oecde.web.jsfbeans.*;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -9,13 +8,7 @@ import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.chat.ChatMessage;
 import org.sgu.oecde.chat.ChatRoom;
 import org.sgu.oecde.chat.IChatDao;
-import org.sgu.oecde.core.IUpdateDao;
 import org.sgu.oecde.core.users.AbstractUser;
-import org.sgu.oecde.core.users.Admin;
-import org.sgu.oecde.core.users.Supervisor;
-import org.sgu.oecde.core.users.Teacher;
-import org.sgu.oecde.core.users.UserType;
-import org.sgu.oecde.de.users.Student;
 import org.springframework.security.access.annotation.Secured;
 
 /**

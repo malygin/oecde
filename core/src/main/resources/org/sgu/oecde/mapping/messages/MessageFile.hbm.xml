@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <class name="org.sgu.oecde.messages.MessageFile" table="message_file">
+    <id name="id" type="long">
+      <generator class="native">
+        <param name="sequence">message_file_seq</param>
+      </generator>
+    </id>
+    <property name="name" type="string"/>
+    <property name="path" type="string"/>
+    <property length="10" name="type" type="string"/>
+    <property name="sizeFile" type="string"/>
+  </class>
+</hibernate-mapping>

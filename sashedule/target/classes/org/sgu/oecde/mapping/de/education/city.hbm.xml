@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <class mutable="false" name="org.sgu.oecde.de.education.City" table="city">
+
+    <id name="id" type="long"/>
+    <property insert="false" length="30" name="name" not-null="true" unique="true" unique-key="uk_city"/>
+    <property column="eng_short" insert="false" length="5" name="engShort"/>
+    <property column="rus_short" insert="false" length="5" name="rusShort"/>
+    <property insert="false" length="400" name="description"/>
+  </class>
+</hibernate-mapping>

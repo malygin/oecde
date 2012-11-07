@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+    <diskStore path="java.io.tmpdir" />
+    <defaultCache maxElementsInMemory="2000" eternal="false" timeToIdleSeconds="600" timeToLiveSeconds="600" overflowToDisk="false" diskPersistent="false" diskExpiryThreadIntervalSeconds="120" memoryStoreEvictionPolicy="LRU" />
+<cache
+    name="student"
+    maxElementsInMemory="300"
+    eternal="false"
+    timeToIdleSeconds="600"
+    timeToLiveSeconds="600"
+    overflowToDisk="false"
+/><cache
+    name="admin"
+    maxElementsInMemory="100"
+    eternal="false"
+    timeToIdleSeconds="600"
+    timeToLiveSeconds="600"
+    overflowToDisk="false"
+/><cache
+    name="teacher"
+    maxElementsInMemory="100"
+    eternal="false"
+    timeToIdleSeconds="600"
+    timeToLiveSeconds="600"
+    overflowToDisk="false"
+/><cache
+    name="supervisor"
+    maxElementsInMemory="100"
+    eternal="false"
+    timeToIdleSeconds="600"
+    timeToLiveSeconds="600"
+    overflowToDisk="false"
+/>
+</ehcache>

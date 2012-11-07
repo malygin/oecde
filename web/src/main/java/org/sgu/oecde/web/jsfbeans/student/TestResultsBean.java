@@ -9,7 +9,6 @@ import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.core.education.work.AdditionalSelfDependentWork;
 import org.sgu.oecde.tests.TestAttemptService;
 import org.sgu.oecde.web.ResourceService;
-import org.sgu.oecde.web.jsfbeans.student.StudentCurriculumBean;
 
 /**
  *

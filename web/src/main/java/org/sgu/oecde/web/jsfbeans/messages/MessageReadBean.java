@@ -1,13 +1,11 @@
 
 package org.sgu.oecde.web.jsfbeans.messages;
-import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.util.SecurityContextHandler;
 import org.sgu.oecde.messages.MessageRecipient;
-import org.sgu.oecde.messages.MessageType;
 import org.sgu.oecde.messages.service.MessageImpl;
 import org.sgu.oecde.messages.service.MessageService;
 

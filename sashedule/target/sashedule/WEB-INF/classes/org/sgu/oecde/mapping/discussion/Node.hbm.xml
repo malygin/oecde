@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <class select-before-update="false" name="org.sgu.oecde.discussion.Node" table="discussion_node">
+   
+    <id name="id" type="long" unsaved-value="0">
+      <generator class="native">
+        <param name="sequence">node_seq</param>
+      </generator>
+    </id>
+    <property  name="time" column="node_time" type="string" length="19"/>
+    <property name="message" type="string" length="3000"/>
+    <property name="open" type="true_false" scale="1"/>
+    <many-to-one foreign-key="fk_root_node" class="org.sgu.oecde.discussion.Root" lazy="proxy" fetch="select" name="root" />
+    <many-to-one foreign-key="fk_node_node" cascade="delete" class="org.sgu.oecde.discussion.Node" name="parent" lazy="proxy" fetch="select"/>
+    <many-to-one foreign-key="fk_node_user" class="org.sgu.oecde.core.users.AbstractPerson" name="user"  column="node_user" fetch="join"/>
+    <set batch-size="25" cascade="all" fetch="join"  inverse="true" name="children" table="discussion_node">
+      <key foreign-key="fk_node_node" column="parent" />
+      <one-to-many class="org.sgu.oecde.discussion.Node"/>
+    </set>
+  </class>
+</hibernate-mapping>

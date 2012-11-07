@@ -7,15 +7,13 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.AjaxBehaviorEvent;
-import javax.servlet.ServletException;
-import org.sgu.oecde.core.util.LangEnum;
+
 import org.sgu.oecde.tabs.Page;
 import org.sgu.oecde.tabs.Tab;
 import org.sgu.oecde.tabs.TabType;
 import org.sgu.oecde.tabs.dao.ITabsDao;
 import org.sgu.oecde.web.jsfbeans.UserSessionBean;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.util.CollectionUtils;
 
 /**
  *

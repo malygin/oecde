@@ -1,7 +1,6 @@
 package org.sgu.oecde.web;
 
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -11,11 +10,9 @@ import org.sgu.oecde.core.users.AbstractPerson;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.users.UserType;
-import org.sgu.oecde.core.util.SemesterGetter;
 import org.sgu.oecde.de.users.DeSupervisor;
 import org.sgu.oecde.schedule.Lesson;
 import org.sgu.oecde.schedule.dao.ILessonDao;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 /**

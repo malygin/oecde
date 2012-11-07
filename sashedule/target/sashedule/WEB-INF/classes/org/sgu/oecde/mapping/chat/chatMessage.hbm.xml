@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <class select-before-update="false" name="org.sgu.oecde.chat.ChatMessage" table="chat_message">
+    <id name="id" type="long">
+      <generator class="native">
+        <param name="sequence">chat_seq</param>
+      </generator>
+    </id>
+    <property  length="22" name="dateMessage" type="string"/>
+    <property  length="200" name="message" type="string"/>
+    <many-to-one class="org.sgu.oecde.chat.ChatRoom" name="room"  fetch="join"/>
+    <many-to-one class="org.sgu.oecde.core.users.AbstractUser" name="author"  lazy="no-proxy" fetch="join"/>
+   </class>
+</hibernate-mapping>

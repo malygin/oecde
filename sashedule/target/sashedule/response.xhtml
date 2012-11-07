@@ -1,0 +1,19 @@
+    <ui:composition      
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:malygin="http://java.sun.com/jsf/composite/ezcomp"
+         template="tpl/regular.xhtml"        
+         >
+        <ui:define name="content">
+            <h:outputText value="#{msgs['hello.world']}"/>
+            Message:123123
+            
+        </ui:define>
+        <ui:define name="sidebar">
+           <ui:include src="/tpl/menu_left.xhtml"/>
+        </ui:define>
+        <ui:define name="footer">
+    <ui:debug  rendered="true"/>
+        </ui:define>
+    </ui:composition>

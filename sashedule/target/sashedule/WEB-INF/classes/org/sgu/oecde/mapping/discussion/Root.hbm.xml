@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <class select-before-update="false" name="org.sgu.oecde.discussion.Root" table="discussion_root">
+    <cache usage="read-write"/>
+    <id name="id" type="long" unsaved-value="0">
+      <generator class="native">
+        <param name="sequence">root_seq</param>
+      </generator>
+    </id>
+    <property not-null="true" name="time" column="root_time" type="string" length="19"/>
+    <property name="title" type="string" length="3000"/>
+    <property name="objectId" type="long" column="object_id"/>
+    <property name="open" type="true_false" scale="1"/>
+    <many-to-one foreign-key="fk_root_user" class="org.sgu.oecde.core.users.AbstractUser" name="user" column="root_owner" fetch="join"/>
+    <property column="object_type" name="objectType" not-null="true">
+      <type name="org.sgu.oecde.core.GenericEnumUserType">
+        <param name="enumClass">org.sgu.oecde.discussion.ForumTypes</param>
+        <param name="identifierMethod">getName</param>
+        <param name="valueOfMethod">parse</param>
+      </type>
+    </property>
+    <set batch-size="10" cascade="all" fetch="select" lazy="true" inverse="true" name="children" sort="org.sgu.oecde.discussion.util.NodeRevertComparator" table="discussion_node">
+      <cache usage="read-write"/>
+      <key foreign-key="fk_root_node" column="root" not-null="true"/>
+      <one-to-many class="org.sgu.oecde.discussion.Node"/>
+    </set>
+  </class>
+</hibernate-mapping>

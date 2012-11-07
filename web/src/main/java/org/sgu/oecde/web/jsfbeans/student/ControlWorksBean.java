@@ -29,7 +29,6 @@ import org.sgu.oecde.journal.EventType;
 import org.sgu.oecde.journal.JournalService;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.FacesUtil;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.FileUploadUtil;
-import org.sgu.oecde.web.jsfbeans.util.fileUpload.MultipartRequestWrapper;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.UploadFile;
 import org.springframework.util.CollectionUtils;
 

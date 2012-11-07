@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <joined-subclass dynamic-update="true" extends="org.sgu.oecde.core.users.AbstractStudent" name="org.sgu.oecde.de.users.Student" table="de_student">
+    <key column="id" foreign-key="fk_student_abstract_student" not-null="true" on-delete="cascade"/>
+    <property length="20" name="email" type="string"/>
+    <property name="cellPhone" scale="11" type="long"/>
+    <property name="studentPassId" column="student_pass_id" scale="11" type="long"/>
+    <property name="icq" scale="9" type="int"/>
+    <many-to-one class="org.sgu.oecde.de.education.City" fetch="join" foreign-key="fk_student_city" insert="false" name="city" not-null="true"/>
+    <property column="form_education" name="formEducation" not-null="false">
+          <type name="org.sgu.oecde.core.GenericEnumUserType">
+              <param name="enumClass">org.sgu.oecde.de.education.FormEducation</param>
+              <param name="identifierMethod">toInt</param>
+              <param name="valueOfMethod">parse</param>
+          </type>
+      </property>
+
+  </joined-subclass>
+</hibernate-mapping>

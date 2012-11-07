@@ -17,7 +17,7 @@
     <facet type="Spring" name="Spring">
       <configuration>
         <fileset id="fileset1" name="Xml Application Context" removed="false">
-          <file>file://$MODULE_DIR$/src/main/resources/org/sgu/oecde/spring/wsBeans.xml</file>
+          <file>file://$MODULE_DIR$/../core/src/main/resources/org/sgu/oecde/spring/wsBeans.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/org/sgu/oecde/webSecurity.xml</file>
         </fileset>
       </configuration>
@@ -76,18 +76,6 @@
     <orderEntry type="library" name="Maven: net.sf.jsr107cache:jsr107cache:1.1" level="project" />
     <orderEntry type="library" name="Maven: net.sf.ehcache:ehcache-core:2.1.0" level="project" />
     <orderEntry type="library" name="Maven: net.sf.ehcache:ehcache-terracotta:2.1.1" level="project" />
-    <orderEntry type="module" module-name="tests" scope="PROVIDED" />
-    <orderEntry type="module" module-name="tabs" scope="PROVIDED" />
-    <orderEntry type="module" module-name="selfdependentwork" scope="PROVIDED" />
-    <orderEntry type="module" module-name="journal" scope="PROVIDED" />
-    <orderEntry type="module" module-name="schedule" scope="PROVIDED" />
-    <orderEntry type="module" module-name="news" scope="PROVIDED" />
-    <orderEntry type="module" module-name="search" scope="PROVIDED" />
-    <orderEntry type="module" module-name="controlworks" scope="PROVIDED" />
-    <orderEntry type="module" module-name="messages" scope="PROVIDED" />
-    <orderEntry type="module" module-name="discussion" scope="PROVIDED" />
-    <orderEntry type="module" module-name="chat" scope="PROVIDED" />
-    <orderEntry type="module" module-name="core" scope="TEST" />
     <orderEntry type="library" name="Maven: org.apache.xmlbeans:xmlbeans:2.4.0" level="project" />
     <orderEntry type="library" name="Maven: stax:stax-api:1.0.1" level="project" />
     <orderEntry type="library" name="Maven: commons-fileupload:commons-fileupload:1.1" level="project" />

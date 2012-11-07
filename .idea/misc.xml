@@ -4,6 +4,7 @@
     <entry_points version="2.0" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/sashedule" />
     <file type="web" url="file://$PROJECT_DIR$/web" />
   </component>
   <component name="IdProvider" IDEtalkID="4D994E495A0568A81DD6EFB72C14506A" />
@@ -27,6 +28,9 @@
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/classes" />
+  </component>
+  <component name="SvnBranchConfigurationManager">
+    <option name="mySupportsUserInfoFilter" value="true" />
   </component>
   <component name="WebServicesPlugin" addRequiredLibraries="true" />
 </project>

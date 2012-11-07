@@ -1,0 +1,51 @@
+
+package org.sgu.oecde.saschedule;
+
+import java.util.List;
+import java.util.ListIterator;
+import org.sgu.oecde.de.users.Group;
+import org.sgu.oecde.schedule.CityWithGroup;
+
+/**
+ * @author Andrey Malygin (mailto: anmalygin@gmail.com)
+ * created 31.05.2010
+ * 
+ */
+public class ListUtils {
+    public static List<CityWithGroup> RemoveExistCss(List<CityWithGroup> css, List<CityWithGroup> cssResult){
+        int i =0;
+        if (css!=null && cssResult!=null){
+             ListIterator litr = css.listIterator();
+             while(litr.hasNext()) {
+                CityWithGroup element = (CityWithGroup) litr.next();
+                 for (CityWithGroup c: cssResult){
+                     if ((c.getGroup().getId().equals(element.getGroup().getId())) && (c.getCity().getId().equals(element.getCity().getId()))){
+                         litr.remove();
+                        // System.out.println("eq! ");
+                     }
+                   }
+            }
+        }
+
+        return  css;
+    }
+
+       public static List<CityWithGroup> MarkUsedCss(List<CityWithGroup> css, List<CityWithGroup> cssResult){
+        int i =0;
+        if (css!=null && cssResult!=null){
+             ListIterator litr = css.listIterator();
+             while(litr.hasNext()) {
+                CityWithGroup element = (CityWithGroup) litr.next();
+                 for (CityWithGroup c: cssResult){
+                     if (c.getGroup().getId()==element.getGroup().getId()){
+//                         element.setUsed(true);
+                        System.out.println("used! ");
+                     }
+                   }
+            }
+        }
+
+        return  css;
+    }
+
+}

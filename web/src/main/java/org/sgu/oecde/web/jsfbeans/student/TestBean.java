@@ -1,7 +1,6 @@
 package org.sgu.oecde.web.jsfbeans.student;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.net.MalformedURLException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;

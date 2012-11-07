@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <class abstract="true" dynamic-insert="true" name="org.sgu.oecde.core.education.work.AbstractResult" table="abstract_result">
+    <id name="id" type="long" unsaved-value="0">
+      <generator class="native">
+        <param name="sequence">result_seq</param>
+      </generator>
+    </id>
+    <discriminator column="discriminator" length="15"/>
+    <property column="result_date" length="19" name="date" type="string"/>
+    <many-to-one class="org.sgu.oecde.core.education.Curriculum" fetch="join" foreign-key="fk_result_curriculum" name="curriculum" not-null="true"/>
+    <many-to-one class="org.sgu.oecde.core.users.AbstractStudent" fetch="join" foreign-key="fk_result_student" name="student" not-null="true"/>
+  </class>
+</hibernate-mapping>

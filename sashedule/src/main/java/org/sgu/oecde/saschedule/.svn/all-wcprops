@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/oecdo/!svn/ver/1455/sashedule/src/main/java/org/sgu/oecde/saschedule
+END
+Converter.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/oecdo/!svn/ver/795/sashedule/src/main/java/org/sgu/oecde/saschedule/Converter.java
+END
+ToolBarItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/oecdo/!svn/ver/795/sashedule/src/main/java/org/sgu/oecde/saschedule/ToolBarItem.java
+END
+CalendarBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/oecdo/!svn/ver/795/sashedule/src/main/java/org/sgu/oecde/saschedule/CalendarBean.java
+END
+CssConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/oecdo/!svn/ver/795/sashedule/src/main/java/org/sgu/oecde/saschedule/CssConverter.java
+END
+ToolBar.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/oecdo/!svn/ver/795/sashedule/src/main/java/org/sgu/oecde/saschedule/ToolBar.java
+END
+ValidationBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/oecdo/!svn/ver/795/sashedule/src/main/java/org/sgu/oecde/saschedule/ValidationBean.java
+END
+FormEditLessonBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/oecdo/!svn/ver/1493/sashedule/src/main/java/org/sgu/oecde/saschedule/FormEditLessonBean.java
+END
+CalendarDataModelItemImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/oecdo/!svn/ver/796/sashedule/src/main/java/org/sgu/oecde/saschedule/CalendarDataModelItemImpl.java
+END
+ListUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/oecdo/!svn/ver/1215/sashedule/src/main/java/org/sgu/oecde/saschedule/ListUtils.java
+END
+EditDayBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/oecdo/!svn/ver/1493/sashedule/src/main/java/org/sgu/oecde/saschedule/EditDayBean.java
+END
+EditLessonBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/oecdo/!svn/ver/1032/sashedule/src/main/java/org/sgu/oecde/saschedule/EditLessonBean.java
+END
+CalendarDataModelImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/oecdo/!svn/ver/796/sashedule/src/main/java/org/sgu/oecde/saschedule/CalendarDataModelImpl.java
+END

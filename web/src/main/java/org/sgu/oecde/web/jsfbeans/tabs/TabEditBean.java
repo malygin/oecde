@@ -4,25 +4,21 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import org.sgu.oecde.core.IUpdateDao;
+
 import org.sgu.oecde.tabs.Page;
 import org.sgu.oecde.tabs.PageFile;
 import org.sgu.oecde.tabs.Tab;
-import org.sgu.oecde.tabs.TabType;
 import org.sgu.oecde.tabs.dao.IPageDao;
 import org.sgu.oecde.tabs.dao.ITabsDao;
 import org.sgu.oecde.web.jsfbeans.UserSessionBean;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.FacesUtil;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.FileUploadUtil;
-import org.sgu.oecde.web.jsfbeans.util.fileUpload.MultipartRequestWrapper;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.UploadFile;
 import org.springframework.security.access.annotation.Secured;
 

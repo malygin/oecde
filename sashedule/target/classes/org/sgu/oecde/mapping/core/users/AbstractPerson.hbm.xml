@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <joined-subclass  extends="org.sgu.oecde.core.users.AbstractUser" name="org.sgu.oecde.core.users.AbstractPerson" table="abstract_person">
+    <key column="id" foreign-key="fk_person_user" not-null="true" on-delete="cascade"/>
+    <property insert="false" length="50" name="name" type="string" update="false"/>
+    <property column="second_name" insert="false" length="50" name="secondName" type="string" update="false"/>
+    <property insert="false" length="50" name="surname" type="string" update="false"/>
+    <property insert="false" length="20" name="birthday" type="string" update="false"/>
+    <property length="200" name="contacts" type="string" />
+    <property length="2000" name="info" type="string" />
+  </joined-subclass>
+</hibernate-mapping>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <class name="org.sgu.oecde.tabs.Tab" dynamic-update="true" select-before-update="false" table="tab">
+    <cache usage="read-write"/>
+    <id name="id" type="long" unsaved-value="0">
+      <generator class="native">
+        <param name="sequence">tab_seq</param>
+      </generator>
+    </id>
+    <property length="250" name="name" not-null="true" type="string"/>
+    <property length="10"  name="orderTab" not-null="false"  type="string"/>
+    <property length="250"  name="alias" not-null="false"  type="string"/>
+    <property column="tab_type" name="type">
+      <type name="org.sgu.oecde.core.GenericEnumUserType">
+        <param name="enumClass">org.sgu.oecde.tabs.TabType</param>
+      </type>
+    </property>
+     <list cascade="all" name="pages" table="tab_page">
+      <key column="tab" not-null="false" update="true"/>
+      <index column="id_tab_page"/>
+      <one-to-many class="org.sgu.oecde.tabs.Page"/>
+    </list> 
+      <property length="30" name="lang">
+      <type name="org.sgu.oecde.core.GenericEnumUserType">
+        <param name="enumClass">org.sgu.oecde.core.util.LangEnum</param>
+        <param name="identifierMethod">toName</param>
+        <param name="valueOfMethod">parse</param>
+      </type>
+    </property>
+  </class>
+</hibernate-mapping>

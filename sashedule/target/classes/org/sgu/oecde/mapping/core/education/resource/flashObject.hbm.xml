@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <joined-subclass dynamic-update="true" extends="org.sgu.oecde.core.education.resource.AbstractResource" name="org.sgu.oecde.core.education.resource.FlashObject" table="flash_object">
+    <key column="id" foreign-key="fk_flash_o_res" on-delete="cascade"/>
+    <property insert="false" name="url" type="string"/>
+    <property insert="false" name="previewImg" type="string"/>
+    <property insert="false" name="width" scale="4" type="integer"/>
+    <property insert="false" name="height" scale="4" type="integer"/>
+  </joined-subclass>
+</hibernate-mapping>

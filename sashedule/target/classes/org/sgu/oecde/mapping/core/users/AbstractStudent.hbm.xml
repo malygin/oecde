@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="oecdo_test">
+  <joined-subclass abstract="true" dynamic-update="true" extends="org.sgu.oecde.core.users.AbstractPerson" name="org.sgu.oecde.core.users.AbstractStudent" table="abstract_student">
+    <key column="id" foreign-key="fk_student_user" not-null="true" on-delete="cascade"/>
+    <property insert="false" name="transfered" scale="1" type="true_false"/>
+    <many-to-one class="org.sgu.oecde.core.users.StudentGroup" column="student_group" fetch="join" foreign-key="fk_student_group" insert="false" lazy="false" name="group" not-null="true"/>
+  </joined-subclass>
+</hibernate-mapping>
