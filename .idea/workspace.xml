@@ -4,219 +4,36 @@
     <bookmark url="file://$PROJECT_DIR$/web/src/main/webapp/Student/materials.xhtml" line="91" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a522696b-288f-4f8b-8c38-d5ff6d66e6d3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/saschedule_war.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/saschedule_war_exploded.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_faces_jsf_api_2_1_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_faces_jsf_impl_2_1_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_8_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_digester_commons_digester_1_8_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jsp_jsp_api_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jstl_1_1_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_richfaces_framework_richfaces_api_3_3_3_Final.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_richfaces_framework_richfaces_impl_3_3_3_Final.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_richfaces_ui_richfaces_ui_3_3_3_Final.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_sgu_oecde_chat_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_sgu_oecde_controlworks_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_sgu_oecde_discussion_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_sgu_oecde_journal_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_sgu_oecde_messages_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_sgu_oecde_news_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_sgu_oecde_schedule_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_sgu_oecde_search_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_sgu_oecde_selfdependentwork_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_sgu_oecde_tabs_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_org_springframework_web_3_0_3_RELEASE.xml" />
+    <list default="true" readonly="true" id="a522696b-288f-4f8b-8c38-d5ff6d66e6d3" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sashedule/saschedule.iml" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/chat/chat.iml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/chat/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/chat/src/test/java/org/sgu/oecde/chat/AppTest.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/controlworks/controlworks.iml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/controlworks/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controlworks/src/test/java/org/sgu/oecde/controlworks/AppTest.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/discussion/discussion.iml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/discussion/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/discussion/src/test/java/org/sgu/oecde/discussion/AppTest.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/journal/journal.iml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/journal/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/journal/src/test/java/org/sgu/oecde/journal/AppTest.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/messages/messages.iml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/messages/nb-configuration.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/messages/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/messages/src/test/java/org/sgu/oecde/messages/MessageTest.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/news/news.iml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/news/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/news/src/test/java/org/sgu/oecde/news/AppTest.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/search/pom.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/search/search.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/search/src/test/java/org/sgu/oecde/search/AppTest.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/selfdependentwork/pom.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/selfdependentwork/selfdependentwork.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/selfdependentwork/src/test/java/org/sgu/oecde/selfdependentwork/AppTest.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/shedule/pom.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/shedule/schedule.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shedule/src/test/java/org/sgu/oecde/schedule/getLessonItem.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/tabs/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tabs/src/test/java/org/sgu/oecde/tabs/AppTest.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/tabs/tabs.iml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/tests/catalog.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/tests/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/src/test/java/org/sgu/oecde/tests/getSimpleItem.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/src/test/java/org/sgu/oecde/tests/simpleTest.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/tests/tests.iml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/chat/src/main/java/org/sgu/oecde/chat/ChatDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/chat/ChatDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/chat/src/main/java/org/sgu/oecde/chat/ChatMessage.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/chat/ChatMessage.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/chat/src/main/java/org/sgu/oecde/chat/ChatRoom.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/chat/ChatRoom.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/chat/src/main/java/org/sgu/oecde/chat/IChatDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/chat/IChatDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/chat/src/main/resources/org/sgu/oecde/mapping/chat/chatMessage.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/chat/chatMessage.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/chat/src/main/resources/org/sgu/oecde/mapping/chat/chatRoom.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/chat/chatRoom.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/controlworks/src/main/java/org/sgu/oecde/controlworks/ControlWork.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/controlworks/ControlWork.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/controlworks/src/main/java/org/sgu/oecde/controlworks/ControlWorkAttempt.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/controlworks/ControlWorkAttempt.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/controlworks/src/main/java/org/sgu/oecde/controlworks/ControlWorkCalendarConstantName.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/controlworks/ControlWorkCalendarConstantName.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/controlworks/src/main/java/org/sgu/oecde/controlworks/ControlWorkProgress.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/controlworks/ControlWorkProgress.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/controlworks/src/main/java/org/sgu/oecde/controlworks/ControlWorkService.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/controlworks/ControlWorkService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/controlworks/src/main/java/org/sgu/oecde/controlworks/dao/ControlWorkAttemptDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/controlworks/dao/ControlWorkAttemptDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/controlworks/src/main/java/org/sgu/oecde/controlworks/dao/ControlWorkDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/controlworks/dao/ControlWorkDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/controlworks/src/main/java/org/sgu/oecde/controlworks/dao/IControlWorkAttemptDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/controlworks/dao/IControlWorkAttemptDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/controlworks/src/main/java/org/sgu/oecde/controlworks/dao/IControlWorkDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/controlworks/dao/IControlWorkDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/controlworks/src/main/java/org/sgu/oecde/controlworks/estimation/ControlWorkFilter.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/controlworks/estimation/ControlWorkFilter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/controlworks/src/main/java/org/sgu/oecde/controlworks/estimation/CwEstimateNames.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/controlworks/estimation/CwEstimateNames.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/controlworks/src/main/java/org/sgu/oecde/controlworks/estimation/CwPointsFactory.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/controlworks/estimation/CwPointsFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/controlworks/src/main/resources/org/sgu/oecde/mapping/controlworks/ControlWork.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/controlworks/ControlWork.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/controlworks/src/main/resources/org/sgu/oecde/mapping/controlworks/ControlWorkAttempt.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/controlworks/ControlWorkAttempt.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/controlworks/src/main/resources/org/sgu/oecde/mapping/controlworks/ControlWorkCalendarConstants.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/controlworks/ControlWorkCalendarConstants.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/controlworks/src/main/resources/org/sgu/oecde/spring/cwBeans.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/cwBeans.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/discussion/src/main/java/org/sgu/oecde/discussion/ForumTypes.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/discussion/ForumTypes.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/discussion/src/main/java/org/sgu/oecde/discussion/Node.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/discussion/Node.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/discussion/src/main/java/org/sgu/oecde/discussion/Root.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/discussion/Root.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/discussion/src/main/java/org/sgu/oecde/discussion/dao/INodeDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/discussion/dao/INodeDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/discussion/src/main/java/org/sgu/oecde/discussion/dao/IRootDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/discussion/dao/IRootDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/discussion/src/main/java/org/sgu/oecde/discussion/dao/NodeDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/discussion/dao/NodeDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/discussion/src/main/java/org/sgu/oecde/discussion/dao/RootDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/discussion/dao/RootDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/discussion/src/main/java/org/sgu/oecde/discussion/service/DiscussionService.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/discussion/service/DiscussionService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/discussion/src/main/java/org/sgu/oecde/discussion/util/NodeRevertComparator.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/discussion/util/NodeRevertComparator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/discussion/src/main/resources/org/sgu/oecde/mapping/discussion/Node.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/discussion/Node.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/discussion/src/main/resources/org/sgu/oecde/mapping/discussion/Root.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/discussion/Root.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/journal/src/main/java/org/sgu/oecde/journal/EventBodyElement.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/journal/EventBodyElement.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/journal/src/main/java/org/sgu/oecde/journal/EventItem.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/journal/EventItem.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/journal/src/main/java/org/sgu/oecde/journal/EventType.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/journal/EventType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/journal/src/main/java/org/sgu/oecde/journal/FilterType.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/journal/FilterType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/journal/src/main/java/org/sgu/oecde/journal/JournalService.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/journal/JournalService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/journal/src/main/java/org/sgu/oecde/journal/dao/IJournalDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/journal/dao/IJournalDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/journal/src/main/java/org/sgu/oecde/journal/dao/JournalDAO.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/journal/dao/JournalDAO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/journal/src/main/resources/org/sgu/oecde/mapping/journal/EventItem.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/journal/EventItem.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/messages/src/main/java/org/sgu/oecde/messages/Message.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/messages/Message.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/messages/src/main/java/org/sgu/oecde/messages/MessageFile.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/messages/MessageFile.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/messages/src/main/java/org/sgu/oecde/messages/MessageRecipient.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/messages/MessageRecipient.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/messages/src/main/java/org/sgu/oecde/messages/MessageType.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/messages/MessageType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/messages/src/main/java/org/sgu/oecde/messages/dao/IMessageDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/messages/dao/IMessageDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/messages/src/main/java/org/sgu/oecde/messages/dao/MessageDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/messages/dao/MessageDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/messages/src/main/java/org/sgu/oecde/messages/service/MessageImpl.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/messages/service/MessageImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/messages/src/main/java/org/sgu/oecde/messages/service/MessageService.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/messages/service/MessageService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/messages/src/main/resources/org/sgu/oecde/mapping/messages/Message.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/messages/Message.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/messages/src/main/resources/org/sgu/oecde/mapping/messages/MessageFile.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/messages/MessageFile.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/messages/src/main/resources/org/sgu/oecde/mapping/messages/MessageRecipient.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/messages/MessageRecipient.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/news/src/main/java/org/sgu/oecde/news/NewTypeEnum.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/news/NewTypeEnum.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/news/src/main/java/org/sgu/oecde/news/NewsItem.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/news/NewsItem.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/news/src/main/java/org/sgu/oecde/news/NewsTag.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/news/NewsTag.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/news/src/main/java/org/sgu/oecde/news/dao/INewsDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/news/dao/INewsDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/news/src/main/java/org/sgu/oecde/news/dao/NewsDAO.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/news/dao/NewsDAO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/news/src/main/resources/org/sgu/oecde/mapping/news/NewsItem.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/news/NewsItem.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/news/src/main/resources/org/sgu/oecde/mapping/news/NewsTag.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/news/NewsTag.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/search/src/main/java/org/sgu/oecde/search/SearchEngine.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/search/SearchEngine.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/search/src/main/java/org/sgu/oecde/search/SearchFiltersFields.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/search/SearchFiltersFields.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/search/src/main/java/org/sgu/oecde/search/dao/ISearchDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/search/dao/ISearchDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/search/src/main/java/org/sgu/oecde/search/dao/SearchDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/search/dao/SearchDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/selfdependentwork/src/main/java/org/sgu/oecde/selfdependentwork/SelfDependentWork.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/selfdependentwork/SelfDependentWork.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/selfdependentwork/src/main/java/org/sgu/oecde/selfdependentwork/SelfDependentWorkService.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/selfdependentwork/SelfDependentWorkService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/selfdependentwork/src/main/java/org/sgu/oecde/selfdependentwork/estimation/SdwEstimateNames.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/selfdependentwork/estimation/SdwEstimateNames.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/selfdependentwork/src/main/java/org/sgu/oecde/selfdependentwork/estimation/SelfDependentWorkFilter.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/selfdependentwork/estimation/SelfDependentWorkFilter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/selfdependentwork/src/main/resources/org/sgu/oecde/mapping/controlworks/SelfDependentWork.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/controlworks/SelfDependentWork.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shedule/src/main/java/org/sgu/oecde/schedule/CityWithGroup.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/schedule/CityWithGroup.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shedule/src/main/java/org/sgu/oecde/schedule/FileFind.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/schedule/FileFind.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shedule/src/main/java/org/sgu/oecde/schedule/Lesson.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/schedule/Lesson.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shedule/src/main/java/org/sgu/oecde/schedule/LessonType.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/schedule/LessonType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shedule/src/main/java/org/sgu/oecde/schedule/dao/ILessonDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/schedule/dao/ILessonDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shedule/src/main/java/org/sgu/oecde/schedule/dao/LessonDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/schedule/dao/LessonDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shedule/src/main/resources/org/sgu/oecde/mapping/shedule/lesson.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/shedule/lesson.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tabs/src/main/java/org/sgu/oecde/tabs/Page.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tabs/Page.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tabs/src/main/java/org/sgu/oecde/tabs/PageFile.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tabs/PageFile.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tabs/src/main/java/org/sgu/oecde/tabs/Tab.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tabs/Tab.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tabs/src/main/java/org/sgu/oecde/tabs/TabType.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tabs/TabType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tabs/src/main/java/org/sgu/oecde/tabs/dao/IPageDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tabs/dao/IPageDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tabs/src/main/java/org/sgu/oecde/tabs/dao/ITabsDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tabs/dao/ITabsDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tabs/src/main/java/org/sgu/oecde/tabs/dao/OrderTabGenerator.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tabs/dao/OrderTabGenerator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tabs/src/main/java/org/sgu/oecde/tabs/dao/PageDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tabs/dao/PageDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tabs/src/main/java/org/sgu/oecde/tabs/dao/TabsDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tabs/dao/TabsDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tabs/src/main/resources/org/sgu/oecde/mapping/tabs/Page.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/tabs/Page.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tabs/src/main/resources/org/sgu/oecde/mapping/tabs/PageFile.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/tabs/PageFile.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tabs/src/main/resources/org/sgu/oecde/mapping/tabs/Tab.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/tabs/Tab.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/java/org/sgu/oecde/tests/AdditionalCurriculum.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tests/AdditionalCurriculum.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/java/org/sgu/oecde/tests/Answer.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tests/Answer.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/java/org/sgu/oecde/tests/AnsweredQuestion.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tests/AnsweredQuestion.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/java/org/sgu/oecde/tests/GivenAnswer.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tests/GivenAnswer.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/java/org/sgu/oecde/tests/Question.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tests/Question.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/java/org/sgu/oecde/tests/QuestionType.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tests/QuestionType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/java/org/sgu/oecde/tests/TestAttempt.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tests/TestAttempt.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/java/org/sgu/oecde/tests/TestAttemptService.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tests/TestAttemptService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/java/org/sgu/oecde/tests/TestAttemptType.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tests/TestAttemptType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/java/org/sgu/oecde/tests/TestCalendarConstants.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tests/TestCalendarConstants.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/java/org/sgu/oecde/tests/TestEntity.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tests/TestEntity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/java/org/sgu/oecde/tests/TestEstimationType.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tests/TestEstimationType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/java/org/sgu/oecde/tests/TestService.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tests/TestService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/java/org/sgu/oecde/tests/TestType.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tests/TestType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/java/org/sgu/oecde/tests/dao/ITestAttemptDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tests/dao/ITestAttemptDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/java/org/sgu/oecde/tests/dao/TestAttemptDao.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tests/dao/TestAttemptDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/java/org/sgu/oecde/tests/estimation/TestEstimateNames.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tests/estimation/TestEstimateNames.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/java/org/sgu/oecde/tests/estimation/TestFilter.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tests/estimation/TestFilter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/java/org/sgu/oecde/tests/estimation/TestsCountEnum.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tests/estimation/TestsCountEnum.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/java/org/sgu/oecde/tests/estimation/TestsPointsFactory.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tests/estimation/TestsPointsFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/java/org/sgu/oecde/tests/util/TestPassingDatesGetter.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tests/util/TestPassingDatesGetter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/java/org/sgu/oecde/tests/util/pointsCounter.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/tests/util/pointsCounter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/resources/org/sgu/oecde/mapping/tests/Answer.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/tests/Answer.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/resources/org/sgu/oecde/mapping/tests/AnsweredQuestion.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/tests/AnsweredQuestion.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/resources/org/sgu/oecde/mapping/tests/GivenAnswer.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/tests/GivenAnswer.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/resources/org/sgu/oecde/mapping/tests/Question.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/tests/Question.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/resources/org/sgu/oecde/mapping/tests/Test.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/tests/Test.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/resources/org/sgu/oecde/mapping/tests/TestAttempt.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/tests/TestAttempt.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/resources/org/sgu/oecde/mapping/tests/TestsCalendarConstants.hbm.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/mapping/tests/TestsCalendarConstants.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/src/main/resources/org/sgu/oecde/spring/testBeans.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/testBeans.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/src/main/resources/org/sgu/oecde/spring/wsBeans.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/wsBeans.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/ehcache.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/ehcache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/daoBeans.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/daoBeans.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/deBeans.xml" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/deBeans.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sashedule/pom.xml" afterPath="$PROJECT_DIR$/sashedule/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/ListUtils.java" afterPath="$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/ListUtils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sashedule/src/main/webapp/schedule.jsp" afterPath="$PROJECT_DIR$/sashedule/src/main/webapp/schedule.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pom.xml" afterPath="$PROJECT_DIR$/web/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/ConferenceWeb.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/ConferenceWeb.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/GradesService.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/GradesService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/ResourceService.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/ResourceService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/SheduleServlet.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/SheduleServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/admin/TeacherViewBean.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/admin/TeacherViewBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/chat/ChatBean.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/chat/ChatBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/chat/ChatList.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/chat/ChatList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/messages/MessageBean.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/messages/MessageBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/messages/MessageCountNewBean.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/messages/MessageCountNewBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/messages/MessageReadBean.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/messages/MessageReadBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/student/ControlWorksBean.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/student/ControlWorksBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/student/LowGradedControlWorks.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/student/LowGradedControlWorks.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/student/Materials.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/student/Materials.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/student/TestBean.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/student/TestBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/student/TestResultsBean.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/student/TestResultsBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/tabs/TabEditBean.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/tabs/TabEditBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/tabs/TabsViewBean.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/tabs/TabsViewBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/teacher/TeacherScheduleBean.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/teacher/TeacherScheduleBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/tests/TestConverter.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/tests/TestConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/tests/TestPassingBean.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/tests/TestPassingBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/test/java/org/sgu/oecde/web/simpleTest.java" afterPath="$PROJECT_DIR$/web/src/test/java/org/sgu/oecde/web/simpleTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/web.iml" afterPath="$PROJECT_DIR$/web/web.iml" />
     </list>
     <ignored path="main.iws" />
@@ -278,7 +95,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="252" column="12" selection-start="8913" selection-end="8916" vertical-scroll-proportion="8.978622">
+            <state line="276" column="42" selection-start="10036" selection-end="10036" vertical-scroll-proportion="0.4758883">
               <folding />
             </state>
           </provider>
@@ -287,7 +104,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sashedule/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="224" column="28" selection-start="7965" selection-end="7974" vertical-scroll-proportion="-13.84">
+            <state line="224" column="28" selection-start="7965" selection-end="7974" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -295,73 +112,73 @@
       </file>
       <file leaf-file-name="cwBeans.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/cwBeans.xml">
-          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="362" selection-end="362" vertical-scroll-proportion="-4.285714">
+            <state line="6" column="0" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0">
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="dbBeans.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/dbBeans.xml">
-          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="wsBeans.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/wsBeans.xml">
-          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="testBeans.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/testBeans.xml">
-          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="362" selection-end="362" vertical-scroll-proportion="-4.285714">
+            <state line="6" column="0" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0">
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="daoBeans.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/daoBeans.xml">
-          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="0" selection-start="2891" selection-end="2891" vertical-scroll-proportion="-26.428572">
+            <state line="37" column="0" selection-start="2891" selection-end="2891" vertical-scroll-proportion="0.0">
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="deBeans.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/deBeans.xml">
-          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="363" selection-end="363" vertical-scroll-proportion="-5.0">
+            <state line="7" column="0" selection-start="363" selection-end="363" vertical-scroll-proportion="0.0">
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+            <state />
           </provider>
         </entry>
       </file>
@@ -478,10 +295,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-5" />
-    <option name="width" value="1296" />
-    <option name="height" value="1037" />
+    <option name="y" value="24" />
+    <option name="width" value="1294" />
+    <option name="height" value="1007" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -511,36 +327,12 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
           <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oecde" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oecde" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -579,12 +371,22 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
+      <pane id="ProjectPane">
+        <subPane>
           <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oecde" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -606,9 +408,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -726,6 +528,24 @@
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -752,24 +572,6 @@
       <envs />
       <properties />
       <listeners />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -1024,6 +826,7 @@
     <option name="IGNORE_EXTERNALS" value="false" />
     <configuration useDefault="true">$USER_HOME$/.subversion</configuration>
     <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+    <supportedVersion>125</supportedVersion>
   </component>
   <component name="SvnFileUrlMappingImpl">
     <option name="myMappingRoots">
@@ -1072,14 +875,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-5" width="1296" height="1037" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="24" width="1294" height="1007" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32801822" sideWeight="0.4935065" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32915717" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37926972" sideWeight="0.49349594" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1088,17 +890,18 @@
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33712983" sideWeight="0.4902439" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17775974" sideWeight="0.21867882" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32915717" sideWeight="0.49675325" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17775974" sideWeight="0.21867882" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23944806" sideWeight="0.5763098" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37094155" sideWeight="0.5763098" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4236902" sideWeight="0.48376623" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3707317" sideWeight="0.5763098" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4226804" sideWeight="0.48376623" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32915717" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33712983" sideWeight="0.4902439" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1197,52 +1000,35 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Student/index.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="228" selection-start="958" selection-end="958" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1352280966000" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
+        <state line="18" column="228" selection-start="958" selection-end="958" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Student/materials.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="57" column="31" selection-start="3385" selection-end="3385" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1352281019000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1352281019000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1352281019000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1352281019000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1352281019000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1352281019000" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Admin/index.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="64" selection-start="580" selection-end="580" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="15" column="64" selection-start="580" selection-end="580" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/src/main/webapp/resources/baseTemplate.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="34" selection-start="914" selection-end="925" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
         <state />
       </provider>
       <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="34" selection-start="914" selection-end="925" vertical-scroll-proportion="0.0" />
       </provider>
       <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
         <state />
@@ -1250,9 +1036,75 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Student/student.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="58" selection-start="3606" selection-end="3606" vertical-scroll-proportion="0.0">
+        <state line="66" column="58" selection-start="3606" selection-end="3606" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sashedule/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="224" column="28" selection-start="7965" selection-end="7974" vertical-scroll-proportion="0.0">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/cwBeans.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/dbBeans.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/wsBeans.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/testBeans.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/daoBeans.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="2891" selection-end="2891" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/deBeans.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="363" selection-end="363" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="23" selection-start="811" selection-end="811" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/UmkBean.java">
@@ -1260,83 +1112,9 @@
         <state line="113" column="43" selection-start="3534" selection-end="3534" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/cwBeans.xml">
-      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="362" selection-end="362" vertical-scroll-proportion="-4.285714">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/daoBeans.xml">
-      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="0" selection-start="2891" selection-end="2891" vertical-scroll-proportion="-26.428572">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/dbBeans.xml">
-      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/wsBeans.xml">
-      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/testBeans.xml">
-      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="362" selection-end="362" vertical-scroll-proportion="-4.285714">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/spring/deBeans.xml">
-      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="363" selection-end="363" vertical-scroll-proportion="-5.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="23" selection-start="811" selection-end="811" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sashedule/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="224" column="28" selection-start="7965" selection-end="7974" vertical-scroll-proportion="-13.84">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="252" column="12" selection-start="8913" selection-end="8916" vertical-scroll-proportion="8.978622">
+        <state line="276" column="42" selection-start="10036" selection-end="10036" vertical-scroll-proportion="0.4758883">
           <folding />
         </state>
       </provider>

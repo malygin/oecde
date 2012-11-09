@@ -1,14 +1,14 @@
 /core/target/
-/de/target/
-/tests/target/
-/news/target/
-/discussion/target/
-/messages/target/
-/shedule/target/
-/journal/target/
-/search/target/
-/controlworks/target/
-/selfdependentwork/target/
-/tabs/target/
-/chat/target/
+/sashedule/target/
+/sashedule/.svn*
 /web/target/
+#java specific
+*.class
+#netbeans ignore personal stuff 
+.idea/
+## generic files to ignore
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
