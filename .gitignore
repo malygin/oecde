@@ -5,7 +5,7 @@
 #java specific
 *.class
 #netbeans ignore personal stuff 
-.idea/
+/.idea/
 ## generic files to ignore
 *~
 *.lock

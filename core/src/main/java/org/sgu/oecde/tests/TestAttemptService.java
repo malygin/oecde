@@ -305,28 +305,29 @@ public class TestAttemptService implements Serializable{
 
         while(it.hasNext()){
            TestAttempt attempt = it.next();
-            if(!attempt.getWork().equals(tmpTest)||!attempt.getStudent().equals(tmpStudent)){
-                if(test!=null){
-                    test.setPointsForWork(pointsCounter.count(previousEstimationType, points));
-                    test.setEstimateAttemptsUsedNumber(estimatedAttemptsNumber);
-                    test.setReExameAttemptsUsedNumber(reExameNumber);
-                    test.setTrialAttemptsUsedNumber(trialNumber);
+            if (attempt.getWork()!=null){
+                if(!attempt.getWork().equals(tmpTest)||!attempt.getStudent().equals(tmpStudent)){
+                    if(test!=null){
+                        test.setPointsForWork(pointsCounter.count(previousEstimationType, points));
+                        test.setEstimateAttemptsUsedNumber(estimatedAttemptsNumber);
+                        test.setReExameAttemptsUsedNumber(reExameNumber);
+                        test.setTrialAttemptsUsedNumber(trialNumber);
+                    }
+                    oneTestAttempts = new ArrayList<TestAttempt>();
+                    test = new AdditionalSelfDependentWork();
+                    test.setResults(oneTestAttempts);
+                    test.setWork(attempt.getWork());
+                    test.setCurriculum(attempt.getCurriculum());
+                    test.setStudent(attempt.getStudent());
+                    inserted = additionalTests.add(test);
+                    if(!inserted){
+                        additionalTests.remove(test);
+                        additionalTests.add(test);
+                    }
+                    trialNumber = 0;
+                    reExameNumber = 0;
+                    estimatedAttemptsNumber = 0;
                 }
-                oneTestAttempts = new ArrayList<TestAttempt>();
-                test = new AdditionalSelfDependentWork();
-                test.setResults(oneTestAttempts);
-                test.setWork(attempt.getWork());
-                test.setCurriculum(attempt.getCurriculum());
-                test.setStudent(attempt.getStudent());
-                inserted = additionalTests.add(test);
-                if(!inserted){
-                    additionalTests.remove(test);
-                    additionalTests.add(test);
-                }
-                trialNumber = 0;
-                reExameNumber = 0;
-                estimatedAttemptsNumber = 0;
-            }
 
             if((!attempt.getType().equals(previousAttemptType)&&!attempt.getType().equals(TestAttemptType.trial))||!attempt.getWork().equals(tmpTest)||(!attempt.getStudent().equals(previousStudent)))
                 points = new ArrayList<Integer>();
@@ -355,6 +356,7 @@ public class TestAttemptService implements Serializable{
                 test.setReExameAttemptsUsedNumber(reExameNumber);
                 test.setTrialAttemptsUsedNumber(trialNumber);
             }
+        }
         }
     }
 }

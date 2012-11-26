@@ -30,8 +30,10 @@
     </context-param>
    <context-param>
         <param-name>textbookUrl</param-name>
-        <param-value>${textbookUrl}</param-value>
-    </context-param>    
+        <!--<param-value>${textbookUrl}</param-value>-->
+       <param-value>http://oec-static.main.sgu.ru/textbooks/</param-value>
+
+   </context-param>
     <context-param>
         <param-name>ipsilonUmkUrl</param-name>
         <param-value>${ipsilonUmkUrl}</param-value>

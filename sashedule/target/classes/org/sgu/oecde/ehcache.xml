@@ -274,14 +274,14 @@
     timeToLiveSeconds="86400"
     overflowToDisk="true"
 /><cache
-    name="org.sgu.oecde.shedule.Lesson"
+    name="org.sgu.oecde.mapping.shedule.Lesson"
     maxElementsInMemory="500"
     eternal="false"
     timeToIdleSeconds="10800"
     timeToLiveSeconds="86400"
     overflowToDisk="true"
 /><cache
-    name="org.sgu.oecde.shedule.Lesson.group"
+    name="org.sgu.oecde.mapping.shedule.Lesson.group"
     maxElementsInMemory="1000"
     eternal="false"
     timeToIdleSeconds="10800"

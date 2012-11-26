@@ -56,11 +56,14 @@ public class TestServlet extends HttpServlet {
           URL url = new URL(getServletContext().getInitParameter("textbookUrl")+request.getParameter("task"));
           StringBuilder strbuf = new StringBuilder();
           BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
+          String replaceString = "";
+            for (int i=0; i<(urlTask.length-1); i++)
+                replaceString+=urlTask[i]+"/";
           while ((str = in.readLine()) != null) {strbuf.append(str);}
           //в некоторых тестах пути нестандартные - сразу с тектбукс
           if (strbuf.lastIndexOf("textbooks")==-1){
              str=strbuf.toString().replaceAll("src='", "src='"+getServletContext().getInitParameter("textbookUrl")+"/"+urlTask[0]+"/"+urlTask[1]+"/");
-             str=str.replaceAll("src=\"", "src=\""+getServletContext().getInitParameter("textbookUrl")+urlTask[0]+"/"+urlTask[1]+"/"+urlTask[2]+"/");
+             str=str.replaceAll("src=\"", "src=\""+getServletContext().getInitParameter("textbookUrl")+replaceString);
            }else{
              str=strbuf.toString().replaceAll("src=\"../textbooks/", "src=\""+getServletContext().getInitParameter("textbookUrl"));;
           }  

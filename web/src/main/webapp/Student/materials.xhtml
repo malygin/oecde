@@ -26,15 +26,17 @@
                 </div>
                 <div class="floatDestroyer"></div>
                 <br/>
-                <h:panelGroup  rendered=" #{initParam['projectName'] eq 'oecde'}">
+
+                <h:panelGroup  rendered="#{studentSessionBean.student.group.speciality.department.id ne '6351123478'}">
+
                 <table class="leftMenuContainer">
                 <tr>
                     <td>
                         <div>
-                            <span class="linkToStudentsProfile studentPaddLeft" ><h:outputLink value="umkR.xhtml?id=5505" style=" font-size: 16pt !important; color: #5BBF5D;">Принятие эффективных решений <b>(просмотреть курс)</b></h:outputLink><br/></span>
+                            <span class="linkToStudentsProfile studentPaddLeft" ><h:outputLink value="umkR.xhtml?id=5505">Принятие эффективных решений <b>(просмотреть курс)</b></h:outputLink><br/></span>
 
                             <div class="materialInfo">
-                                <table style="margin: 10px; border: 4px solid #89C9F5; padding: 3px;" > 
+                                <table style="margin: 10px; border: 4px solid red; padding: 3px;" >
                                     <tr>
                                         <td>#{msgs.student_gradesTableHeadTeacher}</td>
                                         <td class="linkToTeachersProfile">
@@ -43,8 +45,13 @@
                                     </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2"> <i>Успех и благополучие  человека во многом зависит от качества стратегических решений, принимаемых им. Парадоксально, однако, в России этому не учат.  Поэтому у вас уникальная возможность  освоить рациональное принятие решений  входе теоритических и практических занятий, которые проведет профессор Высшей Школы Технологии в Иерусалиме и эксперт, консультирующий  в США, Израиле и России.</i><br/>
+                                        <td colspan="2">
+                                            <br/>
+                                            Второй этап процедуры доступен по адресу
+                                            <a href="http://mass-decision.ru/">http://mass-decision.ru/</a>
+                                            <br/> <br/>
                                        Если у вас вознкли вопросы - обратитесь на форум <a href="forum.xhtml?type=spr">"Вопросы по системе принятия решений"</a> </td>
+                                        <br/>
                                     </tr>
                                    
                                 </table>

@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html"
-    template="../resources/studentTemplate.xhtml"
-    xmlns:j="http://java.sun.com/jsf/composite/components/journal"
-    xmlns:news="http://java.sun.com/jsf/composite/components/news"
-    xmlns:ut="http://java.sun.com/jsf/composite/components/util"
-    xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
-    xmlns:edu="http://java.sun.com/jsf/composite/components/education"
-    >
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html" xmlns:sec="http://www.springframework.org/security/facelets/tags"
+        template="../resources/studentTemplate.xhtml"
+        xmlns:j="http://java.sun.com/jsf/composite/components/journal"
+        xmlns:news="http://java.sun.com/jsf/composite/components/news"
+        xmlns:ut="http://java.sun.com/jsf/composite/components/util"
+        xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
+        xmlns:edu="http://java.sun.com/jsf/composite/components/education"
+        >
 
 
     <ui:define name="fio">
         <h:outputText value="#{studentSessionBean.student.fio}"/>
     </ui:define>
     <ui:define name="content">
-    <h:panelGroup  rendered=" #{initParam['projectName'] eq 'oecde'}">  <div style="height: 150px; background: #0172b8;"><a href="http://mass-decision.ru"><img src="../resources/images/banner.jpg"  /></a></div>   </h:panelGroup>
+    <sec:ifNotGranted roles="ROLE_PREVIOUS_ADMINISTRATOR">
+      <h:panelGroup rendered="#{studentSessionBean.student.group.speciality.department.id ne '6351123478'}" >
+            <div style="height: 150px; background: #b9d463;"><a href="http://mass-decision.ru"><img src="http://oecdo.sgu.ru/resources/images/bannernew.jpg"  /></a></div>
+        </h:panelGroup>
+      </sec:ifNotGranted>
+
 
         <!--        <script type="text/javascript">
                     $(document).ready(function(){
@@ -144,7 +149,7 @@
                                         <f:facet name="header">
                                             <span class="Ipsilon_Web_GreenText">Тестовые<br/>задания</span>
                                         </f:facet>
-                                        <span class="lightGreyTestText">#{m.passedTests} * #{m.curriculum.weightTest/100} =</span> <b>#{m.passedTests*m.curriculum.weightTest/100}</b>
+                                        <span class="lightGreyTestText">#{m.concludingTestPoints} * #{m.curriculum.weightTest/100} =</span> <b>#{m.concludingTestPoints*m.curriculum.weightTest/100}</b>
                                     </h:column>
 
                                     <h:column>
@@ -193,10 +198,10 @@
                                         <f:facet name="header">
                                             <h:outputText value="#{msgs.student_gradesTableHeadSumm}" />
                                         </f:facet>
-                                        <h:panelGroup rendered="#{((p.points.sum) ne null) and ((p.points.sum) ne 0)}">
-                                            <h:panelGroup rendered="#{(p.points.sum ge 0) and (p.points.sum le 50)}" styleClass="badResultText">#{p.points.sum}</h:panelGroup>
-                                            <h:panelGroup rendered="#{(p.points.sum gt 50) and (p.points.sum le 90)}" styleClass="goodResultText">#{p.points.sum}</h:panelGroup>
-                                            <h:panelGroup rendered="#{(p.points.sum gt 90)}" styleClass="greateResultText">#{m.points.sum}</h:panelGroup>
+                                        <h:panelGroup rendered="#{((m.sum) ne null) and ((m.sum) ne 0)}">
+                                            <h:panelGroup rendered="#{(m.sum ge 0) and (m.sum le 50)}" styleClass="badResultText">#{m.sum}</h:panelGroup>
+                                            <h:panelGroup rendered="#{(m.sum gt 50) and (m.sum le 90)}" styleClass="goodResultText">#{m.sum}</h:panelGroup>
+                                            <h:panelGroup rendered="#{(m.sum gt 90)}" styleClass="greateResultText">#{m.sum}</h:panelGroup>
                                             <span class="lightGreyTestText">#{msgs.student_From} 100</span>
                                         </h:panelGroup>
                                     </h:column>

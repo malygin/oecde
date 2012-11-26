@@ -17,14 +17,17 @@
         <url>http://baldr.sgu.ru:8080/jenkins/job/oecdo/</url>
     </ciManagement>-->
     <repositories>
-      <repository>
+
+       <repository>
         <id>cedarsoft-thirdparty</id>
         <url>http://maven.cedarsoft.com/content/repositories/thirdparty/</url>
       </repository>
+
        <repository>
         <id>central</id>
         <url>http://repo1.maven.org/maven2/</url>
       </repository>
+
     </repositories>
     
     

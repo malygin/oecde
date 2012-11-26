@@ -54,11 +54,14 @@ public class TaskServlet extends HttpServlet {
           BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
           String mime =  this.getServletContext().getMimeType(url.toString());
          // System.out.println("begin! "+mime);
+          String replaceString = "";
+          for (int i=0; i<(urlTask.length-1); i++)
+              replaceString+=urlTask[i]+"/";
           if(!ArrayListUtil.containsElement(FileUploadUtil.mimetypes, mime)){
               while ((str = in.readLine()) != null) {strbuf.append(" ").append(str);}
            //   System.out.println(strbuf);
               str=strbuf.toString().replaceAll("src='", "src='"+getServletContext().getInitParameter("textbookUrl")+"/"+urlTask[0]+"/"+((urlTask.length>2)?urlTask[1]:"")+"/");
-              str=str.replaceAll("src=\"", "src=\""+getServletContext().getInitParameter("textbookUrl")+"/"+urlTask[0]+"/"+((urlTask.length>2)?urlTask[1]:"")+"/");
+              str=str.replaceAll("src=\"", "src=\""+getServletContext().getInitParameter("textbookUrl")+replaceString);
             //  System.out.println(str);
               //user.getSkin().getFolder();
               out.print("<link href=\"resources/css/"+user.getSkin().getFolder()+"default.css\" rel=\"stylesheet\" type=\"text/css\" /> "+str);}

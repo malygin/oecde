@@ -99,7 +99,7 @@
                                 <td>${fn:substring(s.lessonDate,11,16)}-${fn:substring(s.lessonEndDate,11,16)}</td>
                                 
                                 <td style="padding-right: 10px;">
-                                    <span class="linkToStudentsProfile"><h:outputLink value="umk.xhtml?c=#{s.id}" >#{s.discipline.name}</h:outputLink></span>
+                                    <span class="linkToStudentsProfile">#{s.discipline.name}</span>
                                     <br />#{s.lessonType.toString()}
                                     <h:panelGroup rendered="#{scheduleBean.fileExist(s.id) eq true}">
                                         <a href="video.xhtml?id=#{scheduleBean.getFileName(s.id)}">

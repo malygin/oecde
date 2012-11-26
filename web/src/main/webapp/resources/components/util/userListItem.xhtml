@@ -60,8 +60,11 @@
                     <sec:ifAnyGranted roles="ROLE_ADMIN">
                         <tr><td class="userInfoItemColor">#{msgs.student_mainContentUserInfoSpec}</td><td>#{cc.attrs.u.group.speciality.name}</td></tr>
                         <tr><td class="userInfoItemColor">#{msgs.student_mainContentUserInfoGroup}</td><td><h:outputLink value="group.xhtml?id=#{cc.attrs.u.group.id}">#{cc.attrs.u.group.name}</h:outputLink></td></tr>
+                        <tr>
+                            <td><p>#{msgs.student_mainContentUserInfoFaculty}</p></td><td><div>#{cc.attrs.u.group.speciality.department.name}</div></td>
+                        </tr>
                         <tr><td class="userInfoItemColor">#{msgs.student_mainContentUserInfoCourse}</td><td>#{cc.attrs.u.group.year}</td></tr>
-                        <tr><td  colspan="2"><h:panelGroup rendered="#{not cc.attrs.u.fullAccess}" style="color:red;">Аккаунт заблокирован</h:panelGroup></td></tr>
+                        <tr><td  colspan="2"><h:panelGroup rendered="#{not cc.attrs.u.fullAccess or not cc.attrs.u.enabled}" style="color:red;">Аккаунт заблокирован</h:panelGroup></td></tr>
                      
                        
                     </sec:ifAnyGranted>

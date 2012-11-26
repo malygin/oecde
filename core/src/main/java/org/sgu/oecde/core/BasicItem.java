@@ -31,7 +31,7 @@ public abstract class BasicItem implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + (this.id != null ? this.id.hashCode() : 0);
+        hash = 58 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
     /**

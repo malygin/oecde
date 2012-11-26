@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping auto-import="false" schema="oecdo_test">
-  <subclass discriminator-value="sdw" dynamic-insert="true" dynamic-update="true" extends="org.sgu.oecde.controlworks.ControlWork" name="org.sgu.oecde.selfdependentwork.SelfDependentWork">
-    <property column="work_number" name="number" scale="2" type="integer"/>
-  </subclass>
-</hibernate-mapping>

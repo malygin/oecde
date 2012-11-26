@@ -5,13 +5,5 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
        ">
 
-  <bean id="cityDao" p:type="org.sgu.oecde.de.education.City" parent="basicDao" />
-  
-  <bean id="studentDao" p:type="org.sgu.oecde.de.users.Student" parent="updateDao" />
-  <bean id="supervisorDao" p:type="org.sgu.oecde.de.users.DeSupervisor" parent="updateDao" />
-  <bean id="groupDao" p:type="org.sgu.oecde.de.users.Group" parent="updateDao" class="org.sgu.oecde.de.education.dao.GroupDao"/>
-  <bean id="departmentDao" p:type="org.sgu.oecde.core.users.Department" parent="updateDao" />
 
-  <bean id="curriculumDao" p:type="org.sgu.oecde.de.education.DeCurriculum" parent="basicDao" class="org.sgu.oecde.core.education.dao.CurriculumDao" />
- 
 </beans>

@@ -9,21 +9,12 @@
   <name>main</name>
   
   <modules>
-    <!--<module>tests</module>-->
-<!--    <module>resources</module>-->
+
     <module>core</module>
-    <!--<module>news</module>-->
-    <!--<module>journal</module>-->
-    <!--<module>search</module>-->
-    <!--<module>discussion</module>-->
-    <!--<module>controlworks</module>-->
-    <!--<module>selfdependentwork</module>-->
+
     <module>web</module>
       <module>sashedule</module>
-    <!--<module>messages</module>-->
-    <!--<module>shedule</module>-->
-    <!--<module>tabs</module>-->
-    <!--<module>chat</module>-->
+
   </modules>
   
    <inceptionYear>2011</inceptionYear>

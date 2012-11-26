@@ -64,13 +64,13 @@ public class Materials extends StudentCurriculumBean{
                             c.setTestPoints(p.getTest());
                             c.setSum(p.getPoints().getSum());
                             c.setConcludingReTestPoints(p.getConcludingReTest()==null?0:p.getConcludingReTest()*d.getWeightTest()/100);
-                            c.setConcludingTestPoints(p.getConcludingTest()==null?0:p.getConcludingTest()*d.getWeightTest()/100);
+                            c.setConcludingTestPoints(p.getConcludingTest());
                             c.setReTestPoints(p.getReTest());
                             c.setTestsCount(p.getTestsCount()+p.getConcludingTestsCount());
-                            c.setActivityPoints(p.getActivityPoints()==null?0:p.getActivityPoints()*d.getWeightAtt()/100);
-                            c.setSamAudWorkPoints(p.getSamAudWorkPoints()==null?0:p.getSamAudWorkPoints()*d.getWeightAud()/100);
-                            c.setSamAudOutWorkPoints(p.getSamAudOutWorkPoints()==null?0:p.getSamAudOutWorkPoints()*d.getWeightOutAud()/100);
-                            c.setPersonalCharPoints(p.getPersonalCharPoints()==null?0:p.getPersonalCharPoints()*d.getWeightPers()/100);
+                            c.setActivityPoints(p.getActivityPoints()==null?0:p.getActivityPoints());
+                            c.setSamAudWorkPoints(p.getSamAudWorkPoints()==null?0:p.getSamAudWorkPoints());
+                            c.setSamAudOutWorkPoints(p.getSamAudOutWorkPoints()==null?0:p.getSamAudOutWorkPoints());
+                            c.setPersonalCharPoints(p.getPersonalCharPoints()==null?0:p.getPersonalCharPoints());
                             pI.remove();
                         }
                     }
@@ -85,6 +85,15 @@ public class Materials extends StudentCurriculumBean{
                     Integer r = ps.<Integer>getWorkPoints(TestsCountEnum.TESTS_COUNT);
                     Integer ct = ps.<Integer>getWorkPoints(TestsCountEnum.CONCLUDING_TESTS_COUNT);
                     c.setTestsCount((r!=null?r:0)+(ct!=null?ct:0));
+                        DeCurriculum d = (DeCurriculum)c.getCurriculum();
+                        PointsFacade p = new PointsFacade(ps);
+                        c.setActivityPoints(p.getActivityPoints()==null?0:p.getActivityPoints());
+                        c.setSamAudWorkPoints(p.getSamAudWorkPoints()==null?0:p.getSamAudWorkPoints());
+                        c.setSamAudOutWorkPoints(p.getSamAudOutWorkPoints()==null?0:p.getSamAudOutWorkPoints());
+                        c.setPersonalCharPoints(p.getPersonalCharPoints()==null?0:p.getPersonalCharPoints());
+                        c.setSum(p.getPoints().getSum());
+
+
                     advCurriculums.add(c);
                 }
             }

@@ -16,7 +16,7 @@
             <f:viewParam name="s" value="#{studentViewBean.semester}"/>
             <f:viewParam name="r" value="#{testResultsBean.reExame}"/>
         </f:metadata>
-        <!--<ui:include src="../resources/includes/student.xhtml"/>-->
+
           <h:outputText rendered="#{studentViewBean.user.online}" value="On-line"/>
         
         <div class="StudentMainPageTitlesBorders">
@@ -38,110 +38,90 @@
                     
          <div class="groupInfo">
                 <ut:infoAboutStudent pageName="points"/>
-            </div>          
-                 
-        <h:dataTable  value="#{gradesBean.points}"
-                     columnClasses="studentStandatrTableTd,
-                     studentStandatrTableTd,
-                     studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                     studentStandatrTableTd StudentBorderInfoTd,
-                     studentStandatrTableTd StudentBorderInfoTd,
-                     studentStandatrTableTd StudentBorderInfoTd,
-                     studentStandatrTableTd StudentBorderInfoTd,
-                     studentStandatrTableTd StudentBorderInfoTd,
-                     studentStandatrTableTd StudentBorderInfoTd,
-                     studentStandatrTableTd StudentBorderInfoTd,
-                     studentStandatrTableTdLastTd" var="p" styleClass="studentStandatrTable" cellpadding="0" cellspacing="0" style="margin: 10px; margin-top: 0px; width: inherit;">
-    
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="#{msgs.student_gradesTableHeadDisc}" />
-                </f:facet>
-                <span> <h:outputText value="#{p.points.curriculum.discipline.name}" style="display:block; margin-left: 4px; color:#89C8F2;" /></span>
-                <!--<span  class="linkToStudentsProfile" > <h:outputLink value="discipline.xhtml?c=#{p.points.curriculum.id}" style="display:block; margin-left: 4px;">#{p.points.curriculum.discipline.name}</h:outputLink></span>-->
-            </h:column>
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="#{msgs.student_gradesTableHeadTeacher}" />
-                </f:facet>
-                <span class="linkToTeachersProfile"><h:outputLink value="teacher.xhtml?id=${p.teacher.id}">#{p.teacher.initials}</h:outputLink></span>
-            </h:column>
-            <h:column>
-                <f:facet name="header">
-                   <h:outputText value="#{msgs.student_gradesTableHeadTests}" />
-                </f:facet>
-               <h:panelGroup rendered="#{(p.test) ne null}">
-                    <p style="width: 80px; text-align: center;"><span>#{p.test}</span> <span class="lightGreyTestText">#{msgs.student_From} #{p.testsMaxPoints}</span></p>
-                </h:panelGroup>
-                <h:panelGroup rendered="#{(p.test) eq null}">
-                    <span class="lightGreyTestText"> #{p.testsMaxPoints}</span>
-                </h:panelGroup>
-            </h:column>
+            </div>
 
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="#{msgs.teacher_groupTestsExtraAttempt}" />
-                </f:facet>
-                <span>#{p.reTest}</span>
-            </h:column>
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="#{msgs.student_gradesTableHeadFinTests}" />
-                </f:facet>
-                <h:panelGroup rendered="#{(p.concludingTest) ne null}">
-                    <span>#{p.concludingTest}</span> <span class="lightGreyTestText">#{msgs.student_From} #{p.concludingTestsMaxPoints}</span>
-                </h:panelGroup>
-                <h:panelGroup rendered="#{(p.concludingTest) eq null}">
-                    <span class="lightGreyTestText"> #{p.concludingTestsMaxPoints}</span>
-                </h:panelGroup>
-            </h:column>
 
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="#{msgs.student_gradesTableHeadFinTestsResit2}" />
-                </f:facet>
-                 <span>#{p.concludingReTest} </span>
-            </h:column>
-            
-          
-            
-            <h:column>
-                <f:facet name="header">
-                    <span class="Ipsilon_Web_GreenText">#{msgs.teacher_control_works},<br/> #{msgs.teacher_groupPoints}</span>
-                </f:facet>
-                 <span>#{p.controlWorkPoints} </span>
-            </h:column>
 
-            <h:column>
-                <f:facet name="header">
-                    <p class="Ipsilon_Web_GreenText" style="width: 80px; text-align: center;">#{msgs.teacher_control_works}, #{msgs.teacher_groupMarks}
-                    </p>
-                </f:facet>
-                <span><h:outputText converter="enumConverter" value="#{p.controlWorkValue}"/></span>
-            </h:column>
-            
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="Дополн. баллы" />
-                </f:facet>
-                 <span>#{p.activityPoints} </span>
-            </h:column>
+                <h:dataTable styleClass="studentStandatrTable"
+                             columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdWidthTeacher studentStandatrTableTdPaddingTeacher" cellpadding="0" cellspacing="0" id="table" value="#{gradesBean.studentsDisciplines}" var="m" style="margin: 0;">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Дисциплина" />
+                        </f:facet>
+                        #{m.curriculum.discipline.name}
+                    </h:column>
 
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="#{msgs.student_gradesTableHeadSumm}" />
-                </f:facet>
-                 <span>#{p.points.sum}</span>
-            </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <span class="Ipsilon_Web_GreenText">Тестовые<br/>задания</span>
+                        </f:facet>
+                        <span class="lightGreyTestText">#{m.concludingTestPoints} * #{m.curriculum.weightTest/100} =</span> <b>#{m.concludingTestPoints*m.curriculum.weightTest/100}</b>
+                    </h:column>
 
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="#{msgs.student_gradesTableHeadFinal}" />
-                </f:facet>
-                <h:outputText converter="enumConverter" value="#{p.grade}"/>
-            </h:column>
-        </h:dataTable>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Самостоятельная аудиторная работа" />
+                        </f:facet>
+                        <h:panelGroup >
+                            #{m.samAudWorkPoints}
+                            <span class="lightGreyTestText">*#{m.curriculum.weightAud/100}= </span><b>#{m.samAudWorkPoints * m.curriculum.weightAud/100}</b>
+                        </h:panelGroup>
+                    </h:column>
 
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Самостоятельная внеаудиторная работа" />
+                        </f:facet>
+                        <h:panelGroup >
+                            #{m.samAudOutWorkPoints}
+                            <span class="lightGreyTestText">* #{m.curriculum.weightOutAud/100} =</span><b> #{m.samAudOutWorkPoints * m.curriculum.weightOutAud/100}</b>
+                        </h:panelGroup>
+
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Научная и исследовательская деятельность по дисциплине" />
+                        </f:facet>
+                        <h:panelGroup>
+                            #{m.personalCharPoints}
+                            <span class="lightGreyTestText">* #{m.curriculum.weightPers/100} =</span><b> #{m.personalCharPoints * m.curriculum.weightPers/100}</b>
+
+                        </h:panelGroup>
+                    </h:column>
+
+
+                    <h:column>
+                        <f:facet name="header">
+                            <span class="Ipsilon_Web_GreenText">Промежуточная аттестация</span>
+                        </f:facet>
+                        #{m.activityPoints}
+                        <span class="lightGreyTestText">* #{m.curriculum.weightAtt/100} =</span><b> #{m.activityPoints * m.curriculum.weightAtt/100}</b>
+
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msgs.student_gradesTableHeadSumm}" />
+                        </f:facet>
+                        <h:panelGroup rendered="#{((m.sum) ne null) and ((m.sum) ne 0)}">
+                            <h:panelGroup rendered="#{(m.sum ge 0) and (m.sum le 50)}" styleClass="badResultText">#{m.sum}</h:panelGroup>
+                            <h:panelGroup rendered="#{(m.sum gt 50) and (m.sum le 90)}" styleClass="goodResultText">#{m.sum}</h:panelGroup>
+                            <h:panelGroup rendered="#{(m.sum gt 90)}" styleClass="greateResultText">#{m.sum}</h:panelGroup>
+                            <span class="lightGreyTestText">#{msgs.student_From} 100</span>
+                        </h:panelGroup>
+                    </h:column>
+
+                </h:dataTable>
 <h:form id="form">
 <span class="controlWorksDisciplineNameLink"><h:commandLink value="">
     <f:attribute name="reExame" value="#{!testResultsBean.reExame}"/>

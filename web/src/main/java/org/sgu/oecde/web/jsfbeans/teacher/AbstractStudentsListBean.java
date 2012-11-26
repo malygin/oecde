@@ -68,7 +68,7 @@ public abstract class AbstractStudentsListBean extends AbstractTeacherCurriculum
         for(Group g:l){
             if(g!=null&&g.getId()!=null&&id!=null&&g.getId().equals(id)&&id!=0){
                 students = new ArrayList(g.getPersons());
-                Collections.sort(students, new Student.OrderByStudentName());
+                //Collections.sort(students, new Student.OrderByStudentName());
                 deleteUnActiveStudent(students);
                 if(group==null)
                     group = g;
