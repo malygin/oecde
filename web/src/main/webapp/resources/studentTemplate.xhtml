@@ -8,7 +8,15 @@
     <ui:define name="userCSS">
         <h:outputStylesheet name="#{studentSessionBean.student.skin.folder}student.css" library="css" rendered="true"/>
         <h:outputStylesheet name="#{studentSessionBean.student.skin.folder}newForStudent.css" library="css" rendered="true"/>
-        <h:outputStylesheet name="#{studentSessionBean.student.skin.folder}base.css" library="css" rendered="true"/>  
+        <h:outputStylesheet name="#{studentSessionBean.student.skin.folder}base.css" library="css" rendered="true"/>
+        <script type="text/javascript" src="../resources/jquery/js/jquery-1.4.2.min.js"></script>
+        <script>
+
+            $(document).ready(function() {
+                chatAction(2)});
+
+        </script>
+
     </ui:define>
     <ui:define name="left">
         <div  class="modulsTitles"><p class="sideBarTitle">#{msgs.student_eduMenuTitle}</p></div>
@@ -62,19 +70,34 @@
                 <a target="_blank" href="#{initParam['videoConfUrl']}?sid=#{studentSessionBean.encryptedUserNPass}">#{msgs.student_comMenuVideoconferencing}</a>
             </li>
         </ol>
-        <div class="modulsTitles"><p class="sideBarTitle" style="float: left;">#{msgs.student_chatMenuTitle}</p>
-            <div style="text-align: right;"><a href="chat.xhtml" title="история чата" class="chatHistory"></a>
+        <h:panelGroup rendered="#{studentSessionBean.student.group.speciality.levelTypeSpeciality ne 'magistracy'}">
+            <div class="modulsTitles"><p class="sideBarTitle" style="float: left;">#{msgs.student_chatMenuTitle}</p>
+                <div style="text-align: right;"><a href="chat.xhtml" title="история чата" class="chatHistory"></a>
+                </div>
+                <div class="floatDestroyer"/>
             </div>
-            <div class="floatDestroyer"/>
-        </div>
+            <div id="chatShortHistory1" class="chatShortHistory">
 
-        <div id="chatShortHistory1" class="chatShortHistory">
+            </div>
+            <div class="smallChatTools">
+                <input id="message1"/><button id="button1" style="height: 19px;">#{msgs.student_chatOk}</button>
+                <div style="height:18px;"></div>
+            </div>
+        </h:panelGroup>
+        <h:panelGroup rendered="#{studentSessionBean.student.group.speciality.levelTypeSpeciality eq 'magistracy'}">
+            <div class="modulsTitles"><p class="sideBarTitle" style="float: left;">Чат для магистров</p>
+                <div style="text-align: right;"><a href="chat.xhtml?id=2" title="история чата" class="chatHistory"></a>
+                </div>
+                <div class="floatDestroyer"/>
+            </div>
+            <div id="chatShortHistory2" class="chatShortHistory">
 
-        </div>
-        <div class="smallChatTools">
-            <input id="message1"/><button id="button1" style="height: 19px;">#{msgs.student_chatOk}</button>
-            <div style="height:18px;"></div>
-        </div>
+            </div>
+            <div class="smallChatTools">
+                <input id="message2"/><button id="button2" style="height: 19px;">#{msgs.student_chatOk}</button>
+                <div style="height:18px;"></div>
+            </div>
+        </h:panelGroup>
         <div>
             <ut:usersOnline/>
         </div>

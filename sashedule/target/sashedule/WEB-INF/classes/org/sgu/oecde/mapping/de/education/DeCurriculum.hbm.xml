@@ -25,6 +25,7 @@
       </property>
      
      <property insert="false" name="selected" scale="1" type="true_false" update="false"/>
+     <property insert="false" name="scientificActivities" scale="1" type="true_false"  update="false"/>
       <property column="form_education" name="formEducation" not-null="false">
         <type name="org.sgu.oecde.core.GenericEnumUserType">
             <param name="enumClass">org.sgu.oecde.de.education.FormEducation</param>

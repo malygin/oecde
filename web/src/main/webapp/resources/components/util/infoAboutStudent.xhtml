@@ -31,7 +31,7 @@
                         <td><p>#{msgs.student_mainContentUserInfoFaculty}</p></td><td><div>#{studentViewBean.user.group.speciality.department.name}</div></td>
                     </tr>
                     <tr>
-                        <td><p>#{msgs.student_mainContentUserInfoSpec}</p></td><td><div>#{studentViewBean.user.group.speciality.name}</div></td>
+                        <td><p>#{msgs.student_mainContentUserInfoSpec}</p></td><td><div>#{studentViewBean.user.group.speciality.name} - #{studentViewBean.user.group.speciality.levelTypeSpeciality == 'magistracy'}  </div></td>
                     </tr>
                     <tr>
                         <td><p>Форма обучения</p></td><td><div>#{studentViewBean.user.formEducation.toString()}</div></td>

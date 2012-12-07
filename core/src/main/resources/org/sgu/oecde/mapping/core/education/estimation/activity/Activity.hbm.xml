@@ -6,5 +6,6 @@
        <property name="samAudWorkpoints" type="integer"/>
        <property name="samOutAudWorkpoints" type="integer"/>
        <property name="personalCharpoints" type="integer"/>
+       <property name="publishpoints" type="integer"/>
   </subclass>
 </hibernate-mapping>

@@ -30,6 +30,7 @@ public class PointsAndGradesBean extends StudentCurriculumBean{
    
     private PointsFacade currentsFacade=null;
     private List<AdditionalCurriculum>advCurriculums;
+    private List<AdditionalCurriculum>advCurriculumsSA;
     @ManagedProperty(value="#{testAttemptService}")
     private TestAttemptService testAttemptService;
 
@@ -104,6 +105,68 @@ public class PointsAndGradesBean extends StudentCurriculumBean{
         }
 
         return advCurriculums;
+    }
+
+    public List<AdditionalCurriculum> getStudentsSA(){
+
+        if(advCurriculumsSA==null){
+            List<Points>points = gradesService.getStudentGrades(getCurriculumsSA(), student);
+            if(CollectionUtils.isEmpty(points))
+                return new ArrayList<AdditionalCurriculum>(0);
+            advCurriculumsSA = testAttemptService.getStudentAttemptsCount(getCurriculumsSA(),student);
+            Map<DeCurriculum,List<TestEntity>> m = testService.<DeCurriculum>getCurriculumTestsMap(getCurriculums());
+            Iterator<Points> pI = points.iterator();
+            while(pI.hasNext()){
+                Points ps = pI.next();
+                testService.countTests(m, ps);
+                PointsFacade p = new PointsFacade(ps);
+                if(!CollectionUtils.isEmpty(advCurriculumsSA)){
+                    Iterator<AdditionalCurriculum>it = advCurriculumsSA.iterator();
+                    while(it.hasNext()){
+                        AdditionalCurriculum c = it.next();
+                        if(c.getCurriculum().equals(ps.getCurriculum())){
+                            DeCurriculum d = (DeCurriculum)c.getCurriculum();
+                            c.setTestPoints(p.getTest());
+                            c.setSum(p.getPoints().getSum());
+                            c.setConcludingReTestPoints(p.getConcludingReTest()==null?0:p.getConcludingReTest()*d.getWeightTest()/100);
+                            c.setConcludingTestPoints(p.getConcludingTest()==null?0:p.getConcludingTest());
+                            c.setReTestPoints(p.getReTest());
+                            c.setTestsCount(p.getTestsCount()+p.getConcludingTestsCount());
+                            c.setActivityPoints(p.getActivityPoints()==null?0:p.getActivityPoints());
+                            c.setSamAudWorkPoints(p.getSamAudWorkPoints()==null?0:p.getSamAudWorkPoints());
+                            c.setSamAudOutWorkPoints(p.getSamAudOutWorkPoints()==null?0:p.getSamAudOutWorkPoints());
+                            c.setPublishpoints(p.getPublishPoints());
+                            c.setPersonalCharPoints(p.getPersonalCharPoints()==null?0:p.getPersonalCharPoints());
+                            pI.remove();
+                        }
+                    }
+                }
+            }
+            pI = points.iterator();
+            while(pI.hasNext()){
+                Points ps = pI.next();
+                //  testService.countTests(m, ps);
+                AdditionalCurriculum c = new AdditionalCurriculum(ps.getCurriculum());
+                if(c.getCurriculum().getUmk()!=null){
+                    Integer r = ps.<Integer>getWorkPoints(TestsCountEnum.TESTS_COUNT);
+                    Integer ct = ps.<Integer>getWorkPoints(TestsCountEnum.CONCLUDING_TESTS_COUNT);
+                    c.setTestsCount((r!=null?r:0)+(ct!=null?ct:0));
+                    DeCurriculum d = (DeCurriculum)c.getCurriculum();
+                    PointsFacade p = new PointsFacade(ps);
+                    c.setActivityPoints(p.getActivityPoints()==null?0:p.getActivityPoints());
+                    c.setSamAudWorkPoints(p.getSamAudWorkPoints()==null?0:p.getSamAudWorkPoints());
+                    c.setSamAudOutWorkPoints(p.getSamAudOutWorkPoints()==null?0:p.getSamAudOutWorkPoints());
+                    c.setPersonalCharPoints(p.getPersonalCharPoints()==null?0:p.getPersonalCharPoints());
+                    c.setSum(p.getPoints().getSum());
+
+
+                    advCurriculumsSA.add(c);
+                }
+            }
+            //Collections.sort(advCurriculums, new OrderByDisciplineName());
+        }
+
+        return advCurriculumsSA;
     }
 
     public void setGradesService(GradesService gradesService) {

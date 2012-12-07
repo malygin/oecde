@@ -17,6 +17,10 @@
         </ui:define>
         
         <ui:define name="content">
+            <a href="messages_write.xhtml?gr=all">Рассылка всем студентам</a>
+            <h:panelGroup rendered="#{teacherIndexBean.teacher.id eq 178786459}">
+                <a href="messages_write.xhtml?gr=allall">Рассылка вообще всем студентам</a>
+            </h:panelGroup>
             <util:navigationList  elementOnPage="#{MessageBean.messageOnPage}"
                                   numElements="#{MessageBean.numOfMessagesByType}" link="type=#{MessageBean.typeInt}"/>
             <h:form id ="renderMe" styleClass="chooseMesType"> 

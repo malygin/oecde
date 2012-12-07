@@ -14,11 +14,14 @@ import javax.faces.model.SelectItem;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import org.sgu.oecde.core.UpdateDao;
+import org.sgu.oecde.core.education.LevelTypeSpeciality;
 import org.sgu.oecde.core.users.AbstractUser;
 import org.sgu.oecde.core.users.StudentGroup;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.core.util.SecurityContextHandler;
+import org.sgu.oecde.de.education.City;
 import org.sgu.oecde.de.education.dao.IGroupDao;
+import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.journal.EventType;
 import org.sgu.oecde.journal.JournalService;
 import org.sgu.oecde.messages.Message;
@@ -27,6 +30,7 @@ import org.sgu.oecde.messages.MessageRecipient;
 import org.sgu.oecde.messages.MessageType;
 import org.sgu.oecde.messages.service.MessageImpl;
 import org.sgu.oecde.messages.service.MessageService;
+import org.sgu.oecde.web.jsfbeans.teacher.TeacherSessionBean;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.FacesUtil;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.UploadFile;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.FileUploadUtil;
@@ -72,7 +76,13 @@ public class MessageWriteBean  implements Serializable{
     private MessageImpl message;
     private String theme="";
     private String fullText;
-    
+
+    private Integer countStudent;
+
+    @ManagedProperty(value="#{teacherSessionBean}")
+    private TeacherSessionBean teacherSessionBean;
+
+
     
     //!edited//////////////////////////////////////////////
     private MessageType type = MessageType.privateMessage;
@@ -327,9 +337,35 @@ public class MessageWriteBean  implements Serializable{
     }
 
     public void setGroupId(String groupId) {
-        this.groupId = groupId;
-        groups.add(groupDao.getById(new Long(groupId)));
+        if (groupId.equals("all")){
+            groups.addAll(teacherSessionBean.getGroups(teacherSessionBean.getSemester()));
+            count_students(groups);
+        }else if(groupId.equals("allall")){
+            List<Object[]>l = groupDao.getAllGroupsAndCities(2012);
+            for(Object[] e: l){
+                Group g = (Group) e[0];
+                //City city = (City) e[1];
+                if ( !g.getSpeciality().getId().equals(new Long(2839)) && !g.getSpeciality().getId().equals(new Long(2646)) && g.getSpeciality().getLevelTypeSpeciality() != LevelTypeSpeciality.magistracy) {
+                    if (!groups.contains(g)) groups.add(g);
+                }
+            }
+            count_students(groups);
+        }else{
+            this.groupId = groupId;
+            groups.add(groupDao.getById(new Long(groupId)));  }
     }
+
+    private void count_students(List<StudentGroup> groups){
+        countStudent =0;
+        for (StudentGroup g:groups){
+                countStudent+=g.getNumber();
+        }
+    }
+
+    public void setLetterStudents(String groupId) {
+        groups.addAll(teacherSessionBean.getGroups(teacherSessionBean.getSemester()))  ;
+    }
+
 
     public void setGroupDao(IGroupDao groupDao) {
         this.groupDao = groupDao;
@@ -347,5 +383,15 @@ public class MessageWriteBean  implements Serializable{
         this.journalService = journalService;
     }
 
-  
+    public void setTeacherSessionBean(TeacherSessionBean teacherSessionBean) {
+        this.teacherSessionBean = teacherSessionBean;
+    }
+
+    public Integer getCountStudent() {
+        return countStudent;
+    }
+
+    public void setCountStudent(Integer countStudent) {
+        this.countStudent = countStudent;
+    }
 }

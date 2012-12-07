@@ -45,37 +45,33 @@
                        <div class="greyMess" style="width: 48px; margin:  0; padding: 5px;">
                            #{msgs.message_forWhom}
                        </div>
-                       <div class="greyMess" style="width: 48px; margin:  0; padding: 5px;">
-                           #{msgs.admin_newsType2}
-                       </div>
-                        <div class="greyMess" style="margin: 0; padding: 5px;">#{msgs.message_theme}
-                        </div>
+
 
                         </h:column>
                     <h:column>
                         <div class="linkTo#{recipient.recipient.classType}sProfile linkTo#{recipient.recipient.classType}sProfileFromStudent" style="padding: 5px;"><a href="#{fn:toLowerCase(recipient.recipient.classType)}.xhtml?id=#{recipient.recipient.id}">
                         #{recipient.fioAuthor}</a>
                         </div>
-                        <h:selectOneMenu class="searchInput" value="#{MessageWriteBean.type}" style="margin-left: 5px; width: 190px;">
-                            <f:selectItems value="#{MessageWriteBean.types}" />
-                        </h:selectOneMenu>
-                        <div style="padding: 5px;">
-                            <h:inputText class="searchInput"  value="#{MessageWriteBean.theme}"  style="width: 188px;"/>
-                        </div>
+
                     </h:column>
                 </h:dataTable>
+                    <h:panelGroup rendered="#{MessageWriteBean.countStudent ne nul}">
+                        Массовая рассылка студентам, количество -   #{MessageWriteBean.countStudent} <br/>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{MessageWriteBean.countStudent eq null}">
+                        <h:dataTable value="#{MessageWriteBean.groups}" var="gr">
+                            <h:column>
+                               <div><b> #{gr.name}</b> #{msgs.message_teacherGroupFrom} #{gr.number} #{msgs.message_teacherPeople}</div>
 
-                    <h:dataTable value="#{MessageWriteBean.groups}" var="gr">
-                        <h:column>
-                           <div><b> #{gr.name}</b> #{msgs.message_teacherGroupFrom} #{gr.number} #{msgs.message_teacherPeople}</div>
-                        <h:selectOneMenu value="#{MessageWriteBean.type}" style="margin-left: 5px; width: 190px;">
-                            <f:selectItems value="#{MessageWriteBean.types}" />
-                        </h:selectOneMenu>
-                        <div style="padding: 5px;">
-                            <h:inputText  value="#{MessageWriteBean.theme}"  style="width: 188px;"/>
-                        </div>
-                        </h:column>
-                    </h:dataTable>
+                            </h:column>
+                        </h:dataTable>
+                    </h:panelGroup>
+                    <h:selectOneMenu value="#{MessageWriteBean.type}" style="margin-left: 5px; width: 190px;">
+                        <f:selectItems value="#{MessageWriteBean.types}" />
+                    </h:selectOneMenu>
+                    <div style="padding: 5px;">
+                        <h:inputText  value="#{MessageWriteBean.theme}"  style="width: 188px;" styleClass="searchInput"/>
+                    </div>
                     <p class="lightGreyText">#{msgs.message_addFile}</p>
                     <input type="file" name="MessageFile" style="background-color: #DFF1FE; font-size: 9pt; display: block; float: left;" class="StudentWriteMess"/>
                     <h:commandButton  action="#{MessageWriteBean.addFile}" value="Прикрепить" styleClass="studentButton" style="margin: 0; margin-left: 20px;"/>

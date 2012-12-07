@@ -18,8 +18,10 @@
 
     <ui:define name="content">
 
+
         <util:navigationList elementOnPage="#{NewsBean.newsOnPage}"
                              numElements="#{NewsBean.countNews}"/>
+
         <div class="interfaceContent">
             <news:list list="#{NewsBean.news}"/>
         </div>

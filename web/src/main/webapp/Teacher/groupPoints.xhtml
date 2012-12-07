@@ -31,7 +31,108 @@
             <div class="groupInfo">
                 <est:header bean="#{groupPoints}" pageName="points"/>
             </div>
-            <h:form rendered="#{not groupPoints.accessDenied}" id="form" prependId="false" style="margin: 10px; margin-top: 0;">
+
+
+            <h:form rendered="#{not groupPoints.accessDenied and  groupPoints.curriculum.scientificActivities }" id="form2" prependId="false" style="margin: 10px; margin-top: 0;">
+                <h:dataTable styleClass="studentStandatrTable"
+                             columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdWidthTeacher studentStandatrTableTdPaddingTeacher" cellpadding="0" cellspacing="0" id="table2" value="#{groupPoints.points}" var="p" style="margin: 0;">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msgs.student_Student}" />
+                        </f:facet>
+                        <span class="linkToStudentsProfile"><h:outputLink value="student.xhtml?id=#{p.points.student.id}&amp;s=#{groupPoints.semester}">#{p.points.student.initials}</h:outputLink></span>
+
+                    </h:column>
+
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Научные публикации" />
+                        </f:facet>
+                        <h:panelGroup >
+                            <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.samAudWorkPoints}"/>
+                            &lt; 10
+                        </h:panelGroup>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Участие в создании объектов интеллектуальной собственности" />
+                        </f:facet>
+                        <h:panelGroup >
+                            <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.samAudOutWorkPoints}"/>
+                            &lt; 10
+                        </h:panelGroup>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Участие в конкурсах научных работ, олимпиадах" />
+                        </f:facet>
+                        <h:panelGroup>
+                            <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.personalCharPoints}"/>
+                            &lt; 20
+                        </h:panelGroup>
+                    </h:column>
+
+
+                    <h:column>
+                        <f:facet name="header">
+                            <span class="Ipsilon_Web_GreenText">Другие виды деятельности</span>
+                        </f:facet>
+                        <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.activityPoints}"/>
+                        &lt; 20
+                    </h:column>
+
+                    <!--<h:column>-->
+                        <!--<f:facet name="header">-->
+                            <!--<span class="Ipsilon_Web_GreenText">Участие в<br/> научных мероприятиях</span>-->
+                        <!--</f:facet>-->
+                        <!--<h:inputText class="pointInput" maxlength="3" size="1" value="#{p.publishPoints}"/>-->
+                    <!--</h:column>-->
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msgs.student_gradesTableHeadSumm}" />
+                        </f:facet>
+                        <h:panelGroup rendered="#{((p.points.sum) ne null) and ((p.points.sum) ne 0)}">
+                            <h:panelGroup rendered="#{(p.points.sum ge 0) and (p.points.sum le 50)}" styleClass="badResultText">#{p.points.sum}</h:panelGroup>
+                            <h:panelGroup rendered="#{(p.points.sum gt 50) and (p.points.sum le 90)}" styleClass="goodResultText">#{p.points.sum}</h:panelGroup>
+                            <h:panelGroup rendered="#{(p.points.sum gt 90)}" styleClass="greateResultText">#{p.points.sum}</h:panelGroup>
+                            <span class="lightGreyTestText">#{msgs.student_From} 100</span>
+                        </h:panelGroup>
+
+                    </h:column>
+
+                    <!--<h:column>-->
+                        <!--<f:facet name="header">-->
+                            <!--<h:outputText value="Результат" />-->
+                        <!--</f:facet>-->
+                        <!--<p style="width: 100px; text-align: center;"><h:selectOneMenu class="searchInput" id="grade2" value="#{p.grade}">-->
+                            <!--<f:selectItems value="#{groupPoints['enum']}" />-->
+                        <!--</h:selectOneMenu></p>-->
+                    <!--</h:column>-->
+                </h:dataTable>
+
+                <div style="text-align: right; padding: 5px; ">
+                    <h:commandButton id="btn2" value="#{msgs.teacher_saveButton}" styleClass="studentButton">
+                        <f:ajax execute="@form" render="@form" listener="#{groupPoints.save}"/>
+                    </h:commandButton>
+                </div>
+                <h:outputText id="error2" rendered="#{groupPoints.error}" value="#{msgs.teacher_errorMessage}"/>
+                <h:outputText id="saved2" rendered="#{groupPoints.saved}" value="#{msgs.teacher_successSavingMessage}"/>
+            </h:form>
+
+            <h:form rendered="#{not groupPoints.accessDenied and not groupPoints.curriculum.scientificActivities }" id="form" prependId="false" style="margin: 10px; margin-top: 0;">
                 <h:dataTable styleClass="studentStandatrTable"
                              columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
                              studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,

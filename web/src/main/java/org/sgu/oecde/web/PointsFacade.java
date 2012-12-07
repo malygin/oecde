@@ -33,6 +33,7 @@ public class PointsFacade implements Serializable{
     private Integer samAudWorkPoints;
     private Integer samAudOutWorkPoints;
     private Integer personalCharPoints;
+    private Integer publishPoints;
     private ControlWorkProgress controlWorkValue;
     private PointToEstimate grade;
 
@@ -54,6 +55,7 @@ public class PointsFacade implements Serializable{
         activityPoints = points.getWorkPoints(ActivityEstimateNames.activity_points);
         samAudWorkPoints = points.getWorkPoints(ActivityEstimateNames.samAud_points);
         samAudOutWorkPoints = points.getWorkPoints(ActivityEstimateNames.samOutAud_points);
+        publishPoints = points.getWorkPoints(ActivityEstimateNames.publish_points);
         personalCharPoints = points.getWorkPoints(ActivityEstimateNames.personChar_points);
         controlWorkValue = points.getWorkPoints(CwEstimateNames.control_work_value);
         controlWorkMaxPoints=(controlWorkValue!=null)?100:0;
@@ -210,6 +212,12 @@ public class PointsFacade implements Serializable{
     public void setControlWorkMaxPoints(Integer controlWorkMaxPoints) {
         this.controlWorkMaxPoints = controlWorkMaxPoints;
     }
-    
-    
+
+    public Integer getPublishPoints() {
+        return publishPoints;
+    }
+
+    public void setPublishPoints(Integer publishPoints) {
+        this.publishPoints = publishPoints;
+    }
 }

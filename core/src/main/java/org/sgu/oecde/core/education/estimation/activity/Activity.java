@@ -21,7 +21,8 @@ public class Activity extends AbstractResult{
     private Integer samAudWorkpoints;
     private Integer samOutAudWorkpoints;
     private Integer personalCharpoints;
-    
+    private Integer publishpoints;
+
     
 
     public Activity() {
@@ -66,8 +67,14 @@ public class Activity extends AbstractResult{
             this.samOutAudWorkpoints=0;
         else  this.samOutAudWorkpoints = samOutAudWorkpoints;
     }
-    
-    
+
+    public Integer getPublishpoints() {
+        return publishpoints;
+    }
+
+    public void setPublishpoints(Integer publishpoints) {
+        this.publishpoints = publishpoints;
+    }
 }
 
     

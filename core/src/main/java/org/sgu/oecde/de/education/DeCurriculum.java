@@ -31,6 +31,8 @@ public class DeCurriculum extends AdvancedCurriculum{
     private Integer weightOutAud = 20;
     private Integer weightPers = 20;
     private Integer weightAtt = 20;
+
+    private  Boolean scientificActivities= false;
     
     
   
@@ -163,7 +165,12 @@ public class DeCurriculum extends AdvancedCurriculum{
         this.weightTest = weightTest;
     }
 
-   
-    
-    
+
+    public Boolean getScientificActivities() {
+        return scientificActivities;
+    }
+
+    public void setScientificActivities(Boolean scientificActivities) {
+        this.scientificActivities = scientificActivities;
+    }
 }

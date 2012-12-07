@@ -44,6 +44,7 @@ public class AdditionalCurriculum implements Serializable,Comparable<AdditionalC
     private int samAudWorkPoints;
     private int samAudOutWorkPoints;
     private int personalCharPoints;
+    private int publishpoints;
     /**
      * сумма баллов всех
      */
@@ -199,8 +200,14 @@ public class AdditionalCurriculum implements Serializable,Comparable<AdditionalC
     public void setSamAudWorkPoints(int samAudWorkPoints) {
         this.samAudWorkPoints = samAudWorkPoints;
     }
-    
-    
+
+    public int getPublishpoints() {
+        return publishpoints;
+    }
+
+    public void setPublishpoints(int publishpoints) {
+        this.publishpoints = publishpoints;
+    }
 
     public float getSum() {
         return sum;

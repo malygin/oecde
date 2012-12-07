@@ -122,6 +122,78 @@
                     </h:column>
 
                 </h:dataTable>
+
+                   Научно-исследовательская деятельность
+                <h:dataTable styleClass="studentStandatrTable"
+                             columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                             studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdWidthTeacher studentStandatrTableTdPaddingTeacher" cellpadding="0" cellspacing="0" id="table2" value="#{gradesBean.studentsSA}" var="m" style="margin: 0;">
+
+
+                    <h:column>
+                        <f:facet name="header">
+                            <span class="Ipsilon_Web_GreenText">Участие в<br/> научных мероприятиях</span>
+                        </f:facet>
+                         <b>#{m.publishpoints}</b>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Научные публикации" />
+                        </f:facet>
+                        <h:panelGroup >
+                                           <b>#{m.samAudWorkPoints}</b>
+                        </h:panelGroup>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Участие в создании объектов интеллектуальной собственности" />
+                        </f:facet>
+                        <h:panelGroup >
+                             <b> #{m.samAudOutWorkPoints}</b>
+                        </h:panelGroup>
+
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Участие в конкурсах научных работ, олимпиадах" />
+                        </f:facet>
+                        <h:panelGroup>
+                            <b> #{m.personalCharPoints}</b>
+                        </h:panelGroup>
+                    </h:column>
+
+
+                    <h:column>
+                        <f:facet name="header">
+                            <span class="Ipsilon_Web_GreenText">Другие виды деятельности</span>
+                        </f:facet>
+                        <b> #{m.activityPoints}</b>
+
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msgs.student_gradesTableHeadSumm}" />
+                        </f:facet>
+                        <h:panelGroup rendered="#{((m.sum) ne null) and ((m.sum) ne 0)}">
+                            <h:panelGroup rendered="#{(m.sum ge 0) and (m.sum le 50)}" styleClass="badResultText">#{m.sum}</h:panelGroup>
+                            <h:panelGroup rendered="#{(m.sum gt 50) and (m.sum le 90)}" styleClass="goodResultText">#{m.sum}</h:panelGroup>
+                            <h:panelGroup rendered="#{(m.sum gt 90)}" styleClass="greateResultText">#{m.sum}</h:panelGroup>
+                            <span class="lightGreyTestText">#{msgs.student_From} 100</span>
+                        </h:panelGroup>
+                    </h:column>
+
+                </h:dataTable>
 <h:form id="form">
 <span class="controlWorksDisciplineNameLink"><h:commandLink value="">
     <f:attribute name="reExame" value="#{!testResultsBean.reExame}"/>

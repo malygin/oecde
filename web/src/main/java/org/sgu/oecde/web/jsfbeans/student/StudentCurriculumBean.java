@@ -25,6 +25,7 @@ import org.sgu.oecde.de.education.DeCurriculum;
 public class StudentCurriculumBean extends AbstractStudentBean{
 
     private List<DeCurriculum>curriculums;
+    private List<DeCurriculum>curriculumSA;
 
     private Map<DeCurriculum,Teacher>curriculumAndTeacher;
 
@@ -66,6 +67,14 @@ public class StudentCurriculumBean extends AbstractStudentBean{
                 Collections.sort(curriculums, new OrderByDisciplineName());
         }
         return curriculums;
+    }
+
+    public List<DeCurriculum> getCurriculumsSA() {
+        if(curriculumSA==null){
+            curriculumSA = curriculumDao.getByExample(curriculumBuilder.getInstanceByCurrentDateWithSA(student, semester));
+        }
+
+        return curriculumSA;
     }
 
     public Map<DeCurriculum, Teacher> getCurriculumAndTeacher() {

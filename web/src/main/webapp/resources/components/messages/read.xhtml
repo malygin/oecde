@@ -65,15 +65,19 @@
                                     #{msgs.message_recipients}
                                 </td>
                                 <td>
-                                    <ui:repeat  value="#{cc.attrs.mess.message.recipients}" var="rec">
-                                        <div class="linkTo#{rec.recipient.classType}sProfile"><a href="#{fn:toLowerCase(rec.recipient.classType)}.xhtml?id=#{rec.recipient.id}">
-                                            
-                                        <h:outputText value="#{rec.fioAuthor}"/></a>
-                                        <h:panelGroup rendered="#{not MessageReadBean.type}"> (<h:outputLink  value="messages_dialog.xhtml?user=#{rec.recipient.id}">#{msgs.message_showHistory} </h:outputLink>)</h:panelGroup>
-                                        <br/>
-                                            
-                                         </div>
+                                    <ui:repeat  value="#{cc.attrs.mess.message.recipients}" var="rec" varStatus="i">
+                                         <h:panelGroup rendered="#{i.index le 3}">
+                                                <div class="linkTo#{rec.recipient.classType}sProfile"><a href="#{fn:toLowerCase(rec.recipient.classType)}.xhtml?id=#{rec.recipient.id}">
+
+                                                <h:outputText value="#{rec.fioAuthor}"/></a>
+                                                <h:panelGroup rendered="#{not MessageReadBean.type}"> (<h:outputLink  value="messages_dialog.xhtml?user=#{rec.recipient.id}">#{msgs.message_showHistory} </h:outputLink>)</h:panelGroup>
+                                                <br/>
+
+                                                 </div>
+                                        </h:panelGroup>
                                     </ui:repeat >
+
+                                    <h:outputText rendered="#{cc.attrs.mess.message.recipients.size() ge 3}" value="..."/>
                                 </td>
                             </tr>
                         </table>
@@ -94,7 +98,7 @@
                         <div class="floatDestroyer"/>
                     </div>
                     <div style="" class="listMessagesShortMessage">
-                        <h:outputText value="#{cc.attrs.mess.message.fullText}"/>
+                        <h:outputText value="#{cc.attrs.mess.message.fullText}" escape="false"/>
 
                     </div>
                     <div>
