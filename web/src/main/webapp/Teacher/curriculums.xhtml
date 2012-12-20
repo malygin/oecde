@@ -31,47 +31,52 @@
                                      studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
                                      studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher"
                                      style="margin: 0;" cellpadding="0" cellspacing="0" value="#{teacherCurriculumsEditBean.curriculums}" var="c">
+
                             <h:column>
                                 <f:facet name="header">#{msgs.student_mainContentUserInfoSpec_}</f:facet>
                                 <span><h:outputText value="#{c.speciality.name}"/></span>
+
                             </h:column>
-                            <h:column>
+                            <h:column >
                                 <f:facet name="header">#{msgs.student_Dicipline}</f:facet>
                                 <span class="DisciplineTextTeacher"><h:outputText value="#{c.discipline.name}"/></span>
                             </h:column>
 
-                            <h:column>
+                            <h:column >
                                 <f:facet name="header">#{msgs.user_UMK}</f:facet>
                                 <span class="controlWorksDisciplineNameLink">
                                     <h:outputLink value="discipline.xhtml?id=#{c.id}&amp;s=#{teacherCurriculumsEditBean.semester}">#{c.umk.name}</h:outputLink>
                                 </span>
                             </h:column>
-                            <h:column>
+
+                            <h:column >
                                 <f:facet name="header">Веса
                                 </f:facet>
-                      <span>
+                                <span>
+                                 <h:panelGroup rendered="#{not c.scientificActivities}">
+                                 #{not c.scientificActivities}
                                   тесты  #{c.weightTest/100}<br/>
                                   аудит. #{c.weightAud/100}<br/>
                                   внеауд.  #{c.weightOutAud/100}<br/>
                                   научн. деят. #{c.weightPers/100}<br/>
                                   промежуточн. #{c.weightAtt/100}
                                   <h:outputLink value="editCurriculum.xhtml?id=#{c.id}">ред.</h:outputLink>
-
-                      </span>
+                                   </h:panelGroup>
+                                </span>
                             </h:column>
-                            <h:column>
+                            <h:column >
                                 <f:facet name="header">#{msgs.teacher_curriclums_years}</f:facet>
                                 <span><h:outputText value="#{c.calendarYear}"/> </span>
                             </h:column>
-                            <h:column>
+                            <h:column >
                                 <f:facet name="header">#{msgs.teacher_curriclums_semester}</f:facet>
                                 <span><h:outputText value="#{c.semester}"/> </span>
                             </h:column>
-                            <h:column>
+                            <h:column >
                                 <f:facet name="header">#{msgs.teacher_contrWorksInWriting}</f:facet>
                                 <h:selectBooleanCheckbox  value="#{c.controlWorksPaperOnly}" style="display: inline; float: none;"/>
                             </h:column>
-                            <h:column>
+                            <h:column >
                                 <f:facet name="header">#{msgs.teacher_curriclums_reporting_form}</f:facet>
                                 <span><h:outputText value="#{c.examinationType.toString()}" /></span>
                             </h:column>
@@ -84,8 +89,7 @@
                 </div>
             </div>
             <div class="StudentMainPageTitlesBorders">
-                <edu:videoConfScheduleTeacher numberLessons="20" styleForShedule="floatLeft"  renderBlock="firstLessons" ClassStyle="BorderNone"/>
-            </div>
+                </div>
         </div>
     </ui:define>
 </ui:composition>

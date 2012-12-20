@@ -120,10 +120,17 @@
                             <span class="lightGreyTestText">#{msgs.student_From} 100</span>
                         </h:panelGroup>
                     </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Результат" />
+                        </f:facet>
+                        <p style="width: 100px; text-align: center;"></p>
+                    </h:column>
 
                 </h:dataTable>
 
-                   Научно-исследовательская деятельность
+                <h:panelGroup rendered=" #{studentViewBean.user.group.speciality.levelTypeSpeciality eq 'magistracy'}}">Научно-исследовательская деятельность</h:panelGroup>
+
                 <h:dataTable styleClass="studentStandatrTable"
                              columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
                              studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
@@ -134,7 +141,8 @@
                              studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
                              studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
                              studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                             studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdWidthTeacher studentStandatrTableTdPaddingTeacher" cellpadding="0" cellspacing="0" id="table2" value="#{gradesBean.studentsSA}" var="m" style="margin: 0;">
+                             studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdWidthTeacher studentStandatrTableTdPaddingTeacher"
+                             cellpadding="0" cellspacing="0" id="table2" value="#{gradesBean.studentsSA}" var="m" style="margin: 0;" rendered=" #{studentViewBean.user.group.speciality.levelTypeSpeciality eq 'magistracy'}}">
 
 
                     <h:column>
@@ -192,6 +200,8 @@
                             <span class="lightGreyTestText">#{msgs.student_From} 100</span>
                         </h:panelGroup>
                     </h:column>
+
+
 
                 </h:dataTable>
 <h:form id="form">

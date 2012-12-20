@@ -51,7 +51,7 @@ public class TeacherCurriculumsEditBean implements Serializable{
     }
     
         public void saveWeight(){
-            if (curriculum.getWeightTest()+curriculum.getWeightAud()+curriculum.getWeightOutAud()+curriculum.getWeightPers()+curriculum.getWeightAtt() == 100){
+            if ((curriculum.getWeightTest()+curriculum.getWeightAud()+curriculum.getWeightOutAud()+curriculum.getWeightPers()+curriculum.getWeightAtt()) == 100 && curriculum.getWeightAtt() <=40 ){
                         curriculumDao.update(curriculum);         
                         journalService.save(EventType.CURRICULUMS_CHANGING_BY_TEACHER, teacherSessionBean.getTeacher());
                         saved=true;
