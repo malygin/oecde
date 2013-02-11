@@ -69,7 +69,7 @@
 
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="Самостоятельная аудиторная работа" />
+                            <h:outputText value="Сам. аудиторная работа" />
                         </f:facet>
                         <h:panelGroup >
                             #{m.samAudWorkPoints}
@@ -79,7 +79,7 @@
 
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="Самостоятельная внеаудиторная работа" />
+                            <h:outputText value="Сам. внеаудиторная работа" />
                         </f:facet>
                         <h:panelGroup >
                             #{m.samAudOutWorkPoints}
@@ -90,7 +90,7 @@
 
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="Научная и исследовательская деятельность по дисциплине" />
+                            <h:outputText value="Научная и исслед. деятельность по дисциплине" />
                         </f:facet>
                         <h:panelGroup>
                             #{m.personalCharPoints}
@@ -115,8 +115,9 @@
                         </f:facet>
                         <h:panelGroup rendered="#{((m.sum) ne null) and ((m.sum) ne 0)}">
                             <h:panelGroup rendered="#{(m.sum ge 0) and (m.sum le 50)}" styleClass="badResultText">#{m.sum}</h:panelGroup>
-                            <h:panelGroup rendered="#{(m.sum gt 50) and (m.sum le 90)}" styleClass="goodResultText">#{m.sum}</h:panelGroup>
-                            <h:panelGroup rendered="#{(m.sum gt 90)}" styleClass="greateResultText">#{m.sum}</h:panelGroup>
+                            <h:panelGroup rendered="#{(m.sum gt 50) and (m.sum le 75)}" styleClass="goodResultText">#{m.sum}</h:panelGroup>
+                            <h:panelGroup rendered="#{(m.sum gt 75) and (m.sum le 85)}" styleClass="good2ResultText">#{m.sum}</h:panelGroup>
+                            <h:panelGroup rendered="#{(m.sum gt 85)}" styleClass="greateResultText">#{m.sum}</h:panelGroup>
                             <span class="lightGreyTestText">#{msgs.student_From} 100</span>
                         </h:panelGroup>
                     </h:column>
@@ -124,7 +125,9 @@
                         <f:facet name="header">
                             <h:outputText value="Результат" />
                         </f:facet>
-                        <p style="width: 100px; text-align: center;"></p>
+                        <p style="width: 100px; text-align: center;">
+                            #{m.grade.toString()}
+                        </p>
                     </h:column>
 
                 </h:dataTable>
@@ -196,7 +199,11 @@
                         <h:panelGroup rendered="#{((m.sum) ne null) and ((m.sum) ne 0)}">
                             <h:panelGroup rendered="#{(m.sum ge 0) and (m.sum le 50)}" styleClass="badResultText">#{m.sum}</h:panelGroup>
                             <h:panelGroup rendered="#{(m.sum gt 50) and (m.sum le 90)}" styleClass="goodResultText">#{m.sum}</h:panelGroup>
-                            <h:panelGroup rendered="#{(m.sum gt 90)}" styleClass="greateResultText">#{m.sum}</h:panelGroup>
+                            <h:panelGroup rendered="#{(m.sum gt 90)}" styleClass="greateResultText">
+                                <h:outputText value="#{m.sum}" >
+                                    <f:convertNumber maxFractionDigits="2" minIntegerDigits="2"/>
+                            </h:outputText>
+                            </h:panelGroup>
                             <span class="lightGreyTestText">#{msgs.student_From} 100</span>
                         </h:panelGroup>
                     </h:column>

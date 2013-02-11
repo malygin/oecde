@@ -54,13 +54,24 @@
                                 </f:facet>
                                 <span>
                                  <h:panelGroup rendered="#{not c.scientificActivities}">
-                                 #{not c.scientificActivities}
+                                     <div style="text-align: left">
                                   тесты  #{c.weightTest/100}<br/>
                                   аудит. #{c.weightAud/100}<br/>
                                   внеауд.  #{c.weightOutAud/100}<br/>
                                   научн. деят. #{c.weightPers/100}<br/>
                                   промежуточн. #{c.weightAtt/100}
                                   <h:outputLink value="editCurriculum.xhtml?id=#{c.id}">ред.</h:outputLink>
+                                     </div>
+                                   </h:panelGroup>
+                                   <h:panelGroup rendered="#{c.scientificActivities}">
+                                        <div style="text-align: left">
+                                       Участие в научных мероприятиях  - #{c.weightTest}<br/>
+                                       Научные публикации -  #{c.weightAud}<br/>
+                                       Участие в создании объектов интеллект.собственности -  #{c.weightOutAud}<br/>
+                                       Участие в конкурсах научных работ, олимпиадах - #{c.weightPers}<br/>
+                                       Другие виды деятельности  - #{c.weightAtt}
+                                           <h:outputLink value="editCurriculum.xhtml?id=#{c.id}">ред.</h:outputLink>
+                                   </div>
                                    </h:panelGroup>
                                 </span>
                             </h:column>

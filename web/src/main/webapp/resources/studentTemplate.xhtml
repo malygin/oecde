@@ -62,9 +62,7 @@
             <li>
                 <a href="forum.xhtml?type=storg">#{msgs.student_comMenuForumOrg}</a>
             </li>
-            <li>
-               <h:panelGroup  rendered=" #{initParam['projectName'] eq 'oecde'}"> <span style="font-weight: bold; color: #fbb35d; ">new!</span><a href="forum.xhtml?type=spr">Вопросы по системе принятия рещений</a> </h:panelGroup>
-            </li>
+
             <li>
 
                 <a target="_blank" href="#{initParam['videoConfUrl']}?sid=#{studentSessionBean.encryptedUserNPass}">#{msgs.student_comMenuVideoconferencing}</a>
@@ -158,6 +156,7 @@
                 <li><a href="adminsList.xhtml"><h:graphicImage value="../resources/images/admin.png" styleClass="iconInMenu" /><div>#{msgs.student_templateAdmins}</div></a></li>
                 <li><a href="forum.xhtml?type=stfaq"><h:graphicImage value="../resources/images/advise.png" styleClass="iconInMenu" /><div>#{msgs.student_MistakesAndSuggestions}</div></a></li>
                 <li><a href="forum.xhtml?type=storg"><h:graphicImage value="../resources/images/org_forum_student.png" styleClass="iconInMenu" /><div>#{msgs.student_comMenuForumOrg}</div></a></li>
+
                 <li><a target="_blank" href="http://oecdo.sgu.ru/client/"><h:graphicImage value="../resources/images/video.png" styleClass="iconInMenu" /><div>#{msgs.student_comMenuVideoconferencing}</div></a></li>
 
             </ol>

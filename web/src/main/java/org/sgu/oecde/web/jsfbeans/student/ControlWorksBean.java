@@ -25,6 +25,7 @@ import org.sgu.oecde.core.education.CalendarConstantName;
 import org.sgu.oecde.core.education.StringConstantsGetter;
 import org.sgu.oecde.core.util.DateConverter;
 import org.sgu.oecde.de.education.DeCurriculum;
+import org.sgu.oecde.de.users.Group;
 import org.sgu.oecde.journal.EventType;
 import org.sgu.oecde.journal.JournalService;
 import org.sgu.oecde.web.jsfbeans.util.fileUpload.FacesUtil;
@@ -87,6 +88,12 @@ public class ControlWorksBean extends StudentCurriculumBean{
                     &&student.getFullAccess()){
                     available = true;
                 }
+                Group gr = student.getGroup();
+                if (gr.getSpeciality().getDepartment().getId().equals(635112325L)){
+                     available = true;
+                }
+
+
                 if(w == null){
                     w = new ControlWork(student, cr);
                 }

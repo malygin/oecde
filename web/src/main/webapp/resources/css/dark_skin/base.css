@@ -1700,16 +1700,6 @@ mainStyle .studentStandatrTable tr td .AdminIndent{
     font-weight: bold;
 }
 
-/*прогрессбары в изучаемых материалах*/
-.mainStyle .badResult{
-    background: #fbc98e;
-}
-.mainStyle .goodResult{
-    background: #89d9fa;
-}
-.mainStyle .greateResult{
-    background: #c3ef73;
-}
 
 /*тесты секундомер прогрессбар*/
 .mainStyle #counter{
@@ -2605,15 +2595,49 @@ a.mainStyle .lightGreyText a:hover{
 .mainStyle .groupsLinks a:hover{color: #ffffff; text-decoration: none; font-size: 10pt; font-weight: bold; margin: 0px; font-family: Arial;}
 
 /*выставление оценок преподавателем*/
+
 .mainStyle .badResultText{
     color: #fa9624;
 }
 .mainStyle .goodResultText{
     color: #89d9fa;
 }
-.mainStyle .greateResultText{
+.mainStyle .good2ResultText{
     color: #82be11;
 }
+.mainStyle .greateResultText{
+    color: #E8D1FD;
+}
+
+
+
+.badResultColor{
+    color: #fa9624;
+}
+ .goodResultColor{
+    color: #89d9fa;
+}
+ .good2ResultColor{
+    color: #82be11;
+}
+ .greateResultColor{
+    color: #E8D1FD;
+}
+
+/*прогрессбары в изучаемых материалах*/
+.mainStyle .badResult{
+    background: #fbc98e;
+}
+.mainStyle .goodResult{
+    background: #89d9fa;
+}
+.mainStyle .good2Result{
+    background: #82be11;
+}
+.mainStyle .greateResult{
+    background: #E8D1FD;
+}
+
 
 /*новые стили, используемые только в dark_skin*/
 .mainStyle .BackgroundNone{

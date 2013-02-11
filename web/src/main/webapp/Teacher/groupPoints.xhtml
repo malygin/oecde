@@ -15,6 +15,7 @@
             <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
                 <p class="mainStudentPageTitles Ipsilon_Web_GreenText">
                     #{msgs.teacher_groupInfo} <h:outputText value="#{groupPoints.group.name}"/> (<h:outputText value="#{groupPoints.group.speciality.name}" />)
+                    факультет: #{groupPoints.group.faculty},  #{groupPoints.curriculum.formEducation.toString()}
                 </p>
                 <div class="backLink greyLinks massSending">
                     <a href="messages_write.xhtml?gr=#{groupPoints.id}">#{msgs.teacher_groupSendAll}</a> | 
@@ -53,6 +54,15 @@
 
                     </h:column>
 
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Участие в научных мероприятиях" />
+                        </f:facet>
+                        <h:panelGroup >
+                            <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.publishPoints}"/>
+                            &lt;= #{groupPoints.curriculum.weightTest}
+                        </h:panelGroup>
+                    </h:column>
 
                     <h:column>
                         <f:facet name="header">
@@ -60,7 +70,7 @@
                         </f:facet>
                         <h:panelGroup >
                             <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.samAudWorkPoints}"/>
-                            &lt;= 10
+                            &lt;= #{groupPoints.curriculum.weightAud}
                         </h:panelGroup>
                     </h:column>
 
@@ -70,7 +80,7 @@
                         </f:facet>
                         <h:panelGroup >
                             <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.samAudOutWorkPoints}"/>
-                            &lt;= 10
+                            &lt;= #{groupPoints.curriculum.weightOutAud}
                         </h:panelGroup>
                     </h:column>
 
@@ -80,7 +90,7 @@
                         </f:facet>
                         <h:panelGroup>
                             <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.personalCharPoints}"/>
-                            &lt;= 20
+                            &lt;= #{groupPoints.curriculum.weightPers}
                         </h:panelGroup>
                     </h:column>
 
@@ -90,7 +100,7 @@
                             <span class="Ipsilon_Web_GreenText">Другие виды деятельности</span>
                         </f:facet>
                         <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.activityPoints}"/>
-                        &lt;= 20
+                        &lt;= #{groupPoints.curriculum.weightAtt}
                     </h:column>
 
                     <!--<h:column>-->
@@ -105,9 +115,12 @@
                             <h:outputText value="#{msgs.student_gradesTableHeadSumm}" />
                         </f:facet>
                         <h:panelGroup rendered="#{((p.points.sum) ne null) and ((p.points.sum) ne 0)}">
-                            <h:panelGroup rendered="#{(p.points.sum ge 0) and (p.points.sum le 50)}" styleClass="badResultText">#{p.points.sum}</h:panelGroup>
-                            <h:panelGroup rendered="#{(p.points.sum gt 50) and (p.points.sum le 90)}" styleClass="goodResultText">#{p.points.sum}</h:panelGroup>
-                            <h:panelGroup rendered="#{(p.points.sum gt 90)}" styleClass="greateResultText">#{p.points.sum}</h:panelGroup>
+
+                            <h:panelGroup rendered="#{(m.sum ge 0) and (m.sum le 50)}" styleClass="badResultText">#{p.points.sum}</h:panelGroup>
+                            <h:panelGroup rendered="#{(m.sum gt 50) and (m.sum le 75)}" styleClass="goodResultText">#{p.points.sum}</h:panelGroup>
+                            <h:panelGroup rendered="#{(m.sum gt 75) and (m.sum le 85)}" styleClass="good2ResultText">#{p.points.sum}</h:panelGroup>
+                            <h:panelGroup rendered="#{(m.sum gt 85)}" styleClass="greateResultText">#{p.points.sum}</h:panelGroup>
+
                             <span class="lightGreyTestText">#{msgs.student_From} 100</span>
                         </h:panelGroup>
 
@@ -143,12 +156,12 @@
                              studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
                              studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
                              studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                             studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdWidthTeacher studentStandatrTableTdPaddingTeacher" cellpadding="0" cellspacing="0" id="table" value="#{groupPoints.points}" var="p" style="margin: 0;">
+                             studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdWidthTeacher studentStandatrTableTdPaddingTeacher" cellpadding="0" cellspacing="0" id="table"  value="#{groupPoints.points}" var="p" style="margin: 0;">
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="#{msgs.student_Student}" />
                         </f:facet>
-                        <span class="linkToStudentsProfile"><h:outputLink value="student.xhtml?id=#{p.points.student.id}&amp;s=#{groupPoints.semester}">#{p.points.student.initials}</h:outputLink></span>
+                        <span class="linkToStudentsProfile">#{groupPoints.getStudentNumber(p)}.<h:outputLink value="student.xhtml?id=#{p.points.student.id}&amp;s=#{groupPoints.semester}">  #{p.points.student.initials}</h:outputLink></span>
                     </h:column>
                     
                     <h:column>
@@ -164,7 +177,7 @@
                     
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="Самостоятельная аудиторная работа" />
+                            <h:outputText value="Сам. аудиторная работа" />
                         </f:facet>
                         <h:panelGroup >
                             <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.samAudWorkPoints}"/> 
@@ -175,7 +188,7 @@
 
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="Самостоятельная внеаудиторная работа" />
+                            <h:outputText value="Сам. внеауд. работа" />
                         </f:facet>
                          <h:panelGroup >
                             <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.samAudOutWorkPoints}"/> 
@@ -186,7 +199,7 @@
                     
                       <h:column>
                         <f:facet name="header">
-                            <h:outputText value="Научная и исследовательская деятельность по дисциплине" />
+                            <h:outputText value="Научная и исслед. деят. по дисциплине" />
                         </f:facet>
                          <h:panelGroup>
                              <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.personalCharPoints}"/>
@@ -198,7 +211,7 @@
                     
                      <h:column>
                         <f:facet name="header">
-                            <span class="Ipsilon_Web_GreenText">Промежуточная аттестация</span>
+                            <span class="Ipsilon_Web_GreenText">Пром. аттестация</span>
                         </f:facet>
                         <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.activityPoints}"/> 
                          <span class="lightGreyTestText">* #{groupPoints.curriculum.weightAtt/100} =</span><b> #{p.activityPoints * groupPoints.curriculum.weightAtt/100}</b>

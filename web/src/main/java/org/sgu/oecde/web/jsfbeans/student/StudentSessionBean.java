@@ -8,6 +8,7 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import org.sgu.oecde.core.users.Teacher;
 import org.sgu.oecde.core.util.SemesterGetter;
@@ -22,6 +23,7 @@ import org.sgu.oecde.web.jsfbeans.util.CryptoClassDES;
 @ManagedBean(name="studentSessionBean")
 @SessionScoped
 public class StudentSessionBean extends AbstractStudentBean{
+
 
     private Map<DeCurriculum,Teacher>summerCurriculums;
 
@@ -61,4 +63,8 @@ public class StudentSessionBean extends AbstractStudentBean{
         String returnMe = CryptoClassDES.encrypt(encryptMe);
         return returnMe;
     }
+
+
+
+
 }

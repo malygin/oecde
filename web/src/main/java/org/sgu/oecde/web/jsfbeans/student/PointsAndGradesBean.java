@@ -75,7 +75,7 @@ public class PointsAndGradesBean extends StudentCurriculumBean{
                             c.setSamAudWorkPoints(p.getSamAudWorkPoints()==null?0:p.getSamAudWorkPoints());
                             c.setSamAudOutWorkPoints(p.getSamAudOutWorkPoints()==null?0:p.getSamAudOutWorkPoints());
                             c.setPersonalCharPoints(p.getPersonalCharPoints()==null?0:p.getPersonalCharPoints());
-
+                            c.setGrade(p.getGrade());
                             pI.remove();
                         }
                     }
@@ -97,6 +97,8 @@ public class PointsAndGradesBean extends StudentCurriculumBean{
                     c.setSamAudOutWorkPoints(p.getSamAudOutWorkPoints()==null?0:p.getSamAudOutWorkPoints());
                     c.setPersonalCharPoints(p.getPersonalCharPoints()==null?0:p.getPersonalCharPoints());
                     c.setSum(p.getPoints().getSum());
+                    c.setGrade(p.getGrade());
+
 
 
                     advCurriculums.add(c);

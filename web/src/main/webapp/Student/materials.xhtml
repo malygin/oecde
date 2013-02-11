@@ -27,42 +27,7 @@
                 <div class="floatDestroyer"></div>
                 <br/>
 
-                <h:panelGroup  rendered="#{studentSessionBean.student.group.speciality.department.id ne '6351123478'}">
 
-                <table class="leftMenuContainer">
-                <tr>
-                    <td>
-                        <div>
-                            <span class="linkToStudentsProfile studentPaddLeft" ><h:outputLink value="umkR.xhtml?id=5505">Принятие эффективных решений <b>(просмотреть курс)</b></h:outputLink><br/></span>
-
-                            <div class="materialInfo">
-                                <table style="margin: 10px; border: 4px solid red; padding: 3px;" >
-                                    <tr>
-                                        <td>#{msgs.student_gradesTableHeadTeacher}</td>
-                                        <td class="linkToTeachersProfile">
-                                     <a href="admin.xhtml?id=178784772"> Олег Савельзон</a>
-                                                               
-                                    </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2">
-                                            <br/>
-                                            Второй этап процедуры доступен по адресу
-                                            <a href="http://mass-decision.ru/">http://mass-decision.ru/</a>
-                                            <br/> <br/>
-                                       Если у вас вознкли вопросы - обратитесь на форум <a href="forum.xhtml?type=spr">"Вопросы по системе принятия решений"</a> </td>
-                                        <br/>
-                                    </tr>
-                                   
-                                </table>
-                
-                            </div>
-                        </div>
-
-                    </td>
-                </tr>
-            </table>
-                </h:panelGroup>
                 <h:dataTable value="#{materialsBean.studentsDisciplines}" var="m" styleClass="leftMenuContainer" style="width: 100%;">
                     <h:column>
                         <h:panelGroup rendered="#{ m.curriculum.umk.id != 5276}"> 
@@ -115,31 +80,39 @@
                                 </table>
                 
 
-                                <h:panelGroup rendered="#{m.testsCount ne 0}">
+
                                     
                                     <div class="progressBarMaterials floatLeft">
                                         <!-- ((m.testPoints+m.concludingTestPoints)*100/(m.testsCount*100) -->
                                        
                                         <h:panelGroup layout="block" rendered="#{(m.sum gt 0) and (m.sum le 50)}" style="height: 12px; width:#{m.sum}%;" styleClass="badResult"/>
-                                        <h:panelGroup layout="block" rendered="#{(m.sum gt 50) and (m.sum le 90)}" style="height: 12px; width: #{m.sum}%;"  styleClass="goodResult"/>
-                                        <h:panelGroup layout="block" rendered="#{(m.sum gt 90)}" style="height: 12px; width:#{m.sum}%;"  styleClass="greateResult"/>
+                                        <h:panelGroup layout="block" rendered="#{(m.sum gt 50) and (m.sum le 75)}" style="height: 12px; width: #{m.sum}%;"  styleClass="goodResult"/>
+                                        <h:panelGroup layout="block" rendered="#{(m.sum gt 75) and (m.sum le 85)}" style="height: 12px; width: #{m.sum}%;"  styleClass="good2Result"/>
+
+                                        <h:panelGroup layout="block" rendered="#{(m.sum gt 85)}" style="height: 12px; width:#{m.sum}%;"  styleClass="greateResult"/>
                                     </div>
                                     
                                     <div style="float: right;">
                                        
-                                        <h:panelGroup layout="block" rendered="#{(m.sum le 50)}" style="color: #FBB35D; margin-right: 50px; width: 20px;"> 
+                                        <h:panelGroup layout="block" rendered="#{(m.sum le 50)}" styleClass="badResultColor" style=" margin-right: 50px; width: 20px;">
                                             <h:outputText value="#{m.sum}">
                                                 <f:convertNumber maxFractionDigits="2"/>
                                             </h:outputText>%;
                                         </h:panelGroup>
                                        
-                                        <h:panelGroup layout="block" rendered="#{(m.sum gt 50) and (m.sum le 90)}" style="color: #0981bd; margin-right: 50px; width: 20px;">
+                                        <h:panelGroup layout="block" rendered="#{(m.sum gt 50) and (m.sum le 75)}" styleClass="goodResultColor" style=" margin-right: 50px; width: 20px;">
                                              <h:outputText value="#{m.sum}">
                                                 <f:convertNumber maxFractionDigits="2" />
                                             </h:outputText>%;
                                          </h:panelGroup>
+
+                                        <h:panelGroup layout="block" rendered="#{(m.sum gt 75) and (m.sum le 85)}" styleClass="good2ResultColor" style=" margin-right: 50px; width: 20px;">
+                                            <h:outputText value="#{m.sum}">
+                                                <f:convertNumber maxFractionDigits="2" />
+                                            </h:outputText>%;
+                                        </h:panelGroup>
                                        
-                                        <h:panelGroup layout="block" rendered="#{(m.sum gt 90)}" style="color: #5bbf5d; margin-right: 50px;  width: 20px;">
+                                        <h:panelGroup layout="block" rendered="#{(m.sum gt 85)}" styleClass="greateResultColor" style=" margin-right: 50px;  width: 20px;">
                                             <h:outputText value="#{m.sum}">
                                                 <f:convertNumber maxFractionDigits="2"/>
                                             </h:outputText>%;
@@ -147,7 +120,7 @@
                                     </div>
                                     
                                     
-                                </h:panelGroup>
+
                             </div>
                             <br />
                         </div>

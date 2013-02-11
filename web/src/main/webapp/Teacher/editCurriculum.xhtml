@@ -23,7 +23,7 @@
                 
                     #{teacherCurriculumsEditBean.curriculum.discipline.name} - #{teacherCurriculumsEditBean.curriculum.speciality.name}
                    <br/> <br/>
-                    <h:form styleClass="teacherCurriculum">
+                    <h:form styleClass="teacherCurriculum" rendered="#{not teacherCurriculumsEditBean.curriculum.scientificActivities}">
                         <table>
                         <tr><td>Вес по тестовым заданиям </td>
                             <td><h:inputText class="searchInput" maxlength="3" size="3" value="#{teacherCurriculumsEditBean.curriculum.weightTest}"/><br/>
@@ -59,9 +59,48 @@
                             </table>
                      <h:outputText id="error" rendered="#{teacherCurriculumsEditBean.error}" value="Ошибка с количеством баллов"/>
                      <h:outputText id="saved" rendered="#{teacherCurriculumsEditBean.saved}" value="Сохранено!"/>
+                        В сумме должно быть ровно 100! А в промежуточной аттестации не более 40
                     </h:form>
-                
-                    В сумме должно быть ровно 100!  А в промежуточной аттестации не более 40 %
+                    <h:form styleClass="teacherCurriculum" rendered="#{teacherCurriculumsEditBean.curriculum.scientificActivities}">
+                        <table>
+
+                            <tr><td> Участие в научных мероприятиях </td>
+                                <td><h:inputText class="searchInput" maxlength="3" size="3" value="#{teacherCurriculumsEditBean.curriculum.weightTest}"/><br/>
+                                </td>
+                            </tr>
+
+                            <tr><td>Участие в конкурсах научных работ, олимпиадах -</td>
+                                <td><h:inputText class="searchInput" maxlength="3" size="3" value="#{teacherCurriculumsEditBean.curriculum.weightPers}"/><br/>
+                                </td>
+                            </tr>
+                            <tr><td>Научные публикации </td>
+                                <td><h:inputText class="searchInput" maxlength="3" size="3" value="#{teacherCurriculumsEditBean.curriculum.weightAud}"/><br/>
+                                </td>
+                            </tr>
+                            <tr><td>  Участие в создании объектов интеллект.собственности  </td>
+                                <td><h:inputText class="searchInput" maxlength="3" size="3" value="#{teacherCurriculumsEditBean.curriculum.weightOutAud}"/><br/>
+                                </td>
+                            </tr>
+                            <tr><td> Другие виды деятельности</td>
+                                <td><h:inputText class="searchInput" maxlength="3" size="3" value="#{teacherCurriculumsEditBean.curriculum.weightAtt}"/><br/>
+                                </td>
+                            </tr>
+                            <tr><td colspan="2">
+                                <h:commandButton id="btn" value="#{msgs.teacher_saveButton}" styleClass="studentButton">
+                                    <f:ajax execute="@form" render="@form" listener="#{teacherCurriculumsEditBean.saveWeight}"/>
+                                </h:commandButton>
+                            </td>
+                            </tr>
+                            <tr><td colspan="2">
+
+                            </td>
+                            </tr>
+                        </table>
+                        <h:outputText id="error" rendered="#{teacherCurriculumsEditBean.error}" value="Ошибка с количеством баллов"/>
+                        <h:outputText id="saved" rendered="#{teacherCurriculumsEditBean.saved}" value="Сохранено!"/>
+                        В сумме должно быть ровно 100!
+                    </h:form>
+
                     
                 </div>
             </div>

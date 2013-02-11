@@ -287,6 +287,8 @@ public class TestPassingBean implements Serializable {
     public void completeTest(){
             if (attempt!=null){
                  renderCompleteTest=true;
+                 countRight = coountRightQuestions();
+                 if  (countQuestions<countRight) countQuestions = countRight;
                  points=(100*countRight)/countQuestions;
                  attempt.setPoints(points);
                  attempt.setRightAnswers(countRight);             
@@ -304,6 +306,16 @@ public class TestPassingBean implements Serializable {
              }
                  attempt=null;}
 
+
+
+    }
+
+    private int coountRightQuestions(){
+        int r=0;
+        for(AnsweredQuestion aq :answeredQuestions)  {
+            if (aq.getRight()) r+=1;
+        }
+        return r;
     }
      /*
       * формируем списек вопросов

@@ -23,9 +23,16 @@ public class StudentGroupList extends StudentCurriculumBean{
     public List<Student>getStudents(){
         if(students==null){
             students = new ArrayList<Student>(student.<Group>getGroup().getPersons());
-            students.remove(student);
+//            students.remove(student);
             Collections.sort(students);
         }
         return students;
     }
+
+    public int getStudentNumber(){
+         return getStudents().indexOf(student)+1;
+//        return 0;
+    }
+
+
 }

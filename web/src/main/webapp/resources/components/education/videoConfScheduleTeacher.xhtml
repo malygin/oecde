@@ -40,7 +40,7 @@
                             <td valign="top" class="Ipsilon_Web_GreenText"><p><h:outputText value="#{s.lessonDate}" converter="dateConverter"/> -${fn:substring(s.lessonEndDate,11,16)}</p>
                             </td>
                             <td>
-                                <p>
+                                <p>  #{s.lessonType.toString()}
                                     <p class="skyBlueText">#{s.discipline.name}</p> 
                                   <p  class="Ipsilon_Web_GreenText">
                                       <ui:repeat  value="#{setToList.getList(s.citiesWithGroups)}" var="cwg">
@@ -98,7 +98,7 @@
                         <table class="tableForShedule">
                             <tr>
                                 <td>${fn:substring(s.lessonDate,11,16)}-${fn:substring(s.lessonEndDate,11,16)}</td>
-                                <td><span class="linkToStudentsProfile"><h:outputLink value="umk.xhtml?c=#{s.id}">#{s.discipline.name}
+                                <td>#{s.lessonType.toString()} <span class="linkToStudentsProfile"><h:outputLink value="umk.xhtml?c=#{s.id}">#{s.discipline.name}
                                         </h:outputLink></span>
                                        <p  class="Ipsilon_Web_GreenText">
                                         <ui:repeat  value="#{setToList.getList(s.citiesWithGroups)}" var="cwg">

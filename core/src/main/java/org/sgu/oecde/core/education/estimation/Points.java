@@ -98,7 +98,7 @@ public class Points implements Serializable{
      * @return сумма баллов
      */
     public float getSum() {
-        return sum;
+        return ((float)(Math.round(sum*100)))/100 ;
     }
 
     /**

@@ -25,6 +25,7 @@ public abstract class AbstractStudentBean implements Serializable{
     @ManagedProperty(value="#{curriculumBuilder}")
     protected DeCurriculumBuilder curriculumBuilder;
 
+
     @ManagedProperty(value="#{curriculumDao}")
     protected ICurriculumDao<DeCurriculum> curriculumDao;
 
@@ -68,6 +69,8 @@ public abstract class AbstractStudentBean implements Serializable{
     public Student getStudent() {
         return student;
     }
+
+
 
     @PostConstruct
     public void afterPropertiesSet(){

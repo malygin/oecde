@@ -50,14 +50,16 @@ public class TaskServlet extends HttpServlet {
           AbstractUser user = (AbstractUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
           URL url = new URL(getServletContext().getInitParameter("textbookUrl") +request.getParameter("task"));
-          StringBuilder strbuf = new StringBuilder();
-          BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
           String mime =  this.getServletContext().getMimeType(url.toString());
-         // System.out.println("begin! "+mime);
-          String replaceString = "";
-          for (int i=0; i<(urlTask.length-1); i++)
-              replaceString+=urlTask[i]+"/";
+
           if(!ArrayListUtil.containsElement(FileUploadUtil.mimetypes, mime)){
+              StringBuilder strbuf = new StringBuilder();
+              BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
+
+              // System.out.println("begin! "+mime);
+              String replaceString = "";
+              for (int i=0; i<(urlTask.length-1); i++)
+                  replaceString+=urlTask[i]+"/";
               while ((str = in.readLine()) != null) {strbuf.append(" ").append(str);}
            //   System.out.println(strbuf);
               str=strbuf.toString().replaceAll("src='", "src='"+getServletContext().getInitParameter("textbookUrl")+"/"+urlTask[0]+"/"+((urlTask.length>2)?urlTask[1]:"")+"/");

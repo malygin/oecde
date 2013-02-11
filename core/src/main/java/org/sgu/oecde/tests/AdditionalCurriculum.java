@@ -2,6 +2,7 @@ package org.sgu.oecde.tests;
 
 import java.io.Serializable;
 import org.sgu.oecde.core.education.Curriculum;
+import org.sgu.oecde.core.education.work.PointToEstimate;
 
 /**
  * расширенная версия учебных планов. Помимо ссылки на сами планы имеет баллы, набранные студентом по
@@ -49,6 +50,7 @@ public class AdditionalCurriculum implements Serializable,Comparable<AdditionalC
      * сумма баллов всех
      */
     private float sum;
+    private PointToEstimate grade;
     private static final long serialVersionUID = 76L;
 
     public AdditionalCurriculum() {
@@ -210,7 +212,7 @@ public class AdditionalCurriculum implements Serializable,Comparable<AdditionalC
     }
 
     public float getSum() {
-        return sum;
+        return ((float)(Math.round(sum*100)))/100 ;
     }
 
     public void setSum(float sum) {
@@ -255,5 +257,13 @@ public class AdditionalCurriculum implements Serializable,Comparable<AdditionalC
         StringBuffer sb = new StringBuffer(super.toString());
         sb.append("учебный план: ").append(curriculum).append("; ");
         return sb.toString();
+    }
+
+    public PointToEstimate getGrade() {
+        return grade;
+    }
+
+    public void setGrade(PointToEstimate grade) {
+        this.grade = grade;
     }
 }

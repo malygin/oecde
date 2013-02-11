@@ -46,9 +46,14 @@ public class GroupPoints extends AbstractStudentsListBean{
     private static final long serialVersionUID = 113L;
 
     public List<PointsFacade> getPoints() {
-        if(points==null || saved)
+        if(points==null || saved)  {
             points = gradesService.getCurriculumGrades(getCurriculum(), getStudentsList());
+            saved = false; }
         return points;
+    }
+
+    public int getStudentNumber(PointsFacade p){
+        return points.indexOf(p)+1;
     }
 
     public void save(){
@@ -59,15 +64,18 @@ public class GroupPoints extends AbstractStudentsListBean{
                 e.setStudent(p.getPoints().getStudent());
                 e.setCurriculum(p.getPoints().getCurriculum());
             }
-            e.setGradeCode(p.getGrade());
-            e.setDate(DateConverter.currentDate());
-           
-            try {
-                estimateDao.save(e);
-            } catch (Exception ex) {
-                ex.fillInStackTrace();
-                error=true;
+
+            if (!p.getGrade().equals(e.getGradeCode())) {
+                e.setGradeCode(p.getGrade());
+                e.setDate(DateConverter.currentDate());
+                try {
+                    estimateDao.save(e);
+                } catch (Exception ex) {
+                    ex.fillInStackTrace();
+                    error=true;
+                }
             }
+
             
         Activity a=p.getPoints().getWorkPoints(ActivityEstimateNames.activity);
            if (a==null){
@@ -76,15 +84,19 @@ public class GroupPoints extends AbstractStudentsListBean{
                 a.setDate(DateConverter.currentDate());
                 a.setStudent(p.getPoints().getStudent());       
             }
-           a.setPoints(p.getActivityPoints());
-           a.setSamAudWorkpoints(p.getSamAudWorkPoints());
-           a.setPersonalCharpoints(p.getPersonalCharPoints());
-           a.setSamOutAudWorkpoints(p.getSamAudOutWorkPoints());
-            try {
-               actDao.update(a);
-            } catch (Exception ex) {
-                ex.fillInStackTrace();
-                error=true;
+
+            if (a.getPoints()== null || (!(a.getPoints().equals(p.getActivityPoints()) && a.getSamAudWorkpoints().equals(p.getSamAudWorkPoints())
+                    && a.getSamOutAudWorkpoints().equals(p.getSamAudOutWorkPoints()) && a.getPersonalCharpoints().equals(p.getPersonalCharPoints()) ))) {
+                try {
+                    a.setPoints(p.getActivityPoints());
+                    a.setSamAudWorkpoints(p.getSamAudWorkPoints());
+                    a.setPersonalCharpoints(p.getPersonalCharPoints());
+                    a.setSamOutAudWorkpoints(p.getSamAudOutWorkPoints());
+                   actDao.update(a);
+                } catch (Exception ex) {
+                    ex.fillInStackTrace();
+                    error=true;
+            }
             }
            
         }

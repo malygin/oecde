@@ -98,9 +98,10 @@ public class StudentRatingBean extends StudentCurriculumBean{
         setSemester(this.semesterGetter.getCurrentSemester());
         
         List<IResultFilter>filters = new ArrayList(3);
-        filters.add(controlWorkFilter);
+//        filters.add(controlWorkFilter);
         filters.add(testFilter);  
         filters.add(activityFilter);
+
         List<AbstractResult> l = resultDao.getByStudentsAndCurriculums(getCurriculums(), students, null);
       //  System.out.println("l"+l);
         List<Points>rating = preFilter.forEachResult(l, false,filters,students,getCurriculums());
