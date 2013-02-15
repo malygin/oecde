@@ -26,7 +26,7 @@
             <li><a target="blank" href="#{initParam['videoConfUrl']}?sid=#{adminSessionBean.encryptedUserNPass}">#{msgs.student_comMenuVideoconferencing}</a></li>
             <li><a target="blank" href="#{initParam['ipsilonUmkUrl']}">#{msgs.admin_eduMenuUMK}</a></li>
             <li><a target="blank" href="#{initParam['scheduleUrl']}">#{msgs.admin_eduMenuSchedule}</a></li>
-            <li> <span style="font-weight: bold; color: #fbb35d; ">new!</span><a href="http://oec.sgu.ru/editCourse/welcome/">Редактировать учебные курсы</a></li>
+            <li><a href="http://oec.sgu.ru/editCourse/welcome/">Редактировать учебные курсы</a></li>
 
   <!--            <li><a href="index.xhtml"> #{msgs.admin_eduMenuTeachersExcercises}</a></li>
               <li><a href="index.xhtml">#{msgs.admin_eduMenuGroupProjects}</a></li>-->
@@ -38,9 +38,10 @@
             <li><a href="groups.xhtml">#{msgs.admin_communicationMenuStudents}</a></li>
             <li><a href="adminsList.xhtml">#{msgs.student_templateAdmins}</a></li>
             <li><a href="teacherList.xhtml">#{msgs.admin_communicationMenuTeachers}</a></li>
-            <li><a href="forum.xhtml?type=adminbags">#{msgs.admin_communicationMenuBugs}</a></li>
-            <li><a href="forum.xhtml?type=stfaq">#{msgs.admin_forumMenuStTechForum}</a></li>
-            <li><a href="forum.xhtml?type=storg">#{msgs.admin_forumMenuStOrgForum}</a></li>
+            <li><a href="forum.xhtml?type=adminbags">#{msgs.admin_communicationMenuBugs}</a></li
+                    >
+            <li><a href="forum.xhtml?type=stfaq">Студенческая горячая линия <span style="font-weight: bold; color: #fbb35d; ">(#{DiscussionBean.notAnsweredNodes})</span></a></li>
+
             <li><a href="forum.xhtml?type=teachfaq">#{msgs.admin_forumMenuTeachTechForum}</a></li>
             <li><a href="forum.xhtml?type=teachorg">#{msgs.admin_forumMenuTeachOrgForum}</a></li>
         </ol>

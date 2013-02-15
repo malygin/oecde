@@ -84,7 +84,7 @@ public enum ForumTypes {
             case STUDENT_CITY:
                 return "stcity";
             case STUDENT_FAQ:
-                return "Студенческий технически форум";
+                return "Горячая линия";
             case STUDENT_ORG:
                 return "Студенческий организационный форум";
             case TEACHER_FAQ:

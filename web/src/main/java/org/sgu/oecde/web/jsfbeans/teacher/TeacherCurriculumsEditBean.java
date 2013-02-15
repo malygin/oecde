@@ -17,7 +17,7 @@ import org.sgu.oecde.journal.JournalService;
 @ManagedBean(name="teacherCurriculumsEditBean")
 @ViewScoped
 public class TeacherCurriculumsEditBean implements Serializable{
-    private int semester;
+    private int semester ;
     private List<DeCurriculum>curriculums;
     
     private DeCurriculum curriculum;
@@ -75,7 +75,8 @@ public class TeacherCurriculumsEditBean implements Serializable{
 
     public List<DeCurriculum> getCurriculums() {
         if(curriculums == null){
-            curriculums = teacherSessionBean.getDisciplines(teacherSessionBean.semesterGetter.getCurrentSemester());
+            curriculums = teacherSessionBean.getDisciplines(this.semester);
+            curriculums.addAll(teacherSessionBean.getDisciplines(Math.abs(this.semester -1)));
         }
         return curriculums;
     }
@@ -85,7 +86,7 @@ public class TeacherCurriculumsEditBean implements Serializable{
     }
 
     public int getSemester() {
-        return teacherSessionBean.semesterGetter.getCurrentSemester();
+        return semester;
     }
 
     public void setSemester(int semester) {
@@ -94,6 +95,7 @@ public class TeacherCurriculumsEditBean implements Serializable{
 
     public void setTeacherSessionBean(TeacherSessionBean teacherSessionBean) {
         this.teacherSessionBean = teacherSessionBean;
+        semester = teacherSessionBean.semesterGetter.getCurrentSemester();
     }
 
     public void setCurriculumDao(ICurriculumDao<DeCurriculum> curriculumDao) {

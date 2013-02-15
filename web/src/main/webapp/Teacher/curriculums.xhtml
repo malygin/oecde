@@ -20,6 +20,7 @@
                     #{msgs.teacher_curriculumAndCourses}
                 </div>
                 <div>
+                    <est:changeSemester semester="#{teacherCurriculumsEditBean.semester}"  />
                     <h:form styleClass="teacherCurriculum">
                         <h:dataTable styleClass="studentStandatrTable"
                                      columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
@@ -31,12 +32,23 @@
                                      studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
                                      studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher"
                                      style="margin: 0;" cellpadding="0" cellspacing="0" value="#{teacherCurriculumsEditBean.curriculums}" var="c">
+                            <h:column>
+                                <f:facet name="header">Фак.</f:facet>
+                                <span><h:outputText value="#{c.speciality.department.name}"/></span>
+                            </h:column>
 
                             <h:column>
                                 <f:facet name="header">#{msgs.student_mainContentUserInfoSpec_}</f:facet>
                                 <span><h:outputText value="#{c.speciality.name}"/></span>
-
                             </h:column>
+                            <h:column>
+                                <f:facet name="header">Гр.</f:facet>
+                                <ui:repeat var="tgr" value="#{setToList.getList(c.teacherToGroups)}">
+                                    #{tgr.group.name}
+                                </ui:repeat>
+                                <span></span>
+                            </h:column>
+
                             <h:column >
                                 <f:facet name="header">#{msgs.student_Dicipline}</f:facet>
                                 <span class="DisciplineTextTeacher"><h:outputText value="#{c.discipline.name}"/></span>
@@ -75,20 +87,17 @@
                                    </h:panelGroup>
                                 </span>
                             </h:column>
+
                             <h:column >
-                                <f:facet name="header">#{msgs.teacher_curriclums_years}</f:facet>
-                                <span><h:outputText value="#{c.calendarYear}"/> </span>
-                            </h:column>
-                            <h:column >
-                                <f:facet name="header">#{msgs.teacher_curriclums_semester}</f:facet>
+                                <f:facet name="header">сем.</f:facet>
                                 <span><h:outputText value="#{c.semester}"/> </span>
                             </h:column>
                             <h:column >
-                                <f:facet name="header">#{msgs.teacher_contrWorksInWriting}</f:facet>
+                                <f:facet name="header">к/р в рук.</f:facet>
                                 <h:selectBooleanCheckbox  value="#{c.controlWorksPaperOnly}" style="display: inline; float: none;"/>
                             </h:column>
                             <h:column >
-                                <f:facet name="header">#{msgs.teacher_curriclums_reporting_form}</f:facet>
+                                <f:facet name="header">Форма отчетн.</f:facet>
                                 <span><h:outputText value="#{c.examinationType.toString()}" /></span>
                             </h:column>
                         </h:dataTable>

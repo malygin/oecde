@@ -62,7 +62,8 @@ public class DiscussionBean {
 
 
     //Нодов на странице
-    private int nodesOnPage=11;
+    private int nodesOnPage=20;
+    private int notAnsweredNodes  = -1;
     private int currentPage=1;
     private int numOfNodes=-1;
 
@@ -95,6 +96,23 @@ public class DiscussionBean {
         return nodes;
     }
 
+    public int getNotAnsweredNodes() {
+        if (this.notAnsweredNodes== -1){
+
+            List<Node> nodesTemp=discussionService.getNodesByPage(new Long(1), ForumTypes.STUDENT_FAQ, nodesOnPage, currentPage);
+            this.notAnsweredNodes =nodesTemp.size();
+            for(Node kid : nodesTemp) {
+                  if (kid.getChildren().size() >0){
+                      this.notAnsweredNodes-=1;
+                  }
+            }
+        }
+        return notAnsweredNodes;
+    }
+
+    public void setNotAnsweredNodes(int notAnsweredNodes) {
+        this.notAnsweredNodes = notAnsweredNodes;
+    }
 
     /**
      * служебный метод для рекурсии по дереву нодов

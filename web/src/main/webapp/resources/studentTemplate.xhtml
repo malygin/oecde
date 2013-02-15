@@ -33,12 +33,12 @@
                         </li>-->
             <li><a href="schedule.xhtml">#{msgs.student_controlMenuSchedule}</a></li>
             <li><a href="testResults.xhtml"> #{msgs.student_eduMenuWinterTestsResults}</a></li>
-<!--            <li><a href="testResults.xhtml?s=1"> #{msgs.student_eduMenuWinterTestsResults}</a></li>-->
+           <!--<li><a href="testResults.xhtml?s=1"> #{msgs.student_eduMenuWinterTestsResults}</a></li>-->
 
-<!--            <li style="margin-top: 15px;"><a href="testResults.xhtml?r=true"> #{msgs.student_eduMenuReexamination}</a></li>
--->
+            <!--<li style="margin-top: 15px;"><a href="testResults.xhtml?r=true"> #{msgs.student_eduMenuReexamination}</a></li>-->
+
             <!--<li><a href="testResults.xhtml?r=true&amp;s=0"> #{msgs.student_eduMenuWinterReexamination}</a></li>-->
-            <!--<li><a href="testResults.xhtml?r=true&amp;s=1"> #{msgs.student_eduMenuWinterReexamination}(зима)</a></li>-->
+            <li><a href="testResults.xhtml?r=true&amp;s=1"> #{msgs.student_eduMenuWinterReexamination}(зима)</a></li>
 
             <li style="margin-top: 15px;"><a href="oldGrades.xhtml">#{msgs.student_controlMenuRecordBook}</a></li>
             <li><a href="curriculum.xhtml">#{msgs.student_controlMenuCurriculum}</a></li>
@@ -57,10 +57,7 @@
                 <a href="adminsList.xhtml">#{msgs.student_templateAdmins}</a>
             </li>
             <li style="margin-top: 15px;">
-                <a href="forum.xhtml?type=stfaq">#{msgs.student_MistakesAndSuggestions}</a>
-            </li>
-            <li>
-                <a href="forum.xhtml?type=storg">#{msgs.student_comMenuForumOrg}</a>
+                <a href="forum.xhtml?type=stfaq"> <span style="font-weight: bold; color: #fbb35d; ">new!</span> Горячая линия <span style="font-weight: bold; color: #fbb35d; ">(#{DiscussionBean.notAnsweredNodes})</span></a>
             </li>
 
             <li>

@@ -15,7 +15,7 @@
             <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
                 <p class="mainStudentPageTitles Ipsilon_Web_GreenText">
                     #{msgs.teacher_groupInfo} <h:outputText value="#{groupPoints.group.name}"/> (<h:outputText value="#{groupPoints.group.speciality.name}" />)
-                    факультет: #{groupPoints.group.faculty},  #{groupPoints.curriculum.formEducation.toString()}
+                    факультет: #{groupPoints.group.speciality.department.name},   #{groupPoints.curriculum.formEducation.toString()}
                 </p>
                 <div class="backLink greyLinks massSending">
                     <a href="messages_write.xhtml?gr=#{groupPoints.id}">#{msgs.teacher_groupSendAll}</a> | 
@@ -168,8 +168,18 @@
                         <f:facet name="header">
                             <span class="Ipsilon_Web_GreenText">Тестовые<br/>задания</span>
                         </f:facet>
-                        <span class="lightGreyTestText">#{p.concludingTest} * #{groupPoints.curriculum.weightTest/100} =</span> <b>#{p.concludingTest*groupPoints.curriculum.weightTest/100}</b>
+                        <h:panelGroup rendered="#{p.concludingReTest eq null}">
+                                            <span class="lightGreyTestText">
+                                                      #{p.concludingTest} * #{groupPoints.curriculum.weightTest/100} =</span>
+                            <b>#{p.concludingTest*groupPoints.curriculum.weightTest/100}</b>
+                        </h:panelGroup>
 
+                        <h:panelGroup rendered="#{p.concludingReTest ne null}">
+                                            <span class="lightGreyTestText">
+                                                      #{p.concludingReTest}<span class="lightGreyTestText" style="text-decoration:line-through
+">(#{p.concludingTest})</span> * #{groupPoints.curriculum.weightTest/100} =</span>
+                            <b>#{p.concludingReTest*groupPoints.curriculum.weightTest/100}</b>
+                        </h:panelGroup>
                       
                     </h:column>
 

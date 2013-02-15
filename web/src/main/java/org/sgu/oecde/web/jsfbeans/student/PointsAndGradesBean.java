@@ -67,7 +67,7 @@ public class PointsAndGradesBean extends StudentCurriculumBean{
                             DeCurriculum d = (DeCurriculum)c.getCurriculum();
                             c.setTestPoints(p.getTest());
                             c.setSum(p.getPoints().getSum());
-                            c.setConcludingReTestPoints(p.getConcludingReTest()==null?0:p.getConcludingReTest()*d.getWeightTest()/100);
+                            c.setConcludingReTestPoints(p.getConcludingReTest()==null?0:p.getConcludingReTest());
                             c.setConcludingTestPoints(p.getConcludingTest()==null?0:p.getConcludingTest());
                             c.setReTestPoints(p.getReTest());
                             c.setTestsCount(p.getTestsCount()+p.getConcludingTestsCount());
