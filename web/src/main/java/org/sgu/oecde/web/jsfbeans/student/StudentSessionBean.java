@@ -32,7 +32,7 @@ public class StudentSessionBean extends AbstractStudentBean{
     private static final long serialVersionUID = 150L;
 
     public Map<DeCurriculum, Teacher> getCurriculumAndTeacher(int semester) {
-       if(((summerCurriculums==null&&semester==SemesterGetter.SUMMER_SEMESTER)||(winterCurriculums==null&&semester==SemesterGetter.WINTER_SEMESTER))){
+       if((((summerCurriculums==null || summerCurriculums.isEmpty())&&semester==SemesterGetter.SUMMER_SEMESTER)||(winterCurriculums==null&&semester==SemesterGetter.WINTER_SEMESTER))){
             setSemester(semester);
             int correctSemester = semesterGetter.getSemesterByStudentYear(student, semester);
             int year = semesterGetter.getCurrentYear();

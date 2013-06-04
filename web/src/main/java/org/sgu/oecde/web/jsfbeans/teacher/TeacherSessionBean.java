@@ -35,7 +35,7 @@ public class TeacherSessionBean extends AbstractTeacherBean{
 // тут
     public List<DeCurriculum> getDisciplines(int semester){
         //semester=this.semesterGetter.getCurrentSemester();
-        if((((summerCurriculums==null||summerCurriculums.isEmpty())&&semester==SemesterGetter.SUMMER_SEMESTER)||(winterCurriculums==null&&semester==SemesterGetter.WINTER_SEMESTER))){
+        if((((summerCurriculums==null||summerCurriculums.isEmpty())&&semester==SemesterGetter.SUMMER_SEMESTER)||((winterCurriculums==null||winterCurriculums.isEmpty())&&semester==SemesterGetter.WINTER_SEMESTER))){
             setSemester(semester);
             List<DeCurriculum> l = curriculumDao.getBySemesterYearAndParameters(semesters(), year(),teacher);
             if(semester == SemesterGetter.SUMMER_SEMESTER)
@@ -45,11 +45,23 @@ public class TeacherSessionBean extends AbstractTeacherBean{
         }
         return semester == SemesterGetter.SUMMER_SEMESTER?summerCurriculums:winterCurriculums;
     }
+
+    public void reloadCur(){
+        summerCurriculums = curriculumDao.getBySemesterYearAndParameters(semesterGetter.getSemestersByInt(0), year(),teacher);
+        winterCurriculums = curriculumDao.getBySemesterYearAndParameters(semesterGetter.getSemestersByInt(1), year(),teacher);
+
+    }
     
        public DeCurriculum getCurriculumById(Long cId){
             DeCurriculum d=null;
-            for (DeCurriculum c:(summerCurriculums!=null&&!summerCurriculums.isEmpty())?summerCurriculums:winterCurriculums)
+            for (DeCurriculum c: summerCurriculums)
                 if (c.getId().equals(cId))  d=c;
+           if (d==null)
+               for (DeCurriculum c: winterCurriculums)
+                   if (c.getId().equals(cId))  d=c;
+
+//           for (DeCurriculum c:(summerCurriculums!=null&&!summerCurriculums.isEmpty())?summerCurriculums:winterCurriculums)
+//                if (c.getId().equals(cId))  d=c;
             return d;
     }
 

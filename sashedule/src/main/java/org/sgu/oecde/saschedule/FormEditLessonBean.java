@@ -183,7 +183,8 @@ public class FormEditLessonBean implements Serializable {
             cityGroupTemp=new HashSet<CityWithGroup>();
             this.TeacherAttentionRender=false;
             this.countOfStudent=0;
-            cssNotReady = curriculumDao.getGroupsForTeacher(semesterGetter.getSemestersByInt(semesterGetter.getCurrentSemester()), semesterGetter.getCurrentYear(),currentTeacher,currentDiscipline );
+            cssNotReady = curriculumDao.getGroupsForTeacher(semesterGetter.getSemestersByInt(0), semesterGetter.getCurrentYear(),currentTeacher,currentDiscipline );
+          //  cssNotReady.addAll(curriculumDao.getGroupsForTeacher(semesterGetter.getSemestersByInt(1), semesterGetter.getCurrentYear(),currentTeacher,currentDiscipline ));
             createCityGroup();
             css=new ArrayList<CityWithGroup>(cityGroupTemp);
             Collections.sort(css);
@@ -207,7 +208,8 @@ public class FormEditLessonBean implements Serializable {
                 City city=new City();
                 city.setId(((Student)st).getCity().getId());
                 city.setName(((Student)st).getCity().getName());
-                cityGroupTemp.add(new CityWithGroup(city, gr));
+                if (gr.getNumber()>0)
+                    cityGroupTemp.add(new CityWithGroup(city, gr));
             }
         }
 
@@ -269,7 +271,9 @@ public class FormEditLessonBean implements Serializable {
             this.countOfStudent=0;
             this.currentTeacher = currentTeacher;
             checkTeacherSameLesson();
-            List<DeCurriculum>c = curriculumDao.getBySemesterYearAndParameters(semesterGetter.getSemestersByInt(semesterGetter.getCurrentSemester()), semesterGetter.getCurrentYear(),currentTeacher );
+            List<DeCurriculum>c = curriculumDao.getBySemesterYearAndParameters(semesterGetter.getSemestersByInt(0), semesterGetter.getCurrentYear(),currentTeacher);
+//            c.addAll(curriculumDao.getBySemesterYearAndParameters(semesterGetter.getSemestersByInt(0), semesterGetter.getCurrentYear(),currentTeacher));
+
             disciplines = getDisciplines(c);
            // this.renderDisciplines=true;
         }else{

@@ -106,8 +106,9 @@ public class ControlWorksBean extends StudentCurriculumBean{
                     )&&(w==null||!ControlWorkProgress.passed.equals(w.getProgress()))
                     &&!cr.getControlWorksPaperOnly()
                     &&student.getFullAccess())
-                     data[2] = true;
-                    else  data[2] = false;
+                       data[2] = true;
+                    else
+                        data[2] = false;
                 }
 
                 if(getCurriculumAndTeacher().containsKey(cr))

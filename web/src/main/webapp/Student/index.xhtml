@@ -32,7 +32,8 @@
                     });
                 </script>-->
         <f:metadata>
-            <f:viewParam name="s" value="#{studentIndexBean.semester}"/>
+            <f:viewParam name="s" value="#{materialsBean.semester}"/>
+
         </f:metadata>
         <table class="Border" style="width: 100%; margin: auto;" cellpadding="0" cellspacing="20px">
             <tr>
@@ -128,7 +129,12 @@
                             </div>
                             <!--                            <div style="height: 200px;">-->
                             <div class="StudentTestsPadding BorderNone">
+                                <f:metadata>
+                                </f:metadata>
+                                <div style="float: right;">
+                                    <est:changeSemester semester="#{materialsBean.semester}" />
 
+                                </div>
                                 <h:dataTable styleClass="studentStandatrTable"
                                              columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
                              studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
@@ -235,30 +241,7 @@
                         </div>
                     </td>
                 </tr>
-<!--                <h:panelGroup rendered="#{studentIndexBean.exame}">
-                    <tr>
-                        <td colspan="2" class="indexChangeSemestrPanel">
-                    <est:changeSemester semester="#{studentIndexBean.semester}"/>
-                    </td>
-                    </tr>
-                    <tr>
-                        <td style="width: 50%;" class="StudentSecondLineBlocks" valign="top">
-                    <edu:disciplineForStudent/>
-                    </td>
-                    <td class="tdStudentMainPage" valign="top">
-                    <edu:testForStudent/>
-                    </td>
-                </tr>
-                <tr>
-                <td class="tdStudentMainPage" valign="top">
-            <edu:finalTestsForStudent/>
-            </td>
 
-            <td class="tdStudentMainPage" valign="top">
-            <edu:controlWorkForStudent/>
-            </td>
-            </tr>
-        </h:panelGroup>-->
             </table>
         </div>
     </ui:define>

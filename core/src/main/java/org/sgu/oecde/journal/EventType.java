@@ -672,8 +672,15 @@ public enum EventType {
             if (!ttg.isEmpty()){
             sb.append(" and ( ");
                for (TeacherToGroup tg: ttg){
-                    sb.append("multiId = ").append(tg.getCurriculum().getUmk().getId());
-                    sb.append(" or ");
+                   try{
+                   Long id = tg.getCurriculum().getUmk().getId();
+
+                   sb.append("multiId = ").append(id);
+                    sb.append(" or "); }
+                   catch (Exception e){
+                       System.out.println("exception in curriclulum and umk");
+                   }
+
                }
                sb.delete(sb.length()-3, sb.length());
                sb.append(") ");
@@ -717,8 +724,13 @@ public enum EventType {
             if (!ttg.isEmpty()){
             sb.append(" and ( ");
                for (TeacherToGroup tg:ttg){
-                    sb.append("multiId = ").append(tg.getCurriculum().getUmk().getId());
-                    sb.append(" or ");
+                   try{
+                    Long id = tg.getCurriculum().getUmk().getId();
+                    sb.append("multiId = ").append(id);
+                    sb.append(" or ");}
+                   catch (Exception e){
+                       System.out.println(e);
+                   }
                }
                sb.delete(sb.length()-3, sb.length());
                sb.append(") ");
@@ -761,8 +773,13 @@ public enum EventType {
             if (!ttg.isEmpty()){
             sb.append(" and ( ");
                for (TeacherToGroup tg: ttg){
-                    sb.append("multiId = ").append(tg.getCurriculum().getUmk().getId());
-                    sb.append(" or ");
+                   try{
+                    Long id = tg.getCurriculum().getUmk().getId();
+                    sb.append("multiId = ").append(id);
+                    sb.append(" or "); }
+                   catch (Exception e){
+                       System.out.println(e);
+                   }
                }
                sb.delete(sb.length()-3, sb.length());
                sb.append(") ");
@@ -1003,7 +1020,7 @@ public enum EventType {
             switch (postType) {
                case STUDENT_FAQ:
                     el[0] = new EventBodyElement(str[3]+" ответил(а) на ваш пост ");
-                    el[1] = new EventBodyElement("&amp;page="+str[2]+"#"+str[1], "на техническом форуме", EventBodyElement.forumStudentTechPage);
+                    el[1] = new EventBodyElement("&amp;page="+str[2]+"#"+str[1], "в горячей линии", EventBodyElement.forumStudentTechPage);
                     break;
               case STUDENT_ORG:
                     el[0] = new EventBodyElement(str[3]+" ответил(а) на ваш пост ");
@@ -1011,7 +1028,7 @@ public enum EventType {
                     break;
                case TEACHER_FAQ:
                     el[0] = new EventBodyElement(str[3]+" ответил(а) на ваш пост ");
-                    el[1] = new EventBodyElement("&amp;page="+str[2]+"#"+str[1], "на техническом форуме", EventBodyElement.forumTeacherTechPage);
+                    el[1] = new EventBodyElement("&amp;page="+str[2]+"#"+str[1], "в вопросах по БАРС", EventBodyElement.forumTeacherTechPage);
                     break;
               case TEACHER_ORG:
                     el[0] = new EventBodyElement(str[3]+" ответил(а) на ваш пост ");
@@ -1103,7 +1120,7 @@ public enum EventType {
             switch (postType) {
                 case STUDENT_FAQ:
                     el[3] = new EventBodyElement("добавил(а) комментарий на ");
-                    el[4] = new EventBodyElement("", " техническом форуме студентов", EventBodyElement.forumStudentTechPage);
+                    el[4] = new EventBodyElement("", " к горячей линии", EventBodyElement.forumStudentTechPage);
                     break;
               case STUDENT_ORG:
                     el[3] = new EventBodyElement("добавил(а) комментарий на ");
@@ -1111,7 +1128,7 @@ public enum EventType {
                     break;
                 case TEACHER_FAQ:
                     el[3] = new EventBodyElement("добавил(а) комментарий на ");
-                    el[4] = new EventBodyElement("", " техническом форуме преподавателей", EventBodyElement.forumTeacherTechPage);
+                    el[4] = new EventBodyElement("", " в вопросах по БАРС", EventBodyElement.forumTeacherTechPage);
                     break;
               case TEACHER_ORG:
                     el[3] = new EventBodyElement("добавил(а) комментарий на ");

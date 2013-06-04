@@ -55,9 +55,11 @@ public class TeacherCurriculumsEditBean implements Serializable{
                         DeCurriculum curriculumR = curriculumDao.getById(curriculimId);
                         curriculum.setGotControlWork(curriculumR.getGotControlWork());
                         curriculumDao.update(curriculum);
+
                         journalService.save(EventType.CURRICULUMS_CHANGING_BY_TEACHER, teacherSessionBean.getTeacher());
                         saved=true;
                         error=false;
+                teacherSessionBean.reloadCur();
             }else{
               DeCurriculum curriculumR = curriculumDao.getById(curriculimId);
                 curriculum.setWeightTest(curriculumR.getWeightTest());
@@ -76,7 +78,7 @@ public class TeacherCurriculumsEditBean implements Serializable{
     public List<DeCurriculum> getCurriculums() {
         if(curriculums == null){
             curriculums = teacherSessionBean.getDisciplines(this.semester);
-            curriculums.addAll(teacherSessionBean.getDisciplines(Math.abs(this.semester -1)));
+//            curriculums.addAll(teacherSessionBean.getDisciplines(Math.abs(this.semester -1)));
         }
         return curriculums;
     }
@@ -121,10 +123,11 @@ public class TeacherCurriculumsEditBean implements Serializable{
 
     public void setCurriculimId(long curriculimId) {
         this.curriculimId = curriculimId;
-        for (DeCurriculum d: getCurriculums()){
-            if (d.getId() == this.curriculimId)
-                curriculum = d;
-        }
+        this.curriculum = curriculumDao.getById(curriculimId);
+//        for (DeCurriculum d: getCurriculums()){
+//            if (d.getId() == this.curriculimId)
+//                curriculum = d;
+//        }
     }
 
     public boolean isError() {

@@ -115,7 +115,6 @@ public class ResourceService implements Serializable{
             return null;
 
         Object[]data = new Object[5];
-
         String testBeginDate = reExameBeginDate;
         String testEndDate = reExameEndDate;
         String currentDate = DateConverter.currentDate();
@@ -177,7 +176,14 @@ public class ResourceService implements Serializable{
                         &&w.getCurriculum().getSemester()==semesterGetter.getSemesterByStudentYear(student, semesterGetter.getCurrentSemester()))
                     available = true;
                 else{
-                    data[2] = "Тест не доступен";
+                    Group gr = (Group)student.getGroup();
+
+//                    System.out.println("!!!!!!!!!!!!!!!!"+gr.getSpeciality().getDepartment().getId());
+                    if (! (gr.getSpeciality().getDepartment().getId().equals(635112325L)))
+                        data[2] = "Тест не доступен";
+                    else{
+                        available = true;
+                    }
                 }
             
             if(w.getTrialAttemptsUsedNumber()>=e.getTrialNumber())
@@ -192,6 +198,8 @@ public class ResourceService implements Serializable{
                 available = false;
             }
         }
+
+
         data[1]=w;
         data[0]=available;
         return data;

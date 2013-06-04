@@ -14,6 +14,7 @@
      <f:metadata>
        
             <f:viewParam name="s" value="#{teacherViewBean.semester}"/>
+            <f:viewParam name="s" value="#{teacherCurriculumsEditBean.semester}"/>
         </f:metadata>
     <ui:define name="contentHeader">
         #{msgs.student_index}
@@ -102,8 +103,58 @@
         <!--<news:shortList numberNews="3"/>-->
 
         <est:changeSemester semester="#{teacherViewBean.semester}" link="id=#{teacherViewBean.id}"/>
-           
-<!--        <est:teacherinfo pageName="we" />-->
+
+        <h:dataTable styleClass="studentStandatrTable"
+                     columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
+                                     studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
+                                     studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
+                                     studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                                     studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                                     studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                                     studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
+                                     studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher"
+                     style="margin: 0;" cellpadding="0" cellspacing="0" value="#{teacherCurriculumsEditBean.curriculums}" var="c">
+            <h:column>
+                <f:facet name="header">Фак.</f:facet>
+                <span><h:outputText value="#{c.speciality.department.name}"/></span>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">#{msgs.student_mainContentUserInfoSpec_}</f:facet>
+                <span><h:outputText value="#{c.speciality.name}"/></span>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Гр.</f:facet>
+                <ui:repeat var="tgr" value="#{setToList.getList(c.teacherToGroups)}">
+                    #{tgr.group.name}
+                </ui:repeat>
+                <span></span>
+            </h:column>
+
+            <h:column >
+                <f:facet name="header">#{msgs.student_Dicipline}</f:facet>
+                <span class="DisciplineTextTeacher"><h:outputText value="#{c.discipline.name}"/></span>
+            </h:column>
+
+
+
+
+            <h:column >
+                <f:facet name="header">сем.</f:facet>
+                <span><h:outputText value="#{c.semester}"/> </span>
+            </h:column>
+
+            <h:column >
+                <f:facet name="header">Форма отчетн.</f:facet>
+                <span><h:outputText value="#{c.examinationType.toString()}" /></span>
+            </h:column>
+
+            <h:column >
+                <f:facet name="header">Контрольная</f:facet>
+                <span><h:outputText rendered="#{c.gotControlWork}" value="есть" /></span>
+            </h:column>
+        </h:dataTable>
+
 
     </ui:define>
 

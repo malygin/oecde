@@ -49,7 +49,7 @@
                                                     <f:attribute value="#{o[1]}" name="cw"/>
                                                     <f:ajax execute="@form" render="@form" event="click" listener="#{controlWorksBean.setCw}"/>
                                                 </h:commandLink>
-                                                <h:outputText rendered="#{not o[2]}" value="только как рукописная"/>
+                                                <h:outputText rendered="#{not o[2]}" value="#{o[4]}"/>
                                             </span>
                                             <h:panelGroup layout="block" rendered="#{controlWorksBean.currentControlWorks!=null and controlWorksBean.currentControlWorks == o[1]}" id="addFile" style="float: right;">
                                                 <input type="file" name="CwFile" style="background: white; float: left;"/>

@@ -71,7 +71,7 @@
                                     <h:outputText  >#{msgs.student_TestQuestionNumber}: <span style="color: red;"> #{t[1].work.quantity}</span></h:outputText>
                                     #{msgs.student_TestQuestionNumber}: <span>#{t[1].work.quantity}</span><br/>                                 
                                     <h:outputText   value="#{msgs.student_TestTime}: #{t[1].work.duration}"/><br/>
-                                    <h:outputText  value="#{msgs.student_TestAttemps}: #{t[1].estimateAttemptsUsedNumber} #{msgs.student_From} #{t[1].work.estimateAttemptsNumber}"/><br/>                                    
+                                    <h:outputText  value="#{msgs.student_TestAttemps}: #{t[1].estimateAttemptsUsedNumber} #{msgs.student_From} #{t[1].work.estimateAttemptsNumber}"/><br/>
                                     <h:outputText  value="#{msgs.student_TestTryingAttemps}:#{t[1].trialAttemptsUsedNumber} #{msgs.student_From} #{t[1].work.trialNumber}"/><br/>
                                     <h:outputText  value="#{msgs.student_TestReexamin}: #{t[1].reExameAttemptsUsedNumber}" /><br/>
                                     <h:panelGroup rendered="#{t[1].pointsForWorkRe ne 0}"><s><h:outputText  value="#{msgs.student_TestResults}: #{t[1].pointsForWork}"/><br/></s></h:panelGroup>

@@ -66,6 +66,7 @@ public class CathBean {
         Department d = ((Department)dDao.getById(id));
         Set t = d.getPersons();
         teachers = (t!= null)? new ArrayList<Teacher>(t): new ArrayList();
+        java.util.Collections.sort(teachers);
         head = d.getHead();
         name = d.getName();
     }

@@ -148,7 +148,11 @@
             <artifactId>org.springframework.security.taglibs</artifactId>
             <version>3.0.0.RELEASE</version>
         </dependency>
-      
+        <!--<dependency>-->
+            <!--<groupId>org.apache.qpid</groupId>-->
+            <!--<artifactId>qpid-common</artifactId>-->
+            <!--<version>0.10</version>-->
+        <!--</dependency>-->
         <dependency>
            <groupId>com.sun.xml.ws</groupId>
            <artifactId>jaxws-rt</artifactId>
@@ -263,7 +267,7 @@
             <properties> 
                 <appName>oecde</appName>
                 <contextPath>/oecde</contextPath>
-                <db.connectionURL>jdbc:postgresql://vishnu.main.sgu.ru:5432/oecdo_test/</db.connectionURL> 
+                <db.connectionURL>jdbc:postgresql://localhost:5431/oecdo_test/</db.connectionURL>
                 <db.login>malygin</db.login> 
                 <db.pass>11nekotyan</db.pass>
                 <fileFolder>oecde</fileFolder>
@@ -278,15 +282,16 @@
             </properties> 
         </profile>
         <!-- oecdo.sgu.ru -->
+          <!--ssh -L 5431:vishnu.main.sgu.ru:5432 malygin@oec-tst.main.sgu.ru-->
         <profile>
             <id>ssu_st_prod</id>    
             <properties>
                 <appName>ipsilon</appName>
                 <contextPath>/</contextPath>
                 <docbase>ROOT</docbase>
-                <db.connectionURL>jdbc:postgresql://shiva.main.sgu.ru:5432/oecde/</db.connectionURL> 
-                <db.login>oecde</db.login> 
-                <db.pass>YmqPWz6GsYEQ62EH</db.pass>
+                <db.connectionURL>jdbc:postgresql://localhost:5431/oecdo_test/</db.connectionURL>
+                <db.login>malygin</db.login>
+                <db.pass>11nekotyan</db.pass>
                 <projectName>oecde</projectName>
                 <fileFolder>storage/oec-j2ee6/ROOT</fileFolder>
                 <storage>ROOT</storage>

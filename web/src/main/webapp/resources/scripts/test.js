@@ -59,6 +59,9 @@ $(function(){
             tagP.setAttribute('style','margin: 0; padding: 0;');
             tagP.innerHTML = '<div>'+ tagP.innerHTML +'</div>';
             tagPHeight =  tagP.firstChild.offsetHeight;
+            if (tagPHeight < 70){
+                tagPHeight = 70;
+            }
             $(this).attr('style','height:'+tagPHeight+'px');
 
         //            $('.testQuestion .Ipsilon_Web_GreenText').attr('style','position:relative; bottom:' + (($(this).parent('.qTitle').children().height() - 3)/2) + 'px');

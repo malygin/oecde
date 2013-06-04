@@ -87,20 +87,35 @@ public class OldGrades extends AbstractStudentBean{
                 while(i.hasNext()){
                     Estimate e = i.next();
                     if(e.getCurriculum().equals(entry.getKey())){
-                        NewEntry<DeCurriculum,Teacher>ctE = new NewEntry<DeCurriculum, Teacher>(entry.getKey(), entry.getValue());
-                        points.add(new NewEntry<NewEntry<DeCurriculum, Teacher>, Estimate>(ctE, e));
-                        i.remove();
-                        setI.remove();
+                        boolean  fl = true;
+                        for (NewEntry<NewEntry<DeCurriculum,Teacher>,Estimate>p:points){
+                           NewEntry<DeCurriculum, Teacher> dt = p.getKey();
+                            if (dt.getKey().equals(entry.getKey())){
+                              fl = false;
+                            }
+                        }
+                        if (fl){
+                            NewEntry<DeCurriculum,Teacher>ctE = new NewEntry<DeCurriculum, Teacher>(entry.getKey(), entry.getValue());
+                            points.add(new NewEntry<NewEntry<DeCurriculum, Teacher>, Estimate>(ctE, e));
+                        }
+                      try{
+//                        i.remove();
+//                        setI.remove();
+
+                      }catch(Exception ex){
+                          System.out.println("bug in old grades");
+                      }
+
                         continue;
                     }
                 }
             }
             setI = map.entrySet().iterator();
-            while(setI.hasNext()){
-                Map.Entry<DeCurriculum,Teacher> entry = setI.next();
-                NewEntry<DeCurriculum,Teacher>ctE = new NewEntry<DeCurriculum, Teacher>(entry.getKey(), entry.getValue());
-                points.add(new NewEntry<NewEntry<DeCurriculum, Teacher>, Estimate>(ctE, null));
-            }
+//            while(setI.hasNext()){
+//                Map.Entry<DeCurriculum,Teacher> entry = setI.next();
+//                NewEntry<DeCurriculum,Teacher>ctE = new NewEntry<DeCurriculum, Teacher>(entry.getKey(), entry.getValue());
+//                points.add(new NewEntry<NewEntry<DeCurriculum, Teacher>, Estimate>(ctE, null));
+//            }
           calculateParamsAndSliceListMarks();
         }    
         return points;

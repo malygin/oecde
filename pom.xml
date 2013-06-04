@@ -11,9 +11,8 @@
   <modules>
 
     <module>core</module>
-
     <module>web</module>
-      <module>sashedule</module>
+    <module>sashedule</module>
 
   </modules>
   

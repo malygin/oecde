@@ -64,6 +64,7 @@ public class DiscussionBean {
     //Нодов на странице
     private int nodesOnPage=20;
     private int notAnsweredNodes  = -1;
+    private int notAnsweredNodesT  = -1;
     private int currentPage=1;
     private int numOfNodes=-1;
 
@@ -94,6 +95,20 @@ public class DiscussionBean {
            nodes.remove(0);
         }
         return nodes;
+    }
+
+    public int getNotAnsweredNodesT() {
+        if (this.notAnsweredNodesT== -1){
+
+            List<Node> nodesTemp=discussionService.getNodesByPage(new Long(1), ForumTypes.TEACHER_FAQ, nodesOnPage, currentPage);
+            this.notAnsweredNodesT =nodesTemp.size();
+            for(Node kid : nodesTemp) {
+                if (kid.getChildren().size() >0){
+                    this.notAnsweredNodesT-=1;
+                }
+            }
+        }
+        return notAnsweredNodesT;
     }
 
     public int getNotAnsweredNodes() {
