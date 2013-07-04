@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.sgu.oecde.controlworks.ControlWork;
 import org.sgu.oecde.controlworks.ControlWorkService;
 import org.sgu.oecde.core.education.CalendarConstantName;
+import org.sgu.oecde.core.education.LevelTypeSpeciality;
 import org.sgu.oecde.core.education.StringConstantsGetter;
 import org.sgu.oecde.core.education.dao.ICurriculumDao;
 import org.sgu.oecde.core.education.dao.IResourceDao;
@@ -175,6 +176,8 @@ public class ResourceService implements Serializable{
                         &&(currentDate.compareTo(testBeginDate)>=0)&&(currentDate.compareTo(testEndDate)<=0)
                         &&w.getCurriculum().getSemester()==semesterGetter.getSemesterByStudentYear(student, semesterGetter.getCurrentSemester()))
                     available = true;
+
+
                 else{
                     Group gr = (Group)student.getGroup();
 
@@ -193,13 +196,18 @@ public class ResourceService implements Serializable{
                 available = data[4]==null?false:available;
             }
             }
+
+
             if(!student.getFullAccess()){
                 data[4] = "Тесты не доступны";
                 available = false;
             }
         }
 
-
+        if (student.<Group>getGroup().getSpeciality().getLevelTypeSpeciality() == LevelTypeSpeciality.magistracy && w.getEstimateAttemptsUsedNumber()<1) {
+            available = true;
+            data[2] ="";
+        }
         data[1]=w;
         data[0]=available;
         return data;

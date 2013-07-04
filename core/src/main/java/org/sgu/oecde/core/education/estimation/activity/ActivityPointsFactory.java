@@ -40,6 +40,7 @@ public class ActivityPointsFactory extends EstimatedWorkPointsAbstractFactory{
             values.put(ActivityEstimateNames.samOutAud_points,ac.getSamOutAudWorkpoints());
             values.put(ActivityEstimateNames.personChar_points,ac.getPersonalCharpoints());
             values.put(ActivityEstimateNames.publish_points,ac.getPublishpoints());
+            values.put(ActivityEstimateNames.lec_points,ac.getLecpoints());
             values.put(ActivityEstimateNames.activity,ac);
         }
         return values;

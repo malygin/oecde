@@ -42,9 +42,12 @@ public class ActivityFilter implements IResultFilter{
         if(points!=null&&result!=null&&result.getCurriculum()!=null){
             Activity a = ((Activity)result);            
             points.addSum(a!=null && a.getPoints()!=null?a.getPoints()*((DeCurriculum)result.getCurriculum()).getWeightAtt()/100f:0f);
-            points.addSum(a!=null && a.getSamAudWorkpoints() !=null?a.getSamAudWorkpoints()*((DeCurriculum)result.getCurriculum()).getWeightAud()/100f:0f);
-            points.addSum(a!=null && a.getSamOutAudWorkpoints() !=null?a.getSamOutAudWorkpoints()*((DeCurriculum)result.getCurriculum()).getWeightOutAud()/100f:0f);
-            points.addSum(a!=null && a.getPersonalCharpoints() !=null?a.getPersonalCharpoints()*((DeCurriculum)result.getCurriculum()).getWeightPers()/100f:0f);
+            points.addSum(a!=null && a.getSamAudWorkpoints() !=null?a.getSamAudWorkpoints():0f);
+            points.addSum(a!=null && a.getSamOutAudWorkpoints() !=null?a.getSamOutAudWorkpoints():0f);
+            points.addSum(a!=null && a.getPersonalCharpoints() !=null?a.getPersonalCharpoints():0f);
+            points.addSum(a!=null && a.getPublishpoints() !=null?a.getPublishpoints():0f);
+            points.addSum(a!=null && a.getLecpoints() !=null?a.getLecpoints():0f);
+
             points.addWorkPoints(pointsFactory.createEstimatedWorkValue(result));
 //            points.addWorkPoints(pointsFactory.createEstimatedWorkValue(result));
         }

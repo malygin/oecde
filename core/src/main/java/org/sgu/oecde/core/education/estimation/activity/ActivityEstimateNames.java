@@ -18,6 +18,7 @@ public enum ActivityEstimateNames implements IEstimate {
     samOutAud_points,
     personChar_points,
     publish_points,
+    lec_points,
     activity;
     
    private static final long serialVersionUID = 91L;
@@ -34,6 +35,8 @@ public enum ActivityEstimateNames implements IEstimate {
                 return "Личностная характеристика баллы";
             case publish_points:
                 return "Научные публикации";
+            case lec_points:
+                return "Лекции";
             case activity:
                 return "активность";
             default:

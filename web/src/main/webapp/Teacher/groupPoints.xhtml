@@ -163,10 +163,52 @@
                         </f:facet>
                         <span class="linkToStudentsProfile">#{groupPoints.getStudentNumber(p)}.<h:outputLink value="student.xhtml?id=#{p.points.student.id}&amp;s=#{groupPoints.semester}">  #{p.points.student.initials}</h:outputLink></span>
                     </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Лeкции" />
+                        </f:facet>
+                        <h:panelGroup >
+                            <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.lecPoints}"/>
+                        </h:panelGroup>
+
+                    </h:column>
+
+              
                     
                     <h:column>
                         <f:facet name="header">
-                            <span class="Ipsilon_Web_GreenText">Тестовые<br/>задания</span>
+                            <h:outputText value="Лаборат. занятия" />
+                        </f:facet>
+                        <h:panelGroup >
+                            <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.personalCharPoints}"/>
+                        </h:panelGroup>
+                       
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Практ. занятия" />
+                        </f:facet>
+                         <h:panelGroup >
+                            <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.samAudOutWorkPoints}"/> 
+                         </h:panelGroup>
+                      
+                    </h:column> 
+                    
+                      <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Самост. работа" />
+                        </f:facet>
+                         <h:panelGroup>
+                             <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.samAudWorkPoints}"/>
+
+                        </h:panelGroup>                      
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <span class="Ipsilon_Web_GreenText">Автоматизированное тестирован</span>
                         </f:facet>
                         <h:panelGroup rendered="#{p.concludingReTest eq null}">
                                             <span class="lightGreyTestText">
@@ -180,51 +222,24 @@
 ">(#{p.concludingTest})</span> * #{groupPoints.curriculum.weightTest/100} =</span>
                             <b>#{p.concludingReTest*groupPoints.curriculum.weightTest/100}</b>
                         </h:panelGroup>
-                      
+
                     </h:column>
 
-              
-                    
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="Сам. аудиторная работа" />
+                            <h:outputText value="Дополн." />
                         </f:facet>
-                        <h:panelGroup >
-                            <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.samAudWorkPoints}"/> 
-                           <span class="lightGreyTestText">*#{groupPoints.curriculum.weightAud/100}= </span><b>#{p.samAudWorkPoints * groupPoints.curriculum.weightAud/100}</b>
+                        <h:panelGroup>
+                            <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.publishPoints}"/>
+
                         </h:panelGroup>
-                       
                     </h:column>
 
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Сам. внеауд. работа" />
-                        </f:facet>
-                         <h:panelGroup >
-                            <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.samAudOutWorkPoints}"/> 
-                             <span class="lightGreyTestText">* #{groupPoints.curriculum.weightOutAud/100} =</span><b> #{p.samAudOutWorkPoints * groupPoints.curriculum.weightOutAud/100}</b>
-                         </h:panelGroup>
-                      
-                    </h:column> 
-                    
-                      <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Научная и исслед. деят. по дисциплине" />
-                        </f:facet>
-                         <h:panelGroup>
-                             <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.personalCharPoints}"/>
-                              <span class="lightGreyTestText">* #{groupPoints.curriculum.weightPers/100} =</span><b> #{p.personalCharPoints * groupPoints.curriculum.weightPers/100}</b>
-
-                        </h:panelGroup>                      
-                    </h:column> 
-
-                    
                      <h:column>
                         <f:facet name="header">
                             <span class="Ipsilon_Web_GreenText">Пром. аттестация</span>
                         </f:facet>
                         <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.activityPoints}"/> 
-                         <span class="lightGreyTestText">* #{groupPoints.curriculum.weightAtt/100} =</span><b> #{p.activityPoints * groupPoints.curriculum.weightAtt/100}</b>
 
                      </h:column>
 
@@ -243,7 +258,7 @@
 
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="Результат" />
+                            <h:outputText value="Итого" />
                         </f:facet>
                         <p style="width: 100px; text-align: center;"><h:selectOneMenu class="searchInput" id="grade" value="#{p.grade}">
                             <f:selectItems value="#{groupPoints['enum']}" />

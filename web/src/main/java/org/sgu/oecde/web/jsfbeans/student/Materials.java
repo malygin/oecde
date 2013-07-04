@@ -67,7 +67,7 @@ public class Materials extends StudentCurriculumBean{
                             c.setConcludingTestPoints(p.getConcludingTest());
                             c.setReTestPoints(p.getReTest());
                             c.setGrade(p.getGrade());
-                            c.setTestsCount(p.getTestsCount()+p.getConcludingTestsCount());
+                            c.setTestsCount(p.getTestsCount()==null?0:p.getTestsCount() + (p.getConcludingTestsCount()==null?0:p.getConcludingTestsCount()));
                             c.setActivityPoints(p.getActivityPoints()==null?0:p.getActivityPoints());
                             c.setSamAudWorkPoints(p.getSamAudWorkPoints()==null?0:p.getSamAudWorkPoints());
                             c.setSamAudOutWorkPoints(p.getSamAudOutWorkPoints()==null?0:p.getSamAudOutWorkPoints());

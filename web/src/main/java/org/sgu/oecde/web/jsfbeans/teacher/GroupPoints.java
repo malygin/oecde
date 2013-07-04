@@ -92,6 +92,8 @@ public class GroupPoints extends AbstractStudentsListBean{
                     a.setSamAudWorkpoints(p.getSamAudWorkPoints());
                     a.setPersonalCharpoints(p.getPersonalCharPoints());
                     a.setSamOutAudWorkpoints(p.getSamAudOutWorkPoints());
+                    a.setLecpoints(p.getLecPoints());
+                    a.setPublishpoints(p.getPublishPoints());
                    actDao.update(a);
                 } catch (Exception ex) {
                     ex.fillInStackTrace();

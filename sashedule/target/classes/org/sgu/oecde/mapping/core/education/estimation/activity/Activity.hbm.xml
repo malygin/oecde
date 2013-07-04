@@ -7,5 +7,7 @@
        <property name="samOutAudWorkpoints" type="integer"/>
        <property name="personalCharpoints" type="integer"/>
        <property name="publishpoints" type="integer"/>
+       <property name="lecpoints" type="integer"/>
+
   </subclass>
 </hibernate-mapping>
