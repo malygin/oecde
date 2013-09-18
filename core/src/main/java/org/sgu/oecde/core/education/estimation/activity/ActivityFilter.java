@@ -41,7 +41,7 @@ public class ActivityFilter implements IResultFilter{
     public void check(AbstractResult result,Points points) {
         if(points!=null&&result!=null&&result.getCurriculum()!=null){
             Activity a = ((Activity)result);            
-            points.addSum(a!=null && a.getPoints()!=null?a.getPoints()*((DeCurriculum)result.getCurriculum()).getWeightAtt()/100f:0f);
+            points.addSum(a!=null && a.getPoints()!=null?a.getPoints():0f);
             points.addSum(a!=null && a.getSamAudWorkpoints() !=null?a.getSamAudWorkpoints():0f);
             points.addSum(a!=null && a.getSamOutAudWorkpoints() !=null?a.getSamOutAudWorkpoints():0f);
             points.addSum(a!=null && a.getPersonalCharpoints() !=null?a.getPersonalCharpoints():0f);

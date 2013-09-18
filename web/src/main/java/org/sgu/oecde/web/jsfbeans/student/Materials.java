@@ -72,6 +72,7 @@ public class Materials extends StudentCurriculumBean{
                             c.setSamAudWorkPoints(p.getSamAudWorkPoints()==null?0:p.getSamAudWorkPoints());
                             c.setSamAudOutWorkPoints(p.getSamAudOutWorkPoints()==null?0:p.getSamAudOutWorkPoints());
                             c.setPersonalCharPoints(p.getPersonalCharPoints()==null?0:p.getPersonalCharPoints());
+                            c.setLecpoints(p.getLecPoints()==null?0:p.getLecPoints());
                             pI.remove();
                         }
                     }

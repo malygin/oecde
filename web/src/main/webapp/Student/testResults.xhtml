@@ -28,6 +28,9 @@
                 <f:viewParam name="r" value="#{testResultsBean.reExame}"/>
             </f:metadata>
             <div class="mainStudentPageTitles  mainStudentPageTitlesGreen Ipsilon_Web_GreenText">
+                <div style="float: right;">
+                    <est:changeSemester semester="#{materialsBean.semester}" />
+                </div>
                 <p class="floatLeft mainStudentPageTitles">
                     #{msgs.student_testResultStudentTest}
                 </p>

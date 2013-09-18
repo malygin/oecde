@@ -303,6 +303,27 @@
                 <skinTheme></skinTheme>
             </properties> 
         </profile>
+
+          <profile>
+              <id>ssu_mag_prod</id>
+              <properties>
+                  <appName>ipsilon_mag</appName>
+                  <contextPath>/mag</contextPath>
+                  <docbase>mag</docbase>
+                  <db.connectionURL>jdbc:postgresql://212.193.50.28:5432/oecde_magistr/</db.connectionURL>
+                  <db.login>karyakinda</db.login>
+                  <db.pass>rootportal</db.pass>
+                  <projectName>oecde_mag</projectName>
+                  <fileFolder>storage/oec-j2ee6/ROOT</fileFolder>
+                  <storage>ROOT</storage>
+                  <videoConfUrl>http://oecdo.sgu.ru/client/</videoConfUrl>
+                  <textbookUrl>http://oec-static.main.sgu.ru/textbooks/</textbookUrl>
+                  <ipsilonUmkUrl>http://oec.sgu.ru/ipsilonUmk/</ipsilonUmkUrl>
+                  <scheduleUrl>http://oecdo.sgu.ru/sashedule/</scheduleUrl>
+                  <scheduleRecordScriptUrl>http://oec-nginx.main.sgu.ru/get_files/dir_read.php</scheduleRecordScriptUrl>
+                  <skinTheme></skinTheme>
+              </properties>
+          </profile>
         
         <!-- de.sgu.ru -->
          <profile>             
@@ -311,8 +332,8 @@
                 <appName>ipsilon</appName>
                 <contextPath>/</contextPath>
                 <docbase>ROOT</docbase>
-                <db.connectionURL>jdbc:postgresql://shiva.main.sgu.ru:5432/oecde_sh/</db.connectionURL> 
-                <db.login>oecde</db.login> 
+                <db.connectionURL>jdbc:postgresql://localhost:5431/oecde_sh/</db.connectionURL>
+                <db.login>oecde</db.login>
                 <db.pass>YmqPWz6GsYEQ62EH</db.pass>
                 <projectName>mchs</projectName>
                 <fileFolder>storage/oec-java/de</fileFolder>
@@ -346,6 +367,27 @@
                 <skinTheme></skinTheme>
             </properties> 
         </profile>
+
+          <!-- bars.sgu.ru/geo    -->
+          <profile>
+              <id>ssu_bars_prod</id>
+              <properties>
+                  <appName>bars</appName>
+                  <contextPath>/bars</contextPath>
+                  <docbase>bars</docbase>
+                  <db.connectionURL>jdbc:postgresql://212.193.50.28:5432/oecde_magistr/</db.connectionURL>
+                  <db.login>karyakinda</db.login>
+                  <db.pass>rootportal</db.pass>
+                  <fileFolder>storage/oec-java/geo</fileFolder>
+                  <storage>geo</storage>
+                  <videoConfUrl></videoConfUrl>
+                  <textbookUrl>http://oec-static.main.sgu.ru/geo/textbooks/</textbookUrl>
+                  <ipsilonUmkUrl>http://cdobars.sgu.ru/ipsilonUmk/</ipsilonUmkUrl>
+                  <scheduleUrl></scheduleUrl>
+                  <scheduleRecordScriptUrl></scheduleRecordScriptUrl>
+                  <skinTheme></skinTheme>
+              </properties>
+          </profile>
 
     </profiles>
     <properties>

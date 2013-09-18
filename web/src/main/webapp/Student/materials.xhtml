@@ -55,24 +55,35 @@
                                         <td><span> #{m.reTestPoints==0?m.testPoints:m.reTestPoints}</span> #{msgs.student_gradesMarks} (<a href="testResults.xhtml">#{msgs.student_newsMore}</a>)</td>
                                     </tr>
                                     <tr>
+                                        <td>Лекции</td>
+                                        <td><span> #{m.lecpoints}</span> #{msgs.student_gradesMarks}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Лаборат. занятия"</td>
+                                        <td><span> #{m.personalCharPoints}</span> #{msgs.student_gradesMarks}
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td>Промежуточная аттестация</td>
-                                        <td><span> #{m.activityPoints}</span> #{msgs.student_gradesMarks}  ( вес - #{m.curriculum.weightAtt} %)</td>
+                                        <td><span> #{m.activityPoints}</span> #{msgs.student_gradesMarks}
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td>Научная и исследовательская деятельность по дисциплине</td>
-                                        <td><span> #{m.personalCharPoints}</span> #{msgs.student_gradesMarks} ( вес - #{m.curriculum.weightPers} %)</td>
+                                        <td>Другие виды учебн. деят.</td>
+                                        <td><span> #{m.publishpoints}</span> #{msgs.student_gradesMarks} </td>
                                     </tr>
                                             <tr>
-                                        <td>Самостоятельная аудиторная работа</td>
-                                        <td><span> #{m.samAudWorkPoints}</span> #{msgs.student_gradesMarks} ( вес - #{m.curriculum.weightAud} %)</td>
+                                        <td>Самост. работа</td>
+                                        <td><span> #{m.samAudWorkPoints}</span> #{msgs.student_gradesMarks} </td>
                                     </tr>
                                             <tr>
-                                        <td>Самостоятельная внеаудиторная работа</td>
-                                        <td><span> #{m.samAudOutWorkPoints}</span> #{msgs.student_gradesMarks} ( вес - #{m.curriculum.weightOutAud} %)</td>
+                                        <td>Практ. занятия</td>
+                                        <td><span> #{m.samAudOutWorkPoints}</span> #{msgs.student_gradesMarks}</td>
                                     </tr>
                                     <tr>
-                                        <td>Тестовые задания</td>
-                                        <td><span>#{m.concludingReTestPoints==0?m.concludingTestPoints:m.concludingReTestPoints}</span> #{msgs.student_gradesMarks}( вес - #{m.curriculum.weightTest} %) </td>
+                                        <td>Автомат. тестирован</td>
+                                        <td><span>#{m.concludingTestPoints*m.curriculum.weightTest/100} = #{m.concludingReTestPoints==0?m.concludingTestPoints:m.concludingReTestPoints}</span> #{msgs.student_gradesMarks} * #{m.curriculum.weightTest/100}  </td>
                                     </tr>
                                        <tr>
                                         <td>Всего: </td>
@@ -90,7 +101,8 @@
                                         <h:panelGroup layout="block" rendered="#{(m.sum gt 50) and (m.sum le 75)}" style="height: 12px; width: #{m.sum}%;"  styleClass="goodResult"/>
                                         <h:panelGroup layout="block" rendered="#{(m.sum gt 75) and (m.sum le 85)}" style="height: 12px; width: #{m.sum}%;"  styleClass="good2Result"/>
 
-                                        <h:panelGroup layout="block" rendered="#{(m.sum gt 85)}" style="height: 12px; width:#{m.sum}%;"  styleClass="greateResult"/>
+                                        <h:panelGroup layout="block" rendered="#{(m.sum gt 85) and (m.sum le 100)}" style="height: 12px; width:#{m.sum}%;"  styleClass="greateResult"/>
+                                        <h:panelGroup layout="block" rendered="#{(m.sum gt 100)}" style="height: 12px; width:100%;"  styleClass="greateResult"/>
                                     </div>
                                     
                                     <div style="float: right;">

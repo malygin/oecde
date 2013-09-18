@@ -46,6 +46,8 @@ public class AdditionalCurriculum implements Serializable,Comparable<AdditionalC
     private int samAudOutWorkPoints;
     private int personalCharPoints;
     private int publishpoints;
+    private int lecpoints;
+
     /**
      * сумма баллов всех
      */
@@ -218,8 +220,15 @@ public class AdditionalCurriculum implements Serializable,Comparable<AdditionalC
     public void setSum(float sum) {
         this.sum = sum;
     }
-    
-    
+
+
+    public int getLecpoints() {
+        return lecpoints;
+    }
+
+    public void setLecpoints(int lecpoints) {
+        this.lecpoints = lecpoints;
+    }
 
     @Override
     public boolean equals(Object obj) {

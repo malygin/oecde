@@ -30,22 +30,6 @@
                             </td>
                         </tr>
 
-                        <tr><td>Вес по научной и исследовательской деятельности по дисциплине </td>
-                            <td><h:inputText class="searchInput" maxlength="3" size="3" value="#{teacherCurriculumsEditBean.curriculum.weightPers}"/><br/>
-                            </td>
-                        </tr>
-                            <tr><td>Вес по аудиторной самостоятельно работе</td>
-                                <td><h:inputText class="searchInput" maxlength="3" size="3" value="#{teacherCurriculumsEditBean.curriculum.weightAud}"/><br/>
-                                </td>
-                            </tr>
-                        <tr><td> Вес по внеаудиторной самостоятельно работе </td>
-                            <td><h:inputText class="searchInput" maxlength="3" size="3" value="#{teacherCurriculumsEditBean.curriculum.weightOutAud}"/><br/>
-                            </td>
-                        </tr>
-                        <tr><td> Вес по промежуточной аттестации</td>
-                                <td><h:inputText class="searchInput" maxlength="3" size="3" value="#{teacherCurriculumsEditBean.curriculum.weightAtt}"/><br/>
-                                </td>
-                        </tr>
                         <tr><td colspan="2">
                               <h:commandButton id="btn" value="#{msgs.teacher_saveButton}" styleClass="studentButton">
                                   <f:ajax execute="@form" render="@form" listener="#{teacherCurriculumsEditBean.saveWeight}"/>
@@ -59,7 +43,7 @@
                             </table>
                      <h:outputText id="error" rendered="#{teacherCurriculumsEditBean.error}" value="Ошибка с количеством баллов"/>
                      <h:outputText id="saved" rendered="#{teacherCurriculumsEditBean.saved}" value="Сохранено!"/>
-                        В сумме должно быть ровно 100! А в промежуточной аттестации не более 40
+                        Не более 80!
                     </h:form>
                     <h:form styleClass="teacherCurriculum" rendered="#{teacherCurriculumsEditBean.curriculum.scientificActivities}">
                         <table>

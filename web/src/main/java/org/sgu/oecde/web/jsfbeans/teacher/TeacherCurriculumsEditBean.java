@@ -51,7 +51,7 @@ public class TeacherCurriculumsEditBean implements Serializable{
     }
     
         public void saveWeight(){
-            if ((curriculum.getWeightTest()+curriculum.getWeightAud()+curriculum.getWeightOutAud()+curriculum.getWeightPers()+curriculum.getWeightAtt()) == 100 && curriculum.getWeightAtt() <=40 ){
+            if (curriculum.getWeightTest() <=80 ){
                         DeCurriculum curriculumR = curriculumDao.getById(curriculimId);
                         curriculum.setGotControlWork(curriculumR.getGotControlWork());
                         curriculumDao.update(curriculum);

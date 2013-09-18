@@ -68,10 +68,7 @@
                                  <h:panelGroup rendered="#{not c.scientificActivities}">
                                      <div style="text-align: left">
                                   тесты  #{c.weightTest/100}<br/>
-                                  аудит. #{c.weightAud/100}<br/>
-                                  внеауд.  #{c.weightOutAud/100}<br/>
-                                  научн. деят. #{c.weightPers/100}<br/>
-                                  промежуточн. #{c.weightAtt/100}
+
                                   <h:outputLink value="editCurriculum.xhtml?id=#{c.id}">ред.</h:outputLink>
                                      </div>
                                    </h:panelGroup>

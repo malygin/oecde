@@ -208,7 +208,7 @@
 
                     <h:column>
                         <f:facet name="header">
-                            <span class="Ipsilon_Web_GreenText">Автоматизированное тестирован</span>
+                            <span class="Ipsilon_Web_GreenText">Автомат. тестирован</span>
                         </f:facet>
                         <h:panelGroup rendered="#{p.concludingReTest eq null}">
                                             <span class="lightGreyTestText">
@@ -227,7 +227,7 @@
 
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="Дополн." />
+                            <h:outputText value="Другие виды учебн. деят." />
                         </f:facet>
                         <h:panelGroup>
                             <h:inputText class="pointInput" maxlength="3" size="1" value="#{p.publishPoints}"/>
@@ -247,13 +247,14 @@
                         <f:facet name="header">
                             <h:outputText value="#{msgs.student_gradesTableHeadSumm}" />
                         </f:facet>
-                        <h:panelGroup rendered="#{((p.points.sum) ne null) and ((p.points.sum) ne 0)}">                        
+                        <h:panelGroup rendered="#{((p.points.sum) ne null) and ((p.points.sum) ne 0)}">
                             <h:panelGroup rendered="#{(p.points.sum ge 0) and (p.points.sum le 50)}" styleClass="badResultText">#{p.points.sum}</h:panelGroup>
-                            <h:panelGroup rendered="#{(p.points.sum gt 50) and (p.points.sum le 90)}" styleClass="goodResultText">#{p.points.sum}</h:panelGroup>
-                            <h:panelGroup rendered="#{(p.points.sum gt 90)}" styleClass="greateResultText">#{p.points.sum}</h:panelGroup>
+                            <h:panelGroup rendered="#{(p.points.sum gt 50) and (p.points.sum le 75)}" styleClass="goodResultText">#{p.points.sum}</h:panelGroup>
+                            <h:panelGroup rendered="#{(p.points.sum gt 75) and (p.points.sum le 85)}" styleClass="good2Result">#{p.points.sum}</h:panelGroup>
+                            <h:panelGroup rendered="#{(p.points.sum gt 85)}" styleClass="greateResultText">#{p.points.sum}</h:panelGroup>
                             <span class="lightGreyTestText">#{msgs.student_From} 100</span>
                         </h:panelGroup>
-                        
+
                     </h:column>
 
                     <h:column>
@@ -271,7 +272,7 @@
                         <f:ajax execute="@form" render="@form" listener="#{groupPoints.save}"/>
                     </h:commandButton>
                 </div>
-                <h:outputText id="error" rendered="#{groupPoints.error}" value="#{msgs.teacher_errorMessage}"/>
+                <h:outputText id="error" rendered="#{groupPoints.error}" value="#{groupPoints.error_message}"/>
                 <h:outputText id="saved" rendered="#{groupPoints.saved}" value="#{msgs.teacher_successSavingMessage}"/>
             </h:form>
         </div>

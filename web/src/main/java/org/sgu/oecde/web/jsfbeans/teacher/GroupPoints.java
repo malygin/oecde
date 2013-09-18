@@ -42,6 +42,7 @@ public class GroupPoints extends AbstractStudentsListBean{
 
     private boolean error = false;
     private boolean saved = false;
+    private String  error_message = "Приозошла ошибка";
 
     private static final long serialVersionUID = 113L;
 
@@ -57,6 +58,8 @@ public class GroupPoints extends AbstractStudentsListBean{
     }
 
     public void save(){
+        error=false;
+        saved = true;
         for(PointsFacade p:points){          
             Estimate e = p.getPoints().getWorkPoints(EstimateNames.estimate);
             if (e==null){
@@ -76,34 +79,51 @@ public class GroupPoints extends AbstractStudentsListBean{
                 }
             }
 
-            
-        Activity a=p.getPoints().getWorkPoints(ActivityEstimateNames.activity);
-           if (a==null){
-                a=new Activity();
-                a.setCurriculum(p.getPoints().getCurriculum());
-                a.setDate(DateConverter.currentDate());
-                a.setStudent(p.getPoints().getStudent());       
-            }
 
-            if (a.getPoints()== null || (!(a.getPoints().equals(p.getActivityPoints()) && a.getSamAudWorkpoints().equals(p.getSamAudWorkPoints())
-                    && a.getSamOutAudWorkpoints().equals(p.getSamAudOutWorkPoints()) && a.getPersonalCharpoints().equals(p.getPersonalCharPoints()) ))) {
-                try {
-                    a.setPoints(p.getActivityPoints());
-                    a.setSamAudWorkpoints(p.getSamAudWorkPoints());
-                    a.setPersonalCharpoints(p.getPersonalCharPoints());
-                    a.setSamOutAudWorkpoints(p.getSamAudOutWorkPoints());
-                    a.setLecpoints(p.getLecPoints());
-                    a.setPublishpoints(p.getPublishPoints());
-                   actDao.update(a);
-                } catch (Exception ex) {
-                    ex.fillInStackTrace();
-                    error=true;
-            }
-            }
+        if (p.getSamAudOutWorkPoints() <=40 && p.getActivityPoints() <=40 && p.getSamAudWorkPoints() <=40 &&
+                p.getPublishPoints() <=40 && p.getLecPoints() <=40 && p.getPersonalCharPoints() <=40){
+
+             if ((p.getSamAudOutWorkPoints()+ p.getActivityPoints()+ p.getSamAudWorkPoints()+
+                    p.getPublishPoints()+ p.getLecPoints()+p.getPersonalCharPoints())<=100){
+
+
+                Activity a=p.getPoints().getWorkPoints(ActivityEstimateNames.activity);
+               if (a==null){
+                    a=new Activity();
+                    a.setCurriculum(p.getPoints().getCurriculum());
+                    a.setDate(DateConverter.currentDate());
+                    a.setStudent(p.getPoints().getStudent());
+                }
+
+                if (a.getPoints()== null || a.getLecpoints()== null || a.getPublishpoints()== null|| (!(a.getPoints().equals(p.getActivityPoints()) && a.getSamAudWorkpoints().equals(p.getSamAudWorkPoints())
+                        && a.getLecpoints().equals(p.getLecPoints())   && a.getPublishpoints().equals(p.getPublishPoints())
+                        && a.getSamOutAudWorkpoints().equals(p.getSamAudOutWorkPoints()) && a.getPersonalCharpoints().equals(p.getPersonalCharPoints()) ))) {
+
+                        a.setPoints(p.getActivityPoints());
+                        a.setSamAudWorkpoints(p.getSamAudWorkPoints());
+                        a.setPersonalCharpoints(p.getPersonalCharPoints());
+                        a.setSamOutAudWorkpoints(p.getSamAudOutWorkPoints());
+                        a.setLecpoints(p.getLecPoints());
+                        a.setPublishpoints(p.getPublishPoints());
+                       actDao.update(a);
+
+                }
            
+
+                journalService.save(EventType.GRADING,teacher, getGroup(), getCurriculum().getDiscipline());
+                saved=true;
+                error=false;
+             }
+            else{
+                 error_message = " сумма должна быть меньше ста!";
+                 error=true;
+             }
         }
-        journalService.save(EventType.GRADING,teacher, getGroup(), getCurriculum().getDiscipline());
-        saved=true;
+        else{
+            error_message = "значения в полях не могут быть больше 40";
+            error=true;
+        }
+        }
     }
 
     public void setGradesService(GradesService gradesService) {
@@ -158,6 +178,12 @@ public class GroupPoints extends AbstractStudentsListBean{
     public void setActDao(IUpdateDao<Activity> actDao) {
         this.actDao = actDao;
     }
-    
-    
+
+    public String getError_message() {
+        return error_message;
+    }
+
+    public void setError_message(String error_message) {
+        this.error_message = error_message;
+    }
 }
