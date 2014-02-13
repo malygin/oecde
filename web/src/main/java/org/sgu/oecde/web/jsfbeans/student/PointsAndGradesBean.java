@@ -70,6 +70,9 @@ public class PointsAndGradesBean extends StudentCurriculumBean{
                             c.setConcludingReTestPoints(p.getConcludingReTest()==null?0:p.getConcludingReTest());
                             c.setConcludingTestPoints(p.getConcludingTest()==null?0:p.getConcludingTest());
                             c.setReTestPoints(p.getReTest());
+                            c.setLecpoints(p.getLecPoints()==null?0:p.getLecPoints());
+                            c.setPublishpoints(p.getPublishPoints()==null?0:p.getPublishPoints());
+
                             c.setTestsCount(p.getTestsCount()+p.getConcludingTestsCount());
                             c.setActivityPoints(p.getActivityPoints()==null?0:p.getActivityPoints());
                             c.setSamAudWorkPoints(p.getSamAudWorkPoints()==null?0:p.getSamAudWorkPoints());
@@ -96,6 +99,9 @@ public class PointsAndGradesBean extends StudentCurriculumBean{
                     c.setSamAudWorkPoints(p.getSamAudWorkPoints()==null?0:p.getSamAudWorkPoints());
                     c.setSamAudOutWorkPoints(p.getSamAudOutWorkPoints()==null?0:p.getSamAudOutWorkPoints());
                     c.setPersonalCharPoints(p.getPersonalCharPoints()==null?0:p.getPersonalCharPoints());
+                    c.setLecpoints(p.getLecPoints()==null?0:p.getLecPoints());
+                    c.setPublishpoints(p.getPublishPoints()==null?0:p.getPublishPoints());
+
                     c.setSum(p.getPoints().getSum());
                     c.setGrade(p.getGrade());
 
@@ -134,6 +140,8 @@ public class PointsAndGradesBean extends StudentCurriculumBean{
                             c.setConcludingReTestPoints(p.getConcludingReTest()==null?0:p.getConcludingReTest()*d.getWeightTest()/100);
                             c.setConcludingTestPoints(p.getConcludingTest()==null?0:p.getConcludingTest());
                             c.setReTestPoints(p.getReTest());
+                            c.setLecpoints(p.getLecPoints()==null?0:p.getLecPoints());
+
                             c.setTestsCount(p.getTestsCount()+p.getConcludingTestsCount());
                             c.setActivityPoints(p.getActivityPoints()==null?0:p.getActivityPoints());
                             c.setSamAudWorkPoints(p.getSamAudWorkPoints()==null?0:p.getSamAudWorkPoints());
@@ -157,6 +165,8 @@ public class PointsAndGradesBean extends StudentCurriculumBean{
                     DeCurriculum d = (DeCurriculum)c.getCurriculum();
                     PointsFacade p = new PointsFacade(ps);
                     c.setActivityPoints(p.getActivityPoints()==null?0:p.getActivityPoints());
+                    c.setLecpoints(p.getLecPoints()==null?0:p.getLecPoints());
+
                     c.setSamAudWorkPoints(p.getSamAudWorkPoints()==null?0:p.getSamAudWorkPoints());
                     c.setSamAudOutWorkPoints(p.getSamAudOutWorkPoints()==null?0:p.getSamAudOutWorkPoints());
                     c.setPersonalCharPoints(p.getPersonalCharPoints()==null?0:p.getPersonalCharPoints());

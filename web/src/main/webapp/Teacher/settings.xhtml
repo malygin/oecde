@@ -94,7 +94,7 @@
                                     <p>#{msgs.user_mobilePhone}</p>
                                 </td>
                                 <td>
-                            <h:inputText id="cellPhone" maxlength="10" size="10" value="#{teacherSettingsBean.teacher.cellPhone}" styleClass="settingInputWidth"/>
+                            <h:inputText  maxlength="10" size="10" value="#{teacherSettingsBean.teacher.cellPhone}" styleClass="settingInputWidth"/>
                             </td>
                             </tr>
                             <tr>
@@ -102,13 +102,12 @@
                                     <p>#{msgs.user_officePhone}</p>
                                 </td>
                                 <td>
-                            <h:inputText id="officePhoneNumber" maxlength="10" size="10" value="#{teacherSettingsBean.teacher.officePhoneNumber}" styleClass="settingInputWidth"/>
+                            <h:inputText  maxlength="10" size="10" value="#{teacherSettingsBean.teacher.officePhoneNumber}" styleClass="settingInputWidth"/>
                             </td>
                             </tr>
                             </table>
                             <div style="text-align: right; width: 90%;margin-bottom: 35px;">
-                                <h:commandButton value="#{msgs.teacher_saveButton}" styleClass="studentButton changePasswordButtonSaveAdminPosition #{fn:toLowerCase(cc.attrs.user.classType)}Button">
-                                    <f:ajax execute="@form" render="@form mess saved error" listener="#{teacherSettingsBean.save}"/>
+                                <h:commandButton value="#{msgs.teacher_saveButton}" action="#{teacherSettingsBean.save}" styleClass="studentButton changePasswordButtonSaveAdminPosition #{fn:toLowerCase(cc.attrs.user.classType)}Button">
                                 </h:commandButton>
                             </div>
                             <h:outputText id="saved" rendered="#{teacherSettingsBean.saved}" value="saved"/>

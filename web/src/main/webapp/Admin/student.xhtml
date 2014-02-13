@@ -62,8 +62,9 @@
 
                     <h:column>
                         <f:facet name="header">
-                            <span class="Ipsilon_Web_GreenText">Тестовые<br/>задания</span>
+                            <span class="Ipsilon_Web_GreenText">Автом.<br/>тестир.</span>
                         </f:facet>
+
                         <h:panelGroup rendered="#{m.concludingReTestPoints eq 0}">
                                             <span class="lightGreyTestText">
                                                       #{m.concludingTestPoints} * #{m.curriculum.weightTest/100} =</span>
@@ -76,36 +77,34 @@
 ">(#{m.concludingTestPoints})</span> * #{m.curriculum.weightTest/100} =</span>
                             <b>#{m.concludingReTestPoints*m.curriculum.weightTest/100}</b>
                         </h:panelGroup>
+
                     </h:column>
 
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="Сам. аудиторная работа" />
+                            <h:outputText value="Лекции" />
                         </f:facet>
                         <h:panelGroup >
-                            #{m.samAudWorkPoints}
-                            <span class="lightGreyTestText">*#{m.curriculum.weightAud/100}= </span><b>#{m.samAudWorkPoints * m.curriculum.weightAud/100}</b>
+                            #{m.lecpoints}
                         </h:panelGroup>
                     </h:column>
 
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="Сам. внеаудиторная работа" />
+                            <h:outputText value="Лаборат. занятия" />
                         </f:facet>
                         <h:panelGroup >
-                            #{m.samAudOutWorkPoints}
-                            <span class="lightGreyTestText">* #{m.curriculum.weightOutAud/100} =</span><b> #{m.samAudOutWorkPoints * m.curriculum.weightOutAud/100}</b>
+                            #{m.personalCharPoints}
                         </h:panelGroup>
 
                     </h:column>
 
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="Научная и исслед. деятельность по дисциплине" />
+                            <h:outputText value="Практ. занятия" />
                         </f:facet>
                         <h:panelGroup>
-                            #{m.personalCharPoints}
-                            <span class="lightGreyTestText">* #{m.curriculum.weightPers/100} =</span><b> #{m.personalCharPoints * m.curriculum.weightPers/100}</b>
+                            #{m.samAudOutWorkPoints}
 
                         </h:panelGroup>
                     </h:column>
@@ -113,10 +112,27 @@
 
                     <h:column>
                         <f:facet name="header">
-                            <span class="Ipsilon_Web_GreenText">Промежуточная аттестация</span>
+                            <span class="Ipsilon_Web_GreenText">Самост. работая</span>
+                        </f:facet>
+                        #{m.samAudWorkPoints}
+
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Другие виды учебн. деят." />
+                        </f:facet>
+                        <h:panelGroup>
+                            #{m.publishpoints}
+
+                        </h:panelGroup>
+                    </h:column>
+
+
+                    <h:column>
+                        <f:facet name="header">
+                            <span class="Ipsilon_Web_GreenText">Пром. аттестация</span>
                         </f:facet>
                         #{m.activityPoints}
-                        <span class="lightGreyTestText">* #{m.curriculum.weightAtt/100} =</span><b> #{m.activityPoints * m.curriculum.weightAtt/100}</b>
 
                     </h:column>
 
@@ -129,6 +145,7 @@
                             <h:panelGroup rendered="#{(m.sum gt 50) and (m.sum le 75)}" styleClass="goodResultText">#{m.sum}</h:panelGroup>
                             <h:panelGroup rendered="#{(m.sum gt 75) and (m.sum le 85)}" styleClass="good2ResultText">#{m.sum}</h:panelGroup>
                             <h:panelGroup rendered="#{(m.sum gt 85)}" styleClass="greateResultText">#{m.sum}</h:panelGroup>
+
                             <span class="lightGreyTestText">#{msgs.student_From} 100</span>
                         </h:panelGroup>
                     </h:column>
@@ -140,87 +157,6 @@
                             #{m.grade.toString()}
                         </p>
                     </h:column>
-
-                </h:dataTable>
-
-                <h:panelGroup rendered=" #{studentViewBean.user.group.speciality.levelTypeSpeciality eq 'magistracy'}}">Научно-исследовательская деятельность</h:panelGroup>
-
-                <h:dataTable styleClass="studentStandatrTable"
-                             columnClasses="studentStandatrTableTd studentStandatrTableTdPaddingTeacher,
-                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                             studentStandatrTableTd studentStandatrTableExamin studentStandatrTableTdPaddingTeacher,
-                             studentStandatrTableTdLastTd studentStandatrTableExamin studentStandatrTableTdWidthTeacher studentStandatrTableTdPaddingTeacher"
-                             cellpadding="0" cellspacing="0" id="table2" value="#{gradesBean.studentsSA}" var="m" style="margin: 0;" rendered=" #{studentViewBean.user.group.speciality.levelTypeSpeciality eq 'magistracy'}}">
-
-
-                    <h:column>
-                        <f:facet name="header">
-                            <span class="Ipsilon_Web_GreenText">Участие в<br/> научных мероприятиях</span>
-                        </f:facet>
-                         <b>#{m.publishpoints}</b>
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Научные публикации" />
-                        </f:facet>
-                        <h:panelGroup >
-                                           <b>#{m.samAudWorkPoints}</b>
-                        </h:panelGroup>
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Участие в создании объектов интеллектуальной собственности" />
-                        </f:facet>
-                        <h:panelGroup >
-                             <b> #{m.samAudOutWorkPoints}</b>
-                        </h:panelGroup>
-
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Участие в конкурсах научных работ, олимпиадах" />
-                        </f:facet>
-                        <h:panelGroup>
-                            <b> #{m.personalCharPoints}</b>
-                        </h:panelGroup>
-                    </h:column>
-
-
-                    <h:column>
-                        <f:facet name="header">
-                            <span class="Ipsilon_Web_GreenText">Другие виды деятельности</span>
-                        </f:facet>
-                        <b> #{m.activityPoints}</b>
-
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="#{msgs.student_gradesTableHeadSumm}" />
-                        </f:facet>
-                        <h:panelGroup rendered="#{((m.sum) ne null) and ((m.sum) ne 0)}">
-                            <h:panelGroup rendered="#{(m.sum ge 0) and (m.sum le 50)}" styleClass="badResultText">#{m.sum}</h:panelGroup>
-                            <h:panelGroup rendered="#{(m.sum gt 50) and (m.sum le 90)}" styleClass="goodResultText">#{m.sum}</h:panelGroup>
-                            <h:panelGroup rendered="#{(m.sum gt 90)}" styleClass="greateResultText">
-                                <h:outputText value="#{m.sum}" >
-                                    <f:convertNumber maxFractionDigits="2" minIntegerDigits="2"/>
-                            </h:outputText>
-                            </h:panelGroup>
-                            <span class="lightGreyTestText">#{msgs.student_From} 100</span>
-                        </h:panelGroup>
-                    </h:column>
-
-
-
                 </h:dataTable>
 <h:form id="form">
 <span class="controlWorksDisciplineNameLink"><h:commandLink value="">

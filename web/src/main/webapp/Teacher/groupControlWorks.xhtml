@@ -1,11 +1,11 @@
 <ui:composition
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html"
-    template="../resources/teacherTemplate.xhtml"
-    xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
-    xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs"
-    xmlns:edu="http://java.sun.com/jsf/composite/components/education" >
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        template="../resources/teacherTemplate.xhtml"
+        xmlns:est="http://java.sun.com/jsf/composite/components/estimation"
+        xmlns:tabs="http://java.sun.com/jsf/composite/components/tabs"
+        xmlns:edu="http://java.sun.com/jsf/composite/components/education" >
 
     <ui:define name="contentHeader">
         #{msgs.teacher_groupInfo}
@@ -31,7 +31,7 @@
             <div class="groupInfo">
                 <est:header bean="#{groupControlWorksForTeacher}" pageName="cw"/>
             </div>
-      
+
             <h:form id="form" rendered="#{not groupControlWorksForTeacher.accessDenied}"  style="margin: 10px; margin-top: 0;">
                 <h:dataTable rendered="#{not groupControlWorksForTeacher.accessDenied}"
                              styleClass="studentStandatrTable ContrWorkAndTestTable"
@@ -56,7 +56,7 @@
 
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="#{msgs.teacher_attemps}" />
+                            <h:outputText value="электронные к/р" />
                         </f:facet>
                         <h:dataTable  id="attempts" value="#{w.value.cwAttempt}" var="a" styleClass="TableCenter">
                             <h:column>
@@ -64,10 +64,10 @@
                             </h:column>
                         </h:dataTable>
                     </h:column>
-                    
+
                     <h:column>
                         <f:facet name="header">
-                            <span class="Ipsilon_Web_GreenText">#{msgs.teacher_control_works}<br/>#{msgs.teacher_inWriting}
+                            <span class="Ipsilon_Web_GreenText">к/р получена (сообщение, бумажный вариант)
                             </span>
                         </f:facet>
                         <span class="linkToStudentsProfile">
@@ -79,10 +79,10 @@
                     </h:column>
 
                     <!--<h:column>-->
-                        <!--<f:facet name="header">-->
-                            <!--<h:outputText value="#{msgs.teacher_marks}" />-->
-                        <!--</f:facet>-->
-                        <!--<h:inputText id="points" size="3"  maxlength="3" styleClass="inputTextCenter" value="#{w.value.points}"/>-->
+                    <!--<f:facet name="header">-->
+                    <!--<h:outputText value="#{msgs.teacher_marks}" />-->
+                    <!--</f:facet>-->
+                    <!--<h:inputText id="points" size="3"  maxlength="3" styleClass="inputTextCenter" value="#{w.value.points}"/>-->
                     <!--</h:column>-->
 
                     <h:column>
@@ -93,9 +93,9 @@
                             <f:selectItems value="#{groupControlWorksForTeacher.values}" />
                         </h:selectOneMenu>
                     </h:column>
-                    
+
                 </h:dataTable>
-                
+
                 <div style="text-align: right; padding: 5px; ">
                     <h:commandButton id="btn" value="Сохранить" styleClass="studentButton">
                         <f:ajax execute="@form" event="click" render="@form" listener="#{groupControlWorksForTeacher.save}"/>
@@ -106,7 +106,7 @@
                 <h:outputText id="saved" rendered="#{groupControlWorksForTeacher.saved}" value="#{msgs.user_errorSaveSuccess}"/>
                 <br/>
             </h:form>
-           
+
         </div>
         <div class="StudentMainPageTitlesBorders">
             <div class="interfaceContentForMyMarks">

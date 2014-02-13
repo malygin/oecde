@@ -40,7 +40,7 @@ public class OneCityGroupsBean implements Serializable{
                     specialities.add(specialityEntry);
                     groupList = new ArrayList<Group>();
                 }
-                groupList.add(g);
+                if (g.getCalendarYear().equals(2013)) groupList.add(g);
                 s = g.getSpeciality();
             }
         }

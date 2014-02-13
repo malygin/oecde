@@ -54,9 +54,10 @@ public class TeacherSessionBean extends AbstractTeacherBean{
     
        public DeCurriculum getCurriculumById(Long cId){
             DeCurriculum d=null;
-            for (DeCurriculum c: summerCurriculums)
-                if (c.getId().equals(cId))  d=c;
-           if (d==null)
+            if (summerCurriculums!=null)
+                for (DeCurriculum c: summerCurriculums)
+                    if (c.getId().equals(cId))  d=c;
+            if (d==null)
                for (DeCurriculum c: winterCurriculums)
                    if (c.getId().equals(cId))  d=c;
 

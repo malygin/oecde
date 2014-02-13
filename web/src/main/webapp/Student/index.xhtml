@@ -61,7 +61,7 @@
                             </p></td>
                         </tr>
                         <tr>
-                            <td><p>#{msgs.student_mainContentUserInfoFaculty}</p></td><td><div>#{studentSessionBean.student.group.faculty}</div></td>
+                            <td><p>#{msgs.student_mainContentUserInfoFaculty}</p></td><td><div>#{studentSessionBean.student.group.speciality.department.name}</div></td>
                         </tr>
                         <tr>
                             <td><p>#{msgs.student_yourRating}</p></td>
@@ -155,7 +155,7 @@
 
                                     <h:column>
                                         <f:facet name="header">
-                                            <span class="Ipsilon_Web_GreenText">Тестовые<br/>задания</span>
+                                            <span class="Ipsilon_Web_GreenText">Автом.<br/>тестир.</span>
                                         </f:facet>
 
                                         <h:panelGroup rendered="#{m.concludingReTestPoints eq 0}">
@@ -175,32 +175,30 @@
 
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="Самост. аудиторная работа" />
+                                            <h:outputText value="Лекции" />
                                         </f:facet>
                                         <h:panelGroup >
-                                            #{m.samAudWorkPoints}
-                                            <span class="lightGreyTestText">*#{m.curriculum.weightAud/100}= </span><b>#{m.samAudWorkPoints * m.curriculum.weightAud/100}</b>
+
+                                            #{m.lecpoints}
                                         </h:panelGroup>
                                     </h:column>
 
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="Самост. внеаудиторная работа" />
+                                            <h:outputText value="Лаборат. занятия" />
                                         </f:facet>
                                         <h:panelGroup >
-                                            #{m.samAudOutWorkPoints}
-                                            <span class="lightGreyTestText">* #{m.curriculum.weightOutAud/100} =</span><b> #{m.samAudOutWorkPoints * m.curriculum.weightOutAud/100}</b>
+                                            #{m.personalCharPoints}
                                         </h:panelGroup>
 
                                     </h:column>
 
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="Научная и исслед. деятельность по дисциплине" />
+                                            <h:outputText value="Практ. занятия" />
                                         </f:facet>
                                         <h:panelGroup>
-                                            #{m.personalCharPoints}
-                                            <span class="lightGreyTestText">* #{m.curriculum.weightPers/100} =</span><b> #{m.personalCharPoints * m.curriculum.weightPers/100}</b>
+                                            #{m.samAudOutWorkPoints}
 
                                         </h:panelGroup>
                                     </h:column>
@@ -208,10 +206,27 @@
 
                                     <h:column>
                                         <f:facet name="header">
-                                            <span class="Ipsilon_Web_GreenText">Промежуточная аттестация</span>
+                                            <span class="Ipsilon_Web_GreenText">Самост. работая</span>
+                                        </f:facet>
+                                        #{m.samAudWorkPoints}
+
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Другие виды учебн. деят." />
+                                        </f:facet>
+                                        <h:panelGroup>
+                                            #{m.publishpoints}
+
+                                        </h:panelGroup>
+                                    </h:column>
+
+
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <span class="Ipsilon_Web_GreenText">Пром. аттестация</span>
                                         </f:facet>
                                         #{m.activityPoints}
-                                        <span class="lightGreyTestText">* #{m.curriculum.weightAtt/100} =</span><b> #{m.activityPoints * m.curriculum.weightAtt/100}</b>
 
                                     </h:column>
 

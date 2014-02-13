@@ -107,7 +107,8 @@ public class UmkBean implements Serializable {
           }else if(user instanceof Admin){
               currentUmk=umkDao.getById(new Long(this.cId));             
           }else if(user instanceof Teacher){
-             curriculum = teacherSessionBean.getCurriculumById(new Long(cId));
+              currentUmk=umkDao.getById(new Long(this.cId));
+              curriculum = teacherSessionBean.getCurriculumById(new Long(cId));
              currentUmk=curriculum.getUmk();                  
           }
 

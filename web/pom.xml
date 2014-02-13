@@ -264,12 +264,14 @@
                   <!-- oec-tst.main.sgu.ru/oecde    -->
         <profile>
             <id>ssu_st_test</id>
-            <properties> 
+            <properties>
+                <!--ssh -L 5431:shiva.main.sgu.ru:5432 malygin@oec-tst.main.sgu.ru-->
+
                 <appName>oecde</appName>
                 <contextPath>/oecde</contextPath>
-                <db.connectionURL>jdbc:postgresql://localhost:5431/oecdo_test/</db.connectionURL>
-                <db.login>malygin</db.login> 
-                <db.pass>11nekotyan</db.pass>
+                <db.connectionURL>jdbc:postgresql://localhost:5431/oecde/</db.connectionURL>
+                <db.login>oecde</db.login>
+                <db.pass>YmqPWz6GsYEQ62EH</db.pass>
                 <fileFolder>oecde</fileFolder>
                 <storage>oecde2</storage>
                 <videoConfUrl>http://oecdo.sgu.ru/client/</videoConfUrl>
@@ -283,15 +285,16 @@
         </profile>
         <!-- oecdo.sgu.ru -->
           <!--ssh -L 5431:vishnu.main.sgu.ru:5432 malygin@oec-tst.main.sgu.ru-->
-        <profile>
+
+          <profile>
             <id>ssu_st_prod</id>    
             <properties>
                 <appName>ipsilon</appName>
                 <contextPath>/</contextPath>
                 <docbase>ROOT</docbase>
-                <db.connectionURL>jdbc:postgresql://localhost:5431/oecdo_test/</db.connectionURL>
-                <db.login>malygin</db.login>
-                <db.pass>11nekotyan</db.pass>
+                <db.connectionURL>jdbc:postgresql://localhost:5431/oecde/</db.connectionURL>
+                <db.login>oecde</db.login>
+                <db.pass>YmqPWz6GsYEQ62EH</db.pass>
                 <projectName>oecde</projectName>
                 <fileFolder>storage/oec-j2ee6/ROOT</fileFolder>
                 <storage>ROOT</storage>
@@ -303,6 +306,7 @@
                 <skinTheme></skinTheme>
             </properties> 
         </profile>
+          <!--ssh -L 5431:212.193.50.28:5432 malygin-->
 
           <profile>
               <id>ssu_mag_prod</id>
@@ -310,7 +314,7 @@
                   <appName>ipsilon_mag</appName>
                   <contextPath>/mag</contextPath>
                   <docbase>mag</docbase>
-                  <db.connectionURL>jdbc:postgresql://212.193.50.28:5432/oecde_magistr/</db.connectionURL>
+                  <db.connectionURL>jdbc:postgresql://localhost:5431/oecde_magistr/</db.connectionURL>
                   <db.login>karyakinda</db.login>
                   <db.pass>rootportal</db.pass>
                   <projectName>oecde_mag</projectName>
@@ -381,7 +385,7 @@
                   <fileFolder>storage/oec-java/geo</fileFolder>
                   <storage>geo</storage>
                   <videoConfUrl></videoConfUrl>
-                  <textbookUrl>http://oec-static.main.sgu.ru/geo/textbooks/</textbookUrl>
+                  <textbookUrl>http://oec-static.main.sgu.ru/textbooks/</textbookUrl>
                   <ipsilonUmkUrl>http://cdobars.sgu.ru/ipsilonUmk/</ipsilonUmkUrl>
                   <scheduleUrl></scheduleUrl>
                   <scheduleRecordScriptUrl></scheduleRecordScriptUrl>

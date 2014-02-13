@@ -183,7 +183,7 @@ public class FormEditLessonBean implements Serializable {
             cityGroupTemp=new HashSet<CityWithGroup>();
             this.TeacherAttentionRender=false;
             this.countOfStudent=0;
-            cssNotReady = curriculumDao.getGroupsForTeacher(semesterGetter.getSemestersByInt(0), semesterGetter.getCurrentYear(),currentTeacher,currentDiscipline );
+            cssNotReady = curriculumDao.getGroupsForTeacher(semesterGetter.getSemestersByInt(1), semesterGetter.getCurrentYear(),currentTeacher,currentDiscipline );
           //  cssNotReady.addAll(curriculumDao.getGroupsForTeacher(semesterGetter.getSemestersByInt(1), semesterGetter.getCurrentYear(),currentTeacher,currentDiscipline ));
             createCityGroup();
             css=new ArrayList<CityWithGroup>(cityGroupTemp);
@@ -271,7 +271,7 @@ public class FormEditLessonBean implements Serializable {
             this.countOfStudent=0;
             this.currentTeacher = currentTeacher;
             checkTeacherSameLesson();
-            List<DeCurriculum>c = curriculumDao.getBySemesterYearAndParameters(semesterGetter.getSemestersByInt(0), semesterGetter.getCurrentYear(),currentTeacher);
+            List<DeCurriculum>c = curriculumDao.getBySemesterYearAndParameters(semesterGetter.getSemestersByInt(1), semesterGetter.getCurrentYear(),currentTeacher);
 //            c.addAll(curriculumDao.getBySemesterYearAndParameters(semesterGetter.getSemestersByInt(0), semesterGetter.getCurrentYear(),currentTeacher));
 
             disciplines = getDisciplines(c);

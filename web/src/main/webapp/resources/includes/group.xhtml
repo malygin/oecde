@@ -7,7 +7,7 @@
     <div class="interfaceContent">
         <div class="StudentMainPageTitlesBorders blocksMargins"  style="width: 73%; float: left;">
             <div class="mainStudentPageTitles mainStudentPageTitlesBlue">
-                #{msgs.admin_mainContentGroup} #{groupViewBean.group.name} <h:outputText value="#{groupViewBean.group.faculty}"/>
+                #{msgs.admin_mainContentGroup} #{groupViewBean.group.name} <h:outputText value="#{groupViewBean.group.speciality.department.name}"/>
                 <h:outputText  rendered="#{groupViewBean.group.faculty!=null}" value=", "/>
                 <h:outputText value="#{groupViewBean.group.speciality.name}"/>
                 , <h:outputText value="#{groupViewBean.group.calendarYear} год"/>

@@ -50,10 +50,10 @@
                                         <td>#{msgs.student_finishedTests}</td>
                                         <td><span> #{m.passedTests}</span> #{msgs.student_fromWord} #{m.testsCount} (<a href="discipline.xhtml?c=#{m.curriculum.id}#toTests">#{msgs.student_materialsGoToTest}</a>)</td>
                                     </tr>
-                                    <tr>
-                                        <td>Промежуточное тестирование</td>
-                                        <td><span> #{m.reTestPoints==0?m.testPoints:m.reTestPoints}</span> #{msgs.student_gradesMarks} (<a href="testResults.xhtml">#{msgs.student_newsMore}</a>)</td>
-                                    </tr>
+                                    <!--<tr>-->
+                                        <!--<td>Промежуточное тестирование</td>-->
+                                        <!--<td><span> #{m.reTestPoints==0?m.testPoints:m.reTestPoints}</span> #{msgs.student_gradesMarks} (<a href="testResults.xhtml">#{msgs.student_newsMore}</a>)</td>-->
+                                    <!--</tr>-->
                                     <tr>
                                         <td>Лекции</td>
                                         <td><span> #{m.lecpoints}</span> #{msgs.student_gradesMarks}

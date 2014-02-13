@@ -28,17 +28,19 @@ public class Teacher extends AbstractPerson{
     /**
      * и меил
      */
-    @Email(message="неверный и-меил")
+//    @Email(message="неверный и-меил")
     private String email;
     /**
      * сотовый
      */
-    @Digits(integer=10,message="Содержит недопустимые символы",fraction=0)
+
+
+//    @Digits(integer=10,message="Содержит недопустимые символы",fraction=0)
     private Integer cellPhone;
     /**
      * рабочий
      */
-    @Digits(integer=10,message="Содержит недопустимые символы",fraction=0)
+//    @Digits(integer=10,message="Содержит недопустимые символы",fraction=0)
     private Integer officePhoneNumber;
     /**
      * дополнительная информация, заполняемая преподавателем

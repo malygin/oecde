@@ -25,7 +25,7 @@
                    <br/> <br/>
                     <h:form styleClass="teacherCurriculum" rendered="#{not teacherCurriculumsEditBean.curriculum.scientificActivities}">
                         <table>
-                        <tr><td>Вес по тестовым заданиям </td>
+                        <tr><td>кол-во баллов за итоговый тест</td>
                             <td><h:inputText class="searchInput" maxlength="3" size="3" value="#{teacherCurriculumsEditBean.curriculum.weightTest}"/><br/>
                             </td>
                         </tr>
@@ -43,7 +43,7 @@
                             </table>
                      <h:outputText id="error" rendered="#{teacherCurriculumsEditBean.error}" value="Ошибка с количеством баллов"/>
                      <h:outputText id="saved" rendered="#{teacherCurriculumsEditBean.saved}" value="Сохранено!"/>
-                        Не более 80!
+                        Не более 40!
                     </h:form>
                     <h:form styleClass="teacherCurriculum" rendered="#{teacherCurriculumsEditBean.curriculum.scientificActivities}">
                         <table>

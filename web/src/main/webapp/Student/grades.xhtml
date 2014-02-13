@@ -67,25 +67,9 @@
                                 </ui:repeat>                                 
                             </td>
                         </tr>
-                        <tr>
-                            <td>Промежуточное тестирование</td>
-                            <td> 
-                                <h:panelGroup rendered="#{(gradesBean.currentsFacade.test) ne null}">
-                                    <span>#{gradesBean.currentsFacade.test}</span> <span class="lightGreyTestText">#{msgs.student_From} #{gradesBean.currentsFacade.testsMaxPoints}</span>
-                                </h:panelGroup>
-                                <h:panelGroup rendered="#{(gradesBean.currentsFacade.test) eq null}">
-                                    <span class="lightGreyTestText"> #{gradesBean.currentsFacade.testsMaxPoints}</span>
-                                </h:panelGroup>
-                            </td>
-                        </tr>
 
                         <tr>
-                            <td>#{msgs.student_gradesTableHeadResit}</td>
-                            <td>#{gradesBean.currentsFacade.reTest} </td>
-                        </tr>
-
-                        <tr>
-                            <td>Тестовые задания</td>
+                            <td>Автоматизированное тестирование</td>
                             <td>
                                 <h:panelGroup rendered="#{(gradesBean.currentsFacade.concludingTest) ne null}">
                                     <span>#{gradesBean.currentsFacade.concludingTest}</span> <span class="lightGreyTestText">#{msgs.student_From} #{gradesBean.currentsFacade.concludingTestsMaxPoints}</span>
@@ -96,8 +80,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>#{msgs.student_gradesTableHeadResit}</td>
-                            <td>#{gradesBean.currentsFacade.concludingReTest}</td>
+                            <td>Лекции</td>
+                            <td>#{gradesBean.currentsFacade.lecPoints}</td>
                         </tr>
 
                         <tr>
@@ -105,25 +89,25 @@
                             <td><h:outputText converter="enumConverter" value="#{gradesBean.currentsFacade.controlWorkValue}"/></td>
                         </tr>
                         <tr>
-                            <td>Промежуточная аттестация</td>
-                            <td><span> #{gradesBean.currentsFacade.activityPoints}</span> </td>
-                        </tr>
-                        <tr>
-                            <td>Научная и исследовательская деятельность по дисциплине</td>
+                            <td>Лаборат. занятия</td>
                             <td><span> #{gradesBean.currentsFacade.personalCharPoints}</span> </td>
                         </tr>
+                        <tr>
+                            <td>Практ. занятия</td>
+                            <td><span> #{gradesBean.currentsFacade.samAudOutWorkPoints}</span> </td>
+                        </tr>
                                 <tr>
-                            <td>Самостоятельная аудиторная работа</td>
+                            <td>Самост. работая</td>
                             <td><span> #{gradesBean.currentsFacade.samAudWorkPoints}</span>  </td>
                         </tr>
                                 <tr>
-                            <td>Самостоятельная внеаудиторная работа</td>
-                            <td><span> #{gradesBean.currentsFacade.samAudOutWorkPoints}</span>  </td>
+                            <td>Другие виды учебн. деят.</td>
+                            <td><span> #{gradesBean.currentsFacade.publishPoints} </span>  </td>
                         </tr>
-                        <!--<tr>-->
-                            <!--<td>#{msgs.student_mainTest} </td>-->
-                            <!--<td><span>#{gradesBean.currentsFacade.concludingReTestPoints==0?gradesBean.currentsFacade.concludingTestPoints:gradesBean.currentsFacade.concludingReTestPoints}</span>  </td>-->
-                        <!--</tr>-->
+                        <tr>
+                            <td>Пром. аттестация </td>
+                            <td><span>#{gradesBean.currentsFacade.activityPoints}</span>  </td>
+                        </tr>
                         <tr>
                             <td>Сумма</td>
                             <td>#{gradesBean.currentsFacade.points.sum}</td>

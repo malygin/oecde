@@ -101,11 +101,8 @@
                                 <td style="padding-right: 10px;">
                                     <span class="linkToStudentsProfile">#{s.discipline.name}</span>
                                     <br />#{s.lessonType.toString()}
-                                    <h:panelGroup rendered="#{scheduleBean.fileExist(s.id) eq true}">
-                                        <a href="video.xhtml?id=#{scheduleBean.getFileName(s.id)}">
-                                            <img src="../resources/images/conf_record.png" alt="" style="text-decoration: none; margin: 0px 3px -3px 10px;"/>посмотреть запись конференции
-                                        </a>
-                                    </h:panelGroup>
+
+
                                 </td>
                                 <td><span class="linkToTeachersProfile linkToTeachersProfileFromStudent"><a href="teacher.xhtml?id=#{s.teacher.id}"><h:outputText value="#{s.teacher.initials}"/></a></span></td>
                                 <td><span class="Ipsilon_Web_GreenText"><h:outputText converter="roomConverter" value="#{s.room}"/></span> #{msgs.student_sheduleRoom}</td>

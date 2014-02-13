@@ -60,21 +60,7 @@
             <div class="StudentMainPageTitlesBorders blocksMargins">
                 <news:shortList numberNews="3" type="admin"/>
             </div>
-            <h:panelGroup rendered="#{initParam['appName']!= 'bars'}">
-                <div class="StudentMainPageTitlesBorders blocksMargins">
-                    <div class="mainStudentPageTitles mainStudentPageTitlesOrange">Чат для магистров
-                        <div style="float: right;"><a href="chat.xhtml?id=2" title="история чата" class="chatHistory"></a>
-                        </div>
-                        <div class="floatDestroyer"/>
-                    </div>
-                    <div id="chatShortHistory2" class="chatShortHistory">
-                    </div>
-                    <div class="smallChatTools">
-                        <input id="message2" style="width: 90%;"/><button id="button2" style="height: 19px;">#{msgs.student_chatOk}</button>
-                        <div style="height:18px;"></div>
-                    </div>
-                </div>
-            </h:panelGroup>
+
         </div>
         <div style="width: 50%; float: right;" class="StudentMainPageTitlesBorders blocksMargins">
             <j:output type="adminEvents"/>

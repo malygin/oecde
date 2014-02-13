@@ -14,12 +14,13 @@
         <div class="interfaceContent StudentMainPageTitlesBorders">
             <div class="mainStudentPageTitles  mainStudentPageTitlesGreen">
                 <p class="mainStudentPageTitles Ipsilon_Web_GreenText">
-                    #{msgs.teacher_groupInfo} <h:outputText value="#{groupPoints.group.name}"/> (<h:outputText value="#{groupPoints.group.speciality.name}" />)
+                    Учебный рейтинг группы  <h:outputText value="#{groupPoints.group.name}"/> (<h:outputText value="#{groupPoints.group.speciality.name}" />)
                     факультет: #{groupPoints.group.speciality.department.name},   #{groupPoints.curriculum.formEducation.toString()}, #{groupPoints.curriculum.examinationType.toString()}
                 </p>
                 <div class="backLink greyLinks massSending">
                     <a href="messages_write.xhtml?gr=#{groupPoints.id}">#{msgs.teacher_groupSendAll}</a> | 
-                    <a href="http://oec.sgu.ru/ipsilonUmk/grades_report.php?c=#{groupPoints.curriculum.id}&amp;g=#{groupPoints.id}">Скачать ведомость</a>
+                    <a href="http://oec.sgu.ru/ipsilonUmk/grades_report.php?c=#{groupPoints.curriculum.id}&amp;g=#{groupPoints.id}">Скачать ведомость</a> |
+                    <a href="http://oec.sgu.ru/ipsilonUmk/reports/from_portal.php?t=#{teacherSessionBean.teacher.id}&amp;g=#{groupPoints.id}">Скачать отчет по успеваемости</a>
                 </div>
                 <div class="floatDestroyer"></div>
             </div>
