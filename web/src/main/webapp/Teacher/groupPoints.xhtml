@@ -19,7 +19,7 @@
                 </p>
                 <div class="backLink greyLinks massSending">
                     <a href="messages_write.xhtml?gr=#{groupPoints.id}">#{msgs.teacher_groupSendAll}</a> | 
-                    <a href="http://oec.sgu.ru/ipsilonUmk/grades_report.php?c=#{groupPoints.curriculum.id}&amp;g=#{groupPoints.id}">Скачать ведомость</a> |
+                    <a href="http://oec.sgu.ru/ipsilonUmk/grades_report.php?t=#{teacherSessionBean.teacher.id}&amp;g=#{groupPoints.id}">Скачать ведомость</a> |
                     <a href="http://oec.sgu.ru/ipsilonUmk/reports/from_portal.php?t=#{teacherSessionBean.teacher.id}&amp;g=#{groupPoints.id}">Скачать отчет по успеваемости</a>
                 </div>
                 <div class="floatDestroyer"></div>
@@ -248,7 +248,7 @@
                         <f:facet name="header">
                             <h:outputText value="#{msgs.student_gradesTableHeadSumm}" />
                         </f:facet>
-                        <h:panelGroup rendered="#{((p.points.sum) ne null) and ((p.points.sum) ne 0)}">
+                        <h:panelGroup rendered="#{((p.points.sum) ne null)}">
                             <h:panelGroup rendered="#{(p.points.sum ge 0) and (p.points.sum le 50)}" styleClass="badResultText">#{p.points.sum}</h:panelGroup>
                             <h:panelGroup rendered="#{(p.points.sum gt 50) and (p.points.sum le 75)}" styleClass="goodResultText">#{p.points.sum}</h:panelGroup>
                             <h:panelGroup rendered="#{(p.points.sum gt 75) and (p.points.sum le 85)}" styleClass="good2Result">#{p.points.sum}</h:panelGroup>
