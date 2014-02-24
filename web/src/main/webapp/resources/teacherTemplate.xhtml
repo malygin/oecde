@@ -29,7 +29,7 @@
                 <h:commandLink id="handle">
                     <f:ajax event="click" render="table sName next" listener="#{teachersGroups.changeSemester}"/>
                     <f:attribute name="semester" value="#{teachersGroups.semester==0?1:0}"/>
-                    <h:outputText id="next" value="#{changeSemesterBean.inversedSemesterName(teachersGroups.semester)} семестр"/>
+                    <h:outputText id="next" value="Показать #{changeSemesterBean.inversedSemesterName(teachersGroups.semester)} семестр"/>
                 </h:commandLink>
             </div>
             <!--            <table  style="width: 100%; text-align: left;">
