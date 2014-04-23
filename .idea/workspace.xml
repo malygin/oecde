@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74791578-8f3d-4bec-8422-cc35c42390aa" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/messages/MessageWriteBean.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/messages/MessageWriteBean.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="main.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1398241775658" ignored="false" />
+    <file path="/Dummy.txt" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1398241784197" ignored="false" />
     <file path="$USER_HOME$/.IntelliJIdea12/config/quicklists/Deployment.xml" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1361357441714" ignored="false" />
     <file path="$USER_HOME$/.IntelliJIdea12/config/options/path.macros.xml" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1361357441714" ignored="false" />
     <file path="$USER_HOME$/.IntelliJIdea12/config/options/other.xml" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1361357842710" ignored="false" />
@@ -160,6 +161,7 @@
     <file path="/student.xhtml" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1386253519435" ignored="false" />
     <file path="/groupControlWorks.xhtml" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1390302970388" ignored="false" />
     <file path="/ScheduleBean.java" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1396382186065" ignored="false" />
+    <file path="/MessageWriteBean.java" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1398245945919" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -296,24 +298,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sashedule/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EditDayBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/EditDayBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="35" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.xhtml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Student/index.xhtml">
           <provider selected="true" editor-type-id="text-editor">
@@ -332,10 +316,64 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SemesterGetter.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SemesterGetter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/core/util/SemesterGetter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="21" selection-start="3970" selection-end="3970" vertical-scroll-proportion="0.026595745">
+            <state line="134" column="21" selection-start="3970" selection-end="3970" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="student.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Student/student.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="82" selection-start="792" selection-end="792" vertical-scroll-proportion="-10.625">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="student.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Admin/student.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="77" selection-start="599" selection-end="599" vertical-scroll-proportion="32.5">
+              <folding>
+                <marker date="1386253523000" expanded="true" signature="3043:3053" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="messages_write.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Teacher/messages_write.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="19" selection-start="630" selection-end="630" vertical-scroll-proportion="-9.375">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="write.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/src/main/webapp/resources/components/messages/write.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="35" column="77" selection-start="1414" selection-end="1414" vertical-scroll-proportion="-3.75">
+              <folding>
+                <marker date="1372928564000" expanded="true" signature="1860:1875" placeholder="{...}" />
+                <marker date="1372928564000" expanded="true" signature="3388:3419" placeholder="{...}" />
+                <marker date="1372928564000" expanded="true" signature="3665:3678" placeholder="{...}" />
+                <marker date="1372928564000" expanded="true" signature="4100:4129" placeholder="{...}" />
+                <marker date="1372928564000" expanded="true" signature="5965:5976" placeholder="{...}" />
+                <marker date="1372928564000" expanded="true" signature="6368:6386" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MessageWriteBean.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/messages/MessageWriteBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="355" column="36" selection-start="11506" selection-end="11506" vertical-scroll-proportion="0.09252669">
               <folding />
             </state>
           </provider>
@@ -348,48 +386,6 @@
               <folding>
                 <marker date="1385022495000" expanded="true" signature="3682:3756" placeholder="{...}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="schedule.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sashedule/src/main/webapp/schedule.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1372928563000" expanded="true" signature="973:1003" placeholder="{...}" />
-                <marker date="1372928563000" expanded="true" signature="1178:1187" placeholder="{...}" />
-                <marker date="1372928563000" expanded="true" signature="1434:1453" placeholder="{...}" />
-                <marker date="1372928563000" expanded="true" signature="2441:2452" placeholder="{...}" />
-                <marker date="1372928563000" expanded="true" signature="3137:3147" placeholder="{...}" />
-                <marker date="1372928563000" expanded="true" signature="4598:4609" placeholder="{...}" />
-                <marker date="1372928563000" expanded="true" signature="4788:4799" placeholder="{...}" />
-                <marker date="1372928563000" expanded="true" signature="10236:10249" placeholder="{...}" />
-                <marker date="1372928563000" expanded="true" signature="10347:10359" placeholder="{...}" />
-                <marker date="1372928563000" expanded="true" signature="10420:10429" placeholder="{...}" />
-                <marker date="1372928563000" expanded="true" signature="10962:10972" placeholder="{...}" />
-                <marker date="1372928563000" expanded="true" signature="11633:11642" placeholder="{...}" />
-                <marker date="1372928563000" expanded="true" signature="12869:12878" placeholder="{...}" />
-                <marker date="1372928563000" expanded="true" signature="14235:14244" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EditLessonBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/EditLessonBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="13" selection-start="499" selection-end="499" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CalendarBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/CalendarBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="13" selection-start="454" selection-end="454" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -429,7 +425,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/hibernate.properties" />
         <option value="$PROJECT_DIR$/web/src/main/webapp/Teacher/settings.xhtml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/web/src/main/webapp/Student/grades.xhtml" />
@@ -445,6 +440,7 @@
         <option value="$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/EditDayBean.java" />
         <option value="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/ScheduleBean.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/core/util/SemesterGetter.java" />
+        <option value="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/messages/MessageWriteBean.java" />
       </list>
     </option>
   </component>
@@ -651,7 +647,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Student" />
+              <option name="myItemId" value="Teacher" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1109,7 +1105,11 @@
       <created>1379528543813</created>
       <updated>1379528543814</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="11">
+      <created>1398241790896</created>
+      <updated>1398241790896</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1128,21 +1128,21 @@
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3253012" sideWeight="0.68185455" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.332534" sideWeight="0.60559005" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25699928" sideWeight="0.48566878" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25699928" sideWeight="0.48722044" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3987034" sideWeight="0.6752827" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3263158" sideWeight="0.49720225" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22397703" sideWeight="0.48566878" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5143312" sideWeight="0.48760992" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22397703" sideWeight="0.48722044" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51277953" sideWeight="0.48760992" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32874355" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3253012" sideWeight="0.68185455" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1216,31 +1216,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/CssConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="6" selection-start="359" selection-end="359" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/ListUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="13" selection-start="276" selection-end="276" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/ToolBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="13" selection-start="268" selection-end="268" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/ToolBarItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="13" selection-start="48" selection-end="48" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/ValidationBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="13" selection-start="486" selection-end="486" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/Converter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="72" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0" />
@@ -1257,20 +1232,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1372928563000" expanded="true" signature="973:1003" placeholder="{...}" />
-            <marker date="1372928563000" expanded="true" signature="1178:1187" placeholder="{...}" />
-            <marker date="1372928563000" expanded="true" signature="1434:1453" placeholder="{...}" />
-            <marker date="1372928563000" expanded="true" signature="2441:2452" placeholder="{...}" />
-            <marker date="1372928563000" expanded="true" signature="3137:3147" placeholder="{...}" />
-            <marker date="1372928563000" expanded="true" signature="4598:4609" placeholder="{...}" />
-            <marker date="1372928563000" expanded="true" signature="4788:4799" placeholder="{...}" />
-            <marker date="1372928563000" expanded="true" signature="10236:10249" placeholder="{...}" />
-            <marker date="1372928563000" expanded="true" signature="10347:10359" placeholder="{...}" />
-            <marker date="1372928563000" expanded="true" signature="10420:10429" placeholder="{...}" />
-            <marker date="1372928563000" expanded="true" signature="10962:10972" placeholder="{...}" />
-            <marker date="1372928563000" expanded="true" signature="11633:11642" placeholder="{...}" />
-            <marker date="1372928563000" expanded="true" signature="12869:12878" placeholder="{...}" />
-            <marker date="1372928563000" expanded="true" signature="14235:14244" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -1321,7 +1296,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/core/util/SemesterGetter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="21" selection-start="3970" selection-end="3970" vertical-scroll-proportion="0.026595745">
+        <state line="134" column="21" selection-start="3970" selection-end="3970" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1329,6 +1304,50 @@
     <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/FormEditLessonBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="273" column="111" selection-start="9294" selection-end="9311" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Student/student.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="82" selection-start="792" selection-end="792" vertical-scroll-proportion="-10.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Admin/student.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="77" selection-start="599" selection-end="599" vertical-scroll-proportion="32.5">
+          <folding>
+            <marker date="1386253523000" expanded="true" signature="3043:3053" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Teacher/messages_write.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="19" selection-start="630" selection-end="630" vertical-scroll-proportion="-9.375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/resources/components/messages/write.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="77" selection-start="1414" selection-end="1414" vertical-scroll-proportion="-3.75">
+          <folding>
+            <marker date="1372928564000" expanded="true" signature="1860:1875" placeholder="{...}" />
+            <marker date="1372928564000" expanded="true" signature="3388:3419" placeholder="{...}" />
+            <marker date="1372928564000" expanded="true" signature="3665:3678" placeholder="{...}" />
+            <marker date="1372928564000" expanded="true" signature="4100:4129" placeholder="{...}" />
+            <marker date="1372928564000" expanded="true" signature="5965:5976" placeholder="{...}" />
+            <marker date="1372928564000" expanded="true" signature="6368:6386" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/messages/MessageWriteBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="355" column="36" selection-start="11506" selection-end="11506" vertical-scroll-proportion="0.09252669">
           <folding />
         </state>
       </provider>

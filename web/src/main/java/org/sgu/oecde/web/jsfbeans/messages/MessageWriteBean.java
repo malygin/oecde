@@ -345,14 +345,15 @@ public class MessageWriteBean  implements Serializable{
             for(Object[] e: l){
                 Group g = (Group) e[0];
                 //City city = (City) e[1];
-                if ( !g.getSpeciality().getId().equals(new Long(2839)) && !g.getSpeciality().getId().equals(new Long(2646)) && g.getSpeciality().getLevelTypeSpeciality() != LevelTypeSpeciality.magistracy) {
+//                if ( !g.getSpeciality().getId().equals(new Long(2839)) && !g.getSpeciality().getId().equals(new Long(2646)) && g.getSpeciality().getLevelTypeSpeciality() != LevelTypeSpeciality.magistracy) {
                     if (!groups.contains(g)) groups.add(g);
-                }
+//                }
             }
             count_students(groups);
         }else{
             this.groupId = groupId;
-            groups.add(groupDao.getById(new Long(groupId)));  }
+            Group g =  groupDao.getById(new Long(groupId));
+            if (!groups.contains(g)) groups.add(g);  }
     }
 
     private void count_students(List<StudentGroup> groups){
