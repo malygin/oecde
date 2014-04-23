@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74791578-8f3d-4bec-8422-cc35c42390aa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/core/util/SemesterGetter.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/core/util/SemesterGetter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="main.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1397132710504" ignored="false" />
+    <file path="/Dummy.txt" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1398241775658" ignored="false" />
     <file path="$USER_HOME$/.IntelliJIdea12/config/quicklists/Deployment.xml" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1361357441714" ignored="false" />
     <file path="$USER_HOME$/.IntelliJIdea12/config/options/path.macros.xml" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1361357441714" ignored="false" />
     <file path="$USER_HOME$/.IntelliJIdea12/config/options/other.xml" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1361357842710" ignored="false" />
@@ -318,10 +317,8 @@
       <file leaf-file-name="index.xhtml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Student/index.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="60" selection-start="5231" selection-end="5231" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1386244560000" expanded="true" signature="8632:8642" placeholder="{...}" />
-              </folding>
+            <state line="101" column="60" selection-start="5230" selection-end="5230" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -414,6 +411,7 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="REBASE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitLogSettings">
@@ -541,6 +539,16 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -677,16 +685,6 @@
             <PATH_ELEMENT USER_OBJECT="Root">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -1284,13 +1282,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/FormEditLessonBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="273" column="111" selection-start="9294" selection-end="9311" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/EditLessonBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="13" selection-start="499" selection-end="499" vertical-scroll-proportion="0.0">
@@ -1316,10 +1307,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Student/index.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="60" selection-start="5231" selection-end="5231" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1386244560000" expanded="true" signature="8632:8642" placeholder="{...}" />
-          </folding>
+        <state line="101" column="60" selection-start="5230" selection-end="5230" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1333,6 +1322,13 @@
     <entry file="file://$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/core/util/SemesterGetter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="134" column="21" selection-start="3970" selection-end="3970" vertical-scroll-proportion="0.026595745">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/FormEditLessonBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="273" column="111" selection-start="9294" selection-end="9311" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
