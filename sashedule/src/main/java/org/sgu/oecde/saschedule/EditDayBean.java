@@ -39,7 +39,7 @@ public class EditDayBean implements Serializable {
     //private String currentDay;
 
 
-    final private int numberRoom=13;
+    final private int numberRoom=19;
     private int numberTimeInterval=13;
     static private  List<String> TimeInterval= new ArrayList();
     static private  List<String> TimeIntervalEnd= new ArrayList();
@@ -126,6 +126,24 @@ public class EditDayBean implements Serializable {
  
         RoomColor[12][0]="#4AA02C";
         RoomColor[12][1]="#9cfc7b";
+
+        RoomColor[13][0]="#ea608e";
+        RoomColor[13][1]="#f697b6";
+
+        RoomColor[14][0]="#6495ED";
+        RoomColor[14][1]="#b3cefe";
+
+        RoomColor[15][0]="#CD5C5C";
+        RoomColor[15][1]="#f6a5a5";
+
+        RoomColor[16][0]="#4AA02C";
+        RoomColor[16][1]="#9cfc7b";
+
+        RoomColor[17][0]="#ea608e";
+        RoomColor[17][1]="#f697b6";
+
+        RoomColor[18][0]="#6495ED";
+        RoomColor[18][1]="#b3cefe";
     }
 
     public boolean isRender() {

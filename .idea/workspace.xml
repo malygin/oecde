@@ -2,42 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74791578-8f3d-4bec-8422-cc35c42390aa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/student/Materials.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/student/Materials.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/supervisor/OneCityGroupsBean.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/supervisor/OneCityGroupsBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/student/PointsAndGradesBean.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/student/PointsAndGradesBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/core/users/Teacher.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/core/users/Teacher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/teacher/TeacherCurriculumsEditBean.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/teacher/TeacherCurriculumsEditBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/teacher/TeacherScheduleBean.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/teacher/TeacherScheduleBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/teacher/TeacherSessionBean.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/teacher/TeacherSessionBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/UmkBean.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/UmkBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/resources/components/education/calendareInfo.xhtml" afterPath="$PROJECT_DIR$/web/src/main/webapp/resources/components/education/calendareInfo.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/Teacher/curriculums.xhtml" afterPath="$PROJECT_DIR$/web/src/main/webapp/Teacher/curriculums.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/Teacher/editCurriculum.xhtml" afterPath="$PROJECT_DIR$/web/src/main/webapp/Teacher/editCurriculum.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/Teacher/exbook.xhtml" afterPath="$PROJECT_DIR$/web/src/main/webapp/Teacher/exbook.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/Student/grades.xhtml" afterPath="$PROJECT_DIR$/web/src/main/webapp/Student/grades.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/resources/includes/group.xhtml" afterPath="$PROJECT_DIR$/web/src/main/webapp/resources/includes/group.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/Teacher/groupControlWorks.xhtml" afterPath="$PROJECT_DIR$/web/src/main/webapp/Teacher/groupControlWorks.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/Teacher/groupPoints.xhtml" afterPath="$PROJECT_DIR$/web/src/main/webapp/Teacher/groupPoints.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/hibernate.properties" afterPath="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/hibernate.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/resources/org/sgu/oecde/hibernate.properties" afterPath="$PROJECT_DIR$/web/src/main/resources/org/sgu/oecde/hibernate.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/Admin/index.xhtml" afterPath="$PROJECT_DIR$/web/src/main/webapp/Admin/index.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/Student/index.xhtml" afterPath="$PROJECT_DIR$/web/src/main/webapp/Student/index.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/Student/materials.xhtml" afterPath="$PROJECT_DIR$/web/src/main/webapp/Student/materials.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pom.xml" afterPath="$PROJECT_DIR$/web/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/Student/settings.xhtml" afterPath="$PROJECT_DIR$/web/src/main/webapp/Student/settings.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/Teacher/settings.xhtml" afterPath="$PROJECT_DIR$/web/src/main/webapp/Teacher/settings.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/Admin/student.xhtml" afterPath="$PROJECT_DIR$/web/src/main/webapp/Admin/student.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/Teacher/student.xhtml" afterPath="$PROJECT_DIR$/web/src/main/webapp/Teacher/student.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/resources/studentTemplate.xhtml" afterPath="$PROJECT_DIR$/web/src/main/webapp/resources/studentTemplate.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/resources/teacherTemplate.xhtml" afterPath="$PROJECT_DIR$/web/src/main/webapp/resources/teacherTemplate.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/resources/components/util/userListItem.xhtml" afterPath="$PROJECT_DIR$/web/src/main/webapp/resources/components/util/userListItem.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/resources/components/education/videoConfSchedule.xhtml" afterPath="$PROJECT_DIR$/web/src/main/webapp/resources/components/education/videoConfSchedule.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/core/util/SemesterGetter.java" afterPath="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/core/util/SemesterGetter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="main.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1392201365832" ignored="false" />
+    <file path="/Dummy.txt" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1397132710504" ignored="false" />
     <file path="$USER_HOME$/.IntelliJIdea12/config/quicklists/Deployment.xml" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1361357441714" ignored="false" />
     <file path="$USER_HOME$/.IntelliJIdea12/config/options/path.macros.xml" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1361357441714" ignored="false" />
     <file path="$USER_HOME$/.IntelliJIdea12/config/options/other.xml" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1361357842710" ignored="false" />
@@ -190,6 +160,7 @@
     <file path="/grades.xhtml" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1386244115433" ignored="false" />
     <file path="/student.xhtml" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1386253519435" ignored="false" />
     <file path="/groupControlWorks.xhtml" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1390302970388" ignored="false" />
+    <file path="/ScheduleBean.java" changelist="74791578-8f3d-4bec-8422-cc35c42390aa" time="1396382186065" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,42 +204,6 @@
         <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
     </method_breakpoints>
-    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint>
-        <option name="NOTIFY_CAUGHT" value="true" />
-        <option name="NOTIFY_UNCAUGHT" value="true" />
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint>
-        <option name="NOTIFY_CAUGHT" value="true" />
-        <option name="NOTIFY_UNCAUGHT" value="true" />
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </breakpoint_any>
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint url="file://$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/student/ControlWorksBean.java" line="110" class="org.sgu.oecde.web.jsfbeans.student.ControlWorksBean" package="org.sgu.oecde.web.jsfbeans.student">
         <option name="ENABLED" value="true" />
@@ -316,6 +251,42 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </line_breakpoints>
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
@@ -326,96 +297,8 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="grades.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Student/grades.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="104" column="34" selection-start="5943" selection-end="5943" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="267" column="20" selection-start="9339" selection-end="9401" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="groupControlWorks.xhtml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Teacher/groupControlWorks.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="77" selection-start="3988" selection-end="3988" vertical-scroll-proportion="0.410101">
-              <folding>
-                <marker date="1392201430000" expanded="true" signature="1898:1926" placeholder="{...}" />
-                <marker date="1392201430000" expanded="true" signature="3282:3292" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="messages_ru.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/src/main/resources/org/sgu/oecde/web/messages/messages_ru.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="192" column="0" selection-start="17264" selection-end="17264" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="ResourceBundle">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Student/index.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="36" selection-start="4755" selection-end="4755" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1386244560000" expanded="true" signature="8632:8642" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="curriculums.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Teacher/curriculums.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="23" selection-start="0" selection-end="6719" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1392197204000" expanded="true" signature="2113:2123" placeholder="{...}" />
-                <marker date="1392197204000" expanded="true" signature="5889:5918" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="editCurriculum.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Teacher/editCurriculum.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="51" selection-start="0" selection-end="5195" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="groupPoints.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Teacher/groupPoints.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="43" selection-start="0" selection-end="17463" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1392197396000" expanded="true" signature="2254:2282" placeholder="{...}" />
-                <marker date="1392197396000" expanded="true" signature="3636:3646" placeholder="{...}" />
-                <marker date="1392197396000" expanded="true" signature="9266:9294" placeholder="{...}" />
-                <marker date="1392197396000" expanded="true" signature="10648:10658" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="calendareInfo.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/src/main/webapp/resources/components/education/calendareInfo.xhtml">
+        <entry file="file://$PROJECT_DIR$/sashedule/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
@@ -423,10 +306,101 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/src/main/webapp/index.xhtml">
+      <file leaf-file-name="EditDayBean.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/EditDayBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="54" selection-start="0" selection-end="8956" vertical-scroll-proportion="0.0">
+            <state line="41" column="35" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Student/index.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="101" column="60" selection-start="5231" selection-end="5231" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1386244560000" expanded="true" signature="8632:8642" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScheduleBean.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/ScheduleBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="75" column="42" selection-start="2007" selection-end="2007" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SemesterGetter.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/core/util/SemesterGetter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="134" column="21" selection-start="3970" selection-end="3970" vertical-scroll-proportion="0.026595745">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="videoConfSchedule.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/src/main/webapp/resources/components/education/videoConfSchedule.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="33" selection-start="2112" selection-end="2121" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1385022495000" expanded="true" signature="3682:3756" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="schedule.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sashedule/src/main/webapp/schedule.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1372928563000" expanded="true" signature="973:1003" placeholder="{...}" />
+                <marker date="1372928563000" expanded="true" signature="1178:1187" placeholder="{...}" />
+                <marker date="1372928563000" expanded="true" signature="1434:1453" placeholder="{...}" />
+                <marker date="1372928563000" expanded="true" signature="2441:2452" placeholder="{...}" />
+                <marker date="1372928563000" expanded="true" signature="3137:3147" placeholder="{...}" />
+                <marker date="1372928563000" expanded="true" signature="4598:4609" placeholder="{...}" />
+                <marker date="1372928563000" expanded="true" signature="4788:4799" placeholder="{...}" />
+                <marker date="1372928563000" expanded="true" signature="10236:10249" placeholder="{...}" />
+                <marker date="1372928563000" expanded="true" signature="10347:10359" placeholder="{...}" />
+                <marker date="1372928563000" expanded="true" signature="10420:10429" placeholder="{...}" />
+                <marker date="1372928563000" expanded="true" signature="10962:10972" placeholder="{...}" />
+                <marker date="1372928563000" expanded="true" signature="11633:11642" placeholder="{...}" />
+                <marker date="1372928563000" expanded="true" signature="12869:12878" placeholder="{...}" />
+                <marker date="1372928563000" expanded="true" signature="14235:14244" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EditLessonBean.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/EditLessonBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="13" selection-start="499" selection-end="499" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CalendarBean.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/CalendarBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="13" selection-start="454" selection-end="454" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FormEditLessonBean.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/FormEditLessonBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="273" column="111" selection-start="9294" selection-end="9311" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -457,10 +431,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/web/pom.xml" />
-        <option value="$PROJECT_DIR$/web/src/main/resources/org/sgu/oecde/hibernate.properties" />
-        <option value="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/teacher/GroupPoints.java" />
-        <option value="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/core/users/Teacher.java" />
         <option value="$PROJECT_DIR$/core/src/main/resources/org/sgu/oecde/hibernate.properties" />
         <option value="$PROJECT_DIR$/web/src/main/webapp/Teacher/settings.xhtml" />
         <option value="$PROJECT_DIR$/pom.xml" />
@@ -473,6 +443,10 @@
         <option value="$PROJECT_DIR$/web/src/main/webapp/Teacher/editCurriculum.xhtml" />
         <option value="$PROJECT_DIR$/web/src/main/webapp/Teacher/groupPoints.xhtml" />
         <option value="$PROJECT_DIR$/web/src/main/webapp/Teacher/groupControlWorks.xhtml" />
+        <option value="$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/FormEditLessonBean.java" />
+        <option value="$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/EditDayBean.java" />
+        <option value="$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/ScheduleBean.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/core/util/SemesterGetter.java" />
       </list>
     </option>
   </component>
@@ -536,8 +510,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="1280" />
-    <option name="height" value="701" />
+    <option name="width" value="1439" />
+    <option name="height" value="746" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -567,26 +541,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -689,7 +643,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Teacher" />
+              <option name="myItemId" value="Student" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -717,6 +671,26 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -733,12 +707,12 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
-    <property name="dynamic.classpath" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 7">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -777,6 +751,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -803,19 +790,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -859,6 +833,18 @@
       </option>
       <envs />
       <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Remote">
+      <option name="LOCAL" value="false" />
+      <deployment />
+      <server-settings>
+        <data>
+          <option name="transportHostId" />
+        </data>
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="TOMCAT_LOCALHOST_LOG_ID" enabled="true" />
       <method />
     </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local">
@@ -920,18 +906,6 @@
           <option name="PROGRAM_PARAMETERS" value="" />
         </SHUTDOWN>
       </ConfigurationWrapper>
-      <method />
-    </configuration>
-    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Remote">
-      <option name="LOCAL" value="false" />
-      <deployment />
-      <server-settings>
-        <data>
-          <option name="transportHostId" />
-        </data>
-      </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="TOMCAT_LOCALHOST_LOG_ID" enabled="true" />
       <method />
     </configuration>
     <configuration default="false" name="Tomcat 7" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7">
@@ -1141,8 +1115,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1280" height="701" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="22" width="1439" height="746" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933652" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1160,11 +1134,11 @@
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.332534" sideWeight="0.60559005" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29011345" sideWeight="0.48364887" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25699928" sideWeight="0.48566878" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3987034" sideWeight="0.6752827" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3263158" sideWeight="0.49720225" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2649919" sideWeight="0.48364887" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5163511" sideWeight="0.48760992" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22397703" sideWeight="0.48566878" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5143312" sideWeight="0.48760992" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1244,121 +1218,122 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Student/materials.xhtml">
+    <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/CssConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="18" column="6" selection-start="359" selection-end="359" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/student/Materials.java">
+    <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/ListUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="52" selection-start="2844" selection-end="2943" vertical-scroll-proportion="0.0" />
+        <state line="13" column="13" selection-start="276" selection-end="276" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/core/education/estimation/activity/ActivityEstimateNames.java">
+    <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/ToolBar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="4" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0" />
+        <state line="11" column="13" selection-start="268" selection-end="268" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/PointsFacade.java">
+    <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/ToolBarItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="73" selection-start="2644" selection-end="2728" vertical-scroll-proportion="0.0" />
+        <state line="2" column="13" selection-start="48" selection-end="48" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/student/PointsAndGradesBean.java">
+    <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/ValidationBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="54" selection-start="3194" selection-end="3194" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="16" column="13" selection-start="486" selection-end="486" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Admin/student.xhtml">
+    <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/Converter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="54" selection-start="6153" selection-end="6153" vertical-scroll-proportion="0.0" />
+        <state line="13" column="72" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Student/grades.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="34" selection-start="5943" selection-end="5943" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/index.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="54" selection-start="0" selection-end="8956" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="267" column="20" selection-start="9339" selection-end="9401" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/main/resources/org/sgu/oecde/web/messages/messages_ru.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="192" column="0" selection-start="17264" selection-end="17264" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/resources/components/education/calendareInfo.xhtml">
+    <entry file="file://$PROJECT_DIR$/sashedule/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sashedule/src/main/webapp/schedule.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1372928563000" expanded="true" signature="973:1003" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="1178:1187" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="1434:1453" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="2441:2452" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="3137:3147" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="4598:4609" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="4788:4799" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="10236:10249" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="10347:10359" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="10420:10429" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="10962:10972" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="11633:11642" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="12869:12878" placeholder="{...}" />
+            <marker date="1372928563000" expanded="true" signature="14235:14244" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/CalendarBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="13" selection-start="454" selection-end="454" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/FormEditLessonBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="273" column="111" selection-start="9294" selection-end="9311" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/EditLessonBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="13" selection-start="499" selection-end="499" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sashedule/src/main/java/org/sgu/oecde/saschedule/EditDayBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="35" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/resources/components/education/videoConfSchedule.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="33" selection-start="2112" selection-end="2121" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1385022495000" expanded="true" signature="3682:3756" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Student/index.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="36" selection-start="4755" selection-end="4755" vertical-scroll-proportion="0.0">
+        <state line="101" column="60" selection-start="5231" selection-end="5231" vertical-scroll-proportion="0.0">
           <folding>
             <marker date="1386244560000" expanded="true" signature="8632:8642" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Teacher/curriculums.xhtml">
+    <entry file="file://$PROJECT_DIR$/web/src/main/java/org/sgu/oecde/web/jsfbeans/ScheduleBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="23" selection-start="0" selection-end="6719" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1392197204000" expanded="true" signature="2113:2123" placeholder="{...}" />
-            <marker date="1392197204000" expanded="true" signature="5889:5918" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Teacher/editCurriculum.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="51" selection-start="0" selection-end="5195" vertical-scroll-proportion="0.0">
+        <state line="75" column="42" selection-start="2007" selection-end="2007" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Teacher/groupPoints.xhtml">
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/org/sgu/oecde/core/util/SemesterGetter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="43" selection-start="0" selection-end="17463" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1392197396000" expanded="true" signature="2254:2282" placeholder="{...}" />
-            <marker date="1392197396000" expanded="true" signature="3636:3646" placeholder="{...}" />
-            <marker date="1392197396000" expanded="true" signature="9266:9294" placeholder="{...}" />
-            <marker date="1392197396000" expanded="true" signature="10648:10658" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/Teacher/groupControlWorks.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="77" selection-start="3988" selection-end="3988" vertical-scroll-proportion="0.410101">
-          <folding>
-            <marker date="1392201430000" expanded="true" signature="1898:1926" placeholder="{...}" />
-            <marker date="1392201430000" expanded="true" signature="3282:3292" placeholder="{...}" />
-          </folding>
+        <state line="134" column="21" selection-start="3970" selection-end="3970" vertical-scroll-proportion="0.026595745">
+          <folding />
         </state>
       </provider>
     </entry>
