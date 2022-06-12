@@ -527,7 +527,7 @@
         <core.groupid>org.sgu.oecde</core.groupid>
         <core.version>2.0</core.version>
         <core.finalname>${artifactId}-${core.version}</core.finalname>
-        <hibernate.version>3.5.1-Final</hibernate.version>
+        <hibernate.version>5.4.24.Final</hibernate.version>
         <spring.version>3.0.3.RELEASE</spring.version>
         <spring-security.version>3.0.0.RELEASE</spring-security.version>
     </properties>
